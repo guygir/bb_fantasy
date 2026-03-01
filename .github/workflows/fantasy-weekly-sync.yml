@@ -28,6 +28,7 @@ jobs:
         env:
           BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
           BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
+          BB_PASSWORD: ${{ secrets.BB_PASSWORD }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CURRENT_SEASON: ${{ github.event.inputs.season || '71' }}

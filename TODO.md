@@ -76,41 +76,41 @@ Track progress here. Check off items as completed.
 ### 3.1 Authentication
 - [x] **3.1.1** BBAPI-based auth (Supabase Auth + bb_users table)
 - [x] **3.1.2** Login / signup flow – /login, validates BBAPI, magic link
-- [ ] **3.1.3** Protected routes (optional; pick/roster work for anon via localStorage)
+- [x] **3.1.3** Protected routes – pick/roster require auth
 - [x] **3.1.4** User profile (display name from bbapi_login, profiles table)
 
 ### 3.2 Draft
 - [x] **3.2.1** Draft rules: pick 5 players, $30 cap (no formal draft order)
-- [x] **3.2.2** Pick Team UI: /pick – select players, save to localStorage (demo)
-- [ ] **3.2.3** Draft state: Supabase user_rosters (deferred)
-- [ ] **3.2.4** Draft completion: lock roster for season
+- [x] **3.2.2** Pick Team UI: /pick – save to Supabase fantasy_user_rosters
+- [x] **3.2.3** Draft state: Supabase fantasy_user_rosters
+- [x] **3.2.4** Draft completion: sub lock (1h after prev game until 1h before next)
 
 ### 3.3 Roster & Subs
-- [x] **3.3.1** Page: My Roster (/roster) – picks from localStorage, total fantasy points
-- [ ] **3.3.2** Substitution flow: remove up to 2, add up to 2, enforce cap
-- [ ] **3.3.3** Sub lock: before first game of week
-- [ ] **3.3.4** Sub history / audit log
+- [x] **3.3.1** Page: My Roster (/roster) – from Supabase, total fantasy points
+- [x] **3.3.2** Substitution flow: remove up to 2, add up to 2, enforce cap
+- [x] **3.3.3** Sub lock: 1h after previous game until 1h before next game
+- [ ] **3.3.4** Sub history / audit log (fantasy_roster_substitutions exists; no UI yet)
 
 ### 3.4 Scoring & Leaderboard
 - [x] **3.4.1** Score: roster FP = sum of player_game_stats.fantasyPoints for roster players
-- [x] **3.4.2** Page: Leaderboard – top fantasy scorers (players) + link to Pick Team
-- [ ] **3.4.3** Page: My scores (weekly history) – defer
+- [x] **3.4.2** Page: Leaderboard – top fantasy scorers (players) + user standings
+- [x] **3.4.3** Page: My scores (weekly history) – Week 1, 2… roster+faces, points per player
 
 ---
 
 ## Phase 4: Polish & Deploy
 
 ### 4.1 Data Ingestion
-- [ ] **4.1.1** Cron or manual: fetch new matches after game day
-- [ ] **4.1.2** Cron or manual: fetch boxscores for finished matches
-- [ ] **4.1.3** Cron: weekly price adjustment
-- [ ] **4.1.4** Handle new players (call-ups): `npm run sync-roster-faces` – fetches faces for new roster players only
+- [x] **4.1.1** Cron: fetch schedule (fantasy-weekly-sync)
+- [x] **4.1.2** Cron: fetch boxscores for finished matches
+- [x] **4.1.3** Cron: weekly price adjustment (part of fantasy-weekly-sync)
+- [x] **4.1.4** Handle new players (call-ups): sync-roster-faces in fantasy-weekly-sync (BB_PASSWORD)
 
 ### 4.2 Deployment
-- [ ] **4.2.1** Vercel project setup
-- [ ] **4.2.2** Supabase production config
-- [ ] **4.2.3** Environment variables
-- [ ] **4.2.4** Deploy and smoke test
+- [x] **4.2.1** Vercel project setup
+- [x] **4.2.2** Supabase production config
+- [x] **4.2.3** Environment variables
+- [x] **4.2.4** Deploy and smoke test
 
 ### 4.4 U21dle (Wordle for Israel U21)
 
@@ -140,16 +140,16 @@ Track progress here. Check off items as completed.
 - [x] **4.4.3d** Store daily puzzle: JSON file `data/u21dle_daily.json` (date → playerId) or Supabase when ready
 
 #### 4.4.4 Stats & Leaderboard
-- [ ] **4.4.4a** Stats: totalGames, wins, winPercent, currentStreak, maxStreak, solvedDistribution, averageGuesses
-- [ ] **4.4.4b** API GET /api/u21dle/stats – requires auth (or localStorage for anonymous)
-- [ ] **4.4.4c** Leaderboard: daily (today’s puzzle), all-time (wins, win%, avg guesses)
-- [ ] **4.4.4d** API GET /api/u21dle/leaderboard?type=daily|alltime-wins|...
+- [x] **4.4.4a** Stats: totalGames, wins, winPercent, currentStreak, maxStreak, solvedDistribution, averageGuesses
+- [x] **4.4.4b** API GET /api/u21dle/stats – requires auth
+- [x] **4.4.4c** Leaderboard: daily (today's puzzle), all-time (wins, win%, avg guesses) (today’s puzzle), all-time (wins, win%, avg guesses)
+- [x] **4.4.4d** API GET /api/u21dle/leaderboard?type=daily|alltime-wins|...
 - [ ] **4.4.4e** Daily plays chart (optional, like RiftleDailyPlaysChart)
 
 #### 4.4.5 Persistence (JSON-first, Supabase later)
 - [x] **4.4.5a** Phase A: localStorage for guesses + stats (anonymous play, no leaderboard)
-- [ ] **4.4.5b** Phase B: Supabase daily_players, guesses, user_stats when auth exists
-- [ ] **4.4.5c** Migration: u21dle_players → Supabase players table; daily_players for puzzle
+- [x] **4.4.5b** Phase B: Supabase u21dle_guesses, u21dle_user_stats when auth exists
+- [ ] **4.4.5c** Migration: u21dle_players → Supabase players table (optional)
 
 #### 4.4.6 Cron & Puzzle Generation
 - [x] **4.4.6a** Script: scripts/generate-u21dle-daily.mjs – pick player for date, write to data/u21dle_daily.json
@@ -180,23 +180,14 @@ Track progress here. Check off items as completed.
 - ~~**Supabase & Vercel**~~: ✅ Done – Supabase project, Vercel deploy, GitHub secrets/vars
 - **BBAPI**: ✅ Working – login, schedule, boxscore tested with PotatoJunior creds
 
-### Deferral reasons (each deferred item)
+### Deferral reasons (remaining items)
 
 | Item | Reason |
 |------|--------|
-| **1.2.5** Tune formula | Optional; current formula validated on Season 70; can tweak later if needed |
-| ~~**1.3.5** Weekly price adjustment algorithm~~ | Done: min 2 games, confidence ±1/±2 |
-| ~~**2.1.2** Supabase~~ | ✅ Done – project created, env vars in Vercel |
-| **3.1.1–3.1.4** Auth | Depends on Supabase; demo uses localStorage; no sign-up until backend ready |
-| **3.2.3** Draft state (Supabase) | Depends on Supabase; localStorage works for single-user demo |
-| **3.2.4** Draft lock | Needs season/schedule awareness; defer until we have weekly game logic |
-| **3.3.2** Substitution flow | Needs auth + roster in DB; localStorage demo has no subs |
-| **3.3.3** Sub lock | Needs schedule (first game of week); defer with subs |
-| **3.3.4** Sub history | Depends on subs + DB |
-| **3.4.3** My scores (weekly history) | Needs weekly aggregation; single-game total works for now |
-| **4.1.1–4.1.4** Data ingestion cron | Defer until deploy; manual scripts work for dev |
-| ~~**4.2.1–4.2.4** Vercel + Supabase deploy~~ | ✅ Done – Vercel, Supabase, GitHub repo + secrets |
-| **4.5.1–4.5.3** UX polish | After core features; responsive, loading, help page |
+| **1.2.5** Tune formula | Optional; current formula validated; can tweak later |
+| **2.1.5** TypeScript types | Optional; add shared entity types |
+| **3.3.4** Sub history UI | fantasy_roster_substitutions table exists; UI to view history not built |
+| **4.4.4e** Daily plays chart | Optional |
 
 ---
 

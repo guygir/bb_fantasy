@@ -7,7 +7,8 @@ The `.github/workflows/fantasy-weekly-sync.yml` workflow runs **daily at 02:00 U
 1. **Fetch schedule** – Gets Israel U21 schedule from BBAPI
 2. **Fetch boxscores** – Downloads boxscore XML for all past matches
 3. **Process boxscores** – Parses stats → `player_game_stats_s71.json`, `match_scores_s71.json`
-4. **Sync to Supabase** – Pushes to `fantasy_player_game_stats`, `fantasy_matches`, etc.
+4. **Update prices** – Weekly adjustment from stats → `player_prices_s71.json`
+5. **Sync to Supabase** – Pushes to `fantasy_player_game_stats`, `fantasy_matches`, `fantasy_player_prices`, etc.
 
 ## Required GitHub Secrets
 
@@ -46,3 +47,5 @@ Requires `.env.local` with:
 
 - **Cron:** Daily at 02:00 UTC
 - **Manual:** `workflow_dispatch` with optional season input
+
+Runs daily; new data appears when a U21 game has been played (typically weekly). Boxscores are fetched only for past matches; price adjustment runs each time (idempotent when no new stats).

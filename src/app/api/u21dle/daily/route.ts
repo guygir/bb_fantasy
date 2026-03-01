@@ -5,7 +5,6 @@ export const dynamic = "force-dynamic";
 
 /**
  * Returns the current puzzle date (most recent ≤ today).
- * Does NOT return the answer - client gets feedback via POST /api/u21dle/guess.
  */
 export async function GET() {
   try {

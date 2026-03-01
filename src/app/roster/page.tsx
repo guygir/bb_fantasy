@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
 import { config } from "@/lib/config";
+import { PlayerAvatar } from "@/app/players/PlayerAvatar";
 
 const SEASON = config.game.currentSeason;
 const CAP = config.game.cap;
@@ -21,6 +22,14 @@ interface GameStat {
   matchId: string;
   name: string;
   fantasyPoints: number;
+}
+
+interface WeeklyEntry {
+  week: number;
+  matchDate: string;
+  matchId: string;
+  roster: { playerId: number; name: string; points: number }[];
+  total: number;
 }
 
 interface Player {
@@ -44,6 +53,7 @@ export default function MyRosterPage() {
   const [toAdd, setToAdd] = useState<Map<number, Player>>(new Map());
   const [subError, setSubError] = useState<string | null>(null);
   const [subSaving, setSubSaving] = useState(false);
+  const [weeklyHistory, setWeeklyHistory] = useState<WeeklyEntry[]>([]);
 
   useEffect(() => {
     if (!supabase) {
@@ -70,21 +80,31 @@ export default function MyRosterPage() {
 
   useEffect(() => {
     if (!userId || !supabase) return;
-    Promise.all([
-      supabase.from("fantasy_user_rosters").select("*").eq("season", SEASON).maybeSingle(),
-      fetch(`/api/stats/season/${SEASON}`, { cache: "no-store" }).then(async (r) => {
-        if (!r.ok) return { stats: [] };
-        const data = await r.json();
-        return Array.isArray(data.stats) ? data : { stats: data.stats ?? [] };
-      }),
-      fetch(`/api/players/season/${SEASON}`).then(async (r) => {
-        if (!r.ok) return { players: [] };
-        const data = await r.json();
-        return Array.isArray(data.players) ? data : { players: data.players ?? [] };
-      }),
-    ])
-      .then(([rosterRes, statsData, playerData]) => {
+    const sb = supabase;
+    sb.auth.getSession().then(({ data: { session } }) => {
+      Promise.all([
+        sb.from("fantasy_user_rosters").select("*").eq("season", SEASON).maybeSingle(),
+        fetch(`/api/stats/season/${SEASON}`, { cache: "no-store" }).then(async (r) => {
+          if (!r.ok) return { stats: [] };
+          const data = await r.json();
+          return Array.isArray(data.stats) ? data : { stats: data.stats ?? [] };
+        }),
+        fetch(`/api/players/season/${SEASON}`).then(async (r) => {
+          if (!r.ok) return { players: [] };
+          const data = await r.json();
+          return Array.isArray(data.players) ? data : { players: data.players ?? [] };
+        }),
+        fetch(`/api/roster/season/${SEASON}/weekly-history`, {
+          headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : undefined,
+        }).then(async (r) => {
+          if (!r.ok) return { weeks: [] };
+          const data = await r.json();
+          return { weeks: data.weeks ?? [] };
+        }),
+      ])
+      .then(([rosterRes, statsData, playerData, weeklyData]) => {
         setPlayers((playerData.players ?? []) as Player[]);
+        setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
         const row = rosterRes.data;
         if (row?.player_ids?.length) {
           const prices: Record<number, number> = {};
@@ -110,6 +130,7 @@ export default function MyRosterPage() {
         console.error("Roster load error:", err);
         setLoading(false);
       });
+    });
   }, [userId]);
 
   if (!authChecked || loading) {
@@ -200,6 +221,38 @@ export default function MyRosterPage() {
           </tbody>
         </table>
       </div>
+
+      {weeklyHistory.length > 0 && (
+        <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">
+          <h3 className="mb-4 text-sm font-medium text-gray-600">My Scores (Weekly History)</h3>
+          <div className="space-y-6">
+            {weeklyHistory.map((w) => (
+              <div key={w.matchId} className="rounded-lg border border-bb-border bg-white p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="font-medium">Week {w.week}</span>
+                  <span className="text-sm text-gray-500">
+                    {new Date(w.matchDate).toLocaleDateString()} · Total: {w.total.toFixed(1)} FP
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  {w.roster.map((p) => (
+                    <div
+                      key={p.playerId}
+                      className="flex items-center gap-3 rounded-lg border border-bb-border bg-card-bg px-3 py-2"
+                    >
+                      <PlayerAvatar playerId={p.playerId} name={p.name} />
+                      <div>
+                        <p className="text-sm font-medium">{p.name}</p>
+                        <p className="text-sm text-gray-600">{p.points.toFixed(1)} FP</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {subWindow && (
         <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">

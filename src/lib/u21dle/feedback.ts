@@ -96,6 +96,38 @@ export function formatAttributeValue(
 }
 
 /**
+ * Compute players still consistent with all guesses made so far.
+ * Used by Cheat Mode panel (like Riftle).
+ *
+ * For each attribute: exact → must match; high → candidate < guessed; low → candidate > guessed.
+ */
+export function computeCheatCandidates(
+  guessHistory: Array<{ player: U21dlePlayer; feedback: PlayerFeedback }>,
+  allPlayers: U21dlePlayer[]
+): U21dlePlayer[] {
+  if (guessHistory.length === 0) return allPlayers;
+
+  return allPlayers.filter((candidate) => {
+    for (const { player: guessed, feedback } of guessHistory) {
+      const attrs = ["gp", "pts", "age", "height", "potential", "trophies"] as const;
+      for (const attr of attrs) {
+        const fb = feedback[attr];
+        const gVal = guessed[attr];
+        const cVal = candidate[attr];
+        if (fb === "exact") {
+          if (cVal !== gVal) return false;
+        } else if (fb === "high") {
+          if (cVal >= gVal) return false;
+        } else if (fb === "low") {
+          if (cVal <= gVal) return false;
+        }
+      }
+    }
+    return true;
+  });
+}
+
+/**
  * Convert feedback to share emoji row
  * exact=🟩, high=🟧, low=🟦
  */

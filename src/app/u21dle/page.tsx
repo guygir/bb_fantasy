@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase-client";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 import {
   type U21dlePlayer,
@@ -9,6 +10,7 @@ import {
   ATTRIBUTE_LABELS,
   formatAttributeValue,
   feedbackToEmojiRow,
+  computeCheatCandidates,
 } from "@/lib/u21dle/feedback";
 import { PlayerAvatar } from "@/app/players/PlayerAvatar";
 
@@ -45,7 +47,20 @@ export default function U21dlePage() {
 
   const [loadError, setLoadError] = useState<string | null>(null);
 
-  // Load daily puzzle (date only, no answer)
+  // Cheat mode: show remaining candidates (like Riftle)
+  const [cheatMode, setCheatMode] = useState(false);
+  const [cheatEverEnabled, setCheatEverEnabled] = useState(false);
+  const [showCheatWarning, setShowCheatWarning] = useState(false);
+  const [cheatWarningSeen, setCheatWarningSeen] = useState(() => {
+    try {
+      return localStorage.getItem("u21dle_cheat_warning_seen") === "true";
+    } catch {
+      return false;
+    }
+  });
+  const [allPlayers, setAllPlayers] = useState<U21dlePlayer[]>([]);
+
+  // Load daily puzzle
   useEffect(() => {
     setLoadError(null);
     fetch("/api/u21dle/daily")
@@ -64,18 +79,50 @@ export default function U21dlePage() {
       });
   }, []);
 
-  // Load saved state from localStorage (verify with server if game over - puzzle may have been overwritten)
+  // Load all players for cheat panel when cheat mode is on
+  useEffect(() => {
+    if (!cheatMode || gameOver) return;
+    fetch("/api/u21dle/eligible?light=1")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.success && data.data?.players) {
+          setAllPlayers(data.data.players);
+        }
+      })
+      .catch(() => setAllPlayers([]));
+  }, [cheatMode, gameOver]);
+
+  // Load saved state: Supabase first (when auth), then localStorage
   useEffect(() => {
     if (!puzzleDate) return;
-    const key = `u21dle_${puzzleDate}`;
     let cancelled = false;
     (async () => {
       try {
+        const session = (await supabase?.auth.getSession())?.data?.session;
+        if (session?.access_token) {
+          const res = await fetch(`/api/u21dle/game-state?date=${encodeURIComponent(puzzleDate)}`, {
+            headers: { Authorization: `Bearer ${session.access_token}` },
+          });
+          const json = await res.json();
+          if (json.success && json.data && !cancelled) {
+            const d = json.data;
+            setGuessHistory(d.guessHistory ?? []);
+            setGameOver(d.gameOver ?? false);
+            setWon(d.won ?? false);
+            if (d.elapsed != null) setElapsedTime(d.elapsed);
+            if (d.answer) setAnswer(d.answer);
+            if (d.usedCheat) {
+              setCheatEverEnabled(true);
+              setCheatMode(!d.gameOver);
+            }
+            return;
+          }
+        }
+        const key = `u21dle_${puzzleDate}`;
         const saved = localStorage.getItem(key);
         if (!saved) return;
         const { guesses, gameOver: go, won: w, elapsed, answer: a } = JSON.parse(saved);
         if (!Array.isArray(guesses) || guesses.length === 0) return;
-        // If game over with answer, verify it's still correct (puzzle may have been overwritten in DB)
         if (go && a?.playerId) {
           const res = await fetch(
             `/api/u21dle/verify?date=${encodeURIComponent(puzzleDate)}&playerId=${a.playerId}`
@@ -83,7 +130,7 @@ export default function U21dlePage() {
           const { valid } = (await res.json()) as { valid?: boolean };
           if (!valid && !cancelled) {
             localStorage.removeItem(key);
-            return; // Don't restore stale state
+            return;
           }
         }
         if (!cancelled) {
@@ -167,13 +214,20 @@ export default function U21dlePage() {
     if (!selectedPlayer || !puzzleDate || submitting || gameOver) return;
     setSubmitting(true);
     try {
+      const session = (await supabase?.auth.getSession())?.data?.session;
       const res = await fetch("/api/u21dle/guess", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
+        },
         body: JSON.stringify({
           date: puzzleDate,
           playerId: selectedPlayer.playerId,
           guessesUsed: guessHistory.length,
+          guessHistory,
+          elapsed: elapsedTime,
+          usedCheat: cheatEverEnabled,
         }),
       });
       const json = await res.json();
@@ -271,7 +325,8 @@ export default function U21dlePage() {
 
       <div className="rounded-lg border border-bb-border bg-white p-6 shadow-sm">
         {!gameOver && (
-          <div className="mb-6">
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start">
+            <div className="flex-1 min-w-0">
             <div className="relative">
               <input
                 type="text"
@@ -318,6 +373,50 @@ export default function U21dlePage() {
             <p className="mt-2 text-center text-sm text-gray-500">
               {guessHistory.length} / {maxGuesses} guesses used
             </p>
+            <button
+              type="button"
+              onClick={() => {
+                const newVal = !cheatMode;
+                if (newVal && !cheatWarningSeen) {
+                  setShowCheatWarning(true);
+                  return;
+                }
+                setCheatMode(newVal);
+                if (newVal && !cheatEverEnabled) setCheatEverEnabled(true);
+              }}
+              className={`mt-3 w-full rounded-lg border px-4 py-2 text-sm font-medium ${
+                cheatMode
+                  ? "border-yellow-500 bg-yellow-50 text-yellow-800"
+                  : "border-bb-border bg-card-bg text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              {cheatMode ? "🟡 Cheat ON" : "⬜ Cheat OFF"}
+            </button>
+            </div>
+
+            {cheatMode && (
+              <div className="w-full sm:w-64 flex-shrink-0">
+                <div className="rounded-lg border-2 border-yellow-400 overflow-hidden">
+                  <div className="bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1">
+                    Possible Players ({computeCheatCandidates(guessHistory, allPlayers).length})
+                  </div>
+                  <div className="overflow-y-auto max-h-80 bg-white border-t border-yellow-200">
+                    {computeCheatCandidates(guessHistory, allPlayers).map((p) => (
+                      <div
+                        key={p.playerId}
+                        className="flex items-center gap-2 px-2 py-2 border-b border-gray-100 last:border-0"
+                      >
+                        <PlayerAvatar playerId={p.playerId} name={p.name} />
+                        <span className="text-sm font-medium truncate">{p.name}</span>
+                      </div>
+                    ))}
+                    {computeCheatCandidates(guessHistory, allPlayers).length === 0 && (
+                      <div className="px-3 py-4 text-xs text-gray-500 text-center">No matching players</div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -405,22 +504,71 @@ export default function U21dlePage() {
         )}
       </div>
 
-      <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4 text-sm text-gray-600">
-        <p className="font-semibold">How to play</p>
-        <p className="mt-1">
-          Guess the Israel U21 player from seasons 60–70.
-        </p>
-        <p className="mt-1">
-          Each guess shows feedback: 🟩 exact, 🟧 too high (↓), 🟦 too low (↑).
-        </p>
-        <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-          <Link href="/u21dle/players" className="text-exact hover:underline font-medium">
-            View all eligible players →
-          </Link>
-          <Link href="/u21dle/help" className="text-exact hover:underline font-medium">
-            Full rules & help →
-          </Link>
-        </p>
+      <div className="mt-6 space-y-4">
+        <div className="rounded-lg border border-bb-border bg-card-bg p-4 text-sm text-gray-600">
+          <p className="font-semibold">How to play</p>
+          <p className="mt-1">
+            Guess the Israel U21 player from seasons 60–70.
+          </p>
+          <p className="mt-1">
+            Each guess shows feedback: 🟩 exact, 🟧 too high (↓), 🟦 too low (↑).
+          </p>
+          <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/u21dle/players" className="text-exact hover:underline font-medium">
+              View all eligible players →
+            </Link>
+            <Link href="/u21dle/help" className="text-exact hover:underline font-medium">
+              Full rules & help →
+            </Link>
+          </p>
+        </div>
+
+        <div className="rounded-lg border border-bb-border bg-card-bg p-4">
+          <p className="font-semibold text-gray-700">Stats & Leaderboard</p>
+          <p className="mt-1 text-sm text-gray-600">
+            <Link href="/u21dle/stats" className="text-exact hover:underline font-medium">
+              My stats
+            </Link>
+            {" · "}
+            <Link href="/u21dle/leaderboard" className="text-exact hover:underline font-medium">
+              Leaderboard
+            </Link>
+          </p>
+        </div>
+
+        {showCheatWarning && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="max-w-md rounded-lg bg-white p-6 shadow-xl">
+              <h2 className="text-xl font-bold text-center mb-3">Enable Cheat Mode?</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Cheat Mode shows you all players still consistent with your guesses — but it comes at a cost.
+                A cheat win counts <strong>less than a clean win</strong> and <strong>more than a loss</strong> on the leaderboard.
+              </p>
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={() => setShowCheatWarning(false)}
+                  className="rounded-lg border border-bb-border px-4 py-2 text-sm font-medium hover:bg-gray-100"
+                >
+                  No
+                </button>
+                <button
+                  onClick={() => {
+                    try {
+                      localStorage.setItem("u21dle_cheat_warning_seen", "true");
+                    } catch {}
+                    setCheatWarningSeen(true);
+                    setShowCheatWarning(false);
+                    setCheatMode(true);
+                    if (!cheatEverEnabled) setCheatEverEnabled(true);
+                  }}
+                  className="rounded-lg bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-yellow-600"
+                >
+                  Yes, enable
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

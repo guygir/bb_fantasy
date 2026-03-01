@@ -3,11 +3,12 @@ import { getCurrentPuzzleDate, getDailyPlayer } from "@/lib/u21dle/daily";
 import { getU21dlePlayerById } from "@/lib/u21dle/players";
 import { generateFeedback, isCorrectGuess } from "@/lib/u21dle/feedback";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
+import { getPuzzleIdByDate, upsertGuess, updateUserStats } from "@/lib/u21dle/supabase";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
-  let body: { date: string; playerId: number; guessesUsed: number };
+  let body: { date: string; playerId: number; guessesUsed: number; guessHistory?: unknown[]; elapsed?: number; usedCheat?: boolean };
   try {
     body = await request.json();
   } catch {
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const { date, playerId, guessesUsed } = body;
+  const { date, playerId, guessesUsed, guessHistory = [], elapsed = 0, usedCheat = false } = body;
   if (!date || typeof playerId !== "number" || typeof guessesUsed !== "number") {
     return NextResponse.json(
       { success: false, error: "Missing date, playerId, or guessesUsed" },
@@ -60,6 +61,29 @@ export async function POST(request: NextRequest) {
   const isSolved = isCorrectGuess(guessedPlayer, dailyPlayer);
   const newGuessesUsed = guessesUsed + 1;
   const gameOver = isSolved || newGuessesUsed >= U21DLE_CONFIG.MAX_GUESSES;
+
+  const newGuessHistory = [...(Array.isArray(guessHistory) ? guessHistory : []), { player: guessedPlayer, feedback }];
+  const timeTaken = Math.round(typeof elapsed === "number" ? elapsed : 0);
+  const totalScore = gameOver && isSolved ? U21DLE_CONFIG.MAX_GUESSES + 1 - newGuessesUsed : 0;
+
+  const authHeader = request.headers.get("Authorization");
+  const token = authHeader?.replace(/^Bearer\s+/i, "");
+  if (token) {
+    const puzzleId = await getPuzzleIdByDate(date);
+    if (puzzleId) {
+      await upsertGuess(token, puzzleId, date, {
+        guessHistory: newGuessHistory,
+        guessesUsed: newGuessesUsed,
+        isSolved: gameOver && isSolved,
+        timeTakenSeconds: timeTaken,
+        totalScore,
+        usedCheat,
+      });
+      if (gameOver) {
+        await updateUserStats(token, date, { won: isSolved, guessesUsed: newGuessesUsed, usedCheat });
+      }
+    }
+  }
 
   return NextResponse.json({
     success: true,
