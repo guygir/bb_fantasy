@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
+import { config } from "@/lib/config";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 import {
   type U21dlePlayer,
@@ -13,6 +14,7 @@ import {
   computeCheatCandidates,
 } from "@/lib/u21dle/feedback";
 import { PlayerAvatar } from "@/app/players/PlayerAvatar";
+import { U21dleStatsAndLeaderboard } from "./U21dleStatsAndLeaderboard";
 
 interface GuessItem {
   player: U21dlePlayer;
@@ -310,7 +312,9 @@ export default function U21dlePage() {
     <div className="container mx-auto max-w-2xl px-4 py-4 sm:py-8">
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold">U21dle</h1>
-        <p className="mt-1 text-gray-600">Guess the Israel U21 player in {maxGuesses} tries</p>
+        <p className="mt-1 text-gray-600">
+          Guess the Israel U21 player from season {config.u21dle.minSeason} to season {config.u21dle.maxSeason} in {maxGuesses} tries
+        </p>
         {puzzleDate && (
           <p className="mt-1 text-sm text-gray-500">
             Puzzle for {new Date(puzzleDate).toLocaleDateString()}
@@ -523,18 +527,7 @@ export default function U21dlePage() {
           </p>
         </div>
 
-        <div className="rounded-lg border border-bb-border bg-card-bg p-4">
-          <p className="font-semibold text-gray-700">Stats & Leaderboard</p>
-          <p className="mt-1 text-sm text-gray-600">
-            <Link href="/u21dle/stats" className="text-exact hover:underline font-medium">
-              My stats
-            </Link>
-            {" · "}
-            <Link href="/u21dle/leaderboard" className="text-exact hover:underline font-medium">
-              Leaderboard
-            </Link>
-          </p>
-        </div>
+        <U21dleStatsAndLeaderboard />
 
         {showCheatWarning && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">

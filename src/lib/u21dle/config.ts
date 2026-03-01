@@ -1,3 +1,5 @@
+import { config } from "@/lib/config";
+
 /**
  * U21dle Game Configuration
  *
@@ -6,7 +8,7 @@
 
 export const U21DLE_CONFIG = {
   /** Maximum number of guesses allowed per puzzle */
-  MAX_GUESSES: 6,
+  MAX_GUESSES: config.u21dle.maxGuesses,
 
   /** Number of days to exclude recently used players (for random selection) */
   EXCLUDE_RECENT_DAYS: 30,

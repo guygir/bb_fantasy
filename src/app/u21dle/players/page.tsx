@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { config } from "@/lib/config";
 import { getEligiblePlayers } from "@/lib/u21dle/players";
 import { getFaceMtime } from "@/lib/face-mtime";
-import { PlayerAvatar } from "@/app/players/PlayerAvatar";
+import { U21dlePlayersTable } from "./U21dlePlayersTable";
 
 export const dynamic = "force-dynamic";
 
@@ -35,7 +36,7 @@ export default async function U21dlePlayersPage() {
         <div>
           <h2 className="text-lg font-semibold">U21dle Eligible Players</h2>
           <p className="mt-1 text-sm text-gray-600">
-            Israel U21 players with GP≥8 from seasons 60–70 ({players.length} players)
+            Israel U21 players with GP≥8 from seasons {config.u21dle.minSeason}–{config.u21dle.maxSeason} ({players.length} players). Click column headers to sort.
           </p>
         </div>
         <Link
@@ -45,49 +46,7 @@ export default async function U21dlePlayersPage() {
           ← Back to U21dle
         </Link>
       </div>
-      <div className="overflow-x-auto rounded-lg border border-bb-border">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="bg-card-bg">
-              <th className="border border-bb-border px-4 py-2 text-left">Player</th>
-              <th className="border border-bb-border px-4 py-2 text-left w-20"></th>
-              <th className="border border-bb-border px-4 py-2 text-right">GP</th>
-              <th className="border border-bb-border px-4 py-2 text-right">PTS</th>
-              <th className="border border-bb-border px-4 py-2 text-right">Age</th>
-              <th className="border border-bb-border px-4 py-2 text-right">Height</th>
-              <th className="border border-bb-border px-4 py-2 text-right">Potential</th>
-              <th className="border border-bb-border px-4 py-2 text-right">Trophies</th>
-            </tr>
-          </thead>
-          <tbody>
-            {players.map((p) => (
-              <tr key={p.playerId} className="hover:bg-card-bg">
-                <td className="border border-bb-border px-4 py-2">
-                  <Link
-                    href={`https://buzzerbeater.com/player/${p.playerId}/overview.aspx`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-exact hover:underline"
-                  >
-                    {p.name}
-                  </Link>
-                </td>
-                <td className="border border-bb-border px-4 py-2">
-                  <PlayerAvatar playerId={p.playerId} name={p.name} faceMtime={p.faceMtime} />
-                </td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.gp}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.pts.toFixed(1)}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.age ?? "–"}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">
-                  {p.height != null ? `${p.height} cm` : "–"}
-                </td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.potential ?? "–"}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.trophies}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <U21dlePlayersTable players={players} />
     </div>
   );
 }

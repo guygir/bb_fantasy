@@ -68,6 +68,10 @@ export default function PickTeamPage() {
           setPicked(new Set(row.player_ids));
           setPrices(prices);
           setNames(names);
+          if (row.player_ids.length === ROSTER_SIZE) {
+            window.location.href = "/roster";
+            return;
+          }
         }
         setLoading(false);
       })
@@ -122,7 +126,9 @@ export default function PickTeamPage() {
     );
     if (!error) {
       setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
+      setTimeout(() => {
+        window.location.href = "/roster";
+      }, 500);
     }
   };
 

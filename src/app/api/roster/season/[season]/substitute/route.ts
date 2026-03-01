@@ -41,10 +41,16 @@ export async function POST(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const window = await getSubWindow(seasonNum);
+  const window = await getSubWindow(seasonNum, user.id);
   if (!window.open) {
     return NextResponse.json(
       { error: "Substitutions are locked. Window opens 1h after previous game until 1h before next." },
+      { status: 400 }
+    );
+  }
+  if (window.subsUsedThisWindow) {
+    return NextResponse.json(
+      { error: "You've already made substitutions for the next game. Changes apply when the game is played." },
       { status: 400 }
     );
   }

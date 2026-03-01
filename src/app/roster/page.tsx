@@ -46,7 +46,7 @@ export default function MyRosterPage() {
   const [loading, setLoading] = useState(true);
   const [authChecked, setAuthChecked] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
-  const [subWindow, setSubWindow] = useState<{ open: boolean; nextOpenAt?: string; nextCloseAt?: string } | null>(null);
+  const [subWindow, setSubWindow] = useState<{ open: boolean; nextOpenAt?: string; nextCloseAt?: string; subsUsedThisWindow?: boolean } | null>(null);
   const [players, setPlayers] = useState<Player[]>([]);
   const [subMode, setSubMode] = useState(false);
   const [toRemove, setToRemove] = useState<Set<number>>(new Set());
@@ -72,11 +72,16 @@ export default function MyRosterPage() {
   }, []);
 
   useEffect(() => {
-    fetch(`/api/sub-window/season/${SEASON}`)
-      .then((r) => (r.ok ? r.json() : { open: false }))
-      .then(setSubWindow)
-      .catch(() => setSubWindow({ open: false }));
-  }, []);
+    if (!userId || !supabase) return;
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      fetch(`/api/sub-window/season/${SEASON}`, {
+        headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
+      })
+        .then((r) => (r.ok ? r.json() : { open: false }))
+        .then(setSubWindow)
+        .catch(() => setSubWindow({ open: false }));
+    });
+  }, [userId]);
 
   useEffect(() => {
     if (!userId || !supabase) return;
@@ -201,64 +206,15 @@ export default function MyRosterPage() {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-bb-border rounded-lg overflow-hidden">
-          <thead>
-            <tr className="bg-card-bg">
-              <th className="border border-bb-border px-4 py-2 text-left">Player</th>
-              <th className="border border-bb-border px-4 py-2 text-right">$</th>
-              <th className="border border-bb-border px-4 py-2 text-right">FP</th>
-            </tr>
-          </thead>
-          <tbody>
-            {roster.playerIds.map((id) => (
-              <tr key={id} className="hover:bg-card-bg">
-                <td className="border border-bb-border px-4 py-2 font-medium">{roster.playerNames[id] ?? `Player ${id}`}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">${roster.playerPrices[id] ?? 0}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">{(pointsByPlayer.get(id) ?? 0).toFixed(1)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {weeklyHistory.length > 0 && (
-        <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">
-          <h3 className="mb-4 text-sm font-medium text-gray-600">My Scores (Weekly History)</h3>
-          <div className="space-y-6">
-            {weeklyHistory.map((w) => (
-              <div key={w.matchId} className="rounded-lg border border-bb-border bg-white p-4">
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="font-medium">Week {w.week}</span>
-                  <span className="text-sm text-gray-500">
-                    {new Date(w.matchDate).toLocaleDateString()} · Total: {w.total.toFixed(1)} FP
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  {w.roster.map((p) => (
-                    <div
-                      key={p.playerId}
-                      className="flex items-center gap-3 rounded-lg border border-bb-border bg-card-bg px-3 py-2"
-                    >
-                      <PlayerAvatar playerId={p.playerId} name={p.name} />
-                      <div>
-                        <p className="text-sm font-medium">{p.name}</p>
-                        <p className="text-sm text-gray-600">{p.points.toFixed(1)} FP</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {subWindow && (
-        <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">
+        <div className="mb-6 rounded-lg border border-bb-border bg-card-bg p-4">
           <h3 className="mb-2 text-sm font-medium text-gray-600">Substitutions</h3>
           {subWindow.open ? (
-            subMode ? (
+            subWindow.subsUsedThisWindow ? (
+              <p className="text-sm text-gray-600">
+                You&apos;ve already made substitutions for the next game. Changes apply when the game is played.
+              </p>
+            ) : subMode ? (
               <SubstitutionForm
                 roster={roster}
                 players={players}
@@ -345,9 +301,62 @@ export default function MyRosterPage() {
         </div>
       )}
 
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse border border-bb-border rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-card-bg">
+              <th className="border border-bb-border px-4 py-2 text-left">Photo</th>
+              <th className="border border-bb-border px-4 py-2 text-left">Player</th>
+              <th className="border border-bb-border px-4 py-2 text-right">$</th>
+            </tr>
+          </thead>
+          <tbody>
+            {roster.playerIds.map((id) => (
+              <tr key={id} className="hover:bg-card-bg">
+                <td className="border border-bb-border px-4 py-2">
+                  <PlayerAvatar playerId={id} name={roster.playerNames[id] ?? `Player ${id}`} />
+                </td>
+                <td className="border border-bb-border px-4 py-2 font-medium">{roster.playerNames[id] ?? `Player ${id}`}</td>
+                <td className="border border-bb-border px-4 py-2 text-right">${roster.playerPrices[id] ?? 0}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {weeklyHistory.length > 0 && (
+        <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">
+          <h3 className="mb-4 text-sm font-medium text-gray-600">My Scores (Weekly History)</h3>
+          <div className="space-y-6">
+            {[...weeklyHistory].reverse().map((w) => (
+              <div key={w.matchId} className="rounded-lg border border-bb-border bg-white p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="font-medium">Week {w.week}</span>
+                  <span className="text-sm text-gray-500">
+                    {new Date(w.matchDate).toLocaleDateString()} · Total: {w.total.toFixed(1)} FP
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  {w.roster.map((p) => (
+                    <div
+                      key={p.playerId}
+                      className="flex items-center gap-3 rounded-lg border border-bb-border bg-card-bg px-3 py-2"
+                    >
+                      <PlayerAvatar playerId={p.playerId} name={p.name} />
+                      <div>
+                        <p className="text-sm font-medium">{p.name}</p>
+                        <p className="text-sm text-gray-600">{p.points.toFixed(1)} FP</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <p className="mt-6 text-sm text-gray-500">
-        <Link href="/pick" className="text-exact hover:underline font-medium">Change roster</Link>
-        {" · "}
         <Link href="/leaderboard" className="text-exact hover:underline font-medium">Leaderboard</Link>
       </p>
     </div>

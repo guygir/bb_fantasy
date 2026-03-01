@@ -36,12 +36,14 @@ export async function GET(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  const today = new Date().toISOString().slice(0, 10);
   const [scheduleRes, statsRes, rosterRes, subsRes] = await Promise.all([
     supabase
       .from("fantasy_schedule")
       .select("match_id, match_date")
       .eq("season", seasonNum)
       .not("match_date", "is", null)
+      .lte("match_date", today)
       .order("match_date", { ascending: true }),
     supabase
       .from("fantasy_player_game_stats")

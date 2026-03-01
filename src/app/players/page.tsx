@@ -1,9 +1,7 @@
-import Link from "next/link";
-import type { PlayerWithDetails } from "@/lib/types";
 import { getPlayersWithDetails } from "@/lib/players";
 import { config } from "@/lib/config";
 import { getFaceMtime } from "@/lib/face-mtime";
-import { PlayerAvatar } from "./PlayerAvatar";
+import { PlayersTable } from "./PlayersTable";
 
 export const dynamic = "force-dynamic";
 
@@ -40,59 +38,9 @@ export default async function PlayersPage() {
     <div>
       <h2 className="mb-4 text-lg font-semibold">Season {SEASON} Players</h2>
       <p className="mb-6 text-sm text-gray-600">
-        Name, position, DMI, salary (BB), game shape, fantasy price ($), avg rating
+        Click column headers to sort. Photo, name, position, DMI, salary (BB), game shape, fantasy price ($), avg rating
       </p>
-      <div className="overflow-x-auto rounded-lg border border-bb-border">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="bg-card-bg">
-              <th className="border border-bb-border px-4 py-2 text-left">Player</th>
-              <th className="border border-bb-border px-4 py-2 text-left w-auto"></th>
-              <th className="border border-bb-border px-4 py-2 text-left">Pos</th>
-              <th className="border border-bb-border px-4 py-2 text-right">DMI</th>
-              <th className="border border-bb-border px-4 py-2 text-right">Salary</th>
-              <th className="border border-bb-border px-4 py-2 text-right" title="Game Shape (1–10)">GS</th>
-              <th className="border border-bb-border px-4 py-2 text-right">$</th>
-              <th className="border border-bb-border px-4 py-2 text-right">PTS</th>
-              <th className="border border-bb-border px-4 py-2 text-right">RTNG</th>
-            </tr>
-          </thead>
-          <tbody>
-            {players.map((p: PlayerWithDetails) => (
-              <tr key={p.playerId} className="hover:bg-card-bg">
-                <td className="border border-bb-border px-4 py-2">
-                  <Link
-                    href={`https://buzzerbeater.com/player/${p.playerId}/overview.aspx`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-exact hover:underline"
-                  >
-                    {p.name}
-                  </Link>
-                </td>
-                <td className="border border-bb-border px-4 py-2">
-                  <PlayerAvatar playerId={p.playerId} name={p.name} faceMtime={p.faceMtime} />
-                </td>
-                <td className="border border-bb-border px-4 py-2">{p.position}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">
-                  {p.dmi != null ? p.dmi.toLocaleString() : "–"}
-                </td>
-                <td className="border border-bb-border px-4 py-2 text-right">
-                  {p.salary != null ? p.salary.toLocaleString() : "–"}
-                </td>
-                <td className="border border-bb-border px-4 py-2 text-right">
-                  {p.gameShape != null ? p.gameShape : "–"}
-                </td>
-                <td className="border border-bb-border px-4 py-2 text-right font-medium">
-                  ${p.inGamePrice}
-                </td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.pts.toFixed(1)}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">{p.avgRating.toFixed(1)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <PlayersTable players={players} />
     </div>
   );
 }

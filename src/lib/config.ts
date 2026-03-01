@@ -14,4 +14,9 @@ export const config = {
     currentSeason: Number(process.env.NEXT_PUBLIC_CURRENT_SEASON ?? process.env.CURRENT_SEASON ?? 71),
     israelU21TeamId: Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015),
   },
+  u21dle: {
+    minSeason: Number(process.env.U21DLE_MIN_SEASON ?? 60),
+    maxSeason: Number(process.env.U21DLE_MAX_SEASON ?? 70),
+    maxGuesses: Number(process.env.U21DLE_MAX_GUESSES ?? 5),
+  },
 } as const;

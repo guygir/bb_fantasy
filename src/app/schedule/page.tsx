@@ -37,7 +37,9 @@ export default async function SchedulePage() {
     <div>
       <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? SEASON})</h2>
       <p className="mb-4 text-sm text-gray-600">
-        {meta.source === "bbapi" ? "Live from BBAPI" : "From cache (BBAPI unavailable)"}
+        {meta.source === "bbapi"
+          ? "Live from BBAPI"
+          : "Using cached schedule — BBAPI fetch failed (check BBAPI_LOGIN, BBAPI_CODE, or network). Run fantasy-weekly-sync to refresh."}
       </p>
       <div className="overflow-x-auto rounded-lg border border-bb-border">
         <table className="w-full border-collapse">
