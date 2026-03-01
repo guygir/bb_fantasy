@@ -44,8 +44,8 @@ Track progress here. Check off items as completed.
 ### 2.1 Project Setup
 - [x] **2.1.1** Initialize Next.js project
 - [x] **2.1.2** Set up Supabase project
-- [ ] **2.1.3** Define database schema (players, matches, player_game_stats, etc.)
-- [x] **2.1.4** U21dle: supabase/migrations/001_u21dle_daily.sql
+- [x] **2.1.3** Define database schema – see docs/SUPABASE_SCHEMA.md
+- [x] **2.1.4** Migrations 001–008: U21dle + fantasy_user_rosters + optional game_data
 - [ ] **2.1.5** Add TypeScript types for entities
 
 ### 2.2 Data Layer
@@ -74,10 +74,10 @@ Track progress here. Check off items as completed.
 ## Phase 3: User Features
 
 ### 3.1 Authentication
-- [ ] **3.1.1** Set up Supabase Auth (or alternative)
-- [ ] **3.1.2** Login / signup flow
-- [ ] **3.1.3** Protected routes
-- [ ] **3.1.4** User profile (display name)
+- [x] **3.1.1** BBAPI-based auth (Supabase Auth + bb_users table)
+- [x] **3.1.2** Login / signup flow – /login, validates BBAPI, magic link
+- [ ] **3.1.3** Protected routes (optional; pick/roster work for anon via localStorage)
+- [x] **3.1.4** User profile (display name from bbapi_login, profiles table)
 
 ### 3.2 Draft
 - [x] **3.2.1** Draft rules: pick 5 players, $30 cap (no formal draft order)

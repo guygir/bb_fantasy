@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { getSchedule } from "@/lib/schedule";
+import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
+
+const SEASON = config.game.currentSeason;
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -18,12 +21,12 @@ function formatType(type: string) {
 }
 
 export default async function SchedulePage() {
-  const { matches, meta, error } = await getSchedule(71);
+  const { matches, meta, error } = await getSchedule(SEASON);
 
   if (error) {
     return (
       <div>
-        <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? 71})</h2>
+        <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? SEASON})</h2>
         <p className="text-red-600">Failed to load: {error}</p>
         <p className="mt-2 text-sm text-gray-600">Check BBAPI credentials in .env (BBAPI_LOGIN, BBAPI_CODE)</p>
       </div>
@@ -32,7 +35,7 @@ export default async function SchedulePage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? 71})</h2>
+      <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? SEASON})</h2>
       <p className="mb-4 text-sm text-gray-600">
         {meta.source === "bbapi" ? "Live from BBAPI" : "From cache (BBAPI unavailable)"}
       </p>

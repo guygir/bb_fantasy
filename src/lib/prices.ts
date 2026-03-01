@@ -11,6 +11,7 @@ import { readFileSync, existsSync, writeFileSync } from "fs";
 import { join } from "path";
 import { fantasyPPGToPrice } from "./scoring";
 import { loadPlayerGameStats } from "./boxscore";
+import { config } from "./config";
 
 /** Minimum games required before we adjust price (avoids single-game noise) */
 const MIN_GAMES_FOR_ADJUSTMENT = 2;
@@ -35,8 +36,6 @@ export interface PriceHistoryData {
   history: Record<number, PriceEntry[]>; // playerId -> entries (newest first)
 }
 
-const DEFAULT_SEASON = 71;
-
 function getPricesPath(season: number) {
   return join(process.cwd(), "data", `player_prices_s${season}.json`);
 }
@@ -44,11 +43,12 @@ function getPricesPath(season: number) {
 /**
  * Load price data from JSON.
  */
-export function loadPriceData(season: number = DEFAULT_SEASON): PriceHistoryData {
-  const path = getPricesPath(season);
+export function loadPriceData(season?: number): PriceHistoryData {
+  const s = season ?? config.game.currentSeason;
+  const path = getPricesPath(s);
   if (!existsSync(path)) {
     return {
-      meta: { season, updated: new Date().toISOString() },
+      meta: { season: s, updated: new Date().toISOString() },
       current: {},
       history: {},
     };
@@ -57,7 +57,7 @@ export function loadPriceData(season: number = DEFAULT_SEASON): PriceHistoryData
     return JSON.parse(readFileSync(path, "utf-8"));
   } catch {
     return {
-      meta: { season, updated: new Date().toISOString() },
+      meta: { season: s, updated: new Date().toISOString() },
       current: {},
       history: {},
     };
@@ -92,12 +92,13 @@ function computeFantasyPPGByPlayer(stats: { playerId: number; fantasyPoints: num
  * - New players (no prior price): use full fantasyPPGToPrice result
  */
 export function computePriceAdjustment(
-  season: number = DEFAULT_SEASON,
+  season?: number,
   maxChangeOverride?: number
 ): { current: Record<number, number>; history: Record<number, PriceEntry[]> } {
-  const stats = loadPlayerGameStats(season);
+  const s = season ?? config.game.currentSeason;
+  const stats = loadPlayerGameStats(s);
   const ppgByPlayer = computeFantasyPPGByPlayer(stats);
-  const existing = loadPriceData(season);
+  const existing = loadPriceData(s);
   const today = new Date().toISOString().slice(0, 10);
 
   const current: Record<number, number> = { ...existing.current };
@@ -148,14 +149,15 @@ export function computePriceAdjustment(
 /**
  * Run price adjustment and save to JSON.
  */
-export function runPriceAdjustment(season: number = DEFAULT_SEASON): PriceHistoryData {
-  const { current, history } = computePriceAdjustment(season);
+export function runPriceAdjustment(season?: number): PriceHistoryData {
+  const s = season ?? config.game.currentSeason;
+  const { current, history } = computePriceAdjustment(s);
   const data: PriceHistoryData = {
-    meta: { season, updated: new Date().toISOString() },
+    meta: { season: s, updated: new Date().toISOString() },
     current,
     history,
   };
-  const path = getPricesPath(season);
+  const path = getPricesPath(s);
   writeFileSync(path, JSON.stringify(data, null, 2));
   return data;
 }
@@ -163,7 +165,7 @@ export function runPriceAdjustment(season: number = DEFAULT_SEASON): PriceHistor
 /**
  * Get current price for a player (from JSON or fallback).
  */
-export function getPlayerPrice(playerId: number, season: number = DEFAULT_SEASON): number {
-  const data = loadPriceData(season);
+export function getPlayerPrice(playerId: number, season?: number): number {
+  const data = loadPriceData(season ?? config.game.currentSeason);
   return data.current[playerId] ?? 1;
 }

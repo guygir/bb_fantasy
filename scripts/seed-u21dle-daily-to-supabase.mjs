@@ -43,7 +43,7 @@ async function main() {
   const dates = entries.map(([d]) => d);
 
   const { data: existing } = await supabase
-    .from("u21dle_daily")
+    .from("u21dle_puzzles")
     .select("puzzle_date")
     .in("puzzle_date", dates);
   const existingSet = new Set((existing ?? []).map((r) => r.puzzle_date));
@@ -57,7 +57,7 @@ async function main() {
     return;
   }
 
-  const { error } = await supabase.from("u21dle_daily").insert(toInsert);
+  const { error } = await supabase.from("u21dle_puzzles").insert(toInsert);
   if (error) {
     console.error(error);
     process.exit(1);

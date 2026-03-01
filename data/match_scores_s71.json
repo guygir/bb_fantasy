@@ -1,9 +1,25 @@
 {
   "meta": {
     "season": 71,
-    "updated": "2026-02-25T14:13:16.962Z"
+    "updated": "2026-03-01T16:57:53.013Z"
   },
   "scores": {
+    "83294": {
+      "homeScore": 115,
+      "awayScore": 88
+    },
+    "83630": {
+      "homeScore": 69,
+      "awayScore": 88
+    },
+    "83633": {
+      "homeScore": 101,
+      "awayScore": 90
+    },
+    "83636": {
+      "homeScore": 69,
+      "awayScore": 86
+    },
     "83641": {
       "homeScore": 86,
       "awayScore": 53

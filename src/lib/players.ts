@@ -113,8 +113,8 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
             salary = details.salary || null;
             gameShape = details.gameShape ?? null;
           }
-        } catch {
-          // Ignore - use defaults
+        } catch (e) {
+          console.warn(`BBAPI player ${p.playerId} failed:`, e instanceof Error ? e.message : e);
         }
       }
 

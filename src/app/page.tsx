@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { config } from "@/lib/config";
 
 export default function HomePage() {
   return (
@@ -30,7 +31,7 @@ export default function HomePage() {
             href="/players"
             className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-low text-white font-semibold rounded-lg hover:bg-[#75b0e9] transition-colors flex items-center justify-center text-sm sm:text-base"
           >
-            Players (Season 71)
+            Players (Season {config.game.currentSeason})
           </Link>
           <Link
             href="/leaderboard"

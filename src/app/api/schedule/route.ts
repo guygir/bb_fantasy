@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const season = searchParams.get("season");
-  const seasonNum = season ? parseInt(season, 10) : 71;
+  const seasonNum = season ? parseInt(season, 10) : config.game.currentSeason;
 
   const { session, ok } = await bbapiLogin(config.bbapi.login, config.bbapi.code);
   if (!ok) {

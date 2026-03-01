@@ -1,6 +1,5 @@
 /**
  * App config - BBAPI credentials, game rules
- * Users will eventually sign up with their own BBAPI; for now hardcoded.
  */
 
 export const config = {
@@ -12,6 +11,7 @@ export const config = {
   game: {
     cap: Number(process.env.FANTASY_CAP ?? 30),
     rosterSize: Number(process.env.ROSTER_SIZE ?? 5),
-    israelU21TeamId: 1015,
+    currentSeason: Number(process.env.NEXT_PUBLIC_CURRENT_SEASON ?? process.env.CURRENT_SEASON ?? 71),
+    israelU21TeamId: Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015),
   },
 } as const;

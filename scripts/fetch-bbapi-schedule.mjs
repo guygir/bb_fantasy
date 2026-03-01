@@ -12,8 +12,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const BASE = "http://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
-const TEAM_ID = 1015;
-const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : 71;
+const TEAM_ID = Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015);
+const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : Number(process.env.CURRENT_SEASON ?? 71);
 
 function parseCookies(setCookie) {
   if (!setCookie) return [];

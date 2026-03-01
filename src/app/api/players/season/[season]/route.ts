@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { getPlayersWithDetails } from "@/lib/players";
+import { hasFantasyData, getPlayersFromSupabase } from "@/lib/fantasy-db";
+import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -8,9 +10,18 @@ export async function GET(
   { params }: { params: Promise<{ season: string }> }
 ) {
   const { season } = await params;
-  const seasonNum = parseInt(season, 10) || 71;
+  const seasonNum = parseInt(season, 10) || config.game.currentSeason;
 
   try {
+    if (await hasFantasyData(seasonNum)) {
+      const players = await getPlayersFromSupabase(seasonNum);
+      if (players) {
+        return NextResponse.json({
+          meta: { season: seasonNum, source: "supabase" },
+          players,
+        });
+      }
+    }
     const players = await getPlayersWithDetails(seasonNum);
     return NextResponse.json({
       meta: { season: seasonNum, source: "stats+bbapi" },

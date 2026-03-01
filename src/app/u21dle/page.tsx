@@ -64,25 +64,42 @@ export default function U21dlePage() {
       });
   }, []);
 
-  // Load saved state from localStorage
+  // Load saved state from localStorage (verify with server if game over - puzzle may have been overwritten)
   useEffect(() => {
     if (!puzzleDate) return;
     const key = `u21dle_${puzzleDate}`;
-    try {
-      const saved = localStorage.getItem(key);
-      if (saved) {
+    let cancelled = false;
+    (async () => {
+      try {
+        const saved = localStorage.getItem(key);
+        if (!saved) return;
         const { guesses, gameOver: go, won: w, elapsed, answer: a } = JSON.parse(saved);
-        if (Array.isArray(guesses) && guesses.length > 0) {
+        if (!Array.isArray(guesses) || guesses.length === 0) return;
+        // If game over with answer, verify it's still correct (puzzle may have been overwritten in DB)
+        if (go && a?.playerId) {
+          const res = await fetch(
+            `/api/u21dle/verify?date=${encodeURIComponent(puzzleDate)}&playerId=${a.playerId}`
+          );
+          const { valid } = (await res.json()) as { valid?: boolean };
+          if (!valid && !cancelled) {
+            localStorage.removeItem(key);
+            return; // Don't restore stale state
+          }
+        }
+        if (!cancelled) {
           setGuessHistory(guesses);
           setGameOver(go ?? false);
           setWon(w ?? false);
           if (elapsed != null) setElapsedTime(elapsed);
           if (a) setAnswer(a);
         }
+      } catch {
+        // ignore
       }
-    } catch {
-      // ignore
-    }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [puzzleDate]);
 
   // Save state to localStorage

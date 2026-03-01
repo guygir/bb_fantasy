@@ -1,0 +1,855 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bbapi version='1'>
+    <match id='83294' retrieved='2026-03-01T16:57:50Z' type='nt.friendly'>
+        <neutral>0</neutral>        
+        <startTime>2026-01-26T15:55:00Z</startTime>
+        <endTime>2026-01-26T17:37:12Z</endTime>
+        <effortDelta>0</effortDelta>
+        <attendance>
+            <bleachers>16046</bleachers>
+            <lowerTier>7089</lowerTier>
+            <courtside>500</courtside>
+            <luxury>47</luxury>
+        </attendance>
+        <awayTeam id='1036'>
+            <teamName>Bulgaria U21</teamName>
+            <shortName></shortName>
+            <score partials='30,21,20,17'>88</score>
+            <offStrategy>Base</offStrategy>
+            <defStrategy>ManToMan</defStrategy>
+            
+            <boxscore>
+                
+                <player id='54849986'>
+                    <firstName>Kiril</firstName>
+                    <lastName>Oprov</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>36</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>8</fgm>
+                        <fga>20</fga>
+                        <tpm>2</tpm>
+                        <tpa>8</tpa>
+                        <ftm>0</ftm>
+                        <fta>4</fta>
+                        <oreb>0</oreb>
+                        <reb>3</reb>
+                        <ast>4</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>2</pf>
+                        <pts>18</pts>
+                        <rating>10</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54463216'>
+                    <firstName>Dancho</firstName>
+                    <lastName>Chelibeev</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>33</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>6</fgm>
+                        <fga>14</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>1</ftm>
+                        <fta>1</fta>
+                        <oreb>2</oreb>
+                        <reb>13</reb>
+                        <ast>2</ast>
+                        <to>2</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>5</pf>
+                        <pts>13</pts>
+                        <rating>11</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54540310'>
+                    <firstName>Baha</firstName>
+                    <lastName>Çigin</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>33</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>5</fgm>
+                        <fga>15</fga>
+                        <tpm>2</tpm>
+                        <tpa>3</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>1</oreb>
+                        <reb>4</reb>
+                        <ast>2</ast>
+                        <to>2</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>1</pf>
+                        <pts>12</pts>
+                        <rating>8</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54463268'>
+                    <firstName>Dimitar</firstName>
+                    <lastName>Raykovski</lastName>
+                    <minutes>
+                        <PG>24</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>3</fgm>
+                        <fga>6</fga>
+                        <tpm>2</tpm>
+                        <tpa>2</tpa>
+                        <ftm>4</ftm>
+                        <fta>4</fta>
+                        <oreb>0</oreb>
+                        <reb>0</reb>
+                        <ast>4</ast>
+                        <to>3</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>3</pf>
+                        <pts>12</pts>
+                        <rating>9.5</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54775008'>
+                    <firstName>Sebat</firstName>
+                    <lastName>Akintürk</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>12</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>4</fgm>
+                        <fga>6</fga>
+                        <tpm>2</tpm>
+                        <tpa>2</tpa>
+                        <ftm>1</ftm>
+                        <fta>2</fta>
+                        <oreb>0</oreb>
+                        <reb>3</reb>
+                        <ast>0</ast>
+                        <to>1</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>1</pf>
+                        <pts>11</pts>
+                        <rating>11.5</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54463097'>
+                    <firstName>Kiril</firstName>
+                    <lastName>Vúndev</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>15</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>3</fgm>
+                        <fga>6</fga>
+                        <tpm>1</tpm>
+                        <tpa>1</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>2</oreb>
+                        <reb>4</reb>
+                        <ast>0</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>0</pf>
+                        <pts>7</pts>
+                        <rating>9.5</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54463195'>
+                    <firstName>Georgi</firstName>
+                    <lastName>Benov</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>34</C>
+                    </minutes>
+                    <performance>
+                        <fgm>1</fgm>
+                        <fga>9</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>3</ftm>
+                        <fta>4</fta>
+                        <oreb>3</oreb>
+                        <reb>6</reb>
+                        <ast>3</ast>
+                        <to>2</to>
+                        <stl>0</stl>
+                        <blk>1</blk>
+                        <pf>2</pf>
+                        <pts>5</pts>
+                        <rating>9</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54463215'>
+                    <firstName>Angel</firstName>
+                    <lastName>Mollov</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>15</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>1</fgm>
+                        <fga>3</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>2</ftm>
+                        <fta>4</fta>
+                        <oreb>0</oreb>
+                        <reb>7</reb>
+                        <ast>0</ast>
+                        <to>2</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>0</pf>
+                        <pts>4</pts>
+                        <rating>10</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54774929'>
+                    <firstName>Vasil</firstName>
+                    <lastName>Lyondev</lastName>
+                    <minutes>
+                        <PG>23</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>1</fgm>
+                        <fga>4</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>1</ftm>
+                        <fta>2</fta>
+                        <oreb>0</oreb>
+                        <reb>1</reb>
+                        <ast>7</ast>
+                        <to>1</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>2</pf>
+                        <pts>3</pts>
+                        <rating>10</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54774891'>
+                    <firstName>Slavcho</firstName>
+                    <lastName>Dimitrov</lastName>
+                    <minutes>
+                        <PG>1</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>0</fgm>
+                        <fga>1</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>2</ftm>
+                        <fta>3</fta>
+                        <oreb>0</oreb>
+                        <reb>0</reb>
+                        <ast>0</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>0</pf>
+                        <pts>2</pts>
+                        <rating>N/A</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54774912'>
+                    <firstName>Metodi</firstName>
+                    <lastName>Sedlarski</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>14</C>
+                    </minutes>
+                    <performance>
+                        <fgm>0</fgm>
+                        <fga>5</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>1</ftm>
+                        <fta>2</fta>
+                        <oreb>2</oreb>
+                        <reb>5</reb>
+                        <ast>1</ast>
+                        <to>1</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>1</pf>
+                        <pts>1</pts>
+                        <rating>7.5</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54852986'>
+                    <firstName>Genko</firstName>
+                    <lastName>Karaneshev</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>0</fgm>
+                        <fga>0</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>0</oreb>
+                        <reb>0</reb>
+                        <ast>0</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>0</pf>
+                        <pts>0</pts>
+                        <rating>N/A</rating>
+                        <dnp/>
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <teamTotals>
+                    <fgm>32</fgm>
+                    <fga>89</fga>
+                    <tpm>9</tpm>
+                    <tpa>20</tpa>
+                    <ftm>15</ftm>
+                    <fta>26</fta>
+                    <oreb>10</oreb>
+                    <reb>46</reb>
+                    <ast>23</ast>
+                    <to>14</to>
+                    <stl>4</stl>
+                    <blk>1</blk>
+                    <pf>17</pf>
+                    <pts>88</pts>
+                </teamTotals>
+            </boxscore>
+            <ratings>
+                <outsideScoring>7</outsideScoring>
+                <insideScoring>7.3</insideScoring>
+                <outsideDefense>4.6</outsideDefense>
+                <insideDefense>6.6</insideDefense>
+                <rebounding>3.6</rebounding>
+                <offensiveFlow>5.6</offensiveFlow>
+            </ratings>
+            
+            <efficiency>
+                <PG>94.1</PG>
+                <SG>101.7</SG>
+                <SF>100.2</SF>
+                <PF>101.8</PF>
+                <C>79</C>
+            </efficiency>
+            
+            <gdp>
+                <focus>N/A</focus>
+                <pace>N/A</pace>
+            </gdp>
+        </awayTeam>
+        <homeTeam id='1015'>
+            <teamName>Israel U21</teamName>
+            <shortName></shortName>
+            <score partials='33,26,34,22'>115</score>
+            <offStrategy>Push</offStrategy>
+            <defStrategy>ManToMan</defStrategy>
+            
+            <boxscore>
+                
+                <player id='54410032'>
+                    <firstName>Nir</firstName>
+                    <lastName>Itshaki</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>25</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>10</fgm>
+                        <fga>14</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>2</ftm>
+                        <fta>3</fta>
+                        <oreb>3</oreb>
+                        <reb>11</reb>
+                        <ast>0</ast>
+                        <to>1</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>0</pf>
+                        <pts>22</pts>
+                        <rating>14</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54410171'>
+                    <firstName>Yakir</firstName>
+                    <lastName>Tadasa</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>9</SF>
+                        <PF>21</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>8</fgm>
+                        <fga>14</fga>
+                        <tpm>2</tpm>
+                        <tpa>4</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>1</oreb>
+                        <reb>9</reb>
+                        <ast>1</ast>
+                        <to>3</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>4</pf>
+                        <pts>18</pts>
+                        <rating>12</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54409731'>
+                    <firstName>Rei</firstName>
+                    <lastName>Vardi</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>27</SG>
+                        <SF>1</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>6</fgm>
+                        <fga>16</fga>
+                        <tpm>3</tpm>
+                        <tpa>6</tpa>
+                        <ftm>3</ftm>
+                        <fta>4</fta>
+                        <oreb>0</oreb>
+                        <reb>1</reb>
+                        <ast>2</ast>
+                        <to>0</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>4</pf>
+                        <pts>18</pts>
+                        <rating>12.5</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54410208'>
+                    <firstName>Zohar</firstName>
+                    <lastName>Teper</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>1</SG>
+                        <SF>19</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>5</fgm>
+                        <fga>9</fga>
+                        <tpm>2</tpm>
+                        <tpa>3</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>0</oreb>
+                        <reb>7</reb>
+                        <ast>0</ast>
+                        <to>0</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>1</pf>
+                        <pts>12</pts>
+                        <rating>11.5</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54409873'>
+                    <firstName>Moran</firstName>
+                    <lastName>Drukman</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>25</C>
+                    </minutes>
+                    <performance>
+                        <fgm>5</fgm>
+                        <fga>9</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>2</oreb>
+                        <reb>7</reb>
+                        <ast>3</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>1</blk>
+                        <pf>2</pf>
+                        <pts>10</pts>
+                        <rating>12.5</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54410203'>
+                    <firstName>Lahav</firstName>
+                    <lastName>Scheyer</lastName>
+                    <minutes>
+                        <PG>24</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>5</fgm>
+                        <fga>12</fga>
+                        <tpm>0</tpm>
+                        <tpa>2</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>0</oreb>
+                        <reb>1</reb>
+                        <ast>4</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>2</pf>
+                        <pts>10</pts>
+                        <rating>11</rating>
+                        
+                    </performance>
+                    <isStarter>True</isStarter>
+                </player>
+                
+                <player id='54721451'>
+                    <firstName>Menachem</firstName>
+                    <lastName>Chay</lastName>
+                    <minutes>
+                        <PG>2</PG>
+                        <SG>3</SG>
+                        <SF>8</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>4</fgm>
+                        <fga>6</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>0</oreb>
+                        <reb>2</reb>
+                        <ast>1</ast>
+                        <to>0</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>1</pf>
+                        <pts>8</pts>
+                        <rating>12</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54410077'>
+                    <firstName>Shaked</firstName>
+                    <lastName>Tzalik</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>10</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>2</fgm>
+                        <fga>3</fga>
+                        <tpm>1</tpm>
+                        <tpa>2</tpa>
+                        <ftm>2</ftm>
+                        <fta>2</fta>
+                        <oreb>1</oreb>
+                        <reb>1</reb>
+                        <ast>0</ast>
+                        <to>1</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>1</pf>
+                        <pts>7</pts>
+                        <rating>11.5</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54409712'>
+                    <firstName>Chen</firstName>
+                    <lastName>Manning</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>21</C>
+                    </minutes>
+                    <performance>
+                        <fgm>2</fgm>
+                        <fga>5</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>0</ftm>
+                        <fta>2</fta>
+                        <oreb>5</oreb>
+                        <reb>11</reb>
+                        <ast>4</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>1</blk>
+                        <pf>4</pf>
+                        <pts>4</pts>
+                        <rating>12.5</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54409913'>
+                    <firstName>Gil</firstName>
+                    <lastName>Besserman</lastName>
+                    <minutes>
+                        <PG>22</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>0</fgm>
+                        <fga>3</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>3</ftm>
+                        <fta>4</fta>
+                        <oreb>0</oreb>
+                        <reb>2</reb>
+                        <ast>6</ast>
+                        <to>0</to>
+                        <stl>1</stl>
+                        <blk>0</blk>
+                        <pf>2</pf>
+                        <pts>3</pts>
+                        <rating>11</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54721671'>
+                    <firstName>Barak</firstName>
+                    <lastName>Chermon</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>0</SG>
+                        <SF>0</SF>
+                        <PF>1</PF>
+                        <C>2</C>
+                    </minutes>
+                    <performance>
+                        <fgm>1</fgm>
+                        <fga>1</fga>
+                        <tpm>0</tpm>
+                        <tpa>0</tpa>
+                        <ftm>0</ftm>
+                        <fta>0</fta>
+                        <oreb>0</oreb>
+                        <reb>0</reb>
+                        <ast>0</ast>
+                        <to>0</to>
+                        <stl>0</stl>
+                        <blk>0</blk>
+                        <pf>0</pf>
+                        <pts>2</pts>
+                        <rating>-504</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <player id='54410317'>
+                    <firstName>Abbott</firstName>
+                    <lastName>Mufid</lastName>
+                    <minutes>
+                        <PG>0</PG>
+                        <SG>17</SG>
+                        <SF>1</SF>
+                        <PF>0</PF>
+                        <C>0</C>
+                    </minutes>
+                    <performance>
+                        <fgm>0</fgm>
+                        <fga>9</fga>
+                        <tpm>0</tpm>
+                        <tpa>1</tpa>
+                        <ftm>1</ftm>
+                        <fta>2</fta>
+                        <oreb>0</oreb>
+                        <reb>3</reb>
+                        <ast>8</ast>
+                        <to>1</to>
+                        <stl>1</stl>
+                        <blk>1</blk>
+                        <pf>1</pf>
+                        <pts>1</pts>
+                        <rating>12</rating>
+                        
+                    </performance>
+                    <isStarter>False</isStarter>
+                </player>
+                
+                <teamTotals>
+                    <fgm>48</fgm>
+                    <fga>101</fga>
+                    <tpm>8</tpm>
+                    <tpa>20</tpa>
+                    <ftm>11</ftm>
+                    <fta>17</fta>
+                    <oreb>12</oreb>
+                    <reb>55</reb>
+                    <ast>29</ast>
+                    <to>6</to>
+                    <stl>6</stl>
+                    <blk>3</blk>
+                    <pf>22</pf>
+                    <pts>115</pts>
+                </teamTotals>
+            </boxscore>
+            <ratings>
+                <outsideScoring>6.6</outsideScoring>
+                <insideScoring>8.6</insideScoring>
+                <outsideDefense>7.3</outsideDefense>
+                <insideDefense>8.3</insideDefense>
+                <rebounding>5.3</rebounding>
+                <offensiveFlow>6.6</offensiveFlow>
+            </ratings>
+            
+            <efficiency>
+                <PG>116.3</PG>
+                <SG>126.6</SG>
+                <SF>125.1</SF>
+                <PF>133.4</PF>
+                <C>108.9</C>
+            </efficiency>
+            
+            <gdp>
+                <focus>N/A</focus>
+                <pace>N/A</pace>
+            </gdp>
+        </homeTeam>    
+    </match>
+</bbapi>

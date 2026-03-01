@@ -1,0 +1,35 @@
+name: Fantasy Weekly Sync
+
+on:
+  schedule:
+    # Run daily at 02:00 UTC (after typical game days; catches new boxscores)
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season number (default 71)"
+        required: false
+        default: "71"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Fantasy data sync (schedule → boxscores → process → Supabase)
+        env:
+          BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
+          BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          CURRENT_SEASON: ${{ github.event.inputs.season || '71' }}
+        run: |
+          node scripts/fantasy-weekly-sync.mjs ${{ github.event.inputs.season || '71' }}

@@ -177,8 +177,9 @@ export function parseBoxscoreXml(xml: string, teamId: number = config.game.israe
 /**
  * Load all parsed player_game_stats from JSON (written by process-boxscores script).
  */
-export function loadPlayerGameStats(season: number = 71): PlayerGameStat[] {
-  const path = join(process.cwd(), "data", `player_game_stats_s${season}.json`);
+export function loadPlayerGameStats(season?: number): PlayerGameStat[] {
+  const s = season ?? config.game.currentSeason;
+  const path = join(process.cwd(), "data", `player_game_stats_s${s}.json`);
   if (!existsSync(path)) return [];
   try {
     const data = JSON.parse(readFileSync(path, "utf-8"));
@@ -191,8 +192,9 @@ export function loadPlayerGameStats(season: number = 71): PlayerGameStat[] {
 /**
  * Load match scores from JSON (written by process-boxscores script).
  */
-export function loadMatchScores(season: number = 71): Record<string, { homeScore: number; awayScore: number }> {
-  const path = join(process.cwd(), "data", `match_scores_s${season}.json`);
+export function loadMatchScores(season?: number): Record<string, { homeScore: number; awayScore: number }> {
+  const s = season ?? config.game.currentSeason;
+  const path = join(process.cwd(), "data", `match_scores_s${s}.json`);
   if (!existsSync(path)) return {};
   try {
     const data = JSON.parse(readFileSync(path, "utf-8"));

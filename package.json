@@ -10,6 +10,7 @@
     "validate-scoring": "node scripts/validate-scoring.mjs",
     "fetch-schedule": "node scripts/fetch-bbapi-schedule.mjs",
     "fetch-boxscore": "node scripts/fetch-bbapi-boxscore.mjs",
+    "fetch-all-boxscores": "node scripts/fetch-all-boxscores.mjs",
     "fetch-player-details": "node scripts/fetch-player-details.mjs",
     "fetch-player-face": "node scripts/fetch-player-face.mjs",
     "fetch-u21dle-data": "node scripts/fetch-u21dle-data.mjs",
@@ -20,6 +21,8 @@
     "sync-u21dle-faces": "node scripts/sync-u21dle-faces.mjs",
     "process-boxscores": "node scripts/process-boxscores.mjs",
     "update-prices": "node scripts/update-prices.mjs",
+    "sync-fantasy": "node scripts/sync-fantasy-to-supabase.mjs",
+    "fantasy-weekly-sync": "node scripts/fantasy-weekly-sync.mjs",
     "test-bbapi": "node scripts/test-bbapi-login.mjs"
   },
   "dependencies": {

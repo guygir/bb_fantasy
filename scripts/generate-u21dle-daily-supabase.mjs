@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Generate U21dle daily puzzle(s) - writes to Supabase only.
- * Never overwrites existing dates. Uses deterministic hash for new dates.
+ * Never overwrites existing dates. Picks randomly among eligible players.
  *
  * Usage:
  *   node scripts/generate-u21dle-daily-supabase.mjs           # 3 days from now
@@ -26,15 +26,6 @@ const MIN_GP = 8;
 /** Generate for 3 days from now (so you have 3 days notice if cron fails) */
 const DAYS_AHEAD = 3;
 
-function hashString(str) {
-  let h = 0;
-  for (let i = 0; i < str.length; i++) {
-    h = (h << 5) - h + str.charCodeAt(i);
-    h |= 0;
-  }
-  return Math.abs(h);
-}
-
 function toDateStr(d) {
   return d.toISOString().slice(0, 10);
 }
@@ -44,8 +35,9 @@ function getEligiblePlayers() {
   return (data.players || []).filter((p) => p.gp >= MIN_GP);
 }
 
-function pickPlayerForDate(dateStr, eligible) {
-  const idx = hashString(dateStr) % eligible.length;
+/** Pick a random player from eligible pool */
+function pickRandomPlayer(eligible) {
+  const idx = Math.floor(Math.random() * eligible.length);
   return eligible[idx].playerId;
 }
 
@@ -88,7 +80,7 @@ async function main() {
 
   // Fetch existing dates from Supabase
   const { data: existing } = await supabase
-    .from("u21dle_daily")
+    .from("u21dle_puzzles")
     .select("puzzle_date")
     .in("puzzle_date", dates);
   const existingSet = new Set((existing ?? []).map((r) => r.puzzle_date));
@@ -99,9 +91,9 @@ async function main() {
       console.log(`${dateStr} -> (already exists, skipped)`);
       continue;
     }
-    const playerId = pickPlayerForDate(dateStr, eligible);
+    const playerId = pickRandomPlayer(eligible);
     const player = eligible.find((p) => p.playerId === playerId);
-    const { error } = await supabase.from("u21dle_daily").insert({
+    const { error } = await supabase.from("u21dle_puzzles").insert({
       puzzle_date: dateStr,
       player_id: playerId,
     });

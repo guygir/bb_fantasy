@@ -7,6 +7,7 @@ import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { fetchIsraelU21Schedule } from "./bbapi";
 import { loadMatchScores } from "./boxscore";
+import { config } from "./config";
 
 export interface ScheduleMatch {
   id: string;
@@ -56,12 +57,13 @@ function loadScheduleFromJson(season: number): ScheduleMatch[] | null {
   }
 }
 
-export async function getSchedule(season: number = 71): Promise<{
+export async function getSchedule(season?: number): Promise<{
   matches: ScheduleMatch[];
   meta: { season: number; source: "bbapi" | "cache" };
   error?: string;
 }> {
-  const result = await fetchIsraelU21Schedule(season);
+  const s = season ?? config.game.currentSeason;
+  const result = await fetchIsraelU21Schedule(s);
   let matches: ScheduleMatch[] = [];
   let source: "bbapi" | "cache" = "bbapi";
 
@@ -69,7 +71,7 @@ export async function getSchedule(season: number = 71): Promise<{
     matches = parseScheduleXml(result.xml);
   }
   if (matches.length === 0) {
-    const cached = loadScheduleFromJson(season);
+    const cached = loadScheduleFromJson(s);
     if (cached && cached.length > 0) {
       matches = cached;
       source = "cache";
@@ -77,7 +79,7 @@ export async function getSchedule(season: number = 71): Promise<{
   }
 
   // Merge scores from parsed boxscores (run: npm run process-boxscores)
-  const matchScores = loadMatchScores(season);
+  const matchScores = loadMatchScores(s);
   if (Object.keys(matchScores).length > 0) {
     matches = matches.map((m) => {
       const scores = matchScores[m.id];
@@ -95,10 +97,12 @@ export async function getSchedule(season: number = 71): Promise<{
   if (matches.length === 0) {
     return {
       matches: [],
-      meta: { season, source: "bbapi" },
+      meta: { season: s, source: "bbapi" },
       error: result.error ?? "No schedule data available",
     };
   }
 
-  return { matches, meta: { season, source } };
+  matches.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
+
+  return { matches, meta: { season: s, source } };
 }

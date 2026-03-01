@@ -1,7 +1,10 @@
-import { loadPlayerGameStats } from "@/lib/boxscore";
+import { getPlayerGameStats, getUserStandings } from "@/lib/fantasy-db";
+import { config } from "@/lib/config";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
+
+const SEASON = config.game.currentSeason;
 
 interface PlayerFantasyTotal {
   playerId: number;
@@ -31,17 +34,49 @@ function aggregateByPlayer(stats: { playerId: number; name: string; fantasyPoint
 }
 
 export default async function LeaderboardPage() {
-  const stats = loadPlayerGameStats(71);
+  const [stats, userStandings] = await Promise.all([
+    getPlayerGameStats(SEASON),
+    getUserStandings(SEASON),
+  ]);
   const playerTotals = aggregateByPlayer(stats);
 
   return (
     <div>
-      <h2 className="mb-4 text-lg font-semibold">Leaderboard (Season 71)</h2>
+      <h2 className="mb-4 text-lg font-semibold">Leaderboard (Season {SEASON})</h2>
+
+      {userStandings.length > 0 && (
+        <div className="mb-8">
+          <h3 className="mb-2 text-sm font-medium text-gray-600">User Standings</h3>
+          <p className="mb-4 text-sm text-gray-500">
+            Ranked by roster total fantasy points. Sign in and pick your team to join.
+          </p>
+          <div className="overflow-x-auto rounded-lg border border-bb-border">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-card-bg">
+                  <th className="border border-bb-border px-4 py-2 text-left">#</th>
+                  <th className="border border-bb-border px-4 py-2 text-left">User</th>
+                  <th className="border border-bb-border px-4 py-2 text-right">Total FP</th>
+                </tr>
+              </thead>
+              <tbody>
+                {userStandings.map((u) => (
+                  <tr key={u.userId} className="hover:bg-card-bg">
+                    <td className="border border-bb-border px-4 py-2">{u.rank}</td>
+                    <td className="border border-bb-border px-4 py-2 font-medium">{u.nickname}</td>
+                    <td className="border border-bb-border px-4 py-2 text-right">{u.totalFantasyPoints.toFixed(1)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       <div className="mb-8">
         <h3 className="mb-2 text-sm font-medium text-gray-600">Top Fantasy Scorers</h3>
         <p className="mb-4 text-sm text-gray-500">
-          Based on parsed boxscores. Run <code className="rounded bg-gray-100 px-1">npm run process-boxscores 71</code> to refresh.
+          Based on parsed boxscores. Run <code className="rounded bg-gray-100 px-1">npm run process-boxscores {SEASON}</code> to refresh.
         </p>
         {playerTotals.length === 0 ? (
           <p className="text-gray-500">No game stats yet. Fetch boxscores and run process-boxscores.</p>
@@ -79,7 +114,7 @@ export default async function LeaderboardPage() {
         <Link href="/pick" className="text-exact hover:underline font-medium">
           Pick your team
         </Link>{" "}
-          (5 players, $30 cap) to track your fantasy score. Your roster is saved locally in this browser.
+          (5 players, $30 cap) to track your fantasy score. Sign in to save your roster.
         </p>
         <p className="text-sm text-gray-500">
         <Link href="/roster" className="text-exact hover:underline font-medium">

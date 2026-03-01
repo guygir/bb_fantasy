@@ -31,7 +31,7 @@ async function loadDailyFromSupabase(): Promise<Record<string, number>> {
     const { createClient } = await import("@supabase/supabase-js");
     const supabase = createClient(url, key);
     const { data, error } = await supabase
-      .from("u21dle_daily")
+      .from("u21dle_puzzles")
       .select("puzzle_date, player_id");
     if (error) return {};
     const out: Record<string, number> = {};

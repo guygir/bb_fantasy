@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS u21dle_daily (
 -- RLS: anon can read (for game), service_role can insert (for cron)
 ALTER TABLE u21dle_daily ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Allow public read" ON u21dle_daily;
 CREATE POLICY "Allow public read"
   ON u21dle_daily FOR SELECT
   USING (true);

@@ -1,14 +1,17 @@
 import Link from "next/link";
 import type { PlayerWithDetails } from "@/lib/types";
 import { getPlayersWithDetails } from "@/lib/players";
+import { config } from "@/lib/config";
 import { getFaceMtime } from "@/lib/face-mtime";
 import { PlayerAvatar } from "./PlayerAvatar";
 
 export const dynamic = "force-dynamic";
 
+const SEASON = config.game.currentSeason;
+
 async function getPlayers() {
   try {
-    const players = await getPlayersWithDetails(71);
+    const players = await getPlayersWithDetails(SEASON);
     const playersWithFaceMtime = await Promise.all(
       players.map(async (p) => ({
         ...p,
@@ -27,7 +30,7 @@ export default async function PlayersPage() {
   if (error) {
     return (
       <div>
-        <h2 className="mb-4 text-lg font-semibold">Season 71 Players</h2>
+        <h2 className="mb-4 text-lg font-semibold">Season {SEASON} Players</h2>
         <p className="text-red-600">Failed to load: {error}</p>
       </div>
     );
@@ -35,7 +38,7 @@ export default async function PlayersPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-lg font-semibold">Season 71 Players</h2>
+      <h2 className="mb-4 text-lg font-semibold">Season {SEASON} Players</h2>
       <p className="mb-6 text-sm text-gray-600">
         Name, position, DMI, salary (BB), game shape, fantasy price ($), avg rating
       </p>
