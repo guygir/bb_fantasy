@@ -45,7 +45,7 @@ Track progress here. Check off items as completed.
 - [x] **2.1.1** Initialize Next.js project
 - [x] **2.1.2** Set up Supabase project
 - [ ] **2.1.3** Define database schema (players, matches, player_game_stats, etc.)
-- [ ] **2.1.4** Create migration scripts or Supabase SQL
+- [x] **2.1.4** U21dle: supabase/migrations/001_u21dle_daily.sql
 - [ ] **2.1.5** Add TypeScript types for entities
 
 ### 2.2 Data Layer

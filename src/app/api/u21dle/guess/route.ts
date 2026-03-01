@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const currentDate = getCurrentPuzzleDate();
+  const currentDate = await getCurrentPuzzleDate();
   if (!currentDate) {
     return NextResponse.json(
       { success: false, error: "No puzzle available yet. Today's puzzle is coming up shortly!" },
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const dailyPlayer = getDailyPlayer(currentDate);
+  const dailyPlayer = await getDailyPlayer(currentDate);
   if (!dailyPlayer) {
     return NextResponse.json(
       { success: false, error: "Puzzle not found" },

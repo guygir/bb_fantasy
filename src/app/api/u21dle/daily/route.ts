@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
  */
 export async function GET() {
   try {
-    const date = getCurrentPuzzleDate();
+    const date = await getCurrentPuzzleDate();
     if (!date) {
       return NextResponse.json(
         {

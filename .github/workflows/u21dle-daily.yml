@@ -4,13 +4,15 @@ on:
   schedule:
     # Run daily at 00:05 UTC (03:05 Israel summer / 02:05 Israel winter)
     - cron: "5 0 * * *"
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Specific date (YYYY-MM-DD). Leave empty for 3rd next day."
+        required: false
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # Required to push
     steps:
       - uses: actions/checkout@v4
 
@@ -21,17 +23,13 @@ jobs:
 
       - run: npm ci
 
-      - name: Generate daily puzzle
-        run: node scripts/generate-u21dle-daily.mjs
-
-      - name: Commit and push if changed
+      - name: Generate daily puzzle (Supabase)
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet data/u21dle_daily.json; then
-            echo "No changes to u21dle_daily.json"
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            node scripts/generate-u21dle-daily-supabase.mjs "${{ github.event.inputs.date }}"
           else
-            git add data/u21dle_daily.json
-            git commit -m "chore: update U21dle daily puzzle [skip ci]"
-            git push
+            node scripts/generate-u21dle-daily-supabase.mjs
           fi
