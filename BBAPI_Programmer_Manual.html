@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+    <head>
+        <title>BBAPI Programmer&#x2019;s Manual</title>
+    </head>
+    <body>
+        <h1 id="bbapiprogrammersmanual">BBAPI Programmer&#x2019;s Manual</h1>
+        <p>BBAPI allows client applications to access all sorts of data about BuzzerBeater teams wrapped inside formally defined XML containers by issuing a sequence of HTTP GET requests.</p>
+        <h2 id="basics">Basics</h2>
+        <p>The workflow of an application accessing data via BBAPI is as follows:</p>
+        <ul>
+            <li>The client program hits <code>login.aspx</code>, passing the login name and the password of the user.</li>
+            <li>The server sets an authentication cookie, which must be sent with all the following requests (your HTTP client library will usually take care of this part).</li>
+            <li>The client program hits various pages and retrieves the data.</li>
+            <li>The client program hits <code>logout.aspx</code> in order to end the session.</li>
+        </ul>
+        <p>The rest of this document will walk you through the various pages. You can ask for clarifications in the BB App Developers forum. The staff will try to answer to BBAPI-related questions as quick as possible; keep in mind, though, that we cannot guarantee we&#x2019;ll answer programming questions that do not concern BBAPI (we might be busy fixing the site, implementing some new feature or, well, we might not know your language of choice :).</p>
+        <h2 id="pages">Pages</h2>
+        <p>The rest of this document will walk you through the various pages. You can ask for clarifications in the BB App Developers forum.</p>
+        <h3 id="generics">Generics</h3>
+        <h4>Errors</h4>
+        <p>Errors result in pages having the following structure:</p>
+        <pre><code>
+            &lt;?xml version='1.0' encoding='utf-8'?&gt;
+            &lt;bbapi version='1'&gt;
+                &lt;error message='ErrorType'/&gt;
+            &lt;/bbapi&gt;
+        </code></pre>
+        <p>There are two error types that can be returned by every page:</p>
+        <ul>
+            <li><code>ServerError</code>: something unexpected happened on the server side (the database is down, the server is too busy, or the BBAPI pages didn&#x2019;t handle correctly some error condition). If the error persists, you can contact us in the BB App Developers forum.</li>
+            <li><code>NotAuthorized</code>: either you did not authenticate using <code>login.aspx</code>, or provided a wrong login name/security code combination, or your session expired. You should re-authenticate.</li>
+        </ul>
+        <h4 id="dates">Dates</h4>
+        <p>Dates are in the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO standard format</a> for dates, and refer to <em>Coordinated Universal Time</em> (<a href="https://en.wikipedia.org/wiki/UTC">UTC</a>) (<strong>not</strong> to the server time). The format is <code>yyyy-MM-ddThh:mm:ssZ</code> (e.g. <code>2008-06-22T13:12:49Z</code> (<code>T</code> is a separator, <code>Z</code> means that the timestamp refers to UTC).</p>
+        <h4 id="schema">Schema</h4>
+        <p>The format of the XML documents returned by BBAPI is described in a <a href="https://bbapi.buzzerbeater.com/docs/bbapi.rnc">RelaxNG schema</a>. The schema is meant to be self-documenting &#x2014; BuzzerBeater users with a couple of months of in-game experience should be able to recognize the semantics of all the attributes and elements. If clarifications are needed, you can ask for them on the BB App Developers forum.</p>
+        <p>If a document returned by BBAPI does not validate against the schema, it must be considered a serious bug which will be addressed as soon as possible. Backwards compatible changes to the schema (e.g. adding new pages) are possible, and will be announced in the BB App Developers forum.</p>
+        <h4>Base URL</h4>
+        <p>All the BBAPI pages live in the directory <code>http://bbapi.buzzerbeater.com/</code>; for instance, in order to login you should send an HTTP GET request for <code>http://bbapi.buzzerbeater.com/login.aspx?login=yourUserName&amp;code=yourSecurityCode</code></p>
+        <h3 id="login.aspx">login.aspx</h3>
+        <p><strong>Must</strong> be visited at the beginning of each session.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>login</code>: The login name &#x2014; remember to URL-encode it properly!
+            </li>
+            <li><code>code</code>: The read-only password.</li>
+            <li><code>secondteam</code>: If set to 1, will allow access to second team. Does not work with quickinfo.</li>
+            <li><code>quickinfo</code>: If set to 1, returns the contents of this users' TeamInfo
+                page and does not set the authentication cookie (i.e. you can't access other BBAPI pages).
+                Useful if you just want to authenticate against the BB users database without the need to access more data.
+                Defaults to 0.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li><code>NotAuthorized</code>: wrong login name / security code combination.</li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="logout.aspx">logout.aspx</h3>
+        <p>Closes the current session, and invalidates the current authentication cookie.</p>
+        <h4>Parameters</h4>
+        <p>
+            <em>None</em>
+        </p>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="arena.aspx">arena.aspx</h3>
+        <p>Retrieves data about the arena of the specified team, including the number of seats, current and planned prices, and expansion status.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>teamid</code>: If not specified, defaults to the team ID of the current user.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li><code>UnknownTeamID</code>: the specified team ID does not exist.</li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="boxscore.aspx">boxscore.aspx</h3>
+        <p>Retrieves data about the specified match, including team strategies, offensive efficiency measurements and player performances.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>matchid</code>: If not specified, defaults to the last <em>finished</em> game played by the current user.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li><code>UnknownMatchID</code>: the specified match ID does not exist.</li>
+            <li><code>BoxscoreNotAvailable</code>: the match has not been completed yet. Boxscores are usually available immediately after the end of the game, but in some cases there might be a small delay.</li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="economy.aspx">economy.aspx</h3>
+        <p>Retrieves data about the economy situation of the current team. Shows all the economic transactions that took place in the last two weeks, including salaries, transfer incomes/expenses and match revenues.</p>
+        <h4>Parameters</h4>
+        <p>No parameters are needed.</p>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="roster.aspx">roster.aspx</h3>
+        <p>Retrieves informations about the players belonging to the specified team.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>teamid</code>: If not specified, defaults to the team ID of the current user.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>UnknownTeamID</code>
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="player.aspx">player.aspx</h3>
+        <p>Retrieves informations about a player.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>playerid</code>: Mandatory.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>UnknownPlayerID</code>: playerid is either missing or invalid.
+            </li>
+            <li>
+                <code>UnknownStaffID</code>: staffid is either missing or invalid.
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="schedule.aspx">schedule.aspx</h3>
+        <p>Retrieves the list of all the matches scheduled for the specified season, including the score of all the finished games.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>teamid</code>: If not specified, defaults to the team ID of the current user.</li>
+            <li><code>season</code>: If not specified, defaults to the current season.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>UnknownTeamID</code>
+            </li>
+            <li>
+                <code>UnknownSeason</code>
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="seasons.aspx">seasons.aspx</h3>
+        <p>Retrieves a list of all the seasons, including start and finish dates.</p>
+        <h4>Parameters</h4>
+        <p>
+            <em>None</em>
+        </p>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="standings.aspx">standings.aspx</h3>
+        <p>Retrieves the standings of a given league for the specified season, including regular season standings and, if available, results of the playoff games.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>leagueid</code>: If not specified, defaults to the ID of the league the current user is in.</li>
+            <li><code>season</code>: If not specified, defaults to the current season.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>UnknownLeagueID</code>
+            </li>
+            <li>
+                <code>UnknownSeason</code>
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="teaminfo.aspx">teaminfo.aspx</h3>
+        <p>Retrieves basic informations about a team, including its name and the alias of the owner.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>teamid</code>: If not specified, defaults to the team ID of the current user.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>UnknownTeamID</code>
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="teamstats.aspx">teamstats.aspx</h3>
+        <p>Retrieves in-game statistics for a given player in a specified season, including games played and averages.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>teamid</code>: If not specified, defaults to the team ID of the current user.</li>
+            <li><code>season</code>: If not specified, defaults to the current season.</li>
+            <li><code>mode</code>: When set to <code>averages</code>, returns shot percentages and per-game stats;
+                                   when set to <code>totals</code>, returns... well, totals.
+                                   If omitted or incorrectly specified, defaults to <code>averages</code>.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>UnknownTeamID</code>
+            </li>
+            <li>
+                <code>UnknownSeason</code>
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="countries.aspx">countries.aspx</h3>
+        <p>Retrieves the list of all the acrive countries.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <em>None</em>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+        <h3 id="leagues.aspx">leagues.aspx</h3>
+        <p>Retrieves the list of all the leagues at a given level for the specified country.</p>
+        <h4>Parameters</h4>
+        <ul>
+            <li><code>countryid</code>: Mandatory.</li>
+            <li><code>level</code>: Mandatory.</li>
+        </ul>
+        <h4>Errors</h4>
+        <ul>
+            <li>
+                <code>IncorrectParameters</code>: <code>countryid</code> and <code>level</code> are either missing or invalid.
+            </li>
+            <li>
+                <code>NotAuthorized</code>
+            </li>
+            <li>
+                <code>ServerError</code>
+            </li>
+        </ul>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d37602109aebde7',t:'MTc3MjAyNDMyMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

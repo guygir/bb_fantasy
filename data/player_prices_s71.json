@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "season": 71,
+    "updated": "2026-02-25T14:13:19.441Z"
+  },
+  "current": {
+    "54409698": 7,
+    "54409873": 10,
+    "54409913": 10,
+    "54410032": 10,
+    "54410077": 10,
+    "54410171": 6,
+    "54410203": 10,
+    "54410208": 7,
+    "54410269": 2,
+    "54410317": 5,
+    "54721451": 2
+  },
+  "history": {
+    "54409698": [
+      {
+        "playerId": 54409698,
+        "price": 7,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 16.9,
+        "gamesPlayed": 1
+      }
+    ],
+    "54409873": [
+      {
+        "playerId": 54409873,
+        "price": 10,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 27,
+        "gamesPlayed": 1
+      }
+    ],
+    "54409913": [
+      {
+        "playerId": 54409913,
+        "price": 10,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 37.4,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410032": [
+      {
+        "playerId": 54410032,
+        "price": 10,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 32,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410077": [
+      {
+        "playerId": 54410077,
+        "price": 10,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 27.3,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410171": [
+      {
+        "playerId": 54410171,
+        "price": 6,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 14.399999999999999,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410203": [
+      {
+        "playerId": 54410203,
+        "price": 10,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 30.4,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410208": [
+      {
+        "playerId": 54410208,
+        "price": 7,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 17.3,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410269": [
+      {
+        "playerId": 54410269,
+        "price": 2,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 3,
+        "gamesPlayed": 1
+      }
+    ],
+    "54410317": [
+      {
+        "playerId": 54410317,
+        "price": 5,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 12.4,
+        "gamesPlayed": 1
+      }
+    ],
+    "54721451": [
+      {
+        "playerId": 54721451,
+        "price": 2,
+        "effectiveFrom": "2026-02-25",
+        "fantasyPPG": 2.2,
+        "gamesPlayed": 1
+      }
+    ]
+  }
+}

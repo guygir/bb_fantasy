@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "source": "https://buzzerbeater.com/country/15/jnt/schedule.aspx?season=70",
+    "fetched": "2025-02-25",
+    "season": 70,
+    "description": "Israel U21 Season 70 schedule. Match IDs not on schedule page - get from standings or BBAPI schedule.aspx"
+  },
+  "matches": [
+    {
+      "date": "2025-10-20",
+      "away": "Costa Rica U21",
+      "home": "Israel U21",
+      "location": "Hong Kong",
+      "type": "SC",
+      "matchId": null
+    },
+    {
+      "date": "2025-10-27",
+      "away": "Israel U21",
+      "home": "Hayastan U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-11-03",
+      "away": "England U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-11-10",
+      "away": "Israel U21",
+      "home": "Ireland U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-11-17",
+      "away": "Slovenija U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-11-24",
+      "away": "Luxembourg U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-12-01",
+      "away": "Israel U21",
+      "home": "Ukraina U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-12-08",
+      "away": "Makedonija U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-12-15",
+      "away": "Israel U21",
+      "home": "Belgium U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-12-22",
+      "away": "Bosna i Hercegovina U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2025-12-29",
+      "away": "Rossiya U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2026-01-05",
+      "away": "Hellas U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2026-01-12",
+      "away": "Israel U21",
+      "home": "España U21",
+      "location": "Deutschland",
+      "type": "qualifier",
+      "matchId": null
+    },
+    {
+      "date": "2026-01-16",
+      "away": "Lietuva U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "SF",
+      "matchId": null
+    },
+    {
+      "date": "2026-01-19",
+      "away": "Italia U21",
+      "home": "Israel U21",
+      "location": "Deutschland",
+      "type": "F",
+      "matchId": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bbapi version='1'>
+    <player id='54410032' owner='147845' retrieved='2026-02-25T14:04:23Z'>
+        <firstName>Nir</firstName>
+        <lastName>Itshaki</lastName>
+        <nationality id='15'>Israel</nationality>
+        <age>21</age>
+        <height>86</height>
+        <dmi>3732500</dmi>
+        
+        <jersey>0</jersey>
+        <salary>168596</salary>
+        <bestPosition>C</bestPosition>
+        
+        <seasonDrafted>67</seasonDrafted>
+        <leagueDrafted>1019</leagueDrafted>
+        <teamDrafted>92556</teamDrafted>
+        <draftPick>4</draftPick>
+        <forSale>0</forSale>
+        
+        <skills>
+            <gameShape>9</gameShape>
+            <potential>10</potential>
+            
+        </skills>
+    </player>
+</bbapi>

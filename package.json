@@ -1,0 +1,40 @@
+{
+  "name": "bb-fantasy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "validate-scoring": "node scripts/validate-scoring.mjs",
+    "fetch-schedule": "node scripts/fetch-bbapi-schedule.mjs",
+    "fetch-boxscore": "node scripts/fetch-bbapi-boxscore.mjs",
+    "fetch-player-details": "node scripts/fetch-player-details.mjs",
+    "fetch-player-face": "node scripts/fetch-player-face.mjs",
+    "fetch-u21dle-data": "node scripts/fetch-u21dle-data.mjs",
+    "generate-u21dle-daily": "node scripts/generate-u21dle-daily.mjs",
+    "sync-roster-faces": "node scripts/sync-roster-faces.mjs",
+    "sync-u21dle-faces": "node scripts/sync-u21dle-faces.mjs",
+    "process-boxscores": "node scripts/process-boxscores.mjs",
+    "update-prices": "node scripts/update-prices.mjs",
+    "test-bbapi": "node scripts/test-bbapi-login.mjs"
+  },
+  "dependencies": {
+    "next": "14.2.18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.18",
+    "postcss": "^8",
+    "puppeteer": "^24.37.5",
+    "tailwindcss": "^3",
+    "typescript": "^5"
+  }
+}

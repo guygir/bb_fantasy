@@ -1,0 +1,1687 @@
+{
+  "meta": {
+    "source": "buzzerbeater.com/country/1015/nt/stats.aspx?season=60-70",
+    "fetched": "2026-03-01T09:09:57.785Z",
+    "seasons": [
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70
+    ],
+    "trophySeasons": [
+      62,
+      68,
+      70
+    ],
+    "heightUnit": "cm"
+  },
+  "players": [
+    {
+      "playerId": 50761809,
+      "name": "Anatoly Timoshenkov",
+      "gp": 15,
+      "pts": 8.7,
+      "age": 28,
+      "height": 213,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761480,
+      "name": "Shaul Maman",
+      "gp": 15,
+      "pts": 15.3,
+      "age": 32,
+      "height": 191,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761524,
+      "name": "Itamar Sinai",
+      "gp": 15,
+      "pts": 16.5,
+      "age": 32,
+      "height": 196,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761108,
+      "name": "Alon Amir",
+      "gp": 14,
+      "pts": 15.3,
+      "age": 32,
+      "height": 183,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761368,
+      "name": "Gadi Navon",
+      "gp": 12,
+      "pts": 10.9,
+      "age": 32,
+      "height": 213,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761265,
+      "name": "Andrey Golovanov",
+      "gp": 15,
+      "pts": 10.9,
+      "age": 32,
+      "height": 196,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 51080927,
+      "name": "Tal Sarusi",
+      "gp": 11,
+      "pts": 5.4,
+      "age": 32,
+      "height": 213,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761195,
+      "name": "Efi Kisos",
+      "gp": 12,
+      "pts": 6.3,
+      "age": 32,
+      "height": 206,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761356,
+      "name": "Aharon Shmilovich",
+      "gp": 14,
+      "pts": 3.6,
+      "age": 32,
+      "height": 201,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 51081177,
+      "name": "Mark Hutchison",
+      "gp": 8,
+      "pts": 2.1,
+      "age": 32,
+      "height": 208,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 50889820,
+      "name": "Elchanan Neeman",
+      "gp": 5,
+      "pts": 5.4,
+      "age": 32,
+      "height": 226,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761731,
+      "name": "Meidan Ashkenazi",
+      "gp": 5,
+      "pts": 3.2,
+      "age": 32,
+      "height": 185,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761912,
+      "name": "Michael Kalderon",
+      "gp": 5,
+      "pts": 2.6,
+      "age": 31,
+      "height": 208,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761087,
+      "name": "Avishay Karpenko",
+      "gp": 5,
+      "pts": 0.8,
+      "age": 32,
+      "height": 211,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761685,
+      "name": "Charlie Mace",
+      "gp": 5,
+      "pts": 4.2,
+      "age": 32,
+      "height": 193,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761855,
+      "name": "Shay Greenfeld",
+      "gp": 6,
+      "pts": 5.2,
+      "age": 32,
+      "height": 191,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 50761254,
+      "name": "Ben Bregman",
+      "gp": 5,
+      "pts": 4.2,
+      "age": 32,
+      "height": 185,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 51080777,
+      "name": "Din Geisler",
+      "gp": 1,
+      "pts": 0,
+      "age": 32,
+      "height": 191,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 51080756,
+      "name": "Oran Gadesh",
+      "gp": 12,
+      "pts": 16,
+      "age": 31,
+      "height": 191,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 51080896,
+      "name": "Bar Eiger",
+      "gp": 12,
+      "pts": 10.6,
+      "age": 31,
+      "height": 185,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 51080700,
+      "name": "Efrayim Goldberg",
+      "gp": 12,
+      "pts": 15,
+      "age": 31,
+      "height": 201,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 51398840,
+      "name": "Amit Topaz",
+      "gp": 27,
+      "pts": 8.54814814814815,
+      "age": 23,
+      "height": 216,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 51398698,
+      "name": "Jibril Abu-Alam",
+      "gp": 29,
+      "pts": 9.89310344827586,
+      "age": 30,
+      "height": 211,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51399052,
+      "name": "Elizur Elmakayes",
+      "gp": 25,
+      "pts": 7.715999999999999,
+      "age": 30,
+      "height": 221,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 51081559,
+      "name": "Yehuda Glikstein",
+      "gp": 7,
+      "pts": 8.3,
+      "age": 31,
+      "height": 208,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 51080964,
+      "name": "Eremey Spichkov",
+      "gp": 10,
+      "pts": 7.5,
+      "age": 31,
+      "height": 191,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 51399186,
+      "name": "Tomer Rosenstein",
+      "gp": 25,
+      "pts": 13.08,
+      "age": 30,
+      "height": 183,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 51081324,
+      "name": "Silvan Zfadia",
+      "gp": 7,
+      "pts": 5.9,
+      "age": 31,
+      "height": 213,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 51399167,
+      "name": "Eyal Granot",
+      "gp": 17,
+      "pts": 5.164705882352941,
+      "age": 30,
+      "height": 213,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 51081097,
+      "name": "Evyatar Hofman",
+      "gp": 8,
+      "pts": 4.4,
+      "age": 31,
+      "height": 191,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 51209806,
+      "name": "Avinoam Noyman",
+      "gp": 9,
+      "pts": 5.6,
+      "age": 31,
+      "height": 191,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 51081400,
+      "name": "Ofri Sarusi",
+      "gp": 4,
+      "pts": 3.2,
+      "age": 31,
+      "height": 213,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 51398677,
+      "name": "Shimi Schwartz",
+      "gp": 16,
+      "pts": 12.799999999999999,
+      "age": 30,
+      "height": 185,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51081209,
+      "name": "Or Sharf",
+      "gp": 2,
+      "pts": 6.5,
+      "age": 31,
+      "height": 183,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 51399111,
+      "name": "Elishay Rivlin",
+      "gp": 17,
+      "pts": 14.470588235294118,
+      "age": 30,
+      "height": 185,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51526491,
+      "name": "Yefet Mosinzon",
+      "gp": 15,
+      "pts": 8.986666666666668,
+      "age": 30,
+      "height": 196,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718613,
+      "name": "Carmel Eshel",
+      "gp": 2,
+      "pts": 2.5,
+      "age": 30,
+      "height": 188,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 51080758,
+      "name": "Dov Katzburg",
+      "gp": 1,
+      "pts": 12,
+      "age": 31,
+      "height": 196,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 51398714,
+      "name": "Eido Meria",
+      "gp": 14,
+      "pts": 6.214285714285714,
+      "age": 30,
+      "height": 201,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 51398810,
+      "name": "Chaim Azrieli",
+      "gp": 7,
+      "pts": 3.5714285714285716,
+      "age": 30,
+      "height": 201,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 51398727,
+      "name": "Yakir Agadi",
+      "gp": 9,
+      "pts": 3.644444444444444,
+      "age": 30,
+      "height": 193,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 51398910,
+      "name": "Eilon Ben-Chaim",
+      "gp": 14,
+      "pts": 5.085714285714286,
+      "age": 30,
+      "height": 208,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718817,
+      "name": "Rahav Kashani",
+      "gp": 24,
+      "pts": 18.14166666666667,
+      "age": 29,
+      "height": 185,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718764,
+      "name": "Adir Hacohen",
+      "gp": 22,
+      "pts": 14.009090909090908,
+      "age": 29,
+      "height": 183,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718828,
+      "name": "Shimshon Arbel",
+      "gp": 4,
+      "pts": 2.2,
+      "age": 30,
+      "height": 213,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 52086487,
+      "name": "Oz Birok",
+      "gp": 23,
+      "pts": 7.434782608695652,
+      "age": 28,
+      "height": 216,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 52086365,
+      "name": "Vladimir Pervukhin",
+      "gp": 28,
+      "pts": 10.332142857142857,
+      "age": 24,
+      "height": 216,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 52086347,
+      "name": "Yogev Zadok",
+      "gp": 26,
+      "pts": 7.661538461538461,
+      "age": 28,
+      "height": 206,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718511,
+      "name": "Chagai Rashkovski",
+      "gp": 12,
+      "pts": 5.875,
+      "age": 29,
+      "height": 188,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718568,
+      "name": "Rotem Kline",
+      "gp": 13,
+      "pts": 15.399999999999999,
+      "age": 29,
+      "height": 183,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 51399019,
+      "name": "Chagai Rothschild",
+      "gp": 2,
+      "pts": 2,
+      "age": 30,
+      "height": 208,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 52086317,
+      "name": "Oran Sapir",
+      "gp": 25,
+      "pts": 7.791999999999999,
+      "age": 28,
+      "height": 218,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 51718590,
+      "name": "Chanan Noam",
+      "gp": 11,
+      "pts": 7.2,
+      "age": 29,
+      "height": 185,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 51718718,
+      "name": "Yosi Hadad",
+      "gp": 10,
+      "pts": 5.9,
+      "age": 29,
+      "height": 193,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 51718545,
+      "name": "Chaim Goren",
+      "gp": 8,
+      "pts": 4.8,
+      "age": 29,
+      "height": 193,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086468,
+      "name": "Guy Surani",
+      "gp": 20,
+      "pts": 3.45,
+      "age": 26,
+      "height": 208,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086147,
+      "name": "Nachum Nissim",
+      "gp": 16,
+      "pts": 15.900000000000002,
+      "age": 28,
+      "height": 185,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086184,
+      "name": "Gilad Pessach",
+      "gp": 16,
+      "pts": 11.625,
+      "age": 27,
+      "height": 193,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52085996,
+      "name": "Shahak Cohen",
+      "gp": 16,
+      "pts": 9.5875,
+      "age": 28,
+      "height": 185,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 51718810,
+      "name": "Asa Chaliba",
+      "gp": 1,
+      "pts": 15,
+      "age": 29,
+      "height": 185,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086377,
+      "name": "Lahav Yair",
+      "gp": 6,
+      "pts": 4.166666666666667,
+      "age": 28,
+      "height": 185,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52085885,
+      "name": "Chanan Milo",
+      "gp": 11,
+      "pts": 11,
+      "age": 28,
+      "height": 185,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086512,
+      "name": "Arbel Nachmias",
+      "gp": 12,
+      "pts": 9.2,
+      "age": 28,
+      "height": 206,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52085970,
+      "name": "Eli Gor",
+      "gp": 9,
+      "pts": 12.2,
+      "age": 28,
+      "height": 191,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462205,
+      "name": "Shahak Ozeri",
+      "gp": 22,
+      "pts": 12.263636363636362,
+      "age": 24,
+      "height": 213,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086561,
+      "name": "Amiram Eilat",
+      "gp": 7,
+      "pts": 3.3,
+      "age": 28,
+      "height": 191,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 52085919,
+      "name": "Reuven Tubi",
+      "gp": 4,
+      "pts": 4.2,
+      "age": 28,
+      "height": 206,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52086635,
+      "name": "Danny Bublil",
+      "gp": 3,
+      "pts": 3,
+      "age": 28,
+      "height": 188,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52085923,
+      "name": "Dror Revivo",
+      "gp": 2,
+      "pts": 6.5,
+      "age": 27,
+      "height": 183,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462524,
+      "name": "Uzi Casspi",
+      "gp": 13,
+      "pts": 11.384615384615385,
+      "age": 27,
+      "height": 226,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462469,
+      "name": "Yisgav Lampert",
+      "gp": 14,
+      "pts": 14.2,
+      "age": 27,
+      "height": 188,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462193,
+      "name": "Kfir Burg",
+      "gp": 12,
+      "pts": 12.7,
+      "age": 27,
+      "height": 193,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52593848,
+      "name": "Aviv Limor",
+      "gp": 10,
+      "pts": 17.3,
+      "age": 27,
+      "height": 188,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462741,
+      "name": "Yahav Parann",
+      "gp": 12,
+      "pts": 7.6,
+      "age": 27,
+      "height": 188,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462383,
+      "name": "Oren Yaniv",
+      "gp": 11,
+      "pts": 6.8,
+      "age": 27,
+      "height": 196,
+      "potential": 11,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796590,
+      "name": "Yoav Rozenblat",
+      "gp": 27,
+      "pts": 8.75925925925926,
+      "age": 26,
+      "height": 216,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462099,
+      "name": "Uzi Yaniv",
+      "gp": 9,
+      "pts": 10.4,
+      "age": 27,
+      "height": 193,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462322,
+      "name": "Shlomo Mor-Yossef",
+      "gp": 9,
+      "pts": 4.9,
+      "age": 27,
+      "height": 196,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796503,
+      "name": "Avishay Birok",
+      "gp": 21,
+      "pts": 4.795238095238095,
+      "age": 26,
+      "height": 211,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796213,
+      "name": "Shmulik Shteinfeld",
+      "gp": 9,
+      "pts": 5.777777777777778,
+      "age": 26,
+      "height": 216,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796654,
+      "name": "Nitzan Sharabi",
+      "gp": 15,
+      "pts": 17.486666666666665,
+      "age": 26,
+      "height": 183,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796752,
+      "name": "Netanel Wolf",
+      "gp": 6,
+      "pts": 15.133333333333333,
+      "age": 26,
+      "height": 196,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124506,
+      "name": "Yechezkel Gelberg",
+      "gp": 20,
+      "pts": 9.15,
+      "age": 25,
+      "height": 188,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53125060,
+      "name": "Paz Rossman",
+      "gp": 17,
+      "pts": 1.6117647058823528,
+      "age": 25,
+      "height": 211,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796614,
+      "name": "Musa Yaseen",
+      "gp": 14,
+      "pts": 3.814285714285714,
+      "age": 26,
+      "height": 211,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124556,
+      "name": "Gal Menashe",
+      "gp": 12,
+      "pts": 11.583333333333334,
+      "age": 25,
+      "height": 196,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796410,
+      "name": "Jaber Mustafa",
+      "gp": 5,
+      "pts": 3.8,
+      "age": 26,
+      "height": 198,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124861,
+      "name": "Shmulik Amram",
+      "gp": 13,
+      "pts": 2.923076923076923,
+      "age": 25,
+      "height": 221,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796307,
+      "name": "Eliav Taff",
+      "gp": 14,
+      "pts": 15.085714285714287,
+      "age": 26,
+      "height": 185,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 52462788,
+      "name": "Shay Stauber",
+      "gp": 4,
+      "pts": 1,
+      "age": 27,
+      "height": 216,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796339,
+      "name": "Doron Tishbi",
+      "gp": 9,
+      "pts": 7.2444444444444445,
+      "age": 26,
+      "height": 196,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796878,
+      "name": "Tony Benavidez",
+      "gp": 10,
+      "pts": 11.5,
+      "age": 26,
+      "height": 201,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796427,
+      "name": "Todd Lester",
+      "gp": 7,
+      "pts": 7.1,
+      "age": 26,
+      "height": 196,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796229,
+      "name": "Oshri Klinger",
+      "gp": 7,
+      "pts": 5.4,
+      "age": 26,
+      "height": 196,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796257,
+      "name": "Shalev Bublil",
+      "gp": 5,
+      "pts": 9.8,
+      "age": 26,
+      "height": 208,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 52796883,
+      "name": "Chanan Tadmor",
+      "gp": 3,
+      "pts": 4.7,
+      "age": 26,
+      "height": 208,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53227937,
+      "name": "Eido Shteinfeld",
+      "gp": 5,
+      "pts": 7,
+      "age": 26,
+      "height": 191,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 53465723,
+      "name": "Rotem Kalderon",
+      "gp": 30,
+      "pts": 16.10666666666667,
+      "age": 23,
+      "height": 221,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465934,
+      "name": "Elior Ben-Baruch",
+      "gp": 17,
+      "pts": 13.799999999999999,
+      "age": 24,
+      "height": 185,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53124638,
+      "name": "Liam Katzburg",
+      "gp": 8,
+      "pts": 8.625,
+      "age": 25,
+      "height": 183,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53128378,
+      "name": "Dudi Topaz",
+      "gp": 6,
+      "pts": 5,
+      "age": 25,
+      "height": 183,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 53465673,
+      "name": "Adam Keshet",
+      "gp": 15,
+      "pts": 7.52,
+      "age": 24,
+      "height": 216,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 52796888,
+      "name": "Tzachi Bukovza",
+      "gp": 1,
+      "pts": 7,
+      "age": 26,
+      "height": 201,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124751,
+      "name": "Itzchak Arbel",
+      "gp": 12,
+      "pts": 9.991666666666667,
+      "age": 25,
+      "height": 191,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124863,
+      "name": "Ziv Malichi",
+      "gp": 1,
+      "pts": 2,
+      "age": 25,
+      "height": 208,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124508,
+      "name": "Nadav Giladi",
+      "gp": 2,
+      "pts": 3.5,
+      "age": 25,
+      "height": 203,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124490,
+      "name": "Eilon Levi",
+      "gp": 8,
+      "pts": 8.9,
+      "age": 25,
+      "height": 206,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124545,
+      "name": "Ronen Harel",
+      "gp": 9,
+      "pts": 7.2,
+      "age": 25,
+      "height": 203,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124906,
+      "name": "Oneg Neeman",
+      "gp": 9,
+      "pts": 5.2,
+      "age": 25,
+      "height": 191,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53125075,
+      "name": "Shaked Banin",
+      "gp": 5,
+      "pts": 7,
+      "age": 25,
+      "height": 208,
+      "potential": 9,
+      "trophies": 0
+    },
+    {
+      "playerId": 53465978,
+      "name": "Dov Roderman",
+      "gp": 4,
+      "pts": 13.5,
+      "age": 25,
+      "height": 211,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124493,
+      "name": "Emil Kline",
+      "gp": 7,
+      "pts": 2.6,
+      "age": 25,
+      "height": 191,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 53466042,
+      "name": "Yam Soltz",
+      "gp": 4,
+      "pts": 15,
+      "age": 24,
+      "height": 183,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53124579,
+      "name": "Ron Krumer",
+      "gp": 3,
+      "pts": 6.7,
+      "age": 25,
+      "height": 193,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53465881,
+      "name": "Rei Bar-Sheshet",
+      "gp": 13,
+      "pts": 13.815384615384614,
+      "age": 24,
+      "height": 183,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465751,
+      "name": "Raz Buaron",
+      "gp": 1,
+      "pts": 20,
+      "age": 25,
+      "height": 196,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53465973,
+      "name": "Habib Ibrahim",
+      "gp": 10,
+      "pts": 3.2,
+      "age": 24,
+      "height": 218,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791398,
+      "name": "Yossi Chodorov",
+      "gp": 8,
+      "pts": 6.35,
+      "age": 24,
+      "height": 198,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465869,
+      "name": "Uri Hacohen",
+      "gp": 9,
+      "pts": 9.78888888888889,
+      "age": 24,
+      "height": 191,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465967,
+      "name": "Yossi Shen",
+      "gp": 12,
+      "pts": 12.983333333333334,
+      "age": 24,
+      "height": 193,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 53124614,
+      "name": "Yair Ben-Harush",
+      "gp": 2,
+      "pts": 4.5,
+      "age": 25,
+      "height": 193,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 53595889,
+      "name": "Shimon Banin",
+      "gp": 15,
+      "pts": 7.626666666666667,
+      "age": 24,
+      "height": 183,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 53124720,
+      "name": "Sharon Sadot",
+      "gp": 1,
+      "pts": 7,
+      "age": 25,
+      "height": 185,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53124944,
+      "name": "Uzi Mantsur",
+      "gp": 1,
+      "pts": 10,
+      "age": 25,
+      "height": 208,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 53466027,
+      "name": "Guy Bauer",
+      "gp": 4,
+      "pts": 12.5,
+      "age": 24,
+      "height": 206,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465818,
+      "name": "Sason Atar",
+      "gp": 9,
+      "pts": 1.6888888888888889,
+      "age": 24,
+      "height": 206,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465760,
+      "name": "Armand Starnes",
+      "gp": 4,
+      "pts": 2.0250000000000004,
+      "age": 24,
+      "height": 198,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53466262,
+      "name": "Deddi Karny",
+      "gp": 9,
+      "pts": 4.2,
+      "age": 24,
+      "height": 213,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465907,
+      "name": "Meidan Tadmor",
+      "gp": 10,
+      "pts": 9,
+      "age": 24,
+      "height": 191,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791810,
+      "name": "Ram Twily",
+      "gp": 22,
+      "pts": 9.481818181818182,
+      "age": 23,
+      "height": 211,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465930,
+      "name": "Yishai Kothke",
+      "gp": 6,
+      "pts": 7.5,
+      "age": 24,
+      "height": 185,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791443,
+      "name": "Zvi Mantsur",
+      "gp": 6,
+      "pts": 11.2,
+      "age": 24,
+      "height": 191,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 53465636,
+      "name": "Naim Kashani",
+      "gp": 4,
+      "pts": 10.5,
+      "age": 24,
+      "height": 191,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791514,
+      "name": "Elazar Altman",
+      "gp": 16,
+      "pts": 9.69375,
+      "age": 22,
+      "height": 208,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791553,
+      "name": "Lahav Rossman",
+      "gp": 12,
+      "pts": 5.5,
+      "age": 22,
+      "height": 218,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 53792006,
+      "name": "Ty Beckwith",
+      "gp": 11,
+      "pts": 11.181818181818182,
+      "age": 23,
+      "height": 185,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791481,
+      "name": "Abba Salman Harrani",
+      "gp": 12,
+      "pts": 10.566666666666668,
+      "age": 23,
+      "height": 196,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791411,
+      "name": "Avinoam Drukman",
+      "gp": 13,
+      "pts": 9.553846153846154,
+      "age": 23,
+      "height": 188,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791935,
+      "name": "Amitai Kisos",
+      "gp": 10,
+      "pts": 1.9700000000000002,
+      "age": 23,
+      "height": 221,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 54103080,
+      "name": "Afik Banin",
+      "gp": 28,
+      "pts": 9.775,
+      "age": 22,
+      "height": 183,
+      "potential": 9,
+      "trophies": 2
+    },
+    {
+      "playerId": 54102675,
+      "name": "Omer Maoda",
+      "gp": 10,
+      "pts": 8.290000000000001,
+      "age": 22,
+      "height": 185,
+      "potential": 7,
+      "trophies": 2
+    },
+    {
+      "playerId": 53791461,
+      "name": "Liam Burg",
+      "gp": 11,
+      "pts": 6.7272727272727275,
+      "age": 23,
+      "height": 213,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791715,
+      "name": "Zion Sinay",
+      "gp": 10,
+      "pts": 9.489999999999998,
+      "age": 23,
+      "height": 211,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102673,
+      "name": "Doron Fux",
+      "gp": 19,
+      "pts": 21.53684210526316,
+      "age": 22,
+      "height": 183,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102609,
+      "name": "Ivan Strool",
+      "gp": 8,
+      "pts": 14,
+      "age": 23,
+      "height": 191,
+      "potential": 7,
+      "trophies": 0
+    },
+    {
+      "playerId": 54102494,
+      "name": "Ron Alberman",
+      "gp": 17,
+      "pts": 3.635294117647059,
+      "age": 22,
+      "height": 216,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102602,
+      "name": "Amit Yavin",
+      "gp": 12,
+      "pts": 10.15,
+      "age": 22,
+      "height": 183,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 54103074,
+      "name": "Avigdor Tzalik",
+      "gp": 13,
+      "pts": 11.807692307692308,
+      "age": 22,
+      "height": 208,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791359,
+      "name": "Shalev Katz",
+      "gp": 5,
+      "pts": 4.2,
+      "age": 23,
+      "height": 193,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 54102898,
+      "name": "Silvan Salomon",
+      "gp": 16,
+      "pts": 12.09375,
+      "age": 22,
+      "height": 185,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102520,
+      "name": "Eden Shamgar",
+      "gp": 10,
+      "pts": 6.56,
+      "age": 22,
+      "height": 188,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102399,
+      "name": "Niran Yunger",
+      "gp": 9,
+      "pts": 11.377777777777778,
+      "age": 22,
+      "height": 211,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791515,
+      "name": "Yannay Abu-Hazera",
+      "gp": 2,
+      "pts": 3.5,
+      "age": 23,
+      "height": 188,
+      "potential": 8,
+      "trophies": 0
+    },
+    {
+      "playerId": 54102594,
+      "name": "Ravid Revivo",
+      "gp": 10,
+      "pts": 6.01,
+      "age": 22,
+      "height": 198,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 54409810,
+      "name": "Tobe Lytle",
+      "gp": 8,
+      "pts": 1.6,
+      "age": 22,
+      "height": 216,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 54409923,
+      "name": "Avishay Greenberg",
+      "gp": 7,
+      "pts": 10.571428571428571,
+      "age": 22,
+      "height": 226,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 54409853,
+      "name": "Asa Kuperman",
+      "gp": 9,
+      "pts": 0.8888888888888888,
+      "age": 22,
+      "height": 221,
+      "potential": 7,
+      "trophies": 1
+    },
+    {
+      "playerId": 53791909,
+      "name": "Maayan Chaim",
+      "gp": 1,
+      "pts": 2,
+      "age": 23,
+      "height": 198,
+      "potential": 10,
+      "trophies": 0
+    },
+    {
+      "playerId": 54102533,
+      "name": "Roee Shaharabani",
+      "gp": 3,
+      "pts": 7.666666666666667,
+      "age": 22,
+      "height": 201,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 54410032,
+      "name": "Nir Itshaki",
+      "gp": 11,
+      "pts": 8.5,
+      "age": 21,
+      "height": 218,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 54410056,
+      "name": "Khoury El-Ommar",
+      "gp": 7,
+      "pts": 7.9,
+      "age": 22,
+      "height": 188,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102669,
+      "name": "Sachar Chagag",
+      "gp": 6,
+      "pts": 8.8,
+      "age": 22,
+      "height": 203,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102679,
+      "name": "Elishav Mendelboim",
+      "gp": 4,
+      "pts": 5.5,
+      "age": 22,
+      "height": 201,
+      "potential": 9,
+      "trophies": 1
+    },
+    {
+      "playerId": 54409712,
+      "name": "Chen Manning",
+      "gp": 3,
+      "pts": 3.7,
+      "age": 21,
+      "height": 213,
+      "potential": 10,
+      "trophies": 1
+    },
+    {
+      "playerId": 54410317,
+      "name": "Abbott Mufid",
+      "gp": 1,
+      "pts": 0,
+      "age": 21,
+      "height": 188,
+      "potential": 8,
+      "trophies": 1
+    },
+    {
+      "playerId": 54102645,
+      "name": "Andy Tichon",
+      "gp": 2,
+      "pts": 2,
+      "age": 22,
+      "height": 188,
+      "potential": 10,
+      "trophies": 1
+    }
+  ]
+}

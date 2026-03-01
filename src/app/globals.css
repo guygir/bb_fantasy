@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Responsive base font (Holdemle-style) */
+html {
+  font-size: 87.5%;
+}
+@media (min-width: 640px) {
+  html { font-size: 100%; }
+}
+@media (min-width: 1024px) {
+  html { font-size: 112.5%; }
+}
+
+:root {
+  --color-exact: #6aaa64;
+  --color-high: #f5793a;
+  --color-low: #85c0f9;
+  --color-card-bg: #f6f7f8;
+  --color-border: #d3d6da;
+  --color-text: #1a1a1b;
+}
+
+body {
+  color: var(--color-text);
+  background: #ffffff;
+}

@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "source": "https://buzzerbeater.com/country/15/jnt/stats.aspx?season=71",
+    "fetched": "2025-02-25",
+    "season": 71,
+    "description": "Israel U21 Season 71 - per-game averages"
+  },
+  "players": [
+    {"playerId": 54410203, "name": "Lahav Scheyer", "gp": 5, "min": 31.9, "fgMade": 4.8, "fgAtt": 13.2, "tpMade": 0.2, "tpAtt": 2.8, "ftMade": 1.0, "ftAtt": 1.6, "or": 1.2, "tr": 3.8, "ast": 3.8, "to": 1.2, "stl": 1.4, "blk": 0.2, "pf": 1.0, "pts": 10.8, "rtng": 13.3},
+    {"playerId": 54410032, "name": "Nir Itshaki", "gp": 5, "min": 31.6, "fgMade": 7.6, "fgAtt": 16.0, "tpMade": 0.4, "tpAtt": 1.2, "ftMade": 2.8, "ftAtt": 3.6, "or": 3.6, "tr": 12.8, "ast": 0.4, "to": 2.2, "stl": 0.8, "blk": 1.2, "pf": 0.8, "pts": 18.4, "rtng": 17.2},
+    {"playerId": 54410077, "name": "Shaked Tzalik", "gp": 5, "min": 28.2, "fgMade": 3.8, "fgAtt": 10.0, "tpMade": 0.2, "tpAtt": 1.2, "ftMade": 1.6, "ftAtt": 2.0, "or": 1.8, "tr": 5.8, "ast": 1.8, "to": 1.6, "stl": 1.6, "blk": 0.6, "pf": 1.4, "pts": 9.4, "rtng": 12.8},
+    {"playerId": 54409873, "name": "Moran Drukman", "gp": 5, "min": 25.2, "fgMade": 4.4, "fgAtt": 10.8, "tpMade": 0.0, "tpAtt": 1.2, "ftMade": 1.2, "ftAtt": 2.8, "or": 2.2, "tr": 7.4, "ast": 1.6, "to": 0.4, "stl": 0.4, "blk": 2.2, "pf": 2.0, "pts": 10.0, "rtng": 15.7},
+    {"playerId": 54410317, "name": "Abbott Mufid", "gp": 5, "min": 22.4, "fgMade": 2.8, "fgAtt": 8.6, "tpMade": 0.2, "tpAtt": 1.6, "ftMade": 0.6, "ftAtt": 0.8, "or": 0.8, "tr": 3.6, "ast": 4.6, "to": 1.2, "stl": 1.2, "blk": 0.2, "pf": 0.8, "pts": 6.4, "rtng": 13.3},
+    {"playerId": 54409913, "name": "Gil Besserman", "gp": 5, "min": 20.7, "fgMade": 2.4, "fgAtt": 5.8, "tpMade": 0.4, "tpAtt": 1.6, "ftMade": 2.0, "ftAtt": 2.8, "or": 0.4, "tr": 1.8, "ast": 3.6, "to": 0.4, "stl": 0.8, "blk": 0.8, "pf": 1.4, "pts": 7.2, "rtng": 12.9},
+    {"playerId": 54410171, "name": "Yakir Tadasa", "gp": 4, "min": 23.8, "fgMade": 5.0, "fgAtt": 10.5, "tpMade": 0.5, "tpAtt": 2.0, "ftMade": 0.5, "ftAtt": 0.5, "or": 2.2, "tr": 8.5, "ast": 0.5, "to": 2.0, "stl": 0.0, "blk": 0.5, "pf": 2.5, "pts": 11.0, "rtng": 14.8},
+    {"playerId": 54409712, "name": "Chen Manning", "gp": 2, "min": 29.5, "fgMade": 2.0, "fgAtt": 5.5, "tpMade": 0.0, "tpAtt": 0.0, "ftMade": 0.0, "ftAtt": 1.0, "or": 5.0, "tr": 11.5, "ast": 4.0, "to": 1.0, "stl": 1.5, "blk": 1.5, "pf": 4.5, "pts": 4.0, "rtng": 12.9},
+    {"playerId": 54721451, "name": "Menachem Chay", "gp": 5, "min": 10.2, "fgMade": 2.2, "fgAtt": 4.6, "tpMade": 0.2, "tpAtt": 1.2, "ftMade": 0.4, "ftAtt": 0.4, "or": 0.2, "tr": 1.0, "ast": 0.6, "to": 1.0, "stl": 0.4, "blk": 0.0, "pf": 1.0, "pts": 5.0, "rtng": 13.0},
+    {"playerId": 54410269, "name": "Ronen Shaked", "gp": 2, "min": 22.7, "fgMade": 0.5, "fgAtt": 8.5, "tpMade": 0.5, "tpAtt": 1.5, "ftMade": 0.0, "ftAtt": 0.0, "or": 0.5, "tr": 1.0, "ast": 4.0, "to": 0.0, "stl": 1.0, "blk": 0.0, "pf": 0.5, "pts": 1.5, "rtng": 11.7},
+    {"playerId": 54410208, "name": "Zohar Teper", "gp": 2, "min": 19.9, "fgMade": 3.5, "fgAtt": 8.0, "tpMade": 1.0, "tpAtt": 2.0, "ftMade": 1.0, "ftAtt": 1.0, "or": 0.5, "tr": 6.0, "ast": 0.5, "to": 0.0, "stl": 1.5, "blk": 0.0, "pf": 1.0, "pts": 9.0, "rtng": 12.6},
+    {"playerId": 54409698, "name": "Zion Futeran", "gp": 3, "min": 13.2, "fgMade": 1.7, "fgAtt": 3.7, "tpMade": 0.0, "tpAtt": 0.0, "ftMade": 0.0, "ftAtt": 0.0, "or": 2.3, "tr": 6.3, "ast": 0.0, "to": 1.0, "stl": 0.0, "blk": 0.7, "pf": 1.7, "pts": 3.3, "rtng": 16.6},
+    {"playerId": 54409731, "name": "Rei Vardi", "gp": 2, "min": 18.4, "fgMade": 3.0, "fgAtt": 10.0, "tpMade": 1.5, "tpAtt": 3.5, "ftMade": 1.5, "ftAtt": 2.0, "or": 0.0, "tr": 1.0, "ast": 1.0, "to": 0.0, "stl": 0.5, "blk": 0.0, "pf": 2.5, "pts": 9.0, "rtng": 12.7},
+    {"playerId": 54410116, "name": "Murray Howard", "gp": 2, "min": 9.8, "fgMade": 1.0, "fgAtt": 2.0, "tpMade": 0.0, "tpAtt": 0.5, "ftMade": 1.0, "ftAtt": 1.0, "or": 0.5, "tr": 0.5, "ast": 2.0, "to": 0.0, "stl": 0.0, "blk": 0.0, "pf": 0.0, "pts": 3.0, "rtng": 12.3},
+    {"playerId": 54721671, "name": "Barak Chermon", "gp": 2, "min": 6.7, "fgMade": 0.5, "fgAtt": 1.5, "tpMade": 0.0, "tpAtt": 0.0, "ftMade": 0.5, "ftAtt": 1.0, "or": 0.0, "tr": 1.0, "ast": 0.0, "to": 0.0, "stl": 0.0, "blk": 0.0, "pf": 0.0, "pts": 1.5, "rtng": 10.7}
+  ]
+}

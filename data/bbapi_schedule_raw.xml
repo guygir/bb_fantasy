@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bbapi version='1'>
+    <schedule teamid='1015' season='71' retrieved='2026-02-25T13:57:47Z'>
+        <match id='83630' start='2026-02-02T18:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1001'>
+                <teamName>United States U21</teamName>
+<score>88</score>
+            </awayTeam>
+            <homeTeam id='1015'>
+                <teamName>Israel U21</teamName>
+<score>69</score>
+            </homeTeam>
+        </match>
+    
+        <match id='83641' start='2026-02-23T18:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1002'>
+                <teamName>Argentina U21</teamName>
+<score>53</score>
+            </awayTeam>
+            <homeTeam id='1015'>
+                <teamName>Israel U21</teamName>
+<score>86</score>
+            </homeTeam>
+        </match>
+    
+        <match id='83294' start='2026-01-26T15:55:00Z' type='nt.friendly'>
+            <awayTeam id='1036'>
+                <teamName>Bulgaria U21</teamName>
+<score>88</score>
+            </awayTeam>
+            <homeTeam id='1015'>
+                <teamName>Israel U21</teamName>
+<score>115</score>
+            </homeTeam>
+        </match>
+    
+        <match id='83655' start='2026-03-16T17:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1048'>
+                <teamName>Magyarország U21</teamName>
+            </awayTeam>
+            <homeTeam id='1015'>
+                <teamName>Israel U21</teamName>
+            </homeTeam>
+        </match>
+    
+        <match id='83651' start='2026-03-09T17:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1093'>
+                <teamName>Ghana U21</teamName>
+            </awayTeam>
+            <homeTeam id='1015'>
+                <teamName>Israel U21</teamName>
+            </homeTeam>
+        </match>
+    
+        <match id='83633' start='2026-02-09T18:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1015'>
+                <teamName>Israel U21</teamName>
+<score>90</score>
+            </awayTeam>
+            <homeTeam id='1020'>
+                <teamName>Lietuva U21</teamName>
+<score>101</score>
+            </homeTeam>
+        </match>
+    
+        <match id='83636' start='2026-02-16T18:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1015'>
+                <teamName>Israel U21</teamName>
+<score>86</score>
+            </awayTeam>
+            <homeTeam id='1045'>
+                <teamName>Hong Kong U21</teamName>
+<score>69</score>
+            </homeTeam>
+        </match>
+    
+        <match id='83646' start='2026-03-02T18:30:00Z' type='nt.roundrobin'>
+            <awayTeam id='1015'>
+                <teamName>Israel U21</teamName>
+            </awayTeam>
+            <homeTeam id='1008'>
+                <teamName>Deutschland U21</teamName>
+            </homeTeam>
+        </match>
+    </schedule>
+</bbapi>
+	
