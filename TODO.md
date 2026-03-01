@@ -43,7 +43,7 @@ Track progress here. Check off items as completed.
 
 ### 2.1 Project Setup
 - [x] **2.1.1** Initialize Next.js project
-- [ ] **2.1.2** Set up Supabase project (defer if requested)
+- [x] **2.1.2** Set up Supabase project
 - [ ] **2.1.3** Define database schema (players, matches, player_game_stats, etc.)
 - [ ] **2.1.4** Create migration scripts or Supabase SQL
 - [ ] **2.1.5** Add TypeScript types for entities
@@ -153,9 +153,9 @@ Track progress here. Check off items as completed.
 
 #### 4.4.6 Cron & Puzzle Generation
 - [x] **4.4.6a** Script: scripts/generate-u21dle-daily.mjs – pick player for date, write to data/u21dle_daily.json
-- [ ] **4.4.6b** Cron: GitHub Actions or Vercel Cron – call /api/cron/u21dle-daily (CRON_SECRET)
-- [ ] **4.4.6c** Schedule: 03:30 UTC daily (like Riftle)
-- [ ] **4.4.6d** Generate today + PUZZLE_BUFFER_DAYS ahead
+- [x] **4.4.6b** Cron: GitHub Actions – runs script, commits u21dle_daily.json, pushes (Vercel auto-deploys)
+- [x] **4.4.6c** Schedule: 00:05 UTC daily
+- [x] **4.4.6d** Generate today + PUZZLE_BUFFER_DAYS ahead
 
 #### 4.4.7 Integration
 - [x] **4.4.7a** Add U21dle link to home page and nav (alongside Players, Schedule, etc.)
@@ -177,7 +177,7 @@ Track progress here. Check off items as completed.
 
 ## Blocked / Deferred
 
-- **Supabase & Vercel**: User requested to handle last if possible
+- ~~**Supabase & Vercel**~~: ✅ Done – Supabase project, Vercel deploy, GitHub secrets/vars
 - **BBAPI**: ✅ Working – login, schedule, boxscore tested with PotatoJunior creds
 
 ### Deferral reasons (each deferred item)
@@ -186,7 +186,7 @@ Track progress here. Check off items as completed.
 |------|--------|
 | **1.2.5** Tune formula | Optional; current formula validated on Season 70; can tweak later if needed |
 | ~~**1.3.5** Weekly price adjustment algorithm~~ | Done: min 2 games, confidence ±1/±2 |
-| **2.1.2–2.1.5** Supabase | User requested to defer; using JSON files for now; Supabase needed for multi-user auth, persistent rosters |
+| ~~**2.1.2** Supabase~~ | ✅ Done – project created, env vars in Vercel |
 | **3.1.1–3.1.4** Auth | Depends on Supabase; demo uses localStorage; no sign-up until backend ready |
 | **3.2.3** Draft state (Supabase) | Depends on Supabase; localStorage works for single-user demo |
 | **3.2.4** Draft lock | Needs season/schedule awareness; defer until we have weekly game logic |
@@ -195,7 +195,7 @@ Track progress here. Check off items as completed.
 | **3.3.4** Sub history | Depends on subs + DB |
 | **3.4.3** My scores (weekly history) | Needs weekly aggregation; single-game total works for now |
 | **4.1.1–4.1.4** Data ingestion cron | Defer until deploy; manual scripts work for dev |
-| **4.2.1–4.2.4** Vercel + Supabase deploy | User requested last; local/dev first |
+| ~~**4.2.1–4.2.4** Vercel + Supabase deploy~~ | ✅ Done – Vercel, Supabase, GitHub repo + secrets |
 | **4.5.1–4.5.3** UX polish | After core features; responsive, loading, help page |
 
 ---
