@@ -19,17 +19,21 @@ export interface PuzzleRow {
   player_id: number;
 }
 
-/** Get puzzle by date (for cheat mode / past puzzles) */
+/** Get puzzle by date (for cheat mode / past puzzles). Uses service role for reliable access on Vercel. */
 export async function getPuzzleByDate(dateStr: string): Promise<PuzzleRow | null> {
-  const supabase = getSupabase();
-  if (!supabase) return null;
-  const { data, error } = await supabase
-    .from("u21dle_puzzles")
-    .select("id, puzzle_date, player_id")
-    .eq("puzzle_date", dateStr)
-    .maybeSingle();
-  if (error || !data) return null;
-  return data as PuzzleRow;
+  try {
+    const { getSupabaseAdmin } = await import("@/lib/supabase");
+    const supabase = getSupabaseAdmin();
+    const { data, error } = await supabase
+      .from("u21dle_puzzles")
+      .select("id, puzzle_date, player_id")
+      .eq("puzzle_date", dateStr)
+      .maybeSingle();
+    if (error || !data) return null;
+    return data as PuzzleRow;
+  } catch {
+    return null;
+  }
 }
 
 /** Get puzzle ID by date */

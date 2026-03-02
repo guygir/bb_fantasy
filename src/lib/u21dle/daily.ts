@@ -40,17 +40,14 @@ export async function getCurrentPuzzleDate(supabase: SupabaseClient): Promise<st
 /** Load daily data: Supabase first, JSON fallback (for getDailyPlayer when no supabase passed) */
 export type DailyDataSource = "supabase" | "json";
 
+/** Same as Holdemle/Riftle: use service role to bypass RLS for reliable access on Vercel. */
 async function loadDailyFromSupabase(): Promise<{
   data: Record<string, number>;
   error?: string;
 }> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return { data: {}, error: "Missing Supabase URL or anon key" };
-
   try {
-    const { createClient } = await import("@supabase/supabase-js");
-    const client = createClient(url, key);
+    const { getSupabaseAdmin } = await import("@/lib/supabase");
+    const client = getSupabaseAdmin();
     const { data, error } = await client
       .from("u21dle_puzzles")
       .select("puzzle_date, player_id");

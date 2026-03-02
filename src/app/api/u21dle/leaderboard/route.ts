@@ -1,25 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 
 export const dynamic = "force-dynamic";
 
-function getSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return null;
-  return createClient(url, key);
-}
-
 /**
  * GET /api/u21dle/leaderboard?type=daily|alltime-wins|alltime-winpercent|alltime-avgguesses
+ * Uses service role to bypass RLS and show all players (anon client can filter by RLS).
  */
 export async function GET(request: NextRequest) {
   const type = request.nextUrl.searchParams.get("type") ?? "alltime-wins";
   const date = request.nextUrl.searchParams.get("date"); // for daily
 
-  const supabase = getSupabase();
-  if (!supabase) {
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
     return NextResponse.json({ success: false, error: "Server config error" }, { status: 500 });
   }
 
