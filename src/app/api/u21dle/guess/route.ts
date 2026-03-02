@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDailyPlayer, getTodayIsrael } from "@/lib/u21dle/daily";
+import { getDailyPlayer } from "@/lib/u21dle/daily";
 import { getU21dlePlayerById } from "@/lib/u21dle/players";
 import { generateFeedback, isCorrectGuess } from "@/lib/u21dle/feedback";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const today = getTodayIsrael();
+  const today = new Date().toISOString().split("T")[0];
   if (date > today) {
     return NextResponse.json(
       { success: false, error: "Cannot submit for a future puzzle" },
