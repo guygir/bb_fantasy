@@ -33,13 +33,12 @@ export default function HomePage() {
         return;
       }
       try {
-        const { data } = await client
-          .from("fantasy_user_rosters")
-          .select("player_ids")
-          .eq("user_id", session.user.id)
-          .eq("season", config.game.currentSeason)
-          .maybeSingle();
-        const has = !!data?.player_ids?.length;
+        const res = await fetch(`/api/roster/season/${config.game.currentSeason}`, {
+          headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
+        });
+        const data = await res.json().catch(() => ({}));
+        const roster = data?.roster;
+        const has = !!roster?.player_ids?.length;
         setHasRoster(has);
         try {
           sessionStorage.setItem(cacheKey, String(has));

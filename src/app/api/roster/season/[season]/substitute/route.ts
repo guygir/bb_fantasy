@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { getSubWindow } from "@/lib/sub-lock";
 
 export const dynamic = "force-dynamic";
@@ -56,9 +57,11 @@ export async function POST(
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  const admin = getSupabaseAdmin();
+
   // Clear pending subs
   if (body.clear === true) {
-    const { error: clearErr } = await supabase
+    const { error: clearErr } = await admin
       .from("fantasy_user_rosters")
       .update({ pending_subs: null, updated_at: new Date().toISOString() })
       .eq("user_id", user.id)
@@ -86,21 +89,26 @@ export async function POST(
     );
   }
 
+  // Use service role for roster fetch to avoid RLS issues (e.g. BBAPI users).
+  // User is already verified via JWT; we only fetch their own roster.
   const [{ data: roster, error: rosterFetchError }, { data: priceRows }] = await Promise.all([
-    supabase
+    admin
       .from("fantasy_user_rosters")
       .select("player_ids, player_prices, player_names")
       .eq("user_id", user.id)
       .eq("season", seasonNum)
-      .single(),
-    supabase
+      .maybeSingle(),
+    admin
       .from("fantasy_player_prices")
       .select("player_id, price")
       .eq("season", seasonNum),
   ]);
 
   if (rosterFetchError || !roster?.player_ids?.length) {
-    return NextResponse.json({ error: "No roster found" }, { status: 400 });
+    return NextResponse.json(
+      { error: "No roster found. Pick your team first." },
+      { status: 400 }
+    );
   }
 
   const currentIds = roster.player_ids as number[];
@@ -145,7 +153,7 @@ export async function POST(
     effective_match_id: window.nextMatchId,
   };
 
-  const { error: rosterError } = await supabase
+  const { error: rosterError } = await admin
     .from("fantasy_user_rosters")
     .update({
       pending_subs: pendingSubs,

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { getLastPlayedMatchFP } from "@/lib/fantasy-db";
 
 export const dynamic = "force-dynamic";
@@ -41,25 +42,26 @@ export async function GET(
   const now = Date.now();
   const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
 
+  const admin = getSupabaseAdmin();
   const [lastPlayedFP, scheduleRes, statsRes, rosterRes, subsRes] = await Promise.all([
     getLastPlayedMatchFP(seasonNum),
-    supabase
+    admin
       .from("fantasy_schedule")
       .select("match_id, match_date, match_start")
       .eq("season", seasonNum)
       .not("match_date", "is", null)
       .order("match_date", { ascending: true }),
-    supabase
+    admin
       .from("fantasy_player_game_stats")
       .select("player_id, match_id, name, fantasy_points")
       .eq("season", seasonNum),
-    supabase
+    admin
       .from("fantasy_user_rosters")
       .select("player_ids, player_names, picked_at")
       .eq("user_id", user.id)
       .eq("season", seasonNum)
       .maybeSingle(),
-    supabase
+    admin
       .from("fantasy_roster_substitutions")
       .select("removed_player_ids, added_player_ids, created_at")
       .eq("user_id", user.id)

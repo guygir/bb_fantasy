@@ -44,6 +44,7 @@ export default function PickTeamPage() {
   const [prices, setPrices] = useState<Record<number, number>>({});
   const [names, setNames] = useState<Record<number, string>>({});
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!supabase) {
@@ -63,14 +64,22 @@ export default function PickTeamPage() {
 
   useEffect(() => {
     if (!userId || !supabase) return;
-    Promise.all([
-      fetch(`/api/players/season/${SEASON}`).then(async (r) => {
-        if (!r.ok) return { players: [] };
-        const data = await r.json();
-        return Array.isArray(data.players) ? data : { players: data.players ?? [] };
-      }),
-      supabase.from("fantasy_user_rosters").select("*").eq("season", SEASON).maybeSingle(),
-    ])
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      const rosterHeaders = session?.access_token
+        ? { headers: { Authorization: `Bearer ${session.access_token}` } }
+        : {};
+      Promise.all([
+        fetch(`/api/players/season/${SEASON}`).then(async (r) => {
+          if (!r.ok) return { players: [] };
+          const data = await r.json();
+          return Array.isArray(data.players) ? data : { players: data.players ?? [] };
+        }),
+        fetch(`/api/roster/season/${SEASON}`, rosterHeaders).then(async (r) => {
+          if (!r.ok) return { roster: null };
+          const data = await r.json();
+          return { data: data.roster };
+        }),
+      ])
       .then(([playerData, rosterRes]) => {
         const list = (playerData.players ?? []) as Player[];
         setPlayers(Array.isArray(list) ? list : []);
@@ -97,6 +106,7 @@ export default function PickTeamPage() {
         console.error("Pick load error:", err);
         setLoading(false);
       });
+    });
   }, [userId]);
 
   const totalCost = Array.from(picked).reduce((sum, id) => sum + (prices[id] ?? 0), 0);
@@ -144,6 +154,7 @@ export default function PickTeamPage() {
 
   const save = async () => {
     if (!supabase || !userId) return;
+    setSaveError(null);
     const playerIds = Array.from(picked);
     const playerPrices: Record<string, number> = {};
     const playerNames: Record<string, string> = {};
@@ -151,26 +162,27 @@ export default function PickTeamPage() {
       playerPrices[String(id)] = prices[id] ?? 0;
       playerNames[String(id)] = names[id] ?? "";
     }
-    const { error } = await supabase.from("fantasy_user_rosters").upsert(
-      {
-        user_id: userId,
-        season: SEASON,
-        player_ids: playerIds,
-        player_prices: playerPrices,
-        player_names: playerNames,
-        picked_at: new Date().toISOString(),
+    const { data: { session } } = await supabase.auth.getSession();
+    const res = await fetch(`/api/roster/season/${SEASON}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
       },
-      { onConflict: "user_id,season" }
-    );
-    if (!error) {
-      try {
-        sessionStorage.setItem(`hasRoster_${SEASON}`, "true");
-      } catch {}
-      setSaved(true);
-      setTimeout(() => {
-        window.location.href = "/roster";
-      }, 500);
+      body: JSON.stringify({ playerIds, playerPrices, playerNames }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      setSaveError(data.error ?? "Failed to save roster");
+      return;
     }
+    try {
+      sessionStorage.setItem(`hasRoster_${SEASON}`, "true");
+    } catch {}
+    setSaved(true);
+    setTimeout(() => {
+      window.location.href = "/roster";
+    }, 500);
   };
 
   if (!authChecked || loading) {
@@ -211,12 +223,18 @@ export default function PickTeamPage() {
           Total: <strong>${totalCost}</strong> / ${CAP}
         </span>
         {isValid && (
-          <button
-            onClick={save}
-            className="rounded-lg bg-exact px-4 py-2 text-sm font-semibold text-white hover:bg-[#5a9a54] transition-colors"
-          >
-            {saved ? "Saved!" : "Save Roster"}
-          </button>
+          <>
+            <button
+              onClick={save}
+              disabled={saved}
+              className="rounded-lg bg-exact px-4 py-2 text-sm font-semibold text-white hover:bg-[#5a9a54] transition-colors disabled:opacity-70"
+            >
+              {saved ? "Saved!" : "Save Roster"}
+            </button>
+            {saveError && (
+              <span className="text-sm text-red-600">{saveError}</span>
+            )}
+          </>
         )}
       </div>
 

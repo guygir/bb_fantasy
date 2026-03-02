@@ -129,8 +129,15 @@ export default function MyRosterPage() {
     if (!userId || !supabase) return;
     const sb = supabase;
     sb.auth.getSession().then(({ data: { session } }) => {
+      const rosterOpts = session?.access_token
+        ? { headers: { Authorization: `Bearer ${session.access_token}` } }
+        : {};
       Promise.all([
-        sb.from("fantasy_user_rosters").select("*").eq("season", SEASON).maybeSingle(),
+        fetch(`/api/roster/season/${SEASON}`, rosterOpts).then(async (r) => {
+          if (!r.ok) return { roster: null };
+          const data = await r.json();
+          return { data: data.roster };
+        }),
         fetch(`/api/stats/season/${SEASON}`, { cache: "no-store" }).then(async (r) => {
           if (!r.ok) return { stats: [] };
           const data = await r.json();
@@ -141,9 +148,7 @@ export default function MyRosterPage() {
           const data = await r.json();
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };
         }),
-        fetch(`/api/roster/season/${SEASON}/weekly-history`, {
-          headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : undefined,
-        }).then(async (r) => {
+        fetch(`/api/roster/season/${SEASON}/weekly-history`, rosterOpts).then(async (r) => {
           if (!r.ok) return { weeks: [], lastPlayedMatchId: null, wasEligibleForLastPlayed: false };
           const data = await r.json();
           return {
@@ -158,7 +163,7 @@ export default function MyRosterPage() {
         setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
         setLastPlayedMatchId(weeklyData.lastPlayedMatchId ?? null);
         setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
-        const row = rosterRes.data;
+        const row = rosterRes?.roster ?? rosterRes?.data;
         if (row?.player_ids?.length) {
           const prices: Record<number, number> = {};
           const names: Record<number, string> = {};

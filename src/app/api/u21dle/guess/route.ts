@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentPuzzleDate, getDailyPlayer } from "@/lib/u21dle/daily";
+import { getDailyPlayer, getTodayIsrael } from "@/lib/u21dle/daily";
 import { getU21dlePlayerById } from "@/lib/u21dle/players";
 import { generateFeedback, isCorrectGuess } from "@/lib/u21dle/feedback";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
@@ -26,22 +26,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const currentDate = await getCurrentPuzzleDate();
-  if (!currentDate) {
+  const today = getTodayIsrael();
+  if (date > today) {
     return NextResponse.json(
-      { success: false, error: "No puzzle available yet. Today's puzzle is coming up shortly!" },
-      { status: 404 }
-    );
-  }
-
-  if (date !== currentDate) {
-    return NextResponse.json(
-      { success: false, error: "Can only submit for the current puzzle" },
+      { success: false, error: "Cannot submit for a future puzzle" },
       { status: 400 }
     );
   }
 
-  const dailyPlayer = await getDailyPlayer(currentDate);
+  const dailyPlayer = await getDailyPlayer(date);
   if (!dailyPlayer) {
     return NextResponse.json(
       { success: false, error: "Puzzle not found" },

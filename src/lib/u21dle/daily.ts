@@ -2,6 +2,7 @@
  * U21dle daily puzzle - Supabase primary, JSON fallback.
  * Holdemle-style: use most recent date ≤ today when today's puzzle isn't published yet.
  * Once a puzzle is set for a date, it is never overwritten.
+ * Uses Israel timezone (Asia/Jerusalem) for "today" so localhost and Vercel match.
  */
 
 import { readFileSync, existsSync } from "fs";
@@ -22,10 +23,13 @@ function loadDailyFromJson(): Record<string, number> {
   }
 }
 
-async function loadDailyFromSupabase(): Promise<Record<string, number>> {
+async function loadDailyFromSupabase(): Promise<{
+  data: Record<string, number>;
+  error?: string;
+}> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return {};
+  if (!url || !key) return { data: {}, error: "Missing Supabase URL or anon key" };
 
   try {
     const { createClient } = await import("@supabase/supabase-js");
@@ -33,30 +37,54 @@ async function loadDailyFromSupabase(): Promise<Record<string, number>> {
     const { data, error } = await supabase
       .from("u21dle_puzzles")
       .select("puzzle_date, player_id");
-    if (error) return {};
+    if (error) return { data: {}, error: error.message };
     const out: Record<string, number> = {};
     for (const row of data ?? []) {
       out[row.puzzle_date] = row.player_id;
     }
-    return out;
-  } catch {
-    return {};
+    return { data: out };
+  } catch (e) {
+    return { data: {}, error: e instanceof Error ? e.message : "Unknown error" };
   }
 }
 
 /** Load daily data: Supabase first, JSON fallback */
-async function loadDailyData(): Promise<Record<string, number>> {
-  const fromDb = await loadDailyFromSupabase();
-  if (Object.keys(fromDb).length > 0) return fromDb;
+export type DailyDataSource = "supabase" | "json";
+
+export async function loadDailyData(): Promise<Record<string, number>> {
+  const { data } = await loadDailyFromSupabase();
+  if (Object.keys(data).length > 0) return data;
   return loadDailyFromJson();
+}
+
+export async function loadDailyDataWithSource(): Promise<{
+  data: Record<string, number>;
+  source: DailyDataSource;
+  supabaseError?: string;
+}> {
+  const fromDb = await loadDailyFromSupabase();
+  if (Object.keys(fromDb.data).length > 0) {
+    return { data: fromDb.data, source: "supabase" };
+  }
+  const fromJson = loadDailyFromJson();
+  return {
+    data: fromJson,
+    source: "json",
+    supabaseError: fromDb.error,
+  };
+}
+
+/** Today's date in Israel timezone (YYYY-MM-DD). Same on localhost and Vercel. */
+export function getTodayIsrael(): string {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jerusalem" });
 }
 
 /**
  * Returns the most recent puzzle_date that exists, where puzzle_date <= today.
- * Before the daily cron runs, this may return yesterday's date.
+ * Uses Israel timezone so puzzle switches at midnight Israel time.
  */
 export async function getCurrentPuzzleDate(): Promise<string | null> {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getTodayIsrael();
   const data = await loadDailyData();
   const dates = Object.keys(data).filter((d) => d <= today).sort();
   if (dates.length === 0) return null;
