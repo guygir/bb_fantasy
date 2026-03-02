@@ -74,9 +74,23 @@ export async function loadDailyDataWithSource(): Promise<{
   };
 }
 
-/** Today's date in Israel timezone (YYYY-MM-DD). Same on localhost and Vercel. */
+/** Today's date in Israel timezone (YYYY-MM-DD). Uses formatToParts for consistent format on Vercel. */
 export function getTodayIsrael(): string {
-  return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jerusalem" });
+  try {
+    const fmt = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Jerusalem",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    const parts = fmt.formatToParts(new Date());
+    const y = parts.find((p) => p.type === "year")?.value ?? "";
+    const m = parts.find((p) => p.type === "month")?.value ?? "";
+    const d = parts.find((p) => p.type === "day")?.value ?? "";
+    return `${y}-${m}-${d}`;
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
 }
 
 /**
