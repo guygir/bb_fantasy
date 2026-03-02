@@ -44,7 +44,7 @@ function parseScheduleXml(xml: string): ScheduleMatch[] {
   return matches;
 }
 
-function loadScheduleFromJson(season: number): ScheduleMatch[] | null {
+export function loadScheduleFromJson(season: number): ScheduleMatch[] | null {
   const path = join(process.cwd(), "data", `bbapi_schedule_s${season}.json`);
   if (!existsSync(path)) return null;
   try {

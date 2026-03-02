@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
+import { config } from "@/lib/config";
+
+interface U21dleStatsAndLeaderboardProps {
+  puzzleDate?: string | null;
+  /** When true, refetch stats/leaderboard (e.g. after game ends) */
+  gameOver?: boolean;
+}
 
 interface StatsData {
   totalGames: number;
@@ -22,36 +29,75 @@ interface LeaderboardEntry {
   extra?: { guesses?: number; time?: number; isSolved?: boolean; usedCheat?: boolean };
 }
 
-export function U21dleStatsAndLeaderboard() {
+export function U21dleStatsAndLeaderboard({ puzzleDate, gameOver }: U21dleStatsAndLeaderboardProps) {
   const [stats, setStats] = useState<StatsData | null>(null);
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-    supabase?.auth.getSession().then(({ data: { session } }) => {
-      const token = session?.access_token;
-      Promise.all([
+  const fetchData = useCallback(
+    async (token: string | null) => {
+      const opts = { cache: "no-store" as RequestCache };
+      const date = puzzleDate ?? new Date().toISOString().slice(0, 10);
+      const [s, lb] = await Promise.all([
         token
-          ? fetch("/api/u21dle/stats", { headers: { Authorization: `Bearer ${token}` } }).then((r) =>
+          ? fetch("/api/u21dle/stats", { headers: { Authorization: `Bearer ${token}` }, ...opts }).then((r) =>
               r.json().then((d) => (d.success ? d.data : null))
             )
           : Promise.resolve(null),
-        fetch("/api/u21dle/leaderboard?type=daily").then((r) =>
+        fetch(`/api/u21dle/leaderboard?type=daily&date=${encodeURIComponent(date)}`, opts).then((r) =>
           r.json().then((d) => (d.success && d.data?.entries ? d.data.entries : []))
         ),
-      ]).then(([s, lb]) => {
-        if (!cancelled) {
-          setStats(s);
-          setLeaderboard(lb);
-        }
-        setLoading(false);
-      });
+      ]);
+      return { stats: s, leaderboard: lb };
+    },
+    [puzzleDate]
+  );
+
+  useEffect(() => {
+    const client = supabase;
+    if (!client) {
+      setLoading(false);
+      return;
+    }
+    let cancelled = false;
+    const init = async () => {
+      const { data: { session } } = await client.auth.getSession();
+      if (cancelled) return;
+      const { stats: s, leaderboard: lb } = await fetchData(session?.access_token ?? null);
+      if (!cancelled) {
+        setStats(s);
+        setLeaderboard(lb);
+      }
+      setLoading(false);
+    };
+    init();
+    const { data: { subscription } } = client.auth.onAuthStateChange((_event, session) => {
+      if (!cancelled) {
+        fetchData(session?.access_token ?? null).then(({ stats: s, leaderboard: lb }) => {
+          if (!cancelled) {
+            setStats(s);
+            setLeaderboard(lb);
+          }
+        });
+      }
     });
     return () => {
       cancelled = true;
+      subscription.unsubscribe();
     };
-  }, []);
+  }, [fetchData]);
+
+  // Refetch when game ends (parent sets gameOver=true)
+  useEffect(() => {
+    if (!gameOver) return;
+    const client = supabase;
+    if (!client) return;
+    client.auth.getSession().then(({ data: { session } }) => {
+      fetchData(session?.access_token ?? null).then(({ stats: s, leaderboard: lb }) => {
+        setStats(s);
+        setLeaderboard(lb);
+      });
+    });
+  }, [gameOver, fetchData]);
 
   if (loading) {
     return (
@@ -62,10 +108,10 @@ export function U21dleStatsAndLeaderboard() {
   }
 
   return (
-    <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="mt-6 space-y-6">
       <div className="rounded-lg border border-bb-border bg-card-bg p-6">
         <h2 className="text-xl font-bold mb-4">Your Stats</h2>
-        {stats && stats.totalGames > 0 ? (
+        {stats !== null ? (
           <>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
               <div className="text-center">
@@ -85,13 +131,13 @@ export function U21dleStatsAndLeaderboard() {
                 <div className="text-sm text-gray-500">Max Streak</div>
               </div>
             </div>
-            {Object.keys(stats.solvedDistribution).length > 0 && (
+            {(Object.keys(stats.solvedDistribution).length > 0 || stats.totalGames > 0) && (
               <div>
                 <h3 className="font-semibold mb-2">Guess Distribution</h3>
                 <div className="flex items-end justify-center gap-1 h-24">
-                  {[1, 2, 3, 4, 5, 6, "X"].map((label) => {
-                    const total = label === "X" ? stats.totalGames - stats.wins : (stats.solvedDistribution[String(label)] ?? 0);
-                    const cheat = label === "X" ? 0 : (stats.cheatDistribution?.[String(label)] ?? 0);
+                  {[...Array.from({ length: config.u21dle.maxGuesses }, (_, i) => i + 1), "Failed"].map((label) => {
+                    const total = label === "Failed" ? stats.totalGames - stats.wins : (stats.solvedDistribution[String(label)] ?? 0);
+                    const cheat = label === "Failed" ? 0 : (stats.cheatDistribution?.[String(label)] ?? 0);
                     const clean = total - cheat;
                     const max = Math.max(...Object.values(stats.solvedDistribution), stats.totalGames - stats.wins, 1);
                     const h = max > 0 ? (total / max) * 80 : 0;
@@ -100,12 +146,12 @@ export function U21dleStatsAndLeaderboard() {
                       <div key={String(label)} className="flex flex-col items-center flex-1 min-w-[28px]">
                         <div className="w-full flex flex-col" style={{ height: `${h}px` }}>
                           {ch > 0 && (
-                            <div className="bg-yellow-400 text-gray-900 text-xs font-bold w-full flex items-center justify-center rounded-t" style={{ height: `${ch}px` }}>
+                            <div className="bg-amber-400 text-amber-950 text-xs font-bold w-full flex items-center justify-center rounded-t" style={{ height: `${ch}px` }}>
                               {cheat}
                             </div>
                           )}
                           {clean > 0 && (
-                            <div className="bg-green-600 text-white text-xs font-bold w-full flex items-center justify-center flex-1 rounded-b" style={{ height: `${h - ch}px` }}>
+                            <div className="bg-emerald-600 text-white text-xs font-bold w-full flex items-center justify-center flex-1 rounded-b" style={{ height: `${h - ch}px` }}>
                               {clean}
                             </div>
                           )}
@@ -125,7 +171,7 @@ export function U21dleStatsAndLeaderboard() {
         )}
       </div>
 
-      <div className="rounded-lg border border-bb-border bg-card-bg p-6">
+      <div className="rounded-lg border border-bb-border bg-card-bg p-6 w-full">
         <h2 className="text-xl font-bold mb-4">Today&apos;s Top 5</h2>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -145,25 +191,32 @@ export function U21dleStatsAndLeaderboard() {
                   </td>
                 </tr>
               ) : (
-                leaderboard.slice(0, 5).map((e) => (
-                  <tr
-                    key={e.userId}
-                    className={`border-b border-bb-border ${
-                      e.extra?.isSolved && !e.extra?.usedCheat
-                        ? "bg-green-50"
-                        : e.extra?.isSolved
-                          ? "bg-yellow-50"
-                          : "bg-red-50"
-                    }`}
-                  >
-                    <td className="py-2 px-2">{e.rank}</td>
-                    <td className="py-2 px-2 font-medium">{e.nickname}</td>
-                    <td className="text-center py-2 px-2">
-                      {e.extra?.isSolved ? (e.extra?.usedCheat ? "🟡 Win*" : "✓ Win") : "✗ Failed"}
-                    </td>
-                    <td className="text-center py-2 px-2">{e.extra?.guesses ?? "–"}</td>
-                  </tr>
-                ))
+                leaderboard.slice(0, 5).map((e) => {
+                  const isCleanWin = e.extra?.isSolved && !e.extra?.usedCheat;
+                  const isCheatWin = e.extra?.isSolved && e.extra?.usedCheat;
+                  const isFailed = !e.extra?.isSolved;
+                  return (
+                    <tr
+                      key={e.userId}
+                      className={`border-b border-bb-border ${
+                        isCleanWin
+                          ? "bg-emerald-50 text-emerald-900"
+                          : isCheatWin
+                            ? "bg-amber-50 text-amber-900"
+                            : isFailed
+                              ? "bg-red-50 text-red-900"
+                              : ""
+                      }`}
+                    >
+                      <td className="py-2 px-2 font-medium">{e.rank}</td>
+                      <td className="py-2 px-2 font-medium">{e.nickname}</td>
+                      <td className="text-center py-2 px-2">
+                        {isCleanWin ? "✓ Win" : isCheatWin ? "🟡 Win*" : "✗ Failed"}
+                      </td>
+                      <td className="text-center py-2 px-2">{e.extra?.guesses ?? "–"}</td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>

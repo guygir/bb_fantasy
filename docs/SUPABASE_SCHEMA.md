@@ -97,7 +97,7 @@ Replaces JSON when scripts sync to DB: `fantasy_players`, `fantasy_player_detail
 |-----------|------------------------|-------|
 | season71_stats.json | fantasy_players | |
 | player_details_s71.json | fantasy_player_details | |
-| player_prices_s71.json | fantasy_player_prices | current + history |
+| player_prices_s71.json | fantasy_player_prices | current only (one row per player) |
 | player_game_stats_s71.json | fantasy_player_game_stats | |
 | match_scores_s71.json | fantasy_matches | |
 | bbapi_schedule_s71.json | fantasy_schedule | |

@@ -17,13 +17,49 @@ export default function HelpPage() {
         </p>
         <ul className="mb-2 list-inside list-disc space-y-1 text-gray-600">
           <li><Link href="/pick" className="text-exact hover:underline font-medium">Pick Team</Link> – Select your 5 players</li>
-          <li><Link href="/roster" className="text-exact hover:underline font-medium">My Roster</Link> – View your picks and total fantasy points</li>
-          <li><Link href="/players" className="text-exact hover:underline font-medium">Players</Link> – Browse players with prices and stats</li>
-          <li><Link href="/leaderboard" className="text-exact hover:underline font-medium">Leaderboard</Link> – Top fantasy scorers</li>
+          <li><Link href="/roster" className="text-exact hover:underline font-medium">My Roster</Link> – View your picks, Last week FP, and make substitutions</li>
+          <li><Link href="/players" className="text-exact hover:underline font-medium">Players</Link> – Browse players with $ (Fantasy), Last game FP, Total FP</li>
+          <li><Link href="/leaderboard" className="text-exact hover:underline font-medium">Leaderboard</Link> – Top fantasy scorers (Total FP, Last game FP)</li>
         </ul>
-        <p className="text-sm text-gray-500">
-          Player prices ($1–$10) are adjusted weekly based on performance. Your roster is saved in this browser until you sign in.
+        <p className="mb-2 text-sm text-gray-500">
+          <strong>Last game FP</strong> = fantasy points in the most recent match played (0 if DNP). Same definition on Players, Roster, and Leaderboard. Substitutions open 1h after the previous game until 1h before the next game.
         </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 font-semibold">Scoring (Fantasy Points Formula)</h2>
+        <p className="mb-2 text-gray-600">
+          Fantasy points per game:
+        </p>
+        <pre className="mb-2 overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm">
+{`PTS×1.0 + DR×1.2 + OR×1.5 + AST×1.8 + STL×2.0 + BLK×2.0 - TO×1.0 - PF×1.0 + 3PM×0.5`}
+        </pre>
+        <p className="mb-2 text-sm text-gray-500">
+          DR = TR − OR (defensive rebounds). 3PM = three-pointers made.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 font-semibold">Price Tiers ($1–$10)</h2>
+        <p className="mb-2 text-gray-600">
+          PPG (fantasy points per game) maps to price:
+        </p>
+        <ul className="mb-2 list-inside list-disc space-y-0.5 text-sm text-gray-600">
+          <li>≥27 PPG → $10</li>
+          <li>≥24 → $9 · ≥21 → $8 · ≥18 → $7 · ≥15 → $6</li>
+          <li>≥12 → $5 · ≥9 → $4 · ≥6 → $3 · ≥3 → $2</li>
+          <li>&lt;3 → $1</li>
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 font-semibold">Price Adjustment Rules</h2>
+        <ul className="mb-2 list-inside list-disc space-y-1 text-gray-600">
+          <li><strong>Min games:</strong> 2 games before any price adjustment (avoids noise from single-game spikes)</li>
+          <li><strong>Confidence:</strong> 1–3 games → max ±$1 per game; 4+ games → max ±$2 per game</li>
+          <li><strong>DNP (did not play):</strong> $9–10 → −$2; $3–8 → −$1; $1–2 → no change. Performance vs DNP are mutually exclusive per game.</li>
+          <li><strong>Roster:</strong> Prices use current market value. If your roster exceeds $30, you must sub or the system auto-subs (highest→cheapest) before the next game.</li>
+        </ul>
       </section>
 
       <section className="mb-8">

@@ -31,20 +31,7 @@ function sumMinutes(minBlock) {
   return pg + sg + sf + pf + c;
 }
 
-function statsToFantasyPoints(stats) {
-  const dr = stats.tr - stats.or;
-  return (
-    stats.pts * 1.0 +
-    dr * 1.2 +
-    stats.or * 1.5 +
-    stats.ast * 1.5 +
-    stats.stl * 2.0 +
-    stats.blk * 2.0 -
-    stats.to * 1.0 -
-    stats.pf * 0.5 +
-    stats.tpMade * 0.5
-  );
-}
+const { statsToFantasyPoints } = await import(join(__dirname, "../src/lib/scoring-core.mjs"));
 
 function parseBoxscoreXml(xml, teamId = ISRAEL_TEAM_ID) {
   const matchIdMatch = xml.match(/<match\s+id=['"](\d+)['"][^>]*>/);

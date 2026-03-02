@@ -19,4 +19,6 @@ export const config = {
     maxSeason: Number(process.env.U21DLE_MAX_SEASON ?? 70),
     maxGuesses: Number(process.env.U21DLE_MAX_GUESSES ?? 5),
   },
+  /** GitHub repo for "Suggest a feature" (e.g. owner/repo) */
+  githubRepo: process.env.NEXT_PUBLIC_GITHUB_REPO ?? "",
 } as const;

@@ -8,34 +8,7 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
-function statsToFantasyPoints(stats) {
-  const dr = stats.tr - stats.or;
-  return (
-    stats.pts * 1.0 +
-    dr * 1.2 +
-    stats.or * 1.5 +
-    stats.ast * 1.5 +
-    stats.stl * 2.0 +
-    stats.blk * 2.0 -
-    stats.to * 1.0 -
-    stats.pf * 0.5 +
-    stats.tpMade * 0.5
-  );
-}
-
-function fantasyPPGToPrice(ppg) {
-  if (ppg >= 25) return 10;
-  if (ppg >= 22) return 9;
-  if (ppg >= 19) return 8;
-  if (ppg >= 16) return 7;
-  if (ppg >= 13) return 6;
-  if (ppg >= 10) return 5;
-  if (ppg >= 7) return 4;
-  if (ppg >= 4) return 3;
-  if (ppg >= 2) return 2;
-  return 1;
-}
+const { statsToFantasyPoints, fantasyPPGToPrice } = await import(join(__dirname, "../src/lib/scoring-core.mjs"));
 
 const data = JSON.parse(
   readFileSync(join(__dirname, "../data/season70_stats.json"), "utf-8")

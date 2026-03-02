@@ -1,24 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
 import { config } from "@/lib/config";
+import { PlayerAvatar } from "@/app/players/PlayerAvatar";
 
 const CAP = config.game.cap;
 const ROSTER_SIZE = config.game.rosterSize;
 const SEASON = config.game.currentSeason;
 
+type SortKey = "name" | "position" | "inGamePrice" | "lastGameFP" | "totalFP";
+type SortDir = "asc" | "desc";
+
 interface Player {
   playerId: number;
   name: string;
   inGamePrice: number;
-  fantasyPPG: number;
+  lastGameFP?: number;
+  totalFP?: number;
   position: string;
+}
+
+function getVal(p: Player, key: SortKey): string | number {
+  switch (key) {
+    case "name": return p.name;
+    case "position": return p.position ?? "";
+    case "inGamePrice": return p.inGamePrice;
+    case "lastGameFP": return p.lastGameFP ?? -1;
+    case "totalFP": return p.totalFP ?? -1;
+    default: return "";
+  }
 }
 
 export default function PickTeamPage() {
   const [players, setPlayers] = useState<Player[]>([]);
+  const [sortKey, setSortKey] = useState<SortKey>("totalFP");
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [loading, setLoading] = useState(true);
   const [authChecked, setAuthChecked] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
@@ -85,6 +103,26 @@ export default function PickTeamPage() {
   const canAdd = picked.size < ROSTER_SIZE && totalCost < CAP;
   const isValid = picked.size === ROSTER_SIZE && totalCost <= CAP;
 
+  const sorted = useMemo(() => {
+    return [...players].sort((a, b) => {
+      const va = getVal(a, sortKey);
+      const vb = getVal(b, sortKey);
+      const cmp = typeof va === "string" && typeof vb === "string"
+        ? va.localeCompare(vb)
+        : (va as number) - (vb as number);
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+  }, [players, sortKey, sortDir]);
+
+  const toggleSort = (key: SortKey) => {
+    if (sortKey === key) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir(key === "name" ? "asc" : "desc");
+    }
+  };
+
   const toggle = (p: Player) => {
     const id = p.playerId;
     if (picked.has(id)) {
@@ -125,6 +163,9 @@ export default function PickTeamPage() {
       { onConflict: "user_id,season" }
     );
     if (!error) {
+      try {
+        sessionStorage.setItem(`hasRoster_${SEASON}`, "true");
+      } catch {}
       setSaved(true);
       setTimeout(() => {
         window.location.href = "/roster";
@@ -159,7 +200,7 @@ export default function PickTeamPage() {
     <div>
       <h2 className="mb-4 text-xl font-bold text-bb-text">Pick Your Team</h2>
       <p className="mb-6 text-sm text-gray-600">
-        Select exactly {ROSTER_SIZE} players within ${CAP} cap. Prices from Season {SEASON} fantasy PPG.
+        Select exactly {ROSTER_SIZE} players within ${CAP} cap. Prices from current market (same as Players page).
       </p>
 
       <div className="mb-6 flex items-center gap-4">
@@ -179,19 +220,51 @@ export default function PickTeamPage() {
         )}
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-bb-border rounded-lg overflow-hidden">
+      <div className="overflow-x-auto rounded-lg border border-bb-border">
+        <table className="w-full border-collapse">
           <thead>
             <tr className="bg-card-bg">
               <th className="border border-bb-border px-4 py-2 text-left w-10"></th>
-              <th className="border border-bb-border px-4 py-2 text-left">Player</th>
-              <th className="border border-bb-border px-4 py-2 text-left">Pos</th>
-              <th className="border border-bb-border px-4 py-2 text-right">$</th>
-              <th className="border border-bb-border px-4 py-2 text-right">FP/G</th>
+              <th className="border border-bb-border px-4 py-2 text-left">Photo</th>
+              <th
+                className="border border-bb-border px-4 py-2 text-left cursor-pointer hover:bg-gray-100"
+                onClick={() => toggleSort("name")}
+                title="Sort by Player"
+              >
+                Player {sortKey === "name" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+              </th>
+              <th
+                className="border border-bb-border px-4 py-2 text-left cursor-pointer hover:bg-gray-100"
+                onClick={() => toggleSort("position")}
+                title="Sort by Pos"
+              >
+                Pos {sortKey === "position" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+              </th>
+              <th
+                className="border border-bb-border px-4 py-2 text-right cursor-pointer hover:bg-gray-100"
+                onClick={() => toggleSort("inGamePrice")}
+                title="Sort by $"
+              >
+                $ {sortKey === "inGamePrice" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+              </th>
+              <th
+                className="border border-bb-border px-4 py-2 text-right cursor-pointer hover:bg-gray-100"
+                onClick={() => toggleSort("lastGameFP")}
+                title="Sort by Last game FP"
+              >
+                Last game FP {sortKey === "lastGameFP" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+              </th>
+              <th
+                className="border border-bb-border px-4 py-2 text-right cursor-pointer hover:bg-gray-100"
+                onClick={() => toggleSort("totalFP")}
+                title="Sort by Total FP"
+              >
+                Total FP {sortKey === "totalFP" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+              </th>
             </tr>
           </thead>
           <tbody>
-            {players.map((p) => {
+            {sorted.map((p) => {
               const isPicked = picked.has(p.playerId);
               const wouldExceed = !isPicked && totalCost + p.inGamePrice > CAP;
               const disabled = !isPicked && (!canAdd || wouldExceed);
@@ -208,10 +281,14 @@ export default function PickTeamPage() {
                       <span className="text-bb-border">○</span>
                     )}
                   </td>
+                  <td className="border border-bb-border px-4 py-2">
+                    <PlayerAvatar playerId={p.playerId} name={p.name} compact />
+                  </td>
                   <td className="border border-bb-border px-4 py-2 font-medium">{p.name}</td>
                   <td className="border border-bb-border px-4 py-2">{p.position}</td>
                   <td className="border border-bb-border px-4 py-2 text-right">${p.inGamePrice}</td>
-                  <td className="border border-bb-border px-4 py-2 text-right">{p.fantasyPPG.toFixed(1)}</td>
+                  <td className="border border-bb-border px-4 py-2 text-right">{(p.lastGameFP ?? 0).toFixed(1)}</td>
+                  <td className="border border-bb-border px-4 py-2 text-right">{(p.totalFP ?? 0).toFixed(1)}</td>
                 </tr>
               );
             })}

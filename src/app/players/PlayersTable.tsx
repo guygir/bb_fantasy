@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { PlayerWithDetails } from "@/lib/types";
 import { PlayerAvatar } from "./PlayerAvatar";
 
-type SortKey = "name" | "position" | "dmi" | "salary" | "gameShape" | "inGamePrice" | "pts" | "avgRating";
+type SortKey = "name" | "position" | "dmi" | "salary" | "gameShape" | "pts" | "avgRating" | "inGamePrice" | "lastGameFP" | "totalFP";
 type SortDir = "asc" | "desc";
 
 const COLS: { key: SortKey; label: string; align?: "right" }[] = [
@@ -14,9 +14,11 @@ const COLS: { key: SortKey; label: string; align?: "right" }[] = [
   { key: "dmi", label: "DMI", align: "right" },
   { key: "salary", label: "Salary", align: "right" },
   { key: "gameShape", label: "GS", align: "right" },
-  { key: "inGamePrice", label: "$", align: "right" },
-  { key: "pts", label: "PTS", align: "right" },
-  { key: "avgRating", label: "RTNG", align: "right" },
+  { key: "pts", label: "PTS Avg", align: "right" },
+  { key: "avgRating", label: "RTNG Avg", align: "right" },
+  { key: "inGamePrice", label: "$ (Fantasy)", align: "right" },
+  { key: "lastGameFP", label: "Last game FP (Fantasy)", align: "right" },
+  { key: "totalFP", label: "Total FP (Fantasy)", align: "right" },
 ];
 
 function getVal(p: PlayerWithDetails, key: SortKey): string | number {
@@ -26,15 +28,17 @@ function getVal(p: PlayerWithDetails, key: SortKey): string | number {
     case "dmi": return p.dmi ?? -1;
     case "salary": return p.salary ?? -1;
     case "gameShape": return p.gameShape ?? -1;
-    case "inGamePrice": return p.inGamePrice;
     case "pts": return p.pts ?? -1;
     case "avgRating": return p.avgRating ?? -1;
+    case "inGamePrice": return p.inGamePrice;
+    case "lastGameFP": return p.lastGameFP ?? -1;
+    case "totalFP": return p.totalFP ?? -1;
     default: return "";
   }
 }
 
 export function PlayersTable({ players }: { players: PlayerWithDetails[] }) {
-  const [sortKey, setSortKey] = useState<SortKey>("inGamePrice");
+  const [sortKey, setSortKey] = useState<SortKey>("totalFP");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
   const sorted = useMemo(() => {
@@ -101,11 +105,17 @@ export function PlayersTable({ players }: { players: PlayerWithDetails[] }) {
               <td className="border border-bb-border px-4 py-2 text-right">
                 {p.gameShape != null ? p.gameShape : "–"}
               </td>
+              <td className="border border-bb-border px-4 py-2 text-right">{p.pts.toFixed(1)}</td>
+              <td className="border border-bb-border px-4 py-2 text-right">{p.avgRating.toFixed(1)}</td>
               <td className="border border-bb-border px-4 py-2 text-right font-medium">
                 ${p.inGamePrice}
               </td>
-              <td className="border border-bb-border px-4 py-2 text-right">{p.pts.toFixed(1)}</td>
-              <td className="border border-bb-border px-4 py-2 text-right">{p.avgRating.toFixed(1)}</td>
+              <td className="border border-bb-border px-4 py-2 text-right">
+                {(p.lastGameFP ?? 0).toFixed(1)}
+              </td>
+              <td className="border border-bb-border px-4 py-2 text-right">
+                {(p.totalFP ?? 0).toFixed(1)}
+              </td>
             </tr>
           ))}
         </tbody>

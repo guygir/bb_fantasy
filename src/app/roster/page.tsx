@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
 import { config } from "@/lib/config";
@@ -15,6 +15,14 @@ interface Roster {
   playerPrices: Record<number, number>;
   playerNames: Record<number, string>;
   pickedAt: string;
+}
+
+interface PendingSubs {
+  removed_ids: number[];
+  added_ids: number[];
+  added_prices: Record<string, number>;
+  added_names: Record<string, string>;
+  effective_match_id: string;
 }
 
 interface GameStat {
@@ -54,6 +62,10 @@ export default function MyRosterPage() {
   const [subError, setSubError] = useState<string | null>(null);
   const [subSaving, setSubSaving] = useState(false);
   const [weeklyHistory, setWeeklyHistory] = useState<WeeklyEntry[]>([]);
+  const [pendingSubs, setPendingSubs] = useState<PendingSubs | null>(null);
+  const [lastPlayedMatchId, setLastPlayedMatchId] = useState<string | null>(null);
+  const [wasEligibleForLastPlayed, setWasEligibleForLastPlayed] = useState(false);
+  const initializedFromPendingRef = useRef(false);
 
   useEffect(() => {
     if (!supabase) {
@@ -83,6 +95,36 @@ export default function MyRosterPage() {
     });
   }, [userId]);
 
+  // When we have pending subs and window is open, auto-show form and initialize from pendingSubs
+  useEffect(() => {
+    if (subWindow?.subsUsedThisWindow && pendingSubs) {
+      setSubMode(true);
+    }
+  }, [subWindow?.subsUsedThisWindow, pendingSubs]);
+
+  // Initialize toRemove/toAdd from pendingSubs when form is shown
+  useEffect(() => {
+    if (!pendingSubs || !players.length || !subMode) {
+      if (!pendingSubs) initializedFromPendingRef.current = false;
+      return;
+    }
+    if (initializedFromPendingRef.current) return;
+    initializedFromPendingRef.current = true;
+    setToRemove(new Set(pendingSubs.removed_ids));
+    const addMap = new Map<number, Player>();
+    for (const id of pendingSubs.added_ids) {
+      const p = players.find((x) => x.playerId === id);
+      addMap.set(id, p ?? {
+        playerId: id,
+        name: pendingSubs.added_names[String(id)] ?? `Player ${id}`,
+        inGamePrice: pendingSubs.added_prices[String(id)] ?? 0,
+        fantasyPPG: 0,
+        position: "",
+      });
+    }
+    setToAdd(addMap);
+  }, [pendingSubs, subMode, players]);
+
   useEffect(() => {
     if (!userId || !supabase) return;
     const sb = supabase;
@@ -102,14 +144,20 @@ export default function MyRosterPage() {
         fetch(`/api/roster/season/${SEASON}/weekly-history`, {
           headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : undefined,
         }).then(async (r) => {
-          if (!r.ok) return { weeks: [] };
+          if (!r.ok) return { weeks: [], lastPlayedMatchId: null, wasEligibleForLastPlayed: false };
           const data = await r.json();
-          return { weeks: data.weeks ?? [] };
+          return {
+            weeks: data.weeks ?? [],
+            lastPlayedMatchId: data.lastPlayedMatchId ?? null,
+            wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
+          };
         }),
       ])
       .then(([rosterRes, statsData, playerData, weeklyData]) => {
         setPlayers((playerData.players ?? []) as Player[]);
         setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
+        setLastPlayedMatchId(weeklyData.lastPlayedMatchId ?? null);
+        setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
         const row = rosterRes.data;
         if (row?.player_ids?.length) {
           const prices: Record<number, number> = {};
@@ -125,8 +173,13 @@ export default function MyRosterPage() {
             playerNames: names,
             pickedAt: row.picked_at ?? new Date().toISOString(),
           });
+          const ps = row.pending_subs;
+          setPendingSubs(
+            ps?.removed_ids?.length && ps?.added_ids?.length ? (ps as PendingSubs) : null
+          );
         } else {
           setRoster(null);
+          setPendingSubs(null);
         }
         setStats((statsData.stats ?? []) as GameStat[]);
         setLoading(false);
@@ -176,15 +229,15 @@ export default function MyRosterPage() {
     );
   }
 
-  const totalCost = roster.playerIds.reduce((sum, id) => sum + (roster.playerPrices[id] ?? 0), 0);
-  const pointsByPlayer = new Map<number, number>();
-  for (const s of stats) {
-    if (roster.playerIds.includes(s.playerId)) {
-      pointsByPlayer.set(s.playerId, (pointsByPlayer.get(s.playerId) ?? 0) + s.fantasyPoints);
-    }
-  }
-  const totalFantasyPoints = Array.from(pointsByPlayer.values()).reduce((a, b) => a + b, 0);
-  const gamesPlayed = new Set(stats.filter((s) => roster!.playerIds.includes(s.playerId)).map((s) => s.matchId)).size;
+  // Use current market prices for cap (prices change; over $30 requires sub)
+  const currentPrices = Object.fromEntries(players.map((p) => [p.playerId, p.inGamePrice]));
+  const totalCost = roster.playerIds.reduce(
+    (sum, id) => sum + (currentPrices[id] ?? roster.playerPrices[id] ?? 0),
+    0
+  );
+  // Fantasy points only from weeks where user had roster before match_start (derived from weeklyHistory)
+  const totalFantasyPoints = weeklyHistory.reduce((s, w) => s + w.total, 0);
+  const gamesPlayed = weeklyHistory.length;
 
   return (
     <div>
@@ -194,7 +247,7 @@ export default function MyRosterPage() {
       </p>
 
       <div className="mb-6 rounded-lg border border-bb-border bg-card-bg p-4">
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-8">
           <div>
             <span className="text-sm text-gray-500">Total cost</span>
             <p className="text-xl font-bold">${totalCost}</p>
@@ -203,6 +256,12 @@ export default function MyRosterPage() {
             <span className="text-sm text-gray-500">Fantasy points</span>
             <p className="text-xl font-bold">{totalFantasyPoints.toFixed(1)}</p>
           </div>
+          {weeklyHistory.length > 0 && (
+            <div>
+              <span className="text-sm text-gray-500">Last week (Week {weeklyHistory[weeklyHistory.length - 1]?.week})</span>
+              <p className="text-xl font-bold">{weeklyHistory[weeklyHistory.length - 1]?.total.toFixed(1) ?? 0} FP</p>
+            </div>
+          )}
         </div>
       </div>
 
@@ -210,11 +269,7 @@ export default function MyRosterPage() {
         <div className="mb-6 rounded-lg border border-bb-border bg-card-bg p-4">
           <h3 className="mb-2 text-sm font-medium text-gray-600">Substitutions</h3>
           {subWindow.open ? (
-            subWindow.subsUsedThisWindow ? (
-              <p className="text-sm text-gray-600">
-                You&apos;ve already made substitutions for the next game. Changes apply when the game is played.
-              </p>
-            ) : subMode ? (
+            subMode ? (
               <SubstitutionForm
                 roster={roster}
                 players={players}
@@ -222,11 +277,33 @@ export default function MyRosterPage() {
                 toAdd={toAdd}
                 setToRemove={setToRemove}
                 setToAdd={setToAdd}
+                hasPendingSubs={!!pendingSubs}
+                onClear={async () => {
+                  if (!userId || !supabase) return;
+                  const { data: { session } } = await supabase.auth.getSession();
+                  const res = await fetch(`/api/roster/season/${SEASON}/substitute`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
+                    },
+                    body: JSON.stringify({ clear: true }),
+                  });
+                  if (res.ok) {
+                    setSubMode(false);
+                    setToRemove(new Set());
+                    setToAdd(new Map());
+                    setPendingSubs(null);
+                    initializedFromPendingRef.current = false;
+                    window.location.reload();
+                  }
+                }}
                 onCancel={() => {
                   setSubMode(false);
                   setToRemove(new Set());
                   setToAdd(new Map());
                   setSubError(null);
+                  initializedFromPendingRef.current = false;
                 }}
                 onSave={async () => {
                   if (!userId || !supabase) return;
@@ -286,7 +363,7 @@ export default function MyRosterPage() {
                   onClick={() => setSubMode(true)}
                   className="rounded-lg bg-exact px-4 py-2 text-sm font-semibold text-white hover:bg-[#5a9a54] transition-colors"
                 >
-                  Make substitutions
+                  {pendingSubs ? "Edit substitutions" : "Make substitutions"}
                 </button>
               </div>
             )
@@ -301,32 +378,134 @@ export default function MyRosterPage() {
         </div>
       )}
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-bb-border rounded-lg overflow-hidden">
-          <thead>
-            <tr className="bg-card-bg">
-              <th className="border border-bb-border px-4 py-2 text-left">Photo</th>
-              <th className="border border-bb-border px-4 py-2 text-left">Player</th>
-              <th className="border border-bb-border px-4 py-2 text-right">$</th>
-            </tr>
-          </thead>
-          <tbody>
-            {roster.playerIds.map((id) => (
-              <tr key={id} className="hover:bg-card-bg">
-                <td className="border border-bb-border px-4 py-2">
-                  <PlayerAvatar playerId={id} name={roster.playerNames[id] ?? `Player ${id}`} />
-                </td>
-                <td className="border border-bb-border px-4 py-2 font-medium">{roster.playerNames[id] ?? `Player ${id}`}</td>
-                <td className="border border-bb-border px-4 py-2 text-right">${roster.playerPrices[id] ?? 0}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {(() => {
+        // Last played match = most recent game that has finished (week 5)
+        const matchIdForLastWeek = lastPlayedMatchId;
+        const getPlayerFPInMatch = (playerId: number, matchId: string | null): number => {
+          if (!matchId) return 0;
+          const s = stats.find((x) => x.playerId === playerId && String(x.matchId) === String(matchId));
+          return s?.fantasyPoints ?? 0;
+        };
+        // Current roster: show week 5 FP only if team was created before game 5
+        const getCurrentRosterLastWeekFP = (playerId: number): number =>
+          wasEligibleForLastPlayed ? getPlayerFPInMatch(playerId, matchIdForLastWeek) : 0;
+        // Future team: always show week 5 FP (player attribute)
+        const getFutureTeamLastWeekFP = (playerId: number): number =>
+          getPlayerFPInMatch(playerId, matchIdForLastWeek);
+        // Future team = current roster with pending subs applied (same order)
+        const futureTeamIds = pendingSubs
+          ? roster.playerIds.map((id) => {
+              const removedIdx = pendingSubs.removed_ids.indexOf(id);
+              return removedIdx >= 0 ? pendingSubs.added_ids[removedIdx] : id;
+            })
+          : null;
+        const currentPricesMap = Object.fromEntries(players.map((p) => [p.playerId, p.inGamePrice]));
+        const getFuturePlayer = (id: number) => ({
+          name: pendingSubs?.added_ids?.includes(id)
+            ? (pendingSubs.added_names[String(id)] ?? `Player ${id}`)
+            : (roster.playerNames[id] ?? `Player ${id}`),
+          price: pendingSubs?.added_ids?.includes(id)
+            ? (pendingSubs.added_prices[String(id)] ?? 0)
+            : (currentPricesMap[id] ?? roster.playerPrices[id] ?? 0),
+        });
+        const RosterRow = ({
+          id,
+          name,
+          price,
+          lastWeekFP,
+          highlight,
+        }: {
+          id: number;
+          name: string;
+          price: number;
+          lastWeekFP: number;
+          highlight?: "red" | "green";
+        }) => (
+          <tr
+            className={`hover:bg-card-bg ${
+              highlight === "red" ? "bg-red-100" : highlight === "green" ? "bg-green-100" : ""
+            }`}
+          >
+            <td className="border border-bb-border px-2 py-2">
+              <PlayerAvatar playerId={id} name={name} />
+            </td>
+            <td className="border border-bb-border px-2 py-2 font-medium truncate w-32" title={name}>{name}</td>
+            <td className="border border-bb-border px-2 py-2 text-right">${price}</td>
+            <td className="border border-bb-border px-2 py-2 text-right text-gray-600">
+              {lastWeekFP.toFixed(1)} FP
+            </td>
+          </tr>
+        );
+        return (
+          <div className={`flex gap-6 ${pendingSubs ? "" : "max-w-[50%]"}`}>
+            <div className={`overflow-x-auto border border-bb-border rounded-lg ${pendingSubs ? "w-1/2 min-w-0" : "w-full"}`}>
+              <h3 className="mb-2 text-sm font-medium text-gray-600">Current roster</h3>
+              <table className="w-full border-collapse table-fixed">
+                  <thead>
+                    <tr className="bg-card-bg">
+                      <th className="border border-bb-border px-2 py-2 text-left w-14">Photo</th>
+                      <th className="border border-bb-border px-2 py-2 text-left w-32">Player</th>
+                      <th className="border border-bb-border px-2 py-2 text-right w-12">$</th>
+                      <th className="border border-bb-border px-2 py-2 text-right w-16">Last week</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {roster.playerIds.map((id) => {
+                      const isSubbedOut = pendingSubs?.removed_ids?.includes(id);
+                      const price = currentPrices[id] ?? roster.playerPrices[id] ?? 0;
+                      return (
+                        <RosterRow
+                          key={id}
+                          id={id}
+                          name={roster.playerNames[id] ?? `Player ${id}`}
+                          price={price}
+                          lastWeekFP={getCurrentRosterLastWeekFP(id)}
+                          highlight={isSubbedOut ? "red" : undefined}
+                        />
+                      );
+                    })}
+                  </tbody>
+                </table>
+            </div>
+            {pendingSubs && futureTeamIds && (
+              <div className="w-1/2 min-w-0 overflow-x-auto border border-bb-border rounded-lg">
+                <h3 className="mb-2 text-sm font-medium text-gray-600">Future team (next game)</h3>
+                <table className="w-full border-collapse table-fixed">
+                    <thead>
+                      <tr className="bg-card-bg">
+                        <th className="border border-bb-border px-2 py-2 text-left w-14">Photo</th>
+                        <th className="border border-bb-border px-2 py-2 text-left w-32">Player</th>
+                        <th className="border border-bb-border px-2 py-2 text-right w-12">$</th>
+                        <th className="border border-bb-border px-2 py-2 text-right w-16">Last week</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {futureTeamIds.map((id) => {
+                        const isSubbedIn = pendingSubs.added_ids.includes(id);
+                        const fp = getFutureTeamLastWeekFP(id);
+                        const { name, price } = getFuturePlayer(id);
+                        return (
+                          <RosterRow
+                            key={id}
+                            id={id}
+                            name={name}
+                            price={price}
+                            lastWeekFP={fp}
+                            highlight={isSubbedIn ? "green" : undefined}
+                          />
+                        );
+                      })}
+                    </tbody>
+                  </table>
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
-      {weeklyHistory.length > 0 && (
-        <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">
-          <h3 className="mb-4 text-sm font-medium text-gray-600">My Scores (Weekly History)</h3>
+      <div className="mt-6 rounded-lg border border-bb-border bg-card-bg p-4">
+        <h3 className="mb-4 text-sm font-medium text-gray-600">My Scores (Weekly History)</h3>
+        {weeklyHistory.length > 0 ? (
           <div className="space-y-6">
             {[...weeklyHistory].reverse().map((w) => (
               <div key={w.matchId} className="rounded-lg border border-bb-border bg-white p-4">
@@ -336,15 +515,15 @@ export default function MyRosterPage() {
                     {new Date(w.matchDate).toLocaleDateString()} · Total: {w.total.toFixed(1)} FP
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-4">
+                <div className="grid grid-cols-5 gap-4">
                   {w.roster.map((p) => (
                     <div
                       key={p.playerId}
-                      className="flex items-center gap-3 rounded-lg border border-bb-border bg-card-bg px-3 py-2"
+                      className="flex items-center gap-3 rounded-lg border border-bb-border bg-card-bg px-3 py-2 min-w-0"
                     >
                       <PlayerAvatar playerId={p.playerId} name={p.name} />
-                      <div>
-                        <p className="text-sm font-medium">{p.name}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-medium truncate" title={p.name}>{p.name}</p>
                         <p className="text-sm text-gray-600">{p.points.toFixed(1)} FP</p>
                       </div>
                     </div>
@@ -353,8 +532,10 @@ export default function MyRosterPage() {
               </div>
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <p className="text-gray-500 italic">New team… Your scores will appear here after games are played.</p>
+        )}
+      </div>
 
       <p className="mt-6 text-sm text-gray-500">
         <Link href="/leaderboard" className="text-exact hover:underline font-medium">Leaderboard</Link>
@@ -392,6 +573,8 @@ function SubstitutionForm({
   toAdd,
   setToRemove,
   setToAdd,
+  hasPendingSubs,
+  onClear,
   onCancel,
   onSave,
   saving,
@@ -403,13 +586,19 @@ function SubstitutionForm({
   toAdd: Map<number, Player>;
   setToRemove: (s: Set<number>) => void;
   setToAdd: (m: Map<number, Player>) => void;
+  hasPendingSubs: boolean;
+  onClear: () => void;
   onCancel: () => void;
   onSave: () => void;
   saving: boolean;
   error: string | null;
 }) {
   const keptIds = roster.playerIds.filter((id) => !toRemove.has(id));
-  const keptCost = keptIds.reduce((s, id) => s + (roster.playerPrices[id] ?? 0), 0);
+  const currentPrices = Object.fromEntries(players.map((p) => [p.playerId, p.inGamePrice]));
+  const keptCost = keptIds.reduce(
+    (s, id) => s + (currentPrices[id] ?? roster.playerPrices[id] ?? 0),
+    0
+  );
   const addedCost = Array.from(toAdd.values()).reduce((s, p) => s + p.inGamePrice, 0);
   const newTotal = keptCost + addedCost;
   const isValid = toRemove.size === toAdd.size && toRemove.size >= 1 && toRemove.size <= MAX_SWAP && newTotal <= CAP;
@@ -470,7 +659,7 @@ function SubstitutionForm({
       <h4 className="text-sm font-medium mb-2">Add (click to select):</h4>
       <div className="flex flex-wrap gap-2 mb-4 max-h-32 overflow-y-auto">
         {players
-          .filter((p) => !roster.playerIds.includes(p.playerId) || toRemove.has(p.playerId))
+          .filter((p) => !roster.playerIds.includes(p.playerId))
           .map((p) => (
             <button
               key={p.playerId}
@@ -483,13 +672,22 @@ function SubstitutionForm({
       </div>
       <p className="text-sm mb-3">New total: ${newTotal} / ${CAP}</p>
       {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         <button onClick={onSave} disabled={!isValid || saving} className="rounded-lg bg-exact px-4 py-2 text-sm font-semibold text-white hover:bg-[#5a9a54] disabled:opacity-50">
           {saving ? "Saving…" : "Save"}
         </button>
         <button onClick={onCancel} className="rounded-lg border border-bb-border px-4 py-2 text-sm font-medium hover:bg-card-bg">
           Cancel
         </button>
+        {hasPendingSubs && (
+          <button
+            onClick={onClear}
+            disabled={saving}
+            className="rounded-lg border border-red-300 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 disabled:opacity-50"
+          >
+            Clear pending subs
+          </button>
+        )}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { config } from "@/lib/config";
 import { supabase } from "@/lib/supabase-client";
+import { SuggestFeature } from "@/components/SuggestFeature";
 
 const CAP = config.game.cap;
 
@@ -16,9 +17,19 @@ export default function HomePage() {
       setHasRoster(false);
       return;
     }
+    const cacheKey = `hasRoster_${config.game.currentSeason}`;
+    try {
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached === "true" || cached === "false") {
+        setHasRoster(cached === "true");
+      }
+    } catch {}
     void client.auth.getSession().then(async ({ data: { session } }) => {
       if (!session?.user) {
         setHasRoster(false);
+        try {
+          sessionStorage.removeItem(cacheKey);
+        } catch {}
         return;
       }
       try {
@@ -28,7 +39,11 @@ export default function HomePage() {
           .eq("user_id", session.user.id)
           .eq("season", config.game.currentSeason)
           .maybeSingle();
-        setHasRoster(!!data?.player_ids?.length);
+        const has = !!data?.player_ids?.length;
+        setHasRoster(has);
+        try {
+          sessionStorage.setItem(cacheKey, String(has));
+        } catch {}
       } catch {
         setHasRoster(false);
       }
@@ -50,47 +65,63 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-3">
-          <Link
-            href={hasRoster ? "/roster" : "/pick"}
-            className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-exact text-white font-semibold rounded-lg hover:bg-[#5a9a54] transition-colors flex items-center justify-center text-sm sm:text-base"
-          >
-            {hasRoster ? "My Roster" : "Pick Your Team"}
-          </Link>
-          <Link
-            href="/players"
-            className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-low text-white font-semibold rounded-lg hover:bg-[#75b0e9] transition-colors flex items-center justify-center text-sm sm:text-base"
-          >
-            Players (Season {config.game.currentSeason})
-          </Link>
-          <Link
-            href="/leaderboard"
-            className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-bb-gold text-bb-text font-semibold rounded-lg border border-[#B8962E] hover:bg-[#C9A227] transition-colors flex items-center justify-center text-sm sm:text-base"
-          >
-            Leaderboard
-          </Link>
+          {/* Standard button size: min-h-[44px] py-3 */}
+          <div className="flex flex-col gap-3">
+            <Link
+              href="/players"
+              className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-btn-peach text-bb-text font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-sm sm:text-base"
+            >
+              Players (Season {config.game.currentSeason})
+            </Link>
+            {hasRoster === null ? (
+              <div className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-gray-200 text-gray-500 font-semibold rounded-xl flex items-center justify-center text-sm sm:text-base">
+                Loading…
+              </div>
+            ) : (
+              <Link
+                href={hasRoster ? "/roster" : "/pick"}
+                className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-btn-cream text-bb-text font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-sm sm:text-base"
+              >
+                {hasRoster ? "My Roster" : "Pick Your Team"}
+              </Link>
+            )}
+            <Link
+              href="/schedule"
+              className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-btn-mint text-bb-text font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-sm sm:text-base"
+            >
+              Schedule
+            </Link>
+            <Link
+              href="/leaderboard"
+              className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-btn-sky-pastel text-bb-text font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-sm sm:text-base"
+            >
+              Leaderboard
+            </Link>
+            <Link
+              href="/help"
+              className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-btn-gray-pastel text-bb-text font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-sm sm:text-base"
+            >
+              How to Play
+            </Link>
+          </div>
+
+          <hr className="border-bb-border my-4" />
+
           <Link
             href="/u21dle"
-            className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-[#6366f1] text-white font-semibold rounded-lg hover:bg-[#4f46e5] transition-colors flex items-center justify-center text-sm sm:text-base"
+            className="block w-full min-h-[80px] py-6 px-6 sm:px-8 bg-btn-lavender text-bb-text font-bold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-xl sm:text-2xl shadow-lg"
           >
             U21dle – Daily Puzzle
           </Link>
-          <Link
-            href="/schedule"
-            className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-[#64748b] text-white font-semibold rounded-lg hover:bg-[#475569] transition-colors flex items-center justify-center text-sm sm:text-base"
-          >
-            Schedule
-          </Link>
-          <Link
-            href="/help"
-            className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-card-bg text-bb-text font-semibold rounded-lg border border-bb-border hover:bg-[#e8e9eb] transition-colors flex items-center justify-center text-sm sm:text-base"
-          >
-            How to Play
-          </Link>
-        </div>
 
-        <p className="text-sm text-gray-500 pt-4 border-t border-bb-border">
-          Roster saved when signed in.
-        </p>
+          <hr className="border-bb-border my-4" />
+
+          {config.githubRepo && (
+            <SuggestFeature
+              className="block w-full min-h-[44px] py-3 px-4 sm:px-6 bg-btn-teal-pastel text-bb-text font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center text-sm sm:text-base"
+            />
+          )}
+        </div>
       </div>
     </main>
   );

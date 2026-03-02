@@ -8,13 +8,15 @@ interface PlayerAvatarProps {
   name: string;
   /** File mtime for cache busting when face is re-fetched */
   faceMtime?: number | null;
+  /** Compact size for dense layouts */
+  compact?: boolean;
 }
 
 /**
  * Player avatar - uses our stored face (from npm run fetch-player-face) when available,
  * otherwise shows initial. Links to BuzzerBeater profile.
  */
-export function PlayerAvatar({ playerId, name, faceMtime }: PlayerAvatarProps) {
+export function PlayerAvatar({ playerId, name, faceMtime, compact }: PlayerAvatarProps) {
   const [imgError, setImgError] = useState(false);
   const profileUrl = `https://buzzerbeater.com/player/${playerId}/overview.aspx`;
   const faceUrl = `/player-faces/${playerId}.png${faceMtime ? `?v=${faceMtime}` : ""}`;
@@ -31,11 +33,11 @@ export function PlayerAvatar({ playerId, name, faceMtime }: PlayerAvatarProps) {
         <img
           src={faceUrl}
           alt={name}
-          className="block max-h-24 w-auto rounded-lg"
+          className={`block w-auto rounded-lg ${compact ? "max-h-12" : "max-h-24"}`}
           onError={() => setImgError(true)}
         />
       ) : (
-        <span className="flex h-16 w-16 items-center justify-center rounded-lg">{name.charAt(0)}</span>
+        <span className={`flex items-center justify-center rounded-lg ${compact ? "h-10 w-10" : "h-16 w-16"}`}>{name.charAt(0)}</span>
       )}
     </Link>
   );

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 
 export const dynamic = "force-dynamic";
 
@@ -47,7 +48,7 @@ export async function GET(request: NextRequest) {
       .eq("puzzle_id", puzzleRow.id)
       .limit(100);
     const finished = (rawGuesses ?? []).filter(
-      (g) => g.is_solved || (g.guesses_used ?? 0) >= 6
+      (g) => g.is_solved || (g.guesses_used ?? 0) >= U21DLE_CONFIG.MAX_GUESSES
     );
     const sorted = [...finished].sort((a, b) => {
       const aClean = a.is_solved && !a.used_cheat;

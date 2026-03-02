@@ -8,6 +8,8 @@ import { join } from "path";
 import { bbapiLogin, bbapiPlayer } from "./bbapi";
 import { config } from "./config";
 import { statsToFantasyPoints, fantasyPPGToPrice } from "./scoring";
+import { loadPlayerGameStats } from "./boxscore";
+import { loadScheduleFromJson } from "./schedule";
 import type { PlayerWithDetails } from "./types";
 
 interface SeasonPlayer {
@@ -67,6 +69,43 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
   const players: SeasonPlayer[] = data.players ?? [];
   const cache = loadPlayerDetailsCache(season);
 
+  // Per-player total FP, and last played match FP (same definition as roster "Last week")
+  const gameStats = loadPlayerGameStats(season);
+  const schedule = loadScheduleFromJson(season);
+  const today = new Date().toISOString().slice(0, 10);
+  const now = Date.now();
+  const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
+
+  let lastPlayedMatchId: string | null = null;
+  if (schedule?.length) {
+    const sorted = [...schedule].sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
+    for (let i = sorted.length - 1; i >= 0; i--) {
+      const m = sorted[i];
+      const matchDate = m.start.slice(0, 10);
+      const matchStartMs = new Date(m.start).getTime();
+      const isPlayed = matchDate < today || (matchDate === today && now >= matchStartMs + GAME_DURATION_MS);
+      if (isPlayed && gameStats.some((s) => String(s.matchId) === String(m.id))) {
+        lastPlayedMatchId = String(m.id);
+        break;
+      }
+    }
+  }
+
+  const lastGameFPByPlayer: Record<number, number> = {};
+  for (const s of gameStats) {
+    if (String(s.matchId) === String(lastPlayedMatchId)) {
+      lastGameFPByPlayer[s.playerId] = s.fantasyPoints;
+    }
+  }
+
+  const byPlayer = new Map<number, { total: number; gp: number }>();
+  for (const s of gameStats) {
+    const cur = byPlayer.get(s.playerId) ?? { total: 0, gp: 0 };
+    cur.total += s.fantasyPoints;
+    cur.gp += 1;
+    byPlayer.set(s.playerId, cur);
+  }
+
   const { session, ok } = await bbapiLogin(config.bbapi.login, config.bbapi.code);
 
   const results: PlayerWithDetails[] = await Promise.all(
@@ -89,7 +128,11 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
         pts: p.pts,
         rtng: p.rtng,
       };
-      const fantasyPPG = statsToFantasyPoints(stats);
+      const derivedPPG = statsToFantasyPoints(stats);
+      const gameData = byPlayer.get(p.playerId);
+      const fantasyPPG = gameData && gameData.gp > 0 ? gameData.total / gameData.gp : derivedPPG;
+      const totalFP = gameData?.total ?? 0;
+      const lastGameFP = lastGameFPByPlayer[p.playerId] ?? 0;
       const inGamePrice = fantasyPPGToPrice(fantasyPPG);
 
       let position = "?";
@@ -130,6 +173,8 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
         pts: p.pts,
         fantasyPPG,
         gameShape,
+        lastGameFP,
+        totalFP,
       };
     })
   );

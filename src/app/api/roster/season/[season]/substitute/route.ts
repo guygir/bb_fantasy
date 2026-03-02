@@ -48,18 +48,30 @@ export async function POST(
       { status: 400 }
     );
   }
-  if (window.subsUsedThisWindow) {
-    return NextResponse.json(
-      { error: "You've already made substitutions for the next game. Changes apply when the game is played." },
-      { status: 400 }
-    );
-  }
 
-  let body: { removedIds: number[]; addedIds: number[]; addedPrices: Record<string, number>; addedNames: Record<string, string> };
+  let body: { removedIds?: number[]; addedIds?: number[]; addedPrices?: Record<string, number>; addedNames?: Record<string, string>; clear?: boolean };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+
+  // Clear pending subs
+  if (body.clear === true) {
+    const { error: clearErr } = await supabase
+      .from("fantasy_user_rosters")
+      .update({ pending_subs: null, updated_at: new Date().toISOString() })
+      .eq("user_id", user.id)
+      .eq("season", seasonNum);
+    if (clearErr) return NextResponse.json({ error: clearErr.message }, { status: 500 });
+    return NextResponse.json({ ok: true });
+  }
+
+  if (!window.nextMatchId) {
+    return NextResponse.json(
+      { error: "No upcoming game to apply substitutions to." },
+      { status: 400 }
+    );
   }
 
   const { removedIds = [], addedIds = [], addedPrices = {}, addedNames = {} } = body;
@@ -74,20 +86,29 @@ export async function POST(
     );
   }
 
-  const { data: roster, error: rosterFetchError } = await supabase
-    .from("fantasy_user_rosters")
-    .select("player_ids, player_prices, player_names")
-    .eq("user_id", user.id)
-    .eq("season", seasonNum)
-    .single();
+  const [{ data: roster, error: rosterFetchError }, { data: priceRows }] = await Promise.all([
+    supabase
+      .from("fantasy_user_rosters")
+      .select("player_ids, player_prices, player_names")
+      .eq("user_id", user.id)
+      .eq("season", seasonNum)
+      .single(),
+    supabase
+      .from("fantasy_player_prices")
+      .select("player_id, price")
+      .eq("season", seasonNum),
+  ]);
 
   if (rosterFetchError || !roster?.player_ids?.length) {
     return NextResponse.json({ error: "No roster found" }, { status: 400 });
   }
 
   const currentIds = roster.player_ids as number[];
-  const currentPrices = (roster.player_prices ?? {}) as Record<string, number>;
   const currentNames = (roster.player_names ?? {}) as Record<string, string>;
+  const marketPrices: Record<number, number> = {};
+  for (const r of priceRows ?? []) {
+    if (marketPrices[r.player_id] == null) marketPrices[r.player_id] = r.price;
+  }
 
   for (const id of removedIds) {
     if (!currentIds.includes(id)) {
@@ -102,47 +123,32 @@ export async function POST(
     return NextResponse.json({ error: "Roster must have 5 players" }, { status: 400 });
   }
 
-  const keptCost = keptIds.reduce((s, id) => s + (currentPrices[String(id)] ?? 0), 0);
-  const addedCost = addedIds.reduce((s, id) => s + (addedPrices[String(id)] ?? 0), 0);
+  const rosterPrices = (roster.player_prices ?? {}) as Record<string, number>;
+  const keptCost = keptIds.reduce(
+    (s, id) => s + (marketPrices[id] ?? rosterPrices[String(id)] ?? 0),
+    0
+  );
+  const addedCost = addedIds.reduce(
+    (s, id) => s + (marketPrices[id] ?? addedPrices[String(id)] ?? 0),
+    0
+  );
   if (keptCost + addedCost > CAP) {
     return NextResponse.json({ error: `Total cost exceeds $${CAP} cap` }, { status: 400 });
   }
 
-  const newPrices: Record<string, number> = { ...currentPrices };
-  const newNames: Record<string, string> = { ...currentNames };
-  for (const id of removedIds) {
-    delete newPrices[String(id)];
-    delete newNames[String(id)];
-  }
-  for (const id of addedIds) {
-    newPrices[String(id)] = addedPrices[String(id)] ?? 0;
-    newNames[String(id)] = addedNames[String(id)] ?? `Player ${id}`;
-  }
-
-  const removedPrices: Record<string, number> = {};
-  for (const id of removedIds) {
-    removedPrices[String(id)] = currentPrices[String(id)] ?? 0;
-  }
-
-  const { error: subError } = await supabase.from("fantasy_roster_substitutions").insert({
-    user_id: user.id,
-    season: seasonNum,
-    removed_player_ids: removedIds,
-    added_player_ids: addedIds,
-    removed_prices: removedPrices,
+  // Store pending subs on roster; applied when sync runs after game is played
+  const pendingSubs = {
+    removed_ids: removedIds,
+    added_ids: addedIds,
     added_prices: addedPrices,
-  });
-
-  if (subError) {
-    return NextResponse.json({ error: subError.message }, { status: 500 });
-  }
+    added_names: addedNames,
+    effective_match_id: window.nextMatchId,
+  };
 
   const { error: rosterError } = await supabase
     .from("fantasy_user_rosters")
     .update({
-      player_ids: newIds,
-      player_prices: newPrices,
-      player_names: newNames,
+      pending_subs: pendingSubs,
       updated_at: new Date().toISOString(),
     })
     .eq("user_id", user.id)

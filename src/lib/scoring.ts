@@ -1,6 +1,22 @@
 /**
- * Fantasy scoring formula
+ * Fantasy scoring formula - re-exports from scoring-core.mjs (single source of truth)
  */
+
+import {
+  statsToFantasyPoints as statsToFantasyPointsCore,
+  fantasyPPGToPrice as fantasyPPGToPriceCore,
+  MIN_GAMES_FOR_ADJUSTMENT,
+  MAX_CHANGE_HIGH_CONFIDENCE,
+  MAX_CHANGE_DEFAULT,
+  getMaxPriceChange,
+} from "./scoring-core.mjs";
+
+export {
+  MIN_GAMES_FOR_ADJUSTMENT,
+  MAX_CHANGE_HIGH_CONFIDENCE,
+  MAX_CHANGE_DEFAULT,
+  getMaxPriceChange,
+};
 
 export interface PlayerGameStats {
   min: number;
@@ -21,30 +37,5 @@ export interface PlayerGameStats {
   rtng: number;
 }
 
-export function statsToFantasyPoints(stats: PlayerGameStats): number {
-  const dr = stats.tr - stats.or;
-  return (
-    stats.pts * 1.0 +
-    dr * 1.2 +
-    stats.or * 1.5 +
-    stats.ast * 1.5 +
-    stats.stl * 2.0 +
-    stats.blk * 2.0 -
-    stats.to * 1.0 -
-    stats.pf * 0.5 +
-    stats.tpMade * 0.5
-  );
-}
-
-export function fantasyPPGToPrice(ppg: number): number {
-  if (ppg >= 25) return 10;
-  if (ppg >= 22) return 9;
-  if (ppg >= 19) return 8;
-  if (ppg >= 16) return 7;
-  if (ppg >= 13) return 6;
-  if (ppg >= 10) return 5;
-  if (ppg >= 7) return 4;
-  if (ppg >= 4) return 3;
-  if (ppg >= 2) return 2;
-  return 1;
-}
+export const statsToFantasyPoints = statsToFantasyPointsCore;
+export const fantasyPPGToPrice = fantasyPPGToPriceCore;

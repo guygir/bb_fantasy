@@ -435,7 +435,7 @@ export default function U21dlePage() {
             </h2>
             <p className="mt-1 text-center">
               {won
-                ? `You guessed the player in ${guessHistory.length} ${guessHistory.length === 1 ? "try" : "tries"}!`
+                ? `You guessed ${answer?.name ?? "the player"} in ${guessHistory.length} ${guessHistory.length === 1 ? "try" : "tries"}!`
                 : answer && `The player was: ${answer.name}`}
             </p>
             <p className="mt-1 text-center text-sm text-gray-600">
@@ -508,7 +508,9 @@ export default function U21dlePage() {
         )}
       </div>
 
-      <div className="mt-6 space-y-4">
+      <div className="mt-6 space-y-6">
+        <U21dleStatsAndLeaderboard puzzleDate={puzzleDate} gameOver={gameOver} />
+
         <div className="rounded-lg border border-bb-border bg-card-bg p-4 text-sm text-gray-600">
           <p className="font-semibold">How to play</p>
           <p className="mt-1">
@@ -526,8 +528,6 @@ export default function U21dlePage() {
             </Link>
           </p>
         </div>
-
-        <U21dleStatsAndLeaderboard />
 
         {showCheatWarning && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
