@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +17,7 @@ function getSupabase(accessToken?: string) {
  * PATCH /api/profile/nickname
  * Body: { nickname: string }
  * Updates the authenticated user's nickname. Requires auth.
+ * Uses service role to bypass RLS (same fix as roster - BBAPI users can have RLS issues).
  */
 export async function PATCH(request: NextRequest) {
   const authHeader = request.headers.get("Authorization");
@@ -45,20 +47,27 @@ export async function PATCH(request: NextRequest) {
     );
   }
 
-  const supabase = getSupabase(token);
-  if (!supabase) {
+  const supabaseAuth = getSupabase(token);
+  if (!supabaseAuth) {
     return NextResponse.json({ success: false, error: "Server config error" }, { status: 500 });
   }
 
-  const { data: user } = await supabase.auth.getUser(token);
+  const { data: user } = await supabaseAuth.auth.getUser(token);
   if (!user?.user) {
     return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const { error } = await supabase
+  const admin = getSupabaseAdmin();
+  const { error } = await admin
     .from("profiles")
-    .update({ nickname, updated_at: new Date().toISOString() })
-    .eq("user_id", user.user.id);
+    .upsert(
+      {
+        user_id: user.user.id,
+        nickname,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id" }
+    );
 
   if (error) {
     if (error.code === "23505") {
