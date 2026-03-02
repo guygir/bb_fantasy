@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ function getSupabase(accessToken?: string) {
 /**
  * GET /api/u21dle/stats
  * Returns user stats. Requires auth.
+ * Uses service role to read stats (bypasses RLS, same fix as leaderboard).
  */
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get("Authorization");
@@ -23,17 +25,18 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const supabase = getSupabase(token);
-  if (!supabase) {
+  const supabaseAuth = getSupabase(token);
+  if (!supabaseAuth) {
     return NextResponse.json({ success: false, error: "Server config error" }, { status: 500 });
   }
 
-  const { data: user } = await supabase.auth.getUser(token);
+  const { data: user } = await supabaseAuth.auth.getUser(token);
   if (!user?.user) {
     return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const { data, error } = await supabase
+  const admin = getSupabaseAdmin();
+  const { data, error } = await admin
     .from("u21dle_user_stats")
     .select("*, cheat_distribution")
     .eq("user_id", user.user.id)

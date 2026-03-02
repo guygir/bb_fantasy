@@ -39,13 +39,29 @@ export function U21dleStatsAndLeaderboard({ puzzleDate, gameOver }: U21dleStatsA
       const date = puzzleDate ?? new Date().toISOString().slice(0, 10);
       const [s, lb] = await Promise.all([
         token
-          ? fetch("/api/u21dle/stats", { headers: { Authorization: `Bearer ${token}` }, ...opts }).then((r) =>
-              r.json().then((d) => (d.success ? d.data : null))
-            )
+          ? fetch("/api/u21dle/stats", { headers: { Authorization: `Bearer ${token}` }, ...opts })
+              .then(async (r) => {
+                if (!r.ok) return null;
+                try {
+                  const d = await r.json();
+                  return d.success ? d.data : null;
+                } catch {
+                  return null;
+                }
+              })
+              .catch(() => null)
           : Promise.resolve(null),
-        fetch(`/api/u21dle/leaderboard?type=daily&date=${encodeURIComponent(date)}`, opts).then((r) =>
-          r.json().then((d) => (d.success && d.data?.entries ? d.data.entries : []))
-        ),
+        fetch(`/api/u21dle/leaderboard?type=daily&date=${encodeURIComponent(date)}`, opts)
+          .then(async (r) => {
+            if (!r.ok) return [];
+            try {
+              const d = await r.json();
+              return d.success && d.data?.entries ? d.data.entries : [];
+            } catch {
+              return [];
+            }
+          })
+          .catch(() => []),
       ]);
       return { stats: s, leaderboard: lb };
     },

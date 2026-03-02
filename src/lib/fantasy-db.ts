@@ -4,6 +4,7 @@
  */
 
 import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "./supabase";
 import { loadPlayerGameStats } from "./boxscore";
 import { statsToFantasyPoints, fantasyPPGToPrice } from "./scoring";
 import type { PlayerWithDetails } from "./types";
@@ -237,12 +238,17 @@ export async function getPlayerGameStats(
 /** User standings: users ranked by roster total fantasy points. Requires Supabase data.
  * Only counts FP from matches where user had roster before match_start (picked_at < match_start).
  * Applies substitutions for effective roster per match.
+ * Uses service role to bypass RLS and show all users (same fix as U21dle leaderboard).
  */
 export async function getUserStandings(season: number): Promise<
   { rank: number; userId: string; nickname: string; totalFantasyPoints: number }[]
 > {
-  const supabase = getSupabase();
-  if (!supabase) return [];
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return [];
+  }
 
   const today = new Date().toISOString().slice(0, 10);
   const now = Date.now();
@@ -251,7 +257,7 @@ export async function getUserStandings(season: number): Promise<
   const [rostersRes, statsRes, profilesRes, scheduleRes, subsRes] = await Promise.all([
     supabase.from("fantasy_user_rosters").select("user_id, player_ids, picked_at").eq("season", season),
     supabase.from("fantasy_player_game_stats").select("player_id, match_id, fantasy_points").eq("season", season),
-    supabase.from("profiles").select("user_id, nickname"),
+    supabase.from("profiles").select("user_id, nickname, username"),
     supabase
       .from("fantasy_schedule")
       .select("match_id, match_date, match_start")
@@ -267,7 +273,12 @@ export async function getUserStandings(season: number): Promise<
 
   const rosters = rostersRes.data ?? [];
   const stats = statsRes.data ?? [];
-  const profiles = new Map((profilesRes.data ?? []).map((p) => [p.user_id, p.nickname ?? "?"]));
+  const profiles = new Map(
+    (profilesRes.data ?? []).map((p) => {
+      const row = p as { user_id: string; nickname?: string; username?: string };
+      return [row.user_id, row.nickname ?? row.username ?? "?"];
+    })
+  );
   const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
   const subs = subsRes.data ?? [];
 

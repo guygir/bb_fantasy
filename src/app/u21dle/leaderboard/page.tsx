@@ -33,7 +33,14 @@ export default function U21dleLeaderboardPage() {
     const params = new URLSearchParams({ type });
     if (type === "daily") params.set("date", date);
     fetch(`/api/u21dle/leaderboard?${params}`)
-      .then((r) => r.json())
+      .then(async (r) => {
+        if (!r.ok) return { success: false };
+        try {
+          return await r.json();
+        } catch {
+          return { success: false };
+        }
+      })
       .then((data) => {
         if (data.success && data.data?.entries) {
           setEntries(data.data.entries);

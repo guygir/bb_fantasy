@@ -31,7 +31,10 @@ export default function U21dleStatsPage() {
       fetch("/api/u21dle/stats", {
         headers: { Authorization: `Bearer ${session.access_token}` },
       })
-        .then((r) => r.json())
+        .then(async (r) => {
+          if (!r.ok) throw new Error(r.status === 401 ? "Unauthorized" : `Failed to load (${r.status})`);
+          return r.json();
+        })
         .then((data) => {
           if (data.success && data.data) {
             setStats(data.data);

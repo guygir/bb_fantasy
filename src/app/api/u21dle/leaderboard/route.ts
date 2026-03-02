@@ -21,11 +21,18 @@ export async function GET(request: NextRequest) {
 
   const [statsRes, profilesRes] = await Promise.all([
     supabase.from("u21dle_user_stats").select("user_id, total_games, failed_games, current_streak, max_streak, average_guesses, total_score"),
-    supabase.from("profiles").select("user_id, nickname"),
+    supabase.from("profiles").select("user_id, nickname, username"),
   ]);
 
   const stats = statsRes.data ?? [];
-  const profiles = new Map((profilesRes.data ?? []).map((p) => [p.user_id, p.nickname ?? "?"]));
+  const profiles = new Map(
+    (profilesRes.data ?? []).map((p) => [
+      p.user_id,
+      (p as { nickname?: string; username?: string }).nickname ??
+        (p as { nickname?: string; username?: string }).username ??
+        "?",
+    ])
+  );
 
   let entries: { rank: number; userId: string; nickname: string; value: number; extra?: Record<string, unknown> }[] = [];
 
