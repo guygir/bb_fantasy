@@ -3,6 +3,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 /**
  * GET /api/u21dle/leaderboard?type=daily|alltime-wins|alltime-winpercent|alltime-avgguesses
