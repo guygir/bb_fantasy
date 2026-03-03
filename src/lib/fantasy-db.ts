@@ -294,7 +294,7 @@ export async function getUserStandings(season: number): Promise<
     const stored = r.total_fantasy_points;
     const total = stored != null ? Number(stored) : 0;
     const nickname =
-      (r.nickname as string | null)?.trim() || (profiles.get(r.user_id) ?? "?");
+      (profiles.get(r.user_id) ?? (r.nickname as string | null)?.trim()) || "?";
     standings.push({
       userId: r.user_id,
       nickname,

@@ -17,6 +17,7 @@ Based on Riftle/Holdemle. Run migrations in order in Supabase SQL Editor.
 | 009 | `009_bb_users.sql` | BBAPI login → auth.users mapping |
 | 018 | `018_fantasy_total_fp.sql` | total_fantasy_points on rosters |
 | 019 | `019_fantasy_roster_nickname.sql` | nickname on rosters (denormalized) |
+| 020 | `020_profile_nickname_sync_trigger.sql` | auto-sync nickname to rosters on profile update |
 
 ## Tables
 

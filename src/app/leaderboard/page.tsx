@@ -5,6 +5,7 @@ import { LeaderboardTable } from "./LeaderboardTable";
 import { PlayerScorersTable } from "./PlayerScorersTable";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 const SEASON = config.game.currentSeason;
 
