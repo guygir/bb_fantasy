@@ -1,5 +1,7 @@
 /**
  * Supabase client for browser - used for auth session.
+ * Note: "Lock was stolen" with multiple tabs is a known supabase-js bug.
+ * Try: npm install @supabase/supabase-js@canary (fix in canary as of Feb 2026)
  */
 
 import { createClient, SupabaseClient } from "@supabase/supabase-js";

@@ -17,15 +17,13 @@ export function AuthNav() {
   const [saving, setSaving] = useState(false);
   const [editError, setEditError] = useState<string | null>(null);
 
-  const fetchProfile = useCallback(async (userId: string) => {
-    const sb = supabase;
-    if (!sb) return null;
-    const { data } = await sb
-      .from("profiles")
-      .select("nickname")
-      .eq("user_id", userId)
-      .maybeSingle();
-    return data?.nickname ?? null;
+  const fetchProfile = useCallback(async (accessToken: string) => {
+    const res = await fetch("/api/profile", {
+      headers: { Authorization: `Bearer ${accessToken}` },
+      cache: "no-store",
+    });
+    const json = await res.json().catch(() => ({}));
+    return json?.nickname ?? null;
   }, []);
 
   useEffect(() => {
@@ -35,8 +33,8 @@ export function AuthNav() {
       const { data: { session } } = await sb.auth.getSession();
       const u = session?.user ?? null;
       setUser(u ?? null);
-      if (u) {
-        const nick = await fetchProfile(u.id);
+      if (u?.id && session?.access_token) {
+        const nick = await fetchProfile(session.access_token);
         setNickname(nick);
       } else {
         setNickname(null);
@@ -46,8 +44,8 @@ export function AuthNav() {
     const { data: { subscription } } = sb.auth.onAuthStateChange(async (_event, session) => {
       const u = session?.user ?? null;
       setUser(u ?? null);
-      if (u) {
-        const nick = await fetchProfile(u.id);
+      if (u?.id && session?.access_token) {
+        const nick = await fetchProfile(session.access_token);
         setNickname(nick);
       } else {
         setNickname(null);

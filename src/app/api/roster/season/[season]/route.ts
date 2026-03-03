@@ -105,6 +105,9 @@ export async function POST(
   }
 
   const admin = getSupabaseAdmin();
+  const { data: profile } = await admin.from("profiles").select("nickname").eq("user_id", user.id).maybeSingle();
+  const nickname = profile?.nickname ?? null;
+
   const { error } = await admin.from("fantasy_user_rosters").upsert(
     {
       user_id: user.id,
@@ -112,6 +115,7 @@ export async function POST(
       player_ids: playerIds,
       player_prices: playerPrices,
       player_names: playerNames,
+      nickname,
       picked_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     },

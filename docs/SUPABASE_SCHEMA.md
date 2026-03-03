@@ -15,6 +15,8 @@ Based on Riftle/Holdemle. Run migrations in order in Supabase SQL Editor.
 | 007 | `007_fantasy_roster_substitutions.sql` | Substitution audit |
 | 008 | `008_fantasy_game_data.sql` | Optional: players, prices, game stats, matches, schedule |
 | 009 | `009_bb_users.sql` | BBAPI login → auth.users mapping |
+| 018 | `018_fantasy_total_fp.sql` | total_fantasy_points on rosters |
+| 019 | `019_fantasy_roster_nickname.sql` | nickname on rosters (denormalized) |
 
 ## Tables
 
@@ -74,6 +76,9 @@ Based on Riftle/Holdemle. Run migrations in order in Supabase SQL Editor.
 | player_names | JSONB | {playerId: name} |
 | picked_at | TIMESTAMPTZ | |
 | locked | BOOLEAN | roster locked for season |
+| pending_subs | JSONB | {removed_ids, added_ids, effective_match_id} (012) |
+| total_fantasy_points | DECIMAL(8,2) | Sum of roster FP; updated by sync (018) |
+| nickname | TEXT | Display name; synced from profiles (019) |
 | UNIQUE(user_id, season) | | |
 
 ### fantasy_roster_substitutions

@@ -65,6 +65,7 @@ export default function MyRosterPage() {
   const [pendingSubs, setPendingSubs] = useState<PendingSubs | null>(null);
   const [lastPlayedMatchId, setLastPlayedMatchId] = useState<string | null>(null);
   const [wasEligibleForLastPlayed, setWasEligibleForLastPlayed] = useState(false);
+  const [lastWeekFPByCurrentRoster, setLastWeekFPByCurrentRoster] = useState<Record<number, number>>({});
   const initializedFromPendingRef = useRef(false);
 
   useEffect(() => {
@@ -149,12 +150,13 @@ export default function MyRosterPage() {
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };
         }),
         fetch(`/api/roster/season/${SEASON}/weekly-history`, rosterOpts).then(async (r) => {
-          if (!r.ok) return { weeks: [], lastPlayedMatchId: null, wasEligibleForLastPlayed: false };
+          if (!r.ok) return { weeks: [], lastPlayedMatchId: null, wasEligibleForLastPlayed: false, lastWeekFPByCurrentRoster: {} };
           const data = await r.json();
           return {
             weeks: data.weeks ?? [],
             lastPlayedMatchId: data.lastPlayedMatchId ?? null,
             wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
+            lastWeekFPByCurrentRoster: data.lastWeekFPByCurrentRoster ?? {},
           };
         }),
       ])
@@ -163,6 +165,7 @@ export default function MyRosterPage() {
         setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
         setLastPlayedMatchId(weeklyData.lastPlayedMatchId ?? null);
         setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
+        setLastWeekFPByCurrentRoster(weeklyData.lastWeekFPByCurrentRoster ?? {});
         const row = rosterRes?.roster ?? rosterRes?.data;
         if (row?.player_ids?.length) {
           const prices: Record<number, number> = {};
@@ -244,8 +247,15 @@ export default function MyRosterPage() {
   const totalFantasyPoints = weeklyHistory.reduce((s, w) => s + w.total, 0);
   const gamesPlayed = weeklyHistory.length;
 
+  const showDebug = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("debug") === "1";
+
   return (
     <div>
+      {showDebug && (
+        <div className="mb-4 rounded border border-amber-300 bg-amber-50 p-2 text-xs font-mono">
+          Debug: user_id={userId} · Roster IDs: {roster?.playerIds?.join(", ")} · Last week FP source: {weeklyHistory.length > 0 ? `week ${weeklyHistory[weeklyHistory.length - 1]?.week} total=${weeklyHistory[weeklyHistory.length - 1]?.total}` : "none"}
+        </div>
+      )}
       <h2 className="mb-4 text-lg font-semibold">My Roster</h2>
       <p className="mb-6 text-sm text-gray-600">
         Picked {new Date(roster.pickedAt).toLocaleDateString()}. Total: ${totalCost} · Fantasy points from {gamesPlayed} game(s).
@@ -384,19 +394,18 @@ export default function MyRosterPage() {
       )}
 
       {(() => {
-        // Last played match = most recent game that has finished (week 5)
-        const matchIdForLastWeek = lastPlayedMatchId;
-        const getPlayerFPInMatch = (playerId: number, matchId: string | null): number => {
+        // Last week FP: use lastWeekFPByCurrentRoster from API (looks up current roster in pointsMap)
+        const getPlayerFPFromStats = (playerId: number, matchId: string | null): number => {
           if (!matchId) return 0;
           const s = stats.find((x) => x.playerId === playerId && String(x.matchId) === String(matchId));
           return s?.fantasyPoints ?? 0;
         };
-        // Current roster: show week 5 FP only if team was created before game 5
         const getCurrentRosterLastWeekFP = (playerId: number): number =>
-          wasEligibleForLastPlayed ? getPlayerFPInMatch(playerId, matchIdForLastWeek) : 0;
-        // Future team: always show week 5 FP (player attribute)
+          wasEligibleForLastPlayed
+            ? (lastWeekFPByCurrentRoster[playerId] ?? getPlayerFPFromStats(playerId, lastPlayedMatchId))
+            : 0;
         const getFutureTeamLastWeekFP = (playerId: number): number =>
-          getPlayerFPInMatch(playerId, matchIdForLastWeek);
+          lastWeekFPByCurrentRoster[playerId] ?? getPlayerFPFromStats(playerId, lastPlayedMatchId);
         // Future team = current roster with pending subs applied (same order)
         const futureTeamIds = pendingSubs
           ? roster.playerIds.map((id) => {

@@ -22,13 +22,18 @@ const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
 /**
  * Last played match = most recent game that has finished (same logic as roster weekly-history).
  * Returns FP per player for that match (0 if DNP). Single source of truth for "Last week" / "Last game FP".
+ * Uses service role to ensure stats/schedule are always readable (same as U21dle, leaderboard).
  */
 export async function getLastPlayedMatchFP(season: number): Promise<{
   lastPlayedMatchId: string | null;
   playerFP: Record<number, number>;
 }> {
-  const supabase = getSupabase();
-  if (!supabase) return { lastPlayedMatchId: null, playerFP: {} };
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return { lastPlayedMatchId: null, playerFP: {} };
+  }
 
   const [scheduleRes, statsRes] = await Promise.all([
     supabase
@@ -71,8 +76,12 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
 
 /** Check if fantasy tables have data for season */
 export async function hasFantasyData(season: number): Promise<boolean> {
-  const supabase = getSupabase();
-  if (!supabase) return false;
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return false;
+  }
   const { data, error } = await supabase
     .from("fantasy_players")
     .select("player_id")
@@ -83,8 +92,12 @@ export async function hasFantasyData(season: number): Promise<boolean> {
 
 /** Get current price per player (one row per player) */
 async function getCurrentPrices(season: number): Promise<Record<number, number>> {
-  const supabase = getSupabase();
-  if (!supabase) return {};
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return {};
+  }
   const { data, error } = await supabase
     .from("fantasy_player_prices")
     .select("player_id, price")
@@ -99,8 +112,12 @@ async function getCurrentPrices(season: number): Promise<Record<number, number>>
 
 /** Get players with details from Supabase (same shape as getPlayersWithDetails) */
 export async function getPlayersFromSupabase(season: number): Promise<PlayerWithDetails[] | null> {
-  const supabase = getSupabase();
-  if (!supabase) return null;
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return null;
+  }
 
   const [playersRes, detailsRes, pricesRes, gameStatsRes, lastPlayedFP] = await Promise.all([
     supabase.from("fantasy_players").select("*").eq("season", season),
@@ -180,8 +197,12 @@ export async function getPriceDataFromSupabase(season: number): Promise<{
   current: Record<number, number>;
   history: Record<number, { playerId: number; price: number; effectiveFrom: string }[]>;
 } | null> {
-  const supabase = getSupabase();
-  if (!supabase) return null;
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return null;
+  }
 
   const { data, error } = await supabase
     .from("fantasy_player_prices")
@@ -202,12 +223,16 @@ export async function getPriceDataFromSupabase(season: number): Promise<{
   };
 }
 
-/** Get player game stats from Supabase */
+/** Get player game stats from Supabase. Uses service role for reliable reads. */
 export async function getPlayerGameStatsFromSupabase(season: number): Promise<
   { playerId: number; matchId: string; name: string; fantasyPoints: number }[] | null
 > {
-  const supabase = getSupabase();
-  if (!supabase) return null;
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch {
+    return null;
+  }
 
   const { data, error } = await supabase
     .from("fantasy_player_game_stats")
@@ -235,10 +260,10 @@ export async function getPlayerGameStats(
   return loadPlayerGameStats(season);
 }
 
-/** User standings: users ranked by roster total fantasy points. Requires Supabase data.
- * Only counts FP from matches where user had roster before match_start (picked_at < match_start).
- * Applies substitutions for effective roster per match.
+/** User standings: users ranked by roster total fantasy points.
+ * Reads total_fantasy_points from fantasy_user_rosters (populated by sync script).
  * Uses service role to bypass RLS and show all users (same fix as U21dle leaderboard).
+ * If total_fantasy_points is null (before first sync), shows 0 until sync runs.
  */
 export async function getUserStandings(season: number): Promise<
   { rank: number; userId: string; nickname: string; totalFantasyPoints: number }[]
@@ -250,92 +275,29 @@ export async function getUserStandings(season: number): Promise<
     return [];
   }
 
-  const today = new Date().toISOString().slice(0, 10);
-  const now = Date.now();
-  const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
-
-  const [rostersRes, statsRes, profilesRes, scheduleRes, subsRes] = await Promise.all([
-    supabase.from("fantasy_user_rosters").select("user_id, player_ids, picked_at").eq("season", season),
-    supabase.from("fantasy_player_game_stats").select("player_id, match_id, fantasy_points").eq("season", season),
+  const [rostersRes, profilesRes] = await Promise.all([
+    supabase.from("fantasy_user_rosters").select("user_id, total_fantasy_points, nickname").eq("season", season),
     supabase.from("profiles").select("user_id, nickname, username"),
-    supabase
-      .from("fantasy_schedule")
-      .select("match_id, match_date, match_start")
-      .eq("season", season)
-      .not("match_date", "is", null)
-      .order("match_date", { ascending: true }),
-    supabase
-      .from("fantasy_roster_substitutions")
-      .select("user_id, removed_player_ids, added_player_ids, created_at")
-      .eq("season", season)
-      .order("created_at", { ascending: true }),
   ]);
 
   const rosters = rostersRes.data ?? [];
-  const stats = statsRes.data ?? [];
   const profiles = new Map(
     (profilesRes.data ?? []).map((p) => {
       const row = p as { user_id: string; nickname?: string; username?: string };
       return [row.user_id, row.nickname ?? row.username ?? "?"];
     })
   );
-  const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
-  const subs = subsRes.data ?? [];
-
-  const pointsMap = new Map<string, number>();
-  for (const s of stats) {
-    pointsMap.set(`${s.player_id}:${s.match_id}`, Number(s.fantasy_points ?? 0));
-  }
-
-  const subsByUser = new Map<string, typeof subs>();
-  for (const sub of subs) {
-    const list = subsByUser.get(sub.user_id) ?? [];
-    list.push(sub);
-    subsByUser.set(sub.user_id, list);
-  }
 
   const standings: { userId: string; nickname: string; totalFantasyPoints: number }[] = [];
 
   for (const r of rosters) {
-    if (!r.player_ids?.length) continue;
-    const pickedAtMs = r.picked_at ? new Date(r.picked_at as string).getTime() : 0;
-    const userSubs = subsByUser.get(r.user_id) ?? [];
-
-    let initialIds = [...(r.player_ids as number[])];
-    for (let i = userSubs.length - 1; i >= 0; i--) {
-      const s = userSubs[i];
-      const removed = (s.removed_player_ids ?? []) as number[];
-      const added = (s.added_player_ids ?? []) as number[];
-      initialIds = initialIds.filter((id) => !added.includes(id)).concat(removed);
-    }
-
-    let total = 0;
-    for (const row of schedule) {
-      const ms = row.match_start;
-      const matchStartMs = ms ? new Date(ms).getTime() : new Date(row.match_date + "T12:00:00Z").getTime();
-      if (pickedAtMs >= matchStartMs) continue;
-      if (row.match_date > today) continue;
-      if (row.match_date === today && (!ms || now < matchStartMs + GAME_DURATION_MS)) continue;
-
-      const matchCutoff = new Date(row.match_date + "T23:59:59.999Z").getTime();
-      let rosterIds = [...initialIds];
-      for (const s of userSubs) {
-        const createdAt = new Date((s.created_at as string)).getTime();
-        if (createdAt <= matchCutoff) {
-          const removed = (s.removed_player_ids ?? []) as number[];
-          const added = (s.added_player_ids ?? []) as number[];
-          rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
-        }
-      }
-
-      for (const pid of rosterIds) {
-        total += pointsMap.get(`${pid}:${row.match_id}`) ?? 0;
-      }
-    }
-
+    const stored = r.total_fantasy_points;
+    const total = stored != null ? Number(stored) : 0;
+    const nickname =
+      (r.nickname as string | null)?.trim() || (profiles.get(r.user_id) ?? "?");
     standings.push({
       userId: r.user_id,
-      nickname: profiles.get(r.user_id) ?? "?",
+      nickname,
       totalFantasyPoints: total,
     });
   }

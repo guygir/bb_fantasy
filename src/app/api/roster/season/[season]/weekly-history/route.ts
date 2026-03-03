@@ -57,13 +57,13 @@ export async function GET(
       .eq("season", seasonNum),
     admin
       .from("fantasy_user_rosters")
-      .select("player_ids, player_names, picked_at")
+      .select("player_ids, player_names, picked_at, pending_subs")
       .eq("user_id", user.id)
       .eq("season", seasonNum)
       .maybeSingle(),
     admin
       .from("fantasy_roster_substitutions")
-      .select("removed_player_ids, added_player_ids, created_at")
+      .select("removed_player_ids, added_player_ids, created_at, effective_match_id")
       .eq("user_id", user.id)
       .eq("season", seasonNum)
       .order("created_at", { ascending: true }),
@@ -105,14 +105,34 @@ export async function GET(
       return false;
     });
 
-  // Build initial roster by reversing substitutions (newest first)
+  // Build initial roster by reversing substitutions (newest first).
+  // Avoid duplicates: only add removed players that aren't already in roster.
   let initialIds = [...currentIds];
   for (let i = subs.length - 1; i >= 0; i--) {
     const s = subs[i];
     const removed = (s.removed_player_ids ?? []) as number[];
     const added = (s.added_player_ids ?? []) as number[];
-    initialIds = initialIds.filter((id) => !added.includes(id)).concat(removed);
+    const anyAddedPresent = added.length > 0 && added.some((id) => initialIds.includes(id));
+    if (anyAddedPresent) {
+      const afterRemove = initialIds.filter((id) => !added.includes(id));
+      const toAdd = removed.filter((id) => !afterRemove.includes(id));
+      initialIds = [...afterRemove, ...toAdd];
+    }
   }
+  // Roster that played in last match:
+  // - If pending_subs.effective_match_id === last match: user made subs for that game, sync hasn't run yet.
+  //   Roster that played = current + pending_subs applied (the "future roster" at lock time).
+  // - Else (pending_subs null or for a different match): sync already ran, current roster = roster that played.
+  const pendingSubs = roster.pending_subs as { effective_match_id?: string; removed_ids?: number[]; added_ids?: number[] } | null;
+  const lastPlayedMatchIdForOverride = lastPlayedFP.lastPlayedMatchId;
+  const rosterThatPlayedLastMatch =
+    pendingSubs?.effective_match_id && String(pendingSubs.effective_match_id) === String(lastPlayedMatchIdForOverride)
+      ? (() => {
+          const removed = pendingSubs.removed_ids ?? [];
+          const added = pendingSubs.added_ids ?? [];
+          return currentIds.filter((id) => !removed.includes(id)).concat(added);
+        })()
+      : currentIds;
 
   // Points by (player_id, match_id)
   const pointsMap = new Map<string, number>();
@@ -136,15 +156,28 @@ export async function GET(
     const matchDate = row.match_date as string;
     const matchId = row.match_id as string;
 
-    // Roster at this match: apply subs where created_at <= match_date 23:59:59
-    const matchCutoff = new Date(matchDate + "T23:59:59.999Z").getTime();
-    let rosterIds = [...initialIds];
-    for (const s of subs) {
-      const createdAt = new Date((s.created_at as string)).getTime();
-      if (createdAt <= matchCutoff) {
-        const removed = (s.removed_player_ids ?? []) as number[];
-        const added = (s.added_player_ids ?? []) as number[];
-        rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+    // For last played match: use roster that actually played (pending_subs applied if not yet synced, else current)
+    let rosterIds: number[];
+    if (matchId === lastPlayedMatchIdForOverride) {
+      rosterIds = [...rosterThatPlayedLastMatch];
+    } else {
+      // Roster at this match: apply subs that target this match.
+      const matchCutoff = new Date(matchDate + "T23:59:59.999Z").getTime();
+      rosterIds = [...initialIds];
+      for (const s of subs) {
+        const effectiveMatchId = s.effective_match_id as string | null;
+        const createdAt = new Date((s.created_at as string)).getTime();
+        const appliesToThisMatch = effectiveMatchId
+          ? String(effectiveMatchId) === String(matchId)
+          : createdAt <= matchCutoff;
+        if (appliesToThisMatch) {
+          const removed = (s.removed_player_ids ?? []) as number[];
+          const added = (s.added_player_ids ?? []) as number[];
+          const allRemovedPresent = removed.length > 0 && removed.every((id) => rosterIds.includes(id));
+          if (allRemovedPresent) {
+            rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+          }
+        }
       }
     }
 
@@ -169,5 +202,18 @@ export async function GET(
     });
   }
 
-  return NextResponse.json({ weeks, lastPlayedMatchId, wasEligibleForLastPlayed });
+  // FP for "Last week" column: show FP for current roster players (0 if they were subbed out)
+  const lastWeekFPByCurrentRoster: Record<number, number> = {};
+  if (lastPlayedMatchId && currentIds.length > 0) {
+    for (const pid of currentIds) {
+      lastWeekFPByCurrentRoster[pid] = pointsMap.get(`${pid}:${lastPlayedMatchId}`) ?? 0;
+    }
+  }
+
+  return NextResponse.json({
+    weeks,
+    lastPlayedMatchId,
+    wasEligibleForLastPlayed,
+    lastWeekFPByCurrentRoster,
+  });
 }

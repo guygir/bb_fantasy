@@ -79,5 +79,11 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 
+  // Denormalize: update nickname on all fantasy rosters for this user
+  await admin
+    .from("fantasy_user_rosters")
+    .update({ nickname, updated_at: new Date().toISOString() })
+    .eq("user_id", user.user.id);
+
   return NextResponse.json({ success: true, data: { nickname } });
 }
