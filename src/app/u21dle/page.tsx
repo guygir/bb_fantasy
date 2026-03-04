@@ -263,7 +263,9 @@ export default function U21dlePage() {
     if (!puzzleDate || guessHistory.length === 0) return;
     const result = won ? "Won" : "Failed";
     const grid = guessHistory.map((g) => feedbackToEmojiRow(g.feedback)).join("\n");
-    const text = `U21dle ${puzzleDate}\nI ${result}, using ${guessHistory.length}/${maxGuesses} guesses.\n${grid}\n\n`;
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://bb-fantasy.vercel.app";
+    const url = `${baseUrl}/u21dle`;
+    const text = `U21dle ${puzzleDate}\nI ${result}, using ${guessHistory.length}/${maxGuesses} guesses.\n${grid}\n\nProve your worth at ${url}`;
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
