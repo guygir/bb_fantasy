@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 function getSupabase(accessToken?: string) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

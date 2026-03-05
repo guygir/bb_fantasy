@@ -127,19 +127,21 @@ export async function getGameState(
   };
 }
 
-/** Update user stats after a completed game */
+/** Update user stats after a completed game. Uses admin to bypass RLS (same fix as fantasy - BBAPI users). */
 export async function updateUserStats(
   accessToken: string,
   puzzleDate: string,
   result: { won: boolean; guessesUsed: number; usedCheat?: boolean }
 ): Promise<void> {
-  const supabase = getSupabase(accessToken);
-  if (!supabase) return;
+  const authClient = getSupabase(accessToken);
+  if (!authClient) return;
 
-  const { data: user } = await supabase.auth.getUser(accessToken);
+  const { data: user } = await authClient.auth.getUser(accessToken);
   if (!user?.user) return;
 
-  const { data: existing } = await supabase
+  const { getSupabaseAdmin } = await import("@/lib/supabase");
+  const admin = getSupabaseAdmin();
+  const { data: existing } = await admin
     .from("u21dle_user_stats")
     .select("*")
     .eq("user_id", user.user.id)
@@ -181,7 +183,7 @@ export async function updateUserStats(
     }
   }
 
-  await supabase.from("u21dle_user_stats").upsert(
+  await admin.from("u21dle_user_stats").upsert(
     {
       user_id: user.user.id,
       total_games: totalGames,
