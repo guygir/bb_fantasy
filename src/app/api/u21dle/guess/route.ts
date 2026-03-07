@@ -1,11 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
+import { config } from "@/lib/config";
 import { getDailyPlayer } from "@/lib/u21dle/daily";
 import { getU21dlePlayerById } from "@/lib/u21dle/players";
 import { generateFeedback, isCorrectGuess } from "@/lib/u21dle/feedback";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 import { getPuzzleIdByDate, upsertGuess, updateUserStats } from "@/lib/u21dle/supabase";
+import { getSeasonPlayerIds } from "@/lib/fantasy-db";
 
 export const dynamic = "force-dynamic";
+
+function applySeasonOverride<T extends { playerId: number; season: number | null }>(
+  player: T,
+  season71Ids: Set<number>,
+  currentSeason: number
+): T {
+  return season71Ids.has(player.playerId) ? { ...player, season: currentSeason } : player;
+}
 
 export async function POST(request: NextRequest) {
   let body: { date: string; playerId: number; guessesUsed: number; guessHistory?: unknown[]; elapsed?: number; usedCheat?: boolean };
@@ -34,21 +44,27 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const dailyPlayer = await getDailyPlayer(date);
-  if (!dailyPlayer) {
+  const currentSeason = config.game.currentSeason;
+  const [dailyPlayerRaw, season71Ids] = await Promise.all([
+    getDailyPlayer(date),
+    getSeasonPlayerIds(currentSeason),
+  ]);
+  if (!dailyPlayerRaw) {
     return NextResponse.json(
       { success: false, error: "Puzzle not found" },
       { status: 404 }
     );
   }
+  const dailyPlayer = applySeasonOverride(dailyPlayerRaw, season71Ids, currentSeason);
 
-  const guessedPlayer = getU21dlePlayerById(playerId);
-  if (!guessedPlayer) {
+  const guessedPlayerRaw = getU21dlePlayerById(playerId);
+  if (!guessedPlayerRaw) {
     return NextResponse.json(
       { success: false, error: "Player not found" },
       { status: 404 }
     );
   }
+  const guessedPlayer = applySeasonOverride(guessedPlayerRaw, season71Ids, currentSeason);
 
   const feedback = generateFeedback(guessedPlayer, dailyPlayer);
   const isSolved = isCorrectGuess(guessedPlayer, dailyPlayer);
@@ -90,7 +106,7 @@ export async function POST(request: NextRequest) {
         name: guessedPlayer.name,
         gp: guessedPlayer.gp,
         pts: guessedPlayer.pts,
-        age: guessedPlayer.age,
+        season: guessedPlayer.season,
         height: guessedPlayer.height,
         potential: guessedPlayer.potential,
         trophies: guessedPlayer.trophies,

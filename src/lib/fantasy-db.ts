@@ -74,6 +74,29 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
   return { lastPlayedMatchId, playerFP };
 }
 
+/** Get player IDs that appear in /players for a season (for U21dle season override) */
+export async function getSeasonPlayerIds(season: number): Promise<Set<number>> {
+  try {
+    if (await hasFantasyData(season)) {
+      const supabase = getSupabaseAdmin();
+      const { data } = await supabase
+        .from("fantasy_players")
+        .select("player_id")
+        .eq("season", season);
+      return new Set((data ?? []).map((r) => r.player_id));
+    }
+  } catch {
+    /* fall through to JSON */
+  }
+  const { readFileSync, existsSync } = await import("fs");
+  const { join } = await import("path");
+  const path = join(process.cwd(), "data", `season${season}_stats.json`);
+  if (!existsSync(path)) return new Set();
+  const data = JSON.parse(readFileSync(path, "utf-8"));
+  const players = data.players ?? [];
+  return new Set(players.map((p: { playerId: number }) => p.playerId));
+}
+
 /** Check if fantasy tables have data for season */
 export async function hasFantasyData(season: number): Promise<boolean> {
   let supabase;

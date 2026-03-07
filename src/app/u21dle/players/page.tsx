@@ -2,12 +2,17 @@ import Link from "next/link";
 import { config } from "@/lib/config";
 import { getEligiblePlayers } from "@/lib/u21dle/players";
 import { getFaceMtime } from "@/lib/face-mtime";
+import { getSeasonPlayerIds } from "@/lib/fantasy-db";
 import { U21dlePlayersTable } from "./U21dlePlayersTable";
 
 export const dynamic = "force-dynamic";
 
 async function getEligibleWithFaces() {
-  const players = getEligiblePlayers();
+  const currentSeason = config.game.currentSeason;
+  const season71Ids = await getSeasonPlayerIds(currentSeason);
+  const players = getEligiblePlayers().map((p) =>
+    season71Ids.has(p.playerId) ? { ...p, season: currentSeason } : p
+  );
   const withFaces = await Promise.all(
     players.map(async (p) => ({
       ...p,
@@ -38,6 +43,10 @@ export default async function U21dlePlayersPage() {
           <p className="mt-1 text-sm text-gray-600">
             Israel U21 players with GP≥8 from seasons {config.u21dle.minSeason}–{config.u21dle.maxSeason} ({players.length} players). Click column headers to sort.
           </p>
+          <p className="mt-1 text-xs text-gray-500">
+            Age = BBAPI age (stops for retired). Season = last U21 season played (e.g. 62 = was 21 in season 62).
+            <span className="ml-1">Red = retired early (age ≠ (currentSeason−season)+21).</span>
+          </p>
         </div>
         <Link
           href="/u21dle"
@@ -46,7 +55,7 @@ export default async function U21dlePlayersPage() {
           ← Back to U21dle
         </Link>
       </div>
-      <U21dlePlayersTable players={players} />
+      <U21dlePlayersTable players={players} currentSeason={config.game.currentSeason} />
     </div>
   );
 }

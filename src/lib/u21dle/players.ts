@@ -13,7 +13,10 @@ export function getU21dlePlayers(): U21dlePlayer[] {
   if (cachedPlayers) return cachedPlayers;
   const path = join(process.cwd(), "data", "u21dle_players.json");
   const data = JSON.parse(readFileSync(path, "utf-8"));
-  cachedPlayers = data.players as U21dlePlayer[];
+  cachedPlayers = (data.players as Array<Record<string, unknown>>).map((p) => {
+    const { season, age, ...rest } = p;
+    return { ...rest, season: season ?? null, age: age ?? null } as U21dlePlayer & { age?: number | null };
+  });
   return cachedPlayers;
 }
 

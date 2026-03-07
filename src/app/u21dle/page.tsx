@@ -481,10 +481,10 @@ export default function U21dlePage() {
                   </div>
                   <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
                     {(
-                      ["gp", "pts", "age", "height", "potential", "trophies"] as const
+                      ["gp", "pts", "season", "height", "potential", "trophies"] as const
                     ).map((attr) => {
-                      const fb = item.feedback[attr];
-                      const val = item.player[attr];
+                      const fb = item.feedback[attr] ?? (attr === "season" ? (item.feedback as { age?: "exact" | "high" | "low" }).age : undefined);
+                      const val = item.player[attr] ?? (attr === "season" ? (item.player as { age?: number }).age : undefined);
                       return (
                         <div key={attr} className="text-center">
                           <div className="mb-1 text-xs text-gray-500">
@@ -493,7 +493,7 @@ export default function U21dlePage() {
                           <div
                             className={`${getFeedbackColor(fb)} rounded px-2 py-1 text-sm font-semibold text-white`}
                           >
-                            {formatAttributeValue(attr, val)}
+                            {val != null ? formatAttributeValue(attr, val) : "–"}
                             {fb !== "exact" && (
                               <span className="ml-1">{fb === "high" ? "↓" : "↑"}</span>
                             )}

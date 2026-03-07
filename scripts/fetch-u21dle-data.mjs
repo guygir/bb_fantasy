@@ -155,7 +155,8 @@ async function run() {
   const players = [...map.values()].map((p) => {
     const { totalPts, seasonsPlayed, ...rest } = p;
     const trophies = TROPHY_SEASONS.filter((s) => seasonsPlayed?.has(s)).length;
-    return { ...rest, trophies };
+    const season = seasonsPlayed?.size ? Math.max(...seasonsPlayed) : null;
+    return { ...rest, trophies, season };
   });
 
   const outDir = join(__dirname, "../data");
@@ -186,7 +187,7 @@ async function run() {
   console.log(gp8.length, "players\n");
   for (const p of gp8) {
     console.log(
-      `${p.playerId}: ${p.name} | GP=${p.gp} PTS=${p.pts.toFixed(1)} | age=${p.age ?? "?"} height=${p.height ?? "?"}cm pot=${p.potential ?? "?"} trophies=${p.trophies}`
+      `${p.playerId}: ${p.name} | GP=${p.gp} PTS=${p.pts.toFixed(1)} | season=${p.season ?? "?"} height=${p.height ?? "?"}cm pot=${p.potential ?? "?"} trophies=${p.trophies}`
     );
   }
 }

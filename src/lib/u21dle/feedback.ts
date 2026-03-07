@@ -2,7 +2,7 @@
  * U21dle Feedback Logic
  *
  * Handles numeric attribute comparison and feedback generation for player guesses.
- * All 6 attributes (GP, PTS, Age, Height, Potential, Trophies) use numeric feedback: exact/high/low.
+ * All 6 attributes (GP, PTS, Season, Height, Potential, Trophies) use numeric feedback: exact/high/low.
  */
 
 export type NumericFeedback = "exact" | "high" | "low";
@@ -12,7 +12,7 @@ export interface U21dlePlayer {
   name: string;
   gp: number;
   pts: number;
-  age: number;
+  season: number | null;
   height: number;
   potential: number;
   trophies: number;
@@ -21,7 +21,7 @@ export interface U21dlePlayer {
 export interface PlayerFeedback {
   gp: NumericFeedback;
   pts: NumericFeedback;
-  age: NumericFeedback;
+  season: NumericFeedback;
   height: NumericFeedback;
   potential: NumericFeedback;
   trophies: NumericFeedback;
@@ -57,7 +57,7 @@ export function generateFeedback(
   return {
     gp: getNumericFeedback(guessed.gp, actual.gp),
     pts: getNumericFeedback(guessed.pts, actual.pts),
-    age: getNumericFeedback(guessed.age, actual.age),
+    season: getNumericFeedback(guessed.season, actual.season),
     height: getNumericFeedback(guessed.height, actual.height),
     potential: getNumericFeedback(guessed.potential, actual.potential),
     trophies: getNumericFeedback(guessed.trophies, actual.trophies),
@@ -77,7 +77,7 @@ export function isCorrectGuess(guessed: U21dlePlayer, actual: U21dlePlayer): boo
 export const ATTRIBUTE_LABELS: Record<keyof PlayerFeedback, string> = {
   gp: "GP",
   pts: "PTS",
-  age: "Age",
+  season: "Season",
   height: "Height",
   potential: "Potential",
   trophies: "Trophies",
@@ -109,17 +109,17 @@ export function computeCheatCandidates(
 
   return allPlayers.filter((candidate) => {
     for (const { player: guessed, feedback } of guessHistory) {
-      const attrs = ["gp", "pts", "age", "height", "potential", "trophies"] as const;
+      const attrs = ["gp", "pts", "season", "height", "potential", "trophies"] as const;
       for (const attr of attrs) {
         const fb = feedback[attr];
         const gVal = guessed[attr];
         const cVal = candidate[attr];
         if (fb === "exact") {
           if (cVal !== gVal) return false;
-        } else if (fb === "high") {
-          if (cVal >= gVal) return false;
-        } else if (fb === "low") {
-          if (cVal <= gVal) return false;
+        } else if (fb === "high" || fb === "low") {
+          if (cVal == null || gVal == null) continue; // skip when either is null
+          if (fb === "high" && cVal >= gVal) return false;
+          if (fb === "low" && cVal <= gVal) return false;
         }
       }
     }
@@ -140,7 +140,7 @@ export function feedbackToEmojiRow(feedback: PlayerFeedback): string {
   return (
     emoji[feedback.gp] +
     emoji[feedback.pts] +
-    emoji[feedback.age] +
+    emoji[feedback.season] +
     emoji[feedback.height] +
     emoji[feedback.potential] +
     emoji[feedback.trophies]
