@@ -24,7 +24,10 @@ jobs:
 
       - run: npm ci
 
-      - name: Fantasy data sync (schedule → boxscores → process → Supabase)
+      - name: Install Chrome (for Puppeteer - roster fetch + face sync)
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Fantasy data sync (roster → schedule → boxscores → process → Supabase)
         env:
           BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
           BBAPI_CODE: ${{ secrets.BBAPI_CODE }}

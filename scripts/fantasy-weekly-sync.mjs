@@ -35,6 +35,7 @@ function run(name, cmd, args = []) {
 
 console.log(`Fantasy weekly sync for season ${SEASON}`);
 
+run("Fetch U21 roster + stats", "node", ["scripts/fetch-season-stats.mjs", String(SEASON)]);
 run("Fetch schedule", "node", ["scripts/fetch-bbapi-schedule.mjs", String(SEASON)]);
 run("Fetch boxscores", "node", ["scripts/fetch-all-boxscores.mjs", String(SEASON)]);
 run("Process boxscores", "node", ["scripts/process-boxscores.mjs", String(SEASON)]);

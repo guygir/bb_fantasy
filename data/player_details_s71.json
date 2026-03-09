@@ -1,10 +1,16 @@
 {
   "meta": {
     "season": 71,
-    "fetched": "2026-02-25T14:38:18.717Z",
+    "fetched": "2026-03-09T17:49:09.809Z",
     "source": "BBAPI"
   },
   "details": {
+    "54409681": {
+      "position": "SG",
+      "dmi": 308700,
+      "salary": 21364,
+      "gameShape": 8
+    },
     "54409698": {
       "position": "C",
       "dmi": 1374100,
@@ -28,6 +34,12 @@
       "dmi": 2508200,
       "salary": 114308,
       "gameShape": 9
+    },
+    "54409886": {
+      "position": "SG",
+      "dmi": 241200,
+      "salary": 26430,
+      "gameShape": 7
     },
     "54409913": {
       "position": "PG",
@@ -94,6 +106,12 @@
       "dmi": 245600,
       "salary": 30590,
       "gameShape": 8
+    },
+    "54721944": {
+      "position": "SG",
+      "dmi": 731100,
+      "salary": 28639,
+      "gameShape": 9
     }
   }
 }

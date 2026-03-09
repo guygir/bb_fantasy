@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 71,
-    "fetched": "2026-03-03T08:03:57.006Z"
+    "fetched": "2026-03-09T17:49:36.118Z"
   },
   "matches": [
     {
@@ -55,10 +55,10 @@
       "start": "2026-03-09T17:30:00Z",
       "type": "nt.roundrobin",
       "awayTeamId": "1093",
-      "awayTeamName": "Ghana U21",
+      "awayTeamName": "Ghana",
       "awayScore": null,
       "homeTeamId": "1015",
-      "homeTeamName": "Israel U21",
+      "homeTeamName": "Israel",
       "homeScore": null
     },
     {

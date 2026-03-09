@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "validate-scoring": "node scripts/validate-scoring.mjs",
+    "fetch-season-stats": "node scripts/fetch-season-stats.mjs",
     "fetch-schedule": "node scripts/fetch-bbapi-schedule.mjs",
     "fetch-boxscore": "node scripts/fetch-bbapi-boxscore.mjs",
     "fetch-all-boxscores": "node scripts/fetch-all-boxscores.mjs",
