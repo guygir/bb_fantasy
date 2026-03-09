@@ -12,21 +12,29 @@ export async function GET(
   const { season } = await params;
   const seasonNum = parseInt(season, 10) || config.game.currentSeason;
 
+  const noCache = { "Cache-Control": "no-store, max-age=0" };
+
   try {
     if (await hasFantasyData(seasonNum)) {
       const players = await getPlayersFromSupabase(seasonNum);
       if (players) {
-        return NextResponse.json({
-          meta: { season: seasonNum, source: "supabase" },
-          players,
-        });
+        return NextResponse.json(
+          {
+            meta: { season: seasonNum, source: "supabase", count: players.length },
+            players,
+          },
+          { headers: noCache }
+        );
       }
     }
     const players = await getPlayersWithDetails(seasonNum);
-    return NextResponse.json({
-      meta: { season: seasonNum, source: "stats+bbapi" },
-      players,
-    });
+    return NextResponse.json(
+      {
+        meta: { season: seasonNum, source: "stats+bbapi", count: players.length },
+        players,
+      },
+      { headers: noCache }
+    );
   } catch (e) {
     return NextResponse.json(
       { error: e instanceof Error ? e.message : "Unknown error" },

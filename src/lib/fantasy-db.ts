@@ -41,11 +41,13 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
       .select("match_id, match_date, match_start")
       .eq("season", season)
       .not("match_date", "is", null)
-      .order("match_date", { ascending: true }),
+      .order("match_date", { ascending: true })
+      .range(0, 999),
     supabase
       .from("fantasy_player_game_stats")
       .select("player_id, match_id, fantasy_points")
-      .eq("season", season),
+      .eq("season", season)
+      .range(0, 999),
   ]);
 
   const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
@@ -82,7 +84,8 @@ export async function getSeasonPlayerIds(season: number): Promise<Set<number>> {
       const { data } = await supabase
         .from("fantasy_players")
         .select("player_id")
-        .eq("season", season);
+        .eq("season", season)
+        .range(0, 999);
       return new Set((data ?? []).map((r) => r.player_id));
     }
   } catch {
@@ -124,7 +127,8 @@ async function getCurrentPrices(season: number): Promise<Record<number, number>>
   const { data, error } = await supabase
     .from("fantasy_player_prices")
     .select("player_id, price")
-    .eq("season", season);
+    .eq("season", season)
+    .range(0, 999);
   if (error || !data) return {};
   const out: Record<number, number> = {};
   for (const row of data) {
@@ -143,10 +147,10 @@ export async function getPlayersFromSupabase(season: number): Promise<PlayerWith
   }
 
   const [playersRes, detailsRes, pricesRes, gameStatsRes, lastPlayedFP] = await Promise.all([
-    supabase.from("fantasy_players").select("*").eq("season", season),
-    supabase.from("fantasy_player_details").select("*").eq("season", season),
+    supabase.from("fantasy_players").select("*").eq("season", season).range(0, 999),
+    supabase.from("fantasy_player_details").select("*").eq("season", season).range(0, 999),
     getCurrentPrices(season),
-    supabase.from("fantasy_player_game_stats").select("player_id, match_id, fantasy_points").eq("season", season),
+    supabase.from("fantasy_player_game_stats").select("player_id, match_id, fantasy_points").eq("season", season).range(0, 999),
     getLastPlayedMatchFP(season),
   ]);
 
@@ -230,7 +234,8 @@ export async function getPriceDataFromSupabase(season: number): Promise<{
   const { data, error } = await supabase
     .from("fantasy_player_prices")
     .select("player_id, price")
-    .eq("season", season);
+    .eq("season", season)
+    .range(0, 999);
 
   if (error || !data) return null;
 

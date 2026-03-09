@@ -4,10 +4,12 @@
  *
  * Run: node scripts/fetch-player-face.mjs <playerId>
  * Or:  node scripts/fetch-player-face.mjs --all   (fetch all from season71_stats)
+ * Or:  node scripts/fetch-player-face.mjs --supabase [season]  (fetch from Supabase fantasy_players)
  * Flags: --force  re-fetch even if image exists
  *       --debug   save player page HTML to data/debug_player_{id}.html
  *
  * Env: BBAPI_LOGIN, BB_PASSWORD (main site password - may differ from BBAPI_CODE)
+ *      Loaded from .env.local when present.
  *
  * Output: public/player-faces/{playerId}.png
  */
@@ -15,8 +17,12 @@
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { config } from "dotenv";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, "..");
+config({ path: join(ROOT, ".env") });
+config({ path: join(ROOT, ".env.local") });
 const MAIN_BASE = "https://buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD; // Main site password - NOT BBAPI_CODE (that's read-only for API)
@@ -26,11 +32,13 @@ const FORCE = ARGS.includes("--force");
 const DEBUG = ARGS.includes("--debug");
 const IS_ALL = ARGS.includes("--all");
 const IS_U21DLE = ARGS.includes("--u21dle");
-const EXPLICIT_ID = ARGS.find((a) => !["--force", "--debug", "--all", "--u21dle"].includes(a));
+const IS_SUPABASE = ARGS.includes("--supabase");
+const EXPLICIT_ID = ARGS.find((a) => !["--force", "--debug", "--all", "--u21dle", "--supabase"].includes(a));
 
-if (!EXPLICIT_ID && !IS_ALL && !IS_U21DLE) {
+if (!EXPLICIT_ID && !IS_ALL && !IS_U21DLE && !IS_SUPABASE) {
   console.error("Usage: node scripts/fetch-player-face.mjs <playerId> [--force] [--debug]");
   console.error("   or: node scripts/fetch-player-face.mjs --all [--force] [--debug]");
+  console.error("   or: node scripts/fetch-player-face.mjs --supabase [season] [--force] [--debug]");
   console.error("   or: node scripts/fetch-player-face.mjs --u21dle [--force] [--debug]  (GP>=8 from u21dle_players.json)");
   process.exit(1);
 }
@@ -175,15 +183,32 @@ async function fetchFace(playerId) {
 
 async function run() {
   const playerIds = [];
-  if (IS_ALL) {
+  if (IS_SUPABASE) {
+    const season = EXPLICIT_ID ? parseInt(EXPLICIT_ID, 10) : Number(process.env.CURRENT_SEASON ?? process.env.NEXT_PUBLIC_CURRENT_SEASON ?? 71);
+    const { createClient } = await import("@supabase/supabase-js");
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) {
+      console.error("NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY required for --supabase");
+      process.exit(1);
+    }
+    const supabase = createClient(url, key);
+    const { data, error } = await supabase.from("fantasy_players").select("player_id").eq("season", season).range(0, 999);
+    if (error) {
+      console.error("Supabase error:", error.message);
+      process.exit(1);
+    }
+    playerIds.push(...(data ?? []).map((r) => String(r.player_id)));
+    console.log("Fetching faces for", playerIds.length, "players (Supabase season", season, ")");
+  } else if (IS_ALL) {
     const dataPath = join(__dirname, "../data", "season71_stats.json");
     if (!existsSync(dataPath)) {
-      console.error("No season71_stats.json - run with explicit playerId");
+      console.error("No season71_stats.json - run with explicit playerId or --supabase");
       process.exit(1);
     }
     const data = JSON.parse(readFileSync(dataPath, "utf-8"));
     playerIds.push(...(data.players ?? []).map((p) => String(p.playerId)));
-    console.log("Fetching faces for", playerIds.length, "players (season71 roster)");
+    console.log("Fetching faces for", playerIds.length, "players (season71_stats.json)");
   } else if (IS_U21DLE) {
     const dataPath = join(__dirname, "../data", "u21dle_players.json");
     if (!existsSync(dataPath)) {
@@ -196,6 +221,11 @@ async function run() {
     console.log("Fetching faces for", playerIds.length, "U21dle players (GP>=8)");
   } else {
     playerIds.push(EXPLICIT_ID);
+  }
+
+  if (playerIds.length === 0) {
+    console.error("No players to fetch");
+    process.exit(1);
   }
 
   for (let i = 0; i < playerIds.length; i++) {
