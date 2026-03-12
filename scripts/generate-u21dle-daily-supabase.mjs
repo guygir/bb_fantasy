@@ -35,10 +35,20 @@ function getEligiblePlayers() {
   return (data.players || []).filter((p) => p.gp >= MIN_GP);
 }
 
-/** Pick a random player from eligible pool */
-function pickRandomPlayer(eligible) {
-  const idx = Math.floor(Math.random() * eligible.length);
-  return eligible[idx].playerId;
+/**
+ * Pick a player using balanced selection.
+ * If all players have the same count → pick randomly from all.
+ * Otherwise → take the min count, pick randomly only from players with that min.
+ */
+function pickBalancedPlayer(eligible, countByPlayer) {
+  const counts = eligible.map((p) => countByPlayer.get(p.playerId) ?? 0);
+  const minCount = Math.min(...counts);
+  const allSame = counts.every((c) => c === minCount);
+  const pool = allSame
+    ? eligible
+    : eligible.filter((p) => (countByPlayer.get(p.playerId) ?? 0) === minCount);
+  const idx = Math.floor(Math.random() * pool.length);
+  return pool[idx].playerId;
 }
 
 async function main() {
@@ -85,13 +95,22 @@ async function main() {
     .in("puzzle_date", dates);
   const existingSet = new Set((existing ?? []).map((r) => r.puzzle_date));
 
+  // Fetch pick counts per player (for balanced selection)
+  const { data: countRows } = await supabase
+    .from("u21dle_puzzles")
+    .select("player_id");
+  const countByPlayer = new Map();
+  for (const row of countRows ?? []) {
+    countByPlayer.set(row.player_id, (countByPlayer.get(row.player_id) ?? 0) + 1);
+  }
+
   let inserted = 0;
   for (const dateStr of dates) {
     if (existingSet.has(dateStr)) {
       console.log(`${dateStr} -> (already exists, skipped)`);
       continue;
     }
-    const playerId = pickRandomPlayer(eligible);
+    const playerId = pickBalancedPlayer(eligible, countByPlayer);
     const player = eligible.find((p) => p.playerId === playerId);
     const { error } = await supabase.from("u21dle_puzzles").insert({
       puzzle_date: dateStr,
@@ -108,6 +127,8 @@ async function main() {
     }
     console.log(`${dateStr} -> ${player?.name ?? playerId} (${playerId})`);
     inserted++;
+    // Update count for next iteration (in case we're inserting multiple dates)
+    countByPlayer.set(playerId, (countByPlayer.get(playerId) ?? 0) + 1);
   }
 
   console.log(`\nInserted ${inserted} new puzzle(s)`);

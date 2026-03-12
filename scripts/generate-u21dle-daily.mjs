@@ -23,15 +23,6 @@ const DAILY_PATH = join(ROOT, "data", "u21dle_daily.json");
 const MIN_GP = 8;
 const PUZZLE_BUFFER_DAYS = 3;
 
-function hashString(str) {
-  let h = 0;
-  for (let i = 0; i < str.length; i++) {
-    h = (h << 5) - h + str.charCodeAt(i);
-    h |= 0;
-  }
-  return Math.abs(h);
-}
-
 function toDateStr(d) {
   return d.toISOString().slice(0, 10);
 }
@@ -41,9 +32,20 @@ function getEligiblePlayers() {
   return (data.players || []).filter((p) => p.gp >= MIN_GP);
 }
 
-function pickPlayerForDate(dateStr, eligible) {
-  const idx = hashString(dateStr) % eligible.length;
-  return eligible[idx].playerId;
+/**
+ * Pick a player using balanced selection.
+ * If all players have the same count → pick randomly from all.
+ * Otherwise → take the min count, pick randomly only from players with that min.
+ */
+function pickBalancedPlayer(eligible, countByPlayer) {
+  const counts = eligible.map((p) => countByPlayer.get(p.playerId) ?? 0);
+  const minCount = Math.min(...counts);
+  const allSame = counts.every((c) => c === minCount);
+  const pool = allSame
+    ? eligible
+    : eligible.filter((p) => (countByPlayer.get(p.playerId) ?? 0) === minCount);
+  const idx = Math.floor(Math.random() * pool.length);
+  return pool[idx].playerId;
 }
 
 function main() {
@@ -59,6 +61,14 @@ function main() {
       existing = JSON.parse(readFileSync(DAILY_PATH, "utf-8"));
     } catch {
       // ignore
+    }
+  }
+
+  // Build pick counts from existing (date -> playerId)
+  const countByPlayer = new Map();
+  for (const playerId of Object.values(existing)) {
+    if (typeof playerId === "number") {
+      countByPlayer.set(playerId, (countByPlayer.get(playerId) ?? 0) + 1);
     }
   }
 
@@ -87,10 +97,11 @@ function main() {
 
   const updates = { ...existing };
   for (const dateStr of dates) {
-    const playerId = pickPlayerForDate(dateStr, eligible);
+    const playerId = pickBalancedPlayer(eligible, countByPlayer);
     updates[dateStr] = playerId;
     const player = eligible.find((p) => p.playerId === playerId);
     console.log(`${dateStr} -> ${player?.name ?? playerId} (${playerId})`);
+    countByPlayer.set(playerId, (countByPlayer.get(playerId) ?? 0) + 1);
   }
 
   writeFileSync(DAILY_PATH, JSON.stringify(updates, null, 2), "utf-8");
