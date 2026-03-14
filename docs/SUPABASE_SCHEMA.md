@@ -18,6 +18,7 @@ Based on Riftle/Holdemle. Run migrations in order in Supabase SQL Editor.
 | 018 | `018_fantasy_total_fp.sql` | total_fantasy_points on rosters |
 | 019 | `019_fantasy_roster_nickname.sql` | nickname on rosters (denormalized) |
 | 020 | `020_profile_nickname_sync_trigger.sql` | auto-sync nickname to rosters on profile update |
+| 022 | `022_fantasy_roster_by_match.sql` | roster snapshot per match (immutable when sync runs) |
 
 ## Tables
 
@@ -93,6 +94,14 @@ Based on Riftle/Holdemle. Run migrations in order in Supabase SQL Editor.
 | removed_prices | JSONB | |
 | added_prices | JSONB | |
 | created_at | TIMESTAMPTZ | |
+
+### fantasy_roster_by_match (022)
+| Column | Type | Notes |
+|--------|------|-------|
+| user_id | UUID | PK, FK → auth.users |
+| season | INTEGER | PK |
+| match_id | TEXT | PK |
+| player_ids | INTEGER[] | Roster that played; written by sync, never updated |
 
 ### fantasy_game_data (008 – optional)
 Replaces JSON when scripts sync to DB: `fantasy_players`, `fantasy_player_details`, `fantasy_player_prices`, `fantasy_player_game_stats`, `fantasy_matches`, `fantasy_schedule`.

@@ -6,6 +6,8 @@ export interface PlayerWithDetails {
   dmi: number | null;
   salary: number | null;
   inGamePrice: number;
+  /** Previous week price (from history when available). For display: prev → current */
+  previousPrice?: number | null;
   avgRating: number;
   pts: number;
   fantasyPPG: number;

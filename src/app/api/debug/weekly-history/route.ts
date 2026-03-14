@@ -130,7 +130,8 @@ export async function GET(request: Request) {
       const allRemovedPresent = removed.length > 0 && removed.every((id) => rosterIds.includes(id));
       const before = [...rosterIds];
       if (appliesToThisMatch && allRemovedPresent) {
-        rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+        const after = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+        if (after.length === 5) rosterIds = after;
       }
       applyTrace.push({
         subIdx: j + 1,

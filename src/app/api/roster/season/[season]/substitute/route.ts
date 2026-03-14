@@ -59,8 +59,22 @@ export async function POST(
 
   const admin = getSupabaseAdmin();
 
-  // Clear pending subs
+  // Clear pending subs - block if current roster would exceed cap
   if (body.clear === true) {
+    const [{ data: roster }, { data: priceRows }] = await Promise.all([
+      admin.from("fantasy_user_rosters").select("player_ids").eq("user_id", user.id).eq("season", seasonNum).maybeSingle(),
+      admin.from("fantasy_player_prices").select("player_id, price").eq("season", seasonNum).range(0, 999),
+    ]);
+    const ids = (roster?.player_ids ?? []) as number[];
+    const prices: Record<number, number> = {};
+    for (const r of priceRows ?? []) prices[r.player_id] = r.price;
+    const totalCost = ids.reduce((s, id) => s + (prices[id] ?? 0), 0);
+    if (totalCost > CAP) {
+      return NextResponse.json(
+        { error: `Cannot clear: your current roster would cost $${totalCost} (over $${CAP} cap). Make substitutions first.` },
+        { status: 400 }
+      );
+    }
     const { error: clearErr } = await admin
       .from("fantasy_user_rosters")
       .update({ pending_subs: null, updated_at: new Date().toISOString() })

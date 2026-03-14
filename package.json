@@ -23,6 +23,7 @@
     "process-boxscores": "node scripts/process-boxscores.mjs",
     "update-prices": "node scripts/update-prices.mjs",
     "simulate-prices": "node scripts/simulate-prices.mjs",
+    "compare-price-calcs": "node scripts/compare-price-calcs.mjs",
     "sync-fantasy": "node scripts/sync-fantasy-to-supabase.mjs",
     "fantasy-weekly-sync": "node scripts/fantasy-weekly-sync.mjs",
     "test-bbapi": "node scripts/test-bbapi-login.mjs"

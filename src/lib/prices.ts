@@ -11,6 +11,7 @@ import { readFileSync, existsSync, writeFileSync } from "fs";
 import { join } from "path";
 import {
   fantasyPPGToPrice,
+  weightedPPGFromGameFPs,
   MIN_GAMES_FOR_ADJUSTMENT,
   MAX_CHANGE_HIGH_CONFIDENCE,
   MAX_CHANGE_DEFAULT,
@@ -73,18 +74,38 @@ export function loadPriceData(season?: number): PriceHistoryData {
 
 /**
  * Compute fantasy PPG per player from player_game_stats.
+ * Option 6: allGamesWithDnp = [fp or 0] per played match in schedule order (DNPs count as 0).
  */
-function computeFantasyPPGByPlayer(stats: { playerId: number; fantasyPoints: number }[]): Map<number, { ppg: number; gp: number }> {
-  const byPlayer = new Map<number, { total: number; gp: number }>();
+function computeFantasyPPGByPlayer(
+  season: number,
+  stats: { playerId: number; matchId: string; fantasyPoints: number }[]
+): Map<number, { ppg: number; gp: number; allGamesWithDnp: number[] }> {
+  const schedule = loadScheduleFromJson(season);
+  const matchOrder = schedule
+    ? [...schedule].sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
+    : [];
+  const matchIdsWithStats = new Set(stats.map((x) => String(x.matchId)));
+  const playedMatches = matchOrder.filter((m) => matchIdsWithStats.has(String(m.id)));
+
+  const byPlayer = new Map<number, { total: number; gp: number; games: { matchId: string; fp: number }[] }>();
   for (const s of stats) {
-    const cur = byPlayer.get(s.playerId) ?? { total: 0, gp: 0 };
+    const cur = byPlayer.get(s.playerId) ?? { total: 0, gp: 0, games: [] };
     cur.total += s.fantasyPoints;
     cur.gp += 1;
+    cur.games.push({ matchId: s.matchId, fp: s.fantasyPoints });
     byPlayer.set(s.playerId, cur);
   }
-  const result = new Map<number, { ppg: number; gp: number }>();
-  for (const [playerId, { total, gp }] of byPlayer) {
-    result.set(playerId, { ppg: gp > 0 ? total / gp : 0, gp });
+
+  const result = new Map<number, { ppg: number; gp: number; allGamesWithDnp: number[] }>();
+  for (const [playerId, { total, gp, games }] of byPlayer) {
+    const allGamesWithDnp =
+      playedMatches.length > 0
+        ? playedMatches.map((m) => {
+            const g = games.find((g) => String(g.matchId) === String(m.id));
+            return g ? g.fp : 0;
+          })
+        : [];
+    result.set(playerId, { ppg: gp > 0 ? total / gp : 0, gp, allGamesWithDnp });
   }
   return result;
 }
@@ -104,7 +125,7 @@ export function computePriceAdjustment(
 ): { current: Record<number, number>; history: Record<number, PriceEntry[]> } {
   const s = season ?? config.game.currentSeason;
   const stats = loadPlayerGameStats(s);
-  const ppgByPlayer = computeFantasyPPGByPlayer(stats);
+  const ppgByPlayer = computeFantasyPPGByPlayer(s, stats);
   const existing = loadPriceData(s);
   const today = new Date().toISOString().slice(0, 10);
 
@@ -126,13 +147,14 @@ export function computePriceAdjustment(
     }
   }
 
-  for (const [playerId, { ppg, gp }] of ppgByPlayer) {
+  for (const [playerId, { ppg, gp, allGamesWithDnp }] of ppgByPlayer) {
     const oldPrice = existing.current[playerId];
     let finalPrice: number;
 
     if (playersWhoPlayedMostRecent.has(playerId)) {
-      // Played in most recent game → performance-based adjustment only
-      const newPrice = fantasyPPGToPrice(ppg);
+      // Played in most recent game → performance-based adjustment (Option 6: weighted PPG, DNPs as 0)
+      const weightedPpg = weightedPPGFromGameFPs(allGamesWithDnp ?? []) || ppg;
+      const newPrice = fantasyPPGToPrice(weightedPpg);
       if (oldPrice == null) {
         finalPrice = newPrice;
       } else {
@@ -255,25 +277,35 @@ export function simulateAdjustedPrices(
   const matchIdsWithStats = new Set(stats.map((x) => String(x.matchId)));
   const playedMatches = sorted.filter((m) => matchIdsWithStats.has(String(m.id)));
 
-  const cumulative = new Map<number, { total: number; gp: number }>();
+  const cumulative = new Map<number, { total: number; gp: number; lastGames: number[]; allGamesWithDnp: number[] }>();
 
-  for (const match of playedMatches) {
+  for (let mi = 0; mi < playedMatches.length; mi++) {
+    const match = playedMatches[mi];
     const matchStats = stats.filter((x) => String(x.matchId) === String(match.id));
     const playersWhoPlayedThisMatch = new Set(matchStats.map((x) => x.playerId));
+
     for (const st of matchStats) {
-      const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0 };
+      const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0, lastGames: [], allGamesWithDnp: [] };
+      while ((cur.allGamesWithDnp ?? []).length < mi) cur.allGamesWithDnp.push(0);
       cur.total += st.fantasyPoints;
       cur.gp += 1;
+      cur.lastGames = (cur.lastGames || []).concat(st.fantasyPoints).slice(-20);
+      cur.allGamesWithDnp = (cur.allGamesWithDnp || []).concat(st.fantasyPoints);
       cumulative.set(st.playerId, cur);
     }
+    for (const [playerId, cur] of cumulative) {
+      if (!playersWhoPlayedThisMatch.has(playerId)) {
+        cur.allGamesWithDnp = (cur.allGamesWithDnp || []).concat(0);
+      }
+    }
 
-    // Performance: only for players who played in THIS game (mutually exclusive with DNPC)
-    for (const [playerId, { total, gp }] of cumulative) {
+    for (const [playerId, cum] of cumulative) {
+      const { total, gp } = cum;
       if (gp < MIN_GAMES_FOR_ADJUSTMENT || !playersWhoPlayedThisMatch.has(playerId)) continue;
-      const ppg = total / gp;
+      const ppg = weightedPPGFromGameFPs(cum.allGamesWithDnp ?? []) || total / gp;
       const newPrice = fantasyPPGToPrice(ppg);
       const oldPrice = prices[playerId];
-      const maxChange = gp >= 4 ? MAX_CHANGE_HIGH_CONFIDENCE : MAX_CHANGE_DEFAULT;
+      const maxChange = getMaxPriceChange(cum.gp);
       let finalPrice: number;
       if (oldPrice == null) {
         finalPrice = newPrice;
@@ -287,7 +319,6 @@ export function simulateAdjustedPrices(
       prices[playerId] = finalPrice;
     }
 
-    // DNPC: for players who didn't play in this game
     for (const playerId of Object.keys(prices).map(Number)) {
       if (!playersWhoPlayedThisMatch.has(playerId)) {
         prices[playerId] = dnpcPriceReduction(prices[playerId]);

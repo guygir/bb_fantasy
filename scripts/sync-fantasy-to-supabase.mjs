@@ -5,6 +5,11 @@
  * fantasy_player_prices, fantasy_player_game_stats, fantasy_matches, fantasy_schedule.
  *
  * Usage: node scripts/sync-fantasy-to-supabase.mjs [season]
+ *        node scripts/sync-fantasy-to-supabase.mjs [season] --prices-only
+ *
+ * --prices-only: Only sync fantasy_player_prices (e.g. after running update-prices locally).
+ *                Does not overwrite stats/players/schedule (Supabase keeps cron data).
+ *
  * Env: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (from .env.local)
  */
 
@@ -21,7 +26,9 @@ const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
 config({ path: join(ROOT, ".env.local") });
 
-const SEASON = parseInt(process.argv[2] || "71", 10);
+const args = process.argv.slice(2);
+const pricesOnly = args.includes("--prices-only");
+const SEASON = parseInt(args.find((a) => !a.startsWith("--")) || "71", 10);
 
 function loadJson(path) {
   if (!existsSync(path)) return null;
@@ -43,7 +50,12 @@ async function main() {
   const supabase = createClient(url, key);
   const dataDir = join(ROOT, "data");
 
+  if (pricesOnly) {
+    console.log("--prices-only: syncing fantasy_player_prices only (keeps Supabase stats/players/schedule)");
+  }
+
   // 1. fantasy_players (from season{N}_stats.json)
+  if (!pricesOnly) {
   const statsData = loadJson(join(dataDir, `season${SEASON}_stats.json`));
   if (statsData?.players?.length) {
     const rows = statsData.players.map((p) => ({
@@ -68,7 +80,10 @@ async function main() {
     else console.log(`fantasy_players: ${rows.length} rows`);
   }
 
+  } // end !pricesOnly
+
   // 2. fantasy_player_details (from player_details_s{N}.json)
+  if (!pricesOnly) {
   const detailsData = loadJson(join(dataDir, `player_details_s${SEASON}.json`));
   if (detailsData?.details) {
     const rows = Object.entries(detailsData.details).map(([playerId, d]) => ({
@@ -87,14 +102,23 @@ async function main() {
     else console.log(`fantasy_player_details: ${rows.length} rows`);
   }
 
-  // 3. fantasy_player_prices (from player_prices_s{N}.json - current only, one row per player)
+  }
+
+  // 3. fantasy_player_prices (from player_prices_s{N}.json - current + previous at start of last week)
   const pricesData = loadJson(join(dataDir, `player_prices_s${SEASON}.json`));
   if (pricesData?.current && Object.keys(pricesData.current).length > 0) {
-    const rows = Object.entries(pricesData.current).map(([playerId, price]) => ({
-      season: SEASON,
-      player_id: parseInt(playerId, 10),
-      price,
-    }));
+    const previous = pricesData.previous ?? {};
+    const history = pricesData.history ?? {};
+    const rows = Object.entries(pricesData.current).map(([playerId, price]) => {
+      // Use "previous" from update-prices (price at start of last played week), else history[1]
+      const prev = previous[playerId] ?? (Array.isArray(history[playerId]) && history[playerId].length >= 2 ? history[playerId][1].price : null);
+      return {
+        season: SEASON,
+        player_id: parseInt(playerId, 10),
+        price,
+        previous_price: prev,
+      };
+    });
     const { error } = await supabase.from("fantasy_player_prices").upsert(rows, {
       onConflict: "season,player_id",
       ignoreDuplicates: false,
@@ -103,9 +127,10 @@ async function main() {
     else console.log(`fantasy_player_prices: ${rows.length} rows`);
   }
 
-  // 4. fantasy_player_game_stats (from player_game_stats_s{N}.json)
-  const gameStatsData = loadJson(join(dataDir, `player_game_stats_s${SEASON}.json`));
+  // 4. fantasy_player_game_stats (from player_game_stats_s{N}.json) - skip when --prices-only
   const syncedMatchIds = new Set();
+  if (!pricesOnly) {
+  const gameStatsData = loadJson(join(dataDir, `player_game_stats_s${SEASON}.json`));
   if (gameStatsData?.stats?.length) {
     const rows = gameStatsData.stats.map((s) => {
       syncedMatchIds.add(String(s.matchId));
@@ -207,7 +232,10 @@ async function main() {
     }
   }
 
+  } // end !pricesOnly (steps 4, 4b)
+
   // 5. fantasy_matches (from match_scores_s{N}.json)
+  if (!pricesOnly) {
   const matchData = loadJson(join(dataDir, `match_scores_s${SEASON}.json`));
   if (matchData?.scores) {
     const rows = Object.entries(matchData.scores).map(([matchId, s]) => ({
@@ -224,7 +252,10 @@ async function main() {
     else console.log(`fantasy_matches: ${rows.length} rows`);
   }
 
+  }
+
   // 6. fantasy_schedule (from bbapi_schedule_s{N}.json)
+  if (!pricesOnly) {
   const scheduleData = loadJson(join(dataDir, `bbapi_schedule_s${SEASON}.json`));
   if (scheduleData?.matches?.length) {
     const rows = scheduleData.matches.map((m) => ({
@@ -241,6 +272,8 @@ async function main() {
     });
     if (error) console.error("fantasy_schedule:", error.message);
     else console.log(`fantasy_schedule: ${rows.length} rows`);
+  }
+
   }
 
   // 6b. Compute and store total_fantasy_points per user (single source of truth for leaderboard)
@@ -289,62 +322,104 @@ async function main() {
     subsByUser.set(sub.user_id, list);
   }
 
+  // Fetch existing snapshots - use as source of truth, never recompute
+  const { data: existingSnapshots } = await supabase
+    .from("fantasy_roster_by_match")
+    .select("user_id, match_id, player_ids")
+    .eq("season", SEASON);
+  const snapshotByUserMatch = new Map();
+  for (const row of existingSnapshots ?? []) {
+    snapshotByUserMatch.set(`${row.user_id}:${row.match_id}`, row.player_ids ?? []);
+  }
+
+  const rosterByMatchRows = [];
+  const ROSTER_SIZE = 5;
+
   for (const r of fpRosters ?? []) {
     if (!r.player_ids?.length) continue;
     const pickedAtMs = r.picked_at ? new Date(r.picked_at).getTime() : 0;
     const userSubs = subsByUser.get(r.user_id) ?? [];
+    const currentIds = r.player_ids ?? [];
 
-    let initialIds = [...r.player_ids];
+    // Filter schedule: only matches user was eligible for
+    const scheduleFiltered = (fpSchedule ?? []).filter((row) => {
+      const ms = row.match_start;
+      const matchStartMs = ms ? new Date(ms).getTime() : new Date(row.match_date + "T12:00:00Z").getTime();
+      if (pickedAtMs >= matchStartMs) return false;
+      if (row.match_date > today) return false;
+      if (row.match_date < today) return true;
+      if (row.match_date === today) return ms && now >= matchStartMs + GAME_DURATION_MS;
+      return false;
+    });
+
+    // Compute roster only when no snapshot exists (last played match or first run)
+    const rosterThatPlayedLastMatch =
+      r.pending_subs?.effective_match_id && String(r.pending_subs.effective_match_id) === String(lastPlayedMatchId)
+        ? currentIds.filter((id) => !(r.pending_subs.removed_ids ?? []).includes(id)).concat(r.pending_subs.added_ids ?? [])
+        : [...currentIds];
+
+    let initialIds = [...currentIds];
     for (let i = userSubs.length - 1; i >= 0; i--) {
       const s = userSubs[i];
       const removed = s.removed_player_ids ?? [];
       const added = s.added_player_ids ?? [];
-      const anyAddedPresent = added.length > 0 && added.some((id) => initialIds.includes(id));
-      if (anyAddedPresent) {
+      if (added.length > 0 && added.some((id) => initialIds.includes(id))) {
         initialIds = initialIds.filter((id) => !added.includes(id)).concat(removed);
       }
     }
 
-    let total = 0;
-    for (const row of fpSchedule ?? []) {
-      const ms = row.match_start;
-      const matchStartMs = ms ? new Date(ms).getTime() : new Date(row.match_date + "T12:00:00Z").getTime();
-      if (pickedAtMs >= matchStartMs) continue;
-      if (row.match_date > today) continue;
-      if (row.match_date === today && (!ms || now < matchStartMs + GAME_DURATION_MS)) continue;
-
-      const matchId = row.match_id;
-      let rosterIds;
-      if (matchId === lastPlayedMatchId) {
-        const ps = r.pending_subs;
-        if (ps?.effective_match_id && String(ps.effective_match_id) === String(matchId)) {
-          const removed = ps.removed_ids ?? [];
-          const added = ps.added_ids ?? [];
-          rosterIds = r.player_ids.filter((id) => !removed.includes(id)).concat(added);
-        } else {
-          rosterIds = [...r.player_ids];
+    const rosterAtStartOfWeek = new Map();
+    rosterAtStartOfWeek.set(lastPlayedMatchId ?? "", [...rosterThatPlayedLastMatch]);
+    const scheduleWithWeeks = scheduleFiltered.map((row, idx) => ({ ...row, weekIndex: idx }));
+    for (let i = scheduleWithWeeks.length - 1; i > 0; i--) {
+      const thisRow = scheduleWithWeeks[i];
+      const prevRow = scheduleWithWeeks[i - 1];
+      const nextMatchIds = scheduleWithWeeks.slice(i).map((x) => String(x.match_id));
+      let ids = [...(rosterAtStartOfWeek.get(thisRow.match_id) ?? initialIds)];
+      for (let j = userSubs.length - 1; j >= 0; j--) {
+        const s = userSubs[j];
+        const em = s.effective_match_id;
+        if (!em || !nextMatchIds.includes(String(em))) continue;
+        const removed = s.removed_player_ids ?? [];
+        const added = s.added_player_ids ?? [];
+        if (added.some((id) => ids.includes(id))) {
+          const afterRemove = ids.filter((id) => !added.includes(id));
+          const toAdd = removed.filter((id) => !afterRemove.includes(id));
+          ids = [...afterRemove, ...toAdd];
         }
-      } else {
-        const matchCutoff = new Date(row.match_date + "T23:59:59.999Z").getTime();
-        rosterIds = [...initialIds];
-        for (const s of userSubs) {
-          const effectiveMatchId = s.effective_match_id;
-          const createdAt = new Date(s.created_at).getTime();
-          const appliesToThisMatch = effectiveMatchId
-            ? String(effectiveMatchId) === String(matchId)
-            : createdAt <= matchCutoff;
-          if (appliesToThisMatch) {
-            const removed = s.removed_player_ids ?? [];
-            const added = s.added_player_ids ?? [];
-            const allRemovedPresent = removed.length > 0 && removed.every((id) => rosterIds.includes(id));
-            if (allRemovedPresent) {
-              rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+      }
+      const deduped = ids.filter((id, idx) => ids.indexOf(id) === idx);
+      rosterAtStartOfWeek.set(prevRow.match_id, deduped.length >= ROSTER_SIZE ? deduped.slice(0, ROSTER_SIZE) : deduped);
+    }
+
+    let total = 0;
+    for (const row of scheduleFiltered) {
+      const matchId = row.match_id;
+      const snapshotKey = `${r.user_id}:${matchId}`;
+      let rosterIds = snapshotByUserMatch.get(snapshotKey);
+
+      if (!rosterIds || rosterIds.length === 0) {
+        rosterIds = rosterAtStartOfWeek.get(matchId);
+        if (!rosterIds?.length) {
+          const matchCutoff = new Date(row.match_date + "T23:59:59.999Z").getTime();
+          rosterIds = [...initialIds];
+          for (const s of userSubs) {
+            const effectiveMatchId = s.effective_match_id;
+            const createdAt = new Date(s.created_at).getTime();
+            const applies = effectiveMatchId ? String(effectiveMatchId) === String(matchId) : createdAt <= matchCutoff;
+            if (applies) {
+              const removed = s.removed_player_ids ?? [];
+              const added = s.added_player_ids ?? [];
+              if (removed.length > 0 && removed.every((id) => rosterIds.includes(id))) {
+                rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+              }
             }
           }
         }
+        rosterByMatchRows.push({ user_id: r.user_id, season: SEASON, match_id: matchId, player_ids: rosterIds });
       }
 
-      for (const pid of rosterIds) {
+      for (const pid of rosterIds ?? []) {
         total += pointsMap.get(`${pid}:${matchId}`) ?? 0;
       }
     }
@@ -358,6 +433,21 @@ async function main() {
       console.error("total_fantasy_points update:", updErr.message);
     }
   }
+
+  if (rosterByMatchRows.length > 0) {
+    const { error: rosterErr } = await supabase
+      .from("fantasy_roster_by_match")
+      .upsert(rosterByMatchRows, {
+        onConflict: "user_id,season,match_id",
+        ignoreDuplicates: false,
+      });
+    if (rosterErr) {
+      console.error("fantasy_roster_by_match upsert:", rosterErr.message);
+    } else {
+      console.log(`Snapshot rosters for ${rosterByMatchRows.length} user-match pairs`);
+    }
+  }
+
   console.log(`Updated total_fantasy_points for ${(fpRosters ?? []).filter((r) => r.player_ids?.length).length} rosters`);
 
   // 7. Overpriced auto-sub: if no pending_subs but roster cost (current prices) > $30,

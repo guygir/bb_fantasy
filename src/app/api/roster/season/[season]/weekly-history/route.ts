@@ -5,6 +5,8 @@ import { getLastPlayedMatchFP } from "@/lib/fantasy-db";
 
 export const dynamic = "force-dynamic";
 
+const ROSTER_SIZE = 5;
+
 function getSupabaseWithAuth(authHeader: string | null) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -17,7 +19,7 @@ function getSupabaseWithAuth(authHeader: string | null) {
 /**
  * GET /api/roster/season/[season]/weekly-history
  * Returns weekly breakdown: roster (names), points per player, total per week.
- * Requires auth. Uses effective roster per week (replays substitutions).
+ * Requires auth. Prefers fantasy_roster_by_match (snapshot at lock), fallback to reconstruction.
  */
 export async function GET(
   request: Request,
@@ -43,7 +45,7 @@ export async function GET(
   const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
 
   const admin = getSupabaseAdmin();
-  const [lastPlayedFP, scheduleRes, statsRes, rosterRes, subsRes] = await Promise.all([
+  const [lastPlayedFP, scheduleRes, statsRes, rosterRes, rosterByMatchRes, subsRes] = await Promise.all([
     getLastPlayedMatchFP(seasonNum),
     admin
       .from("fantasy_schedule")
@@ -54,13 +56,19 @@ export async function GET(
     admin
       .from("fantasy_player_game_stats")
       .select("player_id, match_id, name, fantasy_points")
-      .eq("season", seasonNum),
+      .eq("season", seasonNum)
+      .range(0, 9999),
     admin
       .from("fantasy_user_rosters")
       .select("player_ids, player_names, picked_at, pending_subs")
       .eq("user_id", user.id)
       .eq("season", seasonNum)
       .maybeSingle(),
+    admin
+      .from("fantasy_roster_by_match")
+      .select("match_id, player_ids")
+      .eq("user_id", user.id)
+      .eq("season", seasonNum),
     admin
       .from("fantasy_roster_substitutions")
       .select("removed_player_ids, added_player_ids, created_at, effective_match_id")
@@ -72,6 +80,8 @@ export async function GET(
   const stats = statsRes.data ?? [];
   const roster = rosterRes.data;
   const subs = subsRes.data ?? [];
+  const rosterByMatchRows = (rosterByMatchRes.data ?? []) as { match_id: string; player_ids: number[] }[];
+  const rosterByMatch = new Map(rosterByMatchRows.map((r) => [r.match_id, r.player_ids]));
 
   if (!roster?.player_ids?.length) {
     return NextResponse.json({ weeks: [] });
@@ -142,7 +152,7 @@ export async function GET(
     if (s.name) nameMap.set(s.player_id, s.name);
   }
 
-  // For each match, compute effective roster (apply subs where created_at < match_date end)
+  // Roster per match: prefer snapshot (fantasy_roster_by_match), fallback to reconstruction
   const weeks: {
     week: number;
     matchDate: string;
@@ -156,12 +166,16 @@ export async function GET(
     const matchDate = row.match_date as string;
     const matchId = row.match_id as string;
 
-    // For last played match: use roster that actually played (pending_subs applied if not yet synced, else current)
     let rosterIds: number[];
-    if (matchId === lastPlayedMatchIdForOverride) {
+    const snapshot = rosterByMatch.get(matchId);
+    if (snapshot && snapshot.length > 0) {
+      // Use immutable snapshot written by sync when game finished
+      rosterIds = snapshot;
+    } else if (matchId === lastPlayedMatchIdForOverride) {
+      // Last played: pending_subs may not be synced yet
       rosterIds = [...rosterThatPlayedLastMatch];
     } else {
-      // Roster at this match: apply subs that target this match.
+      // Fallback: reconstruct from subs (before sync has populated snapshots)
       const matchCutoff = new Date(matchDate + "T23:59:59.999Z").getTime();
       rosterIds = [...initialIds];
       for (const s of subs) {
@@ -175,7 +189,10 @@ export async function GET(
           const added = (s.added_player_ids ?? []) as number[];
           const allRemovedPresent = removed.length > 0 && removed.every((id) => rosterIds.includes(id));
           if (allRemovedPresent) {
-            rosterIds = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+            const after = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+            if (after.length === ROSTER_SIZE) {
+              rosterIds = after;
+            }
           }
         }
       }

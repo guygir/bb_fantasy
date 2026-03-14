@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 
-type SortKey = "rank" | "nickname" | "totalFantasyPoints";
+type SortKey = "rank" | "nickname" | "totalFantasyPoints" | "lastWeekFP";
 type SortDir = "asc" | "desc";
 
 interface UserStanding {
@@ -10,17 +10,24 @@ interface UserStanding {
   userId: string;
   nickname: string;
   totalFantasyPoints: number;
+  lastWeekFP: number;
+  lastWeekNumber: number;
 }
 
-const COLS: { key: SortKey; label: string; align?: "right" }[] = [
-  { key: "rank", label: "#", align: "right" },
-  { key: "nickname", label: "User" },
-  { key: "totalFantasyPoints", label: "Total FP", align: "right" },
-];
+function getCols(lastWeekNumber: number): { key: SortKey; label: string; align?: "right" }[] {
+  return [
+    { key: "rank", label: "#", align: "right" },
+    { key: "nickname", label: "User" },
+    { key: "lastWeekFP", label: lastWeekNumber > 0 ? `Last week (Week ${lastWeekNumber}) FP` : "Last week FP", align: "right" },
+    { key: "totalFantasyPoints", label: "Total FP", align: "right" },
+  ];
+}
 
 export function LeaderboardTable({ data }: { data: UserStanding[] }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalFantasyPoints");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const lastWeekNumber = data[0]?.lastWeekNumber ?? 0;
+  const COLS = getCols(lastWeekNumber);
 
   const sorted = useMemo(() => {
     return [...data].sort((a, b) => {
@@ -64,6 +71,7 @@ export function LeaderboardTable({ data }: { data: UserStanding[] }) {
             <tr key={u.userId} className="hover:bg-card-bg">
               <td className="border border-bb-border px-4 py-2 text-right">{sortKey === "rank" ? u.rank : i + 1}</td>
               <td className="border border-bb-border px-4 py-2 font-medium">{u.nickname}</td>
+              <td className="border border-bb-border px-4 py-2 text-right">{(u.lastWeekFP ?? 0).toFixed(1)}</td>
               <td className="border border-bb-border px-4 py-2 text-right">{u.totalFantasyPoints.toFixed(1)}</td>
             </tr>
           ))}

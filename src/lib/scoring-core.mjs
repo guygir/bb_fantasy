@@ -53,3 +53,21 @@ export function fantasyPPGToPrice(ppg) {
   if (ppg >= 3) return 2;
   return 1;
 }
+
+/**
+ * Weighted PPG from game FPs: decay 30%/20%/10%/5%/2.5%... (last games more), scale to 100%.
+ * Used for Option 5 price target (recent performance matters more).
+ */
+export function weightedPPGFromGameFPs(gameFPs) {
+  if (!gameFPs?.length) return 0;
+  const rawWeights = [0.3, 0.2, 0.1];
+  for (let i = 3; i < 20; i++) rawWeights.push(rawWeights[i - 1] / 2);
+  const n = Math.min(gameFPs.length, rawWeights.length);
+  const usedWeights = rawWeights.slice(0, n);
+  const totalWeight = usedWeights.reduce((s, w) => s + w, 0);
+  let weightedSum = 0;
+  for (let i = 0; i < n; i++) {
+    weightedSum += usedWeights[i] * gameFPs[gameFPs.length - 1 - i];
+  }
+  return totalWeight > 0 ? weightedSum / totalWeight : gameFPs.reduce((a, b) => a + b, 0) / gameFPs.length;
+}

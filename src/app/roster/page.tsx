@@ -44,6 +44,7 @@ interface Player {
   playerId: number;
   name: string;
   inGamePrice: number;
+  previousPrice?: number | null;
   fantasyPPG: number;
   position: string;
 }
@@ -131,8 +132,8 @@ export default function MyRosterPage() {
     const sb = supabase;
     sb.auth.getSession().then(({ data: { session } }) => {
       const rosterOpts = session?.access_token
-        ? { headers: { Authorization: `Bearer ${session.access_token}` } }
-        : {};
+        ? { headers: { Authorization: `Bearer ${session.access_token}` }, cache: "no-store" as RequestCache }
+        : { cache: "no-store" as RequestCache };
       Promise.all([
         fetch(`/api/roster/season/${SEASON}`, rosterOpts).then(async (r) => {
           if (!r.ok) return { roster: null };
@@ -144,7 +145,7 @@ export default function MyRosterPage() {
           const data = await r.json();
           return Array.isArray(data.stats) ? data : { stats: data.stats ?? [] };
         }),
-        fetch(`/api/players/season/${SEASON}`).then(async (r) => {
+        fetch(`/api/players/season/${SEASON}`, { cache: "no-store" }).then(async (r) => {
           if (!r.ok) return { players: [] };
           const data = await r.json();
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };
@@ -295,6 +296,8 @@ export default function MyRosterPage() {
                 hasPendingSubs={!!pendingSubs}
                 onClear={async () => {
                   if (!userId || !supabase) return;
+                  setSubSaving(true);
+                  setSubError(null);
                   const { data: { session } } = await supabase.auth.getSession();
                   const res = await fetch(`/api/roster/season/${SEASON}/substitute`, {
                     method: "POST",
@@ -304,6 +307,8 @@ export default function MyRosterPage() {
                     },
                     body: JSON.stringify({ clear: true }),
                   });
+                  const data = await res.json().catch(() => ({}));
+                  setSubSaving(false);
                   if (res.ok) {
                     setSubMode(false);
                     setToRemove(new Set());
@@ -311,6 +316,8 @@ export default function MyRosterPage() {
                     setPendingSubs(null);
                     initializedFromPendingRef.current = false;
                     window.location.reload();
+                  } else {
+                    setSubError(data.error ?? "Cannot clear pending subs");
                   }
                 }}
                 onCancel={() => {
@@ -422,16 +429,21 @@ export default function MyRosterPage() {
             ? (pendingSubs.added_prices[String(id)] ?? 0)
             : (currentPricesMap[id] ?? roster.playerPrices[id] ?? 0),
         });
+        const previousPriceMap = Object.fromEntries(
+          players.filter((p) => p.previousPrice != null).map((p) => [p.playerId, p.previousPrice!])
+        ) as Record<number, number>;
         const RosterRow = ({
           id,
           name,
           price,
+          previousPrice,
           lastWeekFP,
           highlight,
         }: {
           id: number;
           name: string;
           price: number;
+          previousPrice?: number | null;
           lastWeekFP: number;
           highlight?: "red" | "green";
         }) => (
@@ -444,7 +456,17 @@ export default function MyRosterPage() {
               <PlayerAvatar playerId={id} name={name} />
             </td>
             <td className="border border-bb-border px-2 py-2 font-medium truncate w-32" title={name}>{name}</td>
-            <td className="border border-bb-border px-2 py-2 text-right">${price}</td>
+            <td className="border border-bb-border px-2 py-2 text-right">
+              {previousPrice != null && previousPrice !== price ? (
+                <>
+                  <span className="text-gray-500">${previousPrice}</span>
+                  <span className="mx-1 text-gray-400">→</span>
+                  <span>${price}</span>
+                </>
+              ) : (
+                `$${price}`
+              )}
+            </td>
             <td className="border border-bb-border px-2 py-2 text-right text-gray-600">
               {lastWeekFP.toFixed(1)} FP
             </td>
@@ -473,6 +495,7 @@ export default function MyRosterPage() {
                           id={id}
                           name={roster.playerNames[id] ?? `Player ${id}`}
                           price={price}
+                          previousPrice={previousPriceMap[id]}
                           lastWeekFP={getCurrentRosterLastWeekFP(id)}
                           highlight={isSubbedOut ? "red" : undefined}
                         />
@@ -504,6 +527,7 @@ export default function MyRosterPage() {
                             id={id}
                             name={name}
                             price={price}
+                            previousPrice={previousPriceMap[id]}
                             lastWeekFP={fp}
                             highlight={isSubbedIn ? "green" : undefined}
                           />

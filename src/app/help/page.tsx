@@ -56,6 +56,7 @@ export default function HelpPage() {
         <h2 className="mb-3 font-semibold">Price Adjustment Rules</h2>
         <ul className="mb-2 list-inside list-disc space-y-1 text-gray-600">
           <li><strong>Min games:</strong> 2 games before any price adjustment (avoids noise from single-game spikes)</li>
+          <li><strong>Weighted PPG:</strong> Recent games count more (30% last, 20% before, 10%, 5%, 2.5%…), scaled to 100%. DNPs count as 0 FP. Target price from tiers.</li>
           <li><strong>Confidence:</strong> 1–3 games → max ±$1 per game; 4+ games → max ±$2 per game</li>
           <li><strong>DNP (did not play):</strong> $9–10 → −$2; $3–8 → −$1; $1–2 → no change. Performance vs DNP are mutually exclusive per game.</li>
           <li><strong>Roster:</strong> Prices use current market value. If your roster exceeds $30, you must sub or the system auto-subs (highest→cheapest) before the next game.</li>

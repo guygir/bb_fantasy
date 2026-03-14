@@ -108,7 +108,15 @@ export function PlayersTable({ players }: { players: PlayerWithDetails[] }) {
               <td className="border border-bb-border px-4 py-2 text-right">{p.pts.toFixed(1)}</td>
               <td className="border border-bb-border px-4 py-2 text-right">{p.avgRating.toFixed(1)}</td>
               <td className="border border-bb-border px-4 py-2 text-right font-medium">
-                ${p.inGamePrice}
+                {p.previousPrice != null && p.previousPrice !== p.inGamePrice ? (
+                  <>
+                    <span className="text-gray-500">${p.previousPrice}</span>
+                    <span className="mx-1 text-gray-400">→</span>
+                    <span>${p.inGamePrice}</span>
+                  </>
+                ) : (
+                  `$${p.inGamePrice}`
+                )}
               </td>
               <td className="border border-bb-border px-4 py-2 text-right">
                 {(p.lastGameFP ?? 0).toFixed(1)}

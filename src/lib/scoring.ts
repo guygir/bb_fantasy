@@ -5,6 +5,7 @@
 import {
   statsToFantasyPoints as statsToFantasyPointsCore,
   fantasyPPGToPrice as fantasyPPGToPriceCore,
+  weightedPPGFromGameFPs as weightedPPGFromGameFPsCore,
   MIN_GAMES_FOR_ADJUSTMENT,
   MAX_CHANGE_HIGH_CONFIDENCE,
   MAX_CHANGE_DEFAULT,
@@ -39,3 +40,4 @@ export interface PlayerGameStats {
 
 export const statsToFantasyPoints = statsToFantasyPointsCore;
 export const fantasyPPGToPrice = fantasyPPGToPriceCore;
+export const weightedPPGFromGameFPs = weightedPPGFromGameFPsCore;

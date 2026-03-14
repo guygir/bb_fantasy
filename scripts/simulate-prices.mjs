@@ -4,20 +4,30 @@
  * then apply the price adjustment algorithm per game for each played game.
  *
  * Run: npm run simulate-prices -- 71   (or: node scripts/simulate-prices.mjs 71)
+ * (Option 6: DNPs count as 0 FP for weighted PPG)
  *
- * Prerequisite: process-boxscores (player_game_stats), fetch-schedule, update-prices (for Start $)
+ * Reads stats from Supabase first (cron-synced). Falls back to JSON.
+ * Prerequisite: fetch-schedule (bbapi_schedule), update-prices (for File $)
  */
 
+import { config } from "dotenv";
 import { readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { createClient } from "@supabase/supabase-js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, "..");
+config({ path: join(ROOT, ".env") });
+config({ path: join(ROOT, ".env.local") });
+
 const DATA_DIR = join(__dirname, "../data");
-const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : 71;
+const args = process.argv.slice(2);
+const SEASON = parseInt(args.find((a) => !a.startsWith("--")) || "71", 10);
 
 const {
   fantasyPPGToPrice,
+  weightedPPGFromGameFPs,
   MIN_GAMES_FOR_ADJUSTMENT,
   getMaxPriceChange,
 } = await import(join(__dirname, "../src/lib/scoring-core.mjs"));
@@ -29,7 +39,7 @@ function dnpcPriceReduction(price) {
   return price;
 }
 
-function loadPlayerGameStats(season) {
+function loadPlayerGameStatsFromJson(season) {
   const path = join(DATA_DIR, `player_game_stats_s${season}.json`);
   if (!existsSync(path)) return [];
   try {
@@ -38,6 +48,41 @@ function loadPlayerGameStats(season) {
   } catch {
     return [];
   }
+}
+
+/** Load stats from Supabase (cron-synced). Returns [] if unavailable. */
+async function loadPlayerGameStatsFromSupabase(season) {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return [];
+  try {
+    const supabase = createClient(url, key);
+    const { data, error } = await supabase
+      .from("fantasy_player_game_stats")
+      .select("player_id, match_id, fantasy_points, name")
+      .eq("season", season)
+      .range(0, 9999);
+    if (error || !data?.length) return [];
+    return data.map((r) => ({
+      playerId: r.player_id,
+      matchId: String(r.match_id),
+      fantasyPoints: Number(r.fantasy_points ?? 0),
+      name: r.name ?? null,
+    }));
+  } catch {
+    return [];
+  }
+}
+
+async function loadPlayerGameStats(season) {
+  const fromSupabase = await loadPlayerGameStatsFromSupabase(season);
+  if (fromSupabase.length > 0) {
+    console.log(`Using ${fromSupabase.length} stats from Supabase (cron-synced)`);
+    return fromSupabase;
+  }
+  const fromJson = loadPlayerGameStatsFromJson(season);
+  if (fromJson.length > 0) console.log(`Using ${fromJson.length} stats from JSON (local)`);
+  return fromJson;
 }
 
 function loadPriceData(season) {
@@ -62,9 +107,8 @@ function loadSchedule(season) {
   }
 }
 
-function simulateAdjustedPrices(season, startingPrices) {
+function simulateAdjustedPrices(season, startingPrices, stats) {
   const schedule = loadSchedule(season);
-  const stats = loadPlayerGameStats(season);
   const existing = loadPriceData(season);
   const prices = { ...(startingPrices ?? existing.current) };
 
@@ -76,31 +120,40 @@ function simulateAdjustedPrices(season, startingPrices) {
 
   const cumulative = new Map();
   const nameByPlayer = new Map();
-  const priceByWeek = []; // [{ matchId, matchDate, weekNum, prices: { playerId: price } }]
+  const priceByWeek = [];
 
-  for (let i = 0; i < playedMatches.length; i++) {
-    const match = playedMatches[i];
+  for (let mi = 0; mi < playedMatches.length; mi++) {
+    const match = playedMatches[mi];
     const matchStats = stats.filter((x) => String(x.matchId) === String(match.id));
+    const playersWhoPlayedThisMatch = new Set(matchStats.map((x) => x.playerId));
+
     for (const st of matchStats) {
-      const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0 };
+      const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0, lastGames: [], allGamesWithDnp: [] };
+      while ((cur.allGamesWithDnp || []).length < mi) cur.allGamesWithDnp.push(0);
       cur.total += st.fantasyPoints;
       cur.gp += 1;
+      cur.lastGames = (cur.lastGames || []).concat(st.fantasyPoints).slice(-20);
+      cur.allGamesWithDnp = (cur.allGamesWithDnp || []).concat(st.fantasyPoints);
       cumulative.set(st.playerId, cur);
       if (st.name) nameByPlayer.set(st.playerId, st.name);
     }
+    for (const [playerId, cur] of cumulative) {
+      if (!playersWhoPlayedThisMatch.has(playerId)) {
+        cur.allGamesWithDnp = (cur.allGamesWithDnp || []).concat(0);
+      }
+    }
 
-    const playersWhoPlayedThisMatch = new Set(matchStats.map((x) => x.playerId));
     const weekPrices = {};
-    // Performance: only for players who played in THIS game (mutually exclusive with DNPC)
-    for (const [playerId, { total, gp }] of cumulative) {
+    for (const [playerId, cum] of cumulative) {
+      const { total, gp } = cum;
       if (gp < MIN_GAMES_FOR_ADJUSTMENT || !playersWhoPlayedThisMatch.has(playerId)) {
         weekPrices[playerId] = prices[playerId] ?? null;
         continue;
       }
-      const ppg = total / gp;
+      const ppg = weightedPPGFromGameFPs(cum.allGamesWithDnp ?? []) || total / gp;
       const newPrice = fantasyPPGToPrice(ppg);
       const oldPrice = prices[playerId];
-      const maxChange = getMaxPriceChange(gp);
+      const maxChange = getMaxPriceChange(cum.gp);
       let finalPrice;
       if (oldPrice == null) {
         finalPrice = newPrice;
@@ -121,7 +174,7 @@ function simulateAdjustedPrices(season, startingPrices) {
     priceByWeek.push({
       matchId: match.id,
       matchDate: match.start?.slice(0, 10) ?? "?",
-      weekNum: i + 1,
+      weekNum: mi + 1,
       prices: { ...weekPrices },
     });
   }
@@ -129,11 +182,11 @@ function simulateAdjustedPrices(season, startingPrices) {
   return { prices, cumulative, nameByPlayer, priceByWeek, playedMatches };
 }
 
-function run() {
-  const stats = loadPlayerGameStats(SEASON);
+async function run() {
+  const stats = await loadPlayerGameStats(SEASON);
   const schedule = loadSchedule(SEASON);
   if (!stats.length) {
-    console.error(`No player_game_stats_s${SEASON}.json or empty stats. Run: npm run process-boxscores`);
+    console.error(`No stats. Supabase (cron) or player_game_stats_s${SEASON}.json (run process-boxscores)`);
     process.exit(1);
   }
   if (!schedule?.length) {
@@ -142,11 +195,12 @@ function run() {
   }
 
   const existing = loadPriceData(SEASON);
-  const { prices, cumulative, nameByPlayer, priceByWeek, playedMatches } = simulateAdjustedPrices(SEASON, {});
+  const { prices, cumulative, nameByPlayer, priceByWeek, playedMatches } = simulateAdjustedPrices(SEASON, {}, stats);
 
-  console.log(`\nSimulated prices for season ${SEASON} (empty start, game-by-game → End $ = current prices)`);
+  console.log(`\nSimulated prices for season ${SEASON} (empty start, game-by-game → End $ = current prices) [Option 6: DNPs as 0]`);
   console.log(`\nNote: Start $ = — means no prior price. Price appears after 2 games (fantasyPPGToPrice).`);
-  console.log("End $ should match player_prices_s{N}.json (from update-prices).\n");
+  console.log("End $ should match player_prices_s{N}.json (from update-prices).");
+  console.log("");
 
   const playerIds = [...new Set([...Object.keys(existing.current), ...Object.keys(prices), ...cumulative.keys()].map((x) => Number(x)))].sort((a, b) => a - b);
 
@@ -176,4 +230,7 @@ function run() {
   console.log("\nDone.");
 }
 
-run();
+run().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
