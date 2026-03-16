@@ -47,6 +47,8 @@ interface Player {
   previousPrice?: number | null;
   fantasyPPG: number;
   position: string;
+  gameShape?: number | null;
+  dmi?: number | null;
 }
 
 export default function MyRosterPage() {
@@ -428,6 +430,8 @@ export default function MyRosterPage() {
           price: pendingSubs?.added_ids?.includes(id)
             ? (pendingSubs.added_prices[String(id)] ?? 0)
             : (currentPricesMap[id] ?? roster.playerPrices[id] ?? 0),
+          gameShape: players.find((p) => p.playerId === id)?.gameShape ?? null,
+          dmi: players.find((p) => p.playerId === id)?.dmi ?? null,
         });
         const previousPriceMap = Object.fromEntries(
           players.filter((p) => p.previousPrice != null).map((p) => [p.playerId, p.previousPrice!])
@@ -438,6 +442,8 @@ export default function MyRosterPage() {
           price,
           previousPrice,
           lastWeekFP,
+          gameShape,
+          dmi,
           highlight,
         }: {
           id: number;
@@ -445,6 +451,8 @@ export default function MyRosterPage() {
           price: number;
           previousPrice?: number | null;
           lastWeekFP: number;
+          gameShape?: number | null;
+          dmi?: number | null;
           highlight?: "red" | "green";
         }) => (
           <tr
@@ -456,6 +464,12 @@ export default function MyRosterPage() {
               <PlayerAvatar playerId={id} name={name} />
             </td>
             <td className="border border-bb-border px-2 py-2 font-medium truncate w-32" title={name}>{name}</td>
+            <td className="border border-bb-border px-2 py-2 text-right">
+              {gameShape != null ? gameShape : "–"}
+            </td>
+            <td className="border border-bb-border px-2 py-2 text-right">
+              {dmi != null ? dmi.toLocaleString() : "–"}
+            </td>
             <td className="border border-bb-border px-2 py-2 text-right">
               {previousPrice != null && previousPrice !== price ? (
                 <>
@@ -481,6 +495,8 @@ export default function MyRosterPage() {
                     <tr className="bg-card-bg">
                       <th className="border border-bb-border px-2 py-2 text-left w-14">Photo</th>
                       <th className="border border-bb-border px-2 py-2 text-left w-32">Player</th>
+                      <th className="border border-bb-border px-2 py-2 text-right w-10">Game Shape</th>
+                      <th className="border border-bb-border px-2 py-2 text-right w-12">DMI</th>
                       <th className="border border-bb-border px-2 py-2 text-right w-12">$</th>
                       <th className="border border-bb-border px-2 py-2 text-right w-16">Last week</th>
                     </tr>
@@ -489,6 +505,7 @@ export default function MyRosterPage() {
                     {roster.playerIds.map((id) => {
                       const isSubbedOut = pendingSubs?.removed_ids?.includes(id);
                       const price = currentPrices[id] ?? roster.playerPrices[id] ?? 0;
+                      const p = players.find((x) => x.playerId === id);
                       return (
                         <RosterRow
                           key={id}
@@ -497,6 +514,8 @@ export default function MyRosterPage() {
                           price={price}
                           previousPrice={previousPriceMap[id]}
                           lastWeekFP={getCurrentRosterLastWeekFP(id)}
+                          gameShape={p?.gameShape ?? null}
+                          dmi={p?.dmi ?? null}
                           highlight={isSubbedOut ? "red" : undefined}
                         />
                       );
@@ -512,6 +531,8 @@ export default function MyRosterPage() {
                       <tr className="bg-card-bg">
                         <th className="border border-bb-border px-2 py-2 text-left w-14">Photo</th>
                         <th className="border border-bb-border px-2 py-2 text-left w-32">Player</th>
+                        <th className="border border-bb-border px-2 py-2 text-right w-10">Game Shape</th>
+                        <th className="border border-bb-border px-2 py-2 text-right w-12">DMI</th>
                         <th className="border border-bb-border px-2 py-2 text-right w-12">$</th>
                         <th className="border border-bb-border px-2 py-2 text-right w-16">Last week</th>
                       </tr>
@@ -520,7 +541,7 @@ export default function MyRosterPage() {
                       {futureTeamIds.map((id) => {
                         const isSubbedIn = pendingSubs.added_ids.includes(id);
                         const fp = getFutureTeamLastWeekFP(id);
-                        const { name, price } = getFuturePlayer(id);
+                        const { name, price, gameShape, dmi } = getFuturePlayer(id);
                         return (
                           <RosterRow
                             key={id}
@@ -529,6 +550,8 @@ export default function MyRosterPage() {
                             price={price}
                             previousPrice={previousPriceMap[id]}
                             lastWeekFP={fp}
+                            gameShape={gameShape}
+                            dmi={dmi}
                             highlight={isSubbedIn ? "green" : undefined}
                           />
                         );
@@ -684,15 +707,27 @@ function SubstitutionForm({
     <div>
       <p className="text-sm text-gray-600 mb-3">Remove up to 2, add up to 2. Keep cost ≤ ${CAP}.</p>
       <div className="flex flex-wrap gap-4 mb-4">
-        {roster.playerIds.map((id) => (
-          <button
-            key={id}
-            onClick={() => toggleRemove(id)}
-            className={`px-3 py-1.5 rounded border text-sm ${toRemove.has(id) ? "border-red-500 bg-red-50 text-red-700" : "border-bb-border hover:bg-card-bg"}`}
-          >
-            {roster.playerNames[id] ?? `Player ${id}`} {toRemove.has(id) ? "✓ remove" : "remove"}
-          </button>
-        ))}
+        {roster.playerIds.map((id) => {
+          const p = players.find((x) => x.playerId === id);
+          const price = currentPrices[id] ?? roster.playerPrices[id] ?? 0;
+          const name = roster.playerNames[id] ?? `Player ${id}`;
+          return (
+            <button
+              key={id}
+              onClick={() => toggleRemove(id)}
+              className={`flex items-center gap-2 px-3 py-2 rounded border text-left text-sm ${toRemove.has(id) ? "border-red-500 bg-red-50 text-red-700" : "border-bb-border hover:bg-card-bg"}`}
+            >
+              <PlayerAvatar playerId={id} name={name} compact />
+              <div>
+                <div className="font-medium">{name}</div>
+                <div className="text-xs text-gray-600">Game Shape: {p?.gameShape != null ? p.gameShape : "–"}</div>
+                <div className="text-xs text-gray-600">DMI: {p?.dmi != null ? p.dmi.toLocaleString() : "–"}</div>
+                <div className="text-xs text-gray-600">Price: ${price}</div>
+                {toRemove.has(id) && <div className="text-xs font-medium text-red-600 mt-0.5">✓ remove</div>}
+              </div>
+            </button>
+          );
+        })}
       </div>
       <h4 className="text-sm font-medium mb-2">Add (click to select):</h4>
       <div className="flex flex-wrap gap-2 mb-4 max-h-32 overflow-y-auto">
@@ -702,9 +737,15 @@ function SubstitutionForm({
             <button
               key={p.playerId}
               onClick={() => addOrReplace(p)}
-              className={`px-2 py-1 rounded border text-xs ${toAdd.has(p.playerId) ? "border-exact bg-green-50 text-exact" : "border-bb-border hover:bg-card-bg"}`}
+              className={`flex items-center gap-2 px-3 py-2 rounded border text-left text-sm ${toAdd.has(p.playerId) ? "border-exact bg-green-50 text-exact" : "border-bb-border hover:bg-card-bg"}`}
             >
-              {p.name} ${p.inGamePrice}
+              <PlayerAvatar playerId={p.playerId} name={p.name} compact />
+              <div>
+                <div className="font-medium">{p.name}</div>
+                <div className="text-xs text-gray-600">Game Shape: {p.gameShape != null ? p.gameShape : "–"}</div>
+                <div className="text-xs text-gray-600">DMI: {p.dmi != null ? p.dmi.toLocaleString() : "–"}</div>
+                <div className="text-xs text-gray-600">Price: ${p.inGamePrice}</div>
+              </div>
             </button>
           ))}
       </div>

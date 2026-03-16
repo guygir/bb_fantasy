@@ -10,13 +10,15 @@ interface PlayerAvatarProps {
   faceMtime?: number | null;
   /** Compact size for dense layouts */
   compact?: boolean;
+  /** Additional CSS classes for the wrapper */
+  className?: string;
 }
 
 /**
  * Player avatar - uses our stored face (from npm run fetch-player-face) when available,
  * otherwise shows initial. Links to BuzzerBeater profile.
  */
-export function PlayerAvatar({ playerId, name, faceMtime, compact }: PlayerAvatarProps) {
+export function PlayerAvatar({ playerId, name, faceMtime, compact, className }: PlayerAvatarProps) {
   const [imgError, setImgError] = useState(false);
   const profileUrl = `https://buzzerbeater.com/player/${playerId}/overview.aspx`;
   const faceUrl = `/player-faces/${playerId}.png${faceMtime ? `?v=${faceMtime}` : ""}`;
@@ -26,7 +28,7 @@ export function PlayerAvatar({ playerId, name, faceMtime, compact }: PlayerAvata
       href={profileUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-200 text-sm font-medium text-gray-600"
+      className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-200 text-sm font-medium text-gray-600 ${className ?? ""}`}
       title="View on BuzzerBeater"
     >
       {!imgError ? (
