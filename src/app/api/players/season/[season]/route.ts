@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 import { getPlayersWithDetails } from "@/lib/players";
 import { hasFantasyData, getPlayersFromSupabase } from "@/lib/fantasy-db";
 import { loadPriceData } from "@/lib/prices";
 import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 /** Get previous week price from history (JSON). history[playerId][1] = previous when newest-first. */
 function getPreviousPrices(season: number): Record<number, number> {
@@ -25,6 +27,7 @@ export async function GET(
   _request: Request,
   { params }: { params: Promise<{ season: string }> }
 ) {
+  await headers(); // Opt out of static/cache
   const { season } = await params;
   const seasonNum = parseInt(season, 10) || config.game.currentSeason;
 
