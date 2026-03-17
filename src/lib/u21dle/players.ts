@@ -24,12 +24,18 @@ export function getEligiblePlayers(): U21dlePlayer[] {
   return getU21dlePlayers().filter((p) => p.gp >= U21DLE_CONFIG.MIN_GP_ELIGIBLE);
 }
 
-export function searchU21dlePlayers(query: string, limit = 10): U21dlePlayer[] {
+/** Search only eligible players (GP>=8) - used for guess autocomplete */
+export function searchU21dlePlayersEligible(query: string, limit = 10): U21dlePlayer[] {
   const q = query.toLowerCase().trim();
   if (q.length < 2) return [];
-  const players = getU21dlePlayers();
+  const players = getEligiblePlayers();
   const matches = players.filter((p) => p.name.toLowerCase().includes(q));
   return matches.slice(0, limit);
+}
+
+/** @deprecated Use searchU21dlePlayersEligible for U21dle game */
+export function searchU21dlePlayers(query: string, limit = 10): U21dlePlayer[] {
+  return searchU21dlePlayersEligible(query, limit);
 }
 
 export function getU21dlePlayerById(playerId: number): U21dlePlayer | undefined {

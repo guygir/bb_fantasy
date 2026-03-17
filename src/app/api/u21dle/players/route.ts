@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { searchU21dlePlayers } from "@/lib/u21dle/players";
+import { searchU21dlePlayersEligible } from "@/lib/u21dle/players";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   const q = searchParams.get("q") ?? "";
 
   try {
-    const players = searchU21dlePlayers(q, 10);
+    const players = searchU21dlePlayersEligible(q, 10);
     return NextResponse.json({ players });
   } catch (e) {
     return NextResponse.json(

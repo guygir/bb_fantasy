@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { config } from "@/lib/config";
 import { getDailyPlayer } from "@/lib/u21dle/daily";
-import { getU21dlePlayerById } from "@/lib/u21dle/players";
+import { getU21dlePlayerById, getEligiblePlayers } from "@/lib/u21dle/players";
 import { generateFeedback, isCorrectGuess } from "@/lib/u21dle/feedback";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 import { getPuzzleIdByDate, upsertGuess, updateUserStats } from "@/lib/u21dle/supabase";
@@ -62,6 +62,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { success: false, error: "Player not found" },
       { status: 404 }
+    );
+  }
+  const eligibleIds = new Set(getEligiblePlayers().map((p) => p.playerId));
+  if (!eligibleIds.has(playerId)) {
+    return NextResponse.json(
+      { success: false, error: "Player not eligible (must have GP≥8 from seasons 60–70)" },
+      { status: 400 }
     );
   }
   const guessedPlayer = applySeasonOverride(guessedPlayerRaw, season71Ids, currentSeason);
