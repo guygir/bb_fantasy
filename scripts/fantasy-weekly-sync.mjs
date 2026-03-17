@@ -20,12 +20,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : Number(process.env.CURRENT_SEASON ?? 71);
 
-function run(name, cmd, args = []) {
+function run(name, cmd, args = [], extraEnv = {}) {
   console.log(`\n--- ${name} ---`);
   const r = spawnSync(cmd, args, {
     cwd: ROOT,
     stdio: "inherit",
-    env: { ...process.env, FORCE_COLOR: "1" },
+    env: { ...process.env, FORCE_COLOR: "1", ...extraEnv },
   });
   if (r.status !== 0) {
     console.error(`${name} failed (exit ${r.status})`);
@@ -40,7 +40,7 @@ run("Fetch player details (GS, DMI)", "node", ["scripts/fetch-player-details.mjs
 run("Fetch schedule", "node", ["scripts/fetch-bbapi-schedule.mjs", String(SEASON)]);
 run("Fetch boxscores", "node", ["scripts/fetch-all-boxscores.mjs", String(SEASON)]);
 run("Process boxscores", "node", ["scripts/process-boxscores.mjs", String(SEASON)]);
-run("Update prices", "node", ["scripts/update-prices.mjs", String(SEASON)]);
+run("Update prices", "node", ["scripts/update-prices.mjs", String(SEASON)], { USE_JSON_STATS: "1" }); // Use JSON (fresh from process-boxscores); Supabase not yet synced
 run("Sync to Supabase", "node", ["scripts/sync-fantasy-to-supabase.mjs", String(SEASON)]);
 
 // Sync roster faces (optional - needs BB_PASSWORD; may fail on CI if reCAPTCHA blocks login)

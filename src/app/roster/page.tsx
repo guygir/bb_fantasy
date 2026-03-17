@@ -147,7 +147,7 @@ export default function MyRosterPage() {
           const data = await r.json();
           return Array.isArray(data.stats) ? data : { stats: data.stats ?? [] };
         }),
-        fetch(`/api/players/season/${SEASON}`, { cache: "no-store" }).then(async (r) => {
+        fetch(`/api/players/season/${SEASON}?t=${Date.now()}`, { cache: "no-store" }).then(async (r) => {
           if (!r.ok) return { players: [] };
           const data = await r.json();
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };

@@ -44,6 +44,10 @@ Requires `.env.local` with:
 2. **Boxscores** – `data/bbapi_boxscore_*.xml` files for past matches
 3. **Stats** – `data/player_game_stats_s71.json` has entries for all games
 4. **Supabase** – Roster page shows correct game count; leaderboard has data
+5. **Prices (arrows)** – After a new game, `update-prices` uses JSON (USE_JSON_STATS=1 in sync). Check:
+   - `npm run update-prices -- 71` prints "Prices as shown on site" with `$x` or `$x→$y` per player
+   - Match count in stats should include the new game. Arrows show previous week → current week
+   - If arrows stayed the same after a game, verify the sync used JSON (log: "Using N stats from JSON (sync pipeline)")
 
 ## Schedule
 

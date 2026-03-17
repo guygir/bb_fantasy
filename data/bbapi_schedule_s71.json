@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 71,
-    "fetched": "2026-03-09T17:49:36.118Z"
+    "fetched": "2026-03-17T09:51:48.818Z"
   },
   "matches": [
     {
@@ -23,6 +23,39 @@
       "type": "nt.roundrobin",
       "awayTeamId": "1002",
       "awayTeamName": "Argentina U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "83738",
+      "start": "2026-04-06T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1005",
+      "awayTeamName": "China U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "83730",
+      "start": "2026-03-23T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1010",
+      "awayTeamName": "Italia U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "83742",
+      "start": "2026-04-13T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1012",
+      "awayTeamName": "Hellas U21",
       "awayScore": null,
       "homeTeamId": "1015",
       "homeTeamName": "Israel U21",
@@ -55,10 +88,21 @@
       "start": "2026-03-09T17:30:00Z",
       "type": "nt.roundrobin",
       "awayTeamId": "1093",
-      "awayTeamName": "Ghana",
+      "awayTeamName": "Ghana U21",
       "awayScore": null,
       "homeTeamId": "1015",
-      "homeTeamName": "Israel",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "83734",
+      "start": "2026-03-30T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1007",
+      "awayTeamName": "España U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
       "homeScore": null
     },
     {

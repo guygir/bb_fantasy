@@ -72,12 +72,19 @@ async function loadPlayerGameStatsFromSupabase(season) {
 }
 
 async function loadPlayerGameStats(season) {
+  const fromJson = loadPlayerGameStatsFromJson(season);
   const fromSupabase = await loadPlayerGameStatsFromSupabase(season);
+  // In sync pipeline, process-boxscores runs first and writes JSON; Supabase has stale data.
+  // Prefer JSON when USE_JSON_STATS=1 (set by fantasy-weekly-sync) or when Supabase is empty.
+  const preferJson = process.env.USE_JSON_STATS === "1" || fromSupabase.length === 0;
+  if (preferJson && fromJson.length > 0) {
+    console.log(`Using ${fromJson.length} stats from JSON (sync pipeline)`);
+    return fromJson;
+  }
   if (fromSupabase.length > 0) {
     console.log(`Using ${fromSupabase.length} stats from Supabase (cron-synced)`);
     return fromSupabase;
   }
-  const fromJson = loadPlayerGameStatsFromJson(season);
   if (fromJson.length > 0) console.log(`Using ${fromJson.length} stats from JSON (local)`);
   return fromJson;
 }
@@ -90,6 +97,22 @@ function loadSchedule(season) {
     return data.matches ?? null;
   } catch {
     return null;
+  }
+}
+
+function loadPlayerNames(season) {
+  const path = join(DATA_DIR, `player_game_stats_s${season}.json`);
+  if (!existsSync(path)) return {};
+  try {
+    const data = JSON.parse(readFileSync(path, "utf-8"));
+    const stats = data.stats ?? [];
+    const names = {};
+    for (const s of stats) {
+      if (s.playerId && s.name && !names[s.playerId]) names[s.playerId] = s.name;
+    }
+    return names;
+  } catch {
+    return {};
   }
 }
 
@@ -217,6 +240,17 @@ async function run() {
 
   console.log("Updated prices for", Object.keys(current).length, "players (game-by-game simulation)");
   console.log("Wrote", outPath);
+
+  const names = loadPlayerNames(SEASON_ARG);
+  const playerIds = Object.keys(current).map(Number).sort((a, b) => a - b);
+  console.log("\n--- Prices as shown on site ---");
+  for (const pid of playerIds) {
+    const cur = current[pid];
+    const prev = previous[pid];
+    const siteFormat = prev != null && prev !== cur ? `$${prev}→$${cur}` : `$${cur}`;
+    const name = names[pid] ?? `Player ${pid}`;
+    console.log(`  ${name}: ${siteFormat}`);
+  }
 }
 
 run().catch((e) => {

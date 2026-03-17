@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 71,
-    "fetched": "2026-03-16T13:07:03.868Z",
+    "fetched": "2026-03-17T09:51:46.898Z",
     "source": "BBAPI"
   },
   "details": {
@@ -45,6 +45,12 @@
       "position": "PG",
       "dmi": 591200,
       "salary": 35502,
+      "gameShape": 8
+    },
+    "54409935": {
+      "position": "C",
+      "dmi": 337000,
+      "salary": 23719,
       "gameShape": 8
     },
     "54410032": {
