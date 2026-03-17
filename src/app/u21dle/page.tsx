@@ -436,9 +436,28 @@ export default function U21dlePage() {
               {won ? "🎉 Congratulations!" : "😔 Game Over"}
             </h2>
             <p className="mt-1 text-center">
-              {won
-                ? `You guessed ${answer?.name ?? "the player"} in ${guessHistory.length} ${guessHistory.length === 1 ? "try" : "tries"}!`
-                : answer && `The player was: ${answer.name}`}
+              {won ? (
+                <>
+                  You guessed {answer?.name ?? "the player"}
+                  {(answer as { trainedBy?: string })?.trainedBy && (
+                    <span className="ml-1 font-medium text-gray-600">
+                      [Trained by: {(answer as { trainedBy?: string }).trainedBy}]
+                    </span>
+                  )}{" "}
+                  in {guessHistory.length} {guessHistory.length === 1 ? "try" : "tries"}!
+                </>
+              ) : (
+                answer && (
+                  <>
+                    The player was: <span className="font-semibold">{answer.name}</span>
+                    {(answer as { trainedBy?: string }).trainedBy && (
+                      <span className="ml-1 font-medium text-gray-600">
+                        [Trained by: {(answer as { trainedBy?: string }).trainedBy}]
+                      </span>
+                    )}
+                  </>
+                )
+              )}
             </p>
             <p className="mt-1 text-center text-sm text-gray-600">
               Time: {Math.floor(elapsedTime / 60)}:{(elapsedTime % 60).toString().padStart(2, "0")}
@@ -477,7 +496,14 @@ export default function U21dlePage() {
                   <div className="mb-2 flex items-center gap-2">
                     <span className="w-16 shrink-0 text-sm font-medium text-gray-500">Guess {guessNum}:</span>
                     <PlayerAvatar playerId={item.player.playerId} name={item.player.name} />
-                    <span className="font-semibold">{item.player.name}</span>
+                    <span>
+                      <span className="font-semibold">{item.player.name}</span>
+                      {(item.player as { trainedBy?: string }).trainedBy && (
+                        <span className="ml-1 font-medium text-gray-600">
+                          [Trained by: {(item.player as { trainedBy?: string }).trainedBy}]
+                        </span>
+                      )}
+                    </span>
                   </div>
                   <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
                     {(

@@ -5,11 +5,12 @@ import Link from "next/link";
 import type { U21dlePlayer } from "@/lib/u21dle/feedback";
 import { PlayerAvatar } from "@/app/players/PlayerAvatar";
 
-type SortKey = "name" | "gp" | "pts" | "age" | "season" | "height" | "potential" | "trophies";
+type SortKey = "name" | "trainedBy" | "gp" | "pts" | "age" | "season" | "height" | "potential" | "trophies";
 type SortDir = "asc" | "desc";
 
 const COLS: { key: SortKey; label: string; align?: "right" }[] = [
   { key: "name", label: "Name" },
+  { key: "trainedBy", label: "Trained By" },
   { key: "gp", label: "GP", align: "right" },
   { key: "pts", label: "PTS", align: "right" },
   { key: "age", label: "Age", align: "right" },
@@ -19,9 +20,10 @@ const COLS: { key: SortKey; label: string; align?: "right" }[] = [
   { key: "trophies", label: "Trophies", align: "right" },
 ];
 
-function getVal(p: U21dlePlayer & { faceMtime?: number | null; age?: number | null }, key: SortKey): string | number {
+function getVal(p: U21dlePlayer & { faceMtime?: number | null; age?: number | null; trainedBy?: string }, key: SortKey): string | number {
   switch (key) {
     case "name": return p.name;
+    case "trainedBy": return (p as { trainedBy?: string }).trainedBy ?? "";
     case "gp": return p.gp;
     case "pts": return p.pts;
     case "age": return p.age ?? -1;
@@ -110,6 +112,9 @@ export function U21dlePlayersTable({
                 >
                   {p.name}
                 </Link>
+              </td>
+              <td className="border border-bb-border px-4 py-2 text-gray-600">
+                {(p as { trainedBy?: string }).trainedBy ?? "–"}
               </td>
               <td className="border border-bb-border px-4 py-2 text-right">{p.gp}</td>
               <td className="border border-bb-border px-4 py-2 text-right">{p.pts.toFixed(1)}</td>
