@@ -5,21 +5,21 @@
  * Run: node scripts/fetch-player-details.mjs [season]
  */
 
+import { config } from "dotenv";
 import { readFileSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, "..");
+config({ path: join(ROOT, ".env") });
+config({ path: join(ROOT, ".env.local") });
+
 const BASE = "http://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : 71;
-
-function parseCookies(setCookie) {
-  if (!setCookie) return [];
-  const parts = setCookie.split(/,\s*(?=[\w.]+=)/);
-  return parts.map((p) => p.split(";")[0].trim()).filter((kv) => kv && kv.includes("="));
-}
 
 function parsePlayerXml(xml) {
   const posMatch = xml.match(/<bestPosition>([^<]*)<\/bestPosition>/);
@@ -40,13 +40,7 @@ async function run() {
   const players = data.players ?? [];
 
   console.log("Logging in...");
-  const loginRes = await fetch(
-    `${BASE}login.aspx?login=${encodeURIComponent(LOGIN)}&code=${encodeURIComponent(CODE)}`,
-    { redirect: "manual", headers: { "User-Agent": "BBFantasy/1.0" } }
-  );
-
-  const cookies = parseCookies(loginRes.headers.get("set-cookie"));
-  const loginText = await loginRes.text();
+  const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BASE);
 
   if (loginText.includes("<error")) {
     console.error("Login failed");

@@ -6,6 +6,7 @@
 import { writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -14,21 +15,9 @@ const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 const MATCH_ID = process.argv[2] || "83641";
 
-function parseCookies(setCookie) {
-  if (!setCookie) return [];
-  const parts = setCookie.split(/,\s*(?=[\w.]+=)/);
-  return parts.map((p) => p.split(";")[0].trim()).filter((kv) => kv && kv.includes("="));
-}
-
 async function run() {
   console.log("Logging in...");
-  const loginRes = await fetch(
-    `${BASE}login.aspx?login=${encodeURIComponent(LOGIN)}&code=${encodeURIComponent(CODE)}`,
-    { redirect: "manual", headers: { "User-Agent": "BBFantasy/1.0" } }
-  );
-
-  const cookies = parseCookies(loginRes.headers.get("set-cookie"));
-  const loginText = await loginRes.text();
+  const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BASE);
 
   if (loginText.includes("<error")) {
     console.error("Login failed");
@@ -42,7 +31,8 @@ async function run() {
 
   const xml = await res.text();
   if (xml.includes("<error")) {
-    console.error("Boxscore fetch failed:", xml.match(/<error message='([^']+)'/)?.[1]);
+    const msgMatch = xml.match(/<error\s+message=['"]([^'"]+)['"]/);
+    console.error("Boxscore fetch failed:", msgMatch?.[1] ?? xml.slice(0, 200));
     process.exit(1);
   }
 

@@ -15,6 +15,7 @@
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MAIN_BASE = "https://buzzerbeater.com/";
@@ -24,12 +25,6 @@ const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 const PASSWORD = process.env.BB_PASSWORD;
-
-function parseCookies(setCookie) {
-  if (!setCookie) return [];
-  const parts = setCookie.split(/,\s*(?=[\w.]+=)/);
-  return parts.map((p) => p.split(";")[0].trim()).filter((kv) => kv && kv.includes("="));
-}
 
 function parseMadeAtt(val) {
   const m = String(val).match(/^(\d+)-(\d+)$/);
@@ -260,12 +255,7 @@ async function run() {
     console.log(`Found ${newPlayerIds.length} new player(s): ${newPlayerIds.join(", ")}`);
     console.log("Fetching BBAPI details for new players...");
 
-    const loginRes = await fetch(
-      `${BBAPI_BASE}login.aspx?login=${encodeURIComponent(LOGIN)}&code=${encodeURIComponent(CODE)}`,
-      { redirect: "manual", headers: { "User-Agent": "BBFantasy/1.0" } }
-    );
-    const cookies = parseCookies(loginRes.headers.get("set-cookie"));
-    const loginText = await loginRes.text();
+    const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BBAPI_BASE);
     if (loginText.includes("<error")) {
       console.warn("BBAPI login failed - new players will have minimal details");
     } else {

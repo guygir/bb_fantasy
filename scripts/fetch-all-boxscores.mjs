@@ -9,6 +9,7 @@
 import { readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../data");
@@ -17,12 +18,6 @@ const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : 71;
 const BASE = "http://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
-
-function parseCookies(setCookie) {
-  if (!setCookie) return [];
-  const parts = setCookie.split(/,\s*(?=[\w.]+=)/);
-  return parts.map((p) => p.split(";")[0].trim()).filter((kv) => kv && kv.includes("="));
-}
 
 async function fetchBoxscore(matchId, cookies) {
   const res = await fetch(`${BASE}boxscore.aspx?matchid=${matchId}`, {
@@ -51,13 +46,7 @@ async function run() {
   }
 
   console.log("Logging in...");
-  const loginRes = await fetch(
-    `${BASE}login.aspx?login=${encodeURIComponent(LOGIN)}&code=${encodeURIComponent(CODE)}`,
-    { redirect: "manual", headers: { "User-Agent": "BBFantasy/1.0" } }
-  );
-
-  const cookies = parseCookies(loginRes.headers.get("set-cookie"));
-  const loginText = await loginRes.text();
+  const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BASE);
 
   if (loginText.includes("<error")) {
     console.error("Login failed");

@@ -34,15 +34,16 @@ function createSession() {
         redirect: "manual", // Don't follow redirects so we can capture Set-Cookie
       });
 
-      // Capture Set-Cookie - can have multiple: "name1=val1; path=/, name2=val2"
-      const setCookie = res.headers.get("set-cookie");
-      if (setCookie) {
-        const parts = setCookie.split(/,\s*(?=[\w.]+=)/);
-        for (const p of parts) {
-          const kv = p.split(";")[0].trim();
-          if (kv && kv.includes("=") && !cookies.some((c) => c.startsWith(kv.split("=")[0] + "="))) {
-            cookies.push(kv);
-          }
+      // Capture Set-Cookie - Node fetch get() returns only first when multiple exist.
+      // Use getSetCookie() when available (Node 18+), else fallback to get().
+      const setCookieValues =
+        typeof (res.headers as Headers & { getSetCookie?: () => string[] }).getSetCookie === "function"
+          ? (res.headers as Headers & { getSetCookie: () => string[] }).getSetCookie()
+          : (res.headers.get("set-cookie") ?? "").split(/,\s*(?=[\w.]+=)/);
+      for (const raw of setCookieValues) {
+        const kv = (raw || "").split(";")[0].trim();
+        if (kv && kv.includes("=") && !cookies.some((c) => c.startsWith(kv.split("=")[0] + "="))) {
+          cookies.push(kv);
         }
       }
 

@@ -6,6 +6,7 @@
 import { writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -15,22 +16,9 @@ const CODE = process.env.BBAPI_CODE || "12341234";
 const TEAM_ID = Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015);
 const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : Number(process.env.CURRENT_SEASON ?? 71);
 
-function parseCookies(setCookie) {
-  if (!setCookie) return [];
-  // Set-Cookie can have multiple values: "name1=val1; path=/, name2=val2; path=/"
-  const parts = setCookie.split(/,\s*(?=[\w.]+=)/);
-  return parts.map((p) => p.split(";")[0].trim()).filter((kv) => kv && kv.includes("="));
-}
-
 async function run() {
   console.log("Logging in...");
-  const loginRes = await fetch(
-    `${BASE}login.aspx?login=${encodeURIComponent(LOGIN)}&code=${encodeURIComponent(CODE)}`,
-    { redirect: "manual", headers: { "User-Agent": "BBFantasy/1.0" } }
-  );
-
-  const cookies = parseCookies(loginRes.headers.get("set-cookie"));
-  const loginText = await loginRes.text();
+  const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BASE);
 
   if (loginText.includes("<error")) {
     const msgMatch = loginText.match(/<error\s+message=['"]([^'"]+)['"]/);
