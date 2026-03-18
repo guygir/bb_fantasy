@@ -1,123 +1,123 @@
 {
   "meta": {
     "season": 71,
-    "fetched": "2026-03-18T09:43:21.947Z",
+    "fetched": "2026-03-18T09:53:53.719Z",
     "source": "BBAPI"
   },
   "details": {
     "54409681": {
-      "position": "SG",
-      "dmi": 640100,
-      "salary": 21364,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409698": {
-      "position": "C",
-      "dmi": 1481200,
-      "salary": 75435,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409712": {
-      "position": "C",
-      "dmi": 1027200,
-      "salary": 40654,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409731": {
-      "position": "SG",
-      "dmi": 703400,
-      "salary": 26123,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409873": {
-      "position": "C",
-      "dmi": 2817300,
-      "salary": 114308,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409886": {
-      "position": "SG",
-      "dmi": 312300,
-      "salary": 26430,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409913": {
-      "position": "PG",
-      "dmi": 591200,
-      "salary": 35502,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54409935": {
-      "position": "C",
-      "dmi": 337000,
-      "salary": 23719,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410032": {
-      "position": "C",
-      "dmi": 1708300,
-      "salary": 168596,
-      "gameShape": 7
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410077": {
-      "position": "PG",
-      "dmi": 470500,
-      "salary": 23409,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410116": {
-      "position": "PG",
-      "dmi": 594600,
-      "salary": 28486,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410171": {
-      "position": "C",
-      "dmi": 2056700,
-      "salary": 85727,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410203": {
-      "position": "PG",
-      "dmi": 812600,
-      "salary": 36975,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410208": {
-      "position": "SG",
-      "dmi": 368500,
-      "salary": 17442,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410269": {
-      "position": "PG",
-      "dmi": 379600,
-      "salary": 17826,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54410317": {
-      "position": "PG",
-      "dmi": 630400,
-      "salary": 40804,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54721451": {
-      "position": "SF",
-      "dmi": 767400,
-      "salary": 30544,
-      "gameShape": 9
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54721671": {
-      "position": "C",
-      "dmi": 205500,
-      "salary": 30590,
-      "gameShape": 7
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     },
     "54721944": {
-      "position": "SG",
-      "dmi": 725000,
-      "salary": 28639,
-      "gameShape": 8
+      "position": "?",
+      "dmi": null,
+      "salary": null,
+      "gameShape": null
     }
   }
 }

@@ -6,7 +6,7 @@
 import { writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
+import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,11 +25,7 @@ async function run() {
   }
 
   console.log("Fetching boxscore matchId=" + MATCH_ID + "...");
-  const res = await fetch(`${BASE}boxscore.aspx?matchid=${MATCH_ID}`, {
-    headers: { Cookie: cookies.join("; "), "User-Agent": "BBFantasy/1.0" },
-  });
-
-  const xml = await res.text();
+  const xml = await bbapiGet(`${BASE}boxscore.aspx?matchid=${MATCH_ID}`, cookies, BASE);
   if (xml.includes("<error")) {
     const msgMatch = xml.match(/<error\s+message=['"]([^'"]+)['"]/);
     console.error("Boxscore fetch failed:", msgMatch?.[1] ?? xml.slice(0, 200));

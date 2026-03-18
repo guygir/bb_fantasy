@@ -48,6 +48,33 @@ export async function bbapiLogin(login, code, base = "http://bbapi.buzzerbeater.
 }
 
 /**
+ * GET a BBAPI URL with cookies using native http(s).
+ * Use this for all BBAPI requests after bbapiLogin - avoids fetch cookie/session quirks in CI.
+ */
+export function bbapiGet(url, cookies, base = "http://bbapi.buzzerbeater.com/") {
+  const fullUrl = url.startsWith("http") ? url : new URL(url, base).toString();
+  const parsed = new URL(fullUrl);
+  const protocol = parsed.protocol === "https:" ? https : http;
+  const cookieHeader = Array.isArray(cookies) ? cookies.join("; ") : cookies;
+  return new Promise((resolve, reject) => {
+    const req = protocol.request(
+      fullUrl,
+      {
+        method: "GET",
+        headers: { Cookie: cookieHeader, "User-Agent": "BBFantasy/1.0" },
+      },
+      (res) => {
+        const chunks = [];
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => resolve(Buffer.concat(chunks).toString("utf-8")));
+      }
+    );
+    req.on("error", reject);
+    req.end();
+  });
+}
+
+/**
  * Extract cookies from fetch Response (for scripts that already use fetch for login).
  * Prefer bbapiLogin() for new code - it works everywhere.
  */

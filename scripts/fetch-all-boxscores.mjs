@@ -9,7 +9,7 @@
 import { readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
+import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../data");
@@ -20,10 +20,7 @@ const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 
 async function fetchBoxscore(matchId, cookies) {
-  const res = await fetch(`${BASE}boxscore.aspx?matchid=${matchId}`, {
-    headers: { Cookie: cookies.join("; "), "User-Agent": "BBFantasy/1.0" },
-  });
-  const xml = await res.text();
+  const xml = await bbapiGet(`${BASE}boxscore.aspx?matchid=${matchId}`, cookies, BASE);
   if (xml.includes("<error")) return null;
   return xml;
 }

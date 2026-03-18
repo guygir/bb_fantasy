@@ -9,7 +9,7 @@ import { config } from "dotenv";
 import { readFileSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
+import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -52,10 +52,7 @@ async function run() {
     const p = players[i];
     process.stdout.write(`\rFetching ${i + 1}/${players.length} (${p.name})...`);
     try {
-      const res = await fetch(`${BASE}player.aspx?playerid=${p.playerId}`, {
-        headers: { Cookie: cookies.join("; "), "User-Agent": "BBFantasy/1.0" },
-      });
-      const xml = await res.text();
+      const xml = await bbapiGet(`${BASE}player.aspx?playerid=${p.playerId}`, cookies, BASE);
       if (!xml.includes("<error")) {
         details[p.playerId] = parsePlayerXml(xml);
       }

@@ -6,7 +6,7 @@
 import { writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
+import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -28,17 +28,11 @@ async function run() {
   }
 
   console.log("Fetching schedule teamid=" + TEAM_ID + " season=" + SEASON + "...");
-  const scheduleRes = await fetch(
+  const xml = await bbapiGet(
     `${BASE}schedule.aspx?teamid=${TEAM_ID}&season=${SEASON}`,
-    {
-      headers: {
-        Cookie: cookies.join("; "),
-        "User-Agent": "BBFantasy/1.0",
-      },
-    }
+    cookies,
+    BASE
   );
-
-  const xml = await scheduleRes.text();
   if (xml.includes("<error")) {
     const msgMatch = xml.match(/<error\s+message=['"]([^'"]+)['"]/);
     const msg = msgMatch?.[1] ?? xml.slice(0, 200).trim();

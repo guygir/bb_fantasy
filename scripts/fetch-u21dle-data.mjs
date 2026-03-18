@@ -11,7 +11,7 @@
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin } from "./lib/bbapi-cookies.mjs";
+import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATS_BASE = "https://buzzerbeater.com/country/1015/nt/stats.aspx";
@@ -127,10 +127,7 @@ async function run() {
     const id = playerIds[i];
     process.stdout.write(`\r  ${i + 1}/${playerIds.length} (${id})...`);
     try {
-      const res = await fetch(`${BBAPI_BASE}player.aspx?playerid=${id}`, {
-        headers: { Cookie: cookies.join("; "), "User-Agent": "BBFantasy/1.0" },
-      });
-      const xml = await res.text();
+      const xml = await bbapiGet(`${BBAPI_BASE}player.aspx?playerid=${id}`, cookies, BBAPI_BASE);
       if (!xml.includes("<error")) {
         const { age, height, potential } = parsePlayerXml(xml);
         const p = map.get(id);
