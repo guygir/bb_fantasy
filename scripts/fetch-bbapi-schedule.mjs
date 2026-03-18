@@ -33,7 +33,9 @@ async function run() {
   const loginText = await loginRes.text();
 
   if (loginText.includes("<error")) {
-    console.error("Login failed:", loginText.match(/<error message='([^']+)'/)?.[1]);
+    const msgMatch = loginText.match(/<error\s+message=['"]([^'"]+)['"]/);
+    const msg = msgMatch?.[1] ?? loginText.slice(0, 200).trim();
+    console.error("Login failed:", msg);
     process.exit(1);
   }
 
@@ -50,7 +52,9 @@ async function run() {
 
   const xml = await scheduleRes.text();
   if (xml.includes("<error")) {
-    console.error("Schedule fetch failed:", xml.match(/<error message='([^']+)'/)?.[1]);
+    const msgMatch = xml.match(/<error\s+message=['"]([^'"]+)['"]/);
+    const msg = msgMatch?.[1] ?? xml.slice(0, 200).trim();
+    console.error("Schedule fetch failed:", msg);
     process.exit(1);
   }
 
