@@ -24,7 +24,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 // Load .env first, then .env.local (so .env.local overrides - matches Next.js behavior)
 config({ path: join(ROOT, ".env") });
-config({ path: join(ROOT, ".env.local") });
+config({ path: join(ROOT, ".env.local"), override: true });
 
 const args = process.argv.slice(2);
 const pricesOnly = args.includes("--prices-only");

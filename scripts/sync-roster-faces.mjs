@@ -19,7 +19,7 @@ import { config } from "dotenv";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
-config({ path: join(ROOT, ".env.local") });
+config({ path: join(ROOT, ".env.local"), override: true });
 
 const season = process.argv[2] ?? process.env.CURRENT_SEASON ?? process.env.NEXT_PUBLIC_CURRENT_SEASON ?? "71";
 const useSupabase = !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.SUPABASE_SERVICE_ROLE_KEY;

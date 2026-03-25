@@ -22,7 +22,8 @@ import { config } from "dotenv";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
-config({ path: join(ROOT, ".env.local") });
+// override: true — without it, keys already set in .env (even empty) block .env.local (Next.js-style override)
+config({ path: join(ROOT, ".env.local"), override: true });
 const MAIN_BASE = "https://buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD; // Main site password - NOT BBAPI_CODE (that's read-only for API)
