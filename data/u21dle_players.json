@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "buzzerbeater.com/country/1015/nt/stats.aspx?season=60-70",
-    "fetched": "2026-03-07T14:55:48.438Z",
+    "fetched": "2026-03-25T13:59:02.358Z",
     "seasons": [
       60,
       61,
@@ -16,6 +16,12 @@
       70
     ],
     "trophySeasons": [
+      62,
+      68,
+      70
+    ],
+    "trophyRule": "Count seasons in trophySeasons where the player played ≥1 non-scrimmage NT game (BBAPI schedule type !== nt.friendly) with minutes in boxscore; nt.friendly = SC. If schedule/boxscores unavailable for a trophy season, falls back to NT stats (≥1 GP that season).",
+    "trophySeasonsCompetitiveResolved": [
       62,
       68,
       70
@@ -427,7 +433,7 @@
       "age": 30,
       "height": 188,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 62
     },
     {
@@ -526,7 +532,7 @@
       "age": 28,
       "height": 216,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 64
     },
     {
@@ -537,7 +543,7 @@
       "age": 24,
       "height": 216,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 64
     },
     {
@@ -548,7 +554,7 @@
       "age": 28,
       "height": 206,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 64
     },
     {
@@ -559,7 +565,7 @@
       "age": 29,
       "height": 188,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 63
     },
     {
@@ -570,7 +576,7 @@
       "age": 29,
       "height": 183,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 63
     },
     {
@@ -592,7 +598,7 @@
       "age": 28,
       "height": 218,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 64
     },
     {
@@ -1516,7 +1522,7 @@
       "age": 23,
       "height": 185,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 69
     },
     {
@@ -1527,7 +1533,7 @@
       "age": 23,
       "height": 196,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 69
     },
     {
@@ -1538,7 +1544,7 @@
       "age": 23,
       "height": 188,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 0,
       "season": 69
     },
     {
@@ -1549,7 +1555,7 @@
       "age": 23,
       "height": 221,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 69
     },
     {
@@ -1560,7 +1566,7 @@
       "age": 22,
       "height": 183,
       "potential": 9,
-      "trophies": 2,
+      "trophies": 1,
       "season": 70
     },
     {
@@ -1571,7 +1577,7 @@
       "age": 22,
       "height": 185,
       "potential": 7,
-      "trophies": 2,
+      "trophies": 1,
       "season": 70
     },
     {
@@ -1582,7 +1588,7 @@
       "age": 23,
       "height": 213,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 69
     },
     {
@@ -1593,7 +1599,7 @@
       "age": 23,
       "height": 211,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 69
     },
     {

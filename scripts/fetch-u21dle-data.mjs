@@ -20,6 +20,9 @@ const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 
 const TROPHY_SEASONS = [62, 68, 70];
+/** BBAPI schedule `type`; friendlies are scrimmages (SC on the site). */
+const NT_FRIENDLY_TYPE = "nt.friendly";
+const ISRAEL_U21_TEAM_ID = 1015;
 
 function parseStatsTable(html) {
   const rows = [];
@@ -76,6 +79,149 @@ function parsePlayerXml(xml) {
   };
 }
 
+function parseNum(val) {
+  if (val == null || val === "" || val === "N/A") return 0;
+  const n = parseFloat(val);
+  return Number.isNaN(n) ? 0 : n;
+}
+
+function sumMinutes(minBlock) {
+  if (!minBlock) return 0;
+  const pg = parseNum(minBlock.match(/<PG>([^<]*)<\/PG>/)?.[1]);
+  const sg = parseNum(minBlock.match(/<SG>([^<]*)<\/SG>/)?.[1]);
+  const sf = parseNum(minBlock.match(/<SF>([^<]*)<\/SF>/)?.[1]);
+  const pf = parseNum(minBlock.match(/<PF>([^<]*)<\/PF>/)?.[1]);
+  const c = parseNum(minBlock.match(/<C>([^<]*)<\/C>/)?.[1]);
+  return pg + sg + sf + pf + c;
+}
+
+/**
+ * Israel roster player IDs who actually played (non-DNP, minutes > 0) in this boxscore.
+ */
+function extractIsraelPlayedPlayerIds(xml, teamId = ISRAEL_U21_TEAM_ID) {
+  if (xml.includes("<error")) return [];
+  const tid = String(teamId);
+  const homeTeamBlock = xml.match(/<homeTeam\s+id=['"](\d+)['"][^>]*>([\s\S]*?)<\/homeTeam>/);
+  const awayTeamBlock = xml.match(/<awayTeam\s+id=['"](\d+)['"][^>]*>([\s\S]*?)<\/awayTeam>/);
+  if (!homeTeamBlock || !awayTeamBlock) return [];
+  const homeTeamId = homeTeamBlock[1];
+  const awayTeamId = awayTeamBlock[1];
+  const homeContent = homeTeamBlock[2];
+  const awayContent = awayTeamBlock[2];
+  const israelContent = tid === homeTeamId ? homeContent : awayTeamId === tid ? awayContent : null;
+  if (!israelContent) return [];
+  const boxscoreMatch = israelContent.match(/<boxscore>([\s\S]*?)<\/boxscore>/);
+  if (!boxscoreMatch) return [];
+  const boxscore = boxscoreMatch[1];
+  const ids = [];
+  const playerBlocks = [...boxscore.matchAll(/<player\s+id=['"](\d+)['"][^>]*>([\s\S]*?)<\/player>/g)];
+  for (const p of playerBlocks) {
+    const playerId = parseInt(p[1], 10);
+    const block = p[2];
+    const perfMatch = block.match(/<performance>([\s\S]*?)<\/performance>/);
+    if (!perfMatch) continue;
+    const perf = perfMatch[1];
+    if (perf.includes("<dnp/>")) continue;
+    const minBlock = block.match(/<minutes>([\s\S]*?)<\/minutes>/)?.[1] ?? "";
+    const min = sumMinutes(minBlock);
+    if (min <= 0) continue;
+    ids.push(playerId);
+  }
+  return ids;
+}
+
+function parseScheduleMatches(xml) {
+  if (xml.includes("<error")) return [];
+  const matches = [];
+  const re = /<match\s+id=['"](\d+)['"]\s+start=['"]([^'"]*)['"]\s+type=['"]([^'"]*)['"]\s*>([\s\S]*?)<\/match>/g;
+  let m;
+  while ((m = re.exec(xml)) !== null) {
+    const block = m[4];
+    const awayTeam = block.match(/<awayTeam\s+id=['"](\d+)['"]/);
+    const homeTeam = block.match(/<homeTeam\s+id=['"](\d+)['"]/);
+    matches.push({
+      id: m[1],
+      type: m[3],
+      awayTeamId: awayTeam?.[1] ?? "",
+      homeTeamId: homeTeam?.[1] ?? "",
+    });
+  }
+  return matches;
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+/**
+ * For each trophy season, players who appeared in ≥1 non-friendly (non-SC) NT game per BBAPI schedule + boxscores.
+ * @returns {{ playerSeasons: Map<number, Set<number>>, seasonsResolved: Set<number> }}
+ */
+async function fetchCompetitiveTrophyParticipation(cookies) {
+  const playerSeasons = new Map();
+  const seasonsResolved = new Set();
+
+  for (const season of TROPHY_SEASONS) {
+    const url = `${BBAPI_BASE}schedule.aspx?teamid=${ISRAEL_U21_TEAM_ID}&season=${season}`;
+    let xml;
+    try {
+      xml = await bbapiGet(url, cookies, BBAPI_BASE);
+    } catch (e) {
+      console.warn(`  Trophy season ${season}: schedule request failed:`, e.message);
+      continue;
+    }
+    if (xml.includes("<error")) {
+      console.warn(`  Trophy season ${season}: schedule XML error`);
+      continue;
+    }
+
+    const matches = parseScheduleMatches(xml);
+    const competitive = matches.filter((m) => {
+      const home = m.homeTeamId === String(ISRAEL_U21_TEAM_ID);
+      const away = m.awayTeamId === String(ISRAEL_U21_TEAM_ID);
+      if (!home && !away) return false;
+      return m.type !== NT_FRIENDLY_TYPE;
+    });
+
+    console.log(
+      `  Trophy season ${season}: ${competitive.length} competitive (non-${NT_FRIENDLY_TYPE}) match(es), fetching boxscores...`
+    );
+
+    if (competitive.length === 0) {
+      seasonsResolved.add(season);
+      continue;
+    }
+
+    let sawIsraelPlayersFromBoxscore = false;
+    for (const match of competitive) {
+      await sleep(150);
+      let boxXml;
+      try {
+        boxXml = await bbapiGet(`${BBAPI_BASE}boxscore.aspx?matchid=${match.id}`, cookies, BBAPI_BASE);
+      } catch (e) {
+        console.warn(`    match ${match.id}: boxscore failed:`, e.message);
+        continue;
+      }
+      const playedIds = extractIsraelPlayedPlayerIds(boxXml);
+      if (playedIds.length > 0) sawIsraelPlayersFromBoxscore = true;
+      for (const pid of playedIds) {
+        if (!playerSeasons.has(pid)) playerSeasons.set(pid, new Set());
+        playerSeasons.get(pid).add(season);
+      }
+    }
+
+    if (sawIsraelPlayersFromBoxscore) {
+      seasonsResolved.add(season);
+    } else {
+      console.warn(
+        `  Trophy season ${season}: no Israel player minutes from boxscores — using NT stats fallback for trophy count`
+      );
+    }
+  }
+
+  return { playerSeasons, seasonsResolved };
+}
+
 async function run() {
   const map = new Map();
 
@@ -123,6 +269,10 @@ async function run() {
     process.exit(1);
   }
 
+  console.log("\nCompetitive trophy seasons (non-scrimmage NT games via BBAPI schedule + boxscores)...");
+  const { playerSeasons: competitiveTrophyByPlayer, seasonsResolved: trophySeasonsCompetitiveResolved } =
+    await fetchCompetitiveTrophyParticipation(cookies);
+
   for (let i = 0; i < playerIds.length; i++) {
     const id = playerIds[i];
     process.stdout.write(`\r  ${i + 1}/${playerIds.length} (${id})...`);
@@ -141,7 +291,15 @@ async function run() {
 
   const players = [...map.values()].map((p) => {
     const { totalPts, seasonsPlayed, ...rest } = p;
-    const trophies = TROPHY_SEASONS.filter((s) => seasonsPlayed?.has(s)).length;
+    /** Per season: use competitive (non-`nt.friendly`) participation when BBAPI data exists; else NT stats table fallback. */
+    let trophies = 0;
+    for (const s of TROPHY_SEASONS) {
+      if (trophySeasonsCompetitiveResolved.has(s)) {
+        if (competitiveTrophyByPlayer.get(p.playerId)?.has(s)) trophies += 1;
+      } else if (seasonsPlayed?.has(s)) {
+        trophies += 1;
+      }
+    }
     const season = seasonsPlayed?.size ? Math.max(...seasonsPlayed) : null;
     return { ...rest, trophies, season };
   });
@@ -158,6 +316,9 @@ async function run() {
           fetched: new Date().toISOString(),
           seasons: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
           trophySeasons: TROPHY_SEASONS,
+          trophyRule:
+            "Count seasons in trophySeasons where the player played ≥1 non-scrimmage NT game (BBAPI schedule type !== nt.friendly) with minutes in boxscore; nt.friendly = SC. If schedule/boxscores unavailable for a trophy season, falls back to NT stats (≥1 GP that season).",
+          trophySeasonsCompetitiveResolved: [...trophySeasonsCompetitiveResolved].sort((a, b) => a - b),
           heightUnit: "cm",
         },
         players,
