@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
 import { config } from "@/lib/config";
@@ -9,6 +9,8 @@ import { PlayerAvatar } from "@/app/players/PlayerAvatar";
 const SEASON = config.game.currentSeason;
 const CAP = config.game.cap;
 const MAX_SWAP = 2;
+
+type SubPoolSort = "default" | "price_asc" | "price_desc" | "dmi_asc" | "dmi_desc";
 
 interface Roster {
   playerIds: number[];
@@ -703,11 +705,75 @@ function SubstitutionForm({
     }
   };
 
+  const [removeSort, setRemoveSort] = useState<SubPoolSort>("default");
+  const [addPoolSort, setAddPoolSort] = useState<SubPoolSort>("default");
+
+  const sortedRemoveIds = useMemo(() => {
+    const ids = [...roster.playerIds];
+    const price = (id: number) => currentPrices[id] ?? roster.playerPrices[id] ?? 0;
+    const dmiAsc = (id: number) => {
+      const pl = players.find((x) => x.playerId === id);
+      return pl?.dmi != null ? pl.dmi : Number.POSITIVE_INFINITY;
+    };
+    const dmiDesc = (id: number) => {
+      const pl = players.find((x) => x.playerId === id);
+      return pl?.dmi != null ? pl.dmi : Number.NEGATIVE_INFINITY;
+    };
+    switch (removeSort) {
+      case "price_asc":
+        return ids.sort((a, b) => price(a) - price(b));
+      case "price_desc":
+        return ids.sort((a, b) => price(b) - price(a));
+      case "dmi_asc":
+        return ids.sort((a, b) => dmiAsc(a) - dmiAsc(b));
+      case "dmi_desc":
+        return ids.sort((a, b) => dmiDesc(b) - dmiDesc(a));
+      default:
+        return ids;
+    }
+  }, [roster.playerIds, roster.playerPrices, players, currentPrices, removeSort]);
+
+  const sortedAddPool = useMemo(() => {
+    const pool = players.filter((p) => !roster.playerIds.includes(p.playerId));
+    const dmiAsc = (p: Player) => (p.dmi != null ? p.dmi : Number.POSITIVE_INFINITY);
+    const dmiDesc = (p: Player) => (p.dmi != null ? p.dmi : Number.NEGATIVE_INFINITY);
+    const copy = [...pool];
+    switch (addPoolSort) {
+      case "price_asc":
+        return copy.sort((a, b) => a.inGamePrice - b.inGamePrice);
+      case "price_desc":
+        return copy.sort((a, b) => b.inGamePrice - a.inGamePrice);
+      case "dmi_asc":
+        return copy.sort((a, b) => dmiAsc(a) - dmiAsc(b));
+      case "dmi_desc":
+        return copy.sort((a, b) => dmiDesc(b) - dmiDesc(a));
+      default:
+        return copy;
+    }
+  }, [players, roster.playerIds, addPoolSort]);
+
   return (
     <div>
       <p className="text-sm text-gray-600 mb-3">Remove up to 2, add up to 2. Keep cost ≤ ${CAP}.</p>
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        <h4 className="text-sm font-medium">Remove (click to select):</h4>
+        <label className="flex items-center gap-1.5 text-xs text-gray-600">
+          <span className="whitespace-nowrap">Sort</span>
+          <select
+            value={removeSort}
+            onChange={(e) => setRemoveSort(e.target.value as SubPoolSort)}
+            className="rounded border border-bb-border bg-white px-2 py-1 text-xs text-gray-800"
+          >
+            <option value="default">Default</option>
+            <option value="price_asc">Price ↑</option>
+            <option value="price_desc">Price ↓</option>
+            <option value="dmi_asc">DMI ↑</option>
+            <option value="dmi_desc">DMI ↓</option>
+          </select>
+        </label>
+      </div>
       <div className="flex flex-wrap gap-4 mb-4">
-        {roster.playerIds.map((id) => {
+        {sortedRemoveIds.map((id) => {
           const p = players.find((x) => x.playerId === id);
           const price = currentPrices[id] ?? roster.playerPrices[id] ?? 0;
           const name = roster.playerNames[id] ?? `Player ${id}`;
@@ -729,11 +795,28 @@ function SubstitutionForm({
           );
         })}
       </div>
-      <h4 className="text-sm font-medium mb-2">Add (click to select):</h4>
-      <div className="flex flex-wrap gap-2 mb-4 max-h-32 overflow-y-auto">
-        {players
-          .filter((p) => !roster.playerIds.includes(p.playerId))
-          .map((p) => (
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        <h4 className="text-sm font-medium">Add (click to select):</h4>
+        <label className="flex items-center gap-1.5 text-xs text-gray-600">
+          <span className="whitespace-nowrap">Sort</span>
+          <select
+            value={addPoolSort}
+            onChange={(e) =>
+              setAddPoolSort(e.target.value as SubPoolSort)
+            }
+            className="rounded border border-bb-border bg-white px-2 py-1 text-xs text-gray-800"
+          >
+            <option value="default">Default</option>
+            <option value="price_asc">Price ↑</option>
+            <option value="price_desc">Price ↓</option>
+            <option value="dmi_asc">DMI ↑</option>
+            <option value="dmi_desc">DMI ↓</option>
+          </select>
+        </label>
+      </div>
+      <div className="mb-4 max-h-[min(32rem,90vh)] overflow-y-auto rounded-md border border-bb-border/60 bg-white/40 p-2">
+        <div className="flex flex-wrap gap-2">
+          {sortedAddPool.map((p) => (
             <button
               key={p.playerId}
               onClick={() => addOrReplace(p)}
@@ -748,6 +831,7 @@ function SubstitutionForm({
               </div>
             </button>
           ))}
+        </div>
       </div>
       <p className="text-sm mb-3">New total: ${newTotal} / ${CAP}</p>
       {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
