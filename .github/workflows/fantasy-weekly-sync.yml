@@ -4,6 +4,8 @@ on:
   schedule:
     # Run daily at 02:00 UTC (after typical game days; catches new boxscores)
     - cron: "0 2 * * *"
+    # Also run 11:00 UTC every Friday (weekly extra pass)
+    - cron: "0 11 * * 5"
   workflow_dispatch:
     inputs:
       season:
