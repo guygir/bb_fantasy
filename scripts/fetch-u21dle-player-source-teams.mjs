@@ -2,7 +2,7 @@
 /**
  * Fetch source team (Y) for each U21dle eligible player from BB player history.
  * Primary: first Transfer entry with Season >= player.season → extract "Purchased from Y for $"
- * Fallback: when no such transfer, use Owner from player overview page (player/X/overview.aspx)
+ * Fallback: when no such transfer → "NONE FOUND" (do not use Owner / current club — avoids misleading labels).
  *
  * Run: node scripts/fetch-u21dle-player-source-teams.mjs
  * Env: BBAPI_LOGIN, BB_PASSWORD (for Puppeteer login - history page may require it)
@@ -94,30 +94,31 @@ function extractSourceTeam(details) {
   return y || null;
 }
 
+/** BB uses "Free Agency" when the player was not purchased from another club — not a real team name. */
+function isPlaceholderSourceTeam(name) {
+  return !name || /^free agency$/i.test(name.trim());
+}
+
 /**
- * Extract Owner (current team) from player overview page HTML.
- * Looks for Owner label followed by team link: <a href="/team/X/overview.aspx">Team Name</a>
+ * Same rule as before: transfers with season >= playerSeason, pick chronologically oldest first
+ * (season asc, then date), but skip "Purchased from Free Agency" rows so we show an actual club when possible.
  */
-function parseOwnerFromOverview(html) {
-  const match = html.match(/Owner[\s\S]*?<a[^>]*href="[^"]*\/team\/\d+\/overview\.aspx"[^>]*>([^<]+)<\/a>/i);
-  if (!match) return null;
-  let name = (match[1] || "").trim();
-  name = name.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"');
-  return name || null;
+function pickSourceTeamFromTransfers(transferRows, playerSeason) {
+  const playerS = playerSeason != null ? playerSeason : 0;
+  const candidates = transferRows.filter((r) => r.season >= playerS);
+  if (candidates.length === 0) return null;
+  candidates.sort((a, b) => a.season - b.season || a.dateTs - b.dateTs);
+  for (const r of candidates) {
+    const y = extractSourceTeam(r.details);
+    if (!isPlaceholderSourceTeam(y)) return y;
+  }
+  return null;
 }
 
 const NAV_TIMEOUT = 45000; // 45s for slow BB responses
 
 async function fetchHistoryWithPuppeteer(page, playerId) {
   await page.goto(`${MAIN_BASE}player/${playerId}/history.aspx`, {
-    waitUntil: "domcontentloaded",
-    timeout: NAV_TIMEOUT,
-  });
-  return page.content();
-}
-
-async function fetchOverviewWithPuppeteer(page, playerId) {
-  await page.goto(`${MAIN_BASE}player/${playerId}/overview.aspx`, {
     waitUntil: "domcontentloaded",
     timeout: NAV_TIMEOUT,
   });
@@ -199,47 +200,23 @@ async function main() {
     }
 
     if (!html) {
-      results.push({ playerId, name, season: season ?? "?", sourceTeam: null });
+      results.push({ playerId, name, season: season ?? "?", sourceTeam: "NONE FOUND" });
       console.error(`\n  Error for ${name}: ${lastErr?.message ?? "unknown"}`);
     } else {
       const allRows = parseHistoryTable(html);
       const playerSeason = season != null ? season : 0;
 
-      // Method 1: First Transfer with Z>=SEASON (oldest transfer at or after player's season)
-      // When multiple transfers share the same season, pick chronologically oldest (smallest dateTs)
+      // Method 1: Oldest transfer with season >= player season (same order as before), but skip
+      // "Purchased from Free Agency" — that is not a club name on BB.
       const transferRows = allRows.filter((r) => r.event === "Transfer");
-      const candidates = transferRows.filter((r) => r.season >= playerSeason);
-      const firstMatch = candidates.length > 0
-        ? candidates.reduce((best, r) =>
-            r.season < best.season || (r.season === best.season && r.dateTs < best.dateTs) ? r : best
-          )
-        : null;
-      let sourceTeam = firstMatch ? extractSourceTeam(firstMatch.details) : null;
-
-      // Fallback: when no transfer at/after season, use Owner from overview page
-      if (!sourceTeam && usePuppeteer && page) {
-        let overviewHtml = null;
-        for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-          try {
-            overviewHtml = await fetchOverviewWithPuppeteer(page, playerId);
-            break;
-          } catch (e) {
-            if (attempt < MAX_RETRIES) {
-              await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
-            }
-          }
-        }
-        if (overviewHtml) {
-          sourceTeam = parseOwnerFromOverview(overviewHtml);
-        }
-        await new Promise((r) => setTimeout(r, 500)); // Rate limit after overview
-      }
+      let sourceTeam = pickSourceTeamFromTransfers(transferRows, playerSeason);
+      if (!sourceTeam) sourceTeam = "NONE FOUND";
 
       results.push({
         playerId,
         name,
         season: season ?? "?",
-        sourceTeam: sourceTeam ?? null,
+        sourceTeam,
       });
     }
     await new Promise((r) => setTimeout(r, 500)); // Rate limit
@@ -247,10 +224,10 @@ async function main() {
 
   if (browser) await browser.close();
 
-  // Write { playerId: sourceTeam } mapping for eligible players
+  // Write { playerId: sourceTeam } for every eligible player (includes "NONE FOUND")
   const sourceTeamsMap = {};
   for (const r of results) {
-    if (r.sourceTeam) sourceTeamsMap[r.playerId] = r.sourceTeam;
+    sourceTeamsMap[r.playerId] = r.sourceTeam ?? "NONE FOUND";
   }
   const outPath = join(ROOT, "data", "u21dle_source_teams.json");
   writeFileSync(outPath, JSON.stringify(sourceTeamsMap, null, 2), "utf-8");

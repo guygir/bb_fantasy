@@ -19,6 +19,7 @@
     "fetch-player-face": "node scripts/fetch-player-face.mjs",
     "fetch-u21dle-data": "node scripts/fetch-u21dle-data.mjs",
     "fetch-u21dle-source-teams": "node scripts/fetch-u21dle-player-source-teams.mjs",
+    "generate-u21dle-m5": "node scripts/generate-u21dle-m5.mjs",
     "generate-u21dle-daily": "node scripts/generate-u21dle-daily.mjs",
     "generate-u21dle-daily-supabase": "node scripts/generate-u21dle-daily-supabase.mjs",
     "seed-u21dle-daily": "node scripts/seed-u21dle-daily-to-supabase.mjs",

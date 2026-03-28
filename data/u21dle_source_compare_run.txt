@@ -1,0 +1,21 @@
+Compared: 106 eligible (GP>=8)
+OK: 106, errors: 0
+Current appears as one of Method 4's three away teams: 98 / 106
+M5 is NONE FOUND: 0 / 106
+Table rows (Current vs M2/M3 differ OR Current not in M4): 13
+
+| Player | Season | Current | M2 (mid @) | M3 (old+mid @) | M4 (top/mid/bot @) | Current ∈ M4? | M5 |
+|--------|--------|---------|------------|----------------|---------------------|----------------|----|
+| Alon Amir | 60 | red bulldogs | DoctorKill | red bulldogs / DoctorKill | DoctorKill / DoctorKill / red bulldogs | Yes | red bulldogs / DoctorKill |
+| Elizur Elmakayes | 62 | Dreamland megastars | TF Opena | Dreamland megastars / TF Opena | TF Opena / TF Opena / Dreamland megastars | Yes | Dreamland megastars / TF Opena |
+| Eyal Granot | 62 | Dreamland megastars | Refael | Dreamland megastars / Refael | Refael / Refael / Dreamland megastars | Yes | Dreamland megastars / Refael |
+| Eli Gor | 64 | Free Agency | LetsGoIL | LetsGoIL | LetsGoIL / LetsGoIL / LetsGoIL | No | LetsGoIL |
+| Yoav Rozenblat | 66 | Okinawa B.C. | Emma BC | Emma BC | Emma BC / Emma BC / Emma BC | No | Emma BC |
+| Avishay Birok | 66 | CareBears Argentario | Knights Inc | Knights Inc | Knights Inc / Knights Inc / Knights Inc | No | Knights Inc |
+| Shmulik Shteinfeld | 66 | Lola marsh | BABAWANGA | Lola marsh / BABAWANGA | BABAWANGA / BABAWANGA / Lola marsh | Yes | Lola marsh / BABAWANGA |
+| Yechezkel Gelberg | 67 | DoctorKill | oldgold | oldgold | oldgold / oldgold / oldgold | No | oldgold |
+| Doron Tishbi | 66 | Team Avi | DoctorKill | Jerusalem TET / DoctorKill | DoctorKill / DoctorKill / Jerusalem TET | No | DoctorKill |
+| Adam Keshet | 68 | 2Win | DANNATI S RETORUN | 2Win / DANNATI S RETORUN | DANNATI S RETORUN / DANNATI S RETORUN / 2Win | Yes | 2Win / DANNATI S RETORUN |
+| Lahav Rossman | 69 | ISR Center academy | TF Opena | TF Opena | TF Opena / TF Opena / TF Opena | No | TF Opena |
+| Liam Burg | 69 | ISR Center academy | TF Opena | TF Opena | TF Opena / TF Opena / TF Opena | No | TF Opena |
+| Zion Sinay | 69 | ISR Center academy | TF Opena | TF Opena | TF Opena / TF Opena / TF Opena | No | TF Opena |

@@ -1,0 +1,727 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><title>
+	BuzzerBeater | Online Basketball Manager
+</title><meta name="description" content="BuzzerBeater, the world&#39;s largest free online basketball manager game. Can you beat the buzzer? Sign up now to play against the greatest basketball managers in the world!" /><meta name="facebook-domain-verification" content="rcvphio1js9o22hq58waxeqk6tbd1i" />
+		<script language="JavaScript" type="text/javascript">
+            var txtisFbLogin = 'isFbLogin';
+            var txtfbuserId = 'fbuserId';
+            var txtfbuserEmail = 'fbuserEmail';
+            var txtfbAuthToken = 'fbAuthToken';
+            var txtbtnLogin = 'btnLogin';
+            var isInUSAIP = false;
+        </script>
+	
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '197307022353735');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+     <img height="1" width="1" src="https://www.facebook.com/tr?id=197307022353735&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+    
+    <!-- Tik Tok Pixel Code -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) { for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e }, ttq.load = function (e, n) { var i = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = i, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; var o = document.createElement("script"); o.type = "text/javascript", o.async = !0, o.src = i + "?sdkid=" + e + "&lib=" + t; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(o, a) };
+
+            ttq.load('CDO8TI3C77UCITA4UGI0');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- End TikTok Pixel Code -->
+
+    
+    <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"134600966"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+    
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0EMGG4J8HC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0EMGG4J8HC');
+    </script>
+    
+    <!-- Global site tag (gtag.js) - Google Ads: 1057369031 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1057369031"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-1057369031');
+    </script>
+    <!-- End Google Ads -->
+        
+    <link href="CSS/BBPublic/bootstrap.min.css?v=4.6" rel="stylesheet" /><link href="CSS/BBPublic/bootstrap-select.min.css" rel="stylesheet" /><link href="CSS/BBPublic/flag-icon.min.css" rel="stylesheet" /><link href="CSS/BBPublic/fontawesome.min.css" rel="stylesheet" /><link href="CSS/BBPublic/brands.min.css" rel="stylesheet" /><link href="CSS/BBPublic/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet" />
+
+    <script async src="https://www.google.com/recaptcha/api.js" />
+    <script type="text/html">
+      // How this code snippet works:
+      // This logic overwrites the default behavior of `grecaptcha.ready()` to
+      // ensure that it can be safely called at any time. When `grecaptcha.ready()`
+      // is called before reCAPTCHA is loaded, the callback function that is passed
+      // by `grecaptcha.ready()` is enqueued for execution after reCAPTCHA is
+      // loaded.
+      if(typeof grecaptcha === 'undefined') {
+        grecaptcha = {};
+      }
+      grecaptcha.ready = function(cb){
+        if(typeof grecaptcha === 'undefined') {
+          // window.__grecaptcha_cfg is a global variable that stores reCAPTCHA's
+          // configuration. By default, any functions listed in its 'fns' property
+          // are automatically executed when reCAPTCHA loads.
+          const c = '___grecaptcha_cfg';
+          window[c] = window[c] || {};
+          (window[c]['fns'] = window[c]['fns']||[]).push(cb);
+        } else {
+          cb();
+        }
+      }
+
+      // Usage
+      grecaptcha.ready(function(){
+        grecaptcha.render("container", {
+          sitekey: "6Lcrht0dAAAAAMOUe35SpjRmj2EaWodIdybJ2WMq"
+        });
+      });
+    </script>
+
+    
+    <link href="CSS/BBPublic/login.css" rel="stylesheet">
+    <link href="CSS/BBPublic/style.css" rel="stylesheet">
+
+    <meta property="og:title" content="BuzzerBeater - Online Basketball Manager" />
+    <meta property="og:type" content="game" />
+    <meta property="og:url" content="https://www.facebook.com/BuzzrBeater" />
+    <meta property="og:image" content="http://www.buzzerbeater.com/images/bb_fb_logo.gif" />
+    <meta property="og:site_name" content="BuzzerBeater" />
+    <meta property="fb:admins" content="532380486,537556775,1100593,15738" />
+    <meta property="fb:app_id" content="341783232576011" />
+		
+    <script type="text/javascript">
+        var txtisFbLoginNew = 'cphContent_isFbLoginNew';
+        var txtfbuserIdNew = 'cphContent_fbuserIdNew';
+        var txtfbuserEmailNew = 'cphContent_fbuserEmailNew';
+        var txtfbAuthTokenNew = 'cphContent_fbAuthTokenNew';
+        var txtbtnLoginNew = 'cphContent_btnLoginUser';
+    </script>
+
+    <!-- Google Publisher Tag:  Ad Manager -->
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        window.googletag = window.googletag || { cmd: [] };
+        googletag.cmd.push(function () {
+            var reponsiveSlot = googletag.defineSlot('/22647480701/login_leaderboard', [[300, 50], [320, 100], [300, 100], [468, 60], [320, 50], [728, 90]], 'div-gpt-ad-1639830585249-0').addService(googletag.pubads());
+            var mapping = googletag.sizeMapping()
+                    .addSize([1080, 480], [728, 90])
+                    .addSize([730, 480], [[468, 60], [320,100], [300,100]])
+                    .addSize([576, 300], [[320, 100], [320, 50], [300, 100], [300, 50]])
+                    .addSize([0, 0], [])
+                    .build();
+            reponsiveSlot.defineSizeMapping(mapping);
+
+            googletag.defineSlot('/22647480701/login_skyscraper', [160, 600], 'div-gpt-ad-1639823885367-0').addService(googletag.pubads());
+            googletag.defineSlot('/22647480701/login_mobileLeaderboard', [[300, 50], [320, 50]], 'div-gpt-ad-1639824730474-0').addService(googletag.pubads());
+            googletag.defineSlot('/22647480701/login_square', [[120, 240], [125, 125]], 'div-gpt-ad-1639874940644-0').addService(googletag.pubads());
+            googletag.defineSlot('/22647480701/login_mobileSquare', [[300, 250], [336, 280], [250, 250]], 'div-gpt-ad-1639831230034-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+    window.googletag = window.googletag || { cmd: [] };
+    googletag.cmd.push(function () {
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+</script>
+    <!-- End Google Publisher Tag:  Ad Manager -->
+
+</head>
+<body>
+    <script type="text/javascript">
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '341783232576011',
+                version: 'v17.0',
+                status: true, // check login status - old like id is 6636412849
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true  // parse XFBML
+            });
+        };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    
+	<script src="JavaScript/BBPublic/jquery-3.3.1.min.js"></script>
+	<script src="JavaScript/BBPublic/bootstrap.bundle.min.js?v=4.6"></script>
+    <script src="JavaScript/BBPublic/bootstrap-select.min.js"></script>
+    <script src="JavaScript/fb_mt_v3.js?version=20220505"></script>
+
+    <form method="post" action="/login.aspx?redirectUrl=/match/boxscore.aspx?matchid=128810916" id="form1" novalidate="">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="7OOegvBHxV7wd0jPuqgfbk8IJkhHhQa0JMjjWRO21ovcQLmfH5egXTVxGqt/xpE+kc0bm4/eJnnJ9YLTtkF6TzW0DGr+O+PCYEzdQxrBd6anhJBztlSOF0pRi558b3gq6e9WCQhR3ElOvubW5Xocjzlr3DX4f6Ef+iWoqgJoE72pzV5xGpBwIutrpvm7gelgnEVfCsOsgpFlueRWJroeT3Lvs6hQZyTbUeDspFKBBUumV7QAgNkBKjs5UB9Ezg2ikB11H6yAIc3GP9hXdzbxxzHjCf+IuGshavNnoNgIdA9k7PTmH0SttK/gucAQ7UK4YPAP4eO/ciSHj1r/7Mv70x+7rXEWKGnH2o5FgiJkEpYZpUonUmLm3hJEc5Ey76fY+geTO5kizcPRTw1N83ck9y92jfoRc7e7mKF0brEnMq9pzUsLsJVdjzHIlvf18gDraGdPxROZQsDNWorTQEZz84pRfe9/JGzGqb0lngZMG6LRjDCMykm5kymzLDxje3Mt/GZnuj5oRCTOrmsbqBSV5u8RGAjNiWmtfWAFDnMNFZSuihhNI/G7InR8wfy8yGgY9uAZ5gkJVlEs65uUfU3tkTuxSqoY2kLfmsE3dktJKPJS9GsZnca2XD3y/VvBUAVrquiOYKJ0u+3BatuqzlPATiQl19tTCUBtRy1QyoXWZ/VBuSmUfURlbJI+Xcjt5JAgrQN3A4MzXOHvRE/r8Hn4CXXcaocDnP3Vvg621QmB8Ht9BLyxKovanKmup9R64LH9AqKQzlAqJu/cb2gFrC6R/h/PwSTmJ1OsAbYgHCXC9695gtpzCCs4JME5b4im8GbHq2TwDiErK9lQrSTNFjjteSRCulZWusZ75F9FM9a8rstIqMMIzOmiucWzan1tJBK1/BKH3BEHqK3l2Djl8SUchj8BNtA9juqBFTua9EpvUQRrHEdTr3DLeCUmBZxabNwv0E+0NsHhAYmz44+IwAGGGj5lYmwgiaMdRPhYemqYD11a+cbeXEc8slGNCptmrhZISYGGPGs0rzyrXRwLwJvzvDiX8wc6jGOzUsioUcaVYJDKe+5XEEbQi0Cnt76kX5YqyV3JEiwxElfqD33DbmXA8nk3sqP1SaPkoD7XC5UQoFGctxDx9ZUvl55TzdQx6T9uYBNhpwrUBSheNi3fvjO3KLe+HmbQzQEh7NgTosoSPEWmeakwLhyx50QuV5bmFAncRgYpDNQzBwWSRzOPaFrr3famSN0M15+kZ/ZJOxEYDfqDNm2kfSgqFtVbKlg+cuxXru8LbrS/0L1pqTarLTBA5k91afAA63b1tUEjcA1A15yRBcwbkmx7Cl421oUOzV8UHlRLMoZ+6Xi+Ghdka6Eoj2GJgrY7byyOUvHUA+sf+uY65eTUHnXwcJu1xLfEo104bbRgt3dD2/VIazSaLECz00dXlw6OGwkTLTzV/Ay4lnb35hFWn+nKXISIrO8pk+zaKuLQXfF2GObZNAtTOgqkPsBYlIPOkiXDBkWsZnk2+sqlYuhamw5XhXssBpCEpHvVtEBazN/DliIxsVZNMRugYCQgsP6BL6nPcUTGm0KwscpHOrqd80pqD1j7mUHrYmz5uFMchzph9QvoBRahm6M6AetOH8xfNxMEmNxTBFPkGELZFxDzMcYZ12DR+WRrO7cWkZrMed+QD3h9geZLkIEWCaH+gL3sYmWKS2tKh1GT5XaLA3kMwXWmca1JOodnowqCb8mySybTFJBwDDFc5EbrzZDC0+YRwOqRIduYZuHWdPlk5yHEgK9WG/3nsYgzg2Kn6jgVyaq/IWMJ4byLtkthyjyAw0yBtcKA7GKsbWOobVDM3gB/j3npG1byO1u9rlvCA0nqUhGuYicARQqvEf+wEqD2qZJv43haTvklGInXPNTaq1YwtkJHxy7/NHmvZ6LMjQUeeQC2dNVhloOtX4q+9ZVcR2i2M19zt5Z+lJFUacNt74fPtekc7gk6JT+FJzzFJ5bcVSapt9h2pggDn8O3RlBaqiDRjeiOnuYsy2oIm9zVfxw/VPFY7x2MFZNKtQ03JkjmXEtu1Wstbxr+x8d1WqqOqLjUkHTxPoqJI5Y0RI9HsfuArDdD7qIHgXqvQad68TmreMW++2vi76gEfPHa2O1ZFE28uUi62w4k98/BQafaxWsMdfUKha46ncgE26fTGYoOGio49WEk6uaB1wvJZF16zWa22lAwOh7dxhQzu5oTKI3nuWBN19mt2cg6VTeINBH9ctjhKGSsVpZ+MAfVg2wdG1yJPVDbz8ktH/lh/dgb5Tf0VuM1efvmHE0CoV363e3YIw==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZHP1_L3hfhMR2EzWO_Bc-oo5hpOuvVRkqQfM-ICXssTCLPPi6Q2&amp;t=638123365323478136" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvtCChPytAN7-5i3NocOW7P5cJoWxBeGB1NMH7FSqB0ub9kyvparYuG51tpZLBGSvSa-1xET8GZ4rFlhWZVGoStx0isz6jGbTOKNDB4uY2wLKEWTAHaBjRDkBRBYCmD9aWeXleWM1&amp;t=ffffffffe6d5a9ac" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OKFNFOaVeK0GO5E2VtIArbnPpiZoGjpVDXSGDNbRZhABcAFTzswa_r3hE3aHW1k2fUsFnvwP0Upy3Edl0GeK_w6toV1iJwQio3TpzbEk1itNVUsGMBAp9mKHi3ZcrgEgC7Q98fg1&amp;t=ffffffffe6d5a9ac" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+SaveAsSession:function(sessionName,sessionValue,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'SaveAsSession',false,{sessionName:sessionName,sessionValue:sessionValue},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_enableJsonp = function(value) { PageMethods._staticInstance.set_enableJsonp(value); }
+PageMethods.get_enableJsonp = function() { return PageMethods._staticInstance.get_enableJsonp(); }
+PageMethods.set_jsonpCallbackParameter = function(value) { PageMethods._staticInstance.set_jsonpCallbackParameter(value); }
+PageMethods.get_jsonpCallbackParameter = function() { return PageMethods._staticInstance.get_jsonpCallbackParameter(); }
+PageMethods.set_path("login.aspx");
+PageMethods.SaveAsSession= function(sessionName,sessionValue,onSuccess,onFailed,userContext) {PageMethods._staticInstance.SaveAsSession(sessionName,sessionValue,onSuccess,onFailed,userContext); }
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$sm', 'form1', ['tctl00$cphContent$updatePanelTop','cphContent_updatePanelTop','tctl00$updatePanelTop','updatePanelTop','tctl00$ctl16','ctl16'], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        
+
+    <div id="login-root" class="py-sm-3">
+        <div class="app d-flex flex-row align-items-center">
+            <div class="container-xl px-1">
+                <div class="row mx-n1 flex-nowrap">
+                    <div class="col px-1">
+                        <div class="card mb-2 mb-sm-3 leaderBoard-banner">
+                            <div class="card-body">
+                                <div class="row">
+                                  <div class="col-auto my-auto">
+                                    <a href="default.aspx" class="logo ml-2 ml-sm-0 mr-0 mr-xl-2">
+                                        <img src="images/BBPublic/logo.png" alt="logo">
+                                    </a>
+                                  </div>
+                                  <div class="col d-none d-sm-block">
+                                    <div class="leaderBoard">
+                                        <!-- /22647480701/login_leaderboard -->
+                                        <div id='div-gpt-ad-1639830585249-0' style='min-width: 300px; min-height: 50px;'>
+                                          <script>
+                                              googletag.cmd.push(function () { googletag.display('div-gpt-ad-1639830585249-0'); });
+                                          </script>
+                                        </div>
+                                    </div>
+                                  </div>
+                                    <div class="col-auto ml-auto d-md-none">
+                                        <select name="ctl00$cphContent$ddlLanguage2" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphContent$ddlLanguage2\&#39;,\&#39;\&#39;)&#39;, 0)" id="cphContent_ddlLanguage2" class="selectpicker" data-width="fit" data-header="Languages" data-icon-base="flag-icon">
+	<option value="id-ID" data-icon="flag-icon-id" data-subtext="Bahasa Indonesia"></option>
+	<option value="bs-Latn-BA" data-icon="flag-icon-ba" data-subtext="Bosanski"></option>
+	<option value="ca" data-icon="flag-icon-es-ct" data-subtext="Català"></option>
+	<option value="cs-CZ" data-icon="flag-icon-cz" data-subtext="Čeština"></option>
+	<option value="da-DK" data-icon="flag-icon-dk" data-subtext="Dansk"></option>
+	<option value="de" data-icon="flag-icon-de" data-subtext="Deutsch"></option>
+	<option value="de-AT" data-icon="flag-icon-at" data-subtext="Deutsch (Österreich)"></option>
+	<option value="et-EE" data-icon="flag-icon-ee" data-subtext="Eesti"></option>
+	<option value="en-GB" data-icon="flag-icon-gb" data-subtext="English (UK)"></option>
+	<option selected="selected" value="en-US" data-icon="flag-icon-us" data-subtext="English (US)"></option>
+	<option value="es-ES" data-icon="flag-icon-es" data-subtext="Español"></option>
+	<option value="es-MX" data-icon="flag-icon-ar" data-subtext="Español (sudamericano)"></option>
+	<option value="fil-PH" data-icon="flag-icon-ph" data-subtext="Filipino"></option>
+	<option value="fr" data-icon="flag-icon-fr" data-subtext="Français"></option>
+	<option value="gl-ES" data-icon="flag-icon-es-ga" data-subtext="Galego"></option>
+	<option value="hr-HR" data-icon="flag-icon-hr" data-subtext="Hrvatski"></option>
+	<option value="it" data-icon="flag-icon-it" data-subtext="Italiano"></option>
+	<option value="lv-LV" data-icon="flag-icon-lv" data-subtext="Latviešu"></option>
+	<option value="lt-LT" data-icon="flag-icon-lt" data-subtext="Lietuvių"></option>
+	<option value="hu-HU" data-icon="flag-icon-hu" data-subtext="Magyar"></option>
+	<option value="nl-NL" data-icon="flag-icon-nl" data-subtext="Nederlands"></option>
+	<option value="nl-BE" data-icon="flag-icon-be" data-subtext="Nederlands (België)"></option>
+	<option value="no" data-icon="flag-icon-no" data-subtext="Norsk"></option>
+	<option value="pl-PL" data-icon="flag-icon-pl" data-subtext="Polski"></option>
+	<option value="pt" data-icon="flag-icon-br" data-subtext="Português (Brasil)"></option>
+	<option value="pt-PT" data-icon="flag-icon-pt" data-subtext="Português (Portugal)"></option>
+	<option value="ro-RO" data-icon="flag-icon-ro" data-subtext="Română"></option>
+	<option value="sq-AL" data-icon="flag-icon-al" data-subtext="Shqipe"></option>
+	<option value="sk-SK" data-icon="flag-icon-sk" data-subtext="Slovenčina"></option>
+	<option value="sl-SI" data-icon="flag-icon-si" data-subtext="Slovenščina"></option>
+	<option value="sr" data-icon="flag-icon-rs" data-subtext="Srpski"></option>
+	<option value="fi-FI" data-icon="flag-icon-fi" data-subtext="Suomi"></option>
+	<option value="sv" data-icon="flag-icon-se" data-subtext="Svenska"></option>
+	<option value="tr" data-icon="flag-icon-tr" data-subtext="Türkçe"></option>
+	<option value="el" data-icon="flag-icon-gr" data-subtext="Ελληνικά"></option>
+	<option value="bg-BG" data-icon="flag-icon-bg" data-subtext="Български"></option>
+	<option value="mk-MK" data-icon="flag-icon-mk" data-subtext="Македонски"></option>
+	<option value="ru-RU" data-icon="flag-icon-ru" data-subtext="Русский"></option>
+	<option value="uk" data-icon="flag-icon-ua" data-subtext="Українська"></option>
+	<option value="he" data-icon="flag-icon-il" data-subtext="עברית"></option>
+	<option value="fa-IR" data-icon="flag-icon-ir" data-subtext="فارسی"></option>
+	<option value="ka-GE" data-icon="flag-icon-ge" data-subtext="ქართული ენა"></option>
+	<option value="zh-CN" data-icon="flag-icon-cn" data-subtext="中文（简体）"></option>
+	<option value="zh-TW" data-icon="flag-icon-tw" data-subtext="中文（繁體）"></option>
+	<option value="ja" data-icon="flag-icon-jp" data-subtext="日本語"></option>
+
+</select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2 mb-sm-3 d-block d-sm-none">
+                            <div class="col">
+                                <div class="mobileBannerAd mx-auto text-center">
+                                    <!-- /22647480701/login_mobileLeaderboard -->
+                                    <div id='div-gpt-ad-1639824730474-0' style='min-width: 300px; min-height: 50px;'>
+                                      <script>
+                                          googletag.cmd.push(function () { googletag.display('div-gpt-ad-1639824730474-0'); });
+                                      </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="card-group border">
+                              <div class="py-1 py-sm-3 px-1 px-sm-3 card">
+                                <div class="card-body">
+                                    <div id="cphContent_updatePanelTop">
+	
+                                        <h1 class="mb-3">
+                                            Login
+                                        </h1>
+                                        <div class="mb-3 input-group">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="zmdi zmdi-account"></i></span>
+                                                </div>
+                                                <input name="ctl00$cphContent$txtUserName" type="text" id="cphContent_txtUserName" class="form-control" Placeholder="Username" />
+                                            </div>
+                                            <div class="mb-0 input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                                                </div>
+                                                <input name="ctl00$cphContent$txtPassword" type="password" id="cphContent_txtPassword" class="form-control" Placeholder="Password" />
+                                            </div>
+	                                        
+                                            <div class="mt-3">
+                                                <div class="text-center">
+	                                                <input type="submit" name="ctl00$cphContent$btnLoginUser" value="Login" id="cphContent_btnLoginUser" class="btn btn-buzzerbeater btn-block" />
+                                                </div>
+          
+                                                <div class="separator my-2 mx-auto">
+                                                    or
+                                                </div>
+
+                                                <div class="text-center">
+                                                    <button type="button" class="btn btn-primary fb-login btn-block" onclick="loginFacebookNew();"><i class="fab fa-facebook fa-lg mr-3"></i>Login with Facebook</button>
+                                                </div>
+                                                <input type="hidden" name="ctl00$cphContent$isFbLoginNew" id="cphContent_isFbLoginNew" />
+					                            <input type="hidden" name="ctl00$cphContent$fbAuthTokenNew" id="cphContent_fbAuthTokenNew" />
+					                            <input type="hidden" name="ctl00$cphContent$fbuserIdNew" id="cphContent_fbuserIdNew" />
+					                            <input type="hidden" name="ctl00$cphContent$fbuserEmailNew" id="cphContent_fbuserEmailNew" />
+                                                <div class="mt-3">
+                                                    <a class="btn btn-link pl-0" href="getpassword.aspx"><span>Forgot Password?</span></a>
+                                                </div>
+                                            </div>
+                                    
+</div>
+                                </div>
+                              </div>
+                              <div
+                                class="text-white signup-box pt-2 pt-sm-5 pb-3 d-none d-sm-block card"
+                              >
+                                <div class="text-center card-body">
+                                  <div>
+                                    <h3><span id="cphContent_Label1">Sign up for your Team</span></h3>
+                                    <p class="mt-4">
+                                      BuzzerBeater never sleeps, so why should you? Sign up now to play against the greatest basketball managers in the world.  And hey... <strong>it’s free</strong>!
+                                    </p>
+                                    <a href="signup.aspx"
+                                        tabindex="-1"
+                                        class="mt-4 btn btn-light active"
+                                      >
+                                        Sign me up
+
+                                      </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="card-group mt-2 mt-sm-3">
+                              <div class="card border">
+                                <div class="card-header">
+                                  <span class="font-weight-bold">The BuzzerBeater Community at a Glance</span>
+                                    <div id="clock" class="float-right"></div>
+                                </div>
+                                <div class="card-body">
+                                  <p class="card-text font-weight-bold">The world of BuzzerBeater is continually growing.</p>
+                                  <p class="card-text">Here are a few interesting statistics about our community:</p>
+                                  <p class="card-text"><i class="zmdi zmdi-flag zmdi-hc-fw zmdi-hc-lg mr-1 buzzerbeater-color"></i><b>13005</b> active managers from over <b>227</b> countries around the world, playing in BuzzerBeater's <b>103</b> countries</p>
+                                  <p class="card-text"><i class="zmdi zmdi-accounts zmdi-hc-fw zmdi-hc-lg mr-1 text-primary"></i><b>1499</b> managers were recently online simultaneously</p>
+                                  <p class="card-text"><i class="zmdi zmdi-money zmdi-hc-fw zmdi-hc-lg mr-1 text-success"></i><b>2514</b> players are currently for sale on the Transfer List</p>
+                                </div>
+                              </div>
+                            </div>
+                               <div class="separator separator-muted mt-2 mt-sm-3 d-md-none">
+                                  Advertisement
+                              </div>
+                            <div class="row mt-2 mt-sm-3 d-md-none">
+                                <div class="col">
+                                    <div class="mobileBoxAd d-flex justify-content-center">
+                                        <!-- /22647480701/login_mobileSquare -->
+                                        <div id='div-gpt-ad-1639831230034-0' style='min-width: 250px; min-height: 250px;'>
+                                          <script>
+                                              googletag.cmd.push(function () { googletag.display('div-gpt-ad-1639831230034-0'); });
+                                          </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator separator-muted mt-3 d-md-none"></div>
+                            <div class="card-group mt-3">
+                              <div class="card border">
+                                <div class="card-header">
+                                  <span class="font-weight-bold">Community Links</span>
+                                    <div class="card-header-actions">
+                                        <a href="https://www.facebook.com/BuzzrBeater/" class="card-header-action btn facebook-color"><i class="fab fa-facebook fa-lg"></i></a>
+                                        <a href="https://twitter.com/BuzzRBeater" class="card-header-action btn twitter-color"><i class="fab fa-twitter fa-lg"></i></a>
+                                        <a href="https://www.instagram.com/buzzerbeaterdotcom/" class="card-header-action btn instagram-color" style="vertical-align: top;"><img src="images/fb/Instagram_Glyph_Gradient_RGB.png" width="20" alt="logo"></a>
+                                        <a href="https://www.youtube.com/c/BubblesBuzzerBeater" class="card-header-action btn youtube-color"><i class="fab fa-youtube fa-lg"></i></a>
+                                        <a href="https://discord.gg/NVsE8RYCR7" class="card-header-action btn discord-color"><i class="fab fa-discord fa-lg"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <script>window.twttr = (function (d, s, id) {
+                                                    var js, fjs = d.getElementsByTagName(s)[0],
+                                                        t = window.twttr || {};
+                                                    if (d.getElementById(id)) return t;
+                                                    js = d.createElement(s);
+                                                    js.id = id;
+                                                    js.src = "https://platform.twitter.com/widgets.js";
+                                                    fjs.parentNode.insertBefore(js, fjs);
+
+                                                    t._e = [];
+                                                    t.ready = function (f) {
+                                                        t._e.push(f);
+                                                    };
+
+                                                    return t;
+                                                }(document, "script", "twitter-wjs"));</script>
+                                    <a class="twitter-timeline" 
+                                        href="https://twitter.com/BuzzRBeater" 
+                                        data-widget-id="728217021704474624"
+                                        data-tweet-limit="4"
+                                        width="650"
+                                        data-chrome="nofooter noborders transparent">Tweets by @BuzzRBeater</a>
+                                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+                                        </div>
+                                    </div>
+                      
+                                </div>
+                              </div>
+                            </div>
+                              <div class="separator separator-muted mt-2 mt-sm-3">
+                                  Advertisement
+                              </div>
+                            <div class="row mt-2 mt-sm-3">
+                                <div class="col">
+                                    <div class="mx-auto">
+                                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3401848786568056"
+                                                crossorigin="anonymous"></script>
+                                        <!-- In Page - Responsive Square Ad -->
+                                        <ins class="adsbygoogle"
+                                                style="display:block"
+                                                data-ad-client="ca-pub-3401848786568056"
+                                                data-ad-slot="6881103235"
+                                                data-ad-format="auto"
+                                                data-full-width-responsive="true"
+                                                data-ad-channel="1145006883"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator separator-muted mt-3 mb-3"></div>
+                              <footer class="footer-section">
+                                <div class="container">
+                                      <div class="footer-menu text-center">
+                                        <ul>
+                                          <li><a id="cphContent_hlTOS" href="/terms.aspx">Terms Of Service</a></li>
+                                          <li><a id="cphContent_hlPrivacy" href="/privacyPolicy.aspx">Privacy Policy</a></li>
+                                          <li><a id="cphContent_hlRulesOfConduct" href="/community/rules.aspx?nav=RulesOfConduct">Rules of Conduct</a></li>
+                                          <li><a id="cphContent_hlPartners" href="/community/partners.aspx">Partners</a></li>
+                                          <li><a id="cphContent_hlAdvertise" href="/cdn-cgi/l/email-protection#71020401011e0305310201181208020110031a025f121e1c">Advertise on BuzzerBeater</a></li>
+                                        </ul>
+                                      </div>
+                                </div>
+                            </footer>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col px-1 mt-3 d-none d-md-block" style="flex: 0 0 160px;">
+                        <div style="width: 160px;">
+                            <select name="ctl00$cphContent$ddlLanguage" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphContent$ddlLanguage\&#39;,\&#39;\&#39;)&#39;, 0)" id="cphContent_ddlLanguage" class="selectpicker" data-width="fit" data-header="Languages" data-icon-base="flag-icon">
+	<option value="id-ID" data-icon="flag-icon-id" data-subtext="Bahasa Indonesia"></option>
+	<option value="bs-Latn-BA" data-icon="flag-icon-ba" data-subtext="Bosanski"></option>
+	<option value="ca" data-icon="flag-icon-es-ct" data-subtext="Català"></option>
+	<option value="cs-CZ" data-icon="flag-icon-cz" data-subtext="Čeština"></option>
+	<option value="da-DK" data-icon="flag-icon-dk" data-subtext="Dansk"></option>
+	<option value="de" data-icon="flag-icon-de" data-subtext="Deutsch"></option>
+	<option value="de-AT" data-icon="flag-icon-at" data-subtext="Deutsch (Österreich)"></option>
+	<option value="et-EE" data-icon="flag-icon-ee" data-subtext="Eesti"></option>
+	<option value="en-GB" data-icon="flag-icon-gb" data-subtext="English (UK)"></option>
+	<option selected="selected" value="en-US" data-icon="flag-icon-us" data-subtext="English (US)"></option>
+	<option value="es-ES" data-icon="flag-icon-es" data-subtext="Español"></option>
+	<option value="es-MX" data-icon="flag-icon-ar" data-subtext="Español (sudamericano)"></option>
+	<option value="fil-PH" data-icon="flag-icon-ph" data-subtext="Filipino"></option>
+	<option value="fr" data-icon="flag-icon-fr" data-subtext="Français"></option>
+	<option value="gl-ES" data-icon="flag-icon-es-ga" data-subtext="Galego"></option>
+	<option value="hr-HR" data-icon="flag-icon-hr" data-subtext="Hrvatski"></option>
+	<option value="it" data-icon="flag-icon-it" data-subtext="Italiano"></option>
+	<option value="lv-LV" data-icon="flag-icon-lv" data-subtext="Latviešu"></option>
+	<option value="lt-LT" data-icon="flag-icon-lt" data-subtext="Lietuvių"></option>
+	<option value="hu-HU" data-icon="flag-icon-hu" data-subtext="Magyar"></option>
+	<option value="nl-NL" data-icon="flag-icon-nl" data-subtext="Nederlands"></option>
+	<option value="nl-BE" data-icon="flag-icon-be" data-subtext="Nederlands (België)"></option>
+	<option value="no" data-icon="flag-icon-no" data-subtext="Norsk"></option>
+	<option value="pl-PL" data-icon="flag-icon-pl" data-subtext="Polski"></option>
+	<option value="pt" data-icon="flag-icon-br" data-subtext="Português (Brasil)"></option>
+	<option value="pt-PT" data-icon="flag-icon-pt" data-subtext="Português (Portugal)"></option>
+	<option value="ro-RO" data-icon="flag-icon-ro" data-subtext="Română"></option>
+	<option value="sq-AL" data-icon="flag-icon-al" data-subtext="Shqipe"></option>
+	<option value="sk-SK" data-icon="flag-icon-sk" data-subtext="Slovenčina"></option>
+	<option value="sl-SI" data-icon="flag-icon-si" data-subtext="Slovenščina"></option>
+	<option value="sr" data-icon="flag-icon-rs" data-subtext="Srpski"></option>
+	<option value="fi-FI" data-icon="flag-icon-fi" data-subtext="Suomi"></option>
+	<option value="sv" data-icon="flag-icon-se" data-subtext="Svenska"></option>
+	<option value="tr" data-icon="flag-icon-tr" data-subtext="Türkçe"></option>
+	<option value="el" data-icon="flag-icon-gr" data-subtext="Ελληνικά"></option>
+	<option value="bg-BG" data-icon="flag-icon-bg" data-subtext="Български"></option>
+	<option value="mk-MK" data-icon="flag-icon-mk" data-subtext="Македонски"></option>
+	<option value="ru-RU" data-icon="flag-icon-ru" data-subtext="Русский"></option>
+	<option value="uk" data-icon="flag-icon-ua" data-subtext="Українська"></option>
+	<option value="he" data-icon="flag-icon-il" data-subtext="עברית"></option>
+	<option value="fa-IR" data-icon="flag-icon-ir" data-subtext="فارسی"></option>
+	<option value="ka-GE" data-icon="flag-icon-ge" data-subtext="ქართული ენა"></option>
+	<option value="zh-CN" data-icon="flag-icon-cn" data-subtext="中文（简体）"></option>
+	<option value="zh-TW" data-icon="flag-icon-tw" data-subtext="中文（繁體）"></option>
+	<option value="ja" data-icon="flag-icon-jp" data-subtext="日本語"></option>
+
+</select>
+                        </div>
+                        <div class="skyScraper-col">
+                            <div style="width: 160px; height: 0px;">&nbsp;</div>
+                            <div class="skyScraper">
+                                <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3401848786568056"
+                                        crossorigin="anonymous"></script>
+                                <!-- 160x600, Skyscraper -->
+                                <!-- /22647480701/login_skyscraper -->
+                                <div id='div-gpt-ad-1639823885367-0' style='min-width: 160px; min-height: 600px;'>
+                                  <script>
+                                      googletag.cmd.push(function () { googletag.display('div-gpt-ad-1639823885367-0'); });
+                                  </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="innerBoxAd">
+                            <!-- /22647480701/login_square -->
+                            <div id='div-gpt-ad-1639874940644-0' style='min-width: 120px; min-height: 125px;'>
+                              <script>
+                                  googletag.cmd.push(function () { googletag.display('div-gpt-ad-1639874940644-0'); });
+                              </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+              </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var localTime;
+        var timeZone;
+        var timeDiff;
+
+        jQuery('document').ready(function () {
+            jQuery('.selectpicker').selectpicker();
+        });
+
+        function setClock()
+        {
+            timeZone = (new Date()).getTimezoneOffset();
+            localTime = new Date(2026,3,28,8,52 - timeZone,31).getTime();
+            timeDiff = localTime - new Date().getTime();
+              
+            setTime();
+        }
+
+        function setTime()
+        {
+        	var now = new Date();
+	        now.setTime(now.getTime() + timeDiff );
+	        var hours = now.getHours();
+	        var minutes = now.getMinutes();
+	        var seconds = now.getSeconds();
+	        var timeValue = "452 online at ";
+	        timeValue += ((hours < 10) ? "0" : "") + hours;
+	        timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+	        timeValue += ((seconds < 10) ? ":0" : ":") + seconds;
+	        timerID = setTimeout("setTime()",1000);
+
+		    document.getElementById("clock").innerHTML = timeValue;
+        }  
+
+        setClock();
+    </script>
+  
+       
+
+
+        <input type="hidden" id="timeOffset" name="timeOffset" value="-1" />
+        <script language="JavaScript" type="text/javascript">
+            var d = new Date();
+            document.getElementById("timeOffset").value = d.getTimezoneOffset();
+            if (document.cookie.indexOf("BBtimeOffset") < 0) {
+                document.cookie = "BBtimeOffset=" + d.getTimezoneOffset() + ";max-age=" + 60 * 60 * 2;
+            }
+        </script>
+        
+        <div id="updatePanelTop">
+	
+            <!-- Modal -->
+            <div class="modal fade login-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ctl16">
+		
+                            <div id="panel1" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;btnLogin&#39;)">
+			
+                                <div class="mb-3 input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="zmdi zmdi-account"></i></span>
+                                    </div>
+                                    <input name="ctl00$txtLoginUserName" type="text" id="txtLoginUserName" class="form-control" Placeholder="Username or Email:" />
+                                </div>
+                                <div class="mb-0 input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                                    </div>
+                                    <input name="ctl00$txtLoginPassword" type="password" id="txtLoginPassword" class="form-control" Placeholder="Password" />
+                                </div>
+	                            
+                                <div class="login-modal-body mt-3">
+                                    <div class="text-center">
+	                                    <a id="btnLogin" class="btn btn-buzzerbeater btn-block" href="javascript:__doPostBack(&#39;ctl00$btnLogin&#39;,&#39;&#39;)">Login</a>
+                                    </div>
+          
+                                    <div class="separator my-2 mx-auto">
+                                        or
+                                    </div>
+
+                                    <div class="text-center">
+                                        <a class="btn btn-primary fb-login btn-block" onclick="loginFacebook();"><i class="fab fa-facebook mr-3"></i>Login with Facebook</a>
+                                    </div>
+                                    <input type="hidden" name="ctl00$isFbLogin" id="isFbLogin" />
+					                <input type="hidden" name="ctl00$email" id="email" />
+					                <input type="hidden" name="ctl00$fbAuthToken" id="fbAuthToken" />
+					                <input type="hidden" name="ctl00$fbuserId" id="fbuserId" />
+					                <input type="hidden" name="ctl00$fbuserEmail" id="fbuserEmail" />
+                                    <div class="mt-2">
+                                        <a class="btn btn-link btn-link-modal" href="getpassword.aspx"><span>Forgot Password or Facebook login failed?</span></a>
+                                    </div>
+                                </div>
+                            
+		</div>
+                    
+	</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        
+</div>  
+    </form>
+        
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e35662e6aa7e8b9',t:'MTc3NDY4Nzk1MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { config } from "@/lib/config";
 import { getDailyPlayer } from "@/lib/u21dle/daily";
 import { getU21dlePlayerById, getEligiblePlayers } from "@/lib/u21dle/players";
-import { getSourceTeam } from "@/lib/u21dle/source-teams";
+import { getU21dleTrainedBy } from "@/lib/u21dle/m5-trained-by";
 import { generateFeedback, isCorrectGuess } from "@/lib/u21dle/feedback";
 import { U21DLE_CONFIG } from "@/lib/u21dle/config";
 import { getPuzzleIdByDate, upsertGuess, updateUserStats } from "@/lib/u21dle/supabase";
@@ -118,13 +118,13 @@ export async function POST(request: NextRequest) {
         height: guessedPlayer.height,
         potential: guessedPlayer.potential,
         trophies: guessedPlayer.trophies,
-        trainedBy: getSourceTeam(guessedPlayer.playerId) ?? undefined,
+        trainedBy: getU21dleTrainedBy(guessedPlayer.playerId) ?? undefined,
       },
       answer: gameOver
         ? {
             playerId: dailyPlayer.playerId,
             name: dailyPlayer.name,
-            trainedBy: getSourceTeam(dailyPlayer.playerId) ?? undefined,
+            trainedBy: getU21dleTrainedBy(dailyPlayer.playerId) ?? undefined,
           }
         : null,
     },

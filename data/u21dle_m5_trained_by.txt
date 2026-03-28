@@ -1,0 +1,109 @@
+# u21dle M5 trained-by snapshot
+# generated: 2026-03-28T21:57:03.589Z
+# columns: playerId, name, season, current_source, m2_middle_at_away, m5
+50761809	Anatoly Timoshenkov	60	TF National Farm	TF National Farm	TF National Farm
+50761480	Shaul Maman	60	Caesar 1982	Caesar 1982	Caesar 1982
+50761524	Itamar Sinai	60	TF Opena	TF Opena	TF Opena
+50761108	Alon Amir	60	red bulldogs	DoctorKill	red bulldogs / DoctorKill
+50761368	Gadi Navon	60	TF National Farm	TF National Farm	TF National Farm
+50761265	Andrey Golovanov	60	Caesar 1982	Caesar 1982	Caesar 1982
+51080927	Tal Sarusi	60	Binyamina Jackals	Binyamina Jackals	Binyamina Jackals
+50761195	Efi Kisos	60	TF Opena	TF Opena	TF Opena
+50761356	Aharon Shmilovich	60	TF Opena	TF Opena	TF Opena
+51081177	Mark Hutchison	60	Binyamina Jackals	Binyamina Jackals	Binyamina Jackals
+51080756	Oran Gadesh	61	THE BLACK HAWKS	THE BLACK HAWKS	THE BLACK HAWKS
+51080896	Bar Eiger	61	F.C Kiryat-Gat	F.C Kiryat-Gat	F.C Kiryat-Gat
+51080700	Efrayim Goldberg	61	Stars Team	Stars Team	Stars Team
+51398840	Amit Topaz	62	GreenWhale	GreenWhale	GreenWhale
+51398698	Jibril Abu-Alam	62	GreenWhale	GreenWhale	GreenWhale
+51399052	Elizur Elmakayes	62	Dreamland megastars	TF Opena	Dreamland megastars / TF Opena
+51080964	Eremey Spichkov	61	Hiatus Kaiyotes	Hiatus Kaiyotes	Hiatus Kaiyotes
+51399186	Tomer Rosenstein	62	F.C Keter44	F.C Keter44	F.C Keter44
+51399167	Eyal Granot	62	Dreamland megastars	Refael	Dreamland megastars / Refael
+51081097	Evyatar Hofman	61	red bulldogs	red bulldogs	red bulldogs
+51209806	Avinoam Noyman	61	red bulldogs	red bulldogs	red bulldogs
+51398677	Shimi Schwartz	62	Raanana Farmers	Raanana Farmers	Raanana Farmers
+51399111	Elishay Rivlin	62	Mordeath Wyverns	Mordeath Wyverns	Mordeath Wyverns
+51526491	Yefet Mosinzon	62	NONE FOUND	Killers Reformed	Killers Reformed
+51398714	Eido Meria	62	Splash Huber's	Splash Huber's	Splash Huber's
+51398727	Yakir Agadi	62	Mordeath Wyverns	Mordeath Wyverns	Mordeath Wyverns
+51398910	Eilon Ben-Chaim	62	NONE FOUND	Miami Ravens	Miami Ravens
+51718817	Rahav Kashani	63	Simbotics	Simbotics	Simbotics
+51718764	Adir Hacohen	63	Simbotics	Simbotics	Simbotics
+52086487	Oz Birok	64	Stumbras	Stumbras	Stumbras
+52086365	Vladimir Pervukhin	64	dror12345	dror12345	dror12345
+52086347	Yogev Zadok	64	dror12345	dror12345	dror12345
+51718511	Chagai Rashkovski	63	Fury X	Fury X	Fury X
+51718568	Rotem Kline	63	Simbotics	Simbotics	Simbotics
+52086317	Oran Sapir	64	TF National Farm	TF National Farm	TF National Farm
+51718590	Chanan Noam	63	B.C. Basket stars	B.C. Basket stars	B.C. Basket stars
+51718718	Yosi Hadad	63	B.C. Basket stars	B.C. Basket stars	B.C. Basket stars
+51718545	Chaim Goren	63	F.C Kiryat-Gat	F.C Kiryat-Gat	F.C Kiryat-Gat
+52086468	Guy Surani	64	TF National Farm	TF National Farm	TF National Farm
+52086147	Nachum Nissim	64	Puffins	Puffins	Puffins
+52086184	Gilad Pessach	64	Hakarabonkel	Hakarabonkel	Hakarabonkel
+52085996	Shahak Cohen	64	NONE FOUND	Hakarabonkel	Hakarabonkel
+52085885	Chanan Milo	64	Puffins	Puffins	Puffins
+52086512	Arbel Nachmias	64	NONE FOUND	ThEyeTiger	ThEyeTiger
+52085970	Eli Gor	64	NONE FOUND	LetsGoIL	LetsGoIL
+52462205	Shahak Ozeri	65	ISR Center academy	ISR Center academy	ISR Center academy
+52462524	Uzi Casspi	65	ISR Center academy	ISR Center academy	ISR Center academy
+52462469	Yisgav Lampert	65	NONE FOUND	Hapoel Katamon	Hapoel Katamon
+52462193	Kfir Burg	65	NONE FOUND	Hapoel Katamon	Hapoel Katamon
+52593848	Aviv Limor	65	Hiatus Kaiyotes	Hiatus Kaiyotes	Hiatus Kaiyotes
+52462741	Yahav Parann	65	Hiatus Kaiyotes	Hiatus Kaiyotes	Hiatus Kaiyotes
+52462383	Oren Yaniv	65	NONE FOUND	Hapoel Katamon	Hapoel Katamon
+52796590	Yoav Rozenblat	66	NONE FOUND	Emma BC	Emma BC
+52462099	Uzi Yaniv	65	Hiatus Kaiyotes	Hiatus Kaiyotes	Hiatus Kaiyotes
+52462322	Shlomo Mor-Yossef	65	Hamoel-Hagoel	Hamoel-Hagoel	Hamoel-Hagoel
+52796503	Avishay Birok	66	CareBears Argentario	Knights Inc	CareBears Argentario / Knights Inc
+52796213	Shmulik Shteinfeld	66	Lola marsh	BABAWANGA	Lola marsh / BABAWANGA
+52796654	Nitzan Sharabi	66	TF National Farm	TF National Farm	TF National Farm
+53124506	Yechezkel Gelberg	67	DoctorKill	oldgold	DoctorKill / oldgold
+53125060	Paz Rossman	67	OP Robotics	OP Robotics	OP Robotics
+52796614	Musa Yaseen	66	GreenWhale	GreenWhale	GreenWhale
+53124556	Gal Menashe	67	NONE FOUND	thedream team	thedream team
+53124861	Shmulik Amram	67	OP Robotics	OP Robotics	OP Robotics
+52796307	Eliav Taff	66	TF National Farm	TF National Farm	TF National Farm
+52796339	Doron Tishbi	66	Team Avi	DoctorKill	Team Avi / DoctorKill
+52796878	Tony Benavidez	66	NONE FOUND	Israel NT Farm	Israel NT Farm
+53465723	Rotem Kalderon	68	2Win	2Win	2Win
+53465934	Elior Ben-Baruch	68	Simbotics	Simbotics	Simbotics
+53124638	Liam Katzburg	67	Winners Club	Winners Club	Winners Club
+53465673	Adam Keshet	68	2Win	DANNATI S RETORUN	2Win / DANNATI S RETORUN
+53124751	Itzchak Arbel	67	FireFlys	FireFlys	FireFlys
+53124490	Eilon Levi	67	B.C. TOTO	B.C. TOTO	B.C. TOTO
+53124545	Ronen Harel	67	NONE FOUND	thedream team	thedream team
+53124906	Oneg Neeman	67	NONE FOUND	thedream team	thedream team
+53465881	Rei Bar-Sheshet	68	NONE FOUND	Mordeath Wyverns	Mordeath Wyverns
+53465973	Habib Ibrahim	68	Puffins	Puffins	Puffins
+53791398	Yossi Chodorov	68	maccabi455646 II	maccabi455646 II	maccabi455646 II
+53465869	Uri Hacohen	68	NONE FOUND	Hakarabonkel	Hakarabonkel
+53465967	Yossi Shen	68	F.C Keter44	F.C Keter44	F.C Keter44
+53595889	Shimon Banin	68	Simbotics	Simbotics	Simbotics
+53465818	Sason Atar	68	Puffins	Puffins	Puffins
+53466262	Deddi Karny	68	Puffins	Puffins	Puffins
+53465907	Meidan Tadmor	68	dror12345	dror12345	dror12345
+53791810	Ram Twily	69	Hiatus Kaiyotes	Hiatus Kaiyotes	Hiatus Kaiyotes
+53791514	Elazar Altman	69	Hiatus Kaiyotes	Hiatus Kaiyotes	Hiatus Kaiyotes
+53791553	Lahav Rossman	69	ISR Center academy	TF Opena	ISR Center academy / TF Opena
+53792006	Ty Beckwith	69	Hapoel Holon1	Hapoel Holon1	Hapoel Holon1
+53791481	Abba Salman Harrani	69	NONE FOUND	Team Avi	Team Avi
+53791411	Avinoam Drukman	69	NONE FOUND	Pega Heat	Pega Heat
+53791935	Amitai Kisos	69	Independiente.	Independiente.	Independiente.
+54103080	Afik Banin	70	NONE FOUND	Okinawa B.C.	Okinawa B.C.
+54102675	Omer Maoda	70	TF National Farm	TF National Farm	TF National Farm
+53791461	Liam Burg	69	ISR Center academy	TF Opena	ISR Center academy / TF Opena
+53791715	Zion Sinay	69	ISR Center academy	TF Opena	ISR Center academy / TF Opena
+54102673	Doron Fux	70	TF National Farm	TF National Farm	TF National Farm
+54102609	Ivan Strool	69	LA's	LA's	LA's
+54102494	Ron Alberman	70	NONE FOUND	Ramat-Ilan Pilots	Ramat-Ilan Pilots
+54102602	Amit Yavin	70	TF National Farm	TF National Farm	TF National Farm
+54103074	Avigdor Tzalik	70	Raanana Farmers	Raanana Farmers	Raanana Farmers
+54102898	Silvan Salomon	70	Hapoel Jordan valley	Hapoel Jordan valley	Hapoel Jordan valley
+54102520	Eden Shamgar	70	NONE FOUND	Seattle SuperSonics!	Seattle SuperSonics!
+54102399	Niran Yunger	70	Raanana Farmers	Raanana Farmers	Raanana Farmers
+54102594	Ravid Revivo	70	Hapoel Jordan valley	Hapoel Jordan valley	Hapoel Jordan valley
+54409810	Tobe Lytle	70	AmitaiTeam	AmitaiTeam	AmitaiTeam
+54409853	Asa Kuperman	70	AmitaiTeam	AmitaiTeam	AmitaiTeam
+54410032	Nir Itshaki	70	NONE FOUND	OP Robotics	OP Robotics

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { config } from "@/lib/config";
 import { getEligiblePlayers } from "@/lib/u21dle/players";
-import { getSourceTeam } from "@/lib/u21dle/source-teams";
+import { getU21dleTrainedBy } from "@/lib/u21dle/m5-trained-by";
 import { getFaceMtime } from "@/lib/face-mtime";
 import { getSeasonPlayerIds } from "@/lib/fantasy-db";
 import { U21dlePlayersTable } from "./U21dlePlayersTable";
@@ -18,7 +18,7 @@ async function getEligibleWithFaces() {
     players.map(async (p) => ({
       ...p,
       faceMtime: await getFaceMtime(p.playerId),
-      trainedBy: getSourceTeam(p.playerId) ?? undefined,
+      trainedBy: getU21dleTrainedBy(p.playerId) ?? undefined,
     }))
   );
   return withFaces.sort((a, b) => b.gp - a.gp);
