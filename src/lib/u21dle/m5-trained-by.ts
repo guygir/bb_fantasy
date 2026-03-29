@@ -7,6 +7,7 @@
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { getSourceTeam } from "./source-teams";
+import { getEligiblePlayers } from "./players";
 
 let cachedMap: Record<number, string> | null = null;
 
@@ -34,4 +35,14 @@ export function getU21dleTrainedBy(playerId: number): string | null {
   const m5 = getM5TrainedByMap()[playerId];
   if (m5 != null) return m5;
   return getSourceTeam(playerId);
+}
+
+/** All eligible U21dle players → display label (M5 + fallback). Keys are string playerIds for JSON clients. */
+export function getEligibleTrainedByMap(): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const p of getEligiblePlayers()) {
+    const t = getU21dleTrainedBy(p.playerId);
+    if (t) out[String(p.playerId)] = t;
+  }
+  return out;
 }

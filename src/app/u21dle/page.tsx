@@ -61,6 +61,8 @@ export default function U21dlePage() {
     }
   });
   const [allPlayers, setAllPlayers] = useState<U21dlePlayer[]>([]);
+  /** playerId string → M5 label (same source as /u21dle/players). */
+  const [trainedByMap, setTrainedByMap] = useState<Record<string, string>>({});
 
   // Load daily puzzle
   useEffect(() => {
@@ -79,6 +81,16 @@ export default function U21dlePage() {
         setLoadError(e instanceof Error ? e.message : "Failed to load");
         setLoading(false);
       });
+  }, []);
+
+  // M5 labels for guess rows / game-over (single map; guess history does not store trainedBy).
+  useEffect(() => {
+    fetch("/api/u21dle/trained-by-map")
+      .then((r) => r.json())
+      .then((j: { success?: boolean; data?: Record<string, string> }) => {
+        if (j.success && j.data) setTrainedByMap(j.data);
+      })
+      .catch(() => {});
   }, []);
 
   // Load all players for cheat panel when cheat mode is on
@@ -439,9 +451,9 @@ export default function U21dlePage() {
               {won ? (
                 <>
                   You guessed {answer?.name ?? "the player"}
-                  {(answer as { trainedBy?: string })?.trainedBy && (
+                  {answer && trainedByMap[String(answer.playerId)] && (
                     <span className="ml-1 font-medium text-gray-600">
-                      [Trained by: {(answer as { trainedBy?: string }).trainedBy}]
+                      [Trained by: {trainedByMap[String(answer.playerId)]}]
                     </span>
                   )}{" "}
                   in {guessHistory.length} {guessHistory.length === 1 ? "try" : "tries"}!
@@ -450,9 +462,9 @@ export default function U21dlePage() {
                 answer && (
                   <>
                     The player was: <span className="font-semibold">{answer.name}</span>
-                    {(answer as { trainedBy?: string }).trainedBy && (
+                    {trainedByMap[String(answer.playerId)] && (
                       <span className="ml-1 font-medium text-gray-600">
-                        [Trained by: {(answer as { trainedBy?: string }).trainedBy}]
+                        [Trained by: {trainedByMap[String(answer.playerId)]}]
                       </span>
                     )}
                   </>
@@ -498,9 +510,9 @@ export default function U21dlePage() {
                     <PlayerAvatar playerId={item.player.playerId} name={item.player.name} />
                     <span>
                       <span className="font-semibold">{item.player.name}</span>
-                      {(item.player as { trainedBy?: string }).trainedBy && (
+                      {trainedByMap[String(item.player.playerId)] && (
                         <span className="ml-1 font-medium text-gray-600">
-                          [Trained by: {(item.player as { trainedBy?: string }).trainedBy}]
+                          [Trained by: {trainedByMap[String(item.player.playerId)]}]
                         </span>
                       )}
                     </span>
