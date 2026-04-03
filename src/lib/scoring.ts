@@ -10,6 +10,7 @@ import {
   MAX_CHANGE_HIGH_CONFIDENCE,
   MAX_CHANGE_DEFAULT,
   getMaxPriceChange,
+  PRICE_FOR_ZERO_GP,
 } from "./scoring-core.mjs";
 
 export {
@@ -17,6 +18,7 @@ export {
   MAX_CHANGE_HIGH_CONFIDENCE,
   MAX_CHANGE_DEFAULT,
   getMaxPriceChange,
+  PRICE_FOR_ZERO_GP,
 };
 
 export interface PlayerGameStats {

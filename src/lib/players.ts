@@ -7,7 +7,7 @@ import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { bbapiLogin, bbapiPlayer } from "./bbapi";
 import { config } from "./config";
-import { statsToFantasyPoints, fantasyPPGToPrice } from "./scoring";
+import { statsToFantasyPoints, fantasyPPGToPrice, PRICE_FOR_ZERO_GP } from "./scoring";
 import { loadPlayerGameStats } from "./boxscore";
 import { loadScheduleFromJson } from "./schedule";
 import type { PlayerWithDetails } from "./types";
@@ -130,10 +130,11 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
       };
       const derivedPPG = statsToFantasyPoints(stats);
       const gameData = byPlayer.get(p.playerId);
+      const gp = gameData?.gp ?? 0;
       const fantasyPPG = gameData && gameData.gp > 0 ? gameData.total / gameData.gp : derivedPPG;
       const totalFP = gameData?.total ?? 0;
       const lastGameFP = lastGameFPByPlayer[p.playerId] ?? 0;
-      const inGamePrice = fantasyPPGToPrice(fantasyPPG);
+      const inGamePrice = gp === 0 ? PRICE_FOR_ZERO_GP : fantasyPPGToPrice(fantasyPPG);
 
       let position = "?";
       let dmi: number | null = null;

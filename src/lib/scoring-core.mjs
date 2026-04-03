@@ -38,6 +38,9 @@ export function getMaxPriceChange(gp) {
   return gp >= 3 ? MAX_CHANGE_HIGH_CONFIDENCE : MAX_CHANGE_DEFAULT;
 }
 
+/** Display / fallback price when a player has 0 fantasy games (no boxscore rows yet). */
+export const PRICE_FOR_ZERO_GP = 3;
+
 /**
  * PPG → Price tiers ($1–$10). Adjust thresholds here.
  */

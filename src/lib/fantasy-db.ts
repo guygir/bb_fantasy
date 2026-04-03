@@ -6,7 +6,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseAdmin } from "./supabase";
 import { loadPlayerGameStats } from "./boxscore";
-import { statsToFantasyPoints, fantasyPPGToPrice } from "./scoring";
+import { statsToFantasyPoints, fantasyPPGToPrice, PRICE_FOR_ZERO_GP } from "./scoring";
 import type { PlayerWithDetails } from "./types";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -195,12 +195,14 @@ export async function getPlayersFromSupabase(season: number): Promise<PlayerWith
     };
     const derivedPPG = statsToFantasyPoints(stats);
     const gameData = byPlayer.get(p.player_id);
+    const gp = gameData?.gp ?? 0;
     const fantasyPPG = gameData && gameData.gp > 0 ? gameData.total / gameData.gp : derivedPPG;
     const totalFP = gameData?.total ?? 0;
     const lastGameFP = lastGameFPByPlayer[p.player_id] ?? 0;
     const priceRow = pricesRes[p.player_id];
     const currentPrice = priceRow?.price;
-    const inGamePrice = currentPrice ?? fantasyPPGToPrice(fantasyPPG);
+    const inGamePrice =
+      currentPrice ?? (gp === 0 ? PRICE_FOR_ZERO_GP : fantasyPPGToPrice(fantasyPPG));
     const previousPrice = priceRow?.previousPrice ?? null;
 
     return {
