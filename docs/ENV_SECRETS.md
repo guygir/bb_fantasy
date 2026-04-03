@@ -7,6 +7,7 @@
 | BBAPI_LOGIN | ✅ | ✅ | ❌ (client uses user's) |
 | BBAPI_CODE | ✅ | ✅ | ❌ |
 | BB_PASSWORD | ✅ (cron runs sync-roster-faces) | Only if you run `sync-roster-faces` or `fetch-player-face` locally | ❌ |
+| BB_SITE_COOKIES | ✅ optional — bypasses reCAPTCHA when set | Same — paste browser `Cookie` header for buzzerbeater.com | ❌ |
 | NEXT_PUBLIC_SUPABASE_URL | ✅ | ✅ | ✅ |
 | SUPABASE_SERVICE_ROLE_KEY | ✅ | ✅ | ✅ (if server needs it) |
 
@@ -17,4 +18,4 @@
 - **Used by:** `scripts/fetch-player-face.mjs`, `scripts/sync-roster-faces.mjs`
 - **GitHub:** Add as repository secret for `fantasy-weekly-sync` workflow (required for cron)
 - **Local:** Add to `.env.local` only if you run `sync-roster-faces` or `fetch-player-face` manually
-- **Note:** BuzzerBeater login may use reCAPTCHA; automated Puppeteer login can fail. See `data/README.md`.
+- **Note:** BuzzerBeater login may use reCAPTCHA; automated password login can fail. Prefer **`BB_SITE_COOKIES`** (logged-in browser Cookie header) for `fetch-player-face` / CI — see `data/README.md`.

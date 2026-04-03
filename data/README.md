@@ -22,7 +22,8 @@
 - **u21dle_players.json** – Israel U21 players from seasons 60–70 (playerId, name, gp, pts, age, height, potential). Run `npm run fetch-u21dle-data` to refresh.
 
 ## Player faces
-- **public/player-faces/{playerId}.png** – BuzzerBeater login uses **reCAPTCHA**, so automated Puppeteer login is blocked. Options: (1) Manual screenshots, (2) Cookie export from a logged-in browser session (advanced), (3) Use initial-letter fallback (current default).
+- **public/player-faces/{playerId}.png** – BuzzerBeater **login.aspx** uses **reCAPTCHA**, so automated password login often fails in CI.
+- **Implemented in `scripts/fetch-player-face.mjs`:** (1) Try **public** player overview first (no login). (2) **`BB_SITE_COOKIES`** — paste the browser **`Cookie`** request header value from a session where you are already logged in to buzzerbeater.com (DevTools → Network → any document request → Request Headers → Cookie). This bypasses the login form (same idea as BBAPI cookie auth in `scripts/lib/bbapi-cookies.mjs`). (3) Fallback: **`BB_PASSWORD`** form login (may hit reCAPTCHA). (4) Manual PNGs or initial-letter UI fallback elsewhere.
 
 ## Workflow
 1. `npm run fetch-schedule 71` – fetch schedule

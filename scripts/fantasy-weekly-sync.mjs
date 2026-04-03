@@ -43,7 +43,7 @@ run("Process boxscores", "node", ["scripts/process-boxscores.mjs", String(SEASON
 run("Update prices", "node", ["scripts/update-prices.mjs", String(SEASON)], { USE_JSON_STATS: "1" }); // Use JSON (fresh from process-boxscores); Supabase not yet synced
 run("Sync to Supabase", "node", ["scripts/sync-fantasy-to-supabase.mjs", String(SEASON)]);
 
-// Sync roster faces (optional - needs BB_PASSWORD; may fail on CI if reCAPTCHA blocks login)
+// Sync roster faces (needs BB_PASSWORD for login fallback; tries public overview first to avoid reCAPTCHA)
 if (process.env.BB_PASSWORD) {
   console.log("\n--- Sync roster faces ---");
   const faceResult = spawnSync("node", ["scripts/sync-roster-faces.mjs"], {

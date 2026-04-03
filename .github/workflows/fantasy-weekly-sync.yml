@@ -36,10 +36,14 @@ jobs:
           BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
           BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
           BB_PASSWORD: ${{ secrets.BB_PASSWORD }}
+          # Optional: copy Cookie header from logged-in browser — avoids reCAPTCHA on login.aspx
+          BB_SITE_COOKIES: ${{ secrets.BB_SITE_COOKIES }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CURRENT_SEASON: ${{ github.event.inputs.season || '71' }}
         run: |
+          # Prefer system Chrome from setup-chrome (Puppeteer’s bundled Chromium may be missing on CI)
+          export PUPPETEER_EXECUTABLE_PATH="${PUPPETEER_EXECUTABLE_PATH:-$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)}"
           node scripts/fantasy-weekly-sync.mjs ${{ github.event.inputs.season || '71' }}
 
       - name: Commit and push player faces
