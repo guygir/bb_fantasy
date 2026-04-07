@@ -220,6 +220,7 @@ export async function getPlayersFromSupabase(season: number): Promise<PlayerWith
       gameShape: d?.game_shape ?? null,
       lastGameFP,
       totalFP,
+      fantasyGamesPlayed: gp,
     };
   });
 

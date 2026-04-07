@@ -5,7 +5,18 @@ import Link from "next/link";
 import type { PlayerWithDetails } from "@/lib/types";
 import { PlayerAvatar } from "./PlayerAvatar";
 
-type SortKey = "name" | "position" | "dmi" | "salary" | "gameShape" | "pts" | "avgRating" | "inGamePrice" | "lastGameFP" | "totalFP";
+type SortKey =
+  | "name"
+  | "position"
+  | "dmi"
+  | "salary"
+  | "gameShape"
+  | "pts"
+  | "avgRating"
+  | "inGamePrice"
+  | "fantasyGamesPlayed"
+  | "lastGameFP"
+  | "totalFP";
 type SortDir = "asc" | "desc";
 
 const COLS: { key: SortKey; label: string; align?: "right" }[] = [
@@ -17,6 +28,7 @@ const COLS: { key: SortKey; label: string; align?: "right" }[] = [
   { key: "pts", label: "PTS Avg", align: "right" },
   { key: "avgRating", label: "RTNG Avg", align: "right" },
   { key: "inGamePrice", label: "$ (Fantasy)", align: "right" },
+  { key: "fantasyGamesPlayed", label: "GP (Fantasy)", align: "right" },
   { key: "lastGameFP", label: "Last game FP (Fantasy)", align: "right" },
   { key: "totalFP", label: "Total FP (Fantasy)", align: "right" },
 ];
@@ -31,6 +43,7 @@ function getVal(p: PlayerWithDetails, key: SortKey): string | number {
     case "pts": return p.pts ?? -1;
     case "avgRating": return p.avgRating ?? -1;
     case "inGamePrice": return p.inGamePrice;
+    case "fantasyGamesPlayed": return p.fantasyGamesPlayed ?? -1;
     case "lastGameFP": return p.lastGameFP ?? -1;
     case "totalFP": return p.totalFP ?? -1;
     default: return "";
@@ -117,6 +130,9 @@ export function PlayersTable({ players }: { players: PlayerWithDetails[] }) {
                 ) : (
                   `$${p.inGamePrice}`
                 )}
+              </td>
+              <td className="border border-bb-border px-4 py-2 text-right" title="Games with fantasy boxscore stats this season">
+                {p.fantasyGamesPlayed ?? 0}
               </td>
               <td className="border border-bb-border px-4 py-2 text-right">
                 {(p.lastGameFP ?? 0).toFixed(1)}

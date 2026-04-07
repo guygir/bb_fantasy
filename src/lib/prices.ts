@@ -16,6 +16,7 @@ import {
   MAX_CHANGE_HIGH_CONFIDENCE,
   MAX_CHANGE_DEFAULT,
   getMaxPriceChange,
+  PRICE_FOR_ZERO_GP,
 } from "./scoring";
 import { loadPlayerGameStats } from "./boxscore";
 import { config } from "./config";
@@ -306,16 +307,12 @@ export function simulateAdjustedPrices(
       const newPrice = fantasyPPGToPrice(ppg);
       const oldPrice = prices[playerId];
       const maxChange = getMaxPriceChange(cum.gp);
-      let finalPrice: number;
-      if (oldPrice == null) {
-        finalPrice = newPrice;
-      } else {
-        const delta = newPrice - oldPrice;
-        finalPrice = Math.max(
-          1,
-          Math.min(10, oldPrice + Math.sign(delta) * Math.min(Math.abs(delta), maxChange))
-        );
-      }
+      const effectiveOld = oldPrice ?? PRICE_FOR_ZERO_GP;
+      const delta = newPrice - effectiveOld;
+      const finalPrice = Math.max(
+        1,
+        Math.min(10, effectiveOld + Math.sign(delta) * Math.min(Math.abs(delta), maxChange))
+      );
       prices[playerId] = finalPrice;
     }
 
@@ -323,6 +320,20 @@ export function simulateAdjustedPrices(
       if (!playersWhoPlayedThisMatch.has(playerId)) {
         prices[playerId] = dnpcPriceReduction(prices[playerId]);
       }
+    }
+  }
+
+  for (const [playerId, cum] of cumulative) {
+    const { total, gp } = cum;
+    if (gp >= 1 && prices[playerId] == null) {
+      const newPrice = fantasyPPGToPrice(total / gp);
+      const effectiveOld = PRICE_FOR_ZERO_GP;
+      const maxChange = getMaxPriceChange(gp);
+      const delta = newPrice - effectiveOld;
+      prices[playerId] = Math.max(
+        1,
+        Math.min(10, effectiveOld + Math.sign(delta) * Math.min(Math.abs(delta), maxChange))
+      );
     }
   }
 

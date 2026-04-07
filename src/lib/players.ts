@@ -176,6 +176,7 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
         gameShape,
         lastGameFP,
         totalFP,
+        fantasyGamesPlayed: gp,
       };
     })
   );

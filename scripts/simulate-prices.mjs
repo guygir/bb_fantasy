@@ -30,6 +30,7 @@ const {
   weightedPPGFromGameFPs,
   MIN_GAMES_FOR_ADJUSTMENT,
   getMaxPriceChange,
+  PRICE_FOR_ZERO_GP,
 } = await import(join(__dirname, "../src/lib/scoring-core.mjs"));
 
 /** Cost reduction for players who didn't play: $9–10 → -2, $3–8 → -1 */
@@ -154,13 +155,12 @@ function simulateAdjustedPrices(season, startingPrices, stats) {
       const newPrice = fantasyPPGToPrice(ppg);
       const oldPrice = prices[playerId];
       const maxChange = getMaxPriceChange(cum.gp);
-      let finalPrice;
-      if (oldPrice == null) {
-        finalPrice = newPrice;
-      } else {
-        const delta = newPrice - oldPrice;
-        finalPrice = Math.max(1, Math.min(10, oldPrice + Math.sign(delta) * Math.min(Math.abs(delta), maxChange)));
-      }
+      const effectiveOld = oldPrice ?? PRICE_FOR_ZERO_GP;
+      const delta = newPrice - effectiveOld;
+      const finalPrice = Math.max(
+        1,
+        Math.min(10, effectiveOld + Math.sign(delta) * Math.min(Math.abs(delta), maxChange))
+      );
       prices[playerId] = finalPrice;
       weekPrices[playerId] = finalPrice;
     }
@@ -177,6 +177,20 @@ function simulateAdjustedPrices(season, startingPrices, stats) {
       weekNum: mi + 1,
       prices: { ...weekPrices },
     });
+  }
+
+  for (const [playerId, cum] of cumulative) {
+    const { total, gp } = cum;
+    if (gp >= 1 && prices[playerId] == null) {
+      const newPrice = fantasyPPGToPrice(total / gp);
+      const effectiveOld = PRICE_FOR_ZERO_GP;
+      const maxChange = getMaxPriceChange(gp);
+      const delta = newPrice - effectiveOld;
+      prices[playerId] = Math.max(
+        1,
+        Math.min(10, effectiveOld + Math.sign(delta) * Math.min(Math.abs(delta), maxChange))
+      );
+    }
   }
 
   return { prices, cumulative, nameByPlayer, priceByWeek, playedMatches };

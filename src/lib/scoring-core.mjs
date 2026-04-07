@@ -38,8 +38,16 @@ export function getMaxPriceChange(gp) {
   return gp >= 3 ? MAX_CHANGE_HIGH_CONFIDENCE : MAX_CHANGE_DEFAULT;
 }
 
-/** Display / fallback price when a player has 0 fantasy games (no boxscore rows yet). */
-export const PRICE_FOR_ZERO_GP = 3;
+/**
+ * Display / fallback when a player has 0 fantasy games; also the implied floor in price simulation
+ * when no prior simulated price exists. Override with env FANTASY_NEW_PLAYER_PRICE (1–10), e.g. in .env.local.
+ */
+const _envFloor =
+  typeof process !== "undefined" && process.env?.FANTASY_NEW_PLAYER_PRICE != null
+    ? Number(process.env.FANTASY_NEW_PLAYER_PRICE)
+    : NaN;
+export const PRICE_FOR_ZERO_GP =
+  Number.isFinite(_envFloor) && _envFloor >= 1 && _envFloor <= 10 ? Math.floor(_envFloor) : 3;
 
 /**
  * PPG → Price tiers ($1–$10). Adjust thresholds here.

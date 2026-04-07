@@ -16,6 +16,8 @@ export interface PlayerWithDetails {
   lastGameFP?: number | null;
   /** Total fantasy points (games played only) */
   totalFP?: number | null;
+  /** Games with a fantasy boxscore row this season (fantasy_player_game_stats / local stats) */
+  fantasyGamesPlayed?: number;
   /** File mtime for player face cache busting (optional) */
   faceMtime?: number | null;
 }
