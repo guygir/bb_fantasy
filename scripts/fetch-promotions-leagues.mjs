@@ -168,9 +168,19 @@ async function main() {
     process.exit(1);
   }
 
-  const { error: delErr } = await supabase.from("promotions_snapshots").delete().neq("id", snap.id);
-  if (delErr) {
-    console.warn("Cleanup old snapshots:", delErr.message);
+  // Keep the two newest snapshots so /promotions can show "Latest change" vs the previous run.
+  const { data: snapList, error: listErr } = await supabase
+    .from("promotions_snapshots")
+    .select("id")
+    .order("created_at", { ascending: false });
+  if (listErr) {
+    console.warn("Cleanup list snapshots:", listErr.message);
+  } else if (snapList && snapList.length > 2) {
+    const toDelete = snapList.slice(2).map((s) => s.id);
+    const { error: delErr } = await supabase.from("promotions_snapshots").delete().in("id", toDelete);
+    if (delErr) {
+      console.warn("Cleanup old snapshots:", delErr.message);
+    }
   }
 
   console.log(`OK: snapshot ${snap.id}, ${entryRows.length} rows.`);

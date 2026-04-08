@@ -68,23 +68,14 @@ export default async function PromotionsPage() {
   return (
     <div>
       <h2 className="mb-2 text-lg font-semibold">Israel League III — Promotions outlook</h2>
-      <p className="mb-4 max-w-3xl text-sm text-gray-600">
-        We scrape the top three teams in each conference in every Israel League III division (league
-        IDs 1004–1019; six teams per league). Teams are ranked by conference rank (all #1s before #2s
-        before #3s), then wins, then point differential — the table shows the top 32 only. The first
-        eight rows are highlighted as the current promotion band to the next league. Latest change
-        compares each team&apos;s overall rank to the previous scheduled update (same league and
-        conference). Data is refreshed on a schedule from{" "}
-        <a
-          href="https://buzzerbeater.com"
-          className="text-exact hover:underline font-medium"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          BuzzerBeater
-        </a>
-        .
-      </p>
+      <div className="mb-4 max-w-3xl text-sm text-gray-600">
+        <p className="mb-1 font-medium text-bb-text">Ranking</p>
+        <ol className="ml-5 list-decimal space-y-0.5">
+          <li>Conference rank (all 1st-place finishes before 2nd, before 3rd).</li>
+          <li>Wins — higher is better.</li>
+          <li>Point differential — higher is better.</li>
+        </ol>
+      </div>
 
       {error && (
         <p className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
