@@ -134,10 +134,10 @@ export function AuthNav() {
           </Link>
         )}
       </div>
-      <div className="flex flex-col gap-2 items-end">
+      <div className="flex flex-row flex-wrap items-center justify-end gap-2">
         <Link
           href="/promotions"
-          className="rounded-lg bg-btn-lavender px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+          className="rounded-lg bg-btn-mint px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
         >
           Promotions
         </Link>

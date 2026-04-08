@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { LatestRankChange } from "@/lib/promotions";
 import { getLatestPromotions } from "@/lib/promotions";
 
 export const metadata: Metadata = {
@@ -24,17 +25,56 @@ function formatSnapshot(iso: string | null): string {
   }
 }
 
+function LatestChangeCell({ change }: { change: LatestRankChange }) {
+  if (change.kind === "none") {
+    return (
+      <span className="text-gray-400" title="No previous snapshot or team was outside top 32 last time">
+        —
+      </span>
+    );
+  }
+  if (change.kind === "same") {
+    return (
+      <span className="tabular-nums text-gray-700" aria-label="No change in overall rank">
+        0
+      </span>
+    );
+  }
+  if (change.kind === "up") {
+    return (
+      <span
+        className="inline-flex items-center gap-1 tabular-nums font-medium text-green-600"
+        aria-label={`Improved ${change.magnitude} places in overall rank`}
+      >
+        <span aria-hidden>↑</span>
+        {change.magnitude}
+      </span>
+    );
+  }
+  return (
+    <span
+      className="inline-flex items-center gap-1 tabular-nums font-medium text-red-600"
+      aria-label={`Dropped ${change.magnitude} places in overall rank`}
+    >
+      <span aria-hidden>↓</span>
+      {change.magnitude}
+    </span>
+  );
+}
+
 export default async function PromotionsPage() {
-  const { snapshotAt, entries, error } = await getLatestPromotions();
+  const { snapshotAt, previousSnapshotAt, entries, error } = await getLatestPromotions();
 
   return (
     <div>
       <h2 className="mb-2 text-lg font-semibold">Israel League III — Promotions outlook</h2>
       <p className="mb-4 max-w-3xl text-sm text-gray-600">
-        Top three teams in each conference in every Israel League III division (league IDs 1004–1019;
-        six teams per league, up to 120 total). The table lists everyone, sorted by conference rank
-        (all #1s before #2s before #3s), then wins, then point differential. Data is refreshed on a
-        schedule from{" "}
+        We scrape the top three teams in each conference in every Israel League III division (league
+        IDs 1004–1019; six teams per league). Teams are ranked by conference rank (all #1s before #2s
+        before #3s), then wins, then point differential — the table shows the top 32 only. The first
+        eight rows are highlighted as the current promotion band to the next league. Latest change
+        compares each team&apos;s overall rank to the previous scheduled update (same league and
+        conference). Data is refreshed on a schedule from{" "}
         <a
           href="https://buzzerbeater.com"
           className="text-exact hover:underline font-medium"
@@ -64,6 +104,12 @@ export default async function PromotionsPage() {
         <>
           <p className="mb-4 text-sm text-gray-500">
             Last updated: {formatSnapshot(snapshotAt)}
+            {previousSnapshotAt != null && (
+              <>
+                {" "}
+                · Compared to: {formatSnapshot(previousSnapshotAt)}
+              </>
+            )}
           </p>
           <div className="overflow-x-auto rounded-lg border border-bb-border">
             <table className="w-full border-collapse text-sm">
@@ -72,25 +118,41 @@ export default async function PromotionsPage() {
                   <th className="border border-bb-border px-3 py-2 text-right">#</th>
                   <th className="border border-bb-border px-3 py-2 text-left">Team</th>
                   <th className="border border-bb-border px-3 py-2 text-left">League</th>
-                  <th className="border border-bb-border px-3 py-2 text-center">Conf</th>
                   <th className="border border-bb-border px-3 py-2 text-right">Conf rank</th>
                   <th className="border border-bb-border px-3 py-2 text-right">W</th>
                   <th className="border border-bb-border px-3 py-2 text-right">L</th>
                   <th className="border border-bb-border px-3 py-2 text-right">PD</th>
+                  <th className="border border-bb-border px-3 py-2 text-right">Latest change</th>
                 </tr>
               </thead>
               <tbody>
-                {entries.map((row) => (
-                  <tr key={`${row.league_id}-${row.conf}-${row.display_rank}`} className="hover:bg-gray-50/80">
+                {entries.map((row) => {
+                  const inPromotionBand = row.display_rank <= 8;
+                  const leagueUrl = `https://buzzerbeater.com/league/${row.league_id}/overview.aspx`;
+                  return (
+                  <tr
+                    key={`${row.display_rank}-${row.league_id}-${row.conf}-${row.conf_rank}`}
+                    className={
+                      inPromotionBand
+                        ? "bg-amber-50 hover:bg-amber-100/90"
+                        : "hover:bg-gray-50/80"
+                    }
+                  >
                     <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
                       {row.display_rank}
                     </td>
                     <td className="border border-bb-border px-3 py-2 font-medium">{row.team_name}</td>
                     <td className="border border-bb-border px-3 py-2 text-gray-700">
-                      {row.league_name}{" "}
-                      <span className="text-gray-400">({row.league_id})</span>
+                      <a
+                        href={leagueUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-exact hover:underline font-medium"
+                      >
+                        {row.league_name}{" "}
+                        <span className="font-normal text-gray-400">({row.league_id})</span>
+                      </a>
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-center">{row.conf}</td>
                     <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
                       {row.conf_rank}
                     </td>
@@ -103,8 +165,12 @@ export default async function PromotionsPage() {
                     <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
                       {row.pd}
                     </td>
+                    <td className="border border-bb-border px-3 py-2 text-right">
+                      <LatestChangeCell change={row.latestRankChange} />
+                    </td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>

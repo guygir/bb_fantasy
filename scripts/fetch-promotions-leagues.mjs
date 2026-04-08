@@ -1,5 +1,5 @@
 /**
- * Scrape Israel League III (league ids 1004–1019): top 3 per conference (6 per league), rank all, store in Supabase.
+ * Scrape Israel League III (league ids 1004–1019): top 3 per conference (6 per league), rank, keep top 32, store in Supabase.
  * Run: node scripts/fetch-promotions-leagues.mjs
  * Env: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
  */
@@ -19,6 +19,8 @@ const LEAGUE_MIN = 1004;
 const LEAGUE_MAX = 1019;
 /** Rows after header: 1st, 2nd, 3rd in conference standings */
 const TOP_PER_CONF = 3;
+/** After ranking all scraped teams, keep only this many for the site and DB */
+const DISPLAY_TOP_N = 32;
 const FETCH_TIMEOUT_MS = 25000;
 const USER_AGENT = "Mozilla/5.0 (compatible; BBIsraelFantasy/1.0; +https://github.com)";
 
@@ -87,18 +89,18 @@ async function fetchLeague(leagueId) {
 }
 
 /**
- * Sort all collected teams (up to 120):
+ * Sort collected teams, then keep top N:
  * 1) conference rank ascending (1 before 2 before 3)
  * 2) wins descending
  * 3) PD descending
  */
-function rankAll(teams) {
+function rankAndTakeTop(teams, topN) {
   const sorted = [...teams].sort((a, b) => {
     if (a.conf_rank !== b.conf_rank) return a.conf_rank - b.conf_rank;
     if (a.wins !== b.wins) return b.wins - a.wins;
     return b.pd - a.pd;
   });
-  return sorted.map((t, i) => ({ ...t, display_rank: i + 1 }));
+  return sorted.slice(0, topN).map((t, i) => ({ ...t, display_rank: i + 1 }));
 }
 
 async function main() {
@@ -133,9 +135,9 @@ async function main() {
   }
 
   console.log(
-    `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league).`
+    `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league); storing top ${DISPLAY_TOP_N}.`
   );
-  const ranked = rankAll(all);
+  const ranked = rankAndTakeTop(all, DISPLAY_TOP_N);
 
   const { data: snap, error: snapErr } = await supabase
     .from("promotions_snapshots")
