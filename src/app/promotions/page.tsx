@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getNextPromotionsScheduledRunUtc } from "@/lib/promotions-schedule";
 import type { LatestRankChange } from "@/lib/promotions";
 import { getLatestPromotions } from "@/lib/promotions";
 
@@ -42,7 +43,7 @@ function LatestChangeCell({ change }: { change: LatestRankChange }) {
   }
   if (change.kind === "up") {
     return (
-      <span className="inline-flex flex-wrap items-center gap-x-1 text-sm">
+      <span className="inline-flex flex-wrap items-center gap-x-1">
         <span className="text-gray-700">Moved:</span>
         <span
           className="inline-flex items-center gap-0.5 font-medium tabular-nums text-green-600"
@@ -55,7 +56,7 @@ function LatestChangeCell({ change }: { change: LatestRankChange }) {
     );
   }
   return (
-    <span className="inline-flex flex-wrap items-center gap-x-1 text-sm">
+    <span className="inline-flex flex-wrap items-center gap-x-1">
       <span className="text-gray-700">Moved:</span>
       <span
         className="inline-flex items-center gap-0.5 font-medium tabular-nums text-red-600"
@@ -70,13 +71,16 @@ function LatestChangeCell({ change }: { change: LatestRankChange }) {
 
 export default async function PromotionsPage() {
   const { snapshotAt, previousSnapshotAt, entries, error } = await getLatestPromotions();
+  const nextScheduledAt = formatSnapshot(getNextPromotionsScheduledRunUtc().toISOString());
 
   return (
-    <div>
-      <h2 className="mb-2 text-lg font-semibold">Israel League III — Promotions outlook</h2>
-      <div className="mb-4 max-w-3xl text-sm text-gray-600">
-        <p className="mb-1 font-medium text-bb-text">Ranking</p>
-        <ol className="ml-5 list-decimal space-y-0.5">
+    <div className="text-xl leading-relaxed sm:text-2xl sm:leading-relaxed">
+      <h2 className="mb-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+        Israel League III — Promotions outlook
+      </h2>
+      <div className="mb-6 max-w-4xl text-gray-600">
+        <p className="mb-2 font-semibold text-bb-text">Ranking</p>
+        <ol className="ml-8 list-decimal space-y-2 sm:ml-10">
           <li>Not a bot — teams with &quot;Managed by a computerized player&quot; on the team page are excluded.</li>
           <li>Conference rank (all 1st-place finishes before 2nd, before 3rd).</li>
           <li>Wins — higher is better.</li>
@@ -85,22 +89,22 @@ export default async function PromotionsPage() {
       </div>
 
       {error && (
-        <p className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+        <p className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-5 py-4 text-amber-900">
           {error}
         </p>
       )}
 
       {!error && entries.length === 0 && (
-        <p className="text-gray-500">
+        <p className="text-gray-600">
           No snapshot yet. After the migration is applied and{" "}
-          <code className="rounded bg-gray-100 px-1">npm run fetch-promotions</code> has run, the
+          <code className="rounded bg-gray-100 px-2 py-0.5 text-[0.85em]">npm run fetch-promotions</code> has run, the
           table will appear here.
         </p>
       )}
 
       {entries.length > 0 && (
         <>
-          <p className="mb-4 text-sm text-gray-500">
+          <p className="mb-5 text-gray-600">
             Last updated: {formatSnapshot(snapshotAt)}
             {previousSnapshotAt != null && (
               <>
@@ -108,19 +112,21 @@ export default async function PromotionsPage() {
                 · Compared to: {formatSnapshot(previousSnapshotAt)}
               </>
             )}
+            {" "}
+            · Next scheduled update: {nextScheduledAt}
           </p>
           <div className="overflow-x-auto rounded-lg border border-bb-border">
-            <table className="w-full border-collapse text-sm">
+            <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-card-bg">
-                  <th className="border border-bb-border px-3 py-2 text-right">#</th>
-                  <th className="border border-bb-border px-3 py-2 text-left">Team</th>
-                  <th className="border border-bb-border px-3 py-2 text-left">League</th>
-                  <th className="border border-bb-border px-3 py-2 text-right">Conf rank</th>
-                  <th className="border border-bb-border px-3 py-2 text-right">W</th>
-                  <th className="border border-bb-border px-3 py-2 text-right">L</th>
-                  <th className="border border-bb-border px-3 py-2 text-right">PD</th>
-                  <th className="border border-bb-border px-3 py-2 text-left">Latest change</th>
+                  <th className="border border-bb-border px-4 py-3 text-right font-semibold">#</th>
+                  <th className="border border-bb-border px-4 py-3 text-left font-semibold">Team</th>
+                  <th className="border border-bb-border px-4 py-3 text-left font-semibold">League</th>
+                  <th className="border border-bb-border px-4 py-3 text-right font-semibold">Conf rank</th>
+                  <th className="border border-bb-border px-4 py-3 text-right font-semibold">W</th>
+                  <th className="border border-bb-border px-4 py-3 text-right font-semibold">L</th>
+                  <th className="border border-bb-border px-4 py-3 text-right font-semibold">PD</th>
+                  <th className="border border-bb-border px-4 py-3 text-left font-semibold">Latest change</th>
                 </tr>
               </thead>
               <tbody>
@@ -136,10 +142,10 @@ export default async function PromotionsPage() {
                         : "hover:bg-gray-50/80"
                     }
                   >
-                    <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                    <td className="border border-bb-border px-4 py-3 text-right tabular-nums">
                       {row.display_rank}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 font-medium">
+                    <td className="border border-bb-border px-4 py-3 font-medium">
                       {row.team_url ? (
                         <a
                           href={row.team_url}
@@ -153,7 +159,7 @@ export default async function PromotionsPage() {
                         row.team_name
                       )}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-gray-700">
+                    <td className="border border-bb-border px-4 py-3 text-gray-700">
                       <a
                         href={leagueUrl}
                         target="_blank"
@@ -164,19 +170,19 @@ export default async function PromotionsPage() {
                         <span className="font-normal text-gray-400">({row.league_id})</span>
                       </a>
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                    <td className="border border-bb-border px-4 py-3 text-right tabular-nums">
                       {row.conf_rank}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                    <td className="border border-bb-border px-4 py-3 text-right tabular-nums">
                       {row.wins}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                    <td className="border border-bb-border px-4 py-3 text-right tabular-nums">
                       {row.losses}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                    <td className="border border-bb-border px-4 py-3 text-right tabular-nums">
                       {row.pd}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-left">
+                    <td className="border border-bb-border px-4 py-3 text-left">
                       <LatestChangeCell change={row.latestRankChange} />
                     </td>
                   </tr>
@@ -188,8 +194,8 @@ export default async function PromotionsPage() {
         </>
       )}
 
-      <p className="mt-8 text-sm text-gray-500">
-        <Link href="/" className="text-exact hover:underline font-medium">
+      <p className="mt-10 text-gray-600">
+        <Link href="/" className="text-exact hover:underline font-semibold">
           ← Home
         </Link>
       </p>
