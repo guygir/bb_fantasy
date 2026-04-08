@@ -77,6 +77,7 @@ export default async function PromotionsPage() {
       <div className="mb-4 max-w-3xl text-sm text-gray-600">
         <p className="mb-1 font-medium text-bb-text">Ranking</p>
         <ol className="ml-5 list-decimal space-y-0.5">
+          <li>Not a bot — teams with &quot;Managed by a computerized player&quot; on the team page are excluded.</li>
           <li>Conference rank (all 1st-place finishes before 2nd, before 3rd).</li>
           <li>Wins — higher is better.</li>
           <li>Point differential — higher is better.</li>

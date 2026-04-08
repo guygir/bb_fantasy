@@ -24,6 +24,10 @@ const DISPLAY_TOP_N = 32;
 const FETCH_TIMEOUT_MS = 25000;
 const USER_AGENT = "Mozilla/5.0 (compatible; BBIsraelFantasy/1.0; +https://github.com)";
 const BB_ORIGIN = "https://buzzerbeater.com";
+/** Matches logobox text on team page (case-insensitive, whitespace normalized) */
+const BOT_PHRASE = "managed by a computerized player";
+/** Parallel team page fetches per batch (avoid hammering BB) */
+const TEAM_BOT_CHECK_CONCURRENCY = 6;
 
 /** Resolve relative /team/... links from standings HTML */
 function resolveTeamPageUrl(href) {
@@ -105,7 +109,32 @@ async function fetchLeague(leagueId) {
 }
 
 /**
- * Sort collected teams, then keep top N:
+ * Team overview page: #logobox contains "Managed by a computerized player" for CPU teams.
+ * @returns {Promise<boolean>}
+ */
+async function fetchTeamPageIsBot(teamUrl) {
+  if (!teamUrl) return false;
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(teamUrl, {
+      signal: ctrl.signal,
+      headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
+    });
+    if (!res.ok) return false;
+    const html = await res.text();
+    const $ = load(html);
+    const text = $("#logobox").text().replace(/\s+/g, " ").trim().toLowerCase();
+    return text.includes(BOT_PHRASE);
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+/**
+ * Sort eligible (non-bot) teams, then keep top N:
  * 1) conference rank ascending (1 before 2 before 3)
  * 2) wins descending
  * 3) PD descending
@@ -152,9 +181,35 @@ async function main() {
   }
 
   console.log(
-    `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league); storing top ${DISPLAY_TOP_N}.`
+    `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league). Checking team pages for bots…`
   );
-  const ranked = rankAndTakeTop(all, DISPLAY_TOP_N);
+  for (let i = 0; i < all.length; i += TEAM_BOT_CHECK_CONCURRENCY) {
+    const chunk = all.slice(i, i + TEAM_BOT_CHECK_CONCURRENCY);
+    await Promise.all(
+      chunk.map(async (row) => {
+        row.is_bot = await fetchTeamPageIsBot(row.team_url);
+      })
+    );
+    process.stdout.write(".");
+  }
+  console.log();
+
+  const botsConfRank1 = all.filter((r) => r.is_bot && r.conf_rank === 1);
+  console.log("\nBots with conference rank 1 (excluded from ranking):");
+  if (botsConfRank1.length === 0) {
+    console.log("  (none)");
+  } else {
+    for (const r of botsConfRank1) {
+      console.log(`  - ${r.team_name} (${r.league_name}, league ${r.league_id}, conf ${r.conf})`);
+    }
+  }
+  console.log();
+
+  const eligible = all.filter((r) => !r.is_bot);
+  console.log(
+    `Eligible (non-bot): ${eligible.length} / ${all.length}; storing top ${DISPLAY_TOP_N} after ranking.`
+  );
+  const ranked = rankAndTakeTop(eligible, DISPLAY_TOP_N);
 
   const { data: snap, error: snapErr } = await supabase
     .from("promotions_snapshots")
