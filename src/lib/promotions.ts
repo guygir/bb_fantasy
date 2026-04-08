@@ -9,6 +9,8 @@ export type PromotionEntry = {
   conf: number;
   conf_rank: number;
   team_name: string;
+  /** BuzzerBeater team page URL from standings link */
+  team_url: string | null;
   wins: number;
   losses: number;
   pd: number;
@@ -88,7 +90,7 @@ export async function getLatestPromotions(): Promise<{
     const { data: rows, error: entErr } = await supabase
       .from("promotions_entries")
       .select(
-        "display_rank, league_id, conf, conf_rank, team_name, wins, losses, pd, league_name"
+        "display_rank, league_id, conf, conf_rank, team_name, team_url, wins, losses, pd, league_name"
       )
       .eq("snapshot_id", currentSnap.id)
       .lte("display_rank", PROMOTIONS_DISPLAY_LIMIT)

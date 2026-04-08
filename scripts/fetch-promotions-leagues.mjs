@@ -23,6 +23,19 @@ const TOP_PER_CONF = 3;
 const DISPLAY_TOP_N = 32;
 const FETCH_TIMEOUT_MS = 25000;
 const USER_AGENT = "Mozilla/5.0 (compatible; BBIsraelFantasy/1.0; +https://github.com)";
+const BB_ORIGIN = "https://buzzerbeater.com";
+
+/** Resolve relative /team/... links from standings HTML */
+function resolveTeamPageUrl(href) {
+  if (!href || typeof href !== "string") return null;
+  const t = href.trim();
+  if (!t) return null;
+  try {
+    return new URL(t, BB_ORIGIN).href;
+  } catch {
+    return null;
+  }
+}
 
 function parseTdInt(text) {
   const n = parseInt(String(text).replace(/[^-\d]/g, ""), 10);
@@ -33,12 +46,15 @@ function parseStandingsRow($, tr) {
   const tds = $(tr).find("td");
   if (tds.length < 8) return null;
   const rank = parseTdInt($(tds[0]).text());
-  const teamName = $(tds[1]).find("a").first().text().trim() || $(tds[1]).text().trim();
+  const teamCell = $(tds[1]);
+  const link = teamCell.find("a").first();
+  const teamName = link.text().trim() || teamCell.text().trim();
+  const teamUrl = resolveTeamPageUrl(link.attr("href"));
   const wins = parseTdInt($(tds[2]).text());
   const losses = parseTdInt($(tds[3]).text());
   const pd = parseTdInt($(tds[7]).text());
   if (!teamName || rank < 1) return null;
-  return { conf_rank: rank, team_name: teamName, wins, losses, pd };
+  return { conf_rank: rank, team_name: teamName, team_url: teamUrl, wins, losses, pd };
 }
 
 function parseLeaguePage(html) {
@@ -126,6 +142,7 @@ async function main() {
         conf: row.conf,
         conf_rank: row.conf_rank,
         team_name: row.team_name,
+        team_url: row.team_url,
         wins: row.wins,
         losses: row.losses,
         pd: row.pd,
@@ -156,6 +173,7 @@ async function main() {
     conf: t.conf,
     conf_rank: t.conf_rank,
     team_name: t.team_name,
+    team_url: t.team_url,
     wins: t.wins,
     losses: t.losses,
     pd: t.pd,

@@ -35,29 +35,35 @@ function LatestChangeCell({ change }: { change: LatestRankChange }) {
   }
   if (change.kind === "same") {
     return (
-      <span className="tabular-nums text-gray-700" aria-label="No change in overall rank">
-        0
+      <span className="text-gray-700" aria-label="Same overall rank as previous update">
+        Same rank
       </span>
     );
   }
   if (change.kind === "up") {
     return (
-      <span
-        className="inline-flex items-center gap-1 tabular-nums font-medium text-green-600"
-        aria-label={`Improved ${change.magnitude} places in overall rank`}
-      >
-        <span aria-hidden>↑</span>
-        {change.magnitude}
+      <span className="inline-flex flex-wrap items-center gap-x-1 text-sm">
+        <span className="text-gray-700">Moved:</span>
+        <span
+          className="inline-flex items-center gap-0.5 font-medium tabular-nums text-green-600"
+          aria-label={`Moved up ${change.magnitude} places in overall rank`}
+        >
+          <span aria-hidden>↑</span>
+          {change.magnitude}
+        </span>
       </span>
     );
   }
   return (
-    <span
-      className="inline-flex items-center gap-1 tabular-nums font-medium text-red-600"
-      aria-label={`Dropped ${change.magnitude} places in overall rank`}
-    >
-      <span aria-hidden>↓</span>
-      {change.magnitude}
+    <span className="inline-flex flex-wrap items-center gap-x-1 text-sm">
+      <span className="text-gray-700">Moved:</span>
+      <span
+        className="inline-flex items-center gap-0.5 font-medium tabular-nums text-red-600"
+        aria-label={`Moved down ${change.magnitude} places in overall rank`}
+      >
+        <span aria-hidden>↓</span>
+        {change.magnitude}
+      </span>
     </span>
   );
 }
@@ -113,7 +119,7 @@ export default async function PromotionsPage() {
                   <th className="border border-bb-border px-3 py-2 text-right">W</th>
                   <th className="border border-bb-border px-3 py-2 text-right">L</th>
                   <th className="border border-bb-border px-3 py-2 text-right">PD</th>
-                  <th className="border border-bb-border px-3 py-2 text-right">Latest change</th>
+                  <th className="border border-bb-border px-3 py-2 text-left">Latest change</th>
                 </tr>
               </thead>
               <tbody>
@@ -125,14 +131,27 @@ export default async function PromotionsPage() {
                     key={`${row.display_rank}-${row.league_id}-${row.conf}-${row.conf_rank}`}
                     className={
                       inPromotionBand
-                        ? "bg-amber-50 hover:bg-amber-100/90"
+                        ? "bg-green-50 hover:bg-green-100/90"
                         : "hover:bg-gray-50/80"
                     }
                   >
                     <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
                       {row.display_rank}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 font-medium">{row.team_name}</td>
+                    <td className="border border-bb-border px-3 py-2 font-medium">
+                      {row.team_url ? (
+                        <a
+                          href={row.team_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-exact hover:underline"
+                        >
+                          {row.team_name}
+                        </a>
+                      ) : (
+                        row.team_name
+                      )}
+                    </td>
                     <td className="border border-bb-border px-3 py-2 text-gray-700">
                       <a
                         href={leagueUrl}
@@ -156,7 +175,7 @@ export default async function PromotionsPage() {
                     <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
                       {row.pd}
                     </td>
-                    <td className="border border-bb-border px-3 py-2 text-right">
+                    <td className="border border-bb-border px-3 py-2 text-left">
                       <LatestChangeCell change={row.latestRankChange} />
                     </td>
                   </tr>
