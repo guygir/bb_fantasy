@@ -1,6 +1,7 @@
 /**
- * Scrape Israel League III (league ids 1004–1019): top 3 per conference (6 per league), rank, keep top 32, store in Supabase.
- * Run: node scripts/fetch-promotions-leagues.mjs
+ * Scrape Israel League II or III: top 3 per conference per league, exclude bots, rank, keep top 32, store in Supabase.
+ * Run: node scripts/fetch-promotions-leagues.mjs [league3|league2]
+ * Default: league3 (1004–1019). league2 → 1000–1003.
  * Env: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
  */
 
@@ -15,8 +16,11 @@ const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
 config({ path: join(ROOT, ".env.local") });
 
-const LEAGUE_MIN = 1004;
-const LEAGUE_MAX = 1019;
+const TIERS = {
+  league3: { leagueMin: 1004, leagueMax: 1019, label: "League III" },
+  league2: { leagueMin: 1000, leagueMax: 1003, label: "League II" },
+};
+
 /** Rows after header: 1st, 2nd, 3rd in conference standings */
 const TOP_PER_CONF = 3;
 /** After ranking all scraped teams, keep only this many for the site and DB */
@@ -108,10 +112,6 @@ async function fetchLeague(leagueId) {
   }
 }
 
-/**
- * Team overview page: #logobox contains "Managed by a computerized player" for CPU teams.
- * @returns {Promise<boolean>}
- */
 async function fetchTeamPageIsBot(teamUrl) {
   if (!teamUrl) return false;
   const ctrl = new AbortController();
@@ -133,12 +133,6 @@ async function fetchTeamPageIsBot(teamUrl) {
   }
 }
 
-/**
- * Sort eligible (non-bot) teams, then keep top N:
- * 1) conference rank ascending (1 before 2 before 3)
- * 2) wins descending
- * 3) PD descending
- */
 function rankAndTakeTop(teams, topN) {
   const sorted = [...teams].sort((a, b) => {
     if (a.conf_rank !== b.conf_rank) return a.conf_rank - b.conf_rank;
@@ -148,15 +142,35 @@ function rankAndTakeTop(teams, topN) {
   return sorted.slice(0, topN).map((t, i) => ({ ...t, display_rank: i + 1 }));
 }
 
-async function main() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
-    console.error("Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY");
+async function pruneOldSnapshots(supabase, tierId) {
+  const { data: snapList, error: listErr } = await supabase
+    .from("promotions_snapshots")
+    .select("id")
+    .eq("tier", tierId)
+    .order("created_at", { ascending: false });
+  if (listErr) {
+    console.warn(`Cleanup list snapshots (${tierId}):`, listErr.message);
+    return;
+  }
+  if (snapList && snapList.length > 2) {
+    const toDelete = snapList.slice(2).map((s) => s.id);
+    const { error: delErr } = await supabase.from("promotions_snapshots").delete().in("id", toDelete);
+    if (delErr) {
+      console.warn(`Cleanup old snapshots (${tierId}):`, delErr.message);
+    }
+  }
+}
+
+async function runTier(supabase, tierId) {
+  const cfg = TIERS[tierId];
+  if (!cfg) {
+    console.error(`Unknown tier "${tierId}". Use: league3 | league2`);
     process.exit(1);
   }
+  const { leagueMin: LEAGUE_MIN, leagueMax: LEAGUE_MAX, label } = cfg;
 
-  const supabase = createClient(url, key);
+  console.log(`\n=== ${label} (${tierId}) — leagues ${LEAGUE_MIN}–${LEAGUE_MAX} ===\n`);
+
   const all = [];
 
   for (let leagueId = LEAGUE_MIN; leagueId <= LEAGUE_MAX; leagueId++) {
@@ -213,7 +227,7 @@ async function main() {
 
   const { data: snap, error: snapErr } = await supabase
     .from("promotions_snapshots")
-    .insert({})
+    .insert({ tier: tierId })
     .select("id")
     .single();
   if (snapErr || !snap) {
@@ -241,22 +255,33 @@ async function main() {
     process.exit(1);
   }
 
-  // Keep the two newest snapshots so /promotions can show "Latest change" vs the previous run.
-  const { data: snapList, error: listErr } = await supabase
-    .from("promotions_snapshots")
-    .select("id")
-    .order("created_at", { ascending: false });
-  if (listErr) {
-    console.warn("Cleanup list snapshots:", listErr.message);
-  } else if (snapList && snapList.length > 2) {
-    const toDelete = snapList.slice(2).map((s) => s.id);
-    const { error: delErr } = await supabase.from("promotions_snapshots").delete().in("id", toDelete);
-    if (delErr) {
-      console.warn("Cleanup old snapshots:", delErr.message);
-    }
+  await pruneOldSnapshots(supabase, tierId);
+
+  console.log(`OK [${tierId}]: snapshot ${snap.id}, ${entryRows.length} rows.`);
+}
+
+async function main() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    console.error("Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY");
+    process.exit(1);
   }
 
-  console.log(`OK: snapshot ${snap.id}, ${entryRows.length} rows.`);
+  const supabase = createClient(url, key);
+  const arg = process.argv[2]?.toLowerCase();
+
+  if (arg === "league2") {
+    await runTier(supabase, "league2");
+  } else if (arg === "league3" || !arg) {
+    await runTier(supabase, "league3");
+  } else if (arg === "all") {
+    await runTier(supabase, "league3");
+    await runTier(supabase, "league2");
+  } else {
+    console.error(`Usage: node scripts/fetch-promotions-leagues.mjs [league3|league2|all]\n  Default: league3`);
+    process.exit(1);
+  }
 }
 
 main().catch((e) => {

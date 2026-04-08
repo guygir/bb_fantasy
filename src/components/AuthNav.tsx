@@ -138,8 +138,16 @@ export function AuthNav() {
         <Link
           href="/promotions"
           className="rounded-lg bg-btn-mint px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+          title="Israel League III"
         >
-          Promotions
+          Promotions L3
+        </Link>
+        <Link
+          href="/promotions/2"
+          className="rounded-lg bg-btn-cream px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+          title="Israel League II"
+        >
+          Promotions L2
         </Link>
         <Link
           href="/u21dle"

@@ -32,7 +32,7 @@
     "sync-fantasy": "node scripts/sync-fantasy-to-supabase.mjs",
     "fantasy-weekly-sync": "node scripts/fantasy-weekly-sync.mjs",
     "test-bbapi": "node scripts/test-bbapi-login.mjs",
-    "fetch-promotions": "node scripts/fetch-promotions-leagues.mjs"
+    "fetch-promotions": "node scripts/fetch-promotions-leagues.mjs all"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.1-canary.0",

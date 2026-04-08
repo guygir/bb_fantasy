@@ -1,4 +1,5 @@
 import { getSupabase } from "@/lib/supabase";
+import type { PromotionTierId } from "@/lib/promotions-tier";
 
 /** Max rows returned for /promotions (matches fetch script cap) */
 const PROMOTIONS_DISPLAY_LIMIT = 32;
@@ -24,7 +25,7 @@ export type LatestRankChange =
   | { kind: "up"; magnitude: number }
   | { kind: "down"; magnitude: number }
   | { kind: "same" }
-  | { kind: "none" }; // first snapshot, or team was not in previous top 32
+  | { kind: "none" }; // first snapshot, or team was not in previous list
 
 function normalizeTeamName(name: string): string {
   return name.trim().replace(/\s+/g, " ").toLowerCase();
@@ -47,7 +48,9 @@ function computeRankChange(
 
 type Row = Omit<PromotionEntry, "latestRankChange">;
 
-export async function getLatestPromotions(): Promise<{
+export async function getLatestPromotions(
+  tier: PromotionTierId
+): Promise<{
   snapshotAt: string | null;
   previousSnapshotAt: string | null;
   entries: PromotionEntry[];
@@ -69,6 +72,7 @@ export async function getLatestPromotions(): Promise<{
     const { data: snaps, error: snapsErr } = await supabase
       .from("promotions_snapshots")
       .select("id, created_at")
+      .eq("tier", tier)
       .order("created_at", { ascending: false })
       .limit(2);
 

@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import { PROMOTION_TIERS } from "@/lib/promotions-tier";
 import { getLatestPromotions } from "@/lib/promotions";
-import { PromotionsView } from "./PromotionsView";
+import { PromotionsView } from "../PromotionsView";
 
 export const metadata: Metadata = {
-  title: "League III Promotions | BB Israel U21 Fantasy",
+  title: "League II Promotions | BB Israel U21 Fantasy",
   description:
-    "Israel League III conference leaders (scraped from BuzzerBeater) ranked for promotion tracking.",
+    "Israel League II conference leaders (scraped from BuzzerBeater) ranked for promotion tracking.",
 };
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
-export default async function PromotionsPage() {
-  const tier = PROMOTION_TIERS.league3;
-  const { snapshotAt, previousSnapshotAt, entries, error } = await getLatestPromotions("league3");
+export default async function PromotionsLeague2Page() {
+  const tier = PROMOTION_TIERS.league2;
+  const { snapshotAt, previousSnapshotAt, entries, error } = await getLatestPromotions("league2");
 
   return (
     <PromotionsView
