@@ -134,12 +134,20 @@ export function AuthNav() {
           </Link>
         )}
       </div>
-      <Link
-        href="/u21dle"
-        className="rounded-lg bg-btn-lavender px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
-      >
-        U21dle – Daily Puzzle
-      </Link>
+      <div className="flex flex-col gap-2 items-end">
+        <Link
+          href="/promotions"
+          className="rounded-lg bg-btn-lavender px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+        >
+          Promotions
+        </Link>
+        <Link
+          href="/u21dle"
+          className="rounded-lg bg-btn-lavender px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+        >
+          U21dle – Daily Puzzle
+        </Link>
+      </div>
 
       {showEdit && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
