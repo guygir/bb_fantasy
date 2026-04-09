@@ -14,15 +14,25 @@ export const fetchCache = "force-no-store";
 
 export default async function PromotionsPage() {
   const tier = PROMOTION_TIERS.league3;
-  const { snapshotAt, previousSnapshotAt, entries, error } = await getLatestPromotions("league3");
+  const {
+    snapshotAt,
+    previousSnapshotAt,
+    entries,
+    error,
+    promotionBandSize,
+    numBotLeagues,
+  } = await getLatestPromotions("league3");
 
   return (
     <PromotionsView
+      tierId="league3"
       tier={tier}
       snapshotAt={snapshotAt}
       previousSnapshotAt={previousSnapshotAt}
       entries={entries}
       error={error}
+      promotionBandSize={promotionBandSize}
+      numBotLeagues={numBotLeagues}
     />
   );
 }

@@ -55,6 +55,9 @@ function parseStandingsRow($, tr) {
   if (tds.length < 8) return null;
   const rank = parseTdInt($(tds[0]).text());
   const teamCell = $(tds[1]);
+  const teamClass = (teamCell.attr("class") || "").trim();
+  /** League III: BB marks CPU teams with `teamName isbot` on the standings cell */
+  const is_bot_standings = /\bisbot\b/.test(teamClass);
   const link = teamCell.find("a").first();
   const teamName = link.text().trim() || teamCell.text().trim();
   const teamUrl = resolveTeamPageUrl(link.attr("href"));
@@ -62,7 +65,15 @@ function parseStandingsRow($, tr) {
   const losses = parseTdInt($(tds[3]).text());
   const pd = parseTdInt($(tds[7]).text());
   if (!teamName || rank < 1) return null;
-  return { conf_rank: rank, team_name: teamName, team_url: teamUrl, wins, losses, pd };
+  return {
+    conf_rank: rank,
+    team_name: teamName,
+    team_url: teamUrl,
+    wins,
+    losses,
+    pd,
+    is_bot_standings,
+  };
 }
 
 function parseLeaguePage(html) {
@@ -87,7 +98,7 @@ function parseLeaguePage(html) {
   return { leagueName, rows };
 }
 
-async function fetchLeague(leagueId) {
+async function fetchLeagueOverviewHtml(leagueId) {
   const url = `https://buzzerbeater.com/league/${leagueId}/overview.aspx`;
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
@@ -96,20 +107,41 @@ async function fetchLeague(leagueId) {
       signal: ctrl.signal,
       headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
-    const { leagueName, rows } = parseLeaguePage(html);
-    return { leagueId, leagueName, rows, error: null };
-  } catch (e) {
-    return {
-      leagueId,
-      leagueName: "",
-      rows: [],
-      error: e instanceof Error ? e.message : String(e),
-    };
+    if (!res.ok) return null;
+    return await res.text();
+  } catch {
+    return null;
   } finally {
     clearTimeout(t);
   }
+}
+
+/** True if all 16 team rows in both conferences are CPU (team cell class isbot). */
+function isLeagueFullyBot(html) {
+  const $ = load(html);
+  const lis = $("#standings ul.leagueStandings > li");
+  if (lis.length < 2) return false;
+  const bots = [];
+  for (let conf = 0; conf < 2; conf++) {
+    $(lis[conf])
+      .find("table.standings tr")
+      .each((i, tr) => {
+        if (i === 0) return;
+        const tds = $(tr).find("td");
+        if (tds.length < 8) return;
+        const teamCell = $(tds[1]);
+        const cls = (teamCell.attr("class") || "").trim();
+        bots.push(/\bisbot\b/.test(cls));
+      });
+  }
+  if (bots.length !== 16) return false;
+  return bots.every(Boolean);
+}
+
+/** League III: 20 L2 demotion slots; band = 20 − (16 − #bot leagues) */
+function promotionBandSizeLeague3(numBotLeagues) {
+  const n = 20 - (16 - numBotLeagues);
+  return Math.max(0, Math.min(32, n));
 }
 
 async function fetchTeamPageIsBot(teamUrl) {
@@ -171,17 +203,26 @@ async function runTier(supabase, tierId) {
 
   console.log(`\n=== ${label} (${tierId}) — leagues ${LEAGUE_MIN}–${LEAGUE_MAX} ===\n`);
 
-  const all = [];
+  let numBotLeagues = 0;
+  let promotionBandSize = 5;
 
+  const all = [];
+  process.stdout.write("Fetching league overviews…");
   for (let leagueId = LEAGUE_MIN; leagueId <= LEAGUE_MAX; leagueId++) {
-    const r = await fetchLeague(leagueId);
-    if (r.error) {
-      console.warn(`League ${leagueId}: ${r.error}`);
+    const html = await fetchLeagueOverviewHtml(leagueId);
+    if (!html) {
+      console.warn(`\nLeague ${leagueId}: failed to fetch`);
+      process.stdout.write("x");
+      continue;
     }
-    for (const row of r.rows) {
+    if (tierId === "league3" && isLeagueFullyBot(html)) {
+      numBotLeagues += 1;
+    }
+    const { leagueName, rows } = parseLeaguePage(html);
+    for (const row of rows) {
       all.push({
         league_id: leagueId,
-        league_name: r.leagueName,
+        league_name: leagueName,
         conf: row.conf,
         conf_rank: row.conf_rank,
         team_name: row.team_name,
@@ -189,24 +230,44 @@ async function runTier(supabase, tierId) {
         wins: row.wins,
         losses: row.losses,
         pd: row.pd,
+        is_bot_standings: row.is_bot_standings,
       });
     }
     process.stdout.write(leagueId === LEAGUE_MAX ? ".\n" : ".");
   }
 
-  console.log(
-    `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league). Checking team pages for bots…`
-  );
-  for (let i = 0; i < all.length; i += TEAM_BOT_CHECK_CONCURRENCY) {
-    const chunk = all.slice(i, i + TEAM_BOT_CHECK_CONCURRENCY);
-    await Promise.all(
-      chunk.map(async (row) => {
-        row.is_bot = await fetchTeamPageIsBot(row.team_url);
-      })
+  if (tierId === "league3") {
+    promotionBandSize = promotionBandSizeLeague3(numBotLeagues);
+    console.log(
+      `Bot leagues (all 16 teams CPU): ${numBotLeagues} / ${LEAGUE_MAX - LEAGUE_MIN + 1} → promotion band size = 20 − (16 − ${numBotLeagues}) = ${promotionBandSize}`
     );
-    process.stdout.write(".");
   }
-  console.log();
+
+  if (tierId === "league3") {
+    console.log(
+      `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league). Bot detection: standings team cell class "isbot" (no per-team page fetches).`
+    );
+    let botsFromStandings = 0;
+    for (const row of all) {
+      row.is_bot = row.is_bot_standings === true;
+      if (row.is_bot) botsFromStandings += 1;
+    }
+    console.log(`  CPU teams (isbot) in scraped rows: ${botsFromStandings}`);
+  } else {
+    console.log(
+      `Collected ${all.length} teams (${LEAGUE_MAX - LEAGUE_MIN + 1} leagues × up to ${TOP_PER_CONF * 2} per league). Checking team pages for bots (League II)…`
+    );
+    for (let i = 0; i < all.length; i += TEAM_BOT_CHECK_CONCURRENCY) {
+      const chunk = all.slice(i, i + TEAM_BOT_CHECK_CONCURRENCY);
+      await Promise.all(
+        chunk.map(async (row) => {
+          row.is_bot = await fetchTeamPageIsBot(row.team_url);
+        })
+      );
+      process.stdout.write(".");
+    }
+    console.log();
+  }
 
   const botsConfRank1 = all.filter((r) => r.is_bot && r.conf_rank === 1);
   console.log("\nBots with conference rank 1 (excluded from ranking):");
@@ -225,9 +286,14 @@ async function runTier(supabase, tierId) {
   );
   const ranked = rankAndTakeTop(eligible, DISPLAY_TOP_N);
 
+  const snapPayload =
+    tierId === "league3"
+      ? { tier: tierId, promotion_band_size: promotionBandSize, num_bot_leagues: numBotLeagues }
+      : { tier: tierId, promotion_band_size: 5, num_bot_leagues: null };
+
   const { data: snap, error: snapErr } = await supabase
     .from("promotions_snapshots")
-    .insert({ tier: tierId })
+    .insert(snapPayload)
     .select("id")
     .single();
   if (snapErr || !snap) {
@@ -247,6 +313,7 @@ async function runTier(supabase, tierId) {
     losses: t.losses,
     pd: t.pd,
     league_name: t.league_name,
+    is_champ: "No",
   }));
 
   const { error: insErr } = await supabase.from("promotions_entries").insert(entryRows);
