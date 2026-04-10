@@ -34,6 +34,19 @@ function parsePlayerXml(xml) {
   };
 }
 
+/** BBAPI error responses must be rejected; match case-insensitively (`<error` vs `<Error`). */
+function bbapiXmlHasError(xml) {
+  return /<error\b/i.test(xml);
+}
+
+function bbapiErrorMessage(xml) {
+  const m =
+    xml.match(/<error\s+message=['"]([^'"]+)['"]/) ||
+    xml.match(/<error\s+message='([^']+)'/) ||
+    xml.match(/<error[^>]*>([^<]+)<\/error>/i);
+  return m?.[1]?.trim() || null;
+}
+
 async function run() {
   const dataPath = join(__dirname, "../data", `season${SEASON}_stats.json`);
   const data = JSON.parse(readFileSync(dataPath, "utf-8"));
@@ -42,22 +55,31 @@ async function run() {
   console.log("Logging in...");
   const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BASE);
 
-  if (loginText.includes("<error")) {
+  if (bbapiXmlHasError(loginText)) {
     console.error("Login failed");
     process.exit(1);
   }
 
   const details = {};
+  /** Skipped players leave existing Supabase rows unchanged on sync — stale DMI/GS until a successful fetch. */
+  const failures = [];
+
   for (let i = 0; i < players.length; i++) {
     const p = players[i];
     process.stdout.write(`\rFetching ${i + 1}/${players.length} (${p.name})...`);
     try {
       const xml = await bbapiGet(`${BASE}player.aspx?playerid=${p.playerId}`, cookies, BASE);
-      if (!xml.includes("<error")) {
-        details[p.playerId] = parsePlayerXml(xml);
+      if (bbapiXmlHasError(xml)) {
+        const msg = bbapiErrorMessage(xml) || "(no message)";
+        failures.push({ playerId: p.playerId, name: p.name, reason: `BBAPI error: ${msg}` });
+        console.error(`\n[fetch-player-details] SKIP ${p.name} (${p.playerId}): ${msg}`);
+        continue;
       }
+      details[p.playerId] = parsePlayerXml(xml);
     } catch (e) {
-      console.error("\nError fetching", p.playerId, e.message);
+      const err = e instanceof Error ? e.message : String(e);
+      failures.push({ playerId: p.playerId, name: p.name, reason: err });
+      console.error(`\n[fetch-player-details] SKIP ${p.name} (${p.playerId}): ${err}`);
     }
     await new Promise((r) => setTimeout(r, 200)); // Rate limit
   }
@@ -67,7 +89,14 @@ async function run() {
     outPath,
     JSON.stringify(
       {
-        meta: { season: SEASON, fetched: new Date().toISOString(), source: "BBAPI" },
+        meta: {
+          season: SEASON,
+          fetched: new Date().toISOString(),
+          source: "BBAPI",
+          expectedPlayers: players.length,
+          detailCount: Object.keys(details).length,
+          failures,
+        },
         details,
       },
       null,
@@ -75,7 +104,12 @@ async function run() {
     )
   );
 
-  console.log("\nSaved", Object.keys(details).length, "player details to", outPath);
+  console.log("\nSaved", Object.keys(details).length, "/", players.length, "player details to", outPath);
+  if (failures.length > 0) {
+    console.error(
+      `[fetch-player-details] ${failures.length} player(s) missing — Supabase will keep prior DMI/GS for those IDs until a successful fetch.`
+    );
+  }
 }
 
 run().catch((e) => {

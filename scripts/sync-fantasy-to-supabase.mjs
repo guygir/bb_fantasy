@@ -58,6 +58,7 @@ async function main() {
   if (!pricesOnly) {
   const statsData = loadJson(join(dataDir, `season${SEASON}_stats.json`));
   if (statsData?.players?.length) {
+    const now = new Date().toISOString();
     const rows = statsData.players.map((p) => ({
       season: SEASON,
       player_id: p.playerId,
@@ -71,6 +72,7 @@ async function main() {
       blk: p.blk ?? null,
       to: p.to ?? null,
       rtng: p.rtng ?? null,
+      updated_at: now,
     }));
     const { error } = await supabase.from("fantasy_players").upsert(rows, {
       onConflict: "season,player_id",
@@ -86,6 +88,7 @@ async function main() {
   if (!pricesOnly) {
   const detailsData = loadJson(join(dataDir, `player_details_s${SEASON}.json`));
   if (detailsData?.details) {
+    const now = new Date().toISOString();
     const rows = Object.entries(detailsData.details).map(([playerId, d]) => ({
       season: SEASON,
       player_id: parseInt(playerId, 10),
@@ -93,6 +96,8 @@ async function main() {
       dmi: d.dmi ?? null,
       salary: d.salary ?? null,
       game_shape: d.gameShape ?? null,
+      /** Without this, Postgres keeps the old updated_at on conflict update — Supabase looked “stale” forever. */
+      updated_at: now,
     }));
     const { error } = await supabase.from("fantasy_player_details").upsert(rows, {
       onConflict: "season,player_id",

@@ -5,6 +5,8 @@ import { getFaceMtime } from "@/lib/face-mtime";
 import { PlayersTable } from "./PlayersTable";
 
 export const dynamic = "force-dynamic";
+/** Align with /api/players — avoid any edge caching of this route segment. */
+export const fetchCache = "force-no-store";
 
 const SEASON = config.game.currentSeason;
 
