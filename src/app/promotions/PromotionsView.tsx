@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getNextPromotionsScheduledRunUtc } from "@/lib/promotions-schedule";
-import type { LatestRankChange, PromotionEntry } from "@/lib/promotions";
+import type { LatestRankChange, PromotionEntry, PromotionNewsBlock } from "@/lib/promotions";
 import type { PromotionTierConfig, PromotionTierId } from "@/lib/promotions-tier";
 
 function formatSnapshot(iso: string | null): string {
@@ -85,6 +85,8 @@ type PromotionsViewProps = {
   error: string | null;
   promotionBandSize: number;
   numBotLeagues: number | null;
+  /** League III: headline digest vs previous snapshot */
+  promotionNews?: PromotionNewsBlock | null;
 };
 
 export function PromotionsView({
@@ -96,6 +98,7 @@ export function PromotionsView({
   error,
   promotionBandSize,
   numBotLeagues,
+  promotionNews = null,
 }: PromotionsViewProps) {
   const nextScheduledAt = formatSnapshot(getNextPromotionsScheduledRunUtc().toISOString());
   const band = promotionBandSize;
@@ -104,44 +107,78 @@ export function PromotionsView({
   return (
     <div className="text-sm text-gray-600">
       <h2 className="mb-3 text-lg font-semibold text-bb-text sm:text-xl">{tier.pageTitle}</h2>
-      <div className="mb-4 max-w-3xl">
-        <p className="mb-1 font-medium text-bb-text">Ranking</p>
-        <ol className="ml-5 list-decimal space-y-0.5">
-          <li>{tier.botRuleLine}</li>
-          <li>Conference rank (all 1st-place finishes before 2nd, before 3rd).</li>
-          <li>Wins — higher is better.</li>
-          <li>Point differential — higher is better.</li>
-        </ol>
-        {tierId === "league3" && numBotLeagues != null && (
-          <p className="mt-3 text-gray-500">
-            Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span>. League II has 5
-            demotion slots per league × 4 leagues = <strong className="text-bb-text">20</strong> demotions, so 20
-            promotion slots from League III. A League III division is a{" "}
-            <strong className="text-bb-text">bot league</strong> if all 16 teams are CPU (standings{" "}
-            <code className="rounded bg-gray-100 px-1">isbot</code>). Promotion band size ={" "}
-            <strong className="font-mono text-bb-text">20 − (16 − bot leagues)</strong> → with{" "}
-            <strong className="text-bb-text">{numBotLeagues}</strong> bot league{numBotLeagues === 1 ? "" : "s"}:{" "}
-            <strong className="text-bb-text">{band}</strong> rows. Rows are highlighted{" "}
-            <strong className="text-bb-text">green</strong> in rank order until that many non-champion slots are
-            filled; <strong className="text-bb-text">Is champ? = Yes</strong> uses yellow and does not consume a
-            green slot.
-          </p>
-        )}
-        {tierId === "league2" && (
-          <p className="mt-3 text-gray-500">
-            Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span> · First{" "}
-            <span className="font-medium text-bb-text">{band}</span> non-champion rows (green) are the promotion
-            band; champions (yellow) skip the green count.
-          </p>
-        )}
-        {tierId === "league3" && numBotLeagues == null && (
-          <p className="mt-3 text-gray-500">
-            Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span> · Run{" "}
-            <code className="rounded bg-gray-100 px-1">npm run fetch-promotions</code> after migration{" "}
-            <code className="rounded bg-gray-100 px-1">027</code> so the snapshot stores bot-league counts (formula{" "}
-            <span className="font-mono">20 − (16 − bot leagues)</span>). Until then, green rows use the fallback band
-            size <strong className="text-bb-text">{band}</strong> when present.
-          </p>
+      <div className="mb-4 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
+        <div className="min-w-0 flex-1 max-w-3xl">
+          <p className="mb-1 font-medium text-bb-text">Ranking</p>
+          <ol className="ml-5 list-decimal space-y-0.5">
+            <li>{tier.botRuleLine}</li>
+            <li>Conference rank (all 1st-place finishes before 2nd, before 3rd).</li>
+            <li>Wins — higher is better.</li>
+            <li>Point differential — higher is better.</li>
+          </ol>
+          {tierId === "league3" && numBotLeagues != null && (
+            <p className="mt-3 text-gray-500">
+              Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span>. League II has 5
+              demotion slots per league × 4 leagues = <strong className="text-bb-text">20</strong> demotions, so 20
+              promotion slots from League III. A League III division is a{" "}
+              <strong className="text-bb-text">bot league</strong> if all 16 teams are CPU (standings{" "}
+              <code className="rounded bg-gray-100 px-1">isbot</code>). Promotion band size ={" "}
+              <strong className="font-mono text-bb-text">20 − (16 − bot leagues)</strong> → with{" "}
+              <strong className="text-bb-text">{numBotLeagues}</strong> bot league{numBotLeagues === 1 ? "" : "s"}:{" "}
+              <strong className="text-bb-text">{band}</strong> rows. Rows are highlighted{" "}
+              <strong className="text-bb-text">green</strong> in rank order until that many non-champion slots are
+              filled; <strong className="text-bb-text">Is champ? = Yes</strong> uses yellow and does not consume a
+              green slot.
+            </p>
+          )}
+          {tierId === "league2" && (
+            <p className="mt-3 text-gray-500">
+              Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span> · First{" "}
+              <span className="font-medium text-bb-text">{band}</span> non-champion rows (green) are the promotion
+              band; champions (yellow) skip the green count.
+            </p>
+          )}
+          {tierId === "league3" && numBotLeagues == null && (
+            <p className="mt-3 text-gray-500">
+              Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span> · Run{" "}
+              <code className="rounded bg-gray-100 px-1">npm run fetch-promotions</code> after migration{" "}
+              <code className="rounded bg-gray-100 px-1">027</code> so the snapshot stores bot-league counts (formula{" "}
+              <span className="font-mono">20 − (16 − bot leagues)</span>). Until then, green rows use the fallback band
+              size <strong className="text-bb-text">{band}</strong> when present.
+            </p>
+          )}
+        </div>
+
+        {tierId === "league3" && promotionNews && (
+          <aside className="w-full shrink-0 lg:max-w-sm lg:pt-0">
+            <div className="rounded-lg border border-bb-border bg-card-bg px-4 py-3 shadow-sm">
+              <p className="mb-2 font-semibold text-bb-text">Snapshot news</p>
+              <p className="mb-3 text-xs leading-relaxed text-gray-500">
+                <span className="font-medium text-gray-600">Last update:</span>{" "}
+                {formatSnapshot(promotionNews.snapshotAt)}
+                {promotionNews.previousSnapshotAt != null && (
+                  <>
+                    {" "}
+                    · <span className="font-medium text-gray-600">Compared to:</span>{" "}
+                    {formatSnapshot(promotionNews.previousSnapshotAt)}
+                  </>
+                )}
+              </p>
+              {!promotionNews.hasCompare && (
+                <p className="text-sm text-gray-600">First snapshot — nothing to compare yet.</p>
+              )}
+              {promotionNews.hasCompare && promotionNews.bullets.length === 0 && (
+                <p className="text-sm text-gray-600">No headline changes since the last snapshot.</p>
+              )}
+              {promotionNews.bullets.length > 0 && (
+                <ul className="list-disc space-y-1.5 pl-5 text-sm text-gray-700">
+                  {promotionNews.bullets.map((b, i) => (
+                    <li key={i}>{b.text}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </aside>
         )}
       </div>
 
@@ -162,17 +199,27 @@ export function PromotionsView({
       {entries.length > 0 && (
         <>
           <p className="mb-4 text-gray-500">
-            Last updated: {formatSnapshot(snapshotAt)}
-            {previousSnapshotAt != null && (
+            {tierId === "league3" && promotionNews ? (
               <>
+                Next scheduled update: {nextScheduledAt}
                 {" "}
-                · Compared to: {formatSnapshot(previousSnapshotAt)}
+                · Promotion band (green target): <strong className="text-bb-text">{band}</strong> non-champion rows
+              </>
+            ) : (
+              <>
+                Last updated: {formatSnapshot(snapshotAt)}
+                {previousSnapshotAt != null && (
+                  <>
+                    {" "}
+                    · Compared to: {formatSnapshot(previousSnapshotAt)}
+                  </>
+                )}
+                {" "}
+                · Next scheduled update: {nextScheduledAt}
+                {" "}
+                · Promotion band (green target): <strong className="text-bb-text">{band}</strong> non-champion rows
               </>
             )}
-            {" "}
-            · Next scheduled update: {nextScheduledAt}
-            {" "}
-            · Promotion band (green target): <strong className="text-bb-text">{band}</strong> non-champion rows
           </p>
           <div className="overflow-x-auto rounded-lg border border-bb-border">
             <table className="w-full border-collapse text-sm">

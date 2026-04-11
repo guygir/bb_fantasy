@@ -21,6 +21,7 @@ export default async function PromotionsPage() {
     error,
     promotionBandSize,
     numBotLeagues,
+    promotionNews,
   } = await getLatestPromotions("league3");
 
   return (
@@ -33,6 +34,7 @@ export default async function PromotionsPage() {
       error={error}
       promotionBandSize={promotionBandSize}
       numBotLeagues={numBotLeagues}
+      promotionNews={promotionNews}
     />
   );
 }

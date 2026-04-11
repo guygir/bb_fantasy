@@ -37,6 +37,124 @@ function teamKey(leagueId: number, conf: number, teamName: string): string {
   return `${leagueId}:${conf}:${normalizeTeamName(teamName)}`;
 }
 
+/** Non-champion rows that count toward the green promotion band (same order as the table). */
+function promotionBandTeamKeys(
+  rows: Array<{ display_rank: number; league_id: number; conf: number; team_name: string; is_champ: "Yes" | "No" }>,
+  bandSize: number
+): Set<string> {
+  let left = bandSize;
+  const out = new Set<string>();
+  const sorted = [...rows].sort((a, b) => a.display_rank - b.display_rank);
+  for (const r of sorted) {
+    if (r.is_champ === "Yes") continue;
+    if (left <= 0) break;
+    out.add(teamKey(r.league_id, r.conf, r.team_name));
+    left--;
+  }
+  return out;
+}
+
+export type PromotionNewsBullet = { text: string };
+
+export type PromotionNewsBlock = {
+  /** Snapshot times for the card header */
+  snapshotAt: string | null;
+  previousSnapshotAt: string | null;
+  bullets: PromotionNewsBullet[];
+  /** True when a prior snapshot exists (even if bullets are empty) */
+  hasCompare: boolean;
+};
+
+function buildLeague3PromotionNews(
+  currentRows: Row[],
+  previousRows: Row[] | null,
+  currentBandSize: number,
+  previousBandSize: number,
+  numBotLeagues: number | null,
+  previousNumBotLeagues: number | null,
+  snapshotAt: string | null,
+  previousSnapshotAt: string | null
+): PromotionNewsBlock {
+  if (!previousRows?.length) {
+    return {
+      snapshotAt,
+      previousSnapshotAt,
+      bullets: [],
+      hasCompare: false,
+    };
+  }
+
+  const bullets: PromotionNewsBullet[] = [];
+
+  const prevByKey = new Map<string, Row>();
+  for (const r of previousRows) {
+    prevByKey.set(teamKey(r.league_id, r.conf, r.team_name), r);
+  }
+  const currByKey = new Map<string, Row>();
+  for (const r of currentRows) {
+    currByKey.set(teamKey(r.league_id, r.conf, r.team_name), r);
+  }
+
+  const prevChampKeys = new Set<string>();
+  const currChampKeys = new Set<string>();
+  for (const r of previousRows) {
+    if (r.is_champ === "Yes") prevChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
+  }
+  for (const r of currentRows) {
+    if (r.is_champ === "Yes") currChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
+  }
+
+  for (const k of currChampKeys) {
+    if (!prevChampKeys.has(k)) {
+      const r = currByKey.get(k)!;
+      bullets.push({
+        text: `${r.team_name} won the league championship (${r.league_name}).`,
+      });
+    }
+  }
+  for (const k of prevChampKeys) {
+    if (!currChampKeys.has(k)) {
+      const r = prevByKey.get(k)!;
+      bullets.push({
+        text: `${r.team_name} is no longer listed as playoff champion (${r.league_name}).`,
+      });
+    }
+  }
+
+  if (
+    previousNumBotLeagues != null &&
+    numBotLeagues != null &&
+    previousNumBotLeagues !== numBotLeagues
+  ) {
+    bullets.push({
+      text: `Bot leagues: ${previousNumBotLeagues} → ${numBotLeagues} (promotion band size changed).`,
+    });
+  }
+
+  const prevBand = promotionBandTeamKeys(previousRows, previousBandSize);
+  const currBand = promotionBandTeamKeys(currentRows, currentBandSize);
+
+  for (const k of currBand) {
+    if (!prevBand.has(k)) {
+      const r = currByKey.get(k)!;
+      bullets.push({ text: `${r.team_name} entered the promotion band.` });
+    }
+  }
+  for (const k of prevBand) {
+    if (!currBand.has(k)) {
+      const r = prevByKey.get(k)!;
+      bullets.push({ text: `${r.team_name} left the promotion band.` });
+    }
+  }
+
+  return {
+    snapshotAt,
+    previousSnapshotAt,
+    bullets,
+    hasCompare: true,
+  };
+}
+
 function computeRankChange(
   prevRank: number | undefined,
   newRank: number
@@ -64,6 +182,8 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
   /** From snapshot; League III uses dynamic band */
   promotionBandSize: number;
   numBotLeagues: number | null;
+  /** League III only: digest vs previous snapshot */
+  promotionNews: PromotionNewsBlock | null;
   error: string | null;
 }> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -77,6 +197,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       entries: [],
       promotionBandSize: fallbackBand,
       numBotLeagues: null,
+      promotionNews: null,
       error: "Supabase is not configured.",
     };
   }
@@ -97,6 +218,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         entries: [],
         promotionBandSize: fallbackBand,
         numBotLeagues: null,
+        promotionNews: null,
         error: snapsErr.message,
       };
     }
@@ -107,6 +229,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         entries: [],
         promotionBandSize: fallbackBand,
         numBotLeagues: null,
+        promotionNews: null,
         error: null,
       };
     }
@@ -130,6 +253,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         entries: [],
         promotionBandSize: fallbackBand,
         numBotLeagues: null,
+        promotionNews: null,
         error: entErr.message,
       };
     }
@@ -141,10 +265,13 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
     })) as Row[];
 
     let prevRankByTeam = new Map<string, number>();
+    let previousRowsFull: Row[] | null = null;
     if (previousSnap) {
       const { data: prevRows } = await supabase
         .from("promotions_entries")
-        .select("display_rank, league_id, conf, team_name")
+        .select(
+          "display_rank, league_id, conf, conf_rank, team_name, team_url, wins, losses, pd, league_name, is_champ"
+        )
         .eq("snapshot_id", previousSnap.id)
         .lte("display_rank", PROMOTIONS_DISPLAY_LIMIT)
         .order("display_rank", { ascending: true });
@@ -155,6 +282,10 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
           p.display_rank,
         ])
       );
+      previousRowsFull = (prevRows ?? []).map((r) => ({
+        ...r,
+        is_champ: (r.is_champ === "Yes" ? "Yes" : "No") as "Yes" | "No",
+      })) as Row[];
     }
 
     const entries: PromotionEntry[] = currentRows.map((row) => ({
@@ -178,12 +309,34 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       promotionBandSize = currentSnap.promotion_band_size ?? fallbackBand;
     }
 
+    let previousBandSize = fallbackBand;
+    if (tier === "league3" && previousSnap?.promotion_band_size != null) {
+      previousBandSize = previousSnap.promotion_band_size;
+    } else if (previousSnap) {
+      previousBandSize = previousSnap.promotion_band_size ?? fallbackBand;
+    }
+
+    let promotionNews: PromotionNewsBlock | null = null;
+    if (tier === "league3") {
+      promotionNews = buildLeague3PromotionNews(
+        currentRows,
+        previousRowsFull,
+        promotionBandSize,
+        previousBandSize,
+        numBotLeagues,
+        previousSnap?.num_bot_leagues ?? null,
+        currentSnap.created_at,
+        previousSnap?.created_at ?? null
+      );
+    }
+
     return {
       snapshotAt: currentSnap.created_at,
       previousSnapshotAt: previousSnap?.created_at ?? null,
       entries,
       promotionBandSize,
       numBotLeagues,
+      promotionNews,
       error: null,
     };
   } catch (e) {
@@ -194,6 +347,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       entries: [],
       promotionBandSize: fallbackBand,
       numBotLeagues: null,
+      promotionNews: null,
       error: msg,
     };
   }
