@@ -1,9 +1,9 @@
 /**
  * Must match `.github/workflows/promotions-leagues.yml` schedule:
- * `0 20 * * 2,6` → Tuesday & Saturday 20:00 UTC
+ * `30 17 * * 2,6` → Tuesday & Saturday 17:30 UTC
  */
-const CRON_HOUR_UTC = 20;
-const CRON_MINUTE_UTC = 0;
+const CRON_HOUR_UTC = 17;
+const CRON_MINUTE_UTC = 30;
 /** 0 = Sunday … 6 = Saturday (same as cron) */
 const CRON_WEEKDAYS = new Set([2, 6]);
 

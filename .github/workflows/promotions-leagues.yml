@@ -2,8 +2,8 @@ name: Promotions (League II & III)
 
 on:
   schedule:
-    # Target: Tue & Sat ~22:00 Israel. GitHub Actions cron is UTC-only (see promotions page / prior notes for DST).
-    - cron: "0 20 * * 2,6"
+    # Tue & Sat 17:30 UTC (GitHub Actions cron is UTC-only).
+    - cron: "30 17 * * 2,6"
   workflow_dispatch:
 
 jobs:
