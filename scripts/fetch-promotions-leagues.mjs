@@ -45,6 +45,32 @@ function resolveTeamPageUrl(href) {
   }
 }
 
+/** BuzzerBeater team id from a team overview URL, or null */
+function parseTeamIdFromUrl(url) {
+  if (!url || typeof url !== "string") return null;
+  const m = url.match(/\/team\/(\d+)\//i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+/**
+ * Playoff trophy on league overview: `#cphContent_playoffs_trophy` when a champion exists
+ * (see `div#playoff` — empty season has only `<!-- Trophy -->` and no anchor).
+ * Test: https://buzzerbeater.com/league/1006/overview.aspx?season=70 → team 37940
+ */
+function parseChampionTeamIdFromOverviewHtml(html) {
+  const $ = load(html);
+  const link = $("#cphContent_playoffs_trophy").first();
+  if (!link.length) return null;
+  const href = link.attr("href");
+  if (!href) return null;
+  try {
+    const abs = new URL(href, BB_ORIGIN).href;
+    return parseTeamIdFromUrl(abs);
+  } catch {
+    return parseTeamIdFromUrl(href);
+  }
+}
+
 function parseTdInt(text) {
   const n = parseInt(String(text).replace(/[^-\d]/g, ""), 10);
   return Number.isFinite(n) ? n : 0;
@@ -207,6 +233,8 @@ async function runTier(supabase, tierId) {
   let promotionBandSize = 5;
 
   const all = [];
+  /** League III only: playoff champion team id per league (for is_champ on entries). */
+  const championTeamIdByLeague = new Map();
   process.stdout.write("Fetching league overviews…");
   for (let leagueId = LEAGUE_MIN; leagueId <= LEAGUE_MAX; leagueId++) {
     const html = await fetchLeagueOverviewHtml(leagueId);
@@ -214,6 +242,10 @@ async function runTier(supabase, tierId) {
       console.warn(`\nLeague ${leagueId}: failed to fetch`);
       process.stdout.write("x");
       continue;
+    }
+    if (tierId === "league3") {
+      const champId = parseChampionTeamIdFromOverviewHtml(html);
+      championTeamIdByLeague.set(leagueId, champId);
     }
     if (tierId === "league3" && isLeagueFullyBot(html)) {
       numBotLeagues += 1;
@@ -241,6 +273,15 @@ async function runTier(supabase, tierId) {
     console.log(
       `Bot leagues (all 16 teams CPU): ${numBotLeagues} / ${LEAGUE_MAX - LEAGUE_MIN + 1} → promotion band size = 20 − (16 − ${numBotLeagues}) = ${promotionBandSize}`
     );
+    const champLines = [];
+    for (const [lid, tid] of championTeamIdByLeague) {
+      if (tid != null) champLines.push(`league ${lid}: team ${tid}`);
+    }
+    if (champLines.length > 0) {
+      console.log(`Playoff champions (trophy link): ${champLines.join("; ")}`);
+    } else {
+      console.log("Playoff champions (trophy link): (none — no #cphContent_playoffs_trophy on any league overview)");
+    }
   }
 
   if (tierId === "league3") {
@@ -301,25 +342,47 @@ async function runTier(supabase, tierId) {
     process.exit(1);
   }
 
-  const entryRows = ranked.map((t) => ({
-    snapshot_id: snap.id,
-    display_rank: t.display_rank,
-    league_id: t.league_id,
-    conf: t.conf,
-    conf_rank: t.conf_rank,
-    team_name: t.team_name,
-    team_url: t.team_url,
-    wins: t.wins,
-    losses: t.losses,
-    pd: t.pd,
-    league_name: t.league_name,
-    is_champ: "No",
-  }));
+  const entryRows = ranked.map((t) => {
+    let isChamp = "No";
+    if (tierId === "league3") {
+      const champId = championTeamIdByLeague.get(t.league_id);
+      const rowTeamId = parseTeamIdFromUrl(t.team_url);
+      if (champId != null && rowTeamId != null && champId === rowTeamId) {
+        isChamp = "Yes";
+      }
+    }
+    return {
+      snapshot_id: snap.id,
+      display_rank: t.display_rank,
+      league_id: t.league_id,
+      conf: t.conf,
+      conf_rank: t.conf_rank,
+      team_name: t.team_name,
+      team_url: t.team_url,
+      wins: t.wins,
+      losses: t.losses,
+      pd: t.pd,
+      league_name: t.league_name,
+      is_champ: isChamp,
+    };
+  });
 
   const { error: insErr } = await supabase.from("promotions_entries").insert(entryRows);
   if (insErr) {
     console.error("promotions_entries insert:", insErr.message);
     process.exit(1);
+  }
+
+  if (tierId === "league3") {
+    for (const [lid, tid] of championTeamIdByLeague) {
+      if (tid == null) continue;
+      const found = ranked.some((t) => parseTeamIdFromUrl(t.team_url) === tid);
+      if (!found) {
+        console.warn(
+          `League ${lid}: playoff champion (team ${tid}) not in eligible top ${DISPLAY_TOP_N} — is_champ will not appear (CPU excluded or below cut).`
+        );
+      }
+    }
   }
 
   await pruneOldSnapshots(supabase, tierId);
