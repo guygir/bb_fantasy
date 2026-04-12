@@ -10,6 +10,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { load } from "cheerio";
+import { parsePlayoffStatusForTeam, parseTrophyTeamId } from "./lib/playoff-bracket.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -50,25 +51,6 @@ function parseTeamIdFromUrl(url) {
   if (!url || typeof url !== "string") return null;
   const m = url.match(/\/team\/(\d+)\//i);
   return m ? parseInt(m[1], 10) : null;
-}
-
-/**
- * Playoff trophy on league overview: `#cphContent_playoffs_trophy` when a champion exists
- * (see `div#playoff` — empty season has only `<!-- Trophy -->` and no anchor).
- * Test: https://buzzerbeater.com/league/1006/overview.aspx?season=70 → team 37940
- */
-function parseChampionTeamIdFromOverviewHtml(html) {
-  const $ = load(html);
-  const link = $("#cphContent_playoffs_trophy").first();
-  if (!link.length) return null;
-  const href = link.attr("href");
-  if (!href) return null;
-  try {
-    const abs = new URL(href, BB_ORIGIN).href;
-    return parseTeamIdFromUrl(abs);
-  } catch {
-    return parseTeamIdFromUrl(href);
-  }
 }
 
 function parseTdInt(text) {
@@ -233,19 +215,16 @@ async function runTier(supabase, tierId) {
   let promotionBandSize = 5;
 
   const all = [];
-  /** League III only: playoff champion team id per league (for is_champ on entries). */
-  const championTeamIdByLeague = new Map();
+  /** League III: overview HTML per league (playoff bracket parsing). */
+  const leagueHtmlById = new Map();
   process.stdout.write("Fetching league overviews…");
   for (let leagueId = LEAGUE_MIN; leagueId <= LEAGUE_MAX; leagueId++) {
     const html = await fetchLeagueOverviewHtml(leagueId);
+    leagueHtmlById.set(leagueId, html);
     if (!html) {
       console.warn(`\nLeague ${leagueId}: failed to fetch`);
       process.stdout.write("x");
       continue;
-    }
-    if (tierId === "league3") {
-      const champId = parseChampionTeamIdFromOverviewHtml(html);
-      championTeamIdByLeague.set(leagueId, champId);
     }
     if (tierId === "league3" && isLeagueFullyBot(html)) {
       numBotLeagues += 1;
@@ -274,7 +253,9 @@ async function runTier(supabase, tierId) {
       `Bot leagues (all 16 teams CPU): ${numBotLeagues} / ${LEAGUE_MAX - LEAGUE_MIN + 1} → promotion band size = 20 − (16 − ${numBotLeagues}) = ${promotionBandSize}`
     );
     const champLines = [];
-    for (const [lid, tid] of championTeamIdByLeague) {
+    for (const [lid, h] of leagueHtmlById) {
+      if (!h) continue;
+      const tid = parseTrophyTeamId(h);
       if (tid != null) champLines.push(`league ${lid}: team ${tid}`);
     }
     if (champLines.length > 0) {
@@ -343,12 +324,12 @@ async function runTier(supabase, tierId) {
   }
 
   const entryRows = ranked.map((t) => {
-    let isChamp = "No";
+    let playoff_status = "Not in playoff";
     if (tierId === "league3") {
-      const champId = championTeamIdByLeague.get(t.league_id);
+      const h = leagueHtmlById.get(t.league_id);
       const rowTeamId = parseTeamIdFromUrl(t.team_url);
-      if (champId != null && rowTeamId != null && champId === rowTeamId) {
-        isChamp = "Yes";
+      if (h && rowTeamId != null) {
+        playoff_status = parsePlayoffStatusForTeam(h, rowTeamId) ?? "Not in playoff";
       }
     }
     return {
@@ -363,7 +344,7 @@ async function runTier(supabase, tierId) {
       losses: t.losses,
       pd: t.pd,
       league_name: t.league_name,
-      is_champ: isChamp,
+      playoff_status,
     };
   });
 
@@ -374,12 +355,14 @@ async function runTier(supabase, tierId) {
   }
 
   if (tierId === "league3") {
-    for (const [lid, tid] of championTeamIdByLeague) {
+    for (const [lid, h] of leagueHtmlById) {
+      if (!h) continue;
+      const tid = parseTrophyTeamId(h);
       if (tid == null) continue;
       const found = ranked.some((t) => parseTeamIdFromUrl(t.team_url) === tid);
       if (!found) {
         console.warn(
-          `League ${lid}: playoff champion (team ${tid}) not in eligible top ${DISPLAY_TOP_N} — is_champ will not appear (CPU excluded or below cut).`
+          `League ${lid}: playoff champion (team ${tid}) not in eligible top ${DISPLAY_TOP_N} — Champ row will not appear (CPU excluded or below cut).`
         );
       }
     }

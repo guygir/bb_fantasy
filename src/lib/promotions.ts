@@ -5,6 +5,34 @@ import { PROMOTION_TIERS } from "@/lib/promotions-tier";
 /** Max rows returned for /promotions (matches fetch script cap) */
 const PROMOTIONS_DISPLAY_LIMIT = 32;
 
+export type PlayoffStatus =
+  | "In Quarters"
+  | "In Semis"
+  | "In Finals"
+  | "Champ"
+  | "Lost Finals"
+  | "Lost Semis"
+  | "Lost Quarters"
+  | "Not in playoff";
+
+function normalizePlayoffStatus(raw: unknown): PlayoffStatus {
+  if (raw === "Champ") return "Champ";
+  if (raw === "In Quarters") return "In Quarters";
+  if (raw === "In Semis") return "In Semis";
+  if (raw === "In Finals") return "In Finals";
+  if (raw === "Lost Finals") return "Lost Finals";
+  if (raw === "Lost Semis") return "Lost Semis";
+  if (raw === "Lost Quarters") return "Lost Quarters";
+  if (raw === "Not in playoff") return "Not in playoff";
+  /** Legacy snapshot values (pre-029) */
+  if (raw === "In playoff") return "In Quarters";
+  if (raw === "Out of playoff") return "Not in playoff";
+  /** Pre-migration rows (is_champ) */
+  if (raw === "Yes") return "Champ";
+  if (raw === "No") return "Not in playoff";
+  return "Not in playoff";
+}
+
 export type PromotionEntry = {
   display_rank: number;
   league_id: number;
@@ -17,7 +45,8 @@ export type PromotionEntry = {
   losses: number;
   pd: number;
   league_name: string;
-  is_champ: "Yes" | "No";
+  /** From league overview playoff bracket (#playoff) */
+  playoff_status: PlayoffStatus;
   /** Movement vs previous snapshot’s overall rank (lower rank # = better) */
   latestRankChange: LatestRankChange;
 };
@@ -39,14 +68,14 @@ function teamKey(leagueId: number, conf: number, teamName: string): string {
 
 /** Non-champion rows that count toward the green promotion band (same order as the table). */
 function promotionBandTeamKeys(
-  rows: Array<{ display_rank: number; league_id: number; conf: number; team_name: string; is_champ: "Yes" | "No" }>,
+  rows: Array<{ display_rank: number; league_id: number; conf: number; team_name: string; playoff_status: PlayoffStatus }>,
   bandSize: number
 ): Set<string> {
   let left = bandSize;
   const out = new Set<string>();
   const sorted = [...rows].sort((a, b) => a.display_rank - b.display_rank);
   for (const r of sorted) {
-    if (r.is_champ === "Yes") continue;
+    if (r.playoff_status === "Champ") continue;
     if (left <= 0) break;
     out.add(teamKey(r.league_id, r.conf, r.team_name));
     left--;
@@ -98,10 +127,10 @@ function buildLeague3PromotionNews(
   const prevChampKeys = new Set<string>();
   const currChampKeys = new Set<string>();
   for (const r of previousRows) {
-    if (r.is_champ === "Yes") prevChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
+    if (r.playoff_status === "Champ") prevChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
   }
   for (const r of currentRows) {
-    if (r.is_champ === "Yes") currChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
+    if (r.playoff_status === "Champ") currChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
   }
 
   for (const k of currChampKeys) {
@@ -240,7 +269,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
     const { data: rows, error: entErr } = await supabase
       .from("promotions_entries")
       .select(
-        "display_rank, league_id, conf, conf_rank, team_name, team_url, wins, losses, pd, league_name, is_champ"
+        "display_rank, league_id, conf, conf_rank, team_name, team_url, wins, losses, pd, league_name, playoff_status"
       )
       .eq("snapshot_id", currentSnap.id)
       .lte("display_rank", PROMOTIONS_DISPLAY_LIMIT)
@@ -261,7 +290,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
     const rawRows = rows ?? [];
     const currentRows = rawRows.map((r) => ({
       ...r,
-      is_champ: (r.is_champ === "Yes" ? "Yes" : "No") as "Yes" | "No",
+      playoff_status: normalizePlayoffStatus((r as { playoff_status?: unknown }).playoff_status),
     })) as Row[];
 
     let prevRankByTeam = new Map<string, number>();
@@ -270,7 +299,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       const { data: prevRows } = await supabase
         .from("promotions_entries")
         .select(
-          "display_rank, league_id, conf, conf_rank, team_name, team_url, wins, losses, pd, league_name, is_champ"
+          "display_rank, league_id, conf, conf_rank, team_name, team_url, wins, losses, pd, league_name, playoff_status"
         )
         .eq("snapshot_id", previousSnap.id)
         .lte("display_rank", PROMOTIONS_DISPLAY_LIMIT)
@@ -284,7 +313,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       );
       previousRowsFull = (prevRows ?? []).map((r) => ({
         ...r,
-        is_champ: (r.is_champ === "Yes" ? "Yes" : "No") as "Yes" | "No",
+        playoff_status: normalizePlayoffStatus((r as { playoff_status?: unknown }).playoff_status),
       })) as Row[];
     }
 

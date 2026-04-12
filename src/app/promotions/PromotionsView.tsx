@@ -64,7 +64,7 @@ function buildRowStyles(entries: PromotionEntry[], bandSize: number): { row: Pro
   let greenLeft = bandSize;
   const out: { row: PromotionEntry; className: string }[] = [];
   for (const row of entries) {
-    if (row.is_champ === "Yes") {
+    if (row.playoff_status === "Champ") {
       out.push({ row, className: "bg-yellow-100 hover:bg-yellow-200/90" });
     } else if (greenLeft > 0) {
       greenLeft -= 1;
@@ -127,8 +127,12 @@ export function PromotionsView({
               <strong className="text-bb-text">{numBotLeagues}</strong> bot league{numBotLeagues === 1 ? "" : "s"}:{" "}
               <strong className="text-bb-text">{band}</strong> rows. Rows are highlighted{" "}
               <strong className="text-bb-text">green</strong> in rank order until that many non-champion slots are
-              filled; <strong className="text-bb-text">Is champ? = Yes</strong> uses yellow and does not consume a
-              green slot.
+            filled; <strong className="text-bb-text">Champ</strong> uses yellow and does not consume a green slot;{" "}
+            <strong className="text-bb-text">In Quarters</strong> / <strong className="text-bb-text">In Semis</strong> /{" "}
+            <strong className="text-bb-text">In Finals</strong> / <strong className="text-bb-text">Champ</strong> /{" "}
+            <strong className="text-bb-text">Lost Quarters</strong> / <strong className="text-bb-text">Lost Semis</strong> /{" "}
+            <strong className="text-bb-text">Lost Finals</strong> / <strong className="text-bb-text">Not in playoff</strong>{" "}
+            describe the playoff bracket (see Playoff column).
             </p>
           )}
           {tierId === "league2" && (
@@ -233,7 +237,7 @@ export function PromotionsView({
                   <th className="border border-bb-border px-3 py-2 text-right font-medium">L</th>
                   <th className="border border-bb-border px-3 py-2 text-right font-medium">PD</th>
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">Latest change</th>
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">Is champ?</th>
+                  <th className="border border-bb-border px-3 py-2 text-right font-medium">Playoff</th>
                 </tr>
               </thead>
               <tbody>
@@ -288,7 +292,7 @@ export function PromotionsView({
                         <LatestChangeCell change={row.latestRankChange} />
                       </td>
                       <td className="border border-bb-border px-3 py-2 text-right font-medium text-bb-text">
-                        {row.is_champ}
+                        {row.playoff_status}
                       </td>
                     </tr>
                   );
