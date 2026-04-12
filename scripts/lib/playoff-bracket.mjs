@@ -36,10 +36,16 @@ const SEMI_FINAL_IDS = [
   "cphContent_playoffs_team2rightSemifinal",
 ];
 
+/** BuzzerBeater team id from any team page URL or path (matches `/team/{id}` anywhere in the string). */
 function teamIdFromHref(href) {
   if (!href || typeof href !== "string") return null;
-  const m = href.match(/\/team\/(\d+)\//i);
+  const m = href.match(/\/team\/(\d+)/i);
   return m ? parseInt(m[1], 10) : null;
+}
+
+/** Exported for promotions fetch — same as parsing href from standings / team links. */
+export function parseTeamIdFromUrl(url) {
+  return teamIdFromHref(url);
 }
 
 function getTeamId($, anchorId) {

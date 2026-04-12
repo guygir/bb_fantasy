@@ -10,7 +10,11 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { load } from "cheerio";
-import { parsePlayoffStatusForTeam, parseTrophyTeamId } from "./lib/playoff-bracket.mjs";
+import {
+  parsePlayoffStatusForTeam,
+  parseTeamIdFromUrl,
+  parseTrophyTeamId,
+} from "./lib/playoff-bracket.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -44,13 +48,6 @@ function resolveTeamPageUrl(href) {
   } catch {
     return null;
   }
-}
-
-/** BuzzerBeater team id from a team overview URL, or null */
-function parseTeamIdFromUrl(url) {
-  if (!url || typeof url !== "string") return null;
-  const m = url.match(/\/team\/(\d+)\//i);
-  return m ? parseInt(m[1], 10) : null;
 }
 
 function parseTdInt(text) {
@@ -326,6 +323,7 @@ async function runTier(supabase, tierId) {
   const entryRows = ranked.map((t) => {
     let playoff_status = "Not in playoff";
     if (tierId === "league3") {
+      /** Each row’s `league_id` matches the overview we scraped (`league/{id}/overview.aspx`). */
       const h = leagueHtmlById.get(t.league_id);
       const rowTeamId = parseTeamIdFromUrl(t.team_url);
       if (h && rowTeamId != null) {
@@ -352,6 +350,25 @@ async function runTier(supabase, tierId) {
   if (insErr) {
     console.error("promotions_entries insert:", insErr.message);
     process.exit(1);
+  }
+
+  if (tierId === "league3") {
+    let missingOverview = 0;
+    let badTeamUrl = 0;
+    for (const t of ranked) {
+      if (!leagueHtmlById.get(t.league_id)) missingOverview += 1;
+      if (t.team_url && parseTeamIdFromUrl(t.team_url) == null) badTeamUrl += 1;
+    }
+    if (missingOverview > 0) {
+      console.warn(
+        `Playoff column: ${missingOverview} ranked row(s) had no league overview HTML (fetch failed for that league_id) → Not in playoff.`
+      );
+    }
+    if (badTeamUrl > 0) {
+      console.warn(
+        `Playoff column: ${badTeamUrl} ranked row(s) had team_url that did not parse a team id → Not in playoff.`
+      );
+    }
   }
 
   if (tierId === "league3") {

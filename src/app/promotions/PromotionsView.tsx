@@ -229,15 +229,15 @@ export function PromotionsView({
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="bg-card-bg">
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">#</th>
+                  <th className="border border-bb-border px-3 py-2 text-left font-medium">#</th>
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">Team</th>
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">League</th>
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">Conf rank</th>
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">W</th>
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">L</th>
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">PD</th>
+                  <th className="border border-bb-border px-3 py-2 text-left font-medium">Conf rank</th>
+                  <th className="border border-bb-border px-3 py-2 text-left font-medium">W</th>
+                  <th className="border border-bb-border px-3 py-2 text-left font-medium">L</th>
+                  <th className="border border-bb-border px-3 py-2 text-left font-medium">PD</th>
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">Latest change</th>
-                  <th className="border border-bb-border px-3 py-2 text-right font-medium">Playoff</th>
+                  <th className="border border-bb-border px-3 py-2 text-left font-medium">Playoff</th>
                 </tr>
               </thead>
               <tbody>
@@ -248,7 +248,7 @@ export function PromotionsView({
                       key={`${row.display_rank}-${row.league_id}-${row.conf}-${row.conf_rank}`}
                       className={className}
                     >
-                      <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                      <td className="border border-bb-border px-3 py-2 text-left tabular-nums">
                         {row.display_rank}
                       </td>
                       <td className="border border-bb-border px-3 py-2 font-medium">
@@ -276,23 +276,35 @@ export function PromotionsView({
                           <span className="font-normal text-gray-400">({row.league_id})</span>
                         </a>
                       </td>
-                      <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                      <td className="border border-bb-border px-3 py-2 text-left tabular-nums">
                         {row.conf_rank}
                       </td>
-                      <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                      <td className="border border-bb-border px-3 py-2 text-left tabular-nums">
                         {row.wins}
                       </td>
-                      <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                      <td className="border border-bb-border px-3 py-2 text-left tabular-nums">
                         {row.losses}
                       </td>
-                      <td className="border border-bb-border px-3 py-2 text-right tabular-nums">
+                      <td className="border border-bb-border px-3 py-2 text-left tabular-nums">
                         {row.pd}
                       </td>
                       <td className="border border-bb-border px-3 py-2 text-left">
                         <LatestChangeCell change={row.latestRankChange} />
                       </td>
-                      <td className="border border-bb-border px-3 py-2 text-right font-medium text-bb-text">
-                        {row.playoff_status}
+                      <td className="border border-bb-border px-3 py-2 text-left font-medium text-bb-text">
+                        {row.playoff_status === "Not in playoff" ? (
+                          <>
+                            <span className="text-red-600" aria-hidden>
+                              ❌
+                            </span>{" "}
+                            Not in playoff{" "}
+                            <span className="text-red-600" aria-hidden>
+                              ❌
+                            </span>
+                          </>
+                        ) : (
+                          row.playoff_status
+                        )}
                       </td>
                     </tr>
                   );
