@@ -156,9 +156,15 @@ export default function MyRosterPage() {
           const data = await r.json();
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };
         }),
-        fetch(`/api/roster/season/${SEASON}/weekly-history`, rosterOpts).then(async (r) => {
+        fetch(
+          `/api/roster/season/${SEASON}/weekly-history${process.env.NODE_ENV === "development" ? "?debug=1" : ""}`,
+          rosterOpts
+        ).then(async (r) => {
           if (!r.ok) return { weeks: [], lastPlayedMatchId: null, lastWeekMatchId: null, wasEligibleForLastPlayed: false, lastWeekFPByCurrentRoster: {} };
           const data = await r.json();
+          if (data.debug && typeof console !== "undefined" && console.info) {
+            console.info("[weekly-history debug]", data.debug);
+          }
           return {
             weeks: data.weeks ?? [],
             lastPlayedMatchId: data.lastPlayedMatchId ?? null,

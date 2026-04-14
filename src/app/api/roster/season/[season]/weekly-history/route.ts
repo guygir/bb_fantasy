@@ -44,6 +44,13 @@ function reconstructRosterForMatch(
   return rosterIds;
 }
 
+function sameSortedPlayerSet(a: number[], b: number[]): boolean {
+  if (a.length !== b.length) return false;
+  const sa = [...a].sort((x, y) => x - y);
+  const sb = [...b].sort((x, y) => x - y);
+  return sa.every((v, i) => v === sb[i]);
+}
+
 function getSupabaseWithAuth(authHeader: string | null) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -57,6 +64,9 @@ function getSupabaseWithAuth(authHeader: string | null) {
  * GET /api/roster/season/[season]/weekly-history
  * Returns weekly breakdown: roster (names), points per player, total per week.
  * Requires auth. Prefers fantasy_roster_by_match (snapshot at lock), fallback to reconstruction.
+ *
+ * Query: `?debug=1` — includes `debug` object (env, last-week roster source vs candidates) to compare
+ * localhost vs production. Roster page in development requests this automatically and logs `debug` to the console.
  */
 export async function GET(
   request: Request,
@@ -64,6 +74,7 @@ export async function GET(
 ) {
   const { season } = await params;
   const seasonNum = parseInt(season, 10) || Number(process.env.CURRENT_SEASON ?? 71);
+  const debugRequested = new URL(request.url).searchParams.get("debug") === "1";
 
   const authHeader = request.headers.get("Authorization");
   const supabase = getSupabaseWithAuth(authHeader);
@@ -205,6 +216,23 @@ export async function GET(
     total: number;
   }[] = [];
 
+  let lastWeekResolutionDebug: {
+    matchId: string;
+    matchDate: string;
+    source: "reconstructed" | "fallback" | "snapshot";
+    chosenPlayerIds: number[];
+    candidates: {
+      reconstructed: { ids: number[]; length: number };
+      fallback: { ids: number[]; length: number };
+      snapshot: { ids: number[] | null };
+    };
+    sameSortedSet: {
+      snapshotVsReconstructed: boolean;
+      snapshotVsFallback: boolean;
+      reconstructedVsFallback: boolean;
+    };
+  } | null = null;
+
   for (let i = 0; i < scheduleFiltered.length; i++) {
     const row = scheduleFiltered[i];
     const matchDate = row.match_date as string;
@@ -218,14 +246,40 @@ export async function GET(
     // snapshot last — fantasy_roster_by_match can be stale first-write on prod.
     if (userLastMatchId && String(matchId) === userLastMatchId) {
       const fallbackIds = rosterFallbackForMatch(matchId);
+      const snap = snapshot && snapshot.length > 0 ? [...snapshot] : null;
+      let source: "reconstructed" | "fallback" | "snapshot";
       if (reconstructed.length === ROSTER_SIZE) {
         rosterIds = reconstructed;
+        source = "reconstructed";
       } else if (fallbackIds.length === ROSTER_SIZE) {
         rosterIds = fallbackIds;
-      } else if (snapshot && snapshot.length > 0) {
-        rosterIds = snapshot;
+        source = "fallback";
+      } else if (snap) {
+        rosterIds = snap;
+        source = "snapshot";
       } else {
         rosterIds = fallbackIds;
+        source = "fallback";
+      }
+      if (debugRequested) {
+        const rec = [...reconstructed];
+        const fb = [...fallbackIds];
+        lastWeekResolutionDebug = {
+          matchId: String(matchId),
+          matchDate,
+          source,
+          chosenPlayerIds: [...rosterIds],
+          candidates: {
+            reconstructed: { ids: rec, length: rec.length },
+            fallback: { ids: fb, length: fb.length },
+            snapshot: snap,
+          },
+          sameSortedSet: {
+            snapshotVsReconstructed: snap ? sameSortedPlayerSet(snap, rec) : false,
+            snapshotVsFallback: snap ? sameSortedPlayerSet(snap, fb) : false,
+            reconstructedVsFallback: sameSortedPlayerSet(rec, fb),
+          },
+        };
       }
     } else if (snapshot && snapshot.length > 0) {
       rosterIds = snapshot;
@@ -262,15 +316,33 @@ export async function GET(
     }
   }
 
+  const body: Record<string, unknown> = {
+    weeks,
+    lastPlayedMatchId,
+    /** Match id for the user's last counted week (aligns with weeks[last]); use for FP fallbacks on the client */
+    lastWeekMatchId: userLastMatchId,
+    wasEligibleForLastPlayed,
+    lastWeekFPByCurrentRoster,
+  };
+
+  if (debugRequested) {
+    body.debug = {
+      env: {
+        nodeEnv: process.env.NODE_ENV ?? null,
+        vercel: process.env.VERCEL === "1",
+      },
+      season: seasonNum,
+      gameStatsRowCount: stats.length,
+      scheduleFilteredWeekCount: scheduleFiltered.length,
+      leagueLastPlayedMatchId: lastPlayedMatchId,
+      userLastMatchId,
+      lastPlayedEqualsUserLast: lastPlayedMatchId === userLastMatchId,
+      lastWeekRosterResolution: lastWeekResolutionDebug,
+    };
+  }
+
   return NextResponse.json(
-    {
-      weeks,
-      lastPlayedMatchId,
-      /** Match id for the user's last counted week (aligns with weeks[last]); use for FP fallbacks on the client */
-      lastWeekMatchId: userLastMatchId,
-      wasEligibleForLastPlayed,
-      lastWeekFPByCurrentRoster,
-    },
+    body,
     {
       headers: {
         "Cache-Control": "private, no-store, max-age=0, must-revalidate",
