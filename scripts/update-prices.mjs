@@ -34,19 +34,31 @@ import {
 } from "./lib/season-price-simulation.mjs";
 
 function loadPlayerNames(season) {
-  const path = join(SIM_DATA_DIR, `player_game_stats_s${season}.json`);
-  if (!existsSync(path)) return {};
-  try {
-    const data = JSON.parse(readFileSync(path, "utf-8"));
-    const stats = data.stats ?? [];
-    const names = {};
-    for (const s of stats) {
-      if (s.playerId && s.name && !names[s.playerId]) names[s.playerId] = s.name;
+  const names = {};
+  const statsPath = join(SIM_DATA_DIR, `player_game_stats_s${season}.json`);
+  if (existsSync(statsPath)) {
+    try {
+      const data = JSON.parse(readFileSync(statsPath, "utf-8"));
+      for (const s of data.stats ?? []) {
+        if (s.playerId && s.name && !names[s.playerId]) names[s.playerId] = s.name;
+      }
+    } catch {
+      /* ignore */
     }
-    return names;
-  } catch {
-    return {};
   }
+  /** Roster page stats — fills gaps when boxscore rows omit `name` (then log showed "Player {id}"). */
+  const rosterPath = join(SIM_DATA_DIR, `season${season}_stats.json`);
+  if (existsSync(rosterPath)) {
+    try {
+      const data = JSON.parse(readFileSync(rosterPath, "utf-8"));
+      for (const p of data.players ?? []) {
+        if (p.playerId && p.name && !names[p.playerId]) names[p.playerId] = p.name;
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+  return names;
 }
 
 async function run() {

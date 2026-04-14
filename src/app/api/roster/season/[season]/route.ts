@@ -108,6 +108,18 @@ export async function POST(
   const { data: profile } = await admin.from("profiles").select("nickname").eq("user_id", user.id).maybeSingle();
   const nickname = profile?.nickname ?? null;
 
+  /** First lock time only — used for weekly history / last-week eligibility. Must not reset on re-save. */
+  const { data: existingRow } = await admin
+    .from("fantasy_user_rosters")
+    .select("picked_at")
+    .eq("user_id", user.id)
+    .eq("season", seasonNum)
+    .maybeSingle();
+  const pickedAt =
+    existingRow?.picked_at != null && String(existingRow.picked_at).trim() !== ""
+      ? existingRow.picked_at
+      : new Date().toISOString();
+
   const { error } = await admin.from("fantasy_user_rosters").upsert(
     {
       user_id: user.id,
@@ -116,7 +128,7 @@ export async function POST(
       player_prices: playerPrices,
       player_names: playerNames,
       nickname,
-      picked_at: new Date().toISOString(),
+      picked_at: pickedAt,
       updated_at: new Date().toISOString(),
     },
     { onConflict: "user_id,season" }

@@ -46,7 +46,7 @@ export async function loadPlayerGameStatsFromSupabase(season) {
     const supabase = createClient(url, key);
     const { data, error } = await supabase
       .from("fantasy_player_game_stats")
-      .select("player_id, match_id, fantasy_points")
+      .select("player_id, match_id, fantasy_points, name")
       .eq("season", season)
       .range(0, 9999);
     if (error || !data?.length) return [];
@@ -54,10 +54,26 @@ export async function loadPlayerGameStatsFromSupabase(season) {
       playerId: r.player_id,
       matchId: String(r.match_id),
       fantasyPoints: Number(r.fantasy_points ?? 0),
+      name: r.name ?? null,
     }));
   } catch {
     return [];
   }
+}
+
+/**
+ * For audit scripts (simulate-prices): Supabase first, then JSON.
+ * `loadPlayerGameStats` (update-prices / CI) prefers JSON when USE_JSON_STATS=1 or empty Supabase.
+ */
+export async function loadPlayerGameStatsPreferSupabase(season) {
+  const fromSupabase = await loadPlayerGameStatsFromSupabase(season);
+  if (fromSupabase.length > 0) {
+    console.log(`Using ${fromSupabase.length} stats from Supabase (cron-synced)`);
+    return fromSupabase;
+  }
+  const fromJson = loadPlayerGameStatsFromJson(season);
+  if (fromJson.length > 0) console.log(`Using ${fromJson.length} stats from JSON (local)`);
+  return fromJson;
 }
 
 export async function loadPlayerGameStats(season) {
@@ -105,15 +121,21 @@ export function loadPriceData(season) {
 
 /**
  * @param {number} season
- * @param {Array<{ playerId: number; matchId: string; fantasyPoints: number }>} stats
- * @param {{ newPlayerFloor?: number }} [options] - override PRICE_FOR_ZERO_GP for this run only
+ * @param {Array<{ playerId: number; matchId: string; fantasyPoints: number; name?: string | null }>} stats
+ * @param {{ newPlayerFloor?: number; includeWeekSnapshots?: boolean }} [options]
+ *   - includeWeekSnapshots: also return priceByWeek, playedMatches, cumulative (for simulate-prices audit)
  */
 export function runSimulation(season, stats, options = {}) {
   const floor = options.newPlayerFloor ?? PRICE_FOR_ZERO_GP;
+  const includeWeekSnapshots = options.includeWeekSnapshots === true;
   const schedule = loadSchedule(season);
   const prices = {};
 
-  if (!schedule?.length || !stats.length) return { current: prices, previous: {} };
+  if (!schedule?.length || !stats.length) {
+    return includeWeekSnapshots
+      ? { current: prices, previous: {}, priceByWeek: [], playedMatches: [], cumulative: new Map() }
+      : { current: prices, previous: {} };
+  }
 
   const sorted = [...schedule].sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
   const matchIdsWithStats = new Set(stats.map((x) => String(x.matchId)));
@@ -121,6 +143,8 @@ export function runSimulation(season, stats, options = {}) {
 
   const cumulative = new Map();
   let pricesAtStartOfLastWeek = {};
+  /** @type {Array<{ matchId: string; matchDate: string; weekNum: number; prices: Record<number, number | null> }>} */
+  const priceByWeek = [];
 
   for (let mi = 0; mi < playedMatches.length; mi++) {
     const match = playedMatches[mi];
@@ -161,10 +185,42 @@ export function runSimulation(season, stats, options = {}) {
       prices[playerId] = finalPrice;
     }
 
+    /**
+     * First price for gp 1–2 players (main loop above needs gp >= MIN_GAMES_FOR_ADJUSTMENT).
+     * Must run INSIDE the match loop so `prices[playerId]` exists before DNP — otherwise
+     * low-GP players never get dnpcPriceReduction on later matches (e.g. one game @83738, DNP @83742).
+     */
+    for (const [playerId, cum] of cumulative) {
+      const { total, gp } = cum;
+      if (gp < 1 || prices[playerId] != null || !playersWhoPlayedThisMatch.has(playerId)) continue;
+      const newPrice = fantasyPPGToPrice(total / gp);
+      const effectiveOld = floor;
+      const maxChange = getMaxPriceChange(gp);
+      const delta = newPrice - effectiveOld;
+      prices[playerId] = Math.max(
+        1,
+        Math.min(10, effectiveOld + Math.sign(delta) * Math.min(Math.abs(delta), maxChange))
+      );
+    }
+
     for (const playerId of Object.keys(prices).map(Number)) {
       if (!playersWhoPlayedThisMatch.has(playerId)) {
         prices[playerId] = dnpcPriceReduction(prices[playerId]);
       }
+    }
+
+    if (includeWeekSnapshots) {
+      const weekPrices = {};
+      const ids = new Set([...cumulative.keys(), ...Object.keys(prices).map(Number)]);
+      for (const pid of ids) {
+        weekPrices[pid] = prices[pid] ?? null;
+      }
+      priceByWeek.push({
+        matchId: String(match.id),
+        matchDate: match.start?.slice(0, 10) ?? "?",
+        weekNum: mi + 1,
+        prices: weekPrices,
+      });
     }
   }
 
@@ -181,7 +237,13 @@ export function runSimulation(season, stats, options = {}) {
     }
   }
 
-  return { current: prices, previous: pricesAtStartOfLastWeek };
+  const result = { current: prices, previous: pricesAtStartOfLastWeek };
+  if (includeWeekSnapshots) {
+    result.priceByWeek = priceByWeek;
+    result.playedMatches = playedMatches;
+    result.cumulative = cumulative;
+  }
+  return result;
 }
 
 /**
