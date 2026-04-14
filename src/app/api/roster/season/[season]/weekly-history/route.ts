@@ -171,10 +171,11 @@ export async function GET(
 
     let rosterIds: number[];
     const snapshot = rosterByMatch.get(matchId);
-    // Last finished match: must match leaderboard (getUserStandings) — current roster + pending_subs for that match.
-    // fantasy_roster_by_match snapshots can be missing/wrong on one env; leaderboard ignores them for lastWeekFP.
+    // Last finished match: prefer sync snapshot (who was locked for that game). If missing (sync not run yet),
+    // use current roster + pending_subs when pending targets this match; else current ids.
     if (String(matchId) === String(lastPlayedMatchIdForOverride)) {
-      rosterIds = [...rosterThatPlayedLastMatch];
+      rosterIds =
+        snapshot && snapshot.length > 0 ? snapshot : [...rosterThatPlayedLastMatch];
     } else if (snapshot && snapshot.length > 0) {
       // Use immutable snapshot written by sync when game finished
       rosterIds = snapshot;

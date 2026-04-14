@@ -426,6 +426,20 @@ export async function getUserStandings(season: number): Promise<
     ? (lastPlayedRow.match_start ? new Date(lastPlayedRow.match_start).getTime() : new Date(lastPlayedRow.match_date + "T12:00:00Z").getTime())
     : 0;
 
+  /** Who played the last match — same resolution as weekly-history (snapshot first, else current + pending_subs). */
+  const lastMatchSnapshotByUser = new Map<string, number[]>();
+  if (lastPlayedMatchId) {
+    const { data: snapRows } = await supabase
+      .from("fantasy_roster_by_match")
+      .select("user_id, player_ids")
+      .eq("season", season)
+      .eq("match_id", String(lastPlayedMatchId));
+    for (const row of snapRows ?? []) {
+      const ids = row.player_ids as number[];
+      if (ids?.length) lastMatchSnapshotByUser.set(row.user_id, ids);
+    }
+  }
+
   const standings: { userId: string; nickname: string; totalFantasyPoints: number; lastWeekFP: number; lastWeekNumber: number }[] = [];
 
   for (const r of rosters) {
@@ -440,12 +454,13 @@ export async function getUserStandings(season: number): Promise<
       if (pickedAtMs > 0 && pickedAtMs < lastMatchStartMs) {
         const currentIds = (r.player_ids ?? []) as number[];
         const pendingSubs = r.pending_subs as { effective_match_id?: string; removed_ids?: number[]; added_ids?: number[] } | null;
-        // Same logic as roster weekly-history: when sync ran, currentIds = roster that played.
-        // When pending_subs targets last match, apply it to get roster that played.
-        const rosterThatPlayed =
+        const snapIds = lastMatchSnapshotByUser.get(r.user_id);
+        const rosterThatPlayedFallback =
           pendingSubs?.effective_match_id && String(pendingSubs.effective_match_id) === String(lastPlayedMatchId)
             ? currentIds.filter((id) => !(pendingSubs.removed_ids ?? []).includes(id)).concat(pendingSubs.added_ids ?? [])
             : currentIds;
+        const rosterThatPlayed =
+          snapIds && snapIds.length > 0 ? snapIds : rosterThatPlayedFallback;
         for (const pid of rosterThatPlayed) {
           lastWeekFP += pointsMap.get(`${pid}:${String(lastPlayedMatchId)}`) ?? 0;
         }
