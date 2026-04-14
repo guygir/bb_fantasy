@@ -118,6 +118,10 @@ export async function GET(
       return false;
     });
 
+  /** User's last counted week (may differ from league lastPlayedMatchId — e.g. picked after lock, UTC date edge). */
+  const userLastMatchId =
+    scheduleFiltered.length > 0 ? String(scheduleFiltered[scheduleFiltered.length - 1].match_id) : null;
+
   // Build initial roster by reversing substitutions (newest first).
   // Avoid duplicates: only add removed players that aren't already in roster.
   let initialIds = [...currentIds];
@@ -137,15 +141,15 @@ export async function GET(
   //   Roster that played = current + pending_subs applied (the "future roster" at lock time).
   // - Else (pending_subs null or for a different match): sync already ran, current roster = roster that played.
   const pendingSubs = roster.pending_subs as { effective_match_id?: string; removed_ids?: number[]; added_ids?: number[] } | null;
-  const lastPlayedMatchIdForOverride = lastPlayedFP.lastPlayedMatchId;
-  const rosterThatPlayedLastMatch =
-    pendingSubs?.effective_match_id && String(pendingSubs.effective_match_id) === String(lastPlayedMatchIdForOverride)
-      ? (() => {
-          const removed = pendingSubs.removed_ids ?? [];
-          const added = pendingSubs.added_ids ?? [];
-          return currentIds.filter((id) => !removed.includes(id)).concat(added);
-        })()
-      : currentIds;
+  /** Fallback roster for a specific match when pending_subs apply to that match_id (not only global last game). */
+  const rosterFallbackForMatch = (matchId: string): number[] => {
+    if (pendingSubs?.effective_match_id && String(pendingSubs.effective_match_id) === String(matchId)) {
+      const removed = pendingSubs.removed_ids ?? [];
+      const added = pendingSubs.added_ids ?? [];
+      return currentIds.filter((id) => !removed.includes(id)).concat(added);
+    }
+    return [...currentIds];
+  };
 
   // Points by (player_id, match_id)
   const pointsMap = new Map<string, number>();
@@ -171,11 +175,11 @@ export async function GET(
 
     let rosterIds: number[];
     const snapshot = rosterByMatch.get(matchId);
-    // Last finished match: prefer sync snapshot (who was locked for that game). If missing (sync not run yet),
-    // use current roster + pending_subs when pending targets this match; else current ids.
-    if (String(matchId) === String(lastPlayedMatchIdForOverride)) {
+    // User's chronological last included week: prefer snapshot, else pending/current for *this* match_id only.
+    // Do not use global league lastPlayedMatchId — it can differ from scheduleFiltered last row (UTC vs local, eligibility).
+    if (userLastMatchId && String(matchId) === userLastMatchId) {
       rosterIds =
-        snapshot && snapshot.length > 0 ? snapshot : [...rosterThatPlayedLastMatch];
+        snapshot && snapshot.length > 0 ? snapshot : rosterFallbackForMatch(matchId);
     } else if (snapshot && snapshot.length > 0) {
       // Use immutable snapshot written by sync when game finished
       rosterIds = snapshot;
@@ -224,11 +228,11 @@ export async function GET(
     });
   }
 
-  // FP for "Last week" column: show FP for current roster players (0 if they were subbed out)
+  // FP for "Last week" column: same match as user's last row in weeks[], not global league last match
   const lastWeekFPByCurrentRoster: Record<number, number> = {};
-  if (lastPlayedMatchId && currentIds.length > 0) {
+  if (userLastMatchId && currentIds.length > 0) {
     for (const pid of currentIds) {
-      lastWeekFPByCurrentRoster[pid] = pointsMap.get(`${pid}:${String(lastPlayedMatchId)}`) ?? 0;
+      lastWeekFPByCurrentRoster[pid] = pointsMap.get(`${pid}:${userLastMatchId}`) ?? 0;
     }
   }
 
@@ -236,6 +240,8 @@ export async function GET(
     {
       weeks,
       lastPlayedMatchId,
+      /** Match id for the user's last counted week (aligns with weeks[last]); use for FP fallbacks on the client */
+      lastWeekMatchId: userLastMatchId,
       wasEligibleForLastPlayed,
       lastWeekFPByCurrentRoster,
     },
