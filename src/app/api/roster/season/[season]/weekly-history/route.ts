@@ -7,6 +7,43 @@ export const dynamic = "force-dynamic";
 
 const ROSTER_SIZE = 5;
 
+type SubRow = {
+  removed_player_ids?: number[] | null;
+  added_player_ids?: number[] | null;
+  created_at?: string | null;
+  effective_match_id?: string | null;
+};
+
+/** Roster at lock for a match by replaying subs forward from reversed initial roster. */
+function reconstructRosterForMatch(
+  matchId: string,
+  matchDate: string,
+  initialIds: number[],
+  subs: SubRow[]
+): number[] {
+  const matchCutoff = new Date(matchDate + "T23:59:59.999Z").getTime();
+  let rosterIds = [...initialIds];
+  for (const s of subs) {
+    const effectiveMatchId = s.effective_match_id as string | null;
+    const createdAt = new Date((s.created_at as string)).getTime();
+    const appliesToThisMatch = effectiveMatchId
+      ? String(effectiveMatchId) === String(matchId)
+      : createdAt <= matchCutoff;
+    if (appliesToThisMatch) {
+      const removed = (s.removed_player_ids ?? []) as number[];
+      const added = (s.added_player_ids ?? []) as number[];
+      const allRemovedPresent = removed.length > 0 && removed.every((id) => rosterIds.includes(id));
+      if (allRemovedPresent) {
+        const after = rosterIds.filter((id) => !removed.includes(id)).concat(added);
+        if (after.length === ROSTER_SIZE) {
+          rosterIds = after;
+        }
+      }
+    }
+  }
+  return rosterIds;
+}
+
 function getSupabaseWithAuth(authHeader: string | null) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -82,7 +119,7 @@ export async function GET(
     return NextResponse.json({ error: "Failed to load game stats" }, { status: 500 });
   }
   const roster = rosterRes.data;
-  const subs = subsRes.data ?? [];
+  const subs = (subsRes.data ?? []) as SubRow[];
   const rosterByMatchRows = (rosterByMatchRes.data ?? []) as { match_id: string; player_ids: number[] }[];
   const rosterByMatch = new Map(rosterByMatchRows.map((r) => [r.match_id, r.player_ids]));
 
@@ -175,36 +212,25 @@ export async function GET(
 
     let rosterIds: number[];
     const snapshot = rosterByMatch.get(matchId);
-    // User's chronological last included week: prefer snapshot, else pending/current for *this* match_id only.
-    // Do not use global league lastPlayedMatchId — it can differ from scheduleFiltered last row (UTC vs local, eligibility).
+    const reconstructed = reconstructRosterForMatch(matchId, matchDate, initialIds, subs);
+
+    // User's last week: prefer subs reconstruction; then current+pending for this match (matches no-snapshot local);
+    // snapshot last — fantasy_roster_by_match can be stale first-write on prod.
     if (userLastMatchId && String(matchId) === userLastMatchId) {
-      rosterIds =
-        snapshot && snapshot.length > 0 ? snapshot : rosterFallbackForMatch(matchId);
+      const fallbackIds = rosterFallbackForMatch(matchId);
+      if (reconstructed.length === ROSTER_SIZE) {
+        rosterIds = reconstructed;
+      } else if (fallbackIds.length === ROSTER_SIZE) {
+        rosterIds = fallbackIds;
+      } else if (snapshot && snapshot.length > 0) {
+        rosterIds = snapshot;
+      } else {
+        rosterIds = fallbackIds;
+      }
     } else if (snapshot && snapshot.length > 0) {
-      // Use immutable snapshot written by sync when game finished
       rosterIds = snapshot;
     } else {
-      // Fallback: reconstruct from subs (before sync has populated snapshots)
-      const matchCutoff = new Date(matchDate + "T23:59:59.999Z").getTime();
-      rosterIds = [...initialIds];
-      for (const s of subs) {
-        const effectiveMatchId = s.effective_match_id as string | null;
-        const createdAt = new Date((s.created_at as string)).getTime();
-        const appliesToThisMatch = effectiveMatchId
-          ? String(effectiveMatchId) === String(matchId)
-          : createdAt <= matchCutoff;
-        if (appliesToThisMatch) {
-          const removed = (s.removed_player_ids ?? []) as number[];
-          const added = (s.added_player_ids ?? []) as number[];
-          const allRemovedPresent = removed.length > 0 && removed.every((id) => rosterIds.includes(id));
-          if (allRemovedPresent) {
-            const after = rosterIds.filter((id) => !removed.includes(id)).concat(added);
-            if (after.length === ROSTER_SIZE) {
-              rosterIds = after;
-            }
-          }
-        }
-      }
+      rosterIds = reconstructed;
     }
 
     const rosterEntries: { playerId: number; name: string; points: number }[] = [];
