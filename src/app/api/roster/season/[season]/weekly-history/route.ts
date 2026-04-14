@@ -171,6 +171,31 @@ export async function GET(
   const userLastMatchId =
     scheduleFiltered.length > 0 ? String(scheduleFiltered[scheduleFiltered.length - 1].match_id) : null;
 
+  // Direct fetch for the last match snapshot: bulk select sometimes omits a row (limits/PostgREST); PK lookup is reliable.
+  let lastMatchSnapshotIds: number[] | null = null;
+  if (userLastMatchId) {
+    const snapQuery = (matchKey: string | number) =>
+      admin
+        .from("fantasy_roster_by_match")
+        .select("player_ids")
+        .eq("user_id", user.id)
+        .eq("season", seasonNum)
+        .eq("match_id", matchKey)
+        .maybeSingle();
+    let { data: lastSnap } = await snapQuery(userLastMatchId);
+    if (!lastSnap?.player_ids?.length) {
+      const n = Number(userLastMatchId);
+      if (!Number.isNaN(n)) {
+        ({ data: lastSnap } = await snapQuery(n));
+      }
+    }
+    const ids = lastSnap?.player_ids as number[] | undefined;
+    if (ids?.length) {
+      lastMatchSnapshotIds = [...ids];
+      rosterByMatch.set(String(userLastMatchId), ids);
+    }
+  }
+
   // Build initial roster by reversing substitutions (newest first).
   // Avoid duplicates: only add removed players that aren't already in roster.
   let initialIds = [...currentIds];
@@ -350,6 +375,14 @@ export async function GET(
       initialIdsAfterReverseSubs: initialIds,
       pendingSubsFromDb: pendingSubs ?? null,
       pickedAt: roster.picked_at ?? null,
+      lastMatchSnapshotDirectFetch: userLastMatchId
+        ? {
+            found: lastMatchSnapshotIds != null,
+            length: lastMatchSnapshotIds?.length ?? 0,
+            matchId: userLastMatchId,
+          }
+        : null,
+      rosterByMatchBulkRowCount: rosterByMatchRows.length,
     };
     console.log("[weekly-history]", {
       userId: user.id,

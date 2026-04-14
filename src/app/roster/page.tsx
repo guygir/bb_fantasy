@@ -146,78 +146,87 @@ export default function MyRosterPage() {
       const weeklyHistoryUrl = `/api/roster/season/${SEASON}/weekly-history?${
         process.env.NODE_ENV === "development" || urlDebug ? "debug=1" : ""
       }`;
-      Promise.all([
-        fetch(`/api/roster/season/${SEASON}`, rosterOpts).then(async (r) => {
-          if (!r.ok) return { roster: null };
-          const data = await r.json();
-          return { data: data.roster };
-        }),
-        fetch(`/api/players/season/${SEASON}?t=${Date.now()}`, { cache: "no-store" }).then(async (r) => {
-          if (!r.ok) return { players: [] };
-          const data = await r.json();
-          return Array.isArray(data.players) ? data : { players: data.players ?? [] };
-        }),
-        fetch(weeklyHistoryUrl, rosterOpts).then(async (r) => {
-          if (!r.ok) return { weeks: [], wasEligibleForLastPlayed: false, debug: null };
-          const data = await r.json();
-          const weeks = data.weeks ?? [];
-          const last = weeks.length > 0 ? weeks[weeks.length - 1] : null;
-          if (data.debug || urlDebug || process.env.NODE_ENV === "development") {
-            console.info("[weekly-history client] last chronological week from API", {
-              matchId: last?.matchId,
-              week: last?.week,
-              total: last?.total,
-              roster: last?.roster?.map((p: { playerId: number; name: string; points: number }) => ({
-                playerId: p.playerId,
-                name: p.name,
-                fp: p.points,
-              })),
-            });
-          }
-          if (data.debug && typeof console !== "undefined" && console.info) {
-            console.info("[weekly-history debug] full server payload", data.debug);
-          }
-          return {
-            weeks,
-            wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
-            debug: data.debug ?? null,
-          };
-        }),
-      ])
-      .then(([rosterRes, playerData, weeklyData]) => {
-        setPlayers((playerData.players ?? []) as Player[]);
-        setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
-        setWeeklyHistoryApiDebug((weeklyData as { debug?: unknown }).debug ?? null);
-        setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
-        const row = rosterRes?.roster ?? rosterRes?.data;
-        if (row?.player_ids?.length) {
-          const prices: Record<number, number> = {};
-          const names: Record<number, string> = {};
-          for (const id of row.player_ids) {
-            const k = String(id);
-            if (row.player_prices?.[k] != null) prices[id] = Number(row.player_prices[k]);
-            if (row.player_names?.[k]) names[id] = String(row.player_names[k]);
-          }
-          setRoster({
-            playerIds: row.player_ids,
-            playerPrices: prices,
-            playerNames: names,
-            pickedAt: row.picked_at ?? new Date().toISOString(),
+      void (async () => {
+        try {
+          const [rosterRes, playerData] = await Promise.all([
+            fetch(`/api/roster/season/${SEASON}`, rosterOpts).then(async (r) => {
+              if (!r.ok) return { data: null as unknown };
+              const data = await r.json();
+              return { data: data.roster };
+            }),
+            fetch(`/api/players/season/${SEASON}?t=${Date.now()}`, { cache: "no-store" }).then(async (r) => {
+              if (!r.ok) return { players: [] };
+              const data = await r.json();
+              return Array.isArray(data.players) ? data : { players: data.players ?? [] };
+            }),
+          ]);
+          // Load weekly-history after roster+players so we don’t race two Lambdas reading fantasy_user_rosters at different times.
+          const weeklyData = await fetch(weeklyHistoryUrl, rosterOpts).then(async (r) => {
+            if (!r.ok) return { weeks: [], wasEligibleForLastPlayed: false, debug: null };
+            const data = await r.json();
+            const weeks = data.weeks ?? [];
+            const last = weeks.length > 0 ? weeks[weeks.length - 1] : null;
+            if (data.debug || urlDebug || process.env.NODE_ENV === "development") {
+              console.info("[weekly-history client] last chronological week from API", {
+                matchId: last?.matchId,
+                week: last?.week,
+                total: last?.total,
+                roster: last?.roster?.map((p: { playerId: number; name: string; points: number }) => ({
+                  playerId: p.playerId,
+                  name: p.name,
+                  fp: p.points,
+                })),
+              });
+            }
+            if (data.debug && typeof console !== "undefined" && console.info) {
+              console.info("[weekly-history debug] full server payload", data.debug);
+            }
+            return {
+              weeks,
+              wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
+              debug: data.debug ?? null,
+            };
           });
-          const ps = row.pending_subs;
-          setPendingSubs(
-            ps?.removed_ids?.length && ps?.added_ids?.length ? (ps as PendingSubs) : null
-          );
-        } else {
-          setRoster(null);
-          setPendingSubs(null);
+
+          setPlayers((playerData.players ?? []) as Player[]);
+          setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
+          setWeeklyHistoryApiDebug(weeklyData.debug ?? null);
+          setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
+          const row = rosterRes?.data as {
+            player_ids?: number[];
+            player_prices?: Record<string, number>;
+            player_names?: Record<string, string>;
+            picked_at?: string;
+            pending_subs?: PendingSubs | null;
+          } | null | undefined;
+          if (row?.player_ids?.length) {
+            const prices: Record<number, number> = {};
+            const names: Record<number, string> = {};
+            for (const id of row.player_ids) {
+              const k = String(id);
+              if (row.player_prices?.[k] != null) prices[id] = Number(row.player_prices[k]);
+              if (row.player_names?.[k]) names[id] = String(row.player_names[k]);
+            }
+            setRoster({
+              playerIds: row.player_ids,
+              playerPrices: prices,
+              playerNames: names,
+              pickedAt: row.picked_at ?? new Date().toISOString(),
+            });
+            const ps = row.pending_subs;
+            setPendingSubs(
+              ps?.removed_ids?.length && ps?.added_ids?.length ? (ps as PendingSubs) : null
+            );
+          } else {
+            setRoster(null);
+            setPendingSubs(null);
+          }
+          setLoading(false);
+        } catch (err) {
+          console.error("Roster load error:", err);
+          setLoading(false);
         }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Roster load error:", err);
-        setLoading(false);
-      });
+      })();
     });
   }, [userId]);
 
