@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { getNextPromotionsScheduledRunUtc } from "@/lib/promotions-schedule";
-import type { LatestRankChange, PromotionEntry, PromotionNewsBlock } from "@/lib/promotions";
+import type {
+  LatestRankChange,
+  PlayoffStatus,
+  PromotionEntry,
+  PromotionNewsBlock,
+} from "@/lib/promotions";
 import type { PromotionTierConfig, PromotionTierId } from "@/lib/promotions-tier";
 
 function formatSnapshot(iso: string | null): string {
@@ -56,6 +61,15 @@ function LatestChangeCell({ change }: { change: LatestRankChange }) {
         {change.magnitude}
       </span>
     </span>
+  );
+}
+
+function isPlayoffOutStatus(s: PlayoffStatus): boolean {
+  return (
+    s === "Lost Quarters" ||
+    s === "Lost Semis" ||
+    s === "Lost Finals" ||
+    s === "Not in playoff"
   );
 }
 
@@ -130,8 +144,14 @@ export function PromotionsView({
             filled; <strong className="text-bb-text">Champ</strong> uses yellow and does not consume a green slot;{" "}
             <strong className="text-bb-text">In Quarters</strong> / <strong className="text-bb-text">In Semis</strong> /{" "}
             <strong className="text-bb-text">In Finals</strong> / <strong className="text-bb-text">Champ</strong> /{" "}
+            <span className="text-red-600" aria-hidden>
+              ❌
+            </span>{" "}
             <strong className="text-bb-text">Lost Quarters</strong> / <strong className="text-bb-text">Lost Semis</strong> /{" "}
             <strong className="text-bb-text">Lost Finals</strong> / <strong className="text-bb-text">Not in playoff</strong>{" "}
+            <span className="text-red-600" aria-hidden>
+              ❌
+            </span>{" "}
             describe the playoff bracket (see Playoff column).
             </p>
           )}
@@ -292,12 +312,12 @@ export function PromotionsView({
                         <LatestChangeCell change={row.latestRankChange} />
                       </td>
                       <td className="border border-bb-border px-3 py-2 text-left font-medium text-bb-text">
-                        {row.playoff_status === "Not in playoff" ? (
+                        {isPlayoffOutStatus(row.playoff_status) ? (
                           <>
                             <span className="text-red-600" aria-hidden>
                               ❌
                             </span>{" "}
-                            Not in playoff{" "}
+                            {row.playoff_status}{" "}
                             <span className="text-red-600" aria-hidden>
                               ❌
                             </span>
