@@ -226,6 +226,11 @@ export async function GET(
       fallback: { ids: number[]; length: number };
       snapshot: { ids: number[] | null };
     };
+    candidateTotalsFp: {
+      snapshot: number | null;
+      reconstructed: number;
+      fallback: number;
+    };
     sameSortedSet: {
       snapshotVsReconstructed: boolean;
       snapshotVsFallback: boolean;
@@ -242,13 +247,17 @@ export async function GET(
     const snapshot = rosterByMatch.get(matchId);
     const reconstructed = reconstructRosterForMatch(matchId, matchDate, initialIds, subs);
 
-    // User's last week: prefer subs reconstruction; then current+pending for this match (matches no-snapshot local);
-    // snapshot last — fantasy_roster_by_match can be stale first-write on prod.
+    // User's last week: prefer fantasy_roster_by_match when sync wrote 5 IDs (authoritative for finished games).
+    // Subs reconstruction can still yield 5 wrong IDs (replay order / effective_match edge cases) — do not prefer it over snapshot.
+    // Order: snapshot (5) → reconstructed (5) → fallback (5) → partial snapshot → fallback.
     if (userLastMatchId && String(matchId) === userLastMatchId) {
       const fallbackIds = rosterFallbackForMatch(matchId);
       const snap = snapshot && snapshot.length > 0 ? [...snapshot] : null;
       let source: "reconstructed" | "fallback" | "snapshot";
-      if (reconstructed.length === ROSTER_SIZE) {
+      if (snap && snap.length === ROSTER_SIZE) {
+        rosterIds = snap;
+        source = "snapshot";
+      } else if (reconstructed.length === ROSTER_SIZE) {
         rosterIds = reconstructed;
         source = "reconstructed";
       } else if (fallbackIds.length === ROSTER_SIZE) {
@@ -264,6 +273,8 @@ export async function GET(
       if (debugRequested) {
         const rec = [...reconstructed];
         const fb = [...fallbackIds];
+        const sumFp = (ids: number[]) =>
+          ids.reduce((s, pid) => s + (pointsMap.get(`${pid}:${String(matchId)}`) ?? 0), 0);
         lastWeekResolutionDebug = {
           matchId: String(matchId),
           matchDate,
@@ -273,6 +284,11 @@ export async function GET(
             reconstructed: { ids: rec, length: rec.length },
             fallback: { ids: fb, length: fb.length },
             snapshot: { ids: snap },
+          },
+          candidateTotalsFp: {
+            snapshot: snap ? sumFp(snap) : null,
+            reconstructed: sumFp(rec),
+            fallback: sumFp(fb),
           },
           sameSortedSet: {
             snapshotVsReconstructed: snap ? sameSortedPlayerSet(snap, rec) : false,
@@ -329,7 +345,24 @@ export async function GET(
       userLastMatchId,
       lastPlayedEqualsUserLast: lastPlayedMatchId === userLastMatchId,
       lastWeekRosterResolution: lastWeekResolutionDebug,
+      currentIdsFromDb: currentIds,
+      initialIdsAfterReverseSubs: initialIds,
+      pendingSubsFromDb: pendingSubs ?? null,
+      pickedAt: roster.picked_at ?? null,
     };
+    console.log("[weekly-history]", {
+      userId: user.id,
+      season: seasonNum,
+      userLastMatchId,
+      lastWeekSource: lastWeekResolutionDebug?.source,
+      candidateTotalsFp: lastWeekResolutionDebug?.candidateTotalsFp,
+      chosenTotal: weeks.length
+        ? (() => {
+            const w = weeks[weeks.length - 1];
+            return { matchId: w.matchId, total: w.total, roster: w.roster.map((x) => ({ id: x.playerId, n: x.name, fp: x.points })) };
+          })()
+        : null,
+    });
   }
 
   return NextResponse.json(

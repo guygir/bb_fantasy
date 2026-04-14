@@ -138,6 +138,12 @@ export default function MyRosterPage() {
       const rosterOpts = session?.access_token
         ? { headers: { Authorization: `Bearer ${session.access_token}` }, cache: "no-store" as RequestCache }
         : { cache: "no-store" as RequestCache };
+      const urlDebug =
+        typeof window !== "undefined" &&
+        new URLSearchParams(window.location.search).get("debug") === "1";
+      const weeklyHistoryUrl = `/api/roster/season/${SEASON}/weekly-history?${
+        process.env.NODE_ENV === "development" || urlDebug ? "debug=1" : ""
+      }`;
       Promise.all([
         fetch(`/api/roster/season/${SEASON}`, rosterOpts).then(async (r) => {
           if (!r.ok) return { roster: null };
@@ -149,17 +155,28 @@ export default function MyRosterPage() {
           const data = await r.json();
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };
         }),
-        fetch(
-          `/api/roster/season/${SEASON}/weekly-history${process.env.NODE_ENV === "development" ? "?debug=1" : ""}`,
-          rosterOpts
-        ).then(async (r) => {
+        fetch(weeklyHistoryUrl, rosterOpts).then(async (r) => {
           if (!r.ok) return { weeks: [], wasEligibleForLastPlayed: false };
           const data = await r.json();
+          const weeks = data.weeks ?? [];
+          const last = weeks.length > 0 ? weeks[weeks.length - 1] : null;
+          if (data.debug || urlDebug || process.env.NODE_ENV === "development") {
+            console.info("[weekly-history client] last chronological week from API", {
+              matchId: last?.matchId,
+              week: last?.week,
+              total: last?.total,
+              roster: last?.roster?.map((p: { playerId: number; name: string; points: number }) => ({
+                playerId: p.playerId,
+                name: p.name,
+                fp: p.points,
+              })),
+            });
+          }
           if (data.debug && typeof console !== "undefined" && console.info) {
-            console.info("[weekly-history debug]", data.debug);
+            console.info("[weekly-history debug] full server payload", data.debug);
           }
           return {
-            weeks: data.weeks ?? [],
+            weeks,
             wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
           };
         }),
@@ -253,8 +270,25 @@ export default function MyRosterPage() {
   return (
     <div>
       {showDebug && (
-        <div className="mb-4 rounded border border-amber-300 bg-amber-50 p-2 text-xs font-mono">
-          Debug: user_id={userId} · Roster IDs: {roster?.playerIds?.join(", ")} · Last week FP source: {weeklyHistory.length > 0 ? `week ${weeklyHistory[weeklyHistory.length - 1]?.week} total=${weeklyHistory[weeklyHistory.length - 1]?.total}` : "none"}
+        <div className="mb-4 rounded border border-amber-300 bg-amber-50 p-2 text-xs font-mono whitespace-pre-wrap break-all">
+          <div>
+            user_id={userId} · current roster IDs: {roster?.playerIds?.join(", ")}
+          </div>
+          <div>
+            last chronological week (API weeks.at(-1)): week={weeklyHistory[weeklyHistory.length - 1]?.week}{" "}
+            matchId={weeklyHistory[weeklyHistory.length - 1]?.matchId} total=
+            {weeklyHistory[weeklyHistory.length - 1]?.total?.toFixed(1)} FP
+          </div>
+          <div>
+            names:{" "}
+            {weeklyHistory[weeklyHistory.length - 1]?.roster
+              ?.map((p) => `${p.name} (${p.points.toFixed(1)})`)
+              .join(" · ") ?? "—"}
+          </div>
+          <div className="mt-1 text-gray-600">
+            fantasyLastWeekFpByPlayerId keys (roster table “Last week” column):{" "}
+            {JSON.stringify(fantasyLastWeekFpByPlayerId)}
+          </div>
         </div>
       )}
       <h2 className="mb-4 text-lg font-semibold">My Roster</h2>
