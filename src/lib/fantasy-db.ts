@@ -35,23 +35,19 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
     return { lastPlayedMatchId: null, playerFP: {} };
   }
 
-  const [scheduleRes, statsRes] = await Promise.all([
-    supabase
-      .from("fantasy_schedule")
-      .select("match_id, match_date, match_start")
-      .eq("season", season)
-      .not("match_date", "is", null)
-      .order("match_date", { ascending: true })
-      .range(0, 999),
-    supabase
-      .from("fantasy_player_game_stats")
-      .select("player_id, match_id, fantasy_points")
-      .eq("season", season)
-      .range(0, 999),
-  ]);
+  const { data: scheduleRows, error: scheduleErr } = await supabase
+    .from("fantasy_schedule")
+    .select("match_id, match_date, match_start")
+    .eq("season", season)
+    .not("match_date", "is", null)
+    .order("match_date", { ascending: true })
+    .range(0, 999);
 
-  const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
-  const stats = statsRes.data ?? [];
+  const schedule = (scheduleRows ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  if (scheduleErr) {
+    return { lastPlayedMatchId: null, playerFP: {} };
+  }
+
   const today = new Date().toISOString().slice(0, 10);
   const now = Date.now();
 
@@ -68,8 +64,13 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
   }
 
   const playerFP: Record<number, number> = {};
-  for (const s of stats) {
-    if (String(s.match_id) === String(lastPlayedMatchId)) {
+  if (lastPlayedMatchId) {
+    const { data: statsRows } = await supabase
+      .from("fantasy_player_game_stats")
+      .select("player_id, match_id, fantasy_points")
+      .eq("season", season)
+      .eq("match_id", String(lastPlayedMatchId));
+    for (const s of statsRows ?? []) {
       playerFP[s.player_id] = Number(s.fantasy_points ?? 0);
     }
   }

@@ -78,7 +78,7 @@ export async function getSchedule(season?: number): Promise<{
     }
   }
 
-  // Merge scores from parsed boxscores (run: npm run process-boxscores)
+  // Merge scores: local JSON (process-boxscores), then Supabase fantasy_matches (sync-fantasy)
   const matchScores = loadMatchScores(s);
   if (Object.keys(matchScores).length > 0) {
     matches = matches.map((m) => {
@@ -92,6 +92,35 @@ export async function getSchedule(season?: number): Promise<{
       }
       return m;
     });
+  }
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (url && anonKey) {
+    try {
+      const { createClient } = await import("@supabase/supabase-js");
+      const supabase = createClient(url, anonKey);
+      const { data: rows } = await supabase
+        .from("fantasy_matches")
+        .select("match_id, home_score, away_score")
+        .eq("season", s);
+      if (rows?.length) {
+        const byId = new Map(rows.map((r) => [String(r.match_id), r]));
+        matches = matches.map((m) => {
+          const row = byId.get(String(m.id));
+          if (row?.home_score != null && row?.away_score != null) {
+            return {
+              ...m,
+              homeScore: String(row.home_score),
+              awayScore: String(row.away_score),
+            };
+          }
+          return m;
+        });
+      }
+    } catch {
+      /* ignore — schedule still works without DB scores */
+    }
   }
 
   if (matches.length === 0) {
