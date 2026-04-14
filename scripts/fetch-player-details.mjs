@@ -3,6 +3,11 @@
  * and save to JSON. Run before starting the app to ensure Players page has full data.
  *
  * Run: node scripts/fetch-player-details.mjs [season]
+ *
+ * Injury: scraped from buzzerbeater.com overview. Cookie resolution order:
+ *   1) BB_SITE_COOKIES if set
+ *   2) Else BB_PASSWORD — Puppeteer login to login.aspx (same as fetch-player-face / cron)
+ *   3) Else BBAPI session cookies (usually insufficient for the main site)
  */
 
 import { config } from "dotenv";
@@ -14,7 +19,10 @@ import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
-config({ path: join(ROOT, ".env.local") });
+config({ path: join(ROOT, ".env.local"), override: true });
+
+/** Optional override: full browser Cookie header for buzzerbeater.com (see .env.example). */
+const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
 
 const BASE = "http://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
@@ -34,9 +42,12 @@ function parsePlayerXml(xml) {
   };
 }
 
-/** BuzzerBeater web overview: "Injury! 4 - 7 days" → min/max; else healthy. */
+/** BuzzerBeater web overview: "Injury! 4 - 7 days" (may be split by HTML tags / en-dash). */
 function parseInjuryFromOverviewHtml(html) {
-  const m = html.match(/Injury!\s*(\d+)\s*-\s*(\d+)\s*days/i);
+  const head = html.match(/Injury!/i);
+  if (!head || head.index == null) return { injuryDaysMin: null, injuryDaysMax: null };
+  const slice = html.slice(head.index, head.index + 500);
+  const m = slice.match(/(\d+)\s*[-–]\s*(\d+)\s*days/i);
   if (m) {
     return {
       injuryDaysMin: parseInt(m[1], 10),
@@ -46,18 +57,48 @@ function parseInjuryFromOverviewHtml(html) {
   return { injuryDaysMin: null, injuryDaysMax: null };
 }
 
-async function fetchInjuryFromOverview(playerId) {
+function overviewLooksLikeLoginWall(html) {
+  return (
+    /login\.css/i.test(html) ||
+    /<title>\s*Login\s*</i.test(html) ||
+    /Forgot Password/i.test(html)
+  );
+}
+
+let warnedOverviewLogin = false;
+
+/**
+ * @param {string} cookieHeader
+ * @param {"site_cookie"|"puppeteer"|"bbapi"} authMode — for login-wall diagnostics
+ */
+async function fetchInjuryFromOverview(playerId, cookieHeader, authMode) {
+  const ch = (cookieHeader || "").trim();
   try {
+    const headers = {
+      "User-Agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      Accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
+    };
+    if (ch) headers.Cookie = ch;
     const res = await fetch(`https://buzzerbeater.com/player/${playerId}/overview.aspx`, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
-      },
+      headers,
       redirect: "follow",
     });
     if (!res.ok) return { injuryDaysMin: null, injuryDaysMax: null };
     const html = await res.text();
+    if (overviewLooksLikeLoginWall(html)) {
+      if (!warnedOverviewLogin) {
+        warnedOverviewLogin = true;
+        const msg = !ch
+          ? "No cookies for overview."
+          : authMode === "site_cookie"
+            ? "BB_SITE_COOKIES may be expired; overview still looks like login."
+            : authMode === "puppeteer"
+              ? "Overview still looks like login after Puppeteer login (unexpected)."
+              : "BBAPI cookies did not unlock the main site. Set BB_PASSWORD (main site) for Puppeteer login, or BB_SITE_COOKIES.";
+        console.warn(`\n[fetch-player-details] ${msg}\n`);
+      }
+    }
     return parseInjuryFromOverviewHtml(html);
   } catch {
     return { injuryDaysMin: null, injuryDaysMax: null };
@@ -90,6 +131,28 @@ async function run() {
     process.exit(1);
   }
 
+  /** @type {"site_cookie"|"puppeteer"|"bbapi"} */
+  let overviewAuthMode = "bbapi";
+  let overviewCookieHeader = SITE_COOKIE_HEADER;
+  if (overviewCookieHeader) {
+    overviewAuthMode = "site_cookie";
+  } else if (process.env.BB_PASSWORD?.trim()) {
+    try {
+      const { getBuzzerbeaterCookieHeaderFromLogin } = await import("./lib/bb-site-session.mjs");
+      console.log("buzzerbeater.com login (Puppeteer) for injury overview...");
+      overviewCookieHeader = await getBuzzerbeaterCookieHeaderFromLogin();
+      overviewAuthMode = "puppeteer";
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      console.warn("[fetch-player-details] Puppeteer site login failed:", msg);
+      overviewCookieHeader = "";
+    }
+  }
+  if (!overviewCookieHeader) {
+    overviewCookieHeader = cookies.join("; ");
+    overviewAuthMode = "bbapi";
+  }
+
   const details = {};
   /** Skipped players leave existing Supabase rows unchanged on sync — stale DMI/GS until a successful fetch. */
   const failures = [];
@@ -106,7 +169,7 @@ async function run() {
         continue;
       }
       const base = parsePlayerXml(xml);
-      const injury = await fetchInjuryFromOverview(p.playerId);
+      const injury = await fetchInjuryFromOverview(p.playerId, overviewCookieHeader, overviewAuthMode);
       details[p.playerId] = { ...base, ...injury };
     } catch (e) {
       const err = e instanceof Error ? e.message : String(e);
