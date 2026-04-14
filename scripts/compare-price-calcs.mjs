@@ -82,7 +82,6 @@ function runSimulation(stats, schedule, targetPriceFn) {
 
     for (const st of matchStats) {
       const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0, lastGames: [], allGamesWithDnp: [] };
-      while ((cur.allGamesWithDnp || []).length < mi) cur.allGamesWithDnp.push(0);
       cur.total += st.fantasyPoints;
       cur.gp += 1;
       cur.lastGames = (cur.lastGames || []).concat(st.fantasyPoints).slice(-20);

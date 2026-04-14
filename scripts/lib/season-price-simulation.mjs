@@ -156,7 +156,8 @@ export function runSimulation(season, stats, options = {}) {
 
     for (const st of matchStats) {
       const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0, lastGames: [], allGamesWithDnp: [] };
-      while ((cur.allGamesWithDnp || []).length < mi) cur.allGamesWithDnp.push(0);
+      // Do not pad with zeros for matches before this player's first game (late call-ups).
+      // allGamesWithDnp = FP or 0 only from first appearance through current match (see loop below).
       cur.total += st.fantasyPoints;
       cur.gp += 1;
       cur.lastGames = (cur.lastGames || []).concat(st.fantasyPoints).slice(-20);

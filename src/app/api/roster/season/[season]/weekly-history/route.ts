@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseAdmin } from "@/lib/supabase";
-import { getLastPlayedMatchFP } from "@/lib/fantasy-db";
+import { fetchFantasyGameStatsForScheduleMatchIds, getLastPlayedMatchFP } from "@/lib/fantasy-db";
 
 export const dynamic = "force-dynamic";
 
@@ -45,7 +45,7 @@ export async function GET(
   const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
 
   const admin = getSupabaseAdmin();
-  const [lastPlayedFP, scheduleRes, statsRes, rosterRes, rosterByMatchRes, subsRes] = await Promise.all([
+  const [lastPlayedFP, scheduleRes, rosterRes, rosterByMatchRes, subsRes] = await Promise.all([
     getLastPlayedMatchFP(seasonNum),
     admin
       .from("fantasy_schedule")
@@ -53,11 +53,6 @@ export async function GET(
       .eq("season", seasonNum)
       .not("match_date", "is", null)
       .order("match_date", { ascending: true }),
-    admin
-      .from("fantasy_player_game_stats")
-      .select("player_id, match_id, name, fantasy_points")
-      .eq("season", seasonNum)
-      .range(0, 9999),
     admin
       .from("fantasy_user_rosters")
       .select("player_ids, player_names, picked_at, pending_subs")
@@ -77,7 +72,15 @@ export async function GET(
       .order("created_at", { ascending: true }),
   ]);
 
-  const stats = statsRes.data ?? [];
+  const fullScheduleForStats = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  const scheduleMatchIds = fullScheduleForStats.map((r) => String(r.match_id));
+  let stats: { player_id: number; match_id: string; name: string | null; fantasy_points: number | null }[] = [];
+  try {
+    stats = await fetchFantasyGameStatsForScheduleMatchIds(admin, seasonNum, scheduleMatchIds);
+  } catch (e) {
+    console.error("weekly-history game stats:", e);
+    return NextResponse.json({ error: "Failed to load game stats" }, { status: 500 });
+  }
   const roster = rosterRes.data;
   const subs = subsRes.data ?? [];
   const rosterByMatchRows = (rosterByMatchRes.data ?? []) as { match_id: string; player_ids: number[] }[];
@@ -91,7 +94,7 @@ export async function GET(
   const currentIds = roster.player_ids as number[];
   const playerNames = (roster.player_names ?? {}) as Record<string, string>;
 
-  const fullSchedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  const fullSchedule = fullScheduleForStats;
   const lastPlayedMatchId = lastPlayedFP.lastPlayedMatchId;
   const lastPlayedRow = fullSchedule.find((r) => r.match_id === lastPlayedMatchId);
   const wasEligibleForLastPlayed = lastPlayedRow
@@ -148,7 +151,7 @@ export async function GET(
   const pointsMap = new Map<string, number>();
   const nameMap = new Map<number, string>();
   for (const s of stats) {
-    pointsMap.set(`${s.player_id}:${s.match_id}`, Number(s.fantasy_points ?? 0));
+    pointsMap.set(`${s.player_id}:${String(s.match_id)}`, Number(s.fantasy_points ?? 0));
     if (s.name) nameMap.set(s.player_id, s.name);
   }
 
@@ -168,12 +171,13 @@ export async function GET(
 
     let rosterIds: number[];
     const snapshot = rosterByMatch.get(matchId);
-    if (snapshot && snapshot.length > 0) {
+    // Last finished match: must match leaderboard (getUserStandings) — current roster + pending_subs for that match.
+    // fantasy_roster_by_match snapshots can be missing/wrong on one env; leaderboard ignores them for lastWeekFP.
+    if (String(matchId) === String(lastPlayedMatchIdForOverride)) {
+      rosterIds = [...rosterThatPlayedLastMatch];
+    } else if (snapshot && snapshot.length > 0) {
       // Use immutable snapshot written by sync when game finished
       rosterIds = snapshot;
-    } else if (matchId === lastPlayedMatchIdForOverride) {
-      // Last played: pending_subs may not be synced yet
-      rosterIds = [...rosterThatPlayedLastMatch];
     } else {
       // Fallback: reconstruct from subs (before sync has populated snapshots)
       const matchCutoff = new Date(matchDate + "T23:59:59.999Z").getTime();
@@ -201,7 +205,7 @@ export async function GET(
     const rosterEntries: { playerId: number; name: string; points: number }[] = [];
     let total = 0;
     for (const pid of rosterIds) {
-      const pts = pointsMap.get(`${pid}:${matchId}`) ?? 0;
+      const pts = pointsMap.get(`${pid}:${String(matchId)}`) ?? 0;
       rosterEntries.push({
         playerId: pid,
         name: playerNames[String(pid)] ?? nameMap.get(pid) ?? `Player ${pid}`,
@@ -223,7 +227,7 @@ export async function GET(
   const lastWeekFPByCurrentRoster: Record<number, number> = {};
   if (lastPlayedMatchId && currentIds.length > 0) {
     for (const pid of currentIds) {
-      lastWeekFPByCurrentRoster[pid] = pointsMap.get(`${pid}:${lastPlayedMatchId}`) ?? 0;
+      lastWeekFPByCurrentRoster[pid] = pointsMap.get(`${pid}:${String(lastPlayedMatchId)}`) ?? 0;
     }
   }
 

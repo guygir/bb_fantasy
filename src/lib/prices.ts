@@ -75,7 +75,8 @@ export function loadPriceData(season?: number): PriceHistoryData {
 
 /**
  * Compute fantasy PPG per player from player_game_stats.
- * Option 6: allGamesWithDnp = [fp or 0] per played match in schedule order (DNPs count as 0).
+ * allGamesWithDnp = [fp or 0] per played match in schedule order from this player's *first* game
+ * through the end of the season (DNPs after that date count as 0). No leading zeros before call-up.
  */
 function computeFantasyPPGByPlayer(
   season: number,
@@ -99,9 +100,12 @@ function computeFantasyPPGByPlayer(
 
   const result = new Map<number, { ppg: number; gp: number; allGamesWithDnp: number[] }>();
   for (const [playerId, { total, gp, games }] of byPlayer) {
+    const firstIdx = playedMatches.findIndex((m) =>
+      games.some((g) => String(g.matchId) === String(m.id))
+    );
     const allGamesWithDnp =
-      playedMatches.length > 0
-        ? playedMatches.map((m) => {
+      firstIdx >= 0
+        ? playedMatches.slice(firstIdx).map((m) => {
             const g = games.find((g) => String(g.matchId) === String(m.id));
             return g ? g.fp : 0;
           })
@@ -287,7 +291,7 @@ export function simulateAdjustedPrices(
 
     for (const st of matchStats) {
       const cur = cumulative.get(st.playerId) ?? { total: 0, gp: 0, lastGames: [], allGamesWithDnp: [] };
-      while ((cur.allGamesWithDnp ?? []).length < mi) cur.allGamesWithDnp.push(0);
+      // No leading zeros before this player's first game (late call-ups).
       cur.total += st.fantasyPoints;
       cur.gp += 1;
       cur.lastGames = (cur.lastGames || []).concat(st.fantasyPoints).slice(-20);

@@ -19,6 +19,44 @@ function getSupabase() {
 
 const GAME_DURATION_MS = 2 * 60 * 60 * 1000;
 
+/** PostgREST `.in()` batch size (URL/query limits). */
+const MATCH_ID_IN_CHUNK = 80;
+
+export type FantasyGameStatRow = {
+  player_id: number;
+  match_id: string;
+  name: string | null;
+  fantasy_points: number | null;
+};
+
+/**
+ * Load game stats for a season for only the schedule's match_ids.
+ * Avoids relying on .range() + implicit row order (which can omit recent matches and show 0 FP for "last week").
+ */
+export async function fetchFantasyGameStatsForScheduleMatchIds(
+  supabase: ReturnType<typeof getSupabaseAdmin>,
+  season: number,
+  matchIds: string[]
+): Promise<FantasyGameStatRow[]> {
+  const unique = [...new Set(matchIds.map((id) => String(id)))].filter(Boolean);
+  if (unique.length === 0) return [];
+  const out: FantasyGameStatRow[] = [];
+  for (let i = 0; i < unique.length; i += MATCH_ID_IN_CHUNK) {
+    const chunk = unique.slice(i, i + MATCH_ID_IN_CHUNK);
+    const { data, error } = await supabase
+      .from("fantasy_player_game_stats")
+      .select("player_id, match_id, name, fantasy_points")
+      .eq("season", season)
+      .in("match_id", chunk);
+    if (error) {
+      console.error("fetchFantasyGameStatsForScheduleMatchIds:", error.message);
+      throw error;
+    }
+    out.push(...((data ?? []) as FantasyGameStatRow[]));
+  }
+  return out;
+}
+
 /**
  * Last played match = most recent game that has finished (same logic as roster weekly-history).
  * Returns FP per player for that match (0 if DNP). Single source of truth for "Last week" / "Last game FP".
@@ -150,11 +188,10 @@ export async function getPlayersFromSupabase(season: number): Promise<PlayerWith
     return null;
   }
 
-  const [playersRes, detailsRes, pricesRes, gameStatsRes, lastPlayedFP] = await Promise.all([
+  const [playersRes, detailsRes, pricesRes, lastPlayedFP] = await Promise.all([
     supabase.from("fantasy_players").select("*").eq("season", season).range(0, 999),
     supabase.from("fantasy_player_details").select("*").eq("season", season).range(0, 999),
     getCurrentPrices(season),
-    supabase.from("fantasy_player_game_stats").select("player_id, match_id, fantasy_points").eq("season", season).range(0, 999),
     getLastPlayedMatchFP(season),
   ]);
 
@@ -162,7 +199,24 @@ export async function getPlayersFromSupabase(season: number): Promise<PlayerWith
   const detailsMap = new Map(
     (detailsRes.data ?? []).map((d) => [d.player_id, d])
   );
-  const gameStats = gameStatsRes.data ?? [];
+  const gameStats: { player_id: number; fantasy_points: number | null }[] = [];
+  {
+    const PAGE = 1000;
+    let from = 0;
+    while (true) {
+      const { data, error } = await supabase
+        .from("fantasy_player_game_stats")
+        .select("player_id, match_id, fantasy_points")
+        .eq("season", season)
+        .order("match_id", { ascending: true })
+        .range(from, from + PAGE - 1);
+      if (error) break;
+      if (!data?.length) break;
+      gameStats.push(...data);
+      if (data.length < PAGE) break;
+      from += PAGE;
+    }
+  }
   const lastGameFPByPlayer = lastPlayedFP.playerFP;
 
   // Per player: total FP, gp (for fantasyPPG)
@@ -272,16 +326,26 @@ export async function getPlayerGameStatsFromSupabase(season: number): Promise<
     return null;
   }
 
-  const { data, error } = await supabase
-    .from("fantasy_player_game_stats")
-    .select("player_id, match_id, name, fantasy_points")
-    .eq("season", season);
+  const PAGE = 1000;
+  let from = 0;
+  const all: { player_id: number; match_id: string; name: string | null; fantasy_points: number | null }[] = [];
+  while (true) {
+    const { data, error } = await supabase
+      .from("fantasy_player_game_stats")
+      .select("player_id, match_id, name, fantasy_points")
+      .eq("season", season)
+      .order("match_id", { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (error) return null;
+    if (!data?.length) break;
+    all.push(...data);
+    if (data.length < PAGE) break;
+    from += PAGE;
+  }
 
-  if (error || !data) return null;
-
-  return data.map((r) => ({
+  return all.map((r) => ({
     playerId: r.player_id,
-    matchId: r.match_id,
+    matchId: String(r.match_id),
     name: r.name ?? "",
     fantasyPoints: r.fantasy_points ?? 0,
   }));
@@ -317,12 +381,11 @@ export async function getUserStandings(season: number): Promise<
   const today = new Date().toISOString().slice(0, 10);
   const now = Date.now();
 
-  const [rostersRes, profilesRes, lastPlayedFP, scheduleRes, statsRes, subsRes] = await Promise.all([
+  const [rostersRes, profilesRes, lastPlayedFP, scheduleRes, subsRes] = await Promise.all([
     supabase.from("fantasy_user_rosters").select("user_id, total_fantasy_points, nickname, player_ids, picked_at, pending_subs").eq("season", season),
     supabase.from("profiles").select("user_id, nickname, username"),
     getLastPlayedMatchFP(season),
     supabase.from("fantasy_schedule").select("match_id, match_date, match_start").eq("season", season).not("match_date", "is", null).order("match_date", { ascending: true }).range(0, 999),
-    supabase.from("fantasy_player_game_stats").select("player_id, match_id, fantasy_points").eq("season", season).range(0, 9999),
     supabase.from("fantasy_roster_substitutions").select("user_id, removed_player_ids, added_player_ids, created_at, effective_match_id").eq("season", season).order("created_at", { ascending: true }).range(0, 999),
   ]);
 
@@ -336,12 +399,18 @@ export async function getUserStandings(season: number): Promise<
 
   const lastPlayedMatchId = lastPlayedFP.lastPlayedMatchId;
   const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
-  const stats = statsRes.data ?? [];
+  const scheduleMatchIds = schedule.map((r) => String(r.match_id));
+  let stats: { player_id: number; match_id: string; fantasy_points: number | null }[] = [];
+  try {
+    stats = await fetchFantasyGameStatsForScheduleMatchIds(supabase, season, scheduleMatchIds);
+  } catch {
+    return [];
+  }
   const subs = (subsRes.data ?? []) as { user_id: string; removed_player_ids: number[]; added_player_ids: number[]; created_at: string; effective_match_id: string | null }[];
 
   const pointsMap = new Map<string, number>();
   for (const s of stats) {
-    pointsMap.set(`${s.player_id}:${s.match_id}`, Number(s.fantasy_points ?? 0));
+    pointsMap.set(`${s.player_id}:${String(s.match_id)}`, Number(s.fantasy_points ?? 0));
   }
 
   const subsByUser = new Map<string, typeof subs>();
@@ -378,7 +447,7 @@ export async function getUserStandings(season: number): Promise<
             ? currentIds.filter((id) => !(pendingSubs.removed_ids ?? []).includes(id)).concat(pendingSubs.added_ids ?? [])
             : currentIds;
         for (const pid of rosterThatPlayed) {
-          lastWeekFP += pointsMap.get(`${pid}:${lastPlayedMatchId}`) ?? 0;
+          lastWeekFP += pointsMap.get(`${pid}:${String(lastPlayedMatchId)}`) ?? 0;
         }
       }
     }
