@@ -100,7 +100,7 @@ export function PlayersTable({ players }: { players: PlayerWithDetails[] }) {
                 <PlayerAvatar playerId={p.playerId} name={p.name} faceMtime={p.faceMtime} />
               </td>
               <td className="border border-bb-border px-4 py-2">
-                <div>
+                <div className="flex min-w-0 flex-col items-start gap-0.5">
                   <Link
                     href={`https://buzzerbeater.com/player/${p.playerId}/overview.aspx`}
                     target="_blank"
