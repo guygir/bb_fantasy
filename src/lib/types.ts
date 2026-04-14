@@ -12,6 +12,9 @@ export interface PlayerWithDetails {
   pts: number;
   fantasyPPG: number;
   gameShape: number | null;
+  /** From BB overview "Injury! X - Y days"; both set when injured. */
+  injuryDaysMin?: number | null;
+  injuryDaysMax?: number | null;
   /** Fantasy points in most recent match played (same as roster "Last week"). 0 if DNP. */
   lastGameFP?: number | null;
   /** Total fantasy points (games played only) */

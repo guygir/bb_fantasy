@@ -34,6 +34,36 @@ function parsePlayerXml(xml) {
   };
 }
 
+/** BuzzerBeater web overview: "Injury! 4 - 7 days" → min/max; else healthy. */
+function parseInjuryFromOverviewHtml(html) {
+  const m = html.match(/Injury!\s*(\d+)\s*-\s*(\d+)\s*days/i);
+  if (m) {
+    return {
+      injuryDaysMin: parseInt(m[1], 10),
+      injuryDaysMax: parseInt(m[2], 10),
+    };
+  }
+  return { injuryDaysMin: null, injuryDaysMax: null };
+}
+
+async function fetchInjuryFromOverview(playerId) {
+  try {
+    const res = await fetch(`https://buzzerbeater.com/player/${playerId}/overview.aspx`, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        Accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
+      },
+      redirect: "follow",
+    });
+    if (!res.ok) return { injuryDaysMin: null, injuryDaysMax: null };
+    const html = await res.text();
+    return parseInjuryFromOverviewHtml(html);
+  } catch {
+    return { injuryDaysMin: null, injuryDaysMax: null };
+  }
+}
+
 /** BBAPI error responses must be rejected; match case-insensitively (`<error` vs `<Error`). */
 function bbapiXmlHasError(xml) {
   return /<error\b/i.test(xml);
@@ -75,7 +105,9 @@ async function run() {
         console.error(`\n[fetch-player-details] SKIP ${p.name} (${p.playerId}): ${msg}`);
         continue;
       }
-      details[p.playerId] = parsePlayerXml(xml);
+      const base = parsePlayerXml(xml);
+      const injury = await fetchInjuryFromOverview(p.playerId);
+      details[p.playerId] = { ...base, ...injury };
     } catch (e) {
       const err = e instanceof Error ? e.message : String(e);
       failures.push({ playerId: p.playerId, name: p.name, reason: err });

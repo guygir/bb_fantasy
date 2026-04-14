@@ -48,7 +48,17 @@ function parsePlayerXml(xml: string): { position: string; dmi: number; salary: n
   };
 }
 
-function loadPlayerDetailsCache(season: number): Record<number, { position: string; dmi: number | null; salary: number | null; gameShape: number | null }> {
+function loadPlayerDetailsCache(season: number): Record<
+  number,
+  {
+    position: string;
+    dmi: number | null;
+    salary: number | null;
+    gameShape: number | null;
+    injuryDaysMin?: number | null;
+    injuryDaysMax?: number | null;
+  }
+> {
   const path = join(process.cwd(), "data", `player_details_s${season}.json`);
   if (!existsSync(path)) return {};
   try {
@@ -140,6 +150,8 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
       let dmi: number | null = null;
       let salary: number | null = null;
       let gameShape: number | null = null;
+      let injuryDaysMin: number | null = null;
+      let injuryDaysMax: number | null = null;
 
       const cached = cache[p.playerId];
       if (cached) {
@@ -147,6 +159,8 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
         dmi = cached.dmi;
         salary = cached.salary;
         gameShape = cached.gameShape ?? null;
+        injuryDaysMin = cached.injuryDaysMin ?? null;
+        injuryDaysMax = cached.injuryDaysMax ?? null;
       } else if (ok) {
         try {
           const xml = await bbapiPlayer(session, p.playerId);
@@ -174,6 +188,8 @@ export async function getPlayersWithDetails(season: number): Promise<PlayerWithD
         pts: p.pts,
         fantasyPPG,
         gameShape,
+        injuryDaysMin,
+        injuryDaysMax,
         lastGameFP,
         totalFP,
         fantasyGamesPlayed: gp,

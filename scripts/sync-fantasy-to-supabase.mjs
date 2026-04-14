@@ -96,6 +96,8 @@ async function main() {
       dmi: d.dmi ?? null,
       salary: d.salary ?? null,
       game_shape: d.gameShape ?? null,
+      injury_days_min: d.injuryDaysMin ?? null,
+      injury_days_max: d.injuryDaysMax ?? null,
       /** Without this, Postgres keeps the old updated_at on conflict update — Supabase looked “stale” forever. */
       updated_at: now,
     }));

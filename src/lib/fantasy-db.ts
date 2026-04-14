@@ -273,6 +273,8 @@ export async function getPlayersFromSupabase(season: number): Promise<PlayerWith
       pts: p.pts ?? 0,
       fantasyPPG,
       gameShape: d?.game_shape ?? null,
+      injuryDaysMin: d?.injury_days_min ?? null,
+      injuryDaysMax: d?.injury_days_max ?? null,
       lastGameFP,
       totalFP,
       fantasyGamesPlayed: gp,

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
 import { config } from "@/lib/config";
 import { PlayerAvatar } from "@/app/players/PlayerAvatar";
+import { InjuryBadge } from "@/components/InjuryBadge";
 
 const SEASON = config.game.currentSeason;
 const CAP = config.game.cap;
@@ -44,6 +45,8 @@ interface Player {
   position: string;
   gameShape?: number | null;
   dmi?: number | null;
+  injuryDaysMin?: number | null;
+  injuryDaysMax?: number | null;
 }
 
 export default function MyRosterPage() {
@@ -472,16 +475,21 @@ export default function MyRosterPage() {
             })
           : null;
         const currentPricesMap = Object.fromEntries(players.map((p) => [p.playerId, p.inGamePrice]));
-        const getFuturePlayer = (id: number) => ({
-          name: pendingSubs?.added_ids?.includes(id)
-            ? (pendingSubs.added_names[String(id)] ?? `Player ${id}`)
-            : (roster.playerNames[id] ?? `Player ${id}`),
-          price: pendingSubs?.added_ids?.includes(id)
-            ? (pendingSubs.added_prices[String(id)] ?? 0)
-            : (currentPricesMap[id] ?? roster.playerPrices[id] ?? 0),
-          gameShape: players.find((p) => p.playerId === id)?.gameShape ?? null,
-          dmi: players.find((p) => p.playerId === id)?.dmi ?? null,
-        });
+        const getFuturePlayer = (id: number) => {
+          const pl = players.find((p) => p.playerId === id);
+          return {
+            name: pendingSubs?.added_ids?.includes(id)
+              ? (pendingSubs.added_names[String(id)] ?? `Player ${id}`)
+              : (roster.playerNames[id] ?? `Player ${id}`),
+            price: pendingSubs?.added_ids?.includes(id)
+              ? (pendingSubs.added_prices[String(id)] ?? 0)
+              : (currentPricesMap[id] ?? roster.playerPrices[id] ?? 0),
+            gameShape: pl?.gameShape ?? null,
+            dmi: pl?.dmi ?? null,
+            injuryDaysMin: pl?.injuryDaysMin ?? null,
+            injuryDaysMax: pl?.injuryDaysMax ?? null,
+          };
+        };
         const previousPriceMap = Object.fromEntries(
           players.filter((p) => p.previousPrice != null).map((p) => [p.playerId, p.previousPrice!])
         ) as Record<number, number>;
@@ -493,6 +501,8 @@ export default function MyRosterPage() {
           lastWeekFP,
           gameShape,
           dmi,
+          injuryDaysMin,
+          injuryDaysMax,
           highlight,
         }: {
           id: number;
@@ -502,6 +512,8 @@ export default function MyRosterPage() {
           lastWeekFP: number;
           gameShape?: number | null;
           dmi?: number | null;
+          injuryDaysMin?: number | null;
+          injuryDaysMax?: number | null;
           highlight?: "red" | "green";
         }) => (
           <tr
@@ -512,7 +524,10 @@ export default function MyRosterPage() {
             <td className="border border-bb-border px-2 py-2">
               <PlayerAvatar playerId={id} name={name} />
             </td>
-            <td className="border border-bb-border px-2 py-2 font-medium truncate w-32" title={name}>{name}</td>
+            <td className="border border-bb-border px-2 py-2 w-32 min-w-0">
+              <div className="font-medium truncate" title={name}>{name}</div>
+              <InjuryBadge injuryDaysMin={injuryDaysMin} injuryDaysMax={injuryDaysMax} />
+            </td>
             <td className="border border-bb-border px-2 py-2 text-right">
               {gameShape != null ? gameShape : "–"}
             </td>
@@ -565,6 +580,8 @@ export default function MyRosterPage() {
                           lastWeekFP={getCurrentRosterLastWeekFP(id)}
                           gameShape={p?.gameShape ?? null}
                           dmi={p?.dmi ?? null}
+                          injuryDaysMin={p?.injuryDaysMin ?? null}
+                          injuryDaysMax={p?.injuryDaysMax ?? null}
                           highlight={isSubbedOut ? "red" : undefined}
                         />
                       );
@@ -590,7 +607,8 @@ export default function MyRosterPage() {
                       {futureTeamIds.map((id) => {
                         const isSubbedIn = pendingSubs.added_ids.includes(id);
                         const fp = getFutureTeamLastWeekFP(id);
-                        const { name, price, gameShape, dmi } = getFuturePlayer(id);
+                        const { name, price, gameShape, dmi, injuryDaysMin, injuryDaysMax } =
+                          getFuturePlayer(id);
                         return (
                           <RosterRow
                             key={id}
@@ -601,6 +619,8 @@ export default function MyRosterPage() {
                             lastWeekFP={fp}
                             gameShape={gameShape}
                             dmi={dmi}
+                            injuryDaysMin={injuryDaysMin}
+                            injuryDaysMax={injuryDaysMax}
                             highlight={isSubbedIn ? "green" : undefined}
                           />
                         );
@@ -833,6 +853,7 @@ function SubstitutionForm({
               <PlayerAvatar playerId={id} name={name} compact />
               <div>
                 <div className="font-medium">{name}</div>
+                <InjuryBadge injuryDaysMin={p?.injuryDaysMin} injuryDaysMax={p?.injuryDaysMax} />
                 <div className="text-xs text-gray-600">Game Shape: {p?.gameShape != null ? p.gameShape : "–"}</div>
                 <div className="text-xs text-gray-600">DMI: {p?.dmi != null ? p.dmi.toLocaleString() : "–"}</div>
                 <div className="text-xs text-gray-600">Price: ${price}</div>
@@ -872,6 +893,7 @@ function SubstitutionForm({
               <PlayerAvatar playerId={p.playerId} name={p.name} compact />
               <div>
                 <div className="font-medium">{p.name}</div>
+                <InjuryBadge injuryDaysMin={p.injuryDaysMin} injuryDaysMax={p.injuryDaysMax} />
                 <div className="text-xs text-gray-600">Game Shape: {p.gameShape != null ? p.gameShape : "–"}</div>
                 <div className="text-xs text-gray-600">DMI: {p.dmi != null ? p.dmi.toLocaleString() : "–"}</div>
                 <div className="text-xs text-gray-600">Price: ${p.inGamePrice}</div>

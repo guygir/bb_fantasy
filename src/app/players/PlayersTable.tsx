@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { PlayerWithDetails } from "@/lib/types";
+import { InjuryBadge } from "@/components/InjuryBadge";
 import { PlayerAvatar } from "./PlayerAvatar";
 
 type SortKey =
@@ -99,14 +100,17 @@ export function PlayersTable({ players }: { players: PlayerWithDetails[] }) {
                 <PlayerAvatar playerId={p.playerId} name={p.name} faceMtime={p.faceMtime} />
               </td>
               <td className="border border-bb-border px-4 py-2">
-                <Link
-                  href={`https://buzzerbeater.com/player/${p.playerId}/overview.aspx`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-exact hover:underline"
-                >
-                  {p.name}
-                </Link>
+                <div>
+                  <Link
+                    href={`https://buzzerbeater.com/player/${p.playerId}/overview.aspx`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-exact hover:underline"
+                  >
+                    {p.name}
+                  </Link>
+                  <InjuryBadge injuryDaysMin={p.injuryDaysMin} injuryDaysMax={p.injuryDaysMax} />
+                </div>
               </td>
               <td className="border border-bb-border px-4 py-2">{p.position}</td>
               <td className="border border-bb-border px-4 py-2 text-right">
