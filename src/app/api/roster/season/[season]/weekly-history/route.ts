@@ -272,7 +272,7 @@ export async function GET(
           candidates: {
             reconstructed: { ids: rec, length: rec.length },
             fallback: { ids: fb, length: fb.length },
-            snapshot: snap,
+            snapshot: { ids: snap },
           },
           sameSortedSet: {
             snapshotVsReconstructed: snap ? sameSortedPlayerSet(snap, rec) : false,
