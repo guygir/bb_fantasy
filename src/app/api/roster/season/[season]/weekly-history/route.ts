@@ -232,10 +232,17 @@ export async function GET(
     }
   }
 
-  return NextResponse.json({
-    weeks,
-    lastPlayedMatchId,
-    wasEligibleForLastPlayed,
-    lastWeekFPByCurrentRoster,
-  });
+  return NextResponse.json(
+    {
+      weeks,
+      lastPlayedMatchId,
+      wasEligibleForLastPlayed,
+      lastWeekFPByCurrentRoster,
+    },
+    {
+      headers: {
+        "Cache-Control": "private, no-store, max-age=0, must-revalidate",
+      },
+    }
+  );
 }
