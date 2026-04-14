@@ -27,13 +27,6 @@ interface PendingSubs {
   effective_match_id: string;
 }
 
-interface GameStat {
-  playerId: number;
-  matchId: string;
-  name: string;
-  fantasyPoints: number;
-}
-
 interface WeeklyEntry {
   week: number;
   matchDate: string;
@@ -55,7 +48,6 @@ interface Player {
 
 export default function MyRosterPage() {
   const [roster, setRoster] = useState<Roster | null>(null);
-  const [stats, setStats] = useState<GameStat[]>([]);
   const [loading, setLoading] = useState(true);
   const [authChecked, setAuthChecked] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
@@ -68,12 +60,18 @@ export default function MyRosterPage() {
   const [subSaving, setSubSaving] = useState(false);
   const [weeklyHistory, setWeeklyHistory] = useState<WeeklyEntry[]>([]);
   const [pendingSubs, setPendingSubs] = useState<PendingSubs | null>(null);
-  const [lastPlayedMatchId, setLastPlayedMatchId] = useState<string | null>(null);
-  /** Same as weeks[last].matchId — user's last counted week (may differ from league lastPlayedMatchId). */
-  const [lastWeekMatchId, setLastWeekMatchId] = useState<string | null>(null);
   const [wasEligibleForLastPlayed, setWasEligibleForLastPlayed] = useState(false);
-  const [lastWeekFPByCurrentRoster, setLastWeekFPByCurrentRoster] = useState<Record<number, number>>({});
   const initializedFromPendingRef = useRef(false);
+
+  /** Last chronological week from API (same lineup + totals as "My Scores" newest week). */
+  const lastChronologicalWeek =
+    weeklyHistory.length > 0 ? weeklyHistory[weeklyHistory.length - 1] : null;
+  const fantasyLastWeekFpByPlayerId = useMemo(() => {
+    if (!lastChronologicalWeek) return {} as Record<number, number>;
+    return Object.fromEntries(
+      lastChronologicalWeek.roster.map((p) => [p.playerId, p.points])
+    );
+  }, [lastChronologicalWeek]);
 
   useEffect(() => {
     if (!supabase) {
@@ -146,11 +144,6 @@ export default function MyRosterPage() {
           const data = await r.json();
           return { data: data.roster };
         }),
-        fetch(`/api/stats/season/${SEASON}`, { cache: "no-store" }).then(async (r) => {
-          if (!r.ok) return { stats: [] };
-          const data = await r.json();
-          return Array.isArray(data.stats) ? data : { stats: data.stats ?? [] };
-        }),
         fetch(`/api/players/season/${SEASON}?t=${Date.now()}`, { cache: "no-store" }).then(async (r) => {
           if (!r.ok) return { players: [] };
           const data = await r.json();
@@ -160,27 +153,21 @@ export default function MyRosterPage() {
           `/api/roster/season/${SEASON}/weekly-history${process.env.NODE_ENV === "development" ? "?debug=1" : ""}`,
           rosterOpts
         ).then(async (r) => {
-          if (!r.ok) return { weeks: [], lastPlayedMatchId: null, lastWeekMatchId: null, wasEligibleForLastPlayed: false, lastWeekFPByCurrentRoster: {} };
+          if (!r.ok) return { weeks: [], wasEligibleForLastPlayed: false };
           const data = await r.json();
           if (data.debug && typeof console !== "undefined" && console.info) {
             console.info("[weekly-history debug]", data.debug);
           }
           return {
             weeks: data.weeks ?? [],
-            lastPlayedMatchId: data.lastPlayedMatchId ?? null,
-            lastWeekMatchId: data.lastWeekMatchId ?? null,
             wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
-            lastWeekFPByCurrentRoster: data.lastWeekFPByCurrentRoster ?? {},
           };
         }),
       ])
-      .then(([rosterRes, statsData, playerData, weeklyData]) => {
+      .then(([rosterRes, playerData, weeklyData]) => {
         setPlayers((playerData.players ?? []) as Player[]);
         setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
-        setLastPlayedMatchId(weeklyData.lastPlayedMatchId ?? null);
-        setLastWeekMatchId(weeklyData.lastWeekMatchId ?? null);
         setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
-        setLastWeekFPByCurrentRoster(weeklyData.lastWeekFPByCurrentRoster ?? {});
         const row = rosterRes?.roster ?? rosterRes?.data;
         if (row?.player_ids?.length) {
           const prices: Record<number, number> = {};
@@ -204,7 +191,6 @@ export default function MyRosterPage() {
           setRoster(null);
           setPendingSubs(null);
         }
-        setStats((statsData.stats ?? []) as GameStat[]);
         setLoading(false);
       })
       .catch((err) => {
@@ -415,19 +401,12 @@ export default function MyRosterPage() {
       )}
 
       {(() => {
-        // Last week FP: use lastWeekFPByCurrentRoster from API (looks up current roster in pointsMap)
-        const getPlayerFPFromStats = (playerId: number, matchId: string | null): number => {
-          if (!matchId) return 0;
-          const s = stats.find((x) => x.playerId === playerId && String(x.matchId) === String(matchId));
-          return s?.fantasyPoints ?? 0;
-        };
-        const fpMatchId = lastWeekMatchId ?? lastPlayedMatchId;
+        // Last week FP: fantasy points that counted for your team last week (same as weekly history),
+        // not "each current player's real-game FP" (which diverges after subs).
         const getCurrentRosterLastWeekFP = (playerId: number): number =>
-          wasEligibleForLastPlayed
-            ? (lastWeekFPByCurrentRoster[playerId] ?? getPlayerFPFromStats(playerId, fpMatchId))
-            : 0;
+          wasEligibleForLastPlayed ? (fantasyLastWeekFpByPlayerId[playerId] ?? 0) : 0;
         const getFutureTeamLastWeekFP = (playerId: number): number =>
-          lastWeekFPByCurrentRoster[playerId] ?? getPlayerFPFromStats(playerId, fpMatchId);
+          wasEligibleForLastPlayed ? (fantasyLastWeekFpByPlayerId[playerId] ?? 0) : 0;
         // Future team = current roster with pending subs applied (same order)
         const futureTeamIds = pendingSubs
           ? roster.playerIds.map((id) => {

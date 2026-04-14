@@ -308,21 +308,12 @@ export async function GET(
     });
   }
 
-  // FP for "Last week" column: same match as user's last row in weeks[], not global league last match
-  const lastWeekFPByCurrentRoster: Record<number, number> = {};
-  if (userLastMatchId && currentIds.length > 0) {
-    for (const pid of currentIds) {
-      lastWeekFPByCurrentRoster[pid] = pointsMap.get(`${pid}:${userLastMatchId}`) ?? 0;
-    }
-  }
-
   const body: Record<string, unknown> = {
     weeks,
     lastPlayedMatchId,
     /** Match id for the user's last counted week (aligns with weeks[last]); use for FP fallbacks on the client */
     lastWeekMatchId: userLastMatchId,
     wasEligibleForLastPlayed,
-    lastWeekFPByCurrentRoster,
   };
 
   if (debugRequested) {
