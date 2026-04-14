@@ -131,8 +131,9 @@ export async function GET(
   }
   const roster = rosterRes.data;
   const subs = (subsRes.data ?? []) as SubRow[];
-  const rosterByMatchRows = (rosterByMatchRes.data ?? []) as { match_id: string; player_ids: number[] }[];
-  const rosterByMatch = new Map(rosterByMatchRows.map((r) => [r.match_id, r.player_ids]));
+  const rosterByMatchRows = (rosterByMatchRes.data ?? []) as { match_id: string | number; player_ids: number[] }[];
+  // Keys must be normalized: PostgREST can return match_id as number; schedule uses string — Map.get would miss.
+  const rosterByMatch = new Map(rosterByMatchRows.map((r) => [String(r.match_id), r.player_ids]));
 
   if (!roster?.player_ids?.length) {
     return NextResponse.json({ weeks: [] });
@@ -244,7 +245,7 @@ export async function GET(
     const matchId = row.match_id as string;
 
     let rosterIds: number[];
-    const snapshot = rosterByMatch.get(matchId);
+    const snapshot = rosterByMatch.get(String(matchId));
     const reconstructed = reconstructRosterForMatch(matchId, matchDate, initialIds, subs);
 
     // User's last week: prefer fantasy_roster_by_match when sync wrote 5 IDs (authoritative for finished games).

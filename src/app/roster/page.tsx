@@ -59,6 +59,8 @@ export default function MyRosterPage() {
   const [subError, setSubError] = useState<string | null>(null);
   const [subSaving, setSubSaving] = useState(false);
   const [weeklyHistory, setWeeklyHistory] = useState<WeeklyEntry[]>([]);
+  /** Populated when API returns `debug` (?debug=1); shown in /roster?debug=1 panel. */
+  const [weeklyHistoryApiDebug, setWeeklyHistoryApiDebug] = useState<unknown>(null);
   const [pendingSubs, setPendingSubs] = useState<PendingSubs | null>(null);
   const [wasEligibleForLastPlayed, setWasEligibleForLastPlayed] = useState(false);
   const initializedFromPendingRef = useRef(false);
@@ -156,7 +158,7 @@ export default function MyRosterPage() {
           return Array.isArray(data.players) ? data : { players: data.players ?? [] };
         }),
         fetch(weeklyHistoryUrl, rosterOpts).then(async (r) => {
-          if (!r.ok) return { weeks: [], wasEligibleForLastPlayed: false };
+          if (!r.ok) return { weeks: [], wasEligibleForLastPlayed: false, debug: null };
           const data = await r.json();
           const weeks = data.weeks ?? [];
           const last = weeks.length > 0 ? weeks[weeks.length - 1] : null;
@@ -178,12 +180,14 @@ export default function MyRosterPage() {
           return {
             weeks,
             wasEligibleForLastPlayed: data.wasEligibleForLastPlayed ?? false,
+            debug: data.debug ?? null,
           };
         }),
       ])
       .then(([rosterRes, playerData, weeklyData]) => {
         setPlayers((playerData.players ?? []) as Player[]);
         setWeeklyHistory((weeklyData.weeks ?? []) as WeeklyEntry[]);
+        setWeeklyHistoryApiDebug((weeklyData as { debug?: unknown }).debug ?? null);
         setWasEligibleForLastPlayed(weeklyData.wasEligibleForLastPlayed ?? false);
         const row = rosterRes?.roster ?? rosterRes?.data;
         if (row?.player_ids?.length) {
@@ -289,6 +293,16 @@ export default function MyRosterPage() {
             fantasyLastWeekFpByPlayerId keys (roster table “Last week” column):{" "}
             {JSON.stringify(fantasyLastWeekFpByPlayerId)}
           </div>
+          {weeklyHistoryApiDebug != null && (
+            <details className="mt-2 text-amber-950" open>
+              <summary className="cursor-pointer font-medium">
+                Full API <code className="text-[11px]">debug</code> JSON (source, candidateTotalsFp, DB ids…)
+              </summary>
+              <pre className="mt-1 max-h-[28rem] overflow-auto rounded border border-amber-200 bg-white p-2 text-[10px] leading-snug text-gray-800">
+                {JSON.stringify(weeklyHistoryApiDebug, null, 2)}
+              </pre>
+            </details>
+          )}
         </div>
       )}
       <h2 className="mb-4 text-lg font-semibold">My Roster</h2>
