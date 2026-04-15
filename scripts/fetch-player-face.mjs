@@ -22,7 +22,13 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { config } from "dotenv";
-import { loginToBB } from "./lib/bb-site-session.mjs";
+import {
+  loginToBB,
+  PUPPETEER_DEFAULT_ARGS,
+  prepareBbPage,
+  BB_LOGIN_NAV_TIMEOUT_MS,
+  launchBbBrowser,
+} from "./lib/bb-site-session.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -62,8 +68,7 @@ if (!PASSWORD && !SITE_COOKIE_HEADER) {
   );
 }
 
-/** Same as fetch-u21dle-player-source-teams.mjs — BB can be slow; short timeouts cause false failures. */
-const NAV_TIMEOUT = process.env.CI ? 90000 : 45000;
+const NAV_TIMEOUT = BB_LOGIN_NAV_TIMEOUT_MS;
 
 const faceSel = "#cphContent_faceContainer > div.playerFace";
 const ballSel = "#cphContent_playerNumber_divNumber";
@@ -129,10 +134,9 @@ function isLoginUrl(url) {
 }
 
 async function fetchFacesBatch(playerIds) {
-  const puppeteer = await import("puppeteer");
   const launchOpts = {
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    args: [...PUPPETEER_DEFAULT_ARGS],
   };
   const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
   if (executablePath) {
@@ -141,13 +145,11 @@ async function fetchFacesBatch(playerIds) {
   }
 
   console.log("  [1/3] Launching browser...");
-  const browser = await puppeteer.default.launch(launchOpts);
+  const browser = await launchBbBrowser(launchOpts);
   console.log("  [2/3] Browser launched");
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
-  await page.setUserAgent(
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-  );
+  await prepareBbPage(page);
 
   if (SITE_COOKIE_HEADER) {
     await page.setExtraHTTPHeaders({ Cookie: SITE_COOKIE_HEADER });

@@ -6,12 +6,16 @@
  *
  * Env: BBAPI_LOGIN or BB_LOGIN, BB_PASSWORD (main site password — not BBAPI_CODE)
  *      PUPPETEER_EXECUTABLE_PATH or system Chrome (CI)
+ *      BB_LOGIN_NAV_TIMEOUT_MS — optional override for login goto / post-submit wait (default 45s CI, 30s local)
  */
 
 import { mkdirSync, writeFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { config } from "dotenv";
+import { launchBbBrowser, PUPPETEER_DEFAULT_ARGS } from "./puppeteer-launch.mjs";
+
+export { launchBbBrowser, PUPPETEER_DEFAULT_ARGS };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "../..");
@@ -21,8 +25,15 @@ config({ path: join(ROOT, ".env.local"), override: true });
 const MAIN_BASE = "https://buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD;
-/** Login POST can be slow on GitHub Actions; missing nav events if click runs before listener attaches — use Promise.all. */
-const NAV_TIMEOUT = process.env.CI ? 90000 : 45000;
+/** ms — login POST + ASP.NET postback (override with BB_LOGIN_NAV_TIMEOUT_MS). */
+function navTimeoutMs() {
+  const raw = process.env.BB_LOGIN_NAV_TIMEOUT_MS;
+  if (raw && /^\d+$/.test(String(raw).trim())) return parseInt(String(raw).trim(), 10);
+  return process.env.CI ? 45000 : 30000;
+}
+/** Exported for fetch-player-face / u21dle (same limits as login). */
+export const BB_LOGIN_NAV_TIMEOUT_MS = navTimeoutMs();
+const NAV_TIMEOUT = BB_LOGIN_NAV_TIMEOUT_MS;
 
 const CHROME_PATHS = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -31,6 +42,9 @@ const CHROME_PATHS = [
   "/usr/bin/chromium",
   "/usr/bin/chromium-browser",
 ];
+
+/** One stealth hook per Page — calling prepareBbPage twice used to register duplicate listeners and break login. */
+const preparedBbPages = new WeakSet();
 
 function isLoginUrl(url) {
   return (url || "").includes("login.aspx");
@@ -50,11 +64,27 @@ async function saveDebug(page, label) {
   }
 }
 
+/**
+ * Once per Page: realistic User-Agent. Stealth plugin (see puppeteer-launch.mjs) handles webdriver/chrome mocks.
+ */
+export async function prepareBbPage(page) {
+  if (preparedBbPages.has(page)) {
+    return;
+  }
+  preparedBbPages.add(page);
+  const ua =
+    process.platform === "darwin"
+      ? "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+      : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+  await page.setUserAgent(ua);
+}
+
 /** Shared by fetch-player-details, fetch-player-face, fetch-season-stats, u21dle scripts — one login implementation. */
 export async function loginToBB(page) {
   if (!PASSWORD || !String(PASSWORD).trim()) {
     throw new Error("BB_PASSWORD required for form login");
   }
+  await prepareBbPage(page);
   await page.setExtraHTTPHeaders({});
   const loginUrl = `${MAIN_BASE}login.aspx`;
   console.log("  [login] Navigating to", loginUrl);
@@ -73,7 +103,7 @@ export async function loginToBB(page) {
   const passSel = "#cphContent_txtPassword";
   const btnSel = "#cphContent_btnLoginUser";
   try {
-    await page.waitForSelector(loginSel, { timeout: 10000 });
+    await page.waitForSelector(loginSel, { timeout: 8000 });
   } catch (e) {
     console.log("  [debug] Main login form (#cphContent_txtUserName) not found");
     await saveDebug(page, "no_login_form");
@@ -108,7 +138,7 @@ export async function loginToBB(page) {
       );
       if (hasRecaptcha) {
         throw new Error(
-          "BuzzerBeater login has reCAPTCHA — automated login blocked. Set BB_SITE_COOKIES or try again later."
+          "BuzzerBeater login shows reCAPTCHA in this session — headless login blocked. Retry later or use BB_SITE_COOKIES (optional)."
         );
       }
       throw e;
@@ -118,7 +148,7 @@ export async function loginToBB(page) {
   if (isLoginUrl(page.url())) {
     await saveDebug(page, "login_failed_still_on_login");
     throw new Error(
-      "Login failed — check BB_PASSWORD. If credentials are correct, try BB_SITE_COOKIES (reCAPTCHA may block headless login)."
+      "Login failed — check BB_PASSWORD. If the site served reCAPTCHA, retry later; optional BB_SITE_COOKIES can bypass the form."
     );
   }
 }
@@ -131,15 +161,9 @@ export async function getBuzzerbeaterCookieHeaderFromLogin() {
     throw new Error("BB_PASSWORD is required for buzzerbeater.com login");
   }
 
-  const puppeteer = await import("puppeteer");
   const launchOpts = {
     headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      /** Reduces flaky timeouts on GitHub-hosted Linux runners (small /dev/shm). */
-      "--disable-dev-shm-usage",
-    ],
+    args: [...PUPPETEER_DEFAULT_ARGS],
   };
   const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
   if (executablePath) {
@@ -147,13 +171,10 @@ export async function getBuzzerbeaterCookieHeaderFromLogin() {
     console.log("  [bb-site-session] Using Chrome:", executablePath);
   }
 
-  const browser = await puppeteer.default.launch(launchOpts);
+  const browser = await launchBbBrowser(launchOpts);
   try {
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 800 });
-    await page.setUserAgent(
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    );
     await loginToBB(page);
     const jar = await page.cookies("https://buzzerbeater.com");
     const header = jar.map((c) => `${c.name}=${c.value}`).join("; ");

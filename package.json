@@ -32,6 +32,7 @@
     "sync-fantasy": "node scripts/sync-fantasy-to-supabase.mjs",
     "fantasy-weekly-sync": "node scripts/fantasy-weekly-sync.mjs",
     "test-bbapi": "node scripts/test-bbapi-login.mjs",
+    "test-bb-site-login": "node scripts/test-bb-site-login.mjs",
     "fetch-promotions": "node scripts/fetch-promotions-leagues.mjs all"
   },
   "dependencies": {
@@ -51,6 +52,8 @@
     "eslint-config-next": "14.2.18",
     "postcss": "^8",
     "puppeteer": "^24.37.5",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "tailwindcss": "^3",
     "typescript": "^5"
   }

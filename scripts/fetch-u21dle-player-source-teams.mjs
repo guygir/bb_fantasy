@@ -12,6 +12,7 @@ import { config } from "dotenv";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { PUPPETEER_DEFAULT_ARGS, BB_LOGIN_NAV_TIMEOUT_MS, launchBbBrowser } from "./lib/bb-site-session.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -116,8 +117,7 @@ function pickSourceTeamFromTransfers(transferRows, playerSeason) {
   return null;
 }
 
-/** History navigation (login uses bb-site-session.mjs — CI-aware timeouts there). */
-const NAV_TIMEOUT = process.env.CI ? 90000 : 45000;
+const NAV_TIMEOUT = BB_LOGIN_NAV_TIMEOUT_MS;
 
 async function fetchHistoryWithPuppeteer(page, playerId) {
   await page.goto(`${MAIN_BASE}player/${playerId}/history.aspx`, {
@@ -128,16 +128,15 @@ async function fetchHistoryWithPuppeteer(page, playerId) {
 }
 
 async function initPuppeteerSession() {
-  const puppeteer = await import("puppeteer");
   const { existsSync } = await import("fs");
   const launchOpts = {
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    args: [...PUPPETEER_DEFAULT_ARGS],
   };
   const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
   if (executablePath) launchOpts.executablePath = executablePath;
 
-  const browser = await puppeteer.default.launch(launchOpts);
+  const browser = await launchBbBrowser(launchOpts);
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
   await page.setUserAgent(
