@@ -44,11 +44,50 @@ async function loadDailyFromSupabase(): Promise<Record<string, number>> {
   }
 }
 
+/** Supabase first, then JSON; includes source and optional DB error for API debug. */
+export async function loadDailyDataWithSource(): Promise<{
+  data: Record<string, number>;
+  source: "supabase" | "json" | "empty";
+  supabaseError: string | null;
+}> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  let supabaseError: string | null = null;
+
+  if (url && key) {
+    try {
+      const { createClient } = await import("@supabase/supabase-js");
+      const supabase = createClient(url, key);
+      const { data, error } = await supabase
+        .from("u21dle_puzzles")
+        .select("puzzle_date, player_id");
+      if (error) {
+        supabaseError = error.message;
+      } else {
+        const out: Record<string, number> = {};
+        for (const row of data ?? []) {
+          out[row.puzzle_date] = row.player_id;
+        }
+        if (Object.keys(out).length > 0) {
+          return { data: out, source: "supabase", supabaseError: null };
+        }
+      }
+    } catch (e) {
+      supabaseError = e instanceof Error ? e.message : String(e);
+    }
+  }
+
+  const fromJson = loadDailyFromJson();
+  if (Object.keys(fromJson).length > 0) {
+    return { data: fromJson, source: "json", supabaseError };
+  }
+  return { data: {}, source: "empty", supabaseError };
+}
+
 /** Load daily data: Supabase first, JSON fallback */
 async function loadDailyData(): Promise<Record<string, number>> {
-  const fromDb = await loadDailyFromSupabase();
-  if (Object.keys(fromDb).length > 0) return fromDb;
-  return loadDailyFromJson();
+  const { data } = await loadDailyDataWithSource();
+  return data;
 }
 
 /**
