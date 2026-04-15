@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getCurrentPuzzleDate, loadDailyDataWithSource } from "@/lib/u21dle/daily";
-import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -13,8 +12,7 @@ export async function GET() {
     const today = new Date().toISOString().split("T")[0];
     console.log("[u21dle daily API] GET", { today, iso: new Date().toISOString() });
 
-    const supabase = getSupabaseAdmin();
-    const date = await getCurrentPuzzleDate(supabase);
+    const date = await getCurrentPuzzleDate();
     console.log("[u21dle daily API] getCurrentPuzzleDate returned", { date });
 
     if (!date) {
