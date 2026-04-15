@@ -143,7 +143,10 @@ async function fetchRosterWithPuppeteer() {
     const puppeteer = await import("puppeteer");
     const { existsSync } = await import("fs");
     const { loginToBB } = await import("./lib/bb-site-session.mjs");
-    const launchOpts = { headless: true, args: ["--no-sandbox", "--disable-setuid-sandbox"] };
+    const launchOpts = {
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    };
     const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
     if (executablePath) launchOpts.executablePath = executablePath;
     browser = await puppeteer.launch(launchOpts);

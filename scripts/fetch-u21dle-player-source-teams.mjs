@@ -130,7 +130,10 @@ async function fetchHistoryWithPuppeteer(page, playerId) {
 async function initPuppeteerSession() {
   const puppeteer = await import("puppeteer");
   const { existsSync } = await import("fs");
-  const launchOpts = { headless: true, args: ["--no-sandbox", "--disable-setuid-sandbox"] };
+  const launchOpts = {
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+  };
   const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
   if (executablePath) launchOpts.executablePath = executablePath;
 

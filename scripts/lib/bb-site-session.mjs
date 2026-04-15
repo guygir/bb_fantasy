@@ -83,18 +83,26 @@ export async function loginToBB(page) {
   await page.type(passSel, PASSWORD, { delay: 50 });
   console.log("  [login] Submitting...");
   try {
-    // Attach navigation listener before click — avoids missing fast navigations / flaky waitForNavigation after click
-    await Promise.all([
-      page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT }),
-      page.click(btnSel),
-    ]);
+    /**
+     * BB uses ASP.NET postbacks; on CI, `waitForNavigation` often never resolves even when the URL
+     * changes (home.aspx). Poll `location` instead of relying on navigation lifecycle events.
+     */
+    await page.click(btnSel);
+    await page.waitForFunction(
+      () => !window.location.href.includes("login.aspx"),
+      { timeout: NAV_TIMEOUT, polling: 300 }
+    );
   } catch (e) {
-    console.log("  [debug] Login waitForNavigation:", e.message);
+    console.log("  [debug] Login URL wait:", e.message);
     await saveDebug(page, "login_nav_timeout");
-    await new Promise((r) => setTimeout(r, 2500));
-    if (!isLoginUrl(page.url())) {
-      console.log("  [login] URL left login page despite navigation timeout — continuing");
-    } else {
+    for (let i = 0; i < 20; i++) {
+      await new Promise((r) => setTimeout(r, 500));
+      if (!isLoginUrl(page.url())) {
+        console.log("  [login] URL left login page after post-timeout poll — continuing");
+        break;
+      }
+    }
+    if (isLoginUrl(page.url())) {
       const hasRecaptcha = await page.evaluate(
         () => !!document.querySelector(".g-recaptcha, [data-sitekey]")
       );
@@ -124,7 +132,15 @@ export async function getBuzzerbeaterCookieHeaderFromLogin() {
   }
 
   const puppeteer = await import("puppeteer");
-  const launchOpts = { headless: true, args: ["--no-sandbox", "--disable-setuid-sandbox"] };
+  const launchOpts = {
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      /** Reduces flaky timeouts on GitHub-hosted Linux runners (small /dev/shm). */
+      "--disable-dev-shm-usage",
+    ],
+  };
   const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
   if (executablePath) {
     launchOpts.executablePath = executablePath;
