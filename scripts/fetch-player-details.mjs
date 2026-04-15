@@ -42,17 +42,30 @@ function parsePlayerXml(xml) {
   };
 }
 
-/** BuzzerBeater web overview: "Injury! 4 - 7 days" (may be split by HTML tags / en-dash). */
+/**
+ * BuzzerBeater overview "Injury!" block. Numbers may be split across HTML tags; copy may use "day" or a single bound.
+ */
 function parseInjuryFromOverviewHtml(html) {
   const head = html.match(/Injury!/i);
   if (!head || head.index == null) return { injuryDaysMin: null, injuryDaysMax: null };
-  const slice = html.slice(head.index, head.index + 500);
-  const m = slice.match(/(\d+)\s*[-–]\s*(\d+)\s*days/i);
+  const slice = html.slice(head.index, head.index + 1200);
+  const plain = slice
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ");
+
+  let m = plain.match(/(\d+)\s*(?:[-–]|to)\s*(\d+)\s*days?/i);
   if (m) {
     return {
       injuryDaysMin: parseInt(m[1], 10),
       injuryDaysMax: parseInt(m[2], 10),
     };
+  }
+  m = plain.match(/(\d+)\s*days?/i);
+  if (m) {
+    const n = parseInt(m[1], 10);
+    if (!Number.isNaN(n)) return { injuryDaysMin: n, injuryDaysMax: n };
   }
   return { injuryDaysMin: null, injuryDaysMax: null };
 }
