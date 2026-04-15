@@ -1,6 +1,8 @@
 /**
- * buzzerbeater.com form login via Puppeteer (same flow as fetch-player-face.mjs).
- * Used to obtain a Cookie header for Node fetch() to player overview (injury text).
+ * buzzerbeater.com form login via Puppeteer — single implementation for:
+ *   fetch-player-details (injury), fetch-player-face (faces), fetch-season-stats (U21 roster),
+ *   fetch-u21dle-player-source-teams (history).
+ * Exports `loginToBB(page)` and `getBuzzerbeaterCookieHeaderFromLogin()` (cookie string for fetch).
  *
  * Env: BBAPI_LOGIN or BB_LOGIN, BB_PASSWORD (main site password — not BBAPI_CODE)
  *      PUPPETEER_EXECUTABLE_PATH or system Chrome (CI)
@@ -19,7 +21,8 @@ config({ path: join(ROOT, ".env.local"), override: true });
 const MAIN_BASE = "https://buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD;
-const NAV_TIMEOUT = 45000;
+/** Login POST can be slow on GitHub Actions; missing nav events if click runs before listener attaches — use Promise.all. */
+const NAV_TIMEOUT = process.env.CI ? 90000 : 45000;
 
 const CHROME_PATHS = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -47,7 +50,8 @@ async function saveDebug(page, label) {
   }
 }
 
-async function loginToBB(page) {
+/** Shared by fetch-player-details, fetch-player-face, fetch-season-stats, u21dle scripts — one login implementation. */
+export async function loginToBB(page) {
   if (!PASSWORD || !String(PASSWORD).trim()) {
     throw new Error("BB_PASSWORD required for form login");
   }
@@ -78,12 +82,16 @@ async function loginToBB(page) {
   await page.type(loginSel, LOGIN, { delay: 50 });
   await page.type(passSel, PASSWORD, { delay: 50 });
   console.log("  [login] Submitting...");
-  await page.click(btnSel);
   try {
-    await page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
+    // Attach navigation listener before click — avoids missing fast navigations / flaky waitForNavigation after click
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT }),
+      page.click(btnSel),
+    ]);
   } catch (e) {
     console.log("  [debug] Login waitForNavigation:", e.message);
     await saveDebug(page, "login_nav_timeout");
+    await new Promise((r) => setTimeout(r, 2500));
     if (!isLoginUrl(page.url())) {
       console.log("  [login] URL left login page despite navigation timeout — continuing");
     } else {

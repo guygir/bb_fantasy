@@ -22,6 +22,7 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { config } from "dotenv";
+import { loginToBB } from "./lib/bb-site-session.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -62,7 +63,7 @@ if (!PASSWORD && !SITE_COOKIE_HEADER) {
 }
 
 /** Same as fetch-u21dle-player-source-teams.mjs — BB can be slow; short timeouts cause false failures. */
-const NAV_TIMEOUT = 45000;
+const NAV_TIMEOUT = process.env.CI ? 90000 : 45000;
 
 const faceSel = "#cphContent_faceContainer > div.playerFace";
 const ballSel = "#cphContent_playerNumber_divNumber";
@@ -125,69 +126,6 @@ async function tryScreenshotFace(page, playerId) {
 
 function isLoginUrl(url) {
   return (url || "").includes("login.aspx");
-}
-
-/**
- * Log in once; leaves page on post-login URL (caller navigates to player).
- */
-async function loginToBB(page) {
-  if (!PASSWORD || !String(PASSWORD).trim()) {
-    throw new Error("BB_PASSWORD required for form login (set it or use BB_SITE_COOKIES)");
-  }
-  await page.setExtraHTTPHeaders({});
-  const loginUrl = `${MAIN_BASE}login.aspx`;
-  console.log("  [login] Navigating to", loginUrl);
-  let nav;
-  try {
-    nav = await page.goto(loginUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-  } catch (e) {
-    console.log("  [debug] goto timed out or failed:", e.message);
-    await saveDebug(page, "login_timeout");
-    throw e;
-  }
-  console.log("  [login] Response:", nav?.status(), "URL:", page.url());
-
-  /** Main #cphContent form — not the footer modal (name *txtLogin* matches txtLoginUserName first). */
-  const loginSel = "#cphContent_txtUserName";
-  const passSel = "#cphContent_txtPassword";
-  const btnSel = "#cphContent_btnLoginUser";
-  try {
-    await page.waitForSelector(loginSel, { timeout: 10000 });
-  } catch (e) {
-    console.log("  [debug] Login form not found");
-    await saveDebug(page, "no_login_form");
-    throw e;
-  }
-  await page.type(loginSel, LOGIN, { delay: 50 });
-  await page.type(passSel, PASSWORD, { delay: 50 });
-  console.log("  [login] Submitting...");
-  await page.click(btnSel);
-  try {
-    await page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-  } catch (e) {
-    console.log("  [debug] Login waitForNavigation:", e.message);
-    await saveDebug(page, "login_nav_timeout");
-    // Navigation event sometimes never fires even after URL changes (same pattern as slow BB)
-    if (!isLoginUrl(page.url())) {
-      console.log("  [login] URL left login page despite navigation timeout — continuing");
-    } else {
-      const hasRecaptcha = await page.evaluate(
-        () => !!document.querySelector(".g-recaptcha, [data-sitekey]")
-      );
-      if (hasRecaptcha) {
-        throw new Error(
-          "BuzzerBeater login has reCAPTCHA - automated login is blocked. " +
-            "Public overview did not expose the face; try cookies or manual screenshot (see docs)."
-        );
-      }
-      throw e;
-    }
-  }
-  console.log("  [login] After login, URL:", page.url());
-  if (isLoginUrl(page.url())) {
-    await saveDebug(page, "login_failed_still_on_login");
-    throw new Error("Login failed - check BB_PASSWORD (main site password, not BBAPI code)");
-  }
 }
 
 async function fetchFacesBatch(playerIds) {

@@ -130,36 +130,29 @@ function parseRosterPage(html) {
 const CHROME_PATHS = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   "/usr/bin/google-chrome",
+  "/usr/bin/google-chrome-stable",
   "/usr/bin/chromium",
   "/usr/bin/chromium-browser",
 ];
 
-/** Fetch roster page with Puppeteer (requires BB_PASSWORD, page needs login) */
+/** Fetch roster page with Puppeteer (requires BB_PASSWORD). Uses shared login (see scripts/lib/bb-site-session.mjs). */
 async function fetchRosterWithPuppeteer() {
   if (!PASSWORD) return null;
   let browser;
   try {
     const puppeteer = await import("puppeteer");
     const { existsSync } = await import("fs");
+    const { loginToBB } = await import("./lib/bb-site-session.mjs");
     const launchOpts = { headless: true, args: ["--no-sandbox", "--disable-setuid-sandbox"] };
     const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
     if (executablePath) launchOpts.executablePath = executablePath;
     browser = await puppeteer.launch(launchOpts);
     const page = await browser.newPage();
-    await page.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36");
-    await page.goto(`${MAIN_BASE}login.aspx`, { waitUntil: "domcontentloaded", timeout: 20000 });
-    const loginSel = 'input[name*="txtLogin"], input[name*="Login"], input[type="text"]';
-    const passSel = 'input[type="password"]';
-    const btnSel = 'input[type="submit"], button[type="submit"], input[name*="btnLogin"]';
-    await page.waitForSelector(loginSel, { timeout: 5000 });
-    await page.type(loginSel, LOGIN, { delay: 50 });
-    await page.type(passSel, PASSWORD, { delay: 50 });
-    await page.click(btnSel);
-    await page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: 15000 });
-    if (page.url().includes("login")) {
-      console.warn("Roster fetch: login failed (still on login page)");
-      return null;
-    }
+    await page.setViewport({ width: 1280, height: 800 });
+    await page.setUserAgent(
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    );
+    await loginToBB(page);
     await page.goto(ROSTER_URL, { waitUntil: "domcontentloaded", timeout: 20000 });
     const html = await page.content();
     const roster = parseRosterPage(html);

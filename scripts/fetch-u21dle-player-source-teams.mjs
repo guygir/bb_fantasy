@@ -26,6 +26,7 @@ const PASSWORD = process.env.BB_PASSWORD;
 const CHROME_PATHS = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   "/usr/bin/google-chrome",
+  "/usr/bin/google-chrome-stable",
   "/usr/bin/chromium",
 ];
 
@@ -115,7 +116,8 @@ function pickSourceTeamFromTransfers(transferRows, playerSeason) {
   return null;
 }
 
-const NAV_TIMEOUT = 45000; // 45s for slow BB responses
+/** History navigation (login uses bb-site-session.mjs — CI-aware timeouts there). */
+const NAV_TIMEOUT = process.env.CI ? 90000 : 45000;
 
 async function fetchHistoryWithPuppeteer(page, playerId) {
   await page.goto(`${MAIN_BASE}player/${playerId}/history.aspx`, {
@@ -134,18 +136,14 @@ async function initPuppeteerSession() {
 
   const browser = await puppeteer.default.launch(launchOpts);
   const page = await browser.newPage();
-  await page.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36");
+  await page.setViewport({ width: 1280, height: 800 });
+  await page.setUserAgent(
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  );
 
   if (PASSWORD) {
-    await page.goto(`${MAIN_BASE}login.aspx`, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-    const loginSel = 'input[name*="txtLogin"], input[name*="Login"], input[type="text"]';
-    const passSel = 'input[type="password"]';
-    const btnSel = 'input[type="submit"], button[type="submit"]';
-    await page.waitForSelector(loginSel, { timeout: 10000 });
-    await page.type(loginSel, LOGIN, { delay: 50 });
-    await page.type(passSel, PASSWORD, { delay: 50 });
-    await page.click(btnSel);
-    await page.waitForNavigation({ waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
+    const { loginToBB } = await import("./lib/bb-site-session.mjs");
+    await loginToBB(page);
   }
 
   return { browser, page };
