@@ -645,13 +645,13 @@ export default function MyRosterPage() {
                     {new Date(w.matchDate).toLocaleDateString()} · Total: {w.total.toFixed(1)} FP
                   </span>
                 </div>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 sm:gap-4">
+                <div className="grid grid-cols-5 gap-4">
                   {w.roster.map((p) => (
                     <div
                       key={p.playerId}
-                      className="flex items-center gap-2 sm:gap-3 rounded-lg border border-bb-border bg-card-bg px-2 py-2 sm:px-3 min-w-0"
+                      className="flex items-center gap-3 rounded-lg border border-bb-border bg-card-bg px-3 py-2 min-w-0"
                     >
-                      <PlayerAvatar playerId={p.playerId} name={p.name} compact />
+                      <PlayerAvatar playerId={p.playerId} name={p.name} />
                       <div className="min-w-0 flex-1">
                         <p className="text-sm font-medium truncate" title={p.name}>{p.name}</p>
                         <p className="text-sm text-gray-600">{p.points.toFixed(1)} FP</p>

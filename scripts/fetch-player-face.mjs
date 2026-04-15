@@ -147,10 +147,10 @@ async function loginToBB(page) {
   }
   console.log("  [login] Response:", nav?.status(), "URL:", page.url());
 
-  // Match fetch-u21dle-player-source-teams.mjs (reliable on CI + local)
-  const loginSel = 'input[name*="txtLogin"], input[name*="Login"], input[type="text"]';
-  const passSel = 'input[type="password"]';
-  const btnSel = 'input[type="submit"], button[type="submit"]';
+  /** Main #cphContent form — not the footer modal (name *txtLogin* matches txtLoginUserName first). */
+  const loginSel = "#cphContent_txtUserName";
+  const passSel = "#cphContent_txtPassword";
+  const btnSel = "#cphContent_btnLoginUser";
   try {
     await page.waitForSelector(loginSel, { timeout: 10000 });
   } catch (e) {

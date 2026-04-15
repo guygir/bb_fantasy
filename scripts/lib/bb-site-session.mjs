@@ -64,13 +64,14 @@ async function loginToBB(page) {
   }
   console.log("  [login] Response:", nav?.status(), "URL:", page.url());
 
-  const loginSel = 'input[name*="txtLogin"], input[name*="Login"], input[type="text"]';
-  const passSel = 'input[type="password"]';
-  const btnSel = 'input[type="submit"], button[type="submit"]';
+  /** Main #cphContent form — NOT the footer modal (name *txtLogin* matches txtLoginUserName first and breaks login). */
+  const loginSel = "#cphContent_txtUserName";
+  const passSel = "#cphContent_txtPassword";
+  const btnSel = "#cphContent_btnLoginUser";
   try {
     await page.waitForSelector(loginSel, { timeout: 10000 });
   } catch (e) {
-    console.log("  [debug] Login form not found");
+    console.log("  [debug] Main login form (#cphContent_txtUserName) not found");
     await saveDebug(page, "no_login_form");
     throw e;
   }
@@ -100,7 +101,9 @@ async function loginToBB(page) {
   console.log("  [login] After login, URL:", page.url());
   if (isLoginUrl(page.url())) {
     await saveDebug(page, "login_failed_still_on_login");
-    throw new Error("Login failed — check BB_PASSWORD (main site password, not BBAPI code)");
+    throw new Error(
+      "Login failed — check BB_PASSWORD. If credentials are correct, try BB_SITE_COOKIES (reCAPTCHA may block headless login)."
+    );
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 71,
-    "fetched": "2026-04-14T17:22:33.575Z",
+    "fetched": "2026-04-15T09:41:19.882Z",
     "source": "BBAPI",
     "expectedPlayers": 19,
     "detailCount": 19,
@@ -77,8 +77,8 @@
       "dmi": 4606700,
       "salary": 168596,
       "gameShape": 9,
-      "injuryDaysMin": 4,
-      "injuryDaysMax": 7
+      "injuryDaysMin": null,
+      "injuryDaysMax": null
     },
     "54410077": {
       "position": "SF",

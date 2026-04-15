@@ -43,19 +43,21 @@ function parsePlayerXml(xml) {
 }
 
 /**
- * BuzzerBeater overview "Injury!" block. Numbers may be split across HTML tags; copy may use "day" or a single bound.
+ * BuzzerBeater overview injury block. Numbers may be split across tags ("3</span>-<span>5").
+ * If "Injury!" is present but no range matches, return 0/0 (still injured; UI shows "INJURED!" without days).
  */
 function parseInjuryFromOverviewHtml(html) {
   const head = html.match(/Injury!/i);
   if (!head || head.index == null) return { injuryDaysMin: null, injuryDaysMax: null };
-  const slice = html.slice(head.index, head.index + 1200);
+  const slice = html.slice(head.index, head.index + 900);
   const plain = slice
-    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ");
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
-  let m = plain.match(/(\d+)\s*(?:[-–]|to)\s*(\d+)\s*days?/i);
+  let m = plain.match(/(\d+)\s*[-–]\s*(\d+)\s*days?/i);
   if (m) {
     return {
       injuryDaysMin: parseInt(m[1], 10),
@@ -65,9 +67,9 @@ function parseInjuryFromOverviewHtml(html) {
   m = plain.match(/(\d+)\s*days?/i);
   if (m) {
     const n = parseInt(m[1], 10);
-    if (!Number.isNaN(n)) return { injuryDaysMin: n, injuryDaysMax: n };
+    return { injuryDaysMin: n, injuryDaysMax: n };
   }
-  return { injuryDaysMin: null, injuryDaysMax: null };
+  return { injuryDaysMin: 0, injuryDaysMax: 0 };
 }
 
 function overviewLooksLikeLoginWall(html) {

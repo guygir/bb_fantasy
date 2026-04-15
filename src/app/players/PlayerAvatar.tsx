@@ -35,7 +35,7 @@ export function PlayerAvatar({ playerId, name, faceMtime, compact, className }: 
         <img
           src={faceUrl}
           alt={name}
-          className={`block h-auto w-auto max-w-full rounded-lg object-contain ${compact ? "max-h-12" : "max-h-24"}`}
+          className={`block w-auto rounded-lg ${compact ? "max-h-12" : "max-h-24"}`}
           onError={() => setImgError(true)}
         />
       ) : (
