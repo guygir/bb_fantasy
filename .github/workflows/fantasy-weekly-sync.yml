@@ -29,7 +29,11 @@ jobs:
       - run: npm ci
 
       - name: Install Chrome (for Puppeteer - roster fetch + face sync)
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v1
+        with:
+          # Match what Puppeteer expects on Linux (fonts/libs); avoids flaky launches
+          install-dependencies: true
 
       - name: Fantasy data sync (roster → schedule → boxscores → process → Supabase)
         env:
@@ -42,8 +46,10 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CURRENT_SEASON: ${{ github.event.inputs.season || '71' }}
         run: |
-          # Prefer system Chrome from setup-chrome (Puppeteer’s bundled Chromium may be missing on CI)
-          export PUPPETEER_EXECUTABLE_PATH="${PUPPETEER_EXECUTABLE_PATH:-$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)}"
+          # Must use the same binary setup-chrome installed (do not use command -v — can pick a different Chrome)
+          export PUPPETEER_EXECUTABLE_PATH="${{ steps.setup-chrome.outputs.chrome-path }}"
+          echo "PUPPETEER_EXECUTABLE_PATH=$PUPPETEER_EXECUTABLE_PATH"
+          "$PUPPETEER_EXECUTABLE_PATH" --version || true
           node scripts/fantasy-weekly-sync.mjs ${{ github.event.inputs.season || '71' }}
 
       - name: Commit and push player faces
