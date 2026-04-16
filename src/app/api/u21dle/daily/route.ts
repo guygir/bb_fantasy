@@ -1,19 +1,20 @@
 import { NextResponse } from "next/server";
 import { getCurrentPuzzleDate, loadDailyDataWithSource } from "@/lib/u21dle/daily";
-import { calendarDateInPuzzleTZ } from "@/lib/u21dle/puzzle-date";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
 /**
  * Returns the current puzzle date (most recent ≤ today).
- * "Today" = calendar day in Asia/Jerusalem (U21dle), not UTC.
+ * Same as Holdemle/Riftle: UTC today, Supabase query with .lte().order().limit(1), service role.
  */
 export async function GET() {
   try {
-    const today = calendarDateInPuzzleTZ(new Date());
+    const today = new Date().toISOString().split("T")[0];
     console.log("[u21dle daily API] GET", { today, iso: new Date().toISOString() });
 
-    const date = await getCurrentPuzzleDate();
+    const supabase = getSupabaseAdmin();
+    const date = await getCurrentPuzzleDate(supabase);
     console.log("[u21dle daily API] getCurrentPuzzleDate returned", { date });
 
     if (!date) {

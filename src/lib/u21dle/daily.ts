@@ -1,14 +1,13 @@
 /**
  * U21dle daily puzzle - Supabase primary, JSON fallback.
- * Holdemle-style: use most recent date ≤ today when today's puzzle isn't published yet.
- * Once a puzzle is set for a date, it is never overwritten.
+ * Same approach as Holdemle/Riftle: UTC today, DB query with .lte().order().limit(1).
  */
 
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { getU21dlePlayerById } from "./players";
 import type { U21dlePlayer } from "./feedback";
-import { calendarDateInPuzzleTZ } from "./puzzle-date";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 /** Path to daily puzzle JSON (fallback when Supabase unavailable) */
 const DAILY_PATH = join(process.cwd(), "data", "u21dle_daily.json");
@@ -23,84 +22,67 @@ function loadDailyFromJson(): Record<string, number> {
   }
 }
 
-async function loadDailyFromSupabase(): Promise<Record<string, number>> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return {};
+/** Same as Holdemle/Riftle: UTC today, query DB with .lte().order().limit(1). Use service role to bypass RLS. */
+export async function getCurrentPuzzleDate(supabase: SupabaseClient): Promise<string | null> {
+  const today = new Date().toISOString().split("T")[0];
+  const { data, error } = await supabase
+    .from("u21dle_puzzles")
+    .select("puzzle_date")
+    .lte("puzzle_date", today)
+    .order("puzzle_date", { ascending: false })
+    .limit(1);
+  const row = Array.isArray(data) ? data[0] : data;
+  const result = row?.puzzle_date ?? null;
+  console.log("[u21dle getCurrentPuzzleDate]", { today, rawData: data, error: error?.message, result });
+  return result;
+}
 
+/** Load daily data: Supabase first, JSON fallback (for getDailyPlayer when no supabase passed) */
+export type DailyDataSource = "supabase" | "json";
+
+/** Same as Holdemle/Riftle: use service role to bypass RLS for reliable access on Vercel. */
+async function loadDailyFromSupabase(): Promise<{
+  data: Record<string, number>;
+  error?: string;
+}> {
   try {
-    const { createClient } = await import("@supabase/supabase-js");
-    const supabase = createClient(url, key);
-    const { data, error } = await supabase
+    const { getSupabaseAdmin } = await import("@/lib/supabase");
+    const client = getSupabaseAdmin();
+    const { data, error } = await client
       .from("u21dle_puzzles")
       .select("puzzle_date, player_id");
-    if (error) return {};
+    if (error) return { data: {}, error: error.message };
     const out: Record<string, number> = {};
     for (const row of data ?? []) {
       out[row.puzzle_date] = row.player_id;
     }
-    return out;
-  } catch {
-    return {};
+    return { data: out };
+  } catch (e) {
+    return { data: {}, error: e instanceof Error ? e.message : "Unknown error" };
   }
 }
 
-/** Supabase first, then JSON; includes source and optional DB error for API debug. */
+export async function loadDailyData(): Promise<Record<string, number>> {
+  const { data } = await loadDailyFromSupabase();
+  if (Object.keys(data).length > 0) return data;
+  return loadDailyFromJson();
+}
+
 export async function loadDailyDataWithSource(): Promise<{
   data: Record<string, number>;
-  source: "supabase" | "json" | "empty";
-  supabaseError: string | null;
+  source: DailyDataSource;
+  supabaseError?: string;
 }> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  let supabaseError: string | null = null;
-
-  if (url && key) {
-    try {
-      const { createClient } = await import("@supabase/supabase-js");
-      const supabase = createClient(url, key);
-      const { data, error } = await supabase
-        .from("u21dle_puzzles")
-        .select("puzzle_date, player_id");
-      if (error) {
-        supabaseError = error.message;
-      } else {
-        const out: Record<string, number> = {};
-        for (const row of data ?? []) {
-          out[row.puzzle_date] = row.player_id;
-        }
-        if (Object.keys(out).length > 0) {
-          return { data: out, source: "supabase", supabaseError: null };
-        }
-      }
-    } catch (e) {
-      supabaseError = e instanceof Error ? e.message : String(e);
-    }
+  const fromDb = await loadDailyFromSupabase();
+  if (Object.keys(fromDb.data).length > 0) {
+    return { data: fromDb.data, source: "supabase" };
   }
-
   const fromJson = loadDailyFromJson();
-  if (Object.keys(fromJson).length > 0) {
-    return { data: fromJson, source: "json", supabaseError };
-  }
-  return { data: {}, source: "empty", supabaseError };
-}
-
-/** Load daily data: Supabase first, JSON fallback */
-async function loadDailyData(): Promise<Record<string, number>> {
-  const { data } = await loadDailyDataWithSource();
-  return data;
-}
-
-/**
- * Returns the most recent puzzle_date that exists, where puzzle_date <= today (Israel calendar day).
- * Before the daily cron runs, this may return yesterday's date.
- */
-export async function getCurrentPuzzleDate(): Promise<string | null> {
-  const today = calendarDateInPuzzleTZ(new Date());
-  const data = await loadDailyData();
-  const dates = Object.keys(data).filter((d) => d <= today).sort();
-  if (dates.length === 0) return null;
-  return dates[dates.length - 1] ?? null;
+  return {
+    data: fromJson,
+    source: "json",
+    supabaseError: fromDb.error,
+  };
 }
 
 /**

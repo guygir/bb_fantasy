@@ -9,7 +9,6 @@
  *   node scripts/generate-u21dle-daily-supabase.mjs 2026-02-25 2026-03-01  # range
  *
  * Env: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (from .env.local)
- *      U21DLE_PUZZLE_TIMEZONE — optional (default Asia/Jerusalem); must match app puzzle-date logic.
  */
 
 import { config } from "dotenv";
@@ -20,34 +19,15 @@ import { createClient } from "@supabase/supabase-js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-config({ path: join(ROOT, ".env") });
-config({ path: join(ROOT, ".env.local"), override: true });
+config({ path: join(ROOT, ".env.local") });
 const PLAYERS_PATH = join(ROOT, "data", "u21dle_players.json");
 
 const MIN_GP = 8;
 /** Generate for 3 days from now (so you have 3 days notice if cron fails) */
 const DAYS_AHEAD = 3;
 
-/** Must match src/lib/u21dle/puzzle-date.ts — Israel calendar day, not UTC (toISOString broke "today"). */
-const U21DLE_PUZZLE_TIMEZONE = process.env.U21DLE_PUZZLE_TIMEZONE || "Asia/Jerusalem";
-
-function calendarDateInPuzzleTZ(d = new Date(), tz = U21DLE_PUZZLE_TIMEZONE) {
-  const fmt = new Intl.DateTimeFormat("en-CA", {
-    timeZone: tz,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-  const parts = fmt.formatToParts(d);
-  const y = parts.find((p) => p.type === "year")?.value;
-  const m = parts.find((p) => p.type === "month")?.value;
-  const day = parts.find((p) => p.type === "day")?.value;
-  return `${y}-${m}-${day}`;
-}
-
-function calendarDateDaysAheadInPuzzleTZ(daysAhead, from = new Date()) {
-  const ms = daysAhead * 24 * 60 * 60 * 1000;
-  return calendarDateInPuzzleTZ(new Date(from.getTime() + ms));
+function toDateStr(d) {
+  return d.toISOString().slice(0, 10);
 }
 
 function getEligiblePlayers() {
@@ -55,20 +35,10 @@ function getEligiblePlayers() {
   return (data.players || []).filter((p) => p.gp >= MIN_GP);
 }
 
-/**
- * Pick a player using balanced selection.
- * If all players have the same count → pick randomly from all.
- * Otherwise → take the min count, pick randomly only from players with that min.
- */
-function pickBalancedPlayer(eligible, countByPlayer) {
-  const counts = eligible.map((p) => countByPlayer.get(p.playerId) ?? 0);
-  const minCount = Math.min(...counts);
-  const allSame = counts.every((c) => c === minCount);
-  const pool = allSame
-    ? eligible
-    : eligible.filter((p) => (countByPlayer.get(p.playerId) ?? 0) === minCount);
-  const idx = Math.floor(Math.random() * pool.length);
-  return pool[idx].playerId;
+/** Pick a random player from eligible pool */
+function pickRandomPlayer(eligible) {
+  const idx = Math.floor(Math.random() * eligible.length);
+  return eligible[idx].playerId;
 }
 
 async function main() {
@@ -87,7 +57,8 @@ async function main() {
 
   const supabase = createClient(url, key);
 
-  // Which dates to generate (puzzle TZ calendar days — same as getCurrentPuzzleDate in app)
+  // Which dates to generate
+  const today = new Date();
   const dates = [];
   const arg1 = process.argv[2];
   const arg2 = process.argv[3];
@@ -96,13 +67,15 @@ async function main() {
     const start = new Date(arg1);
     const end = new Date(arg2);
     for (let d = new Date(start); d <= end; ) {
-      dates.push(calendarDateInPuzzleTZ(d));
-      d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+      dates.push(toDateStr(d));
+      d.setDate(d.getDate() + 1);
     }
   } else if (arg1) {
-    dates.push(calendarDateInPuzzleTZ(new Date(arg1)));
+    dates.push(toDateStr(new Date(arg1)));
   } else {
-    dates.push(calendarDateDaysAheadInPuzzleTZ(DAYS_AHEAD));
+    const d = new Date(today);
+    d.setDate(d.getDate() + DAYS_AHEAD);
+    dates.push(toDateStr(d));
   }
 
   // Fetch existing dates from Supabase
@@ -112,22 +85,13 @@ async function main() {
     .in("puzzle_date", dates);
   const existingSet = new Set((existing ?? []).map((r) => r.puzzle_date));
 
-  // Fetch pick counts per player (for balanced selection)
-  const { data: countRows } = await supabase
-    .from("u21dle_puzzles")
-    .select("player_id");
-  const countByPlayer = new Map();
-  for (const row of countRows ?? []) {
-    countByPlayer.set(row.player_id, (countByPlayer.get(row.player_id) ?? 0) + 1);
-  }
-
   let inserted = 0;
   for (const dateStr of dates) {
     if (existingSet.has(dateStr)) {
       console.log(`${dateStr} -> (already exists, skipped)`);
       continue;
     }
-    const playerId = pickBalancedPlayer(eligible, countByPlayer);
+    const playerId = pickRandomPlayer(eligible);
     const player = eligible.find((p) => p.playerId === playerId);
     const { error } = await supabase.from("u21dle_puzzles").insert({
       puzzle_date: dateStr,
@@ -144,8 +108,6 @@ async function main() {
     }
     console.log(`${dateStr} -> ${player?.name ?? playerId} (${playerId})`);
     inserted++;
-    // Update count for next iteration (in case we're inserting multiple dates)
-    countByPlayer.set(playerId, (countByPlayer.get(playerId) ?? 0) + 1);
   }
 
   console.log(`\nInserted ${inserted} new puzzle(s)`);
