@@ -5,14 +5,14 @@
  * Fallback: when no such transfer → "NONE FOUND" (do not use Owner / current club — avoids misleading labels).
  *
  * Run: node scripts/fetch-u21dle-player-source-teams.mjs
- * Env: BBAPI_LOGIN, BB_PASSWORD (for Puppeteer login - history page may require it)
+ * Env: BBAPI_LOGIN, BB_PASSWORD (HTTP login — no browser needed for history pages)
  */
 
 import { config } from "dotenv";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { PUPPETEER_DEFAULT_ARGS, BB_LOGIN_NAV_TIMEOUT_MS, launchBbBrowser } from "./lib/bb-site-session.mjs";
+import { getBuzzerbeaterCookieHeaderFromLogin } from "./lib/bb-site-session.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -24,12 +24,8 @@ const MAIN_BASE = "https://buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD;
 
-const CHROME_PATHS = [
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "/usr/bin/google-chrome",
-  "/usr/bin/google-chrome-stable",
-  "/usr/bin/chromium",
-];
+const HISTORY_UA =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 function loadEligiblePlayers() {
   const path = join(ROOT, "data", "u21dle_players.json");
@@ -117,43 +113,12 @@ function pickSourceTeamFromTransfers(transferRows, playerSeason) {
   return null;
 }
 
-const NAV_TIMEOUT = BB_LOGIN_NAV_TIMEOUT_MS;
-
-async function fetchHistoryWithPuppeteer(page, playerId) {
-  await page.goto(`${MAIN_BASE}player/${playerId}/history.aspx`, {
-    waitUntil: "domcontentloaded",
-    timeout: NAV_TIMEOUT,
-  });
-  return page.content();
-}
-
-async function initPuppeteerSession() {
-  const { existsSync } = await import("fs");
-  const launchOpts = {
-    headless: true,
-    args: [...PUPPETEER_DEFAULT_ARGS],
-  };
-  const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
-  if (executablePath) launchOpts.executablePath = executablePath;
-
-  const browser = await launchBbBrowser(launchOpts);
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1280, height: 800 });
-  await page.setUserAgent(
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-  );
-
-  if (PASSWORD) {
-    const { loginToBB } = await import("./lib/bb-site-session.mjs");
-    await loginToBB(page);
-  }
-
-  return { browser, page };
-}
-
-async function fetchHistoryWithFetch(playerId) {
+async function fetchHistoryPage(playerId, cookieHeader) {
+  const headers = { "User-Agent": HISTORY_UA, Accept: "text/html,*/*;q=0.9" };
+  if (cookieHeader) headers.Cookie = cookieHeader;
   const res = await fetch(`${MAIN_BASE}player/${playerId}/history.aspx`, {
-    headers: { "User-Agent": "BBFantasy/1.0" },
+    headers,
+    redirect: "follow",
   });
   return res.text();
 }
@@ -167,17 +132,15 @@ async function main() {
   }
   console.log(`Found ${players.length} eligible players (GP>=${MIN_GP_ELIGIBLE})\n`);
 
-  const results = [];
-  const usePuppeteer = !!PASSWORD;
-
-  let page = null;
-  let browser = null;
-  if (usePuppeteer) {
-    const session = await initPuppeteerSession();
-    browser = session.browser;
-    page = session.page;
+  // Get session cookie once (HTTP login — no browser needed)
+  let cookieHeader = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
+  if (!cookieHeader && PASSWORD) {
+    console.log("Logging in to buzzerbeater.com...");
+    cookieHeader = await getBuzzerbeaterCookieHeaderFromLogin();
+    console.log("Login OK\n");
   }
 
+  const results = [];
   const MAX_RETRIES = 2;
 
   for (let i = 0; i < players.length; i++) {
@@ -187,9 +150,7 @@ async function main() {
     let lastErr = null;
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
-        html = usePuppeteer
-          ? await fetchHistoryWithPuppeteer(page, playerId)
-          : await fetchHistoryWithFetch(playerId);
+        html = await fetchHistoryPage(playerId, cookieHeader);
         break;
       } catch (e) {
         lastErr = e;
@@ -221,8 +182,6 @@ async function main() {
     }
     await new Promise((r) => setTimeout(r, 500)); // Rate limit
   }
-
-  if (browser) await browser.close();
 
   // Write { playerId: sourceTeam } for every eligible player (includes "NONE FOUND")
   const sourceTeamsMap = {};

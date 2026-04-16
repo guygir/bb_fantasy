@@ -1,11 +1,8 @@
 {
   "meta": {
     "season": 71,
-    "fetched": "2026-04-15T09:41:19.882Z",
-    "source": "BBAPI",
-    "expectedPlayers": 19,
-    "detailCount": 19,
-    "failures": []
+    "fetched": "2026-04-16T07:41:30.831Z",
+    "source": "BBAPI"
   },
   "details": {
     "54409681": {
@@ -144,6 +141,12 @@
       "injuryDaysMin": null,
       "injuryDaysMax": null
     },
+    "54721556": {
+      "position": "PG",
+      "dmi": 314400,
+      "salary": 9634,
+      "gameShape": 8
+    },
     "54721671": {
       "position": "C",
       "dmi": 279800,
@@ -159,6 +162,12 @@
       "gameShape": 9,
       "injuryDaysMin": null,
       "injuryDaysMax": null
+    },
+    "54721949": {
+      "position": "C",
+      "dmi": 1815200,
+      "salary": 42095,
+      "gameShape": 8
     }
   }
 }

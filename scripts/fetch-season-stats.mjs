@@ -7,8 +7,8 @@
  *
  * Run: node scripts/fetch-season-stats.mjs [season]
  * Env: BBAPI_LOGIN, BBAPI_CODE (for player details)
- *      BB_PASSWORD (optional — full roster via stealth Puppeteer)
- *      BB_SITE_COOKIES (optional — skip browser login when set)
+ *      BB_PASSWORD (optional — full roster via HTTP login + fetch)
+ *      BB_SITE_COOKIES (optional — use pre-existing cookie header; skips login entirely)
  *
  * Output: data/season{N}_stats.json (merged with any new players from roster)
  */
@@ -17,7 +17,7 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
-import { loginToBB, PUPPETEER_DEFAULT_ARGS, launchBbBrowser } from "./lib/bb-site-session.mjs";
+import { getBuzzerbeaterCookieHeaderFromLogin } from "./lib/bb-site-session.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MAIN_BASE = "https://buzzerbeater.com/";
@@ -130,89 +130,45 @@ function parseRosterPage(html) {
   return rows;
 }
 
-/** System Chrome paths (fallback when Puppeteer's bundled Chrome is missing) */
-const CHROME_PATHS = [
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "/usr/bin/google-chrome",
-  "/usr/bin/google-chrome-stable",
-  "/usr/bin/chromium",
-  "/usr/bin/chromium-browser",
-];
+const ROSTER_UA =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
-/** Roster via Cookie header (no Puppeteer) — same pattern as fetch-player-details injury fetch. */
-async function fetchRosterWithCookieHeader() {
-  if (!SITE_COOKIE_HEADER) return null;
+function rosterLooksLikeLoginWall(html) {
+  return (
+    /login\.css/i.test(html) ||
+    /<title>\s*Login\s*</i.test(html) ||
+    (/cphContent_txtUserName/i.test(html) && /login\.aspx/i.test(html))
+  );
+}
+
+async function fetchRosterWithCookie(cookieHeader) {
+  const res = await fetch(ROSTER_URL, {
+    redirect: "follow",
+    headers: { "User-Agent": ROSTER_UA, Accept: "text/html,*/*;q=0.9", Cookie: cookieHeader },
+  });
+  const html = await res.text();
+  if (rosterLooksLikeLoginWall(html)) return null;
+  return parseRosterPage(html);
+}
+
+/** Fetch roster page — HTTP login (fast), no Puppeteer needed. */
+async function fetchRosterWithLogin() {
+  if (!PASSWORD && !SITE_COOKIE_HEADER) return null;
   try {
-    const res = await fetch(ROSTER_URL, {
-      redirect: "follow",
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
-        Cookie: SITE_COOKIE_HEADER,
-      },
-    });
-    const html = await res.text();
-    if (
-      /login\.css/i.test(html) ||
-      /<title>\s*Login\s*</i.test(html) ||
-      (/cphContent_txtUserName/i.test(html) && /login\.aspx/i.test(html))
-    ) {
-      console.warn(
-        "  [roster] BB_SITE_COOKIES set but players.aspx still looks like login — cookies may be expired; trying Puppeteer if BB_PASSWORD is set"
-      );
-      return null;
-    }
-    const roster = parseRosterPage(html);
-    if (roster.length > 0) {
-      console.log(`  [roster] Loaded ${roster.length} players via BB_SITE_COOKIES (no Puppeteer)`);
+    const cookieHeader = SITE_COOKIE_HEADER || (await getBuzzerbeaterCookieHeaderFromLogin());
+    const roster = await fetchRosterWithCookie(cookieHeader);
+    if (roster?.length) {
+      console.log(`  [roster] Loaded ${roster.length} players via HTTP login`);
+    } else if (roster !== null) {
+      console.warn("  [roster] Login succeeded but no players found on players.aspx");
+    } else {
+      console.warn("  [roster] players.aspx still looks like login wall after successful login");
     }
     return roster;
   } catch (e) {
-    console.warn("  [roster] Cookie fetch failed:", e.message);
+    console.warn("  [roster] fetch failed:", e.message);
     return null;
   }
-}
-
-/** Fetch roster page with Puppeteer (requires BB_PASSWORD). Uses shared login (see scripts/lib/bb-site-session.mjs). */
-async function fetchRosterWithPuppeteer() {
-  if (!PASSWORD) return null;
-  const maxAttempts = process.env.CI ? 3 : 1;
-  const { existsSync } = await import("fs");
-  const launchBase = {
-    headless: true,
-    args: [...PUPPETEER_DEFAULT_ARGS],
-  };
-  const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
-  if (executablePath) launchBase.executablePath = executablePath;
-
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    if (attempt > 0) {
-      const wait = 5000 + attempt * 5000;
-      console.warn(`  [roster] Puppeteer login retry ${attempt + 1}/${maxAttempts} (after ${wait}ms)...`);
-      await new Promise((r) => setTimeout(r, wait));
-    }
-    let browser;
-    try {
-      browser = await launchBbBrowser({ ...launchBase });
-      const page = await browser.newPage();
-      await page.setViewport({ width: 1280, height: 800 });
-      await loginToBB(page);
-      await page.goto(ROSTER_URL, { waitUntil: "domcontentloaded", timeout: 20000 });
-      const html = await page.content();
-      const roster = parseRosterPage(html);
-      if (roster.length > 0) console.log(`Roster page: ${roster.length} players`);
-      await browser.close();
-      return roster;
-    } catch (e) {
-      if (browser) await browser.close().catch(() => {});
-      if (attempt === maxAttempts - 1) {
-        console.warn("Roster fetch (players.aspx) failed:", e.message);
-        return null;
-      }
-    }
-  }
-  return null;
 }
 
 async function run() {
@@ -234,16 +190,8 @@ async function run() {
 
   const scrapedById = new Map(scrapedPlayers.map((p) => [p.playerId, p]));
   if (PASSWORD || SITE_COOKIE_HEADER) {
-    console.log("Fetching full roster from players.aspx (requires login or BB_SITE_COOKIES)...");
-    let rosterPlayers = await fetchRosterWithCookieHeader();
-    if (!rosterPlayers?.length && PASSWORD) {
-      rosterPlayers = await fetchRosterWithPuppeteer();
-    }
-    if (!rosterPlayers?.length && SITE_COOKIE_HEADER && !PASSWORD) {
-      console.warn(
-        "BB_SITE_COOKIES did not return a roster (expired or wrong domain) — add BB_PASSWORD or refresh cookies in repo secrets."
-      );
-    }
+    console.log("Fetching full roster from players.aspx...");
+    const rosterPlayers = await fetchRosterWithLogin();
     if (rosterPlayers?.length) {
       let added = 0;
       for (const r of rosterPlayers) {
