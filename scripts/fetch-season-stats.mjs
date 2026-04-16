@@ -177,30 +177,42 @@ async function fetchRosterWithCookieHeader() {
 /** Fetch roster page with Puppeteer (requires BB_PASSWORD). Uses shared login (see scripts/lib/bb-site-session.mjs). */
 async function fetchRosterWithPuppeteer() {
   if (!PASSWORD) return null;
-  let browser;
-  try {
-    const { existsSync } = await import("fs");
-    const launchOpts = {
-      headless: true,
-      args: [...PUPPETEER_DEFAULT_ARGS],
-    };
-    const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
-    if (executablePath) launchOpts.executablePath = executablePath;
-    browser = await launchBbBrowser(launchOpts);
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 800 });
-    await loginToBB(page);
-    await page.goto(ROSTER_URL, { waitUntil: "domcontentloaded", timeout: 20000 });
-    const html = await page.content();
-    const roster = parseRosterPage(html);
-    if (roster.length > 0) console.log(`Roster page: ${roster.length} players`);
-    return roster;
-  } catch (e) {
-    console.warn("Roster fetch (players.aspx) failed:", e.message);
-    return null;
-  } finally {
-    if (browser) await browser.close();
+  const maxAttempts = process.env.CI ? 3 : 1;
+  const { existsSync } = await import("fs");
+  const launchBase = {
+    headless: true,
+    args: [...PUPPETEER_DEFAULT_ARGS],
+  };
+  const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
+  if (executablePath) launchBase.executablePath = executablePath;
+
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    if (attempt > 0) {
+      const wait = 5000 + attempt * 5000;
+      console.warn(`  [roster] Puppeteer login retry ${attempt + 1}/${maxAttempts} (after ${wait}ms)...`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+    let browser;
+    try {
+      browser = await launchBbBrowser({ ...launchBase });
+      const page = await browser.newPage();
+      await page.setViewport({ width: 1280, height: 800 });
+      await loginToBB(page);
+      await page.goto(ROSTER_URL, { waitUntil: "domcontentloaded", timeout: 20000 });
+      const html = await page.content();
+      const roster = parseRosterPage(html);
+      if (roster.length > 0) console.log(`Roster page: ${roster.length} players`);
+      await browser.close();
+      return roster;
+    } catch (e) {
+      if (browser) await browser.close().catch(() => {});
+      if (attempt === maxAttempts - 1) {
+        console.warn("Roster fetch (players.aspx) failed:", e.message);
+        return null;
+      }
+    }
   }
+  return null;
 }
 
 async function run() {

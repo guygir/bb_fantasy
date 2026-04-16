@@ -9,6 +9,7 @@
  *   node scripts/generate-u21dle-daily-supabase.mjs 2026-02-25 2026-03-01  # range
  *
  * Env: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (from .env.local)
+ *      U21DLE_PUZZLE_TIMEZONE — optional (default Asia/Jerusalem); must match app puzzle-date logic.
  */
 
 import { config } from "dotenv";
@@ -19,15 +20,34 @@ import { createClient } from "@supabase/supabase-js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-config({ path: join(ROOT, ".env.local") });
+config({ path: join(ROOT, ".env") });
+config({ path: join(ROOT, ".env.local"), override: true });
 const PLAYERS_PATH = join(ROOT, "data", "u21dle_players.json");
 
 const MIN_GP = 8;
 /** Generate for 3 days from now (so you have 3 days notice if cron fails) */
 const DAYS_AHEAD = 3;
 
-function toDateStr(d) {
-  return d.toISOString().slice(0, 10);
+/** Must match src/lib/u21dle/puzzle-date.ts — Israel calendar day, not UTC (toISOString broke "today"). */
+const U21DLE_PUZZLE_TIMEZONE = process.env.U21DLE_PUZZLE_TIMEZONE || "Asia/Jerusalem";
+
+function calendarDateInPuzzleTZ(d = new Date(), tz = U21DLE_PUZZLE_TIMEZONE) {
+  const fmt = new Intl.DateTimeFormat("en-CA", {
+    timeZone: tz,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  const parts = fmt.formatToParts(d);
+  const y = parts.find((p) => p.type === "year")?.value;
+  const m = parts.find((p) => p.type === "month")?.value;
+  const day = parts.find((p) => p.type === "day")?.value;
+  return `${y}-${m}-${day}`;
+}
+
+function calendarDateDaysAheadInPuzzleTZ(daysAhead, from = new Date()) {
+  const ms = daysAhead * 24 * 60 * 60 * 1000;
+  return calendarDateInPuzzleTZ(new Date(from.getTime() + ms));
 }
 
 function getEligiblePlayers() {
@@ -67,8 +87,7 @@ async function main() {
 
   const supabase = createClient(url, key);
 
-  // Which dates to generate
-  const today = new Date();
+  // Which dates to generate (puzzle TZ calendar days — same as getCurrentPuzzleDate in app)
   const dates = [];
   const arg1 = process.argv[2];
   const arg2 = process.argv[3];
@@ -77,15 +96,13 @@ async function main() {
     const start = new Date(arg1);
     const end = new Date(arg2);
     for (let d = new Date(start); d <= end; ) {
-      dates.push(toDateStr(d));
-      d.setDate(d.getDate() + 1);
+      dates.push(calendarDateInPuzzleTZ(d));
+      d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
     }
   } else if (arg1) {
-    dates.push(toDateStr(new Date(arg1)));
+    dates.push(calendarDateInPuzzleTZ(new Date(arg1)));
   } else {
-    const d = new Date(today);
-    d.setDate(d.getDate() + DAYS_AHEAD);
-    dates.push(toDateStr(d));
+    dates.push(calendarDateDaysAheadInPuzzleTZ(DAYS_AHEAD));
   }
 
   // Fetch existing dates from Supabase

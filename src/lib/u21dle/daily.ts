@@ -8,6 +8,7 @@ import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { getU21dlePlayerById } from "./players";
 import type { U21dlePlayer } from "./feedback";
+import { calendarDateInPuzzleTZ } from "./puzzle-date";
 
 /** Path to daily puzzle JSON (fallback when Supabase unavailable) */
 const DAILY_PATH = join(process.cwd(), "data", "u21dle_daily.json");
@@ -91,11 +92,11 @@ async function loadDailyData(): Promise<Record<string, number>> {
 }
 
 /**
- * Returns the most recent puzzle_date that exists, where puzzle_date <= today.
+ * Returns the most recent puzzle_date that exists, where puzzle_date <= today (Israel calendar day).
  * Before the daily cron runs, this may return yesterday's date.
  */
 export async function getCurrentPuzzleDate(): Promise<string | null> {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = calendarDateInPuzzleTZ(new Date());
   const data = await loadDailyData();
   const dates = Object.keys(data).filter((d) => d <= today).sort();
   if (dates.length === 0) return null;

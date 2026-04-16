@@ -25,11 +25,11 @@ config({ path: join(ROOT, ".env.local"), override: true });
 const MAIN_BASE = "https://buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD;
-/** ms — login POST + ASP.NET postback (override with BB_LOGIN_NAV_TIMEOUT_MS). */
+/** ms — login POST + ASP.NET postback (override with BB_LOGIN_NAV_TIMEOUT_MS). CI default 120s — runners often need it. */
 function navTimeoutMs() {
   const raw = process.env.BB_LOGIN_NAV_TIMEOUT_MS;
   if (raw && /^\d+$/.test(String(raw).trim())) return parseInt(String(raw).trim(), 10);
-  return process.env.CI ? 45000 : 30000;
+  return process.env.CI ? 120000 : 30000;
 }
 /** Exported for fetch-player-face / u21dle (same limits as login). */
 export const BB_LOGIN_NAV_TIMEOUT_MS = navTimeoutMs();
@@ -114,13 +114,13 @@ export async function loginToBB(page) {
   console.log("  [login] Submitting...");
   try {
     /**
-     * BB uses ASP.NET postbacks; on CI, `waitForNavigation` often never resolves even when the URL
-     * changes (home.aspx). Poll `location` instead of relying on navigation lifecycle events.
+     * ASP.NET postback — do not Promise.race with waitForNavigation: if navigation times out first,
+     * the race rejects even when the URL is about to change (regression).
      */
     await page.click(btnSel);
     await page.waitForFunction(
       () => !window.location.href.includes("login.aspx"),
-      { timeout: NAV_TIMEOUT, polling: 300 }
+      { timeout: NAV_TIMEOUT, polling: 250 }
     );
   } catch (e) {
     console.log("  [debug] Login URL wait:", e.message);
@@ -153,14 +153,7 @@ export async function loginToBB(page) {
   }
 }
 
-/**
- * One headless login; returns `Cookie` header value for `fetch("https://buzzerbeater.com/...")`.
- */
-export async function getBuzzerbeaterCookieHeaderFromLogin() {
-  if (!PASSWORD || !String(PASSWORD).trim()) {
-    throw new Error("BB_PASSWORD is required for buzzerbeater.com login");
-  }
-
+async function getBuzzerbeaterCookieHeaderFromLoginOnce() {
   const launchOpts = {
     headless: true,
     args: [...PUPPETEER_DEFAULT_ARGS],
@@ -188,4 +181,41 @@ export async function getBuzzerbeaterCookieHeaderFromLogin() {
   } finally {
     await browser.close();
   }
+}
+
+/**
+ * One headless login; returns `Cookie` header value for `fetch("https://buzzerbeater.com/...")`.
+ * On CI, retries with backoff — GitHub IPs sometimes need a second attempt.
+ */
+export async function getBuzzerbeaterCookieHeaderFromLogin() {
+  if (!PASSWORD || !String(PASSWORD).trim()) {
+    throw new Error("BB_PASSWORD is required for buzzerbeater.com login");
+  }
+
+  const maxAttempts = Math.min(
+    6,
+    Math.max(1, parseInt(String(process.env.BB_LOGIN_MAX_ATTEMPTS ?? (process.env.CI ? "4" : "1")), 10) || 1)
+  );
+  const pauseMs = [0, 8000, 18000, 32000, 45000];
+
+  let lastErr;
+  for (let i = 0; i < maxAttempts; i++) {
+    const wait = pauseMs[i] ?? 20000;
+    if (wait > 0) {
+      console.log(`  [bb-site-session] Login attempt ${i + 1}/${maxAttempts} (after ${wait}ms backoff)...`);
+      await new Promise((r) => setTimeout(r, wait));
+    } else if (maxAttempts > 1) {
+      console.log(`  [bb-site-session] Login attempt ${i + 1}/${maxAttempts}...`);
+    }
+    try {
+      return await getBuzzerbeaterCookieHeaderFromLoginOnce();
+    } catch (e) {
+      lastErr = e;
+      const msg = e instanceof Error ? e.message : String(e);
+      if (i < maxAttempts - 1) {
+        console.warn(`  [bb-site-session] Login failed (${msg.slice(0, 120)}), will retry...`);
+      }
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }

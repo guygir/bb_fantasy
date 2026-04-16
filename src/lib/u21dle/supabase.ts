@@ -3,6 +3,7 @@
  */
 
 import { createClient } from "@supabase/supabase-js";
+import { previousCalendarDay } from "@/lib/u21dle/puzzle-date";
 
 function getSupabase(accessToken?: string) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -147,7 +148,6 @@ export async function updateUserStats(
     .eq("user_id", user.user.id)
     .maybeSingle();
 
-  const today = new Date().toISOString().slice(0, 10);
   const lastPlayed = existing?.last_played_date as string | null;
   const currentStreak = existing?.current_streak ?? 0;
   const maxStreak = existing?.max_streak ?? 0;
@@ -156,7 +156,7 @@ export async function updateUserStats(
   let newMaxStreak = maxStreak;
 
   if (result.won) {
-    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    const yesterday = previousCalendarDay(puzzleDate);
     newCurrentStreak = lastPlayed === yesterday ? currentStreak + 1 : 1;
     newMaxStreak = Math.max(maxStreak, newCurrentStreak);
   } else {
