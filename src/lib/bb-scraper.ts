@@ -257,10 +257,95 @@ function parseGameLogHtml(html: string): GameLogEntry[] {
   return games;
 }
 
+const POSITION_MAP: Record<string, string> = {
+  "Point Guard": "PG",
+  "Shooting Guard": "SG",
+  "Small Forward": "SF",
+  "Power Forward": "PF",
+  "Center": "C",
+};
+
+/**
+ * Parse player bio (age, height, DMI, salary, game shape, potential, position)
+ * from the BB site player overview page HTML.
+ * All of these are displayed on the page without needing BBAPI.
+ */
+function parsePlayerInfoFromHtml(html: string, playerId: number): PlayerInfo | null {
+  try {
+    // Hidden description field, e.g.:
+    // value="He&#39;s a Center aged 21, 7&#39;2&quot; / 218 cm tall and in strong game shape."
+    const hdnMatch = html.match(/cphContent_hdnText[^>]*value="([^"]+)"/i)
+      ?? html.match(/value="([^"]+)"[^>]*cphContent_hdnText/i);
+    let bestPosition: string | null = null;
+    let age: number | null = null;
+    let height: number | null = null;
+
+    if (hdnMatch) {
+      const text = hdnMatch[1]
+        .replace(/&#39;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&amp;/g, "&")
+        .replace(/&nbsp;/g, " ");
+
+      const posMatch = text.match(/(Point Guard|Shooting Guard|Small Forward|Power Forward|Center)/i);
+      if (posMatch) bestPosition = POSITION_MAP[posMatch[1]] ?? posMatch[1];
+
+      const ageMatch = text.match(/aged\s+(\d+)/i);
+      if (ageMatch) age = parseInt(ageMatch[1], 10);
+
+      const htMatch = text.match(/(\d+)'(\d+)"/);
+      if (htMatch) height = parseInt(htMatch[1], 10) * 12 + parseInt(htMatch[2], 10);
+    }
+
+    // DMI: plain number after "DMI:" label
+    const dmiMatch = html.match(/DMI:\s*[\r\n\s]+(\d+)/);
+    const dmi = dmiMatch ? parseInt(dmiMatch[1], 10) : null;
+
+    // Weekly salary: "$&nbsp;168&nbsp;596" — strip everything non-digit between $ and <br
+    const salaryBlock = html.match(/Weekly salary:\s*\$([^<]{1,40})<br/i);
+    const salary = salaryBlock ? parseInt(salaryBlock[1].replace(/[^\d]/g, ""), 10) || null : null;
+
+    // Game Shape (title attribute on the link)
+    const gsMatch = html.match(/cphContent_playerForm_linkDen[^>]+title="(\d+)"/i);
+    const gameShape = gsMatch ? parseInt(gsMatch[1], 10) : null;
+
+    // Potential (title attribute on the link)
+    const potMatch = html.match(/cphContent_potential_linkDen[^>]+title="(\d+)"/i);
+    const potential = potMatch ? parseInt(potMatch[1], 10) : null;
+
+    // Full name from <h1>
+    const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/i);
+    const fullName = h1Match ? h1Match[1].replace(/&nbsp;/g, " ").trim() : "";
+    const nameParts = fullName.split(/\s+/);
+    const firstName = nameParts.slice(0, -1).join(" ");
+    const lastName = nameParts[nameParts.length - 1] ?? "";
+
+    if (!fullName && !bestPosition && age === null) return null;
+
+    return {
+      playerId,
+      firstName,
+      lastName,
+      age,
+      height,
+      dmi,
+      salary,
+      bestPosition,
+      gameShape,
+      potential,
+      injuryDaysRemaining: null, // filled in separately
+    };
+  } catch {
+    return null;
+  }
+}
+
 export interface GameLogResult {
   games: GameLogEntry[];
   /** Injury label parsed from overview HTML, e.g. "3-6" or "1". Empty string = healthy. */
   injuryDays: string;
+  /** Player info parsed from the overview page — no extra request needed. */
+  sitePlayerInfo: PlayerInfo | null;
 }
 
 /**
@@ -291,8 +376,9 @@ export async function fetchPlayerGameLog(
     throw new Error("Player overview returned login wall — session may have expired");
   }
 
-  // Parse injury from the initial GET — it always reflects current status regardless of season
+  // Parse injury and player info from the initial GET — always reflects current status
   const injuryDays = parseInjuryDaysFromHtml(html1);
+  const sitePlayerInfo = parsePlayerInfoFromHtml(html1, playerId);
 
   const viewstate = parseHiddenField(html1, "__VIEWSTATE");
   const viewstateGen = parseHiddenField(html1, "__VIEWSTATEGENERATOR");
@@ -302,7 +388,7 @@ export async function fetchPlayerGameLog(
   const currentSeason = currentSeasonMatch ? parseInt(currentSeasonMatch[1], 10) : null;
 
   if (currentSeason === season) {
-    return { games: parseGameLogHtml(html1), injuryDays };
+    return { games: parseGameLogHtml(html1), injuryDays, sitePlayerInfo };
   }
 
   // Step 2: POST with season dropdown change (ASP.NET __doPostBack equivalent)
@@ -330,7 +416,7 @@ export async function fetchPlayerGameLog(
   });
   if (!res2.ok) throw new Error(`Season postback failed: HTTP ${res2.status}`);
   const html2 = await res2.text();
-  return { games: parseGameLogHtml(html2), injuryDays };
+  return { games: parseGameLogHtml(html2), injuryDays, sitePlayerInfo };
 }
 
 /**

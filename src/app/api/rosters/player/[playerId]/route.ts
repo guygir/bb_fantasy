@@ -61,14 +61,14 @@ export async function GET(
 
     const seasonLogs: SeasonGameLog[] = [];
     let injuryDays = "";
+    let sitePlayerInfo = null;
 
     for (const season of seasons) {
       try {
         const result = await fetchPlayerGameLog(id, season, cookie);
-        // Always take the freshest injury reading (last season fetched = current)
-        if (result.injuryDays || !injuryDays) {
-          injuryDays = result.injuryDays;
-        }
+        // Capture injury + site player info from the first successful fetch
+        if (result.injuryDays || !injuryDays) injuryDays = result.injuryDays;
+        if (!sitePlayerInfo && result.sitePlayerInfo) sitePlayerInfo = result.sitePlayerInfo;
         if (result.games.length > 0) {
           seasonLogs.push({ season, games: result.games });
         }
@@ -79,9 +79,11 @@ export async function GET(
 
     const aggregations = aggregateGameLogs(seasonLogs);
 
-    // Merge BB-site injury days into playerInfo (BBAPI doesn't reliably return injury)
-    const enrichedPlayerInfo = playerInfo
-      ? { ...playerInfo, injuryDaysRemaining: injuryDays }
+    // Use BBAPI playerInfo if available; fall back to BB site HTML parsing.
+    // Either way, overlay the injury days from the BB site (more reliable than BBAPI).
+    const baseInfo = playerInfo ?? sitePlayerInfo;
+    const enrichedPlayerInfo = baseInfo
+      ? { ...baseInfo, injuryDaysRemaining: injuryDays }
       : null;
 
     return NextResponse.json({
