@@ -136,6 +136,12 @@ export function AuthNav() {
       </div>
       <div className="flex flex-row flex-wrap items-center justify-end gap-2">
         <Link
+          href="/rosters"
+          className="rounded-lg bg-btn-sky-pastel px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+        >
+          U21 Analyzer
+        </Link>
+        <Link
           href="/promotions"
           className="rounded-lg bg-btn-mint px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
           title="Israel League III"
