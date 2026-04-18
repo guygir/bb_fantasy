@@ -329,7 +329,7 @@ export default function RostersPage() {
       const res = await fetch(`/api/rosters/country/${id}/injuries?playerIds=${ids}`);
       const data = await res.json();
       if (!res.ok) return; // silent — injuries are best-effort
-      const map: Record<number, number> = {};
+      const map: Record<number, string> = {};
       for (const { playerId, injuryDaysRemaining } of (data.players ?? [])) {
         if (injuryDaysRemaining) map[playerId] = injuryDaysRemaining;
       }
