@@ -488,7 +488,7 @@ export interface PlayerInfo {
   injuryDaysRemaining: string | null;
 }
 
-const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
+const BBAPI_BASE = "https://bbapi.buzzerbeater.com/";
 
 function extractBBAPICookies(res: Response): string {
   const rawCookies: string[] =
@@ -531,7 +531,7 @@ export async function fetchPlayerInfoFromBBAPI(playerId: number): Promise<Player
 
     const playerRes = await fetch(`${BBAPI_BASE}player.aspx?playerid=${playerId}`, {
       headers: { Cookie: cookieHeader },
-      redirect: "manual",
+      redirect: "follow",
     });
     const xml = await playerRes.text();
     if (!xml.includes("<player") || xml.includes("<error")) return null;
