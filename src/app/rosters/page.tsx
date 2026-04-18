@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BB_COUNTRY_NAMES } from "@/lib/bb-countries";
+import { BB_COUNTRY_NAMES, getGameWeek, getSeasonStartDate } from "@/lib/bb-countries";
 
 interface RosterPlayer {
   playerId: number;
@@ -46,6 +46,7 @@ interface PlayerInfo {
   bestPosition: string | null;
   gameShape: number | null;
   potential: number | null;
+  injuryDaysRemaining: number | null;
 }
 
 interface PlayerStats {
@@ -58,7 +59,24 @@ interface PlayerStats {
     gamesBySeason: Record<number, number>;
     minutesBySeasonWeekPosition: Record<number, Record<number, Record<string, number>>>;
     minutesBySeasonPosition: Record<number, Record<string, number>>;
+    minutesOutsideWindow: Record<number, number>;
   };
+}
+
+interface PlayerOverviewData {
+  playerId: number;
+  weekMinutesByPosition: Record<string, number>;
+  seasonMinutesByPosition: Record<string, number>;
+  weekTotal: number;
+  seasonTotal: number;
+  injuryDaysRemaining: number;
+  error: string | null;
+}
+
+interface CountryOverview {
+  currentSeason: number;
+  currentWeek: number | null;
+  players: PlayerOverviewData[];
 }
 
 const ALL_COUNTRIES = Object.entries(BB_COUNTRY_NAMES)
@@ -68,6 +86,42 @@ const ALL_COUNTRIES = Object.entries(BB_COUNTRY_NAMES)
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const NON_COUNTING_TYPES = new Set(["BBM", "National Team"]);
+
+/** Cell background colour for a minutes value in the week×position table */
+function minuteBg(mins: number): string {
+  if (mins >= 42) return "bg-green-100";
+  if (mins >= 24) return "bg-yellow-100";
+  if (mins >= 1) return "bg-orange-100";
+  return "";
+}
+
+/** Inline injury label shown next to a player name */
+function InjuryBadge({ days }: { days: number }) {
+  if (!days) return null;
+  return (
+    <span className="ml-1.5 inline-flex items-center rounded px-1 py-0.5 text-[10px] font-semibold leading-none bg-red-100 text-red-700">
+      🩹 {days}d
+    </span>
+  );
+}
+
+/** Explain why a counting game falls outside the season window */
+function outsideWindowReason(dateStr: string, season: number): string {
+  const parts = dateStr.split("/");
+  if (parts.length !== 3) return "Invalid date";
+  const [m, d, y] = parts.map(Number);
+  if (!m || !d || !y) return "Invalid date";
+  const gameDate = new Date(Date.UTC(y, m - 1, d));
+  const seasonStart = getSeasonStartDate(season);
+  const seasonEnd = new Date(seasonStart);
+  seasonEnd.setUTCDate(seasonEnd.getUTCDate() + 98);
+  if (gameDate < seasonStart) {
+    const daysBefore = Math.round((seasonStart.getTime() - gameDate.getTime()) / 86400000);
+    return `${daysBefore}d before season start`;
+  }
+  const daysAfter = Math.round((gameDate.getTime() - seasonEnd.getTime()) / 86400000);
+  return `${daysAfter}d after season end`;
+}
 
 // Position colours for the stacked bar chart
 const POSITION_COLORS: Record<string, { bg: string; label: string }> = {
@@ -110,8 +164,8 @@ function PlayerFace({ playerId, name }: { playerId: number; name: string }) {
   );
 }
 
-/** Stacked bar chart: weeks 1–14 on x-axis, minutes stacked by position (grows upward).
- *  Each colored segment shows its own minute count inside it (or below if too small). */
+/** Stacked bar chart: weeks on x-axis (W0 for pre-season, W1–W14 for regular), minutes stacked by position.
+ *  Each colored segment shows its own minute count inside it (or above if too small). */
 function WeeklyMinutesChart({
   weekMap,
   positions,
@@ -119,7 +173,11 @@ function WeeklyMinutesChart({
   weekMap: Record<number, Record<string, number>>;
   positions: string[];
 }) {
-  const allWeeks = Array.from({ length: 14 }, (_, i) => i + 1);
+  const hasW0 = 0 in weekMap;
+  const allWeeks = [
+    ...(hasW0 ? [0] : []),
+    ...Array.from({ length: 14 }, (_, i) => i + 1),
+  ];
   const totals = allWeeks.map((w) => positions.reduce((s, p) => s + (weekMap[w]?.[p] ?? 0), 0));
   const maxTotal = Math.max(...totals, 1);
   const CHART_H = 200;
@@ -220,7 +278,12 @@ function WeeklyMinutesChart({
                 </div>
 
                 {/* Week label */}
-                <div className="mt-1 text-center text-[10px] text-gray-500 leading-none">W{w}</div>
+                <div
+                  className={`mt-1 text-center text-[10px] leading-none ${w === 0 ? "text-amber-500 font-semibold" : "text-gray-500"}`}
+                  title={w === 0 ? "Pre-season games (prev. season not loaded)" : undefined}
+                >
+                  {w === 0 ? "W0*" : `W${w}`}
+                </div>
               </div>
             );
           })}
@@ -241,6 +304,10 @@ export default function RostersPage() {
   const [teamName, setTeamName] = useState<string | null>(null);
   const [players, setPlayers] = useState<RosterPlayer[]>([]);
 
+  const [overviewLoading, setOverviewLoading] = useState(false);
+  const [overviewError, setOverviewError] = useState<string | null>(null);
+  const [overview, setOverview] = useState<CountryOverview | null>(null);
+
   const [selectedPlayer, setSelectedPlayer] = useState<RosterPlayer | null>(null);
   const [statsLoading, setStatsLoading] = useState(false);
   const [statsError, setStatsError] = useState<string | null>(null);
@@ -253,6 +320,23 @@ export default function RostersPage() {
         ).slice(0, 8)
       : [];
 
+  async function loadOverview(id: number, playerList: RosterPlayer[]) {
+    setOverviewLoading(true);
+    setOverviewError(null);
+    setOverview(null);
+    try {
+      const ids = playerList.map((p) => p.playerId).join(",");
+      const res = await fetch(`/api/rosters/country/${id}/overview?playerIds=${ids}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
+      setOverview(data);
+    } catch (e) {
+      setOverviewError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setOverviewLoading(false);
+    }
+  }
+
   async function loadRoster(id: number) {
     setRosterLoading(true);
     setRosterError(null);
@@ -261,12 +345,18 @@ export default function RostersPage() {
     setSelectedPlayer(null);
     setPlayerStats(null);
     setStatsError(null);
+    setOverview(null);
+    setOverviewError(null);
     try {
       const res = await fetch(`/api/rosters/country/${id}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       setTeamName(data.teamName);
-      setPlayers(data.players ?? []);
+      const newPlayers: RosterPlayer[] = data.players ?? [];
+      setPlayers(newPlayers);
+      if (newPlayers.length > 0) {
+        void loadOverview(id, newPlayers);
+      }
     } catch (e) {
       setRosterError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -298,8 +388,6 @@ export default function RostersPage() {
       setStatsLoading(false);
     }
   }
-
-  void countryId;
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -357,27 +445,123 @@ export default function RostersPage() {
         </div>
       )}
 
-      {/* Team name + player list */}
+      {/* Team name + overview table + player list */}
       {!rosterLoading && teamName && (
         <div className="mb-6">
           <h3 className="mb-3 text-lg font-semibold text-bb-text">{teamName}</h3>
+
+          {/* Country overview table */}
+          {overviewLoading && (
+            <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-exact border-t-transparent" />
+              Loading team stats — fetching {players.length} players…
+            </div>
+          )}
+          {overviewError && (
+            <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+              Could not load team overview: {overviewError}
+            </div>
+          )}
+          {overview && (() => {
+            // Build union of positions across all players
+            const allPositions = sortPositions(
+              [...new Set(
+                overview.players.flatMap((p) => [
+                  ...Object.keys(p.weekMinutesByPosition),
+                  ...Object.keys(p.seasonMinutesByPosition),
+                ])
+              )]
+            );
+            // Map playerId → name
+            const nameMap = Object.fromEntries(players.map((p) => [p.playerId, p.name]));
+            // Sort players by season total desc
+            const sorted = [...overview.players].sort((a, b) => b.seasonTotal - a.seasonTotal);
+
+            return (
+              <div className="mb-5 overflow-x-auto rounded-lg border border-bb-border">
+                <table className="w-full border-collapse text-xs">
+                  <thead>
+                    <tr className="bg-card-bg text-gray-600">
+                      <th className="border border-bb-border px-3 py-2 text-left sticky left-0 bg-card-bg z-10">Player</th>
+                      {allPositions.map((pos) => (
+                        <th key={pos} className="border border-bb-border px-2 py-2 text-center">
+                          <span className="block leading-none">{pos}</span>
+                          {overview.currentWeek !== null && (
+                            <span className="text-[10px] text-gray-400">W{overview.currentWeek}</span>
+                          )}
+                        </th>
+                      ))}
+                      <th className="border border-bb-border px-2 py-2 text-center text-gray-500">
+                        <span className="block leading-none">Week</span>
+                        <span className="text-[10px]">total</span>
+                      </th>
+                      <th className="border border-bb-border px-2 py-2 text-center text-gray-500">
+                        <span className="block leading-none">S{overview.currentSeason}</span>
+                        <span className="text-[10px]">total</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sorted.map((pd) => (
+                      <tr
+                        key={pd.playerId}
+                        className={`cursor-pointer transition-colors hover:bg-card-bg ${selectedPlayer?.playerId === pd.playerId ? "bg-exact/5" : ""}`}
+                        onClick={() => loadPlayerStats({ playerId: pd.playerId, name: nameMap[pd.playerId] ?? String(pd.playerId) })}
+                      >
+                        <td className={`border border-bb-border px-3 py-1.5 sticky left-0 bg-white font-medium ${selectedPlayer?.playerId === pd.playerId ? "text-exact" : "text-bb-text"}`}>
+                          <span className="flex items-center gap-0">
+                            {nameMap[pd.playerId] ?? pd.playerId}
+                            <InjuryBadge days={pd.injuryDaysRemaining} />
+                          </span>
+                        </td>
+                        {allPositions.map((pos) => {
+                          const mins = pd.weekMinutesByPosition[pos] ?? 0;
+                          return (
+                            <td
+                              key={pos}
+                              className={`border border-bb-border px-2 py-1.5 text-center ${minuteBg(mins)} ${mins > 0 ? "font-semibold" : "text-gray-300"}`}
+                            >
+                              {mins > 0 ? mins : "—"}
+                            </td>
+                          );
+                        })}
+                        <td className={`border border-bb-border px-2 py-1.5 text-center font-semibold ${pd.weekTotal > 0 ? "" : "text-gray-300"}`}>
+                          {pd.weekTotal > 0 ? pd.weekTotal : "—"}
+                        </td>
+                        <td className="border border-bb-border px-2 py-1.5 text-center text-gray-600">
+                          {pd.seasonTotal > 0 ? pd.seasonTotal : "—"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          })()}
+
           {players.length === 0 ? (
             <p className="text-sm text-gray-500">No players found for this roster.</p>
           ) : (
             <div className="flex flex-wrap gap-2">
-              {players.map((p) => (
-                <button
-                  key={p.playerId}
-                  onClick={() => loadPlayerStats(p)}
-                  className={`rounded-lg border px-3 py-2 text-sm text-left transition-colors ${
-                    selectedPlayer?.playerId === p.playerId
-                      ? "border-exact bg-exact/10 font-semibold text-exact"
-                      : "border-bb-border bg-white hover:bg-card-bg text-bb-text"
-                  }`}
-                >
-                  {p.name}
-                </button>
-              ))}
+              {players.map((p) => {
+                const injury = overview?.players.find((op) => op.playerId === p.playerId)?.injuryDaysRemaining ?? 0;
+                return (
+                  <button
+                    key={p.playerId}
+                    onClick={() => loadPlayerStats(p)}
+                    className={`rounded-lg border px-3 py-2 text-sm text-left transition-colors ${
+                      selectedPlayer?.playerId === p.playerId
+                        ? "border-exact bg-exact/10 font-semibold text-exact"
+                        : "border-bb-border bg-white hover:bg-card-bg text-bb-text"
+                    }`}
+                  >
+                    <span className="flex items-center gap-0">
+                      {p.name}
+                      <InjuryBadge days={injury} />
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
@@ -407,6 +591,11 @@ export default function RostersPage() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     <h3 className="text-lg font-bold text-bb-text">{selectedPlayer.name}</h3>
+                    {(playerStats.playerInfo?.injuryDaysRemaining ?? 0) > 0 && (
+                      <span className="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold bg-red-100 text-red-700">
+                        🩹 Injured — {playerStats.playerInfo!.injuryDaysRemaining} days remaining
+                      </span>
+                    )}
                     <a
                       href={`https://buzzerbeater.com/player/${selectedPlayer.playerId}/overview.aspx`}
                       target="_blank"
@@ -467,13 +656,82 @@ export default function RostersPage() {
 
                   return (
                     <div key={season} className="mb-8 border-t border-bb-border pt-5">
-                      <h4 className="mb-4 text-base font-semibold text-bb-text">
+                      <h4 className="mb-2 text-base font-semibold text-bb-text">
                         Season {season}
                         <span className="ml-2 text-sm font-normal text-gray-500">
                           {countingGames.length} counting game{countingGames.length !== 1 ? "s" : ""}
                           {" / "}{games.length} total
                         </span>
                       </h4>
+
+                      {/* Cross-season attribution note + truly-outside games */}
+                      {(() => {
+                        const allOutside = games.filter(
+                          (g) => !NON_COUNTING_TYPES.has(g.gameType) && getGameWeek(g.date, season) === null
+                        );
+                        // Games that belong to a known adjacent season (prev season's window)
+                        const attributed = allOutside.filter((g) => getGameWeek(g.date, season - 1) !== null);
+                        // Games that don't fit any season window
+                        const truly = allOutside.filter((g) => getGameWeek(g.date, season - 1) === null);
+
+                        const gameTable = (rows: typeof allOutside, borderColor: string, textColor: string, bgColor: string) => (
+                          <div className={`mt-2 overflow-x-auto rounded-lg border ${borderColor} ${bgColor}`}>
+                            <table className="border-collapse text-xs">
+                              <thead>
+                                <tr className={textColor}>
+                                  <th className={`border ${borderColor} px-2 py-1 text-left`}>Date</th>
+                                  <th className={`border ${borderColor} px-2 py-1 text-center`}>Pos</th>
+                                  <th className={`border ${borderColor} px-2 py-1 text-center`}>Min</th>
+                                  <th className={`border ${borderColor} px-2 py-1 text-left`}>Type</th>
+                                  <th className={`border ${borderColor} px-2 py-1 text-left`}>Note</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {rows.map((g, i) => {
+                                  const prevWeek = getGameWeek(g.date, season - 1);
+                                  const note = prevWeek !== null
+                                    ? `→ counted in S${season - 1} W${prevWeek}`
+                                    : outsideWindowReason(g.date, season);
+                                  return (
+                                    <tr key={i} className={`${textColor} opacity-90`}>
+                                      <td className={`border ${borderColor} px-2 py-1`}>{g.date}</td>
+                                      <td className={`border ${borderColor} px-2 py-1 text-center font-medium`}>{g.position}</td>
+                                      <td className={`border ${borderColor} px-2 py-1 text-center font-semibold`}>{g.minutes}</td>
+                                      <td className={`border ${borderColor} px-2 py-1 text-gray-500`}>{g.gameType}</td>
+                                      <td className={`border ${borderColor} px-2 py-1 italic text-gray-500`}>{note}</td>
+                                    </tr>
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        );
+
+                        return (
+                          <>
+                            {attributed.length > 0 && (
+                              <details className="mb-3 group">
+                                <summary className="cursor-pointer list-none text-xs text-blue-600 hover:text-blue-700 select-none">
+                                  <span className="mr-1 group-open:hidden">▶</span>
+                                  <span className="mr-1 hidden group-open:inline">▼</span>
+                                  {attributed.length} game{attributed.length !== 1 ? "s" : ""} ({attributed.reduce((s, g) => s + g.minutes, 0)} min) in this log attributed to S{season - 1} · click to expand
+                                </summary>
+                                {gameTable(attributed, "border-blue-200", "text-blue-700", "bg-blue-50")}
+                              </details>
+                            )}
+                            {truly.length > 0 && (
+                              <details className="mb-4 group">
+                                <summary className="cursor-pointer list-none text-xs text-amber-600 hover:text-amber-700 select-none">
+                                  <span className="mr-1 group-open:hidden">▶</span>
+                                  <span className="mr-1 hidden group-open:inline">▼</span>
+                                  {truly.length} game{truly.length !== 1 ? "s" : ""} ({truly.reduce((s, g) => s + g.minutes, 0)} min) outside all season windows — not counted · click to expand
+                                </summary>
+                                {gameTable(truly, "border-amber-200", "text-amber-700", "bg-amber-50")}
+                              </details>
+                            )}
+                          </>
+                        );
+                      })()}
 
                       <div className="flex gap-6 mb-5">
                         {/* Stacked bar chart */}
@@ -526,7 +784,13 @@ export default function RostersPage() {
                               <tr className="bg-card-bg text-gray-600">
                                 <th className="border border-bb-border px-2 py-1.5 text-left sticky left-0 bg-card-bg z-10">Pos</th>
                                 {allWeeks.map((w) => (
-                                  <th key={w} className="border border-bb-border px-2 py-1.5 text-center w-10">W{w}</th>
+                                  <th
+                                    key={w}
+                                    className={`border border-bb-border px-2 py-1.5 text-center w-10 ${w === 0 ? "text-amber-600" : ""}`}
+                                    title={w === 0 ? "Pre-season: logged under this season in BB but date falls in previous season" : undefined}
+                                  >
+                                    {w === 0 ? "W0*" : `W${w}`}
+                                  </th>
                                 ))}
                                 <th className="border border-bb-border px-2 py-1.5 text-right bg-gray-50/80">Total</th>
                               </tr>
@@ -545,7 +809,7 @@ export default function RostersPage() {
                                       return (
                                         <td
                                           key={w}
-                                          className={`border border-bb-border px-2 py-1 text-center ${mins > 0 ? "font-semibold text-bb-text" : "text-gray-200"}`}
+                                          className={`border border-bb-border px-2 py-1 text-center ${minuteBg(mins)} ${mins > 0 ? "font-semibold text-bb-text" : "text-gray-200"}`}
                                         >
                                           {mins > 0 ? mins : "—"}
                                         </td>

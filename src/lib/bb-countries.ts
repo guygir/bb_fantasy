@@ -146,7 +146,7 @@ export function getGameWeek(dateStr: string, season: number): number | null {
 }
 
 /** Game types that do NOT count for minutes/stats aggregations */
-export const NON_COUNTING_GAME_TYPES = new Set(["BBM", "National Team"]);
+export const NON_COUNTING_GAME_TYPES = new Set(["BBM", "National Team", "Private"]);
 
 export function isCountingGame(gameType: string): boolean {
   return !NON_COUNTING_GAME_TYPES.has(gameType);

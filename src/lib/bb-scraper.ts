@@ -334,34 +334,77 @@ export function aggregateGameLogs(seasonLogs: SeasonGameLog[]) {
   const minutesByPosition: Record<string, number> = {};
   const minutesBySeason: Record<number, number> = {};
   const gamesBySeason: Record<number, number> = {};
-  /** season → week → position → minutes */
+  /** season → week → position → minutes.
+   *  Week 0 is a special key used when a game's date belongs to the previous season
+   *  but that season is not loaded (first season in our dataset). */
   const minutesBySeasonWeekPosition: Record<number, Record<number, Record<string, number>>> = {};
   /** season → position → minutes */
   const minutesBySeasonPosition: Record<number, Record<string, number>> = {};
+  /** season → minutes that could not be attributed to any season window */
+  const minutesOutsideWindow: Record<number, number> = {};
+
+  // Which seasons we have logs for — used to decide cross-season attribution vs W0
+  const availableSeasons = new Set(seasonLogs.map((sl) => sl.season));
+
+  // Pre-initialise structures for every season so later cross-attribution can safely write
+  for (const { season, games } of seasonLogs) {
+    gamesBySeason[season] = games.length;
+    minutesBySeasonWeekPosition[season] ??= {};
+    minutesBySeasonPosition[season] ??= {};
+    minutesOutsideWindow[season] ??= 0;
+  }
 
   for (const { season, games } of seasonLogs) {
     let seasonMinutes = 0;
-    gamesBySeason[season] = games.length;
-    minutesBySeasonWeekPosition[season] = {};
-    minutesBySeasonPosition[season] = {};
 
     for (const g of games) {
       if (!isCountingGame(g.gameType)) continue;
 
-      if (g.position) {
-        // All-seasons combined
-        minutesByPosition[g.position] = (minutesByPosition[g.position] ?? 0) + g.minutes;
-        // Per-season position
-        minutesBySeasonPosition[season][g.position] =
-          (minutesBySeasonPosition[season][g.position] ?? 0) + g.minutes;
-      }
-      seasonMinutes += g.minutes;
-
-      // Per week × position within season
       const week = getGameWeek(g.date, season);
-      if (week !== null && g.position) {
-        const weekMap = (minutesBySeasonWeekPosition[season][week] ??= {});
-        weekMap[g.position] = (weekMap[g.position] ?? 0) + g.minutes;
+
+      if (week !== null) {
+        // ── Normal case: game falls inside this season's 98-day window ──
+        seasonMinutes += g.minutes;
+        if (g.position) {
+          minutesByPosition[g.position] = (minutesByPosition[g.position] ?? 0) + g.minutes;
+          minutesBySeasonPosition[season][g.position] =
+            (minutesBySeasonPosition[season][g.position] ?? 0) + g.minutes;
+          const wm = (minutesBySeasonWeekPosition[season][week] ??= {});
+          wm[g.position] = (wm[g.position] ?? 0) + g.minutes;
+        }
+      } else {
+        // ── Game falls outside this season's window ──
+        // Check whether it belongs to the previous season (most common: pre-season games
+        // logged under Season X but dated in Season X-1's final week).
+        const prevWeek = getGameWeek(g.date, season - 1);
+
+        if (prevWeek !== null) {
+          if (availableSeasons.has(season - 1)) {
+            // Attribute to the previous season at the correct week (usually W14)
+            if (g.position) {
+              minutesByPosition[g.position] = (minutesByPosition[g.position] ?? 0) + g.minutes;
+              minutesBySeasonPosition[season - 1][g.position] =
+                (minutesBySeasonPosition[season - 1][g.position] ?? 0) + g.minutes;
+              const wm = (minutesBySeasonWeekPosition[season - 1][prevWeek] ??= {});
+              wm[g.position] = (wm[g.position] ?? 0) + g.minutes;
+            }
+            // Do NOT add to seasonMinutes — it belongs to the previous season
+          } else {
+            // Previous season not loaded → W0 (special "pre-first-season" slot)
+            seasonMinutes += g.minutes;
+            if (g.position) {
+              minutesByPosition[g.position] = (minutesByPosition[g.position] ?? 0) + g.minutes;
+              minutesBySeasonPosition[season][g.position] =
+                (minutesBySeasonPosition[season][g.position] ?? 0) + g.minutes;
+              const wm = (minutesBySeasonWeekPosition[season][0] ??= {});
+              wm[g.position] = (wm[g.position] ?? 0) + g.minutes;
+            }
+          }
+        } else {
+          // Truly outside every known window — track but do not include in any chart/table
+          minutesOutsideWindow[season] += g.minutes;
+          seasonMinutes += g.minutes;
+        }
       }
     }
     minutesBySeason[season] = seasonMinutes;
@@ -373,6 +416,7 @@ export function aggregateGameLogs(seasonLogs: SeasonGameLog[]) {
     gamesBySeason,
     minutesBySeasonWeekPosition,
     minutesBySeasonPosition,
+    minutesOutsideWindow,
   };
 }
 
@@ -387,42 +431,68 @@ export interface PlayerInfo {
   bestPosition: string | null;
   gameShape: number | null;
   potential: number | null;
+  injuryDaysRemaining: number | null;
+}
+
+const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
+
+function extractBBAPICookies(res: Response): string {
+  const rawCookies: string[] =
+    typeof (res.headers as Headers & { getSetCookie?: () => string[] }).getSetCookie === "function"
+      ? (res.headers as Headers & { getSetCookie: () => string[] }).getSetCookie()
+      : (res.headers.get("set-cookie") ?? "").split(/,\s*(?=[A-Za-z0-9_]+=)/);
+  return rawCookies
+    .map((s) => s.split(";")[0].trim())
+    .filter(Boolean)
+    .join("; ");
 }
 
 /**
- * Fetch player info from BBAPI.
- * Uses simple cookie-based auth that mirrors the working mjs bbapi-cookies script.
- * Avoids the createSession() abstraction in src/lib/bbapi.ts which has cookie-capture
- * issues in some Next.js server environments.
+ * Login to the BuzzerBeater API and return a session cookie string.
+ * Call once and reuse the cookie for multiple player fetches.
  */
-export async function fetchPlayerInfoFromBBAPI(playerId: number): Promise<PlayerInfo | null> {
+export async function bbapiLogin(): Promise<string> {
   const login = process.env.BBAPI_LOGIN?.trim() || process.env.BB_LOGIN?.trim() || "PotatoJunior";
   const code = process.env.BBAPI_CODE?.trim() || "12341234";
-  const base = "http://bbapi.buzzerbeater.com/";
+  const loginRes = await fetch(
+    `${BBAPI_BASE}login.aspx?login=${encodeURIComponent(login)}&code=${encodeURIComponent(code)}`,
+    { redirect: "manual" }
+  );
+  const cookieHeader = extractBBAPICookies(loginRes);
+  const loginText = await loginRes.text();
+  if (!loginText.includes("<bbapi") || loginText.includes("<error")) {
+    throw new Error("BBAPI login failed");
+  }
+  return cookieHeader;
+}
 
+/**
+ * Fetch how many injury days a player has remaining (0 = healthy).
+ * Requires a cookie from bbapiLogin().
+ */
+export async function fetchPlayerInjury(playerId: number, bbApiCookie: string): Promise<number> {
   try {
-    // Step 1: Login — returns 200 with XML + sets session cookies
-    const loginRes = await fetch(
-      `${base}login.aspx?login=${encodeURIComponent(login)}&code=${encodeURIComponent(code)}`,
-      { redirect: "manual" }
-    );
+    const res = await fetch(`${BBAPI_BASE}player.aspx?playerid=${playerId}`, {
+      headers: { Cookie: bbApiCookie },
+      redirect: "manual",
+    });
+    const xml = await res.text();
+    const m = xml.match(/<injury>(\d+)<\/injury>/);
+    return m ? parseInt(m[1], 10) : 0;
+  } catch {
+    return 0;
+  }
+}
 
-    // Capture all Set-Cookie values
-    const rawCookies: string[] =
-      typeof (loginRes.headers as Headers & { getSetCookie?: () => string[] }).getSetCookie === "function"
-        ? (loginRes.headers as Headers & { getSetCookie: () => string[] }).getSetCookie()
-        : (loginRes.headers.get("set-cookie") ?? "").split(/,\s*(?=[A-Za-z0-9_]+=)/);
+/**
+ * Fetch full player info from BBAPI (single call — logs in internally).
+ * For bulk fetches prefer bbapiLogin() + fetchPlayerInjury() to reuse the session.
+ */
+export async function fetchPlayerInfoFromBBAPI(playerId: number): Promise<PlayerInfo | null> {
+  try {
+    const cookieHeader = await bbapiLogin();
 
-    const cookieHeader = rawCookies
-      .map((s) => s.split(";")[0].trim())
-      .filter(Boolean)
-      .join("; ");
-
-    const loginText = await loginRes.text();
-    if (!loginText.includes("<bbapi") || loginText.includes("<error")) return null;
-
-    // Step 2: Fetch player info
-    const playerRes = await fetch(`${base}player.aspx?playerid=${playerId}`, {
+    const playerRes = await fetch(`${BBAPI_BASE}player.aspx?playerid=${playerId}`, {
       headers: { Cookie: cookieHeader },
       redirect: "manual",
     });
@@ -443,6 +513,7 @@ export async function fetchPlayerInfoFromBBAPI(playerId: number): Promise<Player
       bestPosition: tag("bestPosition"),
       gameShape: num("gameShape"),
       potential: num("potential"),
+      injuryDaysRemaining: num("injury"),
     };
   } catch {
     return null;
