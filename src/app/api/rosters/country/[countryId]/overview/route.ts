@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { bbSiteLogin, bbapiLogin, fetchPlayerGameLog, fetchPlayerInjury } from "@/lib/bb-scraper";
+import { bbSiteLogin, fetchPlayerGameLog } from "@/lib/bb-scraper";
 import { getSeasonStartDate, getGameWeek, isCountingGame } from "@/lib/bb-countries";
 import { config } from "@/lib/config";
 
@@ -55,74 +55,58 @@ export async function GET(
   const currentWeek = diffDays >= 0 && diffDays < 98 ? Math.floor(diffDays / 7) + 1 : null;
 
   try {
-    // Login to BB site and BBAPI in parallel
-    const [cookie, bbApiCookie] = await Promise.all([
-      bbSiteLogin(),
-      bbapiLogin().catch(() => null),
-    ]);
+    const cookie = await bbSiteLogin();
 
-    // Fetch game logs (batched) and injuries (all parallel) simultaneously
-    const [players, injuryEntries] = await Promise.all([
-      batchAsync(playerIds, 4, async (playerId) => {
-        try {
-          const games = await fetchPlayerGameLog(playerId, season, cookie);
+    const players = await batchAsync(playerIds, 4, async (playerId) => {
+      try {
+        const { games, injuryDays } = await fetchPlayerGameLog(playerId, season, cookie);
 
-          const weekMinutesByPosition: Record<string, number> = {};
-          const seasonMinutesByPosition: Record<string, number> = {};
-          let weekTotal = 0;
-          let seasonTotal = 0;
+        const weekMinutesByPosition: Record<string, number> = {};
+        const seasonMinutesByPosition: Record<string, number> = {};
+        let weekTotal = 0;
+        let seasonTotal = 0;
 
-          for (const g of games) {
-            if (!isCountingGame(g.gameType)) continue;
-            const week = getGameWeek(g.date, season);
-            if (week === null) continue;
+        for (const g of games) {
+          if (!isCountingGame(g.gameType)) continue;
+          const week = getGameWeek(g.date, season);
+          if (week === null) continue;
 
-            if (g.position) {
-              seasonMinutesByPosition[g.position] =
-                (seasonMinutesByPosition[g.position] ?? 0) + g.minutes;
-            }
-            seasonTotal += g.minutes;
-
-            if (currentWeek !== null && week === currentWeek) {
-              if (g.position) {
-                weekMinutesByPosition[g.position] =
-                  (weekMinutesByPosition[g.position] ?? 0) + g.minutes;
-              }
-              weekTotal += g.minutes;
-            }
+          if (g.position) {
+            seasonMinutesByPosition[g.position] =
+              (seasonMinutesByPosition[g.position] ?? 0) + g.minutes;
           }
+          seasonTotal += g.minutes;
 
-          return {
-            playerId,
-            weekMinutesByPosition,
-            seasonMinutesByPosition,
-            weekTotal,
-            seasonTotal,
-            injuryDaysRemaining: 0,
-            error: null as string | null,
-          };
-        } catch (e) {
-          return {
-            playerId,
-            weekMinutesByPosition: {} as Record<string, number>,
-            seasonMinutesByPosition: {} as Record<string, number>,
-            weekTotal: 0,
-            seasonTotal: 0,
-            injuryDaysRemaining: 0,
-            error: e instanceof Error ? e.message : String(e),
-          };
+          if (currentWeek !== null && week === currentWeek) {
+            if (g.position) {
+              weekMinutesByPosition[g.position] =
+                (weekMinutesByPosition[g.position] ?? 0) + g.minutes;
+            }
+            weekTotal += g.minutes;
+          }
         }
-      }),
-      bbApiCookie
-        ? Promise.all(playerIds.map(async (id) => ({ id, days: await fetchPlayerInjury(id, bbApiCookie) })))
-        : Promise.resolve([] as { id: number; days: number }[]),
-    ]);
 
-    // Merge injury days into player results
-    const injuryMap = Object.fromEntries(injuryEntries.map(({ id, days }) => [id, days]));
-    for (const p of players) {
-      p.injuryDaysRemaining = injuryMap[p.playerId] ?? 0;
-    }
+        return {
+          playerId,
+          weekMinutesByPosition,
+          seasonMinutesByPosition,
+          weekTotal,
+          seasonTotal,
+          injuryDaysRemaining: injuryDays,
+          error: null as string | null,
+        };
+      } catch (e) {
+        return {
+          playerId,
+          weekMinutesByPosition: {} as Record<string, number>,
+          seasonMinutesByPosition: {} as Record<string, number>,
+          weekTotal: 0,
+          seasonTotal: 0,
+          injuryDaysRemaining: "",
+          error: e instanceof Error ? e.message : String(e),
+        };
+      }
+    });
 
     return NextResponse.json({ currentSeason: season, currentWeek, players });
   } catch (e) {

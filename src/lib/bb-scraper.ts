@@ -3,6 +3,7 @@
  * scripts/lib/bb-site-session.mjs, plus HTML scrapers for rosters and player history.
  *
  * Uses BB_PASSWORD env var. No Puppeteer — pure HTTP fetch.
+ * Injury data is scraped from the BB site overview page (not BBAPI).
  */
 
 import { getGameWeek, isCountingGame } from "./bb-countries";
@@ -41,6 +42,27 @@ export interface GameLogEntry {
 export interface SeasonGameLog {
   season: number;
   games: GameLogEntry[];
+}
+
+/**
+ * Parse injury days remaining from a BuzzerBeater player overview page.
+ * Returns a display string like "3-6" or "1", or "" if the player is healthy.
+ */
+function parseInjuryDaysFromHtml(html: string): string {
+  const head = html.match(/Injury!/i);
+  if (!head || head.index == null) return "";
+  const slice = html.slice(head.index, head.index + 900);
+  const plain = slice
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const range = plain.match(/(\d+)\s*[-–]\s*(\d+)\s*days?/i);
+  if (range) return `${range[1]}-${range[2]}`;
+  const single = plain.match(/(\d+)\s*days?/i);
+  if (single) return single[1];
+  return "1"; // "Injury!" found but no day count — show at least 1
 }
 
 /** Parse a single hidden input value from HTML */
@@ -235,18 +257,25 @@ function parseGameLogHtml(html: string): GameLogEntry[] {
   return games;
 }
 
+export interface GameLogResult {
+  games: GameLogEntry[];
+  /** Injury label parsed from overview HTML, e.g. "3-6" or "1". Empty string = healthy. */
+  injuryDays: string;
+}
+
 /**
  * Fetch a player's game log for a specific season using ASP.NET postback.
+ * Also returns injury days parsed from the page HTML (no extra request needed).
  * Requires a valid cookie header from bbSiteLogin().
  */
 export async function fetchPlayerGameLog(
   playerId: number,
   season: number,
   cookieHeader: string
-): Promise<GameLogEntry[]> {
+): Promise<GameLogResult> {
   const overviewUrl = `${BB_BASE}/player/${playerId}/overview.aspx`;
 
-  // Step 1: GET to obtain VIEWSTATE tokens
+  // Step 1: GET to obtain VIEWSTATE tokens and current injury status
   const res1 = await fetch(overviewUrl, {
     headers: {
       "User-Agent": BB_UA,
@@ -262,17 +291,18 @@ export async function fetchPlayerGameLog(
     throw new Error("Player overview returned login wall — session may have expired");
   }
 
+  // Parse injury from the initial GET — it always reflects current status regardless of season
+  const injuryDays = parseInjuryDaysFromHtml(html1);
+
   const viewstate = parseHiddenField(html1, "__VIEWSTATE");
   const viewstateGen = parseHiddenField(html1, "__VIEWSTATEGENERATOR");
   const eventVal = parseHiddenField(html1, "__EVENTVALIDATION");
 
-  // Check if the current page already shows the requested season
   const currentSeasonMatch = html1.match(/<option[^>]*selected[^>]*value=["'](\d+)["']/i);
   const currentSeason = currentSeasonMatch ? parseInt(currentSeasonMatch[1], 10) : null;
 
   if (currentSeason === season) {
-    // No postback needed — parse current page directly
-    return parseGameLogHtml(html1);
+    return { games: parseGameLogHtml(html1), injuryDays };
   }
 
   // Step 2: POST with season dropdown change (ASP.NET __doPostBack equivalent)
@@ -300,7 +330,30 @@ export async function fetchPlayerGameLog(
   });
   if (!res2.ok) throw new Error(`Season postback failed: HTTP ${res2.status}`);
   const html2 = await res2.text();
-  return parseGameLogHtml(html2);
+  return { games: parseGameLogHtml(html2), injuryDays };
+}
+
+/**
+ * Fetch only the injury label for a player from their BB site overview page.
+ * Returns a display string like "3-6" or "1", or "" if healthy.
+ */
+export async function fetchPlayerInjuryFromSite(
+  playerId: number,
+  cookieHeader: string
+): Promise<string> {
+  try {
+    const url = `${BB_BASE}/player/${playerId}/overview.aspx`;
+    const res = await fetch(url, {
+      headers: { "User-Agent": BB_UA, Accept: "text/html,*/*;q=0.9", Cookie: cookieHeader },
+      redirect: "follow",
+    });
+    if (!res.ok) return "";
+    const html = await res.text();
+    if (/login\.css|<title>\s*Login\s*</i.test(html)) return "";
+    return parseInjuryDaysFromHtml(html);
+  } catch {
+    return "";
+  }
 }
 
 /**
@@ -431,7 +484,8 @@ export interface PlayerInfo {
   bestPosition: string | null;
   gameShape: number | null;
   potential: number | null;
-  injuryDaysRemaining: number | null;
+  /** Injury label like "3-6" or "1". Empty string or null = healthy. */
+  injuryDaysRemaining: string | null;
 }
 
 const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
@@ -467,26 +521,9 @@ export async function bbapiLogin(): Promise<string> {
 }
 
 /**
- * Fetch how many injury days a player has remaining (0 = healthy).
- * Requires a cookie from bbapiLogin().
- */
-export async function fetchPlayerInjury(playerId: number, bbApiCookie: string): Promise<number> {
-  try {
-    const res = await fetch(`${BBAPI_BASE}player.aspx?playerid=${playerId}`, {
-      headers: { Cookie: bbApiCookie },
-      redirect: "manual",
-    });
-    const xml = await res.text();
-    const m = xml.match(/<injury>(\d+)<\/injury>/);
-    return m ? parseInt(m[1], 10) : 0;
-  } catch {
-    return 0;
-  }
-}
-
-/**
- * Fetch full player info from BBAPI (single call — logs in internally).
- * For bulk fetches prefer bbapiLogin() + fetchPlayerInjury() to reuse the session.
+ * Fetch full player info from BBAPI (age, DMI, salary, etc.).
+ * Uses redirect:"manual" on the player fetch — do not remove, it was working.
+ * Injury comes from injuryDays returned by fetchPlayerGameLog (BB site HTML).
  */
 export async function fetchPlayerInfoFromBBAPI(playerId: number): Promise<PlayerInfo | null> {
   try {
@@ -513,7 +550,7 @@ export async function fetchPlayerInfoFromBBAPI(playerId: number): Promise<Player
       bestPosition: tag("bestPosition"),
       gameShape: num("gameShape"),
       potential: num("potential"),
-      injuryDaysRemaining: num("injury"),
+      injuryDaysRemaining: null, // filled in by caller from fetchPlayerGameLog's injuryDays
     };
   } catch {
     return null;

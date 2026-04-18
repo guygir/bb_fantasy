@@ -60,12 +60,17 @@ export async function GET(
     ]);
 
     const seasonLogs: SeasonGameLog[] = [];
+    let injuryDays = "";
 
     for (const season of seasons) {
       try {
-        const games = await fetchPlayerGameLog(id, season, cookie);
-        if (games.length > 0) {
-          seasonLogs.push({ season, games });
+        const result = await fetchPlayerGameLog(id, season, cookie);
+        // Always take the freshest injury reading (last season fetched = current)
+        if (result.injuryDays || !injuryDays) {
+          injuryDays = result.injuryDays;
+        }
+        if (result.games.length > 0) {
+          seasonLogs.push({ season, games: result.games });
         }
       } catch {
         // Season may not exist for this player — skip silently
@@ -74,9 +79,14 @@ export async function GET(
 
     const aggregations = aggregateGameLogs(seasonLogs);
 
+    // Merge BB-site injury days into playerInfo (BBAPI doesn't reliably return injury)
+    const enrichedPlayerInfo = playerInfo
+      ? { ...playerInfo, injuryDaysRemaining: injuryDays }
+      : null;
+
     return NextResponse.json({
       playerId: id,
-      playerInfo,
+      playerInfo: enrichedPlayerInfo,
       seasons: seasonLogs,
       aggregations,
     });

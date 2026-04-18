@@ -46,7 +46,7 @@ interface PlayerInfo {
   bestPosition: string | null;
   gameShape: number | null;
   potential: number | null;
-  injuryDaysRemaining: number | null;
+  injuryDaysRemaining: string | null;
 }
 
 interface PlayerStats {
@@ -69,7 +69,7 @@ interface PlayerOverviewData {
   seasonMinutesByPosition: Record<string, number>;
   weekTotal: number;
   seasonTotal: number;
-  injuryDaysRemaining: number;
+  injuryDaysRemaining: string;
   error: string | null;
 }
 
@@ -96,11 +96,11 @@ function minuteBg(mins: number): string {
 }
 
 /** Inline injury label shown next to a player name */
-function InjuryBadge({ days }: { days: number }) {
-  if (!days) return null;
+function InjuryBadge({ label }: { label: string }) {
+  if (!label) return null;
   return (
     <span className="ml-1.5 inline-flex items-center rounded px-1 py-0.5 text-[10px] font-semibold leading-none bg-red-100 text-red-700">
-      🩹 {days}d
+      🩹 {label}d
     </span>
   );
 }
@@ -308,6 +308,9 @@ export default function RostersPage() {
   const [overviewError, setOverviewError] = useState<string | null>(null);
   const [overview, setOverview] = useState<CountryOverview | null>(null);
 
+  /** Fast injury map: playerId → injury label (e.g. "3-6" or "1"). Empty = healthy. */
+  const [injuryMap, setInjuryMap] = useState<Record<number, string>>({});
+
   const [selectedPlayer, setSelectedPlayer] = useState<RosterPlayer | null>(null);
   const [statsLoading, setStatsLoading] = useState(false);
   const [statsError, setStatsError] = useState<string | null>(null);
@@ -319,6 +322,22 @@ export default function RostersPage() {
           c.name.toLowerCase().includes(search.trim().toLowerCase())
         ).slice(0, 8)
       : [];
+
+  async function loadInjuries(id: number, playerList: RosterPlayer[]) {
+    try {
+      const ids = playerList.map((p) => p.playerId).join(",");
+      const res = await fetch(`/api/rosters/country/${id}/injuries?playerIds=${ids}`);
+      const data = await res.json();
+      if (!res.ok) return; // silent — injuries are best-effort
+      const map: Record<number, number> = {};
+      for (const { playerId, injuryDaysRemaining } of (data.players ?? [])) {
+        if (injuryDaysRemaining) map[playerId] = injuryDaysRemaining;
+      }
+      setInjuryMap(map);
+    } catch {
+      // best-effort, don't surface
+    }
+  }
 
   async function loadOverview(id: number, playerList: RosterPlayer[]) {
     setOverviewLoading(true);
@@ -347,6 +366,7 @@ export default function RostersPage() {
     setStatsError(null);
     setOverview(null);
     setOverviewError(null);
+    setInjuryMap({});
     try {
       const res = await fetch(`/api/rosters/country/${id}`);
       const data = await res.json();
@@ -355,6 +375,8 @@ export default function RostersPage() {
       const newPlayers: RosterPlayer[] = data.players ?? [];
       setPlayers(newPlayers);
       if (newPlayers.length > 0) {
+        // Fire both in parallel: injuries are fast (~3s), overview is slow (~30s)
+        void loadInjuries(id, newPlayers);
         void loadOverview(id, newPlayers);
       }
     } catch (e) {
@@ -511,7 +533,7 @@ export default function RostersPage() {
                         <td className={`border border-bb-border px-3 py-1.5 sticky left-0 bg-white font-medium ${selectedPlayer?.playerId === pd.playerId ? "text-exact" : "text-bb-text"}`}>
                           <span className="flex items-center gap-0">
                             {nameMap[pd.playerId] ?? pd.playerId}
-                            <InjuryBadge days={pd.injuryDaysRemaining} />
+                            <InjuryBadge label={injuryMap[pd.playerId] ?? ""} />
                           </span>
                         </td>
                         {allPositions.map((pos) => {
@@ -544,7 +566,7 @@ export default function RostersPage() {
           ) : (
             <div className="flex flex-wrap gap-2">
               {players.map((p) => {
-                const injury = overview?.players.find((op) => op.playerId === p.playerId)?.injuryDaysRemaining ?? 0;
+                const injury = injuryMap[p.playerId] ?? "";
                 return (
                   <button
                     key={p.playerId}
@@ -557,7 +579,7 @@ export default function RostersPage() {
                   >
                     <span className="flex items-center gap-0">
                       {p.name}
-                      <InjuryBadge days={injury} />
+                      <InjuryBadge label={injury} />
                     </span>
                   </button>
                 );
@@ -591,7 +613,7 @@ export default function RostersPage() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     <h3 className="text-lg font-bold text-bb-text">{selectedPlayer.name}</h3>
-                    {(playerStats.playerInfo?.injuryDaysRemaining ?? 0) > 0 && (
+                    {!!playerStats.playerInfo?.injuryDaysRemaining && (
                       <span className="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold bg-red-100 text-red-700">
                         🩹 Injured — {playerStats.playerInfo!.injuryDaysRemaining} days remaining
                       </span>

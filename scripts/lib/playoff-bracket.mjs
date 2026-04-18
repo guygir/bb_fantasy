@@ -84,7 +84,9 @@ export function parsePlayoffStatusForTeam(html, teamId) {
     return "Lost Finals";
   }
 
-  if (trophyId != null && lf != null && rf != null) {
+  // Lost Semis: both finalists known (lf+rf populated) but team is in a semi slot and not a finalist.
+  // This must trigger even before the Finals are played (trophyId may still be null).
+  if (lf != null && rf != null) {
     const finalists = new Set([lf, rf]);
     for (const anchorId of SEMI_FINAL_IDS) {
       const sid = getTeamId($, anchorId);
