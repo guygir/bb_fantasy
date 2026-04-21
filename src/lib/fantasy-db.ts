@@ -89,6 +89,17 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
   const today = new Date().toISOString().slice(0, 10);
   const now = Date.now();
 
+  console.log("[getLastPlayedMatchFP] today:", today, "now:", now, "schedule count:", schedule.length);
+  
+  // Debug: log last few matches from schedule
+  const lastFew = schedule.slice(-4);
+  for (const row of lastFew) {
+    const ms = row.match_start;
+    const matchStartMs = ms ? new Date(ms).getTime() : new Date(row.match_date + "T12:00:00Z").getTime();
+    const isPlayed = row.match_date < today || (row.match_date === today && now >= matchStartMs + GAME_DURATION_MS);
+    console.log("[getLastPlayedMatchFP] match:", row.match_id, "date:", row.match_date, "start:", ms, "isPlayed:", isPlayed);
+  }
+
   let lastPlayedMatchId: string | null = null;
   for (let i = schedule.length - 1; i >= 0; i--) {
     const row = schedule[i];
@@ -97,6 +108,7 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
     const isPlayed = row.match_date < today || (row.match_date === today && now >= matchStartMs + GAME_DURATION_MS);
     if (isPlayed) {
       lastPlayedMatchId = row.match_id;
+      console.log("[getLastPlayedMatchFP] found lastPlayedMatchId:", lastPlayedMatchId);
       break;
     }
   }
