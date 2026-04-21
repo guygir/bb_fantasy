@@ -84,17 +84,14 @@ export async function getSchedule(season?: number): Promise<{
     }
   }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
   // Supabase fallback / supplement: use fantasy_schedule (always current from cron) when:
   // (a) BBAPI and local JSON both failed, OR
   // (b) local JSON is stale — Supabase has match IDs not present in the cached JSON
   //     (e.g. SF/Final added to schedule mid-season after the last deployment).
-  if (url && anonKey) {
-    try {
-      const { createClient } = await import("@supabase/supabase-js");
-      const supabase = createClient(url, anonKey);
+  // Use service role (getSupabaseAdmin) to bypass any anon key RLS issues.
+  try {
+    const { getSupabaseAdmin } = await import("./supabase");
+    const supabase = getSupabaseAdmin();
       const [scheduleRes, matchesRes] = await Promise.all([
         supabase
           .from("fantasy_schedule")
@@ -179,9 +176,8 @@ export async function getSchedule(season?: number): Promise<{
           });
         }
       }
-    } catch (e) {
-      console.error("[getSchedule] Supabase error:", e);
-    }
+  } catch (e) {
+    console.error("[getSchedule] Supabase error:", e);
   }
 
   // Merge scores from local process-boxscores JSON (last resort / offline dev)
