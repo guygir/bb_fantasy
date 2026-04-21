@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 71,
-    "fetched": "2026-03-17T09:51:48.818Z"
+    "fetched": "2026-04-21T08:09:29.669Z"
   },
   "matches": [
     {
@@ -136,6 +136,28 @@
       "awayScore": null,
       "homeTeamId": "1008",
       "homeTeamName": "Deutschland U21",
+      "homeScore": null
+    },
+    {
+      "id": "84052",
+      "start": "2026-04-20T17:30:00Z",
+      "type": "nt.semifinal",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1020",
+      "homeTeamName": "Lietuva U21",
+      "homeScore": null
+    },
+    {
+      "id": "84116",
+      "start": "2026-04-27T17:30:00Z",
+      "type": "nt.final",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1001",
+      "homeTeamName": "United States U21",
       "homeScore": null
     }
   ]
