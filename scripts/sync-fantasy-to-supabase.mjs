@@ -272,6 +272,9 @@ async function main() {
       match_start: m.start || null,
       home_team_id: m.homeTeamId ? parseInt(m.homeTeamId, 10) : null,
       away_team_id: m.awayTeamId ? parseInt(m.awayTeamId, 10) : null,
+      home_team_name: m.homeTeamName || null,
+      away_team_name: m.awayTeamName || null,
+      match_type: m.type || null,
     }));
     const { error } = await supabase.from("fantasy_schedule").upsert(rows, {
       onConflict: "season,match_id",

@@ -52,9 +52,10 @@ jobs:
           "$PUPPETEER_EXECUTABLE_PATH" --version || true
           node scripts/fantasy-weekly-sync.mjs ${{ github.event.inputs.season || '71' }}
 
-      - name: Commit and push player faces
+      - name: Commit and push player faces + schedule JSON
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/player-faces/
-          git diff --staged --quiet || (git commit -m "chore: update player faces from sync" && git push)
+          git add data/bbapi_schedule_s${{ github.event.inputs.season || '71' }}.json || true
+          git diff --staged --quiet || (git commit -m "chore: update player faces and schedule from sync" && git push)
