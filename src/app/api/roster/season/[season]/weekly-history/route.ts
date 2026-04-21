@@ -157,15 +157,40 @@ export async function GET(
     .filter((row) => {
       const ms = row.match_start;
       const matchStartMs = ms ? new Date(ms).getTime() : new Date(row.match_date + "T12:00:00Z").getTime();
-      if (pickedAtMs >= matchStartMs) return false; // User picked after game started
-      if (row.match_date > today) return false;
-      if (row.match_date < today) return true; // Past game, include
-      if (row.match_date === today) {
+      const pickedAfterStart = pickedAtMs >= matchStartMs;
+      const isFuture = row.match_date > today;
+      const isPast = row.match_date < today;
+      const isToday = row.match_date === today;
+      const isTodayFinished = isToday && ms && now >= matchStartMs + GAME_DURATION_MS;
+      
+      // Debug SF match filtering
+      if (String(row.match_id) === "84052") {
+        console.log("[weekly-history] SF match filter:", {
+          match_id: row.match_id,
+          match_date: row.match_date,
+          today,
+          pickedAtMs,
+          matchStartMs,
+          pickedAfterStart,
+          isFuture,
+          isPast,
+          isToday,
+          isTodayFinished,
+          include: !pickedAfterStart && (isPast || isTodayFinished),
+        });
+      }
+      
+      if (pickedAfterStart) return false; // User picked after game started
+      if (isFuture) return false;
+      if (isPast) return true; // Past game, include
+      if (isToday) {
         if (!ms) return false;
         return now >= matchStartMs + GAME_DURATION_MS; // Include only if game has finished
       }
       return false;
     });
+  
+  console.log("[weekly-history] scheduleFiltered count:", scheduleFiltered.length, "last weekNum:", scheduleFiltered.at(-1)?.weekNum);
 
   /** User's last counted week (may differ from league lastPlayedMatchId — e.g. picked after lock, UTC date edge). */
   const userLastMatchId =
