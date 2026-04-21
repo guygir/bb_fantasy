@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getNextPromotionsScheduledRunUtc } from "@/lib/promotions-schedule";
 import type {
+  FinalsInfo,
   LatestRankChange,
   PlayoffStatus,
   PromotionEntry,
@@ -101,7 +102,16 @@ type PromotionsViewProps = {
   numBotLeagues: number | null;
   /** League III: headline digest vs previous snapshot */
   promotionNews?: PromotionNewsBlock | null;
+  /** League III: finals series per league (best of 3). Key = league_id string. */
+  finalsByLeague?: Record<string, FinalsInfo> | null;
 };
+
+/** Get team ID from team_url like "https://buzzerbeater.com/team/38135/overview.aspx" */
+function parseTeamIdFromUrl(url: string | null): number | null {
+  if (!url) return null;
+  const match = url.match(/\/team\/(\d+)/i);
+  return match ? parseInt(match[1], 10) : null;
+}
 
 export function PromotionsView({
   tierId,
@@ -113,6 +123,7 @@ export function PromotionsView({
   promotionBandSize,
   numBotLeagues,
   promotionNews = null,
+  finalsByLeague = null,
 }: PromotionsViewProps) {
   const nextScheduledAt = formatSnapshot(getNextPromotionsScheduledRunUtc().toISOString());
   const band = promotionBandSize;
@@ -323,7 +334,39 @@ export function PromotionsView({
                             </span>
                           </>
                         ) : (
-                          row.playoff_status
+                          <>
+                            {row.playoff_status}
+                            {row.playoff_status === "In Finals" && finalsByLeague && (() => {
+                              const fi = finalsByLeague[String(row.league_id)];
+                              if (!fi) return null;
+                              const teamId = parseTeamIdFromUrl(row.team_url);
+                              if (teamId == null) return null;
+                              const isLeft = teamId === fi.leftTeamId;
+                              const isRight = teamId === fi.rightTeamId;
+                              if (!isLeft && !isRight) return null;
+                              const myWins = isLeft ? fi.leftWins : fi.rightWins;
+                              const oppWins = isLeft ? fi.rightWins : fi.leftWins;
+                              
+                              let label: string;
+                              let colorClass: string;
+                              if (myWins > oppWins) {
+                                label = `Leading ${myWins}-${oppWins}`;
+                                colorClass = "text-green-600";
+                              } else if (myWins < oppWins) {
+                                label = `Trailing ${myWins}-${oppWins}`;
+                                colorClass = "text-red-600";
+                              } else {
+                                label = `Tied ${myWins}-${oppWins}`;
+                                colorClass = "text-gray-600";
+                              }
+                              
+                              return (
+                                <span className={`ml-1.5 text-sm font-medium ${colorClass}`} title="Finals series (best of 3)">
+                                  {label}
+                                </span>
+                              );
+                            })()}
+                          </>
                         )}
                       </td>
                     </tr>

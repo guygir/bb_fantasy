@@ -61,6 +61,96 @@ export function parseTrophyTeamId(html) {
 }
 
 /**
+ * Parse the finals series score (best of 3: first to 2 wins takes the trophy).
+ * Returns { leftWins, rightWins } or null if not in finals / element not found.
+ * 
+ * Element #cphContent_playoffs_pnlScoreFinal contains individual GAME scores, not series scores.
+ * Examples:
+ *   - "128 - 71" (one game played, left team won → series 1-0)
+ *   - "57 - 82" (one game played, right team won → series 0-1)
+ *   - "128 - 71 57 - 82" (two games, split → series 1-1)
+ *   - "128 - 71 90 - 85" (two games, left won both → series 2-0)
+ * 
+ * We parse all game scores and count wins for each side.
+ */
+export function parseFinalsSeriesScore(html) {
+  const $ = load(html);
+  const panel = $("#cphContent_playoffs_pnlScoreFinal");
+  if (!panel.length) return null;
+  
+  const text = panel.text().trim();
+  if (!text) return null;
+  
+  // Find all game scores like "128 - 71" or "57-82"
+  const gamePattern = /(\d+)\s*[-–—]\s*(\d+)/g;
+  let match;
+  let leftWins = 0;
+  let rightWins = 0;
+  
+  while ((match = gamePattern.exec(text)) !== null) {
+    const leftScore = parseInt(match[1], 10);
+    const rightScore = parseInt(match[2], 10);
+    if (leftScore > rightScore) {
+      leftWins++;
+    } else if (rightScore > leftScore) {
+      rightWins++;
+    }
+    // Ties don't count (shouldn't happen in basketball)
+  }
+  
+  // If no games found, return null
+  if (leftWins === 0 && rightWins === 0) {
+    // Check if element exists but has no scores yet (0-0 series)
+    return { leftWins: 0, rightWins: 0 };
+  }
+  
+  return { leftWins, rightWins };
+}
+
+/**
+ * Get finals info: teams and series score.
+ * Returns { leftTeamId, rightTeamId, leftWins, rightWins, champTeamId } or null if not in playoffs.
+ */
+export function parseFinalsInfo(html) {
+  const $ = load(html);
+  if (!$("#playoff").length) return null;
+  
+  const leftTeamId = getTeamId($, "cphContent_playoffs_teamLeftFinal");
+  const rightTeamId = getTeamId($, "cphContent_playoffs_teamRightFinal");
+  const champTeamId = getTeamId($, "cphContent_playoffs_trophy");
+  
+  // If trophy exists, series is 2-0 or 2-1 for the winner
+  // Otherwise check the pnlScoreFinal for current score
+  let leftWins = 0;
+  let rightWins = 0;
+  
+  if (champTeamId != null) {
+    // Finals decided - champion has 2 wins
+    if (champTeamId === leftTeamId) {
+      leftWins = 2;
+      // rightWins could be 0 or 1, but we don't know from just the trophy
+    } else if (champTeamId === rightTeamId) {
+      rightWins = 2;
+    }
+  }
+  
+  // Try to get series score from panel (may provide more detail)
+  const seriesScore = parseFinalsSeriesScore(html);
+  if (seriesScore) {
+    leftWins = seriesScore.leftWins;
+    rightWins = seriesScore.rightWins;
+  }
+  
+  return {
+    leftTeamId,
+    rightTeamId,
+    leftWins,
+    rightWins,
+    champTeamId,
+  };
+}
+
+/**
  * @typedef {'In Quarters' | 'In Semis' | 'In Finals' | 'Champ' | 'Lost Finals' | 'Lost Semis' | 'Lost Quarters' | 'Not in playoff'} PlayoffGranularStatus
  */
 

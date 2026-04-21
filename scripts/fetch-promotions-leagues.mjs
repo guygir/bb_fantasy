@@ -14,6 +14,7 @@ import {
   parsePlayoffStatusForTeam,
   parseTeamIdFromUrl,
   parseTrophyTeamId,
+  parseFinalsInfo,
 } from "./lib/playoff-bracket.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -244,21 +245,37 @@ async function runTier(supabase, tierId) {
     process.stdout.write(leagueId === LEAGUE_MAX ? ".\n" : ".");
   }
 
+  /** Finals series info per league (best of 3) */
+  const finalsByLeague = {};
+
   if (tierId === "league3") {
     promotionBandSize = promotionBandSizeLeague3(numBotLeagues);
     console.log(
       `Bot leagues (all 16 teams CPU): ${numBotLeagues} / ${LEAGUE_MAX - LEAGUE_MIN + 1} → promotion band size = 20 − (16 − ${numBotLeagues}) = ${promotionBandSize}`
     );
     const champLines = [];
+    const finalsLines = [];
     for (const [lid, h] of leagueHtmlById) {
       if (!h) continue;
       const tid = parseTrophyTeamId(h);
       if (tid != null) champLines.push(`league ${lid}: team ${tid}`);
+      
+      // Parse finals series info
+      const finalsInfo = parseFinalsInfo(h);
+      if (finalsInfo && (finalsInfo.leftTeamId != null || finalsInfo.rightTeamId != null)) {
+        finalsByLeague[lid] = finalsInfo;
+        const scoreStr = `${finalsInfo.leftWins}-${finalsInfo.rightWins}`;
+        const statusStr = finalsInfo.champTeamId != null ? "decided" : "ongoing";
+        finalsLines.push(`league ${lid}: ${scoreStr} (${statusStr})`);
+      }
     }
     if (champLines.length > 0) {
       console.log(`Playoff champions (trophy link): ${champLines.join("; ")}`);
     } else {
       console.log("Playoff champions (trophy link): (none — no #cphContent_playoffs_trophy on any league overview)");
+    }
+    if (finalsLines.length > 0) {
+      console.log(`Finals series: ${finalsLines.join("; ")}`);
     }
   }
 
@@ -307,8 +324,13 @@ async function runTier(supabase, tierId) {
 
   const snapPayload =
     tierId === "league3"
-      ? { tier: tierId, promotion_band_size: promotionBandSize, num_bot_leagues: numBotLeagues }
-      : { tier: tierId, promotion_band_size: 5, num_bot_leagues: null };
+      ? { 
+          tier: tierId, 
+          promotion_band_size: promotionBandSize, 
+          num_bot_leagues: numBotLeagues,
+          finals_by_league: Object.keys(finalsByLeague).length > 0 ? finalsByLeague : null,
+        }
+      : { tier: tierId, promotion_band_size: 5, num_bot_leagues: null, finals_by_league: null };
 
   const { data: snap, error: snapErr } = await supabase
     .from("promotions_snapshots")

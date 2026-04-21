@@ -197,12 +197,23 @@ function computeRankChange(
 
 type Row = Omit<PromotionEntry, "latestRankChange">;
 
+type FinalsInfo = {
+  leftTeamId: number | null;
+  rightTeamId: number | null;
+  leftWins: number;
+  rightWins: number;
+  champTeamId: number | null;
+};
+
 type SnapRow = {
   id: string;
   created_at: string;
   promotion_band_size: number | null;
   num_bot_leagues: number | null;
+  finals_by_league: Record<string, FinalsInfo> | null;
 };
+
+export type { FinalsInfo };
 
 export async function getLatestPromotions(tier: PromotionTierId): Promise<{
   snapshotAt: string | null;
@@ -213,6 +224,8 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
   numBotLeagues: number | null;
   /** League III only: digest vs previous snapshot */
   promotionNews: PromotionNewsBlock | null;
+  /** League III: finals series per league (best of 3). Key = league_id. */
+  finalsByLeague: Record<string, FinalsInfo> | null;
   error: string | null;
 }> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -227,6 +240,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       promotionBandSize: fallbackBand,
       numBotLeagues: null,
       promotionNews: null,
+      finalsByLeague: null,
       error: "Supabase is not configured.",
     };
   }
@@ -235,7 +249,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
     const supabase = getSupabase();
     const { data: snaps, error: snapsErr } = await supabase
       .from("promotions_snapshots")
-      .select("id, created_at, promotion_band_size, num_bot_leagues")
+      .select("id, created_at, promotion_band_size, num_bot_leagues, finals_by_league")
       .eq("tier", tier)
       .order("created_at", { ascending: false })
       .limit(2);
@@ -248,6 +262,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         promotionBandSize: fallbackBand,
         numBotLeagues: null,
         promotionNews: null,
+        finalsByLeague: null,
         error: snapsErr.message,
       };
     }
@@ -259,6 +274,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         promotionBandSize: fallbackBand,
         numBotLeagues: null,
         promotionNews: null,
+        finalsByLeague: null,
         error: null,
       };
     }
@@ -283,6 +299,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         promotionBandSize: fallbackBand,
         numBotLeagues: null,
         promotionNews: null,
+        finalsByLeague: null,
         error: entErr.message,
       };
     }
@@ -366,6 +383,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       promotionBandSize,
       numBotLeagues,
       promotionNews,
+      finalsByLeague: (currentSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null,
       error: null,
     };
   } catch (e) {
@@ -377,6 +395,7 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
       promotionBandSize: fallbackBand,
       numBotLeagues: null,
       promotionNews: null,
+      finalsByLeague: null,
       error: msg,
     };
   }
