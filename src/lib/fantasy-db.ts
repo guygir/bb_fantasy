@@ -82,7 +82,9 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
     .range(0, 999);
 
   const schedule = (scheduleRows ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  console.log("[getLastPlayedMatchFP] DB returned:", schedule.length, "rows, match_ids:", schedule.map(r => r.match_id).join(","));
   if (scheduleErr) {
+    console.log("[getLastPlayedMatchFP] scheduleErr:", scheduleErr.message);
     return { lastPlayedMatchId: null, playerFP: {} };
   }
 

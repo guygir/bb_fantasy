@@ -4,6 +4,8 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import { fetchFantasyGameStatsForScheduleMatchIds, getLastPlayedMatchFP } from "@/lib/fantasy-db";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
 
 const ROSTER_SIZE = 5;
 
@@ -121,6 +123,7 @@ export async function GET(
   ]);
 
   const fullScheduleForStats = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  console.log("[weekly-history] fullSchedule from DB:", fullScheduleForStats.length, "rows, match_ids:", fullScheduleForStats.map(r => r.match_id).join(","));
   const scheduleMatchIds = fullScheduleForStats.map((r) => String(r.match_id));
   let stats: { player_id: number; match_id: string; name: string | null; fantasy_points: number | null }[] = [];
   try {
