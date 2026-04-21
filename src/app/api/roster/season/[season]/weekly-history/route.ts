@@ -145,7 +145,7 @@ export async function GET(
 
   const fullSchedule = fullScheduleForStats;
   const lastPlayedMatchId = lastPlayedFP.lastPlayedMatchId;
-  const lastPlayedRow = fullSchedule.find((r) => r.match_id === lastPlayedMatchId);
+  const lastPlayedRow = fullSchedule.find((r) => String(r.match_id) === String(lastPlayedMatchId));
   const wasEligibleForLastPlayed = lastPlayedRow
     ? pickedAtMs > 0 &&
       pickedAtMs < (lastPlayedRow.match_start ? new Date(lastPlayedRow.match_start).getTime() : new Date(lastPlayedRow.match_date + "T12:00:00Z").getTime())
@@ -369,7 +369,7 @@ export async function GET(
       scheduleFilteredWeekCount: scheduleFiltered.length,
       leagueLastPlayedMatchId: lastPlayedMatchId,
       userLastMatchId,
-      lastPlayedEqualsUserLast: lastPlayedMatchId === userLastMatchId,
+      lastPlayedEqualsUserLast: String(lastPlayedMatchId) === String(userLastMatchId),
       lastWeekRosterResolution: lastWeekResolutionDebug,
       currentIdsFromDb: currentIds,
       initialIdsAfterReverseSubs: initialIds,

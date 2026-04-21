@@ -17,6 +17,8 @@ function formatDate(iso: string) {
 function formatType(type: string) {
   if (type === "nt.friendly") return "SC";
   if (type === "nt.roundrobin") return "RR";
+  if (type === "nt.semifinal") return "SF";
+  if (type === "nt.final") return "F";
   return type;
 }
 

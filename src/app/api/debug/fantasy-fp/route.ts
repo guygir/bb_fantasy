@@ -50,7 +50,7 @@ export async function GET(request: Request) {
   // Replicate wasEligibleForLastPlayed from weekly-history (if false, roster page shows 0 for all)
   const scheduleRes = await admin.from("fantasy_schedule").select("match_id, match_date, match_start").eq("season", season).not("match_date", "is", null).order("match_date", { ascending: true });
   const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
-  const lastRow = schedule.find((r) => r.match_id === matchId);
+  const lastRow = schedule.find((r) => String(r.match_id) === String(matchId));
   const pickedAtMs = roster?.picked_at ? new Date(roster.picked_at as string).getTime() : 0;
   const matchStartMs = lastRow?.match_start ? new Date(lastRow.match_start).getTime() : lastRow ? new Date(lastRow.match_date + "T12:00:00Z").getTime() : 0;
   const wasEligibleForLastPlayed = lastRow ? pickedAtMs > 0 && pickedAtMs < matchStartMs : false;

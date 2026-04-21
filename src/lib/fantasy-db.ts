@@ -422,7 +422,7 @@ export async function getUserStandings(season: number): Promise<
     subsByUser.set(s.user_id, list);
   }
 
-  const lastPlayedRow = schedule.find((r) => r.match_id === lastPlayedMatchId);
+  const lastPlayedRow = schedule.find((r) => String(r.match_id) === String(lastPlayedMatchId));
   const lastWeekNumber = lastPlayedRow ? schedule.indexOf(lastPlayedRow) + 1 : 0;
   const lastMatchStartMs = lastPlayedRow
     ? (lastPlayedRow.match_start ? new Date(lastPlayedRow.match_start).getTime() : new Date(lastPlayedRow.match_date + "T12:00:00Z").getTime())

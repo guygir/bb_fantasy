@@ -94,7 +94,7 @@ async function addSubsUsedCheck(
       .eq("season", season)
       .maybeSingle();
     const ps = roster?.pending_subs as { effective_match_id?: string } | null;
-    result.subsUsedThisWindow = ps?.effective_match_id === nextMatchId;
+    result.subsUsedThisWindow = String(ps?.effective_match_id ?? "") === String(nextMatchId ?? "");
     return;
   }
   result.subsUsedThisWindow = false;

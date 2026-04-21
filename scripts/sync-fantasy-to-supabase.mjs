@@ -251,12 +251,13 @@ async function main() {
       home_score: s.homeScore ?? null,
       away_score: s.awayScore ?? null,
     }));
-    const { error } = await supabase.from("fantasy_matches").upsert(rows, {
+    console.log(`fantasy_matches: uploading ${rows.length} rows: ${rows.map(r => r.match_id).join(", ")}`);
+    const { error, data } = await supabase.from("fantasy_matches").upsert(rows, {
       onConflict: "season,match_id",
       ignoreDuplicates: false,
-    });
-    if (error) console.error("fantasy_matches:", error.message);
-    else console.log(`fantasy_matches: ${rows.length} rows`);
+    }).select("match_id");
+    if (error) console.error("fantasy_matches error:", error.message);
+    else console.log(`fantasy_matches: upserted ${data?.length ?? 0} rows`);
   }
 
   }

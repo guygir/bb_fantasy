@@ -70,12 +70,17 @@ export async function getSchedule(season?: number): Promise<{
 
   if (result.ok && result.xml) {
     matches = parseScheduleXml(result.xml);
+    console.log("[getSchedule] Loaded from BBAPI:", matches.length, "matches");
   }
   if (matches.length === 0) {
     const cached = loadScheduleFromJson(s);
     if (cached && cached.length > 0) {
       matches = cached;
       source = "cache";
+      console.log("[getSchedule] Loaded from local JSON:", matches.length, "matches");
+      // Debug: show SF match from local JSON
+      const sf = matches.find((m) => m.type?.includes("semifinal") || m.id === "84052");
+      if (sf) console.log("[getSchedule] SF match from local JSON:", { id: sf.id, type: sf.type, homeScore: sf.homeScore, awayScore: sf.awayScore });
     }
   }
 
@@ -102,10 +107,23 @@ export async function getSchedule(season?: number): Promise<{
           .select("match_id, home_score, away_score")
           .eq("season", s),
       ]);
+      // Check for query errors
+      if (scheduleRes.error) {
+        console.error("[getSchedule] Supabase fantasy_schedule error:", scheduleRes.error);
+      }
+      if (matchesRes.error) {
+        console.error("[getSchedule] Supabase fantasy_matches error:", matchesRes.error);
+      }
+      console.log("[getSchedule] Supabase fantasy_schedule rows:", scheduleRes.data?.length ?? 0);
+      console.log("[getSchedule] Supabase fantasy_matches rows:", matchesRes.data?.length ?? 0);
+
       if (scheduleRes.data?.length) {
         const scoreById = new Map(
           (matchesRes.data ?? []).map((r) => [String(r.match_id), r])
         );
+        // Debug: check if SF score is in Supabase
+        const sfScore = scoreById.get("84052");
+        console.log("[getSchedule] SF score from Supabase:", sfScore ? { home: sfScore.home_score, away: sfScore.away_score } : "NOT FOUND");
         if (matches.length === 0) {
           // Full fallback: build entirely from Supabase
           matches = scheduleRes.data.map((r) => {
@@ -127,9 +145,11 @@ export async function getSchedule(season?: number): Promise<{
           // Supplement: add any match IDs in Supabase that are missing from the cached JSON,
           // and update scores for existing matches from fantasy_matches.
           const knownIds = new Set(matches.map((m) => String(m.id)));
+          console.log("[getSchedule] Known IDs from local JSON:", Array.from(knownIds).join(", "));
           for (const r of scheduleRes.data) {
             if (knownIds.has(String(r.match_id))) continue;
             const scores = scoreById.get(String(r.match_id));
+            console.log(`[getSchedule] Adding missing match ${r.match_id} from Supabase:`, { type: r.match_type, scores: scores ? { home: scores.home_score, away: scores.away_score } : null });
             matches.push({
               id: String(r.match_id),
               start: r.match_start ?? "",
@@ -145,21 +165,31 @@ export async function getSchedule(season?: number): Promise<{
           // Also update scores for existing matches (scoreById already fetched above)
           matches = matches.map((m) => {
             const row = scoreById.get(String(m.id));
-            if (row?.home_score != null && row?.away_score != null) {
-              return { ...m, homeScore: String(row.home_score), awayScore: String(row.away_score) };
+            if (row) {
+              if (m.id === "84052") {
+                console.log("[getSchedule] Updating SF score from Supabase:", { before: { home: m.homeScore, away: m.awayScore }, after: { home: row.home_score, away: row.away_score } });
+              }
+              return {
+                ...m,
+                homeScore: row.home_score != null ? String(row.home_score) : m.homeScore,
+                awayScore: row.away_score != null ? String(row.away_score) : m.awayScore,
+              };
             }
             return m;
           });
         }
       }
-    } catch {
-      /* ignore — will return error below if still empty */
+    } catch (e) {
+      console.error("[getSchedule] Supabase error:", e);
     }
   }
 
   // Merge scores from local process-boxscores JSON (last resort / offline dev)
   const matchScores = loadMatchScores(s);
+  console.log("[getSchedule] Local match_scores JSON has", Object.keys(matchScores).length, "matches");
   if (Object.keys(matchScores).length > 0) {
+    const sfLocalScore = matchScores["84052"];
+    console.log("[getSchedule] SF score from local JSON:", sfLocalScore ?? "NOT FOUND");
     matches = matches.map((m) => {
       const scores = matchScores[m.id];
       if (scores) {
@@ -168,6 +198,10 @@ export async function getSchedule(season?: number): Promise<{
       return m;
     });
   }
+
+  // Final debug: check SF after all merges
+  const finalSf = matches.find((m) => m.id === "84052");
+  console.log("[getSchedule] Final SF match:", finalSf ? { id: finalSf.id, homeScore: finalSf.homeScore, awayScore: finalSf.awayScore } : "NOT FOUND");
 
   if (matches.length === 0) {
     return {

@@ -146,12 +146,12 @@ export async function GET(request: Request) {
     }
 
     // For last played match: use roster that played (pending_subs applied if not yet synced)
-    const effectiveRosterIds = matchId === lastPlayedMatchId ? [...rosterThatPlayedLastMatch] : rosterIds;
+    const effectiveRosterIds = String(matchId) === String(lastPlayedMatchId) ? [...rosterThatPlayedLastMatch] : rosterIds;
 
     const rosterWithNames = effectiveRosterIds.map((pid) => ({
       id: pid,
       name: getName(pid),
-      pts: pointsMap.get(`${pid}:${matchId}`) ?? 0,
+      pts: pointsMap.get(`${pid}:${String(matchId)}`) ?? 0,
     }));
 
     weekTraces.push({
