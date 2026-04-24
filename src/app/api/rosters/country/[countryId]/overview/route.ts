@@ -59,7 +59,7 @@ export async function GET(
 
     const players = await batchAsync(playerIds, 4, async (playerId) => {
       try {
-        const { games, injuryDays } = await fetchPlayerGameLog(playerId, season, cookie);
+        const { games, injuryDays, sitePlayerInfo } = await fetchPlayerGameLog(playerId, season, cookie);
 
         const weekMinutesByPosition: Record<string, number> = {};
         const seasonMinutesByPosition: Record<string, number> = {};
@@ -92,6 +92,8 @@ export async function GET(
           seasonMinutesByPosition,
           weekTotal,
           seasonTotal,
+          dmi: sitePlayerInfo?.dmi ?? null,
+          gameShape: sitePlayerInfo?.gameShape ?? null,
           injuryDaysRemaining: injuryDays,
           error: null as string | null,
         };
@@ -102,6 +104,8 @@ export async function GET(
           seasonMinutesByPosition: {} as Record<string, number>,
           weekTotal: 0,
           seasonTotal: 0,
+          dmi: null as number | null,
+          gameShape: null as number | null,
           injuryDaysRemaining: "",
           error: e instanceof Error ? e.message : String(e),
         };

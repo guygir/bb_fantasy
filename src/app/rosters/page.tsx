@@ -69,6 +69,8 @@ interface PlayerOverviewData {
   seasonMinutesByPosition: Record<string, number>;
   weekTotal: number;
   seasonTotal: number;
+  dmi: number | null;
+  gameShape: number | null;
   injuryDaysRemaining: string;
   error: string | null;
 }
@@ -103,6 +105,10 @@ function InjuryBadge({ label }: { label: string }) {
       🩹 {label}d
     </span>
   );
+}
+
+function formatDmi(dmi: number | null): string {
+  return dmi === null ? "—" : dmi.toLocaleString("en-US");
 }
 
 /** Explain why a counting game falls outside the season window */
@@ -505,6 +511,10 @@ export default function RostersPage() {
                   <thead>
                     <tr className="bg-card-bg text-gray-600">
                       <th className="border border-bb-border px-3 py-2 text-left sticky left-0 bg-card-bg z-10">Player</th>
+                      <th className="border border-bb-border px-3 py-2 text-left min-w-[110px]">
+                        <span className="block leading-none">Updated</span>
+                        <span className="text-[10px] text-gray-400">GS, DMI</span>
+                      </th>
                       {allPositions.map((pos) => (
                         <th key={pos} className="border border-bb-border px-2 py-2 text-center">
                           <span className="block leading-none">{pos}</span>
@@ -534,6 +544,14 @@ export default function RostersPage() {
                           <span className="flex items-center gap-0">
                             {nameMap[pd.playerId] ?? pd.playerId}
                             <InjuryBadge label={injuryMap[pd.playerId] ?? ""} />
+                          </span>
+                        </td>
+                        <td className="border border-bb-border px-3 py-1.5 text-left text-[11px] text-gray-600">
+                          <span className="block leading-tight">
+                            GS: <span className="font-semibold text-bb-text">{pd.gameShape ?? "—"}</span>
+                          </span>
+                          <span className="block leading-tight">
+                            DMI: <span className="font-semibold text-bb-text">{formatDmi(pd.dmi)}</span>
                           </span>
                         </td>
                         {allPositions.map((pos) => {
