@@ -114,10 +114,10 @@ export function getTeamName(countryId: number): string {
 }
 
 /**
- * Season start dates (Monday of week 1).
- * Season 72 = 2026-05-01. Each prior season starts 98 days (14 weeks) earlier.
+ * U21 analyzer week boundaries run Saturday to Saturday.
+ * Season 72 week 1 starts on 2026-05-02; each prior season starts 98 days (14 weeks) earlier.
  */
-const SEASON_72_START = new Date("2026-05-01T00:00:00Z");
+const SEASON_72_START = new Date("2026-05-02T00:00:00Z");
 const SEASON_DURATION_DAYS = 98;
 
 export function getSeasonStartDate(season: number): Date {
