@@ -74,20 +74,104 @@ function isPlayoffOutStatus(s: PlayoffStatus): boolean {
   );
 }
 
-/** Green = first `bandSize` rows that are not champion (yellow). Champs skip the green quota. */
-function buildRowStyles(entries: PromotionEntry[], bandSize: number): { row: PromotionEntry; className: string }[] {
+/** Get team ID from team_url like "https://buzzerbeater.com/team/38135/overview.aspx" */
+function parseTeamIdFromUrl(url: string | null): number | null {
+  if (!url) return null;
+  const match = url.match(/\/team\/(\d+)/i);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+/**
+ * Green = first `bandSize` rows that are not champion (yellow). Champs skip the green quota.
+ * Striped-green = "to-be-promoted" band: teams that will enter the band when two teams
+ * from the same league in the current band are playing each other in the finals
+ * (one will become champ, freeing a green slot).
+ */
+function buildRowStyles(
+  entries: PromotionEntry[],
+  bandSize: number,
+  finalsByLeague: Record<string, FinalsInfo> | null
+): { row: PromotionEntry; className: string }[] {
+  // First pass: assign yellow (champ), green (band), white (outside)
   let greenLeft = bandSize;
-  const out: { row: PromotionEntry; className: string }[] = [];
+  const styles: ("yellow" | "green" | "white")[] = [];
+  
   for (const row of entries) {
     if (row.playoff_status === "Champ") {
-      out.push({ row, className: "bg-yellow-100 hover:bg-yellow-200/90" });
+      styles.push("yellow");
     } else if (greenLeft > 0) {
       greenLeft -= 1;
-      out.push({ row, className: "bg-green-50 hover:bg-green-100/90" });
+      styles.push("green");
     } else {
-      out.push({ row, className: "hover:bg-gray-50/80" });
+      styles.push("white");
     }
   }
+  
+  // Second pass: find "to-be-promoted" slots (striped green)
+  // Look for pairs of teams in the green band that are in the same league AND in finals against each other
+  if (finalsByLeague) {
+    let extraSlots = 0;
+    
+    // Group green-band teams by league
+    const greenTeamsByLeague = new Map<number, number[]>(); // league_id -> indices
+    for (let i = 0; i < entries.length; i++) {
+      if (styles[i] === "green") {
+        const leagueId = entries[i].league_id;
+        if (!greenTeamsByLeague.has(leagueId)) {
+          greenTeamsByLeague.set(leagueId, []);
+        }
+        greenTeamsByLeague.get(leagueId)!.push(i);
+      }
+    }
+    
+    // Check each league with 2+ green teams
+    for (const [leagueId, indices] of greenTeamsByLeague) {
+      if (indices.length < 2) continue;
+      
+      const fi = finalsByLeague[String(leagueId)];
+      if (!fi || fi.leftTeamId == null || fi.rightTeamId == null) continue;
+      
+      // Check if both finalists are in the green band for this league
+      const finalistIds = new Set([fi.leftTeamId, fi.rightTeamId]);
+      const greenFinalists = indices.filter(i => {
+        const teamId = parseTeamIdFromUrl(entries[i].team_url);
+        return teamId != null && finalistIds.has(teamId);
+      });
+      
+      // If both finalists are in the green band, one will become champ → free slot
+      if (greenFinalists.length === 2) {
+        extraSlots++;
+      }
+    }
+    
+    // Assign striped-green to next `extraSlots` white rows
+    if (extraSlots > 0) {
+      for (let i = 0; i < entries.length && extraSlots > 0; i++) {
+        if (styles[i] === "white") {
+          styles[i] = "striped" as "white"; // We'll handle this in the output
+          extraSlots--;
+        }
+      }
+    }
+  }
+  
+  // Build output with CSS classes
+  const out: { row: PromotionEntry; className: string }[] = [];
+  for (let i = 0; i < entries.length; i++) {
+    const style = styles[i];
+    let className: string;
+    if (style === "yellow") {
+      className = "bg-yellow-100 hover:bg-yellow-200/90";
+    } else if (style === "green") {
+      className = "bg-green-50 hover:bg-green-100/90";
+    } else if (style === ("striped" as "white")) {
+      className = "bg-striped-green hover:bg-green-100/90";
+    } else {
+      className = "hover:bg-gray-50/80";
+    }
+    out.push({ row: entries[i], className });
+  }
+  
   return out;
 }
 
@@ -106,13 +190,6 @@ type PromotionsViewProps = {
   finalsByLeague?: Record<string, FinalsInfo> | null;
 };
 
-/** Get team ID from team_url like "https://buzzerbeater.com/team/38135/overview.aspx" */
-function parseTeamIdFromUrl(url: string | null): number | null {
-  if (!url) return null;
-  const match = url.match(/\/team\/(\d+)/i);
-  return match ? parseInt(match[1], 10) : null;
-}
-
 export function PromotionsView({
   tierId,
   tier,
@@ -127,7 +204,7 @@ export function PromotionsView({
 }: PromotionsViewProps) {
   const nextScheduledAt = formatSnapshot(getNextPromotionsScheduledRunUtc().toISOString());
   const band = promotionBandSize;
-  const styledRows = entries.length > 0 ? buildRowStyles(entries, band) : [];
+  const styledRows = entries.length > 0 ? buildRowStyles(entries, band, finalsByLeague) : [];
 
   return (
     <div className="text-sm text-gray-600">
@@ -152,7 +229,10 @@ export function PromotionsView({
               <strong className="text-bb-text">{numBotLeagues}</strong> bot league{numBotLeagues === 1 ? "" : "s"}:{" "}
               <strong className="text-bb-text">{band}</strong> rows. Rows are highlighted{" "}
               <strong className="text-bb-text">green</strong> in rank order until that many non-champion slots are
-            filled; <strong className="text-bb-text">Champ</strong> uses yellow and does not consume a green slot;{" "}
+            filled; when two green-band teams from the same league face each other in the finals, one will become
+            champion (freeing a slot), so the next team in line is shown in{" "}
+            <strong className="text-bb-text">striped green</strong> (to-be-promoted);{" "}
+            <strong className="text-bb-text">Champ</strong> uses yellow and does not consume a green slot;{" "}
             <strong className="text-bb-text">In Quarters</strong> / <strong className="text-bb-text">In Semis</strong> /{" "}
             <strong className="text-bb-text">In Finals</strong> / <strong className="text-bb-text">Champ</strong> /{" "}
             <span className="text-red-600" aria-hidden>
@@ -206,10 +286,24 @@ export function PromotionsView({
                 <p className="text-sm text-gray-600">No headline changes since the last snapshot.</p>
               )}
               {promotionNews.bullets.length > 0 && (
-                <ul className="list-disc space-y-1.5 pl-5 text-sm text-gray-700">
-                  {promotionNews.bullets.map((b, i) => (
-                    <li key={i}>{b.text}</li>
-                  ))}
+                <ul className="space-y-1.5 text-sm text-gray-700">
+                  {promotionNews.bullets.map((b, i) => {
+                    let bgClass = "";
+                    if (b.type === "champ") {
+                      bgClass = "bg-yellow-100 border-l-4 border-yellow-400";
+                    } else if (b.type === "entered_band") {
+                      bgClass = "bg-green-100 border-l-4 border-green-400";
+                    } else if (b.type === "left_band") {
+                      bgClass = "bg-red-100 border-l-4 border-red-400";
+                    } else if (b.type === "will_enter_band") {
+                      bgClass = "bg-striped-green border-l-4 border-green-400";
+                    }
+                    return (
+                      <li key={i} className={`rounded px-2 py-1 ${bgClass}`}>
+                        {b.text}
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>

@@ -83,7 +83,8 @@ function promotionBandTeamKeys(
   return out;
 }
 
-export type PromotionNewsBullet = { text: string };
+export type PromotionNewsBulletType = "champ" | "entered_band" | "left_band" | "will_enter_band" | "info";
+export type PromotionNewsBullet = { text: string; type: PromotionNewsBulletType };
 
 export type PromotionNewsBlock = {
   /** Snapshot times for the card header */
@@ -94,6 +95,76 @@ export type PromotionNewsBlock = {
   hasCompare: boolean;
 };
 
+/** Get team ID from team_url */
+function parseTeamIdFromUrl(url: string | null): number | null {
+  if (!url) return null;
+  const match = url.match(/\/team\/(\d+)/i);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+/**
+ * Calculate "to-be-promoted" team keys: teams that will enter the band when
+ * two green-band teams from the same league finish their finals.
+ */
+function toBePromotedTeamKeys(
+  rows: Row[],
+  bandSize: number,
+  finalsByLeague: Record<string, FinalsInfo> | null
+): Set<string> {
+  if (!finalsByLeague) return new Set();
+  
+  // First, identify green band teams (non-champ, first bandSize)
+  let greenLeft = bandSize;
+  const greenIndices: number[] = [];
+  for (let i = 0; i < rows.length; i++) {
+    if (rows[i].playoff_status === "Champ") continue;
+    if (greenLeft > 0) {
+      greenLeft--;
+      greenIndices.push(i);
+    }
+  }
+  
+  // Group green teams by league
+  const greenTeamsByLeague = new Map<number, number[]>();
+  for (const i of greenIndices) {
+    const leagueId = rows[i].league_id;
+    if (!greenTeamsByLeague.has(leagueId)) {
+      greenTeamsByLeague.set(leagueId, []);
+    }
+    greenTeamsByLeague.get(leagueId)!.push(i);
+  }
+  
+  // Count extra slots from leagues where both finalists are in green band
+  let extraSlots = 0;
+  for (const [leagueId, indices] of greenTeamsByLeague) {
+    if (indices.length < 2) continue;
+    const fi = finalsByLeague[String(leagueId)];
+    if (!fi || fi.leftTeamId == null || fi.rightTeamId == null) continue;
+    
+    const finalistIds = new Set([fi.leftTeamId, fi.rightTeamId]);
+    const greenFinalists = indices.filter(i => {
+      const teamId = parseTeamIdFromUrl(rows[i].team_url);
+      return teamId != null && finalistIds.has(teamId);
+    });
+    
+    if (greenFinalists.length === 2) {
+      extraSlots++;
+    }
+  }
+  
+  // Get the next N teams outside the band
+  const result = new Set<string>();
+  const greenIndexSet = new Set(greenIndices);
+  for (let i = 0; i < rows.length && extraSlots > 0; i++) {
+    if (rows[i].playoff_status === "Champ") continue;
+    if (greenIndexSet.has(i)) continue;
+    result.add(teamKey(rows[i].league_id, rows[i].conf, rows[i].team_name));
+    extraSlots--;
+  }
+  
+  return result;
+}
+
 function buildLeague3PromotionNews(
   currentRows: Row[],
   previousRows: Row[] | null,
@@ -102,7 +173,9 @@ function buildLeague3PromotionNews(
   numBotLeagues: number | null,
   previousNumBotLeagues: number | null,
   snapshotAt: string | null,
-  previousSnapshotAt: string | null
+  previousSnapshotAt: string | null,
+  currentFinalsByLeague: Record<string, FinalsInfo> | null,
+  previousFinalsByLeague: Record<string, FinalsInfo> | null
 ): PromotionNewsBlock {
   if (!previousRows?.length) {
     return {
@@ -133,11 +206,15 @@ function buildLeague3PromotionNews(
     if (r.playoff_status === "Champ") currChampKeys.add(teamKey(r.league_id, r.conf, r.team_name));
   }
 
+  // Track new champions (teams that just won)
+  const newChampKeys = new Set<string>();
   for (const k of currChampKeys) {
     if (!prevChampKeys.has(k)) {
+      newChampKeys.add(k);
       const r = currByKey.get(k)!;
       bullets.push({
         text: `${r.team_name} won the league championship (${r.league_name}).`,
+        type: "champ",
       });
     }
   }
@@ -146,6 +223,7 @@ function buildLeague3PromotionNews(
       const r = prevByKey.get(k)!;
       bullets.push({
         text: `${r.team_name} is no longer listed as playoff champion (${r.league_name}).`,
+        type: "info",
       });
     }
   }
@@ -157,6 +235,7 @@ function buildLeague3PromotionNews(
   ) {
     bullets.push({
       text: `Bot leagues: ${previousNumBotLeagues} → ${numBotLeagues} (promotion band size changed).`,
+      type: "info",
     });
   }
 
@@ -166,13 +245,26 @@ function buildLeague3PromotionNews(
   for (const k of currBand) {
     if (!prevBand.has(k)) {
       const r = currByKey.get(k)!;
-      bullets.push({ text: `${r.team_name} entered the promotion band.` });
+      bullets.push({ text: `${r.team_name} entered the promotion band.`, type: "entered_band" });
     }
   }
   for (const k of prevBand) {
     if (!currBand.has(k)) {
+      // Only count as "left" if they didn't become champion (champs don't leave, they graduate)
+      if (newChampKeys.has(k)) continue;
       const r = prevByKey.get(k)!;
-      bullets.push({ text: `${r.team_name} left the promotion band.` });
+      bullets.push({ text: `${r.team_name} left the promotion band.`, type: "left_band" });
+    }
+  }
+
+  // To-be-promoted band changes
+  const prevToBePromoted = toBePromotedTeamKeys(previousRows, previousBandSize, previousFinalsByLeague);
+  const currToBePromoted = toBePromotedTeamKeys(currentRows, currentBandSize, currentFinalsByLeague);
+
+  for (const k of currToBePromoted) {
+    if (!prevToBePromoted.has(k)) {
+      const r = currByKey.get(k)!;
+      bullets.push({ text: `${r.team_name} will enter the promotion band soon.`, type: "will_enter_band" });
     }
   }
 
@@ -364,6 +456,10 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
 
     let promotionNews: PromotionNewsBlock | null = null;
     if (tier === "league3") {
+      const currentFinals = (currentSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null;
+      const previousFinals = previousSnap 
+        ? (previousSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null 
+        : null;
       promotionNews = buildLeague3PromotionNews(
         currentRows,
         previousRowsFull,
@@ -372,7 +468,9 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
         numBotLeagues,
         previousSnap?.num_bot_leagues ?? null,
         currentSnap.created_at,
-        previousSnap?.created_at ?? null
+        previousSnap?.created_at ?? null,
+        currentFinals,
+        previousFinals
       );
     }
 

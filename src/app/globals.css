@@ -26,3 +26,14 @@ body {
   color: var(--color-text);
   background: #ffffff;
 }
+
+/* Striped green background for "to-be-promoted" band */
+.bg-striped-green {
+  background: repeating-linear-gradient(
+    45deg,
+    #f0fdf4,
+    #f0fdf4 8px,
+    #dcfce7 8px,
+    #dcfce7 16px
+  );
+}
