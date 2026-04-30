@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 71,
-    "fetched": "2026-04-28T05:25:42.459Z"
+    "fetched": "2026-04-30T05:25:09.078Z"
   },
   "matches": [
     {
@@ -154,10 +154,10 @@
       "start": "2026-04-27T17:30:00Z",
       "type": "nt.final",
       "awayTeamId": "1015",
-      "awayTeamName": "Israel",
+      "awayTeamName": "Israel U21",
       "awayScore": null,
       "homeTeamId": "1001",
-      "homeTeamName": "USA",
+      "homeTeamName": "United States U21",
       "homeScore": null
     }
   ]
