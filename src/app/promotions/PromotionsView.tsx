@@ -78,7 +78,6 @@ function isPlayoffOutStatus(s: PlayoffStatus): boolean {
 function hasPlayoffsStarted(entries: PromotionEntry[]): boolean {
   return entries.some(e => 
     e.playoff_status != null && 
-    e.playoff_status !== "" && 
     e.playoff_status !== "Not in playoff"
   );
 }
