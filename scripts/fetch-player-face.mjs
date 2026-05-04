@@ -28,6 +28,7 @@ import {
   prepareBbPage,
   BB_LOGIN_NAV_TIMEOUT_MS,
   launchBbBrowser,
+  getBuzzerbeaterCookieHeaderFromLogin,
 } from "./lib/bb-site-session.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -199,8 +200,27 @@ async function fetchFacesBatch(playerIds) {
             );
           }
           console.log("  [face] Session required (login redirect or no face); logging in once for batch...");
-          await loginToBB(page);
-          loggedIn = true;
+          // Try fast HTTP login first to get cookies, then set them on the Puppeteer page
+          try {
+            const cookieHeader = await getBuzzerbeaterCookieHeaderFromLogin();
+            if (cookieHeader) {
+              console.log("  [face] Got session cookies via HTTP login — setting on browser");
+              // Parse cookies and set them on the page
+              const cookiePairs = cookieHeader.split(";").map(s => s.trim()).filter(Boolean);
+              for (const pair of cookiePairs) {
+                const [name, ...valueParts] = pair.split("=");
+                const value = valueParts.join("=");
+                if (name && value) {
+                  await page.setCookie({ name: name.trim(), value: value.trim(), domain: "buzzerbeater.com" });
+                }
+              }
+              loggedIn = true;
+            }
+          } catch (httpErr) {
+            console.log("  [face] HTTP login failed, falling back to Puppeteer login:", httpErr.message);
+            await loginToBB(page);
+            loggedIn = true;
+          }
         }
 
         await page.goto(overviewUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });

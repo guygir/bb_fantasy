@@ -35,7 +35,8 @@ async function run() {
   const data = JSON.parse(readFileSync(schedulePath, "utf-8"));
   const matches = data.matches ?? [];
   const now = Date.now();
-  const pastMatches = matches.filter((m) => m.start && new Date(m.start).getTime() < now);
+  // Exclude scrimmages (nt.friendly) - they don't count for fantasy
+  const pastMatches = matches.filter((m) => m.start && new Date(m.start).getTime() < now && m.type !== "nt.friendly");
 
   if (pastMatches.length === 0) {
     console.log("No past matches in schedule.");

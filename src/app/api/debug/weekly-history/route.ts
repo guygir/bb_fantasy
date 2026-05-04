@@ -28,7 +28,7 @@ export async function GET(request: Request) {
 
   const [lastPlayedFP, scheduleRes, statsRes, rosterRes, subsRes] = await Promise.all([
     getLastPlayedMatchFP(season),
-    admin.from("fantasy_schedule").select("match_id, match_date, match_start").eq("season", season).not("match_date", "is", null).order("match_date", { ascending: true }),
+    admin.from("fantasy_schedule").select("match_id, match_date, match_start, match_type").eq("season", season).not("match_date", "is", null).neq("match_type", "nt.friendly").order("match_date", { ascending: true }),
     admin.from("fantasy_player_game_stats").select("player_id, match_id, name, fantasy_points").eq("season", season),
     admin.from("fantasy_user_rosters").select("player_ids, player_names, picked_at, pending_subs").eq("user_id", userId).eq("season", season).maybeSingle(),
     admin.from("fantasy_roster_substitutions").select("removed_player_ids, added_player_ids, created_at, effective_match_id").eq("user_id", userId).eq("season", season).order("created_at", { ascending: true }),

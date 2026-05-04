@@ -74,6 +74,15 @@ function isPlayoffOutStatus(s: PlayoffStatus): boolean {
   );
 }
 
+/** Check if playoffs have started (any team has a meaningful playoff status) */
+function hasPlayoffsStarted(entries: PromotionEntry[]): boolean {
+  return entries.some(e => 
+    e.playoff_status != null && 
+    e.playoff_status !== "" && 
+    e.playoff_status !== "Not in playoff"
+  );
+}
+
 /** Get team ID from team_url like "https://buzzerbeater.com/team/38135/overview.aspx" */
 function parseTeamIdFromUrl(url: string | null): number | null {
   if (!url) return null;
@@ -205,6 +214,7 @@ export function PromotionsView({
   const nextScheduledAt = formatSnapshot(getNextPromotionsScheduledRunUtc().toISOString());
   const band = promotionBandSize;
   const styledRows = entries.length > 0 ? buildRowStyles(entries, band, finalsByLeague) : [];
+  const showPlayoffColumn = hasPlayoffsStarted(entries);
 
   return (
     <div className="text-sm text-gray-600">
@@ -248,9 +258,25 @@ export function PromotionsView({
           )}
           {tierId === "league2" && (
             <p className="mt-3 text-gray-500">
-              Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span> · First{" "}
-              <span className="font-medium text-bb-text">{band}</span> non-champion rows (green) are the promotion
-              band; champions (yellow) skip the green count.
+              Leagues covered: <span className="font-medium text-bb-text">{tier.leagueIdRange}</span>. League I has 5
+              demotion slots, so <strong className="text-bb-text">5</strong> promotion slots from League II.
+              Promotion band size = <strong className="text-bb-text">{band}</strong> rows. Rows are highlighted{" "}
+              <strong className="text-bb-text">green</strong> in rank order until that many non-champion slots are
+              filled; when two green-band teams from the same league face each other in the finals, one will become
+              champion (freeing a slot), so the next team in line is shown in{" "}
+              <strong className="text-bb-text">striped green</strong> (to-be-promoted);{" "}
+              <strong className="text-bb-text">Champ</strong> uses yellow and does not consume a green slot;{" "}
+              <strong className="text-bb-text">In Quarters</strong> / <strong className="text-bb-text">In Semis</strong> /{" "}
+              <strong className="text-bb-text">In Finals</strong> / <strong className="text-bb-text">Champ</strong> /{" "}
+              <span className="text-red-600" aria-hidden>
+                ❌
+              </span>{" "}
+              <strong className="text-bb-text">Lost Quarters</strong> / <strong className="text-bb-text">Lost Semis</strong> /{" "}
+              <strong className="text-bb-text">Lost Finals</strong> / <strong className="text-bb-text">Not in playoff</strong>{" "}
+              <span className="text-red-600" aria-hidden>
+                ❌
+              </span>{" "}
+              describe the playoff bracket (see Playoff column).
             </p>
           )}
           {tierId === "league3" && numBotLeagues == null && (
@@ -264,7 +290,7 @@ export function PromotionsView({
           )}
         </div>
 
-        {tierId === "league3" && promotionNews && (
+        {(tierId === "league3" || tierId === "league2") && promotionNews && (
           <aside className="w-full shrink-0 lg:max-w-sm lg:pt-0">
             <div className="rounded-lg border border-bb-border bg-card-bg px-4 py-3 shadow-sm">
               <p className="mb-2 font-semibold text-bb-text">Snapshot news</p>
@@ -328,7 +354,7 @@ export function PromotionsView({
       {entries.length > 0 && (
         <>
           <p className="mb-4 text-gray-500">
-            {tierId === "league3" && promotionNews ? (
+            {(tierId === "league3" || tierId === "league2") && promotionNews ? (
               <>
                 Next scheduled update: {nextScheduledAt}
                 {" "}
@@ -362,7 +388,9 @@ export function PromotionsView({
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">L</th>
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">PD</th>
                   <th className="border border-bb-border px-3 py-2 text-left font-medium">Latest change</th>
-                  <th className="border border-bb-border px-3 py-2 text-left font-medium">Playoff</th>
+                  {showPlayoffColumn && (
+                    <th className="border border-bb-border px-3 py-2 text-left font-medium">Playoff</th>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -416,53 +444,55 @@ export function PromotionsView({
                       <td className="border border-bb-border px-3 py-2 text-left">
                         <LatestChangeCell change={row.latestRankChange} />
                       </td>
-                      <td className="border border-bb-border px-3 py-2 text-left font-medium text-bb-text">
-                        {isPlayoffOutStatus(row.playoff_status) ? (
-                          <>
-                            <span className="text-red-600" aria-hidden>
-                              ❌
-                            </span>{" "}
-                            {row.playoff_status}{" "}
-                            <span className="text-red-600" aria-hidden>
-                              ❌
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            {row.playoff_status}
-                            {row.playoff_status === "In Finals" && finalsByLeague && (() => {
-                              const fi = finalsByLeague[String(row.league_id)];
-                              if (!fi) return null;
-                              const teamId = parseTeamIdFromUrl(row.team_url);
-                              if (teamId == null) return null;
-                              const isLeft = teamId === fi.leftTeamId;
-                              const isRight = teamId === fi.rightTeamId;
-                              if (!isLeft && !isRight) return null;
-                              const myWins = isLeft ? fi.leftWins : fi.rightWins;
-                              const oppWins = isLeft ? fi.rightWins : fi.leftWins;
-                              
-                              let label: string;
-                              let colorClass: string;
-                              if (myWins > oppWins) {
-                                label = `Leading ${myWins}-${oppWins}`;
-                                colorClass = "text-green-600";
-                              } else if (myWins < oppWins) {
-                                label = `Trailing ${myWins}-${oppWins}`;
-                                colorClass = "text-red-600";
-                              } else {
-                                label = `Tied ${myWins}-${oppWins}`;
-                                colorClass = "text-gray-600";
-                              }
-                              
-                              return (
-                                <span className={`ml-1.5 text-sm font-medium ${colorClass}`} title="Finals series (best of 3)">
-                                  {label}
-                                </span>
-                              );
-                            })()}
-                          </>
-                        )}
-                      </td>
+                      {showPlayoffColumn && (
+                        <td className="border border-bb-border px-3 py-2 text-left font-medium text-bb-text">
+                          {isPlayoffOutStatus(row.playoff_status) ? (
+                            <>
+                              <span className="text-red-600" aria-hidden>
+                                ❌
+                              </span>{" "}
+                              {row.playoff_status}{" "}
+                              <span className="text-red-600" aria-hidden>
+                                ❌
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              {row.playoff_status}
+                              {row.playoff_status === "In Finals" && finalsByLeague && (() => {
+                                const fi = finalsByLeague[String(row.league_id)];
+                                if (!fi) return null;
+                                const teamId = parseTeamIdFromUrl(row.team_url);
+                                if (teamId == null) return null;
+                                const isLeft = teamId === fi.leftTeamId;
+                                const isRight = teamId === fi.rightTeamId;
+                                if (!isLeft && !isRight) return null;
+                                const myWins = isLeft ? fi.leftWins : fi.rightWins;
+                                const oppWins = isLeft ? fi.rightWins : fi.leftWins;
+                                
+                                let label: string;
+                                let colorClass: string;
+                                if (myWins > oppWins) {
+                                  label = `Leading ${myWins}-${oppWins}`;
+                                  colorClass = "text-green-600";
+                                } else if (myWins < oppWins) {
+                                  label = `Trailing ${myWins}-${oppWins}`;
+                                  colorClass = "text-red-600";
+                                } else {
+                                  label = `Tied ${myWins}-${oppWins}`;
+                                  colorClass = "text-gray-600";
+                                }
+                                
+                                return (
+                                  <span className={`ml-1.5 text-sm font-medium ${colorClass}`} title="Finals series (best of 3)">
+                                    {label}
+                                  </span>
+                                );
+                              })()}
+                            </>
+                          )}
+                        </td>
+                      )}
                     </tr>
                   );
                 })}

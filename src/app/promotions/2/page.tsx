@@ -21,6 +21,8 @@ export default async function PromotionsLeague2Page() {
     error,
     promotionBandSize,
     numBotLeagues,
+    promotionNews,
+    finalsByLeague,
   } = await getLatestPromotions("league2");
 
   return (
@@ -33,6 +35,8 @@ export default async function PromotionsLeague2Page() {
       error={error}
       promotionBandSize={promotionBandSize}
       numBotLeagues={numBotLeagues}
+      promotionNews={promotionNews}
+      finalsByLeague={finalsByLeague}
     />
   );
 }

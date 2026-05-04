@@ -99,9 +99,10 @@ export async function GET(
     getLastPlayedMatchFP(seasonNum),
     admin
       .from("fantasy_schedule")
-      .select("match_id, match_date, match_start")
+      .select("match_id, match_date, match_start, match_type")
       .eq("season", seasonNum)
       .not("match_date", "is", null)
+      .neq("match_type", "nt.friendly") // Exclude scrimmages from fantasy
       .order("match_date", { ascending: true }),
     admin
       .from("fantasy_user_rosters")
@@ -122,7 +123,7 @@ export async function GET(
       .order("created_at", { ascending: true }),
   ]);
 
-  const fullScheduleForStats = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  const fullScheduleForStats = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null; match_type?: string | null }[];
   console.log("[weekly-history] fullSchedule from DB:", fullScheduleForStats.length, "rows, match_ids:", fullScheduleForStats.map(r => r.match_id).join(","));
   const scheduleMatchIds = fullScheduleForStats.map((r) => String(r.match_id));
   let stats: { player_id: number; match_id: string; name: string | null; fantasy_points: number | null }[] = [];

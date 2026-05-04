@@ -182,13 +182,11 @@ async function run() {
   const html = await res.text();
 
   const scrapedPlayers = parseStatsTable(html);
-  if (scrapedPlayers.length === 0) {
-    console.error("No players parsed from stats page. Page structure may have changed.");
-    process.exit(1);
-  }
   console.log(`Parsed ${scrapedPlayers.length} players from stats page`);
 
   const scrapedById = new Map(scrapedPlayers.map((p) => [p.playerId, p]));
+  
+  // Try to fetch from roster page (requires BB_PASSWORD or BB_SITE_COOKIES)
   if (PASSWORD || SITE_COOKIE_HEADER) {
     console.log("Fetching full roster from players.aspx...");
     const rosterPlayers = await fetchRosterWithLogin();
@@ -224,6 +222,13 @@ async function run() {
     }
   } else {
     console.log("BB_PASSWORD not set - skipping roster page (players.aspx). Stats page only shows players who have played.");
+  }
+
+  // Exit if no players found from either source
+  if (scrapedById.size === 0) {
+    console.error("No players found from stats page or roster page.");
+    console.error("If season just started (no games played), set BB_PASSWORD to fetch from roster page.");
+    process.exit(1);
   }
 
   const statsPath = join(dataDir, `season${SEASON}_stats.json`);

@@ -22,12 +22,13 @@ export async function getSubWindow(season: number, userId?: string): Promise<Sub
   const supabase = getSupabase();
   const { data } = await supabase
     .from("fantasy_schedule")
-    .select("match_id, match_start")
+    .select("match_id, match_start, match_type")
     .eq("season", season)
     .not("match_start", "is", null)
+    .neq("match_type", "nt.friendly") // Exclude scrimmages from fantasy
     .order("match_start", { ascending: true });
 
-  const matches = (data ?? []) as { match_id: string; match_start: string | null }[];
+  const matches = (data ?? []) as { match_id: string; match_start: string | null; match_type?: string | null }[];
   const withTime = matches
     .map((m) => ({ matchId: m.match_id, time: new Date(m.match_start!).getTime() }))
     .filter((m) => !isNaN(m.time))

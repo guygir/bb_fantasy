@@ -177,12 +177,43 @@ function buildLeague3PromotionNews(
   currentFinalsByLeague: Record<string, FinalsInfo> | null,
   previousFinalsByLeague: Record<string, FinalsInfo> | null
 ): PromotionNewsBlock {
-  if (!previousRows?.length) {
+  // No previous snapshot at all
+  if (previousRows === null) {
     return {
       snapshotAt,
       previousSnapshotAt,
       bullets: [],
       hasCompare: false,
+    };
+  }
+  
+  // Previous snapshot exists but is empty (e.g., season transition, scrape failure)
+  // Treat all current band entries as "entered_band"
+  if (previousRows.length === 0) {
+    const bullets: PromotionNewsBullet[] = [];
+    const currBand = promotionBandTeamKeys(currentRows, currentBandSize);
+    const currByKey = new Map<string, Row>();
+    for (const r of currentRows) {
+      currByKey.set(teamKey(r.league_id, r.conf, r.team_name), r);
+    }
+    for (const k of currBand) {
+      const r = currByKey.get(k)!;
+      bullets.push({ text: `${r.team_name} entered the promotion band.`, type: "entered_band" });
+    }
+    // Also report any champions
+    for (const r of currentRows) {
+      if (r.playoff_status === "Champ") {
+        bullets.push({
+          text: `${r.team_name} won the league championship (${r.league_name}).`,
+          type: "champ",
+        });
+      }
+    }
+    return {
+      snapshotAt,
+      previousSnapshotAt,
+      bullets,
+      hasCompare: true,
     };
   }
 
@@ -455,24 +486,23 @@ export async function getLatestPromotions(tier: PromotionTierId): Promise<{
     }
 
     let promotionNews: PromotionNewsBlock | null = null;
-    if (tier === "league3") {
-      const currentFinals = (currentSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null;
-      const previousFinals = previousSnap 
-        ? (previousSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null 
-        : null;
-      promotionNews = buildLeague3PromotionNews(
-        currentRows,
-        previousRowsFull,
-        promotionBandSize,
-        previousBandSize,
-        numBotLeagues,
-        previousSnap?.num_bot_leagues ?? null,
-        currentSnap.created_at,
-        previousSnap?.created_at ?? null,
-        currentFinals,
-        previousFinals
-      );
-    }
+    // Build promotion news for both league2 and league3
+    const currentFinals = (currentSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null;
+    const previousFinals = previousSnap 
+      ? (previousSnap.finals_by_league as Record<string, FinalsInfo> | null) ?? null 
+      : null;
+    promotionNews = buildLeague3PromotionNews(
+      currentRows,
+      previousRowsFull,
+      promotionBandSize,
+      previousBandSize,
+      numBotLeagues,
+      previousSnap?.num_bot_leagues ?? null,
+      currentSnap.created_at,
+      previousSnap?.created_at ?? null,
+      currentFinals,
+      previousFinals
+    );
 
     return {
       snapshotAt: currentSnap.created_at,

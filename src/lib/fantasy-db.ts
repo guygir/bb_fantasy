@@ -75,13 +75,14 @@ export async function getLastPlayedMatchFP(season: number): Promise<{
 
   const { data: scheduleRows, error: scheduleErr } = await supabase
     .from("fantasy_schedule")
-    .select("match_id, match_date, match_start")
+    .select("match_id, match_date, match_start, match_type")
     .eq("season", season)
     .not("match_date", "is", null)
+    .neq("match_type", "nt.friendly") // Exclude scrimmages from fantasy
     .order("match_date", { ascending: true })
     .range(0, 999);
 
-  const schedule = (scheduleRows ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  const schedule = (scheduleRows ?? []) as { match_id: string; match_date: string; match_start?: string | null; match_type?: string | null }[];
   console.log("[getLastPlayedMatchFP] DB returned:", schedule.length, "rows, match_ids:", schedule.map(r => r.match_id).join(","));
   if (scheduleErr) {
     console.log("[getLastPlayedMatchFP] scheduleErr:", scheduleErr.message);
@@ -401,7 +402,7 @@ export async function getUserStandings(season: number): Promise<
     supabase.from("fantasy_user_rosters").select("user_id, total_fantasy_points, nickname, player_ids, picked_at, pending_subs").eq("season", season),
     supabase.from("profiles").select("user_id, nickname, username"),
     getLastPlayedMatchFP(season),
-    supabase.from("fantasy_schedule").select("match_id, match_date, match_start").eq("season", season).not("match_date", "is", null).order("match_date", { ascending: true }).range(0, 999),
+    supabase.from("fantasy_schedule").select("match_id, match_date, match_start, match_type").eq("season", season).not("match_date", "is", null).neq("match_type", "nt.friendly").order("match_date", { ascending: true }).range(0, 999),
     supabase.from("fantasy_roster_substitutions").select("user_id, removed_player_ids, added_player_ids, created_at, effective_match_id").eq("season", season).order("created_at", { ascending: true }).range(0, 999),
   ]);
 
@@ -414,7 +415,7 @@ export async function getUserStandings(season: number): Promise<
   );
 
   const lastPlayedMatchId = lastPlayedFP.lastPlayedMatchId;
-  const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null }[];
+  const schedule = (scheduleRes.data ?? []) as { match_id: string; match_date: string; match_start?: string | null; match_type?: string | null }[];
   const scheduleMatchIds = schedule.map((r) => String(r.match_id));
   let stats: { player_id: number; match_id: string; fantasy_points: number | null }[] = [];
   try {

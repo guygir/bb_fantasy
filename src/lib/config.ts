@@ -11,12 +11,12 @@ export const config = {
   game: {
     cap: Number(process.env.FANTASY_CAP ?? 30),
     rosterSize: Number(process.env.ROSTER_SIZE ?? 5),
-    currentSeason: Number(process.env.NEXT_PUBLIC_CURRENT_SEASON ?? process.env.CURRENT_SEASON ?? 71),
+    currentSeason: Number(process.env.NEXT_PUBLIC_CURRENT_SEASON ?? process.env.CURRENT_SEASON ?? 72),
     israelU21TeamId: Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015),
   },
   u21dle: {
     minSeason: Number(process.env.U21DLE_MIN_SEASON ?? 60),
-    maxSeason: Number(process.env.U21DLE_MAX_SEASON ?? 70),
+    maxSeason: Number(process.env.U21DLE_MAX_SEASON ?? 71),
     maxGuesses: Number(process.env.U21DLE_MAX_GUESSES ?? 5),
   },
   /** GitHub repo for "Suggest a feature" (e.g. owner/repo) */

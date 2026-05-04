@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "season": 72,
+    "fetched": "2026-05-03T16:33:39.898Z",
+    "source": "BBAPI"
+  },
+  "details": {
+    "54721465": {
+      "position": "C",
+      "dmi": 478000,
+      "salary": 83963,
+      "gameShape": 7
+    },
+    "54721556": {
+      "position": "PG",
+      "dmi": 125900,
+      "salary": 23622,
+      "gameShape": 7
+    },
+    "54721618": {
+      "position": "SF",
+      "dmi": 82800,
+      "salary": 18108,
+      "gameShape": 7
+    },
+    "54721686": {
+      "position": "PG",
+      "dmi": 124000,
+      "salary": 23078,
+      "gameShape": 7
+    },
+    "54721805": {
+      "position": "C",
+      "dmi": 434500,
+      "salary": 71899,
+      "gameShape": 7
+    },
+    "54721812": {
+      "position": "PG",
+      "dmi": 92900,
+      "salary": 21749,
+      "gameShape": 7
+    },
+    "54721938": {
+      "position": "PG",
+      "dmi": 132700,
+      "salary": 28187,
+      "gameShape": 7
+    },
+    "54721949": {
+      "position": "C",
+      "dmi": 684600,
+      "salary": 110541,
+      "gameShape": 7
+    },
+    "54721995": {
+      "position": "C",
+      "dmi": 448800,
+      "salary": 85148,
+      "gameShape": 7
+    },
+    "54722033": {
+      "position": "SG",
+      "dmi": 133000,
+      "salary": 24968,
+      "gameShape": 7
+    },
+    "54722117": {
+      "position": "C",
+      "dmi": 454000,
+      "salary": 85368,
+      "gameShape": 7
+    },
+    "54722119": {
+      "position": "SG",
+      "dmi": 130400,
+      "salary": 28287,
+      "gameShape": 7
+    },
+    "55029696": {
+      "position": "C",
+      "dmi": 333600,
+      "salary": 61038,
+      "gameShape": 7
+    }
+  }
+}
