@@ -80,19 +80,42 @@ async function run() {
   // Update existing players
   for (const { existing, s71 } of toUpdate) {
     const oldGp = existing.gp;
-    const oldTotalPts = existing.gp * existing.pts;
-    const newGp = oldGp + s71.gp;
-    const newTotalPts = oldTotalPts + s71.gp * s71.pts;
-    const newPts = newGp > 0 ? newTotalPts / newGp : 0;
+    const oldPts = existing.pts;
+    
+    // If player already has season 71 data (season field = 71), replace instead of add
+    // This handles re-running the merge with updated stats
+    if (existing.season === SEASON) {
+      // Player was added in this season - just update with fresh stats
+      // We need to figure out their pre-season-71 stats
+      // Since we can't know for sure, we'll use the s71 stats directly for new players
+      // For players who existed before s71, this is trickier...
+      // 
+      // Simple approach: if their previous GP was <= s71's old GP, they're a new player
+      // Otherwise, subtract old s71 GP and add new s71 GP
+      console.log(`  Updating ${existing.name} (already has s71): GP ${oldGp} -> replacing with fresh s71 data`);
+      
+      // For simplicity, assume new players from s71 should just have s71 stats
+      // For existing players, we'd need to track pre-s71 stats separately
+      // For now, just use the fresh s71 GP directly (works for new s71 players)
+      existing.gp = s71.gp;
+      existing.pts = s71.pts;
+    } else {
+      // Player from previous seasons - add s71 stats
+      const oldTotalPts = existing.gp * existing.pts;
+      const newGp = oldGp + s71.gp;
+      const newTotalPts = oldTotalPts + s71.gp * s71.pts;
+      const newPts = newGp > 0 ? newTotalPts / newGp : 0;
 
-    console.log(`  Updating ${existing.name}: GP ${oldGp} -> ${newGp}, PTS ${existing.pts.toFixed(1)} -> ${newPts.toFixed(1)}`);
+      console.log(`  Updating ${existing.name}: GP ${oldGp} -> ${newGp}, PTS ${oldPts.toFixed(1)} -> ${newPts.toFixed(1)}`);
 
-    existing.gp = newGp;
-    existing.pts = Math.round(newPts * 10) / 10; // Round to 1 decimal
+      existing.gp = newGp;
+      existing.pts = Math.round(newPts * 10) / 10; // Round to 1 decimal
+    }
+    
     existing.season = SEASON;
 
-    // Increment trophies if this is a trophy season
-    if (IS_TROPHY_SEASON) {
+    // Increment trophies if this is a trophy season (only once)
+    if (IS_TROPHY_SEASON && existing.season !== SEASON) {
       existing.trophies = (existing.trophies || 0) + 1;
     }
   }

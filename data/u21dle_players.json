@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "buzzerbeater.com/country/1015/nt/stats.aspx?season=60-71",
-    "fetched": "2026-05-03T15:56:44.591Z",
+    "fetched": "2026-05-05T13:56:40.444Z",
     "seasons": [
       60,
       61,
@@ -19,15 +19,13 @@
     "trophySeasons": [
       62,
       68,
-      70,
-      71
+      70
     ],
     "trophyRule": "Count seasons in trophySeasons where the player played ≥1 non-scrimmage NT game (BBAPI schedule type !== nt.friendly) with minutes in boxscore; nt.friendly = SC. If schedule/boxscores unavailable for a trophy season, falls back to NT stats (≥1 GP that season).",
     "trophySeasonsCompetitiveResolved": [
       62,
       68,
-      70,
-      71
+      70
     ],
     "heightUnit": "cm"
   },
@@ -1789,7 +1787,7 @@
       "age": 22,
       "height": 193,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -1800,18 +1798,18 @@
       "age": 22,
       "height": 224,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54409712,
       "name": "Chen Manning",
-      "gp": 8,
-      "pts": 3.6,
+      "gp": 10,
+      "pts": 5,
       "age": 21,
       "height": 213,
       "potential": 10,
-      "trophies": 2,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1822,7 +1820,7 @@
       "age": 22,
       "height": 190,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -1850,12 +1848,12 @@
     {
       "playerId": 54409873,
       "name": "Moran Drukman",
-      "gp": 11,
-      "pts": 8.9,
+      "gp": 13,
+      "pts": 8.5,
       "age": 22,
       "height": 213,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -1866,18 +1864,18 @@
       "age": 22,
       "height": 196,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54409913,
       "name": "Gil Besserman",
-      "gp": 9,
-      "pts": 6.7,
+      "gp": 11,
+      "pts": 6.4,
       "age": 22,
       "height": 190,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -1899,18 +1897,18 @@
       "age": 22,
       "height": 211,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54410032,
       "name": "Nir Itshaki",
-      "gp": 23,
-      "pts": 13.1,
+      "gp": 25,
+      "pts": 14.2,
       "age": 21,
       "height": 218,
       "potential": 10,
-      "trophies": 2,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1927,12 +1925,12 @@
     {
       "playerId": 54410077,
       "name": "Shaked Tzalik",
-      "gp": 10,
-      "pts": 10.4,
+      "gp": 12,
+      "pts": 10.5,
       "age": 22,
       "height": 193,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -1943,7 +1941,7 @@
       "age": 22,
       "height": 188,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -1954,51 +1952,51 @@
       "age": 22,
       "height": 211,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54410203,
       "name": "Lahav Scheyer",
-      "gp": 11,
-      "pts": 9.9,
+      "gp": 13,
+      "pts": 9.8,
       "age": 22,
       "height": 185,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54410208,
       "name": "Zohar Teper",
-      "gp": 5,
-      "pts": 6,
+      "gp": 7,
+      "pts": 5.3,
       "age": 22,
       "height": 190,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54410269,
       "name": "Ronen Shaked",
-      "gp": 7,
-      "pts": 1.7,
+      "gp": 9,
+      "pts": 1.4,
       "age": 22,
       "height": 183,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54410317,
       "name": "Abbott Mufid",
-      "gp": 11,
-      "pts": 6,
+      "gp": 13,
+      "pts": 6.3,
       "age": 21,
       "height": 188,
       "potential": 8,
-      "trophies": 2,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -2009,7 +2007,7 @@
       "age": 22,
       "height": 196,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -2020,7 +2018,7 @@
       "age": 21,
       "height": 183,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -2031,7 +2029,7 @@
       "age": 22,
       "height": 216,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
@@ -2042,18 +2040,18 @@
       "age": 22,
       "height": 185,
       "potential": 7,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     },
     {
       "playerId": 54721949,
       "name": "Yechezkel Amrani",
-      "gp": 2,
-      "pts": 2.5,
+      "gp": 4,
+      "pts": 2.2,
       "age": 21,
       "height": 213,
       "potential": 9,
-      "trophies": 1,
+      "trophies": 0,
       "season": 71
     }
   ]
