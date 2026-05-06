@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "buzzerbeater.com/country/1015/nt/stats.aspx?season=60-71",
-    "fetched": "2026-05-05T13:56:40.444Z",
+    "fetched": "2026-05-06T08:19:56.534Z",
     "seasons": [
       60,
       61,
@@ -19,13 +19,15 @@
     "trophySeasons": [
       62,
       68,
-      70
+      70,
+      71
     ],
     "trophyRule": "Count seasons in trophySeasons where the player played ≥1 non-scrimmage NT game (BBAPI schedule type !== nt.friendly) with minutes in boxscore; nt.friendly = SC. If schedule/boxscores unavailable for a trophy season, falls back to NT stats (≥1 GP that season).",
     "trophySeasonsCompetitiveResolved": [
       62,
       68,
-      70
+      70,
+      71
     ],
     "heightUnit": "cm"
   },
@@ -1787,7 +1789,7 @@
       "age": 22,
       "height": 193,
       "potential": 10,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1798,7 +1800,7 @@
       "age": 22,
       "height": 224,
       "potential": 8,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1809,7 +1811,7 @@
       "age": 21,
       "height": 213,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 2,
       "season": 71
     },
     {
@@ -1820,7 +1822,7 @@
       "age": 22,
       "height": 190,
       "potential": 10,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1853,7 +1855,7 @@
       "age": 22,
       "height": 213,
       "potential": 10,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1864,7 +1866,7 @@
       "age": 22,
       "height": 196,
       "potential": 9,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1875,7 +1877,7 @@
       "age": 22,
       "height": 190,
       "potential": 9,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1897,7 +1899,7 @@
       "age": 22,
       "height": 211,
       "potential": 7,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1908,7 +1910,7 @@
       "age": 21,
       "height": 218,
       "potential": 10,
-      "trophies": 1,
+      "trophies": 2,
       "season": 71
     },
     {
@@ -1930,7 +1932,7 @@
       "age": 22,
       "height": 193,
       "potential": 10,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1941,7 +1943,7 @@
       "age": 22,
       "height": 188,
       "potential": 9,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1952,7 +1954,7 @@
       "age": 22,
       "height": 211,
       "potential": 8,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1963,7 +1965,7 @@
       "age": 22,
       "height": 185,
       "potential": 8,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1974,7 +1976,7 @@
       "age": 22,
       "height": 190,
       "potential": 10,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1985,7 +1987,7 @@
       "age": 22,
       "height": 183,
       "potential": 9,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -1996,7 +1998,7 @@
       "age": 21,
       "height": 188,
       "potential": 8,
-      "trophies": 1,
+      "trophies": 2,
       "season": 71
     },
     {
@@ -2007,7 +2009,7 @@
       "age": 22,
       "height": 196,
       "potential": 7,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -2018,7 +2020,7 @@
       "age": 21,
       "height": 183,
       "potential": 8,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -2029,7 +2031,7 @@
       "age": 22,
       "height": 216,
       "potential": 7,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -2040,7 +2042,7 @@
       "age": 22,
       "height": 185,
       "potential": 7,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     },
     {
@@ -2051,7 +2053,7 @@
       "age": 21,
       "height": 213,
       "potential": 9,
-      "trophies": 0,
+      "trophies": 1,
       "season": 71
     }
   ]
