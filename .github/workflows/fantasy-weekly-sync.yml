@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
     inputs:
       season:
-        description: "Season number (default 71)"
+        description: "Season number (default 72)"
         required: false
-        default: "71"
+        default: "72"
 
 jobs:
   sync:
@@ -44,18 +44,18 @@ jobs:
           BB_SITE_COOKIES: ${{ secrets.BB_SITE_COOKIES }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          CURRENT_SEASON: ${{ github.event.inputs.season || '71' }}
+          CURRENT_SEASON: ${{ github.event.inputs.season || '72' }}
         run: |
           # Must use the same binary setup-chrome installed (do not use command -v — can pick a different Chrome)
           export PUPPETEER_EXECUTABLE_PATH="${{ steps.setup-chrome.outputs.chrome-path }}"
           echo "PUPPETEER_EXECUTABLE_PATH=$PUPPETEER_EXECUTABLE_PATH"
           "$PUPPETEER_EXECUTABLE_PATH" --version || true
-          node scripts/fantasy-weekly-sync.mjs ${{ github.event.inputs.season || '71' }}
+          node scripts/fantasy-weekly-sync.mjs ${{ github.event.inputs.season || '72' }}
 
       - name: Commit and push player faces + schedule JSON
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/player-faces/
-          git add data/bbapi_schedule_s${{ github.event.inputs.season || '71' }}.json || true
+          git add data/bbapi_schedule_s${{ github.event.inputs.season || '72' }}.json || true
           git diff --staged --quiet || (git commit -m "chore: update player faces and schedule from sync" && git push)
