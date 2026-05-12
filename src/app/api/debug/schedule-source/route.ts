@@ -27,10 +27,16 @@ export async function GET() {
         .eq("season", s),
     ]);
     
+    // Also get total count without season filter
+    const { count: totalCount } = await supabase
+      .from("fantasy_matches")
+      .select("*", { count: "exact", head: true });
+
     results.supabase = {
       scheduleRows: scheduleRes.data?.length ?? 0,
       scheduleError: scheduleRes.error?.message ?? null,
       matchesRows: matchesRes.data?.length ?? 0,
+      matchesTotalCount: totalCount,
       matchesError: matchesRes.error?.message ?? null,
       matchSample: matchesRes.data?.slice(0, 3),
     };
@@ -41,11 +47,26 @@ export async function GET() {
   // Check env vars (existence only, not values)
   results.env = {
     hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+    supabaseUrlPrefix: process.env.NEXT_PUBLIC_SUPABASE_URL?.slice(0, 30),
     hasSupabaseAnon: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     hasSupabaseService: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    serviceKeyPrefix: process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0, 10),
     hasBbapiLogin: !!process.env.BBAPI_LOGIN,
     hasBbapiCode: !!process.env.BBAPI_CODE,
   };
+
+  // Also try with anon key to compare
+  try {
+    const { getSupabase } = await import("@/lib/supabase");
+    const anonClient = getSupabase();
+    const { data: anonMatches } = await anonClient
+      .from("fantasy_matches")
+      .select("match_id")
+      .eq("season", s);
+    results.anonMatches = anonMatches?.length ?? 0;
+  } catch (e) {
+    results.anonMatches = { error: String(e) };
+  }
 
   return NextResponse.json(results);
 }
