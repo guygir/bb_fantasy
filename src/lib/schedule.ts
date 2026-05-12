@@ -96,13 +96,13 @@ export async function getSchedule(season?: number): Promise<{
         supabase
           .from("fantasy_schedule")
           .select("match_id, match_start, home_team_id, away_team_id, home_team_name, away_team_name, match_type")
-          .eq("season", s)
+          .eq("season", Number(s))
           .not("match_date", "is", null)
           .order("match_date", { ascending: true }),
         supabase
           .from("fantasy_matches")
           .select("match_id, home_score, away_score")
-          .eq("season", s),
+          .eq("season", Number(s)),
       ]);
       // Check for query errors
       if (scheduleRes.error) {
