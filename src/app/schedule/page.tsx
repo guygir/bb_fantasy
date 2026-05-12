@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { unstable_noStore as noStore } from "next/cache";
 import { getSchedule } from "@/lib/schedule";
 import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
-
-const SEASON = config.game.currentSeason;
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -23,12 +24,14 @@ function formatType(type: string) {
 }
 
 export default async function SchedulePage() {
-  const { matches, meta, error } = await getSchedule(SEASON);
+  noStore();
+  const season = config.game.currentSeason;
+  const { matches, meta, error } = await getSchedule(season);
 
   if (error) {
     return (
       <div>
-        <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? SEASON})</h2>
+        <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? season})</h2>
         <p className="text-red-600">Failed to load: {error}</p>
         <p className="mt-2 text-sm text-gray-600">Check BBAPI credentials in .env (BBAPI_LOGIN, BBAPI_CODE)</p>
       </div>
@@ -37,7 +40,7 @@ export default async function SchedulePage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? SEASON})</h2>
+      <h2 className="mb-4 text-lg font-semibold">Schedule (Season {meta?.season ?? season})</h2>
       <p className="mb-4 text-sm text-gray-600">
         {meta.source === "bbapi"
           ? "Live from BBAPI"
