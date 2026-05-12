@@ -3,9 +3,31 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 72,
-    "fetched": "2026-05-03T16:31:07.679Z"
+    "fetched": "2026-05-12T09:58:50.673Z"
   },
   "matches": [
+    {
+      "id": "84462",
+      "start": "2026-06-15T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1019",
+      "awayTeamName": "Rossiya U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "84451",
+      "start": "2026-05-25T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1081",
+      "awayTeamName": "Cymru U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
     {
       "id": "84262",
       "start": "2026-05-04T08:00:00Z",
@@ -15,6 +37,61 @@
       "awayScore": null,
       "homeTeamId": "1017",
       "homeTeamName": "Australia U21",
+      "homeScore": null
+    },
+    {
+      "id": "84448",
+      "start": "2026-05-18T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1028",
+      "homeTeamName": "Schweiz U21",
+      "homeScore": null
+    },
+    {
+      "id": "84457",
+      "start": "2026-06-01T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1087",
+      "homeTeamName": "Hayastan U21",
+      "homeScore": null
+    },
+    {
+      "id": "84459",
+      "start": "2026-06-08T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1058",
+      "homeTeamName": "Polska U21",
+      "homeScore": null
+    },
+    {
+      "id": "84444",
+      "start": "2026-05-11T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1035",
+      "awayTeamName": "Bosna i Hercegovina U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "84467",
+      "start": "2026-06-22T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1077",
+      "awayTeamName": "Cyprus U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
       "homeScore": null
     }
   ]
