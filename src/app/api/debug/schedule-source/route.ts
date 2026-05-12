@@ -45,10 +45,20 @@ export async function GET() {
       .select("match_id")
       .eq("season", String(s));
 
-    // Try with full columns + Number(s)
-    const { data: matchesFull, error: fullErr } = await supabase
+    // Try individual columns
+    const { data: withHome } = await supabase
       .from("fantasy_matches")
-      .select("match_id, home_score, away_score")
+      .select("match_id, home_score")
+      .eq("season", Number(s));
+    
+    const { data: withAway } = await supabase
+      .from("fantasy_matches")
+      .select("match_id, away_score")
+      .eq("season", Number(s));
+    
+    const { data: withStar } = await supabase
+      .from("fantasy_matches")
+      .select("*")
       .eq("season", Number(s));
 
     results.supabase = {
@@ -57,11 +67,12 @@ export async function GET() {
       matchesRows: matchesRes.data?.length ?? 0,
       matchesWithNumber: matchesNum?.length ?? 0,
       matchesWithString: matchesStr?.length ?? 0,
-      matchesFullCols: matchesFull?.length ?? 0,
-      matchesFullColsErr: fullErr?.message ?? null,
+      withHomeScore: withHome?.length ?? 0,
+      withAwayScore: withAway?.length ?? 0,
+      withStar: withStar?.length ?? 0,
       matchesTotalCount: totalCount,
       matchesError: matchesRes.error?.message ?? null,
-      matchSample: matchesFull?.slice(0, 2),
+      matchSample: withStar?.slice(0, 2),
     };
   } catch (e) {
     results.supabase = { error: String(e) };
