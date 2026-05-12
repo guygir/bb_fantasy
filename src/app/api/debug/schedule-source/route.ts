@@ -45,15 +45,23 @@ export async function GET() {
       .select("match_id")
       .eq("season", String(s));
 
+    // Try with full columns + Number(s)
+    const { data: matchesFull, error: fullErr } = await supabase
+      .from("fantasy_matches")
+      .select("match_id, home_score, away_score")
+      .eq("season", Number(s));
+
     results.supabase = {
       scheduleRows: scheduleRes.data?.length ?? 0,
       scheduleError: scheduleRes.error?.message ?? null,
       matchesRows: matchesRes.data?.length ?? 0,
       matchesWithNumber: matchesNum?.length ?? 0,
       matchesWithString: matchesStr?.length ?? 0,
+      matchesFullCols: matchesFull?.length ?? 0,
+      matchesFullColsErr: fullErr?.message ?? null,
       matchesTotalCount: totalCount,
       matchesError: matchesRes.error?.message ?? null,
-      matchSample: matchesRes.data?.slice(0, 3),
+      matchSample: matchesFull?.slice(0, 2),
     };
   } catch (e) {
     results.supabase = { error: String(e) };
