@@ -8,6 +8,7 @@ export async function GET() {
   
   const results: Record<string, unknown> = {
     season: s,
+    seasonType: typeof s,
     timestamp: new Date().toISOString(),
   };
 
@@ -32,10 +33,24 @@ export async function GET() {
       .from("fantasy_matches")
       .select("*", { count: "exact", head: true });
 
+    // Try with explicit number
+    const { data: matchesNum } = await supabase
+      .from("fantasy_matches")
+      .select("match_id")
+      .eq("season", Number(s));
+    
+    // Try with string
+    const { data: matchesStr } = await supabase
+      .from("fantasy_matches")
+      .select("match_id")
+      .eq("season", String(s));
+
     results.supabase = {
       scheduleRows: scheduleRes.data?.length ?? 0,
       scheduleError: scheduleRes.error?.message ?? null,
       matchesRows: matchesRes.data?.length ?? 0,
+      matchesWithNumber: matchesNum?.length ?? 0,
+      matchesWithString: matchesStr?.length ?? 0,
       matchesTotalCount: totalCount,
       matchesError: matchesRes.error?.message ?? null,
       matchSample: matchesRes.data?.slice(0, 3),
