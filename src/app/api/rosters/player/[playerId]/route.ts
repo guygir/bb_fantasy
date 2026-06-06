@@ -10,20 +10,10 @@ import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
-const DEFAULT_SEASONS = [
-  config.u21dle.minSeason,
-  config.u21dle.minSeason + 1,
-  config.u21dle.minSeason + 2,
-  config.u21dle.minSeason + 3,
-  config.u21dle.minSeason + 4,
-  config.u21dle.minSeason + 5,
-  config.u21dle.minSeason + 6,
-  config.u21dle.minSeason + 7,
-  config.u21dle.minSeason + 8,
-  config.u21dle.minSeason + 9,
-  config.u21dle.maxSeason,
-  config.game.currentSeason,
-].filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b);
+const DEFAULT_SEASONS = Array.from(
+  { length: config.game.currentSeason - config.u21dle.minSeason + 1 },
+  (_, i) => config.u21dle.minSeason + i
+);
 
 export async function GET(
   request: Request,
