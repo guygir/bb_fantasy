@@ -3,15 +3,37 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 72,
-    "fetched": "2026-06-23T06:00:46.834Z"
+    "fetched": "2026-06-24T06:00:42.247Z"
   },
   "matches": [
+    {
+      "id": "85109",
+      "start": "2026-07-27T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1016",
+      "awayTeamName": "Nederland U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
     {
       "id": "84462",
       "start": "2026-06-15T18:00:00Z",
       "type": "nt.roundrobin",
       "awayTeamId": "1019",
       "awayTeamName": "Rossiya U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "85098",
+      "start": "2026-07-06T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1048",
+      "awayTeamName": "Magyarország U21",
       "awayScore": null,
       "homeTeamId": "1015",
       "homeTeamName": "Israel U21",
@@ -70,6 +92,39 @@
       "awayScore": null,
       "homeTeamId": "1058",
       "homeTeamName": "Polska U21",
+      "homeScore": null
+    },
+    {
+      "id": "85096",
+      "start": "2026-06-29T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1010",
+      "homeTeamName": "Italia U21",
+      "homeScore": null
+    },
+    {
+      "id": "85103",
+      "start": "2026-07-13T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1020",
+      "homeTeamName": "Lietuva U21",
+      "homeScore": null
+    },
+    {
+      "id": "85105",
+      "start": "2026-07-20T18:00:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1013",
+      "homeTeamName": "Belgium U21",
       "homeScore": null
     },
     {
