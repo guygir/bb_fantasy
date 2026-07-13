@@ -156,6 +156,13 @@ export function AuthNav() {
           Promotions L2
         </Link>
         <Link
+          href="/promotions/custom"
+          className="rounded-lg bg-btn-mint px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+          title="Choose country and league level"
+        >
+          Promotions Custom
+        </Link>
+        <Link
           href="/u21dle"
           className="rounded-lg bg-btn-lavender px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
         >

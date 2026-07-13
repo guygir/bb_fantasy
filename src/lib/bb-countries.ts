@@ -105,6 +105,7 @@ export const BB_COUNTRY_NAMES: Record<number, string> = {
 };
 
 export function getCountryName(countryId: number): string {
+  if (countryId === 99) return "Utopia";
   return BB_COUNTRY_NAMES[countryId] ?? `Country ${countryId}`;
 }
 
