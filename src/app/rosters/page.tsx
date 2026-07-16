@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { BB_COUNTRY_NAMES, getGameWeek, getSeasonStartDate } from "@/lib/bb-countries";
 import {
   getPlayerBbUrl,
@@ -358,7 +359,7 @@ function WeeklyMinutesChart({
   );
 }
 
-export function NationalTeamAnalyzer({
+function NationalTeamAnalyzer({
   level,
   showPlayerDetails,
 }: {
@@ -1043,5 +1044,8 @@ export function NationalTeamAnalyzer({
 }
 
 export default function RostersPage() {
-  return <NationalTeamAnalyzer level="u21" showPlayerDetails />;
+  const pathname = usePathname();
+  const level: NationalTeamLevel =
+    pathname === NATIONAL_TEAM_LEVELS.nt.analyzerPath ? "nt" : "u21";
+  return <NationalTeamAnalyzer level={level} showPlayerDetails={level === "u21"} />;
 }
