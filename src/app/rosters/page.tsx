@@ -1,7 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { BB_COUNTRY_NAMES, getGameWeek, getSeasonStartDate } from "@/lib/bb-countries";
+import {
+  getPlayerBbUrl,
+  NATIONAL_TEAM_LEVELS,
+  type NationalTeamLevel,
+} from "@/lib/bb-national-teams";
 
 interface RosterPlayer {
   playerId: number;
@@ -81,6 +87,16 @@ interface CountryOverview {
   players: PlayerOverviewData[];
 }
 
+type OverviewSortKey =
+  | "player"
+  | "gameShape"
+  | "dmi"
+  | "weekTotal"
+  | "seasonTotal"
+  | `position:${string}`;
+
+type SortDirection = "asc" | "desc";
+
 const ALL_COUNTRIES = Object.entries(BB_COUNTRY_NAMES)
   .map(([id, name]) => ({ id: Number(id), name }))
   .sort((a, b) => a.name.localeCompare(b.name));
@@ -109,6 +125,50 @@ function InjuryBadge({ label }: { label: string }) {
 
 function formatDmi(dmi: number | null): string {
   return dmi === null ? "—" : dmi.toLocaleString("en-US");
+}
+
+function nextSortDirection(
+  currentKey: OverviewSortKey,
+  currentDirection: SortDirection,
+  nextKey: OverviewSortKey
+): SortDirection {
+  if (currentKey === nextKey) return currentDirection === "asc" ? "desc" : "asc";
+  return nextKey === "player" ? "asc" : "desc";
+}
+
+function SortableHeader({
+  sortKey,
+  activeKey,
+  direction,
+  onSort,
+  className,
+  children,
+}: {
+  sortKey: OverviewSortKey;
+  activeKey: OverviewSortKey;
+  direction: SortDirection;
+  onSort: (key: OverviewSortKey) => void;
+  className?: string;
+  children: ReactNode;
+}) {
+  const active = sortKey === activeKey;
+  return (
+    <th
+      className={`border border-bb-border px-2 py-2 ${className ?? ""}`}
+      aria-sort={active ? (direction === "asc" ? "ascending" : "descending") : "none"}
+    >
+      <button
+        type="button"
+        onClick={() => onSort(sortKey)}
+        className="inline-flex w-full items-center justify-center gap-1 font-semibold hover:text-exact"
+      >
+        <span>{children}</span>
+        <span className={`text-[9px] ${active ? "text-exact" : "text-gray-300"}`} aria-hidden="true">
+          {active ? (direction === "asc" ? "▲" : "▼") : "↕"}
+        </span>
+      </button>
+    </th>
+  );
 }
 
 /** Explain why a counting game falls outside the season window */
@@ -299,7 +359,14 @@ function WeeklyMinutesChart({
   );
 }
 
-export default function RostersPage() {
+function NationalTeamAnalyzer({
+  level,
+  showPlayerDetails,
+}: {
+  level: NationalTeamLevel;
+  showPlayerDetails: boolean;
+}) {
+  const levelConfig = NATIONAL_TEAM_LEVELS[level];
   const [search, setSearch] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [countryId, setCountryId] = useState<number | null>(null);
@@ -313,6 +380,8 @@ export default function RostersPage() {
   const [overviewLoading, setOverviewLoading] = useState(false);
   const [overviewError, setOverviewError] = useState<string | null>(null);
   const [overview, setOverview] = useState<CountryOverview | null>(null);
+  const [sortKey, setSortKey] = useState<OverviewSortKey>("seasonTotal");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
 
   /** Fast injury map: playerId → injury label (e.g. "3-6" or "1"). Empty = healthy. */
   const [injuryMap, setInjuryMap] = useState<Record<number, string>>({});
@@ -328,6 +397,13 @@ export default function RostersPage() {
           c.name.toLowerCase().includes(search.trim().toLowerCase())
         ).slice(0, 8)
       : [];
+
+  function sortOverviewBy(key: OverviewSortKey) {
+    setSortDirection((currentDirection) =>
+      nextSortDirection(sortKey, currentDirection, key)
+    );
+    setSortKey(key);
+  }
 
   async function loadInjuries(id: number, playerList: RosterPlayer[]) {
     try {
@@ -374,7 +450,8 @@ export default function RostersPage() {
     setOverviewError(null);
     setInjuryMap({});
     try {
-      const res = await fetch(`/api/rosters/country/${id}`);
+      const params = new URLSearchParams({ level });
+      const res = await fetch(`/api/rosters/country/${id}?${params}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       setTeamName(data.teamName);
@@ -419,7 +496,7 @@ export default function RostersPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <h2 className="mb-6 text-xl font-bold">National Team Rosters</h2>
+      <h2 className="mb-6 text-xl font-bold">{levelConfig.label} Analyzer</h2>
 
       {/* Country search */}
       <div className="mb-6 relative max-w-xs">
@@ -448,7 +525,7 @@ export default function RostersPage() {
                   onMouseDown={() => selectCountry(id, name)}
                 >
                   <span className="font-medium">{name}</span>
-                  <span className="ml-2 text-xs text-gray-400">U21 National Team</span>
+                  <span className="ml-2 text-xs text-gray-400">{levelConfig.label}</span>
                 </button>
               </li>
             ))}
@@ -502,43 +579,108 @@ export default function RostersPage() {
             );
             // Map playerId → name
             const nameMap = Object.fromEntries(players.map((p) => [p.playerId, p.name]));
-            // Sort players by season total desc
-            const sorted = [...overview.players].sort((a, b) => b.seasonTotal - a.seasonTotal);
+            const compareNumbers = (a: number | null, b: number | null) =>
+              (a ?? Number.NEGATIVE_INFINITY) - (b ?? Number.NEGATIVE_INFINITY);
+            const sorted = [...overview.players].sort((a, b) => {
+              let result: number;
+              if (sortKey === "player") {
+                result = (nameMap[a.playerId] ?? "").localeCompare(nameMap[b.playerId] ?? "");
+              } else if (sortKey === "gameShape") {
+                result = compareNumbers(a.gameShape, b.gameShape);
+              } else if (sortKey === "dmi") {
+                result = compareNumbers(a.dmi, b.dmi);
+              } else if (sortKey === "weekTotal") {
+                result = a.weekTotal - b.weekTotal;
+              } else if (sortKey === "seasonTotal") {
+                result = a.seasonTotal - b.seasonTotal;
+              } else {
+                const position = sortKey.slice("position:".length);
+                result =
+                  (a.weekMinutesByPosition[position] ?? 0) -
+                  (b.weekMinutesByPosition[position] ?? 0);
+              }
+              if (result === 0) result = a.playerId - b.playerId;
+              return sortDirection === "asc" ? result : -result;
+            });
 
             return (
               <div className="mb-5 overflow-x-auto rounded-lg border border-bb-border">
                 <table className="w-full border-collapse text-xs">
                   <thead>
                     <tr className="bg-card-bg text-gray-600">
-                      <th className="border border-bb-border px-3 py-2 text-left sticky left-0 bg-card-bg z-10">Player</th>
-                      <th className="border border-bb-border px-3 py-2 text-left min-w-[110px]">
-                        <span className="block leading-none">Updated</span>
-                        <span className="text-[10px] text-gray-400">GS, DMI</span>
-                      </th>
+                      <SortableHeader
+                        sortKey="player"
+                        activeKey={sortKey}
+                        direction={sortDirection}
+                        onSort={sortOverviewBy}
+                        className="text-left sticky left-0 bg-card-bg z-10 min-w-[140px]"
+                      >
+                        Player
+                      </SortableHeader>
+                      <th className="border border-bb-border px-2 py-2 text-center">BB</th>
+                      <SortableHeader
+                        sortKey="gameShape"
+                        activeKey={sortKey}
+                        direction={sortDirection}
+                        onSort={sortOverviewBy}
+                        className="text-center"
+                      >
+                        GS
+                      </SortableHeader>
+                      <SortableHeader
+                        sortKey="dmi"
+                        activeKey={sortKey}
+                        direction={sortDirection}
+                        onSort={sortOverviewBy}
+                        className="text-center min-w-[82px]"
+                      >
+                        DMI
+                      </SortableHeader>
                       {allPositions.map((pos) => (
-                        <th key={pos} className="border border-bb-border px-2 py-2 text-center">
+                        <SortableHeader
+                          key={pos}
+                          sortKey={`position:${pos}`}
+                          activeKey={sortKey}
+                          direction={sortDirection}
+                          onSort={sortOverviewBy}
+                          className="text-center"
+                        >
                           <span className="block leading-none">{pos}</span>
                           {overview.currentWeek !== null && (
                             <span className="text-[10px] text-gray-400">W{overview.currentWeek}</span>
                           )}
-                        </th>
+                        </SortableHeader>
                       ))}
-                      <th className="border border-bb-border px-2 py-2 text-center text-gray-500">
+                      <SortableHeader
+                        sortKey="weekTotal"
+                        activeKey={sortKey}
+                        direction={sortDirection}
+                        onSort={sortOverviewBy}
+                        className="text-center text-gray-500"
+                      >
                         <span className="block leading-none">Week</span>
                         <span className="text-[10px]">total</span>
-                      </th>
-                      <th className="border border-bb-border px-2 py-2 text-center text-gray-500">
+                      </SortableHeader>
+                      <SortableHeader
+                        sortKey="seasonTotal"
+                        activeKey={sortKey}
+                        direction={sortDirection}
+                        onSort={sortOverviewBy}
+                        className="text-center text-gray-500"
+                      >
                         <span className="block leading-none">S{overview.currentSeason}</span>
                         <span className="text-[10px]">total</span>
-                      </th>
+                      </SortableHeader>
                     </tr>
                   </thead>
                   <tbody>
                     {sorted.map((pd) => (
                       <tr
                         key={pd.playerId}
-                        className={`cursor-pointer transition-colors hover:bg-card-bg ${selectedPlayer?.playerId === pd.playerId ? "bg-exact/5" : ""}`}
-                        onClick={() => loadPlayerStats({ playerId: pd.playerId, name: nameMap[pd.playerId] ?? String(pd.playerId) })}
+                        className={`${showPlayerDetails ? "cursor-pointer" : ""} transition-colors hover:bg-card-bg ${selectedPlayer?.playerId === pd.playerId ? "bg-exact/5" : ""}`}
+                        onClick={showPlayerDetails
+                          ? () => loadPlayerStats({ playerId: pd.playerId, name: nameMap[pd.playerId] ?? String(pd.playerId) })
+                          : undefined}
                       >
                         <td className={`border border-bb-border px-3 py-1.5 sticky left-0 bg-white font-medium ${selectedPlayer?.playerId === pd.playerId ? "text-exact" : "text-bb-text"}`}>
                           <span className="flex items-center gap-0">
@@ -546,13 +688,23 @@ export default function RostersPage() {
                             <InjuryBadge label={injuryMap[pd.playerId] ?? ""} />
                           </span>
                         </td>
-                        <td className="border border-bb-border px-3 py-1.5 text-left text-[11px] text-gray-600">
-                          <span className="block leading-tight">
-                            GS: <span className="font-semibold text-bb-text">{pd.gameShape ?? "—"}</span>
-                          </span>
-                          <span className="block leading-tight">
-                            DMI: <span className="font-semibold text-bb-text">{formatDmi(pd.dmi)}</span>
-                          </span>
+                        <td className="border border-bb-border px-2 py-1.5 text-center">
+                          <a
+                            href={getPlayerBbUrl(pd.playerId)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-exact hover:underline"
+                            aria-label={`View ${nameMap[pd.playerId] ?? pd.playerId} on BuzzerBeater`}
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            BB ↗
+                          </a>
+                        </td>
+                        <td className="border border-bb-border px-2 py-1.5 text-center font-semibold text-bb-text">
+                          {pd.gameShape ?? "—"}
+                        </td>
+                        <td className="border border-bb-border px-2 py-1.5 text-center text-[11px] font-semibold text-bb-text">
+                          {formatDmi(pd.dmi)}
                         </td>
                         {allPositions.map((pos) => {
                           const mins = pd.weekMinutesByPosition[pos] ?? 0;
@@ -581,7 +733,7 @@ export default function RostersPage() {
 
           {players.length === 0 ? (
             <p className="text-sm text-gray-500">No players found for this roster.</p>
-          ) : (
+          ) : showPlayerDetails ? (
             <div className="flex flex-wrap gap-2">
               {players.map((p) => {
                 const injury = injuryMap[p.playerId] ?? "";
@@ -603,12 +755,12 @@ export default function RostersPage() {
                 );
               })}
             </div>
-          )}
+          ) : null}
         </div>
       )}
 
       {/* Player stats panel */}
-      {selectedPlayer && (
+      {showPlayerDetails && selectedPlayer && (
         <div className="rounded-xl border border-bb-border bg-card-bg p-5">
           {statsLoading && (
             <div className="flex items-center gap-2 text-sm text-gray-500 py-6">
@@ -637,7 +789,7 @@ export default function RostersPage() {
                       </span>
                     )}
                     <a
-                      href={`https://buzzerbeater.com/player/${selectedPlayer.playerId}/overview.aspx`}
+                      href={getPlayerBbUrl(selectedPlayer.playerId)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-exact hover:underline"
@@ -889,4 +1041,11 @@ export default function RostersPage() {
       )}
     </div>
   );
+}
+
+export default function RostersPage() {
+  const pathname = usePathname();
+  const level: NationalTeamLevel =
+    pathname === NATIONAL_TEAM_LEVELS.nt.analyzerPath ? "nt" : "u21";
+  return <NationalTeamAnalyzer level={level} showPlayerDetails={level === "u21"} />;
 }

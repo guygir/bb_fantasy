@@ -7,6 +7,7 @@
  */
 
 import { getGameWeek, isCountingGame } from "./bb-countries";
+import { NATIONAL_TEAM_LEVELS, type NationalTeamLevel } from "./bb-national-teams";
 
 const BB_BASE = "https://buzzerbeater.com";
 const BB_UA =
@@ -158,14 +159,16 @@ export async function bbSiteLogin(): Promise<string> {
 }
 
 /**
- * Fetch the U21 national team roster for a given country (1–98).
+ * Fetch a national team roster for a given country (1–98).
  * Returns team name and player list.
  */
 export async function fetchCountryRoster(
   countryId: number,
-  cookieHeader: string
+  cookieHeader: string,
+  level: NationalTeamLevel = "u21"
 ): Promise<{ teamName: string; players: RosterPlayer[] }> {
-  const url = `${BB_BASE}/country/${countryId}/jnt/players.aspx`;
+  const levelConfig = NATIONAL_TEAM_LEVELS[level];
+  const url = `${BB_BASE}/country/${countryId}/${levelConfig.rosterPath}/players.aspx`;
   const res = await fetch(url, {
     headers: {
       "User-Agent": BB_UA,
@@ -183,7 +186,9 @@ export async function fetchCountryRoster(
 
   // Team name from <h1>
   const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/i);
-  const teamName = h1Match ? h1Match[1].replace(/&nbsp;/g, " ").trim() : `Country ${countryId} U21 National Team`;
+  const teamName = h1Match
+    ? h1Match[1].replace(/&nbsp;/g, " ").trim()
+    : `Country ${countryId} ${levelConfig.label}`;
 
   // Player links: href="../../../player/ID/overview.aspx" or href="/player/ID/overview.aspx"
   const seen = new Set<number>();

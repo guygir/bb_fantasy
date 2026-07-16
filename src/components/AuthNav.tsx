@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase-client";
+import { NATIONAL_TEAM_LEVELS } from "@/lib/bb-national-teams";
 
 function defaultNickname(userId: string): string {
   const hash = userId.replace(/-/g, "").slice(0, 12);
@@ -136,10 +137,16 @@ export function AuthNav() {
       </div>
       <div className="flex flex-row flex-wrap items-center justify-end gap-2">
         <Link
-          href="/rosters"
+          href={NATIONAL_TEAM_LEVELS.u21.analyzerPath}
           className="rounded-lg bg-btn-sky-pastel px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
         >
           U21 Analyzer
+        </Link>
+        <Link
+          href={NATIONAL_TEAM_LEVELS.nt.analyzerPath}
+          className="rounded-lg bg-btn-cream px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+        >
+          NT Analyzer
         </Link>
         <Link
           href="/promotions"
