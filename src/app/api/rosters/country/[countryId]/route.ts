@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { bbSiteLogin, fetchCountryRoster } from "@/lib/bb-scraper";
+import { parseNationalTeamLevel } from "@/lib/bb-national-teams";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ countryId: string }> }
 ) {
   const { countryId } = await params;
@@ -20,10 +21,16 @@ export async function GET(
     );
   }
 
+  const levelParam = new URL(request.url).searchParams.get("level");
+  const level = levelParam === null ? "u21" : parseNationalTeamLevel(levelParam);
+  if (!level) {
+    return NextResponse.json({ error: "level must be either u21 or nt" }, { status: 400 });
+  }
+
   try {
     const cookie = await bbSiteLogin();
-    const { teamName, players } = await fetchCountryRoster(id, cookie);
-    return NextResponse.json({ countryId: id, teamName, players });
+    const { teamName, players } = await fetchCountryRoster(id, cookie, level);
+    return NextResponse.json({ countryId: id, level, teamName, players });
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
     return NextResponse.json({ error: message }, { status: 500 });
