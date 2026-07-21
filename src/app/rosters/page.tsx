@@ -8,6 +8,7 @@ import {
   NATIONAL_TEAM_LEVELS,
   type NationalTeamLevel,
 } from "@/lib/bb-national-teams";
+import { config } from "@/lib/config";
 
 interface RosterPlayer {
   playerId: number;
@@ -483,7 +484,8 @@ function NationalTeamAnalyzer({
     setStatsError(null);
     setStatsLoading(true);
     try {
-      const res = await fetch(`/api/rosters/player/${player.playerId}`);
+      const params = new URLSearchParams({ level });
+      const res = await fetch(`/api/rosters/player/${player.playerId}?${params}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       setPlayerStats(data);
@@ -845,6 +847,12 @@ function NationalTeamAnalyzer({
                     ...Object.values(playerStats.aggregations.minutesBySeasonPosition[season] ?? {}),
                     0
                   );
+                  const currentAge = playerStats.playerInfo?.age;
+                  const currentSeason = overview?.currentSeason ?? config.game.currentSeason;
+                  const ageAtSeason =
+                    level === "nt" && currentAge != null
+                      ? currentAge - (currentSeason - season)
+                      : null;
 
                   return (
                     <div key={season} className="mb-8 border-t border-bb-border pt-5">
@@ -853,6 +861,7 @@ function NationalTeamAnalyzer({
                         <span className="ml-2 text-sm font-normal text-gray-500">
                           {countingGames.length} counting game{countingGames.length !== 1 ? "s" : ""}
                           {" / "}{games.length} total
+                          {ageAtSeason != null ? ` · Age: ${ageAtSeason}` : ""}
                         </span>
                       </h4>
 
@@ -1047,5 +1056,5 @@ export default function RostersPage() {
   const pathname = usePathname();
   const level: NationalTeamLevel =
     pathname === NATIONAL_TEAM_LEVELS.nt.analyzerPath ? "nt" : "u21";
-  return <NationalTeamAnalyzer level={level} showPlayerDetails={level === "u21"} />;
+  return <NationalTeamAnalyzer level={level} showPlayerDetails />;
 }
