@@ -1,16 +1,18 @@
 import { NextResponse } from "next/server";
 import {
   bbSiteLogin,
+  fetchPlayerAvailableSeasons,
   fetchPlayerGameLog,
   fetchPlayerInfoFromBBAPI,
   aggregateGameLogs,
   type SeasonGameLog,
 } from "@/lib/bb-scraper";
+import { parseNationalTeamLevel } from "@/lib/bb-national-teams";
 import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
-const DEFAULT_SEASONS = Array.from(
+const DEFAULT_U21_SEASONS = Array.from(
   { length: config.game.currentSeason - config.u21dle.minSeason + 1 },
   (_, i) => config.u21dle.minSeason + i
 );
@@ -33,14 +35,21 @@ export async function GET(
   }
 
   // Allow caller to specify seasons via ?seasons=67,68,69
+  // For NT, when seasons are omitted, use the player's BB season dropdown (no U21dle min floor).
   const { searchParams } = new URL(request.url);
   const seasonsParam = searchParams.get("seasons");
-  const seasons: number[] = seasonsParam
+  const levelParam = searchParams.get("level");
+  const level = levelParam === null ? "u21" : parseNationalTeamLevel(levelParam);
+  if (levelParam !== null && !level) {
+    return NextResponse.json({ error: "level must be either u21 or nt" }, { status: 400 });
+  }
+
+  let seasons: number[] | null = seasonsParam
     ? seasonsParam
         .split(",")
         .map((s) => parseInt(s.trim(), 10))
         .filter((n) => !isNaN(n) && n > 0)
-    : DEFAULT_SEASONS;
+    : null;
 
   try {
     // Fetch BBAPI player info and BB site login in parallel
@@ -48,6 +57,15 @@ export async function GET(
       bbSiteLogin(),
       fetchPlayerInfoFromBBAPI(id),
     ]);
+
+    if (!seasons) {
+      if (level === "nt") {
+        seasons = await fetchPlayerAvailableSeasons(id, cookie);
+        if (seasons.length === 0) seasons = DEFAULT_U21_SEASONS;
+      } else {
+        seasons = DEFAULT_U21_SEASONS;
+      }
+    }
 
     const seasonLogs: SeasonGameLog[] = [];
     let injuryDays = "";

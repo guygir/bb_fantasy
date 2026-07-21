@@ -353,6 +353,42 @@ export interface GameLogResult {
   sitePlayerInfo: PlayerInfo | null;
 }
 
+/** Parse available season numbers from the player overview season dropdown. */
+export function parseAvailableSeasonsFromHtml(html: string): number[] {
+  const seasons = new Set<number>();
+  const optionRe = /<option[^>]*value=["'](\d+)["'][^>]*>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = optionRe.exec(html)) !== null) {
+    const season = parseInt(match[1], 10);
+    if (!isNaN(season) && season > 0) seasons.add(season);
+  }
+  return [...seasons].sort((a, b) => a - b);
+}
+
+/**
+ * Fetch the season numbers available for a player from their BB overview page.
+ */
+export async function fetchPlayerAvailableSeasons(
+  playerId: number,
+  cookieHeader: string
+): Promise<number[]> {
+  const overviewUrl = `${BB_BASE}/player/${playerId}/overview.aspx`;
+  const res = await fetch(overviewUrl, {
+    headers: {
+      "User-Agent": BB_UA,
+      Accept: "text/html,*/*;q=0.9",
+      Cookie: cookieHeader,
+    },
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Failed to fetch player overview: HTTP ${res.status}`);
+  const html = await res.text();
+  if (/login\.css|<title>\s*Login\s*</i.test(html)) {
+    throw new Error("Player overview returned login wall — session may have expired");
+  }
+  return parseAvailableSeasonsFromHtml(html);
+}
+
 /**
  * Fetch a player's game log for a specific season using ASP.NET postback.
  * Also returns injury days parsed from the page HTML (no extra request needed).
