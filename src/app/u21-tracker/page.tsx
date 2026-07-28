@@ -14,6 +14,26 @@ interface MetaResponse {
   weeks: number[];
   countries: CountryMeta[];
   updatedAt?: string;
+  changesToday?: RosterEvent[];
+  changesThisWeek?: RosterEvent[];
+}
+
+const HIDDEN_COUNTRIES_KEY = "u21-tracker-hidden-change-countries";
+
+function readHiddenCountries(): Set<number> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const raw = localStorage.getItem(HIDDEN_COUNTRIES_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw) as number[];
+    return new Set(arr.filter((n) => Number.isFinite(n)));
+  } catch {
+    return new Set();
+  }
+}
+
+function writeHiddenCountries(ids: Set<number>) {
+  localStorage.setItem(HIDDEN_COUNTRIES_KEY, JSON.stringify([...ids]));
 }
 
 interface PlayerPoint {
@@ -43,6 +63,7 @@ interface RosterEvent {
   name: string;
   type: "joined" | "left" | "returned";
   weeksAway?: number;
+  countryName?: string;
 }
 
 interface CountryResponse {
@@ -189,6 +210,11 @@ export default function U21TrackerPage() {
   const [countryLoading, setCountryLoading] = useState(false);
   const [countryError, setCountryError] = useState<string | null>(null);
   const [hiddenPlayers, setHiddenPlayers] = useState<Set<number>>(new Set());
+  const [hiddenChangeCountries, setHiddenChangeCountries] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    setHiddenChangeCountries(readHiddenCountries());
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -209,6 +235,20 @@ export default function U21TrackerPage() {
       cancelled = true;
     };
   }, [season]);
+
+  function hideChangeCountry(countryId: number) {
+    setHiddenChangeCountries((prev) => {
+      const next = new Set(prev);
+      next.add(countryId);
+      writeHiddenCountries(next);
+      return next;
+    });
+  }
+
+  function clearHiddenChangeCountries() {
+    setHiddenChangeCountries(new Set());
+    writeHiddenCountries(new Set());
+  }
 
   useEffect(() => {
     if (selectedCountryId == null) return;
@@ -385,8 +425,14 @@ export default function U21TrackerPage() {
         </aside>
 
         <section className="rounded-xl border border-bb-border bg-white p-4">
-          {!selectedCountryId && (
-            <p className="text-sm text-gray-500">Select a country to view the DMI chart.</p>
+          {!selectedCountryId && meta && (
+            <AggregatedChangesView
+              changesToday={meta.changesToday ?? []}
+              changesThisWeek={meta.changesThisWeek ?? []}
+              hiddenCountries={hiddenChangeCountries}
+              onHideCountry={hideChangeCountry}
+              onClearHidden={clearHiddenChangeCountries}
+            />
           )}
           {countryLoading && (
             <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -489,6 +535,132 @@ export default function U21TrackerPage() {
           )}
         </section>
       </div>
+    </div>
+  );
+}
+
+function AggregatedChangesView({
+  changesToday,
+  changesThisWeek,
+  hiddenCountries,
+  onHideCountry,
+  onClearHidden,
+}: {
+  changesToday: RosterEvent[];
+  changesThisWeek: RosterEvent[];
+  hiddenCountries: Set<number>;
+  onHideCountry: (countryId: number) => void;
+  onClearHidden: () => void;
+}) {
+  const todayRows = changesToday.filter((e) => !hiddenCountries.has(e.countryId));
+  const weekRows = changesThisWeek.filter((e) => !hiddenCountries.has(e.countryId));
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-end justify-between gap-2">
+        <div>
+          <h3 className="text-lg font-semibold text-bb-text">All countries — roster changes</h3>
+          <p className="text-sm text-gray-500">
+            Select a country on the left for the DMI chart. Use × to hide a country from these lists.
+          </p>
+        </div>
+        {hiddenCountries.size > 0 && (
+          <button
+            type="button"
+            onClick={onClearHidden}
+            className="rounded-lg border border-bb-border px-3 py-1.5 text-xs font-medium hover:bg-card-bg"
+          >
+            Show {hiddenCountries.size} hidden {hiddenCountries.size === 1 ? "country" : "countries"}
+          </button>
+        )}
+      </div>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <AggregatedChangesTable
+          title="Changes today"
+          rows={todayRows}
+          showCountry
+          onHideCountry={onHideCountry}
+        />
+        <AggregatedChangesTable
+          title="Changes this week"
+          rows={weekRows}
+          showCountry
+          onHideCountry={onHideCountry}
+        />
+      </div>
+    </div>
+  );
+}
+
+function AggregatedChangesTable({
+  title,
+  rows,
+  showCountry,
+  onHideCountry,
+}: {
+  title: string;
+  rows: RosterEvent[];
+  showCountry?: boolean;
+  onHideCountry?: (countryId: number) => void;
+}) {
+  const sorted = [...rows].sort((a, b) => b.ts.localeCompare(a.ts));
+  return (
+    <div className="overflow-hidden rounded-lg border border-bb-border">
+      <div className="border-b border-bb-border bg-card-bg px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-600">
+        {title}
+      </div>
+      {sorted.length === 0 ? (
+        <p className="px-3 py-4 text-xs text-gray-400">No changes</p>
+      ) : (
+        <div className="max-h-[55vh] overflow-auto">
+          <table className="w-full border-collapse text-xs">
+            <thead>
+              <tr className="bg-white text-left text-gray-600">
+                <th className="border-b border-bb-border px-2 py-2 font-semibold">Player</th>
+                {showCountry && (
+                  <th className="border-b border-bb-border px-2 py-2 font-semibold">Country</th>
+                )}
+                <th className="border-b border-bb-border px-2 py-2 font-semibold">Change</th>
+                <th className="border-b border-bb-border px-2 py-2 font-semibold">Date</th>
+                {onHideCountry && <th className="border-b border-bb-border px-2 py-2 w-8" />}
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map((ev) => (
+                <tr key={`${ev.ts}-${ev.playerId}-${ev.type}-${ev.countryId}`}>
+                  <td className="border-b border-bb-border px-2 py-1.5 font-medium text-bb-text">
+                    {ev.name}
+                  </td>
+                  {showCountry && (
+                    <td className="border-b border-bb-border px-2 py-1.5 text-gray-600">
+                      {ev.countryName || `Country ${ev.countryId}`}
+                    </td>
+                  )}
+                  <td className="border-b border-bb-border px-2 py-1.5 text-gray-600">
+                    {formatEventType(ev)}
+                  </td>
+                  <td className="border-b border-bb-border px-2 py-1.5 text-gray-500">
+                    {ev.date}
+                    <span className="text-gray-400"> · W{ev.week}</span>
+                  </td>
+                  {onHideCountry && (
+                    <td className="border-b border-bb-border px-1 py-1.5 text-right">
+                      <button
+                        type="button"
+                        title={`Hide ${ev.countryName || "country"} from this list`}
+                        onClick={() => onHideCountry(ev.countryId)}
+                        className="inline-flex h-6 w-6 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        ×
+                      </button>
+                    </td>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

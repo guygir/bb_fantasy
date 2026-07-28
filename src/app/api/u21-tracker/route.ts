@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { config } from "@/lib/config";
-import { loadCountrySeries, loadTrackerMeta } from "@/lib/u21-tracker";
+import { loadAllRosterChanges, loadCountrySeries } from "@/lib/u21-tracker";
 
 export const dynamic = "force-dynamic";
 
@@ -14,14 +14,14 @@ export async function GET(request: Request) {
   }
 
   if (countryIdParam == null) {
-    const meta = await loadTrackerMeta(season);
+    const { meta, changesToday, changesThisWeek } = await loadAllRosterChanges(season);
     if (!meta) {
       return NextResponse.json(
         { error: `No U21 tracker data for season ${season} yet` },
         { status: 404 }
       );
     }
-    return NextResponse.json(meta);
+    return NextResponse.json({ ...meta, changesToday, changesThisWeek });
   }
 
   const countryId = Number(countryIdParam);

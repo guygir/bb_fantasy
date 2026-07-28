@@ -1,4 +1,52 @@
 {
   "season": 72,
-  "events": []
+  "events": [
+    {
+      "ts": "2026-05-16T06:00:00.000Z",
+      "date": "2026-05-16",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 99900001,
+      "name": "Test Test",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-05-30T06:00:00.000Z",
+      "date": "2026-05-30",
+      "week": 5,
+      "countryId": 75,
+      "playerId": 99900001,
+      "name": "Test Test",
+      "type": "left"
+    },
+    {
+      "ts": "2026-06-20T06:00:00.000Z",
+      "date": "2026-06-20",
+      "week": 8,
+      "countryId": 75,
+      "playerId": 99900001,
+      "name": "Test Test",
+      "type": "returned",
+      "weeksAway": 3
+    },
+    {
+      "ts": "2026-07-04T06:00:00.000Z",
+      "date": "2026-07-04",
+      "week": 10,
+      "countryId": 75,
+      "playerId": 99900001,
+      "name": "Test Test",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-29T06:00:00.000Z",
+      "date": "2026-07-29",
+      "week": 13,
+      "countryId": 75,
+      "playerId": 99900001,
+      "name": "Test Test",
+      "type": "returned",
+      "weeksAway": 3
+    }
+  ]
 }
