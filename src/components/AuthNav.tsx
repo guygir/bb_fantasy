@@ -149,6 +149,12 @@ export function AuthNav() {
           NT Analyzer
         </Link>
         <Link
+          href="/u21-tracker"
+          className="rounded-lg bg-btn-mint px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
+        >
+          U21 Tracker
+        </Link>
+        <Link
           href="/promotions"
           className="rounded-lg bg-btn-mint px-4 py-2 text-sm font-bold text-bb-text hover:opacity-90 transition-opacity shadow-md"
           title="Israel League III"
