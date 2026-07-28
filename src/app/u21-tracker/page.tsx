@@ -155,15 +155,23 @@ function formatEventType(ev: RosterEvent): string {
   return ev.type;
 }
 
-/** Split DMI points into contiguous season-week segments (gaps break the line). */
-function contiguousSegments(points: PlayerPoint[]): PlayerPoint[][] {
+/**
+ * Split DMI points into segments only when the player is missing an intermediate
+ * chart week (a week that exists in the tracker). Sparse sampling (e.g. W0 + W13
+ * with nothing in between yet) must stay one continuous line.
+ */
+function contiguousSegments(points: PlayerPoint[], chartWeeks: number[]): PlayerPoint[][] {
   const sorted = [...points].filter((p) => p.dmi != null).sort((a, b) => a.week - b.week);
   if (!sorted.length) return [];
+  const present = new Set(sorted.map((p) => p.week));
   const segments: PlayerPoint[][] = [[sorted[0]]];
   for (let i = 1; i < sorted.length; i++) {
     const prev = sorted[i - 1];
     const cur = sorted[i];
-    if (cur.week > prev.week + 1) segments.push([cur]);
+    const missingMiddle = chartWeeks.some(
+      (w) => w > prev.week && w < cur.week && !present.has(w)
+    );
+    if (missingMiddle) segments.push([cur]);
     else segments[segments.length - 1].push(cur);
   }
   return segments;
@@ -784,7 +792,7 @@ function DmiChart({
           if (hiddenPlayers.has(player.playerId)) return null;
           const color = colorFor(player.colorIndex ?? 0);
           const dashed = player.teamKey === "compare";
-          const segments = contiguousSegments(player.points);
+          const segments = contiguousSegments(player.points, xWeeks);
           if (!segments.length) return null;
           const lastSeg = segments[segments.length - 1];
           const last = lastSeg[lastSeg.length - 1];
