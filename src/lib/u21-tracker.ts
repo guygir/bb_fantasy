@@ -65,6 +65,7 @@ export interface U21RosterEvent {
   name: string;
   type: U21RosterEventType;
   weeksAway?: number;
+  countryName?: string;
 }
 
 export interface U21RosterEventsFile {
@@ -186,6 +187,39 @@ function filterChanges(
   return {
     changesToday: forCountry.filter((e) => e.date === today),
     changesThisWeek: forCountry.filter((e) => (week == null ? false : e.week === week)),
+  };
+}
+
+function enrichEventsWithCountryNames(
+  events: U21RosterEvent[],
+  countries: { countryId: number; name: string }[]
+): U21RosterEvent[] {
+  const byId = new Map(countries.map((c) => [c.countryId, c.name]));
+  return events.map((e) => ({
+    ...e,
+    countryName: byId.get(e.countryId) || e.countryName || `Country ${e.countryId}`,
+  }));
+}
+
+/** Season-wide changes for the landing view (no country selected). */
+export async function loadAllRosterChanges(season: number): Promise<{
+  meta: U21TrackerMeta | null;
+  changesToday: U21RosterEvent[];
+  changesThisWeek: U21RosterEvent[];
+}> {
+  const [meta, eventsFile] = await Promise.all([
+    loadTrackerMeta(season),
+    loadRosterEvents(season),
+  ]);
+  const today = israelDateString();
+  const week = currentWeekForSeason(season);
+  const all = enrichEventsWithCountryNames(eventsFile?.events || [], meta?.countries || []);
+  return {
+    meta,
+    changesToday: all.filter((e) => e.date === today).sort((a, b) => b.ts.localeCompare(a.ts)),
+    changesThisWeek: all
+      .filter((e) => week != null && e.week === week)
+      .sort((a, b) => b.ts.localeCompare(a.ts)),
   };
 }
 

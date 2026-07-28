@@ -1,6 +1,6 @@
 {
   "season": 72,
-  "updatedAt": "2026-07-28T18:36:16.990Z",
+  "updatedAt": "2026-07-28T21:08:40.495Z",
   "players": {
     "54638257": {
       "name": "Rifki Toman",
@@ -10443,6 +10443,31 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "99900001": {
+      "name": "Test Test",
+      "countryId": 75,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": 5,
+          "fromDate": "2026-05-16",
+          "toDate": "2026-05-30"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": 10,
+          "fromDate": "2026-06-20",
+          "toDate": "2026-07-04"
+        },
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-29",
           "toDate": null
         }
       ]
