@@ -2,6 +2,7 @@
 /**
  * Scrape U21 Round Robin pool countries → roster → DMI + gameShape + salary.
  * Writes data/u21-tracker/s{season}/w{week}.json (+ updates meta.json).
+ * Also refreshes roster.json / players.json membership from the week snapshot.
  *
  * Usage:
  *   node scripts/scrape-u21-tracker.mjs
@@ -12,26 +13,31 @@
  */
 
 import { mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 import { getBuzzerbeaterCookieHeaderFromLogin } from "./lib/bb-site-session.mjs";
+import {
+  STANDINGS_URL,
+  BB_BASE,
+  getSeason,
+  currentWeekForSeason,
+  israelDateString,
+  parsePoolsFromStandings,
+  parseRosterPage,
+  looksLikeLoginWall,
+  fetchText,
+  sleep,
+  trackerDir,
+  syncRosterFromWeekPayload,
+} from "./lib/u21-tracker-shared.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
-const STANDINGS_URL = "https://buzzerbeater.com/world/standings.aspx?teamid=1015";
-const BB_BASE = "https://buzzerbeater.com";
 const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
-const UA =
-  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 const PASSWORD = process.env.BB_PASSWORD;
 const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
-const SEASON = Number(process.env.CURRENT_SEASON ?? process.env.NEXT_PUBLIC_CURRENT_SEASON ?? 72);
-const SEASON_72_START = Date.UTC(2026, 4, 2); // 2026-05-02
-const SEASON_DURATION_DAYS = 98;
+const SEASON = getSeason();
 
 function parseArgs(argv) {
   const out = { seedWeek0: false, week: null, maxCountries: null, countries: null };
@@ -50,72 +56,6 @@ function parseArgs(argv) {
   return out;
 }
 
-function getSeasonStartMs(season) {
-  return SEASON_72_START - (72 - season) * SEASON_DURATION_DAYS * 86400000;
-}
-
-function currentWeekForSeason(season, now = new Date()) {
-  const diffDays = Math.floor((now.getTime() - getSeasonStartMs(season)) / 86400000);
-  if (diffDays < 0 || diffDays >= SEASON_DURATION_DAYS) return null;
-  return Math.floor(diffDays / 7) + 1;
-}
-
-function parsePoolsFromStandings(html) {
-  const idx = html.search(/Round Robin Pools/i);
-  const chunk = idx >= 0 ? html.slice(idx) : html;
-  const countries = [];
-  const seenCountry = new Set();
-  const poolRe = /<b>\s*(Pool\s+[A-Z0-9]+)\s*<\/b>([\s\S]*?)(?=<b>\s*Pool\s+[A-Z0-9]+\s*<\/b>|$)/gi;
-  let poolMatch;
-  while ((poolMatch = poolRe.exec(chunk)) !== null) {
-    const pool = poolMatch[1].replace(/\s+/g, " ").trim();
-    // Only standing rows (ignore Recent Matches / cross-links).
-    const body = poolMatch[2].split(/Recent Matches/i)[0];
-    const rowRe =
-      /<tr[^>]*rptrStandings[^>]*trEntry[^>]*>[\s\S]*?<\/tr>/gi;
-    let rowMatch;
-    const rows = body.match(rowRe) || [];
-    const searchIn = rows.length ? rows.join("\n") : body;
-    const linkRe = /href=["']\/country\/(\d+)\/jnt\/overview\.aspx["'][^>]*>\s*([^<]+?)\s*<\/a>/gi;
-    let linkMatch;
-    while ((linkMatch = linkRe.exec(searchIn)) !== null) {
-      const countryId = Number(linkMatch[1]);
-      if (!countryId || seenCountry.has(countryId)) continue;
-      seenCountry.add(countryId);
-      const name = linkMatch[2]
-        .replace(/&nbsp;/g, " ")
-        .replace(/\s+U21\s*$/i, "")
-        .trim();
-      countries.push({ countryId, name, pool });
-    }
-  }
-  return countries;
-}
-
-function parseRosterPage(html) {
-  const seen = new Set();
-  const rows = [];
-  const linkRe = /href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)</gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    const playerId = Number(m[1]);
-    const name = (m[2] || "").replace(/&nbsp;/g, " ").trim() || `Player ${playerId}`;
-    if (!playerId || seen.has(playerId)) continue;
-    if (/season average|total/i.test(name)) continue;
-    seen.add(playerId);
-    rows.push({ playerId, name });
-  }
-  return rows;
-}
-
-function looksLikeLoginWall(html) {
-  return (
-    /login\.css/i.test(html) ||
-    /<title>\s*Login\s*</i.test(html) ||
-    (/cphContent_txtUserName/i.test(html) && /login\.aspx/i.test(html))
-  );
-}
-
 function parsePlayerXml(xml) {
   const dmiMatch = xml.match(/<dmi>(\d+)<\/dmi>/);
   const gameShapeMatch = xml.match(/<gameShape>(\d+)<\/gameShape>/);
@@ -130,19 +70,6 @@ function parsePlayerXml(xml) {
   };
 }
 
-async function sleep(ms) {
-  await new Promise((r) => setTimeout(r, ms));
-}
-
-async function fetchText(url, headers = {}) {
-  const res = await fetch(url, {
-    headers: { "User-Agent": UA, Accept: "text/html,*/*;q=0.9", ...headers },
-    redirect: "follow",
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return res.text();
-}
-
 async function batchMap(items, size, fn) {
   const out = [];
   for (let i = 0; i < items.length; i += size) {
@@ -152,10 +79,6 @@ async function batchMap(items, size, fn) {
     if (i + size < items.length) await sleep(120);
   }
   return out;
-}
-
-function trackerDir(season) {
-  return join(ROOT, "data", "u21-tracker", `s${season}`);
 }
 
 function writeWeekSnapshot(season, week, payload) {
@@ -212,7 +135,6 @@ function seedWeek0From(currentPayload) {
         ...p,
         dmi: p.dmi == null ? null : Math.max(0, Math.round(p.dmi * 0.75)),
         gameShape: p.gameShape == null ? null : Math.max(0, p.gameShape - 2),
-        // salary kept as current-week value for week-0 seed
       })),
     })),
   };
@@ -313,6 +235,14 @@ async function main() {
 
   const weekPath = writeWeekSnapshot(SEASON, week, payload);
   console.log(`Wrote ${weekPath}`);
+
+  // Keep roster membership aligned with this week's snapshot (no join/left events)
+  if (!args.maxCountries && !args.countries?.length) {
+    const { rosterPath } = syncRosterFromWeekPayload(SEASON, week, payload, {
+      date: israelDateString(),
+    });
+    console.log(`Synced roster membership → ${rosterPath}`);
+  }
 
   if (args.seedWeek0) {
     const week0 = seedWeek0From(payload);
