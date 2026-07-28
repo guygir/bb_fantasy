@@ -1,0 +1,59 @@
+name: U21 Tracker Weekly Scrape
+
+on:
+  schedule:
+    # Friday 13:30 Israel time (UTC+3) → 10:30 UTC
+    - cron: "30 10 * * 5"
+  workflow_dispatch:
+    inputs:
+      seed_week0:
+        description: "Also write synthetic week 0 (DMI -25%, GS -2)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Install Chrome (BB site login fallback)
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          install-dependencies: true
+
+      - name: Scrape U21 tracker snapshot
+        env:
+          BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
+          BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
+          BB_PASSWORD: ${{ secrets.BB_PASSWORD }}
+          BB_SITE_COOKIES: ${{ secrets.BB_SITE_COOKIES }}
+          CURRENT_SEASON: ${{ vars.CURRENT_SEASON || '72' }}
+          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: |
+          EXTRA=""
+          if [ "${{ github.event.inputs.seed_week0 }}" = "true" ]; then
+            EXTRA="--seed-week0"
+          fi
+          node scripts/scrape-u21-tracker.mjs $EXTRA
+
+      - name: Commit tracker JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/u21-tracker/
+          git diff --staged --quiet || (git commit -m "chore: update U21 tracker weekly snapshot" && git push)
