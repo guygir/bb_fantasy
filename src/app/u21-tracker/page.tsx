@@ -27,10 +27,22 @@ interface PlayerPoint {
 interface PlayerSeries {
   playerId: number;
   name: string;
+  active?: boolean;
   points: PlayerPoint[];
   teamKey?: string;
   teamName?: string;
   colorIndex?: number;
+}
+
+interface RosterEvent {
+  ts: string;
+  date: string;
+  week: number;
+  countryId: number;
+  playerId: number;
+  name: string;
+  type: "joined" | "left" | "returned";
+  weeksAway?: number;
 }
 
 interface CountryResponse {
@@ -38,6 +50,8 @@ interface CountryResponse {
   country: CountryMeta | null;
   weeks: number[];
   players: PlayerSeries[];
+  changesToday?: RosterEvent[];
+  changesThisWeek?: RosterEvent[];
 }
 
 type SortKey = "name" | "gameShape" | "dmi" | "salary";
@@ -52,9 +66,15 @@ function shortPlayerName(name: string): string {
   return `${parts[0][0]}. ${last}`.slice(0, 16);
 }
 
+function isActive(player: PlayerSeries): boolean {
+  return player.active !== false;
+}
+
 function topPlayerIdsByDmi(players: PlayerSeries[], n: number): Set<number> {
+  const pool = players.filter(isActive);
+  const source = pool.length ? pool : players;
   return new Set(
-    [...players]
+    [...source]
       .sort(
         (a, b) =>
           (latestPoint(b)?.dmi ?? Number.NEGATIVE_INFINITY) -
@@ -125,6 +145,28 @@ function formatDmiTick(value: number): string {
 function formatMoney(value: number | null): string {
   if (value == null) return "—";
   return `$${value.toLocaleString()}`;
+}
+
+function formatEventType(ev: RosterEvent): string {
+  if (ev.type === "returned") {
+    const n = ev.weeksAway ?? 1;
+    return `returned · ${n}w ago`;
+  }
+  return ev.type;
+}
+
+/** Split DMI points into contiguous season-week segments (gaps break the line). */
+function contiguousSegments(points: PlayerPoint[]): PlayerPoint[][] {
+  const sorted = [...points].filter((p) => p.dmi != null).sort((a, b) => a.week - b.week);
+  if (!sorted.length) return [];
+  const segments: PlayerPoint[][] = [[sorted[0]]];
+  for (let i = 1; i < sorted.length; i++) {
+    const prev = sorted[i - 1];
+    const cur = sorted[i];
+    if (cur.week > prev.week + 1) segments.push([cur]);
+    else segments[segments.length - 1].push(cur);
+  }
+  return segments;
 }
 
 export default function U21TrackerPage() {
@@ -211,7 +253,6 @@ export default function U21TrackerPage() {
     };
   }, [season, compareCountryId]);
 
-  // Default visible: top 3 by latest DMI per loaded team (resets when teams change)
   useEffect(() => {
     if (!primaryData?.players?.length) return;
     if (
@@ -400,11 +441,21 @@ export default function U21TrackerPage() {
                 </div>
               </div>
 
-              <DmiChart
-                weeks={chartWeeks}
-                players={chartPlayers}
-                hiddenPlayers={hiddenPlayers}
-              />
+              <div className="grid gap-3 lg:grid-cols-[1fr_220px]">
+                <DmiChart
+                  weeks={chartWeeks}
+                  players={chartPlayers}
+                  hiddenPlayers={hiddenPlayers}
+                />
+                <ChangesPanel
+                  primaryName={selectedCountry.name}
+                  compareName={compareCountry?.name ?? null}
+                  primaryToday={primaryData.changesToday ?? []}
+                  primaryWeek={primaryData.changesThisWeek ?? []}
+                  compareToday={compareData?.changesToday ?? []}
+                  compareWeek={compareData?.changesThisWeek ?? []}
+                />
+              </div>
 
               <div
                 className={`mt-4 grid gap-3 ${
@@ -434,6 +485,73 @@ export default function U21TrackerPage() {
   );
 }
 
+function ChangesPanel({
+  primaryName,
+  compareName,
+  primaryToday,
+  primaryWeek,
+  compareToday,
+  compareWeek,
+}: {
+  primaryName: string;
+  compareName: string | null;
+  primaryToday: RosterEvent[];
+  primaryWeek: RosterEvent[];
+  compareToday: RosterEvent[];
+  compareWeek: RosterEvent[];
+}) {
+  return (
+    <div className="space-y-3">
+      <ChangesTable
+        title="Changes today"
+        rows={[
+          ...primaryToday.map((e) => ({ ...e, team: primaryName })),
+          ...compareToday.map((e) => ({ ...e, team: compareName || "B" })),
+        ]}
+      />
+      <ChangesTable
+        title="Changes this week"
+        rows={[
+          ...primaryWeek.map((e) => ({ ...e, team: primaryName })),
+          ...compareWeek.map((e) => ({ ...e, team: compareName || "B" })),
+        ]}
+      />
+    </div>
+  );
+}
+
+function ChangesTable({
+  title,
+  rows,
+}: {
+  title: string;
+  rows: (RosterEvent & { team: string })[];
+}) {
+  const sorted = [...rows].sort((a, b) => b.ts.localeCompare(a.ts));
+  return (
+    <div className="overflow-hidden rounded-lg border border-bb-border">
+      <div className="border-b border-bb-border bg-card-bg px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-gray-600">
+        {title}
+      </div>
+      {sorted.length === 0 ? (
+        <p className="px-2.5 py-3 text-[11px] text-gray-400">No changes</p>
+      ) : (
+        <ul className="max-h-40 overflow-y-auto divide-y divide-bb-border text-[11px]">
+          {sorted.map((ev) => (
+            <li key={`${ev.ts}-${ev.playerId}-${ev.type}`} className="px-2.5 py-1.5">
+              <div className="font-medium text-bb-text">{ev.name}</div>
+              <div className="text-gray-500">
+                {formatEventType(ev)}
+                {ev.team ? ` · ${ev.team}` : ""} · {ev.date}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function PlayerTable({
   title,
   players,
@@ -457,6 +575,7 @@ function PlayerTable({
         gameShape: latest?.gameShape ?? null,
         dmi: latest?.dmi ?? null,
         salary: latest?.salary ?? null,
+        active: isActive(player),
       };
     });
     decorated.sort((a, b) => {
@@ -513,21 +632,31 @@ function PlayerTable({
           </tr>
         </thead>
         <tbody>
-          {rows.map(({ player, name, gameShape, dmi, salary }) => {
+          {rows.map(({ player, name, gameShape, dmi, salary, active }) => {
             const hidden = hiddenPlayers.has(player.playerId);
             return (
               <tr
                 key={player.playerId}
-                className={`cursor-pointer hover:bg-card-bg ${hidden ? "opacity-40" : ""}`}
+                className={`cursor-pointer hover:bg-card-bg ${hidden ? "opacity-40" : ""} ${
+                  !active ? "text-gray-500" : ""
+                }`}
                 onClick={() => onToggle(player.playerId)}
               >
                 <td className="border-b border-bb-border px-2 py-1.5">
                   <span className="inline-flex items-center gap-2">
                     <span
                       className="inline-block h-2.5 w-2.5 rounded-full"
-                      style={{ background: colorFor(player.colorIndex ?? 0) }}
+                      style={{
+                        background: colorFor(player.colorIndex ?? 0),
+                        opacity: active ? 1 : 0.45,
+                      }}
                     />
                     <span className="font-medium">{name}</span>
+                    {!active && (
+                      <span className="rounded bg-gray-100 px-1 py-0.5 text-[10px] font-semibold uppercase text-gray-500">
+                        Left
+                      </span>
+                    )}
                   </span>
                 </td>
                 <td className="border-b border-bb-border px-2 py-1.5">{gameShape ?? "—"}</td>
@@ -553,6 +682,15 @@ function DmiChart({
   players: PlayerSeries[];
   hiddenPlayers: Set<number>;
 }) {
+  const [tooltip, setTooltip] = useState<{
+    x: number;
+    y: number;
+    name: string;
+    dmi: number;
+    gameShape: number | null;
+    week: number;
+  } | null>(null);
+
   const width = 760;
   const height = 420;
   const pad = { top: 28, right: 108, bottom: 40, left: 58 };
@@ -560,7 +698,6 @@ function DmiChart({
   const innerH = height - pad.top - pad.bottom;
 
   const visible = players.filter((p) => !hiddenPlayers.has(p.playerId));
-  // Bounds from all roster players on the chart (primary + compare), not only visible lines
   const dmiValues = players.flatMap((p) =>
     p.points.map((pt) => pt.dmi).filter((v): v is number => v != null)
   );
@@ -578,7 +715,6 @@ function DmiChart({
   };
   const yPos = (dmi: number) => pad.top + ((yMax - dmi) / (yMax - yMin || 1)) * innerH;
 
-  // Domain snaps to 50k; tick spacing is a coarser 50k multiple so labels stay readable
   const range = Math.max(yMax - yMin, DMI_STEP);
   const roughStep = range / 6;
   const tickStep = Math.max(DMI_STEP, Math.ceil(roughStep / DMI_STEP) * DMI_STEP);
@@ -587,8 +723,12 @@ function DmiChart({
   if (tickVals[tickVals.length - 1] !== yMax) tickVals.push(yMax);
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-bb-border bg-[#fcfbf8] p-2">
-      <svg viewBox={`0 0 ${width} ${height}`} className="h-auto w-full min-w-[560px]">
+    <div className="relative overflow-x-auto rounded-lg border border-bb-border bg-[#fcfbf8] p-2">
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        className="h-auto w-full min-w-[560px]"
+        onMouseLeave={() => setTooltip(null)}
+      >
         <rect
           x={pad.left}
           y={pad.top}
@@ -644,28 +784,60 @@ function DmiChart({
           if (hiddenPlayers.has(player.playerId)) return null;
           const color = colorFor(player.colorIndex ?? 0);
           const dashed = player.teamKey === "compare";
-          const pts = player.points.filter((p) => p.dmi != null);
-          if (!pts.length) return null;
-          const path = pts
-            .map((p, i) => `${i === 0 ? "M" : "L"} ${xPos(p.week)} ${yPos(p.dmi!)}`)
-            .join(" ");
-          const last = [...pts].sort((a, b) => a.week - b.week)[pts.length - 1];
+          const segments = contiguousSegments(player.points);
+          if (!segments.length) return null;
+          const lastSeg = segments[segments.length - 1];
+          const last = lastSeg[lastSeg.length - 1];
           const lastX = xPos(last.week);
           const lastY = yPos(last.dmi!);
           const label = shortPlayerName(player.name);
           return (
-            <g key={`${player.teamKey}-${player.playerId}`}>
-              <path
-                d={path}
-                fill="none"
-                stroke={color}
-                strokeWidth="2"
-                opacity="0.85"
-                strokeDasharray={dashed ? "5 4" : undefined}
-              />
-              {pts.map((p) => (
+            <g key={`${player.teamKey}-${player.playerId}`} opacity={isActive(player) ? 0.95 : 0.55}>
+              {segments.map((seg, segIdx) => {
+                const path = seg
+                  .map((p, i) => `${i === 0 ? "M" : "L"} ${xPos(p.week)} ${yPos(p.dmi!)}`)
+                  .join(" ");
+                return (
+                  <path
+                    key={segIdx}
+                    d={path}
+                    fill="none"
+                    stroke={color}
+                    strokeWidth="2"
+                    opacity="0.85"
+                    strokeDasharray={dashed ? "5 4" : undefined}
+                  />
+                );
+              })}
+              {segments.flat().map((p) => (
                 <g key={`${player.playerId}-${p.week}`}>
-                  <circle cx={xPos(p.week)} cy={yPos(p.dmi!)} r="4.5" fill={color} />
+                  <circle
+                    cx={xPos(p.week)}
+                    cy={yPos(p.dmi!)}
+                    r="5.5"
+                    fill={color}
+                    className="cursor-pointer"
+                    onMouseEnter={() =>
+                      setTooltip({
+                        x: xPos(p.week),
+                        y: yPos(p.dmi!),
+                        name: player.name,
+                        dmi: p.dmi!,
+                        gameShape: p.gameShape,
+                        week: p.week,
+                      })
+                    }
+                    onMouseMove={() =>
+                      setTooltip({
+                        x: xPos(p.week),
+                        y: yPos(p.dmi!),
+                        name: player.name,
+                        dmi: p.dmi!,
+                        gameShape: p.gameShape,
+                        week: p.week,
+                      })
+                    }
+                  />
                   <text
                     x={xPos(p.week)}
                     y={yPos(p.dmi!) - 8}
@@ -673,12 +845,20 @@ function DmiChart({
                     fontSize="11"
                     fontWeight="700"
                     fill={color}
+                    pointerEvents="none"
                   >
                     {p.gameShape ?? "–"}
                   </text>
                 </g>
               ))}
-              <text x={lastX + 8} y={lastY + 3} fontSize="10" fontWeight="600" fill={color}>
+              <text
+                x={lastX + 8}
+                y={lastY + 3}
+                fontSize="10"
+                fontWeight="600"
+                fill={color}
+                pointerEvents="none"
+              >
                 {label}
               </text>
             </g>
@@ -691,6 +871,22 @@ function DmiChart({
           </text>
         )}
       </svg>
+
+      {tooltip && (
+        <div
+          className="pointer-events-none absolute z-10 rounded-md border border-bb-border bg-white px-2 py-1 text-[11px] shadow-md"
+          style={{
+            left: `min(calc(${(tooltip.x / width) * 100}% + 8px), calc(100% - 140px))`,
+            top: `max(4px, calc(${(tooltip.y / height) * 100}% - 36px))`,
+          }}
+        >
+          <div className="font-semibold text-bb-text">{tooltip.name}</div>
+          <div className="text-gray-600">
+            W{tooltip.week} · DMI {tooltip.dmi.toLocaleString()} · GS {tooltip.gameShape ?? "—"}
+          </div>
+        </div>
+      )}
+
       {visible.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1.5 px-1">
           {visible.map((player) => {
@@ -699,20 +895,21 @@ function DmiChart({
               <span
                 key={`${player.teamKey}-${player.playerId}`}
                 className="inline-flex items-center gap-1 rounded border border-bb-border bg-white px-1.5 py-0.5 text-[11px] font-medium"
-                style={{ color }}
+                style={{ color, opacity: isActive(player) ? 1 : 0.55 }}
               >
                 <span
                   className="inline-block h-2 w-2 rounded-full"
                   style={{ background: color }}
                 />
                 {shortPlayerName(player.name)}
+                {!isActive(player) ? " (left)" : ""}
               </span>
             );
           })}
         </div>
       )}
       <p className="mt-1 px-2 text-[11px] text-gray-500">
-        X = season week · Y = DMI (50k bounds) · number above each point = game shape
+        X = season week · Y = DMI (50k bounds) · hover point for DMI/GS · gaps = off roster
         {players.some((p) => p.teamKey === "compare") ? " · dashed lines = compare team" : ""}
       </p>
     </div>
