@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 72,
-    "fetched": "2026-07-28T04:57:23.544Z"
+    "fetched": "2026-07-29T05:14:17.845Z"
   },
   "matches": [
     {
@@ -125,6 +125,17 @@
       "awayScore": null,
       "homeTeamId": "1013",
       "homeTeamName": "Belgium U21",
+      "homeScore": null
+    },
+    {
+      "id": "85440",
+      "start": "2026-07-31T18:00:00Z",
+      "type": "nt.semifinal",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1012",
+      "homeTeamName": "Hellas U21",
       "homeScore": null
     },
     {
