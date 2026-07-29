@@ -1,8 +1,8 @@
 {
   "season": 72,
   "week": 13,
-  "date": "2026-07-28",
-  "updatedAt": "2026-07-28T18:36:16.990Z",
+  "date": "2026-07-29",
+  "updatedAt": "2026-07-29T08:17:55.870Z",
   "countries": [
     {
       "countryId": 75,
@@ -56,10 +56,6 @@
         {
           "playerId": 55468215,
           "name": "Xavi Companys"
-        },
-        {
-          "playerId": 99900001,
-          "name": "Test Test"
         }
       ]
     },
@@ -185,7 +181,7 @@
         },
         {
           "playerId": 55460433,
-          "name": "Antsip Tsyrul&#39;"
+          "name": "Antsip Tsyrul'"
         },
         {
           "playerId": 55460439,
@@ -1444,7 +1440,7 @@
         },
         {
           "playerId": 55398567,
-          "name": "Tim O&#39;Dowd"
+          "name": "Tim O'Dowd"
         },
         {
           "playerId": 55398568,
@@ -3430,10 +3426,6 @@
         {
           "playerId": 55250908,
           "name": "Cansever Savtunç"
-        },
-        {
-          "playerId": 54638257,
-          "name": "Rifki Toman"
         },
         {
           "playerId": 54639156,

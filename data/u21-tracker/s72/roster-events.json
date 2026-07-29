@@ -47,6 +47,24 @@
       "name": "Test Test",
       "type": "returned",
       "weeksAway": 3
+    },
+    {
+      "ts": "2026-07-29T08:17:55.870Z",
+      "date": "2026-07-29",
+      "week": 13,
+      "countryId": 75,
+      "playerId": 99900001,
+      "name": "Test Test",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-29T08:17:55.870Z",
+      "date": "2026-07-29",
+      "week": 13,
+      "countryId": 6,
+      "playerId": 54638257,
+      "name": "Rifki Toman",
+      "type": "left"
     }
   ]
 }

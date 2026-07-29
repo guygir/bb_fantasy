@@ -1,17 +1,17 @@
 {
   "season": 72,
-  "updatedAt": "2026-07-28T21:08:40.495Z",
+  "updatedAt": "2026-07-29T08:17:55.870Z",
   "players": {
     "54638257": {
       "name": "Rifki Toman",
       "countryId": 6,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-29"
         }
       ]
     },
@@ -8160,7 +8160,7 @@
       ]
     },
     "55398567": {
-      "name": "Tim O&#39;Dowd",
+      "name": "Tim O'Dowd",
       "countryId": 44,
       "active": true,
       "stints": [
@@ -8784,7 +8784,7 @@
       ]
     },
     "55460433": {
-      "name": "Antsip Tsyrul&#39;",
+      "name": "Antsip Tsyrul'",
       "countryId": 85,
       "active": true,
       "stints": [
@@ -10450,7 +10450,7 @@
     "99900001": {
       "name": "Test Test",
       "countryId": 75,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 3,
@@ -10466,9 +10466,9 @@
         },
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-29",
-          "toDate": null
+          "toDate": "2026-07-29"
         }
       ]
     }
