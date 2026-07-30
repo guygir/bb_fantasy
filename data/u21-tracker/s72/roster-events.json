@@ -65,6 +65,150 @@
       "playerId": 54638257,
       "name": "Rifki Toman",
       "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55461699,
+      "name": "Jonathan MacFergus",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55464277,
+      "name": "Mark Maric",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55161831,
+      "name": "Frankie Coulson",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55162472,
+      "name": "Quinn Ardley",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 54852772,
+      "name": "Billy Hoskyn",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55163794,
+      "name": "Montrell Bain",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55163908,
+      "name": "Glenn Hendry",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55713418,
+      "name": "Christopher Pearce",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 81,
+      "playerId": 55718878,
+      "name": "Andy Yang",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 39,
+      "playerId": 55088123,
+      "name": "Nicolai Fredslund",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 39,
+      "playerId": 55088174,
+      "name": "Michael Lerche",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 39,
+      "playerId": 55712563,
+      "name": "Marcus Harlind Aagaard",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 39,
+      "playerId": 55161705,
+      "name": "Ivan Mortensen",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 39,
+      "playerId": 55088168,
+      "name": "Mick Abildgaard",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 46,
+      "playerId": 55403969,
+      "name": "Teobalts Klabinieks",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-30T08:05:54.057Z",
+      "date": "2026-07-30",
+      "week": 13,
+      "countryId": 16,
+      "playerId": 55337944,
+      "name": "Wilibrord Hensen",
+      "type": "joined"
     }
   ]
 }

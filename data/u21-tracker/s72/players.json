@@ -1,6 +1,6 @@
 {
   "season": 72,
-  "updatedAt": "2026-07-29T08:17:55.870Z",
+  "updatedAt": "2026-07-30T08:05:54.057Z",
   "players": {
     "54638257": {
       "name": "Rifki Toman",
@@ -2104,13 +2104,13 @@
     "54852772": {
       "name": "Billy Hoskyn",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -4181,15 +4181,41 @@
         }
       ]
     },
-    "55088168": {
-      "name": "Mick Abildgaard",
+    "55088123": {
+      "name": "Nicolai Fredslund",
       "countryId": 39,
       "active": true,
       "stints": [
         {
           "fromWeek": 13,
           "toWeek": null,
+          "fromDate": "2026-07-30",
+          "toDate": null
+        }
+      ]
+    },
+    "55088168": {
+      "name": "Mick Abildgaard",
+      "countryId": 39,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
+          "toDate": "2026-07-30"
+        }
+      ]
+    },
+    "55088174": {
+      "name": "Michael Lerche",
+      "countryId": 39,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-30",
           "toDate": null
         }
       ]
@@ -6381,13 +6407,13 @@
     "55161705": {
       "name": "Ivan Mortensen",
       "countryId": 39,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -6433,13 +6459,13 @@
     "55161831": {
       "name": "Frankie Coulson",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -6589,13 +6615,13 @@
     "55162472": {
       "name": "Quinn Ardley",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -6719,13 +6745,13 @@
     "55163794": {
       "name": "Montrell Bain",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -6797,13 +6823,13 @@
     "55163908": {
       "name": "Glenn Hendry",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -7375,6 +7401,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55337944": {
+      "name": "Wilibrord Hensen",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-30",
           "toDate": null
         }
       ]
@@ -8305,13 +8344,13 @@
     "55403969": {
       "name": "Teobalts Klabinieks",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -8835,6 +8874,19 @@
         }
       ]
     },
+    "55461699": {
+      "name": "Jonathan MacFergus",
+      "countryId": 81,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-30",
+          "toDate": null
+        }
+      ]
+    },
     "55461763": {
       "name": "Gary Starmer",
       "countryId": 14,
@@ -9221,6 +9273,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55464277": {
+      "name": "Mark Maric",
+      "countryId": 81,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-30",
           "toDate": null
         }
       ]
@@ -10213,16 +10278,29 @@
         }
       ]
     },
-    "55713418": {
-      "name": "Christopher Pearce",
-      "countryId": 81,
+    "55712563": {
+      "name": "Marcus Harlind Aagaard",
+      "countryId": 39,
       "active": true,
       "stints": [
         {
           "fromWeek": 13,
           "toWeek": null,
-          "fromDate": "2026-07-28",
+          "fromDate": "2026-07-30",
           "toDate": null
+        }
+      ]
+    },
+    "55713418": {
+      "name": "Christopher Pearce",
+      "countryId": 81,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": 13,
+          "fromDate": "2026-07-28",
+          "toDate": "2026-07-30"
         }
       ]
     },
@@ -10385,13 +10463,13 @@
     "55718878": {
       "name": "Andy Yang",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-30"
         }
       ]
     },
