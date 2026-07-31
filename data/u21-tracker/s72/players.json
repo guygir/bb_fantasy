@@ -1,6 +1,6 @@
 {
   "season": 72,
-  "updatedAt": "2026-07-31T08:31:56.069Z",
+  "updatedAt": "2026-07-31T12:34:39.844Z",
   "players": {
     "54638257": {
       "name": "Rifki Toman",
@@ -2855,6 +2855,19 @@
         }
       ]
     },
+    "55025148": {
+      "name": "Brian Parkes",
+      "countryId": 14,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
+          "toDate": null
+        }
+      ]
+    },
     "55025161": {
       "name": "Cabot Pernet",
       "countryId": 14,
@@ -2933,6 +2946,19 @@
         }
       ]
     },
+    "55033302": {
+      "name": "Leroy Pach",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
+          "toDate": null
+        }
+      ]
+    },
     "55033309": {
       "name": "Laurent Straathof",
       "countryId": 16,
@@ -3001,13 +3027,13 @@
     "55033463": {
       "name": "Davy Holtman",
       "countryId": 16,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -5273,6 +5299,19 @@
         }
       ]
     },
+    "55156139": {
+      "name": "Z&#39;mitrok Kamlenich",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
+          "toDate": null
+        }
+      ]
+    },
     "55156140": {
       "name": "Alexey Stefanovskiy",
       "countryId": 85,
@@ -7044,13 +7083,13 @@
     "55271240": {
       "name": "Laurin Étienne Pieber",
       "countryId": 8,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -7317,13 +7356,13 @@
     "55329817": {
       "name": "David Crawford",
       "countryId": 14,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -7427,6 +7466,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55337939": {
+      "name": "Tigo Wielaert",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
           "toDate": null
         }
       ]
@@ -8225,7 +8277,7 @@
       ]
     },
     "55398567": {
-      "name": "Tim O'Dowd",
+      "name": "Tim O&#39;Dowd",
       "countryId": 44,
       "active": true,
       "stints": [
@@ -8497,6 +8549,19 @@
         }
       ]
     },
+    "55437648": {
+      "name": "Valery Sologub",
+      "countryId": 62,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
+          "toDate": null
+        }
+      ]
+    },
     "55437673": {
       "name": "Pavle Geladze",
       "countryId": 62,
@@ -8539,13 +8604,13 @@
     "55437751": {
       "name": "Ivane Kheladze",
       "countryId": 62,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -8783,6 +8848,19 @@
         }
       ]
     },
+    "55460319": {
+      "name": "Hipalit Larszyk",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
+          "toDate": null
+        }
+      ]
+    },
     "55460321": {
       "name": "Alexey Soloninkin",
       "countryId": 85,
@@ -8805,6 +8883,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55460356": {
+      "name": "Jakub Al&#39;hovik",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
           "toDate": null
         }
       ]
@@ -8849,7 +8940,7 @@
       ]
     },
     "55460433": {
-      "name": "Antsip Tsyrul'",
+      "name": "Antsip Tsyrul&#39;",
       "countryId": 85,
       "active": true,
       "stints": [
@@ -9410,13 +9501,13 @@
     "55465259": {
       "name": "Pilip Kobrynec",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -9979,16 +10070,29 @@
         }
       ]
     },
-    "55597690": {
-      "name": "Ad Jawaid",
+    "55597598": {
+      "name": "Christopher Chiara",
       "countryId": 14,
       "active": true,
       "stints": [
         {
           "fromWeek": 13,
           "toWeek": null,
-          "fromDate": "2026-07-28",
+          "fromDate": "2026-07-31",
           "toDate": null
+        }
+      ]
+    },
+    "55597690": {
+      "name": "Ad Jawaid",
+      "countryId": 14,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": 13,
+          "fromDate": "2026-07-28",
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -10157,6 +10261,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55709501": {
+      "name": "Davyd Maistruk",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
           "toDate": null
         }
       ]

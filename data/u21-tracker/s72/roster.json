@@ -2,7 +2,7 @@
   "season": 72,
   "week": 13,
   "date": "2026-07-31",
-  "updatedAt": "2026-07-31T08:31:56.069Z",
+  "updatedAt": "2026-07-31T12:34:39.844Z",
   "countries": [
     {
       "countryId": 75,
@@ -152,6 +152,10 @@
           "name": "Baliaslau Kasianovich"
         },
         {
+          "playerId": 55156139,
+          "name": "Z&#39;mitrok Kamlenich"
+        },
+        {
           "playerId": 55156140,
           "name": "Alexey Stefanovskiy"
         },
@@ -164,12 +168,20 @@
           "name": "Zaharej Sapojnikau"
         },
         {
+          "playerId": 55460319,
+          "name": "Hipalit Larszyk"
+        },
+        {
           "playerId": 55460321,
           "name": "Alexey Soloninkin"
         },
         {
           "playerId": 55460322,
           "name": "Makar Atrakhovich"
+        },
+        {
+          "playerId": 55460356,
+          "name": "Jakub Al&#39;hovik"
         },
         {
           "playerId": 55460373,
@@ -181,7 +193,7 @@
         },
         {
           "playerId": 55460433,
-          "name": "Antsip Tsyrul'"
+          "name": "Antsip Tsyrul&#39;"
         },
         {
           "playerId": 55460439,
@@ -192,8 +204,8 @@
           "name": "Vitaut Markijanau"
         },
         {
-          "playerId": 55465259,
-          "name": "Pilip Kobrynec"
+          "playerId": 55709501,
+          "name": "Davyd Maistruk"
         },
         {
           "playerId": 55709531,
@@ -807,10 +819,6 @@
           "name": "Gert Wiechert"
         },
         {
-          "playerId": 55271240,
-          "name": "Laurin Étienne Pieber"
-        },
-        {
           "playerId": 55271288,
           "name": "Axel Dziemballa"
         },
@@ -965,12 +973,12 @@
           "name": "Kendrick Loftus"
         },
         {
-          "playerId": 55025639,
-          "name": "Thomas Moore"
+          "playerId": 55025148,
+          "name": "Brian Parkes"
         },
         {
-          "playerId": 55329817,
-          "name": "David Crawford"
+          "playerId": 55025639,
+          "name": "Thomas Moore"
         },
         {
           "playerId": 55329988,
@@ -985,8 +993,8 @@
           "name": "Brent Campbell"
         },
         {
-          "playerId": 55597690,
-          "name": "Ad Jawaid"
+          "playerId": 55597598,
+          "name": "Christopher Chiara"
         }
       ]
     },
@@ -1424,7 +1432,7 @@
         },
         {
           "playerId": 55398567,
-          "name": "Tim O'Dowd"
+          "name": "Tim O&#39;Dowd"
         },
         {
           "playerId": 55398568,
@@ -1908,10 +1916,6 @@
           "name": "János Szakácsi"
         },
         {
-          "playerId": 54795953,
-          "name": "Attila Trieb"
-        },
-        {
           "playerId": 54795413,
           "name": "Norbert Csorba"
         },
@@ -1942,6 +1946,10 @@
         {
           "playerId": 54795932,
           "name": "Artúr Steinmetz"
+        },
+        {
+          "playerId": 54795953,
+          "name": "Attila Trieb"
         },
         {
           "playerId": 54795988,
@@ -2196,6 +2204,10 @@
           "name": "Lars Versteegh"
         },
         {
+          "playerId": 55033302,
+          "name": "Leroy Pach"
+        },
+        {
           "playerId": 55338088,
           "name": "Jordy Frijling"
         },
@@ -2220,12 +2232,12 @@
           "name": "Duncan van Osch"
         },
         {
-          "playerId": 55033463,
-          "name": "Davy Holtman"
-        },
-        {
           "playerId": 55337907,
           "name": "Jean-Marc Weener"
+        },
+        {
+          "playerId": 55337939,
+          "name": "Tigo Wielaert"
         },
         {
           "playerId": 55337944,
@@ -2769,16 +2781,16 @@
           "name": "Toma Buadze"
         },
         {
+          "playerId": 55437648,
+          "name": "Valery Sologub"
+        },
+        {
           "playerId": 55437697,
           "name": "Zura Imnadze"
         },
         {
           "playerId": 55437748,
           "name": "Gigo Barkaia"
-        },
-        {
-          "playerId": 55437751,
-          "name": "Ivane Kheladze"
         },
         {
           "playerId": 55466676,
