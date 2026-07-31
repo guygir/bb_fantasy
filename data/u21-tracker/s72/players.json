@@ -1,6 +1,6 @@
 {
   "season": 72,
-  "updatedAt": "2026-07-30T08:05:54.057Z",
+  "updatedAt": "2026-07-31T08:31:56.069Z",
   "players": {
     "54638257": {
       "name": "Rifki Toman",
@@ -291,13 +291,13 @@
     "54666876": {
       "name": "Giulio Maconi",
       "countryId": 10,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -4363,6 +4363,19 @@
         }
       ]
     },
+    "55099408": {
+      "name": "Gerhards Jegers",
+      "countryId": 46,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
+          "toDate": null
+        }
+      ]
+    },
     "55099427": {
       "name": "Egils Virpulis",
       "countryId": 46,
@@ -7291,13 +7304,13 @@
     "55329806": {
       "name": "Johnny Treacher",
       "countryId": 14,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-07-31"
         }
       ]
     },
@@ -7310,6 +7323,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55329838": {
+      "name": "Emile Hunt",
+      "countryId": 14,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-07-31",
           "toDate": null
         }
       ]

@@ -1,8 +1,8 @@
 {
   "season": 72,
   "week": 13,
-  "date": "2026-07-30",
-  "updatedAt": "2026-07-30T08:05:54.057Z",
+  "date": "2026-07-31",
+  "updatedAt": "2026-07-31T08:31:56.069Z",
   "countries": [
     {
       "countryId": 75,
@@ -846,6 +846,10 @@
           "name": "Osip Loshchilov"
         },
         {
+          "playerId": 54781125,
+          "name": "Diderick Deisler"
+        },
+        {
           "playerId": 54781314,
           "name": "Raiko Raun"
         },
@@ -872,10 +876,6 @@
         {
           "playerId": 54781085,
           "name": "Richard Liiv"
-        },
-        {
-          "playerId": 54781125,
-          "name": "Diderick Deisler"
         },
         {
           "playerId": 54781215,
@@ -917,6 +917,10 @@
       "pool": "Pool A",
       "players": [
         {
+          "playerId": 55329838,
+          "name": "Emile Hunt"
+        },
+        {
           "playerId": 55329865,
           "name": "Johnny Royston"
         },
@@ -951,10 +955,6 @@
         {
           "playerId": 55330029,
           "name": "Brady Malin"
-        },
-        {
-          "playerId": 55329806,
-          "name": "Johnny Treacher"
         },
         {
           "playerId": 55329802,
@@ -1656,10 +1656,6 @@
           "name": "Paolo Menardo"
         },
         {
-          "playerId": 54666876,
-          "name": "Giulio Maconi"
-        },
-        {
           "playerId": 54974226,
           "name": "Lucio Carboni"
         },
@@ -1689,6 +1685,10 @@
         {
           "playerId": 55403842,
           "name": "Druvis Garsenieks"
+        },
+        {
+          "playerId": 55099408,
+          "name": "Gerhards Jegers"
         },
         {
           "playerId": 55099427,
@@ -2958,16 +2958,16 @@
           "name": "Edi Abdurrahmani"
         },
         {
-          "playerId": 54849753,
-          "name": "Astrit Abdurrahmani"
-        },
-        {
           "playerId": 55161414,
           "name": "Eduart Ravina"
         },
         {
           "playerId": 54849643,
           "name": "Lulkuq Asllani"
+        },
+        {
+          "playerId": 54849753,
+          "name": "Astrit Abdurrahmani"
         },
         {
           "playerId": 54849920,

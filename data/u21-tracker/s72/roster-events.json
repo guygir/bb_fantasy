@@ -209,6 +209,42 @@
       "playerId": 55337944,
       "name": "Wilibrord Hensen",
       "type": "joined"
+    },
+    {
+      "ts": "2026-07-31T08:31:56.069Z",
+      "date": "2026-07-31",
+      "week": 13,
+      "countryId": 14,
+      "playerId": 55329838,
+      "name": "Emile Hunt",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-07-31T08:31:56.069Z",
+      "date": "2026-07-31",
+      "week": 13,
+      "countryId": 14,
+      "playerId": 55329806,
+      "name": "Johnny Treacher",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-31T08:31:56.069Z",
+      "date": "2026-07-31",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54666876,
+      "name": "Giulio Maconi",
+      "type": "left"
+    },
+    {
+      "ts": "2026-07-31T08:31:56.069Z",
+      "date": "2026-07-31",
+      "week": 13,
+      "countryId": 46,
+      "playerId": 55099408,
+      "name": "Gerhards Jegers",
+      "type": "joined"
     }
   ]
 }
