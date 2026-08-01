@@ -23,6 +23,7 @@ import {
   fetchText,
   sleep,
   applyRosterDiff,
+  writeOnSaleSnapshot,
 } from "./lib/u21-tracker-shared.mjs";
 
 const PASSWORD = process.env.BB_PASSWORD;
@@ -93,7 +94,8 @@ async function main() {
       continue;
     }
     const players = parseRosterPage(rosterHtml);
-    console.log(`${players.length} players`);
+    const onSale = players.filter((p) => p.forSale).length;
+    console.log(`${players.length} players (${onSale} on sale)`);
     countryResults.push({
       countryId: country.countryId,
       name: country.name,
@@ -111,11 +113,21 @@ async function main() {
     countries: countryResults,
   });
 
+  const isPartial = Boolean(args.countries?.length || args.maxCountries);
+  const sale = writeOnSaleSnapshot(SEASON, {
+    date,
+    week,
+    scrapedAt,
+    countries: countryResults,
+    mergePrevious: isPartial,
+  });
+
   console.log(
     result.bootstrapped
       ? `Bootstrapped roster files (no events). Wrote ${result.rosterPath}`
       : `Roster diff done: ${result.eventsAdded} event(s). Updated ${result.rosterPath}`
   );
+  console.log(`On sale snapshot: ${sale.count} players → ${sale.path}`);
 }
 
 main().catch((err) => {

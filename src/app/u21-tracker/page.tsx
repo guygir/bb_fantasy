@@ -9,6 +9,14 @@ interface CountryMeta {
   pool: string;
 }
 
+interface OnSalePlayer {
+  playerId: number;
+  name: string;
+  countryId: number;
+  countryName: string;
+  pool?: string;
+}
+
 interface MetaResponse {
   season: number;
   weeks: number[];
@@ -16,6 +24,8 @@ interface MetaResponse {
   updatedAt?: string;
   changesToday?: RosterEvent[];
   changesThisWeek?: RosterEvent[];
+  onSale?: OnSalePlayer[];
+  onSaleUpdatedAt?: string;
 }
 
 const HIDDEN_COUNTRIES_KEY = "u21-tracker-hidden-change-countries";
@@ -73,6 +83,7 @@ interface CountryResponse {
   players: PlayerSeries[];
   changesToday?: RosterEvent[];
   changesThisWeek?: RosterEvent[];
+  onSale?: OnSalePlayer[];
 }
 
 type SortKey = "name" | "gameShape" | "dmi" | "salary";
@@ -429,6 +440,8 @@ export default function U21TrackerPage() {
             <AggregatedChangesView
               changesToday={meta.changesToday ?? []}
               changesThisWeek={meta.changesThisWeek ?? []}
+              onSale={meta.onSale ?? []}
+              onSaleUpdatedAt={meta.onSaleUpdatedAt}
               hiddenCountries={hiddenChangeCountries}
               onHideCountry={hideChangeCountry}
               onClearHidden={clearHiddenChangeCountries}
@@ -508,6 +521,8 @@ export default function U21TrackerPage() {
                   primaryWeek={primaryData.changesThisWeek ?? []}
                   compareToday={compareData?.changesToday ?? []}
                   compareWeek={compareData?.changesThisWeek ?? []}
+                  primaryOnSale={primaryData.onSale ?? []}
+                  compareOnSale={compareData?.onSale ?? []}
                 />
               </div>
 
@@ -542,18 +557,23 @@ export default function U21TrackerPage() {
 function AggregatedChangesView({
   changesToday,
   changesThisWeek,
+  onSale,
+  onSaleUpdatedAt,
   hiddenCountries,
   onHideCountry,
   onClearHidden,
 }: {
   changesToday: RosterEvent[];
   changesThisWeek: RosterEvent[];
+  onSale: OnSalePlayer[];
+  onSaleUpdatedAt?: string;
   hiddenCountries: Set<number>;
   onHideCountry: (countryId: number) => void;
   onClearHidden: () => void;
 }) {
   const todayRows = changesToday.filter((e) => !hiddenCountries.has(e.countryId));
   const weekRows = changesThisWeek.filter((e) => !hiddenCountries.has(e.countryId));
+  const saleRows = onSale.filter((p) => !hiddenCountries.has(p.countryId));
 
   return (
     <div className="space-y-4">
@@ -574,7 +594,7 @@ function AggregatedChangesView({
           </button>
         )}
       </div>
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-3">
         <AggregatedChangesTable
           title="Changes today"
           rows={todayRows}
@@ -587,7 +607,90 @@ function AggregatedChangesView({
           showCountry
           onHideCountry={onHideCountry}
         />
+        <OnSaleTable
+          title="Currently on sale"
+          rows={saleRows}
+          showCountry
+          updatedAt={onSaleUpdatedAt}
+          onHideCountry={onHideCountry}
+        />
       </div>
+    </div>
+  );
+}
+
+function OnSaleTable({
+  title,
+  rows,
+  showCountry,
+  updatedAt,
+  onHideCountry,
+}: {
+  title: string;
+  rows: OnSalePlayer[];
+  showCountry?: boolean;
+  updatedAt?: string;
+  onHideCountry?: (countryId: number) => void;
+}) {
+  const sorted = [...rows].sort(
+    (a, b) =>
+      a.countryName.localeCompare(b.countryName) || a.name.localeCompare(b.name)
+  );
+  return (
+    <div className="overflow-hidden rounded-lg border border-bb-border">
+      <div className="border-b border-bb-border bg-card-bg px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-600">
+        {title}
+        {updatedAt ? (
+          <span className="ml-2 font-normal normal-case text-gray-400">
+            {updatedAt.includes("T")
+              ? new Date(updatedAt).toLocaleString()
+              : updatedAt}
+          </span>
+        ) : null}
+      </div>
+      {sorted.length === 0 ? (
+        <p className="px-3 py-4 text-xs text-gray-400">No players on sale</p>
+      ) : (
+        <div className="max-h-[55vh] overflow-auto">
+          <table className="w-full border-collapse text-xs">
+            <thead>
+              <tr className="bg-white text-left text-gray-600">
+                <th className="border-b border-bb-border px-2 py-2 font-semibold">Player</th>
+                {showCountry && (
+                  <th className="border-b border-bb-border px-2 py-2 font-semibold">Country</th>
+                )}
+                {onHideCountry && <th className="border-b border-bb-border px-2 py-2 w-8" />}
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map((p) => (
+                <tr key={`${p.countryId}-${p.playerId}`}>
+                  <td className="border-b border-bb-border px-2 py-1.5 font-medium text-bb-text">
+                    {p.name}
+                  </td>
+                  {showCountry && (
+                    <td className="border-b border-bb-border px-2 py-1.5 text-gray-600">
+                      {p.countryName}
+                    </td>
+                  )}
+                  {onHideCountry && (
+                    <td className="border-b border-bb-border px-1 py-1.5 text-right">
+                      <button
+                        type="button"
+                        title={`Hide ${p.countryName} from this list`}
+                        onClick={() => onHideCountry(p.countryId)}
+                        className="inline-flex h-6 w-6 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+                      >
+                        ×
+                      </button>
+                    </td>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
@@ -672,6 +775,8 @@ function ChangesPanel({
   primaryWeek,
   compareToday,
   compareWeek,
+  primaryOnSale,
+  compareOnSale,
 }: {
   primaryName: string;
   compareName: string | null;
@@ -679,7 +784,16 @@ function ChangesPanel({
   primaryWeek: RosterEvent[];
   compareToday: RosterEvent[];
   compareWeek: RosterEvent[];
+  primaryOnSale: OnSalePlayer[];
+  compareOnSale: OnSalePlayer[];
 }) {
+  const saleRows = [
+    ...primaryOnSale.map((p) => ({ ...p, countryName: primaryName })),
+    ...compareOnSale.map((p) => ({
+      ...p,
+      countryName: compareName || p.countryName || "B",
+    })),
+  ];
   return (
     <div className="space-y-3">
       <ChangesTable
@@ -695,6 +809,11 @@ function ChangesPanel({
           ...primaryWeek.map((e) => ({ ...e, team: primaryName })),
           ...compareWeek.map((e) => ({ ...e, team: compareName || "B" })),
         ]}
+      />
+      <OnSaleTable
+        title="Currently on sale"
+        rows={saleRows}
+        showCountry={Boolean(compareName)}
       />
     </div>
   );

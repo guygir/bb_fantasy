@@ -73,6 +73,22 @@ export interface U21RosterEventsFile {
   events: U21RosterEvent[];
 }
 
+export interface U21OnSalePlayer {
+  playerId: number;
+  name: string;
+  countryId: number;
+  countryName: string;
+  pool?: string;
+}
+
+export interface U21OnSaleFile {
+  season: number;
+  date: string;
+  week: number;
+  updatedAt?: string;
+  players: U21OnSalePlayer[];
+}
+
 export interface U21TrackerPlayerSeries {
   playerId: number;
   name: string;
@@ -164,6 +180,12 @@ export async function loadRosterEvents(season: number): Promise<U21RosterEventsF
   return readJsonRemote<U21RosterEventsFile>(`${githubRawBase()}/s${season}/roster-events.json`);
 }
 
+export async function loadOnSale(season: number): Promise<U21OnSaleFile | null> {
+  const local = await readJsonLocal<U21OnSaleFile>(join(dataDir(season), "on-sale.json"));
+  if (local) return local;
+  return readJsonRemote<U21OnSaleFile>(`${githubRawBase()}/s${season}/on-sale.json`);
+}
+
 export async function listLocalWeeks(season: number): Promise<number[]> {
   const dir = dataDir(season);
   if (!existsSync(dir)) return [];
@@ -206,10 +228,13 @@ export async function loadAllRosterChanges(season: number): Promise<{
   meta: U21TrackerMeta | null;
   changesToday: U21RosterEvent[];
   changesThisWeek: U21RosterEvent[];
+  onSale: U21OnSalePlayer[];
+  onSaleUpdatedAt?: string;
 }> {
-  const [meta, eventsFile] = await Promise.all([
+  const [meta, eventsFile, onSaleFile] = await Promise.all([
     loadTrackerMeta(season),
     loadRosterEvents(season),
+    loadOnSale(season),
   ]);
   const today = israelDateString();
   const week = currentWeekForSeason(season);
@@ -220,6 +245,8 @@ export async function loadAllRosterChanges(season: number): Promise<{
     changesThisWeek: all
       .filter((e) => week != null && e.week === week)
       .sort((a, b) => b.ts.localeCompare(a.ts)),
+    onSale: onSaleFile?.players || [],
+    onSaleUpdatedAt: onSaleFile?.updatedAt || onSaleFile?.date,
   };
 }
 
@@ -233,6 +260,7 @@ export async function loadCountrySeries(
   players: U21TrackerPlayerSeries[];
   changesToday: U21RosterEvent[];
   changesThisWeek: U21RosterEvent[];
+  onSale: U21OnSalePlayer[];
 }> {
   const meta = await loadTrackerMeta(season);
   let weeks = meta?.weeks?.length
@@ -242,10 +270,11 @@ export async function loadCountrySeries(
     weeks = await listLocalWeeks(season);
   }
 
-  const [weekFiles, playersIndex, eventsFile] = await Promise.all([
+  const [weekFiles, playersIndex, eventsFile, onSaleFile] = await Promise.all([
     Promise.all(weeks.map(async (week) => ({ week, file: await loadTrackerWeek(season, week) }))),
     loadPlayersIndex(season),
     loadRosterEvents(season),
+    loadOnSale(season),
   ]);
 
   const presentWeekFiles = weekFiles.filter((row) => row.file);
@@ -321,6 +350,8 @@ export async function loadCountrySeries(
     season
   );
 
+  const onSale = (onSaleFile?.players || []).filter((p) => p.countryId === countryId);
+
   return {
     meta,
     country: countryMeta
@@ -334,5 +365,6 @@ export async function loadCountrySeries(
     players,
     changesToday,
     changesThisWeek,
+    onSale,
   };
 }
