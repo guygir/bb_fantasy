@@ -15,6 +15,11 @@ interface OnSalePlayer {
   countryId: number;
   countryName: string;
   pool?: string;
+  dmi?: number | null;
+}
+
+function bbPlayerUrl(playerId: number): string {
+  return `https://buzzerbeater.com/player/${playerId}/overview.aspx`;
 }
 
 interface MetaResponse {
@@ -632,10 +637,41 @@ function OnSaleTable({
   updatedAt?: string;
   onHideCountry?: (countryId: number) => void;
 }) {
-  const sorted = [...rows].sort(
-    (a, b) =>
-      a.countryName.localeCompare(b.countryName) || a.name.localeCompare(b.name)
-  );
+  type SaleSortKey = "country" | "dmi" | "name";
+  const [sortKey, setSortKey] = useState<SaleSortKey>(showCountry ? "dmi" : "dmi");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+
+  function onSort(key: SaleSortKey) {
+    if (sortKey === key) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    else {
+      setSortKey(key);
+      setSortDir(key === "country" || key === "name" ? "asc" : "desc");
+    }
+  }
+
+  function marker(key: SaleSortKey) {
+    if (sortKey !== key) return "↕";
+    return sortDir === "asc" ? "▲" : "▼";
+  }
+
+  const sorted = useMemo(() => {
+    const list = [...rows];
+    list.sort((a, b) => {
+      let result = 0;
+      if (sortKey === "country") {
+        result =
+          a.countryName.localeCompare(b.countryName) || a.name.localeCompare(b.name);
+      } else if (sortKey === "name") {
+        result = a.name.localeCompare(b.name);
+      } else {
+        result = (a.dmi ?? -Infinity) - (b.dmi ?? -Infinity);
+        if (result === 0) result = a.name.localeCompare(b.name);
+      }
+      return sortDir === "asc" ? result : -result;
+    });
+    return list;
+  }, [rows, sortKey, sortDir]);
+
   return (
     <div className="overflow-hidden rounded-lg border border-bb-border">
       <div className="border-b border-bb-border bg-card-bg px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-600">
@@ -655,24 +691,61 @@ function OnSaleTable({
           <table className="w-full border-collapse text-xs">
             <thead>
               <tr className="bg-white text-left text-gray-600">
-                <th className="border-b border-bb-border px-2 py-2 font-semibold">Player</th>
+                <th className="border-b border-bb-border px-2 py-2">
+                  <button
+                    type="button"
+                    onClick={() => onSort("name")}
+                    className="inline-flex items-center gap-1 font-semibold hover:text-exact"
+                  >
+                    Player <span className="text-[10px] text-gray-400">{marker("name")}</span>
+                  </button>
+                </th>
                 {showCountry && (
-                  <th className="border-b border-bb-border px-2 py-2 font-semibold">Country</th>
+                  <th className="border-b border-bb-border px-2 py-2">
+                    <button
+                      type="button"
+                      onClick={() => onSort("country")}
+                      className="inline-flex items-center gap-1 font-semibold hover:text-exact"
+                    >
+                      Country{" "}
+                      <span className="text-[10px] text-gray-400">{marker("country")}</span>
+                    </button>
+                  </th>
                 )}
+                <th className="border-b border-bb-border px-2 py-2">
+                  <button
+                    type="button"
+                    onClick={() => onSort("dmi")}
+                    className="inline-flex items-center gap-1 font-semibold hover:text-exact"
+                  >
+                    DMI <span className="text-[10px] text-gray-400">{marker("dmi")}</span>
+                  </button>
+                </th>
                 {onHideCountry && <th className="border-b border-bb-border px-2 py-2 w-8" />}
               </tr>
             </thead>
             <tbody>
               {sorted.map((p) => (
                 <tr key={`${p.countryId}-${p.playerId}`}>
-                  <td className="border-b border-bb-border px-2 py-1.5 font-medium text-bb-text">
-                    {p.name}
+                  <td className="border-b border-bb-border px-2 py-1.5 font-medium">
+                    <a
+                      href={bbPlayerUrl(p.playerId)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-exact hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {p.name}
+                    </a>
                   </td>
                   {showCountry && (
                     <td className="border-b border-bb-border px-2 py-1.5 text-gray-600">
                       {p.countryName}
                     </td>
                   )}
+                  <td className="border-b border-bb-border px-2 py-1.5 text-gray-600 tabular-nums">
+                    {p.dmi == null ? "—" : p.dmi.toLocaleString()}
+                  </td>
                   {onHideCountry && (
                     <td className="border-b border-bb-border px-1 py-1.5 text-right">
                       <button
