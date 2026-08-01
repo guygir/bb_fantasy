@@ -1,8 +1,8 @@
 {
   "season": 72,
-  "week": 13,
-  "date": "2026-07-31",
-  "updatedAt": "2026-07-31T12:34:39.844Z",
+  "week": 14,
+  "date": "2026-08-01",
+  "updatedAt": "2026-08-01T07:52:48.623Z",
   "countries": [
     {
       "countryId": 75,
@@ -153,7 +153,7 @@
         },
         {
           "playerId": 55156139,
-          "name": "Z&#39;mitrok Kamlenich"
+          "name": "Z'mitrok Kamlenich"
         },
         {
           "playerId": 55156140,
@@ -181,7 +181,7 @@
         },
         {
           "playerId": 55460356,
-          "name": "Jakub Al&#39;hovik"
+          "name": "Jakub Al'hovik"
         },
         {
           "playerId": 55460373,
@@ -193,7 +193,7 @@
         },
         {
           "playerId": 55460433,
-          "name": "Antsip Tsyrul&#39;"
+          "name": "Antsip Tsyrul'"
         },
         {
           "playerId": 55460439,
@@ -356,10 +356,6 @@
         {
           "playerId": 55383231,
           "name": "Suad Dobrić"
-        },
-        {
-          "playerId": 55462167,
-          "name": "Oktavijan Perin"
         }
       ]
     },
@@ -854,14 +850,6 @@
           "name": "Osip Loshchilov"
         },
         {
-          "playerId": 54781125,
-          "name": "Diderick Deisler"
-        },
-        {
-          "playerId": 54781314,
-          "name": "Raiko Raun"
-        },
-        {
           "playerId": 55393757,
           "name": "Gunnar Ambros"
         },
@@ -882,16 +870,8 @@
           "name": "Viktor Mosyakov"
         },
         {
-          "playerId": 54781085,
-          "name": "Richard Liiv"
-        },
-        {
           "playerId": 54781215,
           "name": "Sergo Lapeteus"
-        },
-        {
-          "playerId": 54781880,
-          "name": "Toomas Lentsius"
         },
         {
           "playerId": 54781962,
@@ -902,12 +882,20 @@
           "name": "Ewert Põld"
         },
         {
+          "playerId": 55089394,
+          "name": "Roman Kornienko"
+        },
+        {
+          "playerId": 55089525,
+          "name": "Tanel Tamm"
+        },
+        {
           "playerId": 55089799,
           "name": "Rainer Hang"
         },
         {
-          "playerId": 55089887,
-          "name": "Kaupo Kask"
+          "playerId": 55090043,
+          "name": "Fridrich Vessmann"
         },
         {
           "playerId": 55090056,
@@ -1432,7 +1420,7 @@
         },
         {
           "playerId": 55398567,
-          "name": "Tim O&#39;Dowd"
+          "name": "Tim O'Dowd"
         },
         {
           "playerId": 55398568,
@@ -1628,6 +1616,14 @@
           "name": "Andrea Ferrari"
         },
         {
+          "playerId": 54973937,
+          "name": "Giancarlo Razzi"
+        },
+        {
+          "playerId": 54667118,
+          "name": "Luca Cecchi"
+        },
+        {
           "playerId": 54665029,
           "name": "Santo Amidani"
         },
@@ -1640,16 +1636,12 @@
           "name": "Livio Pastore"
         },
         {
-          "playerId": 54665159,
-          "name": "Sabatino Wheen"
-        },
-        {
           "playerId": 54665482,
           "name": "Luca Spanu"
         },
         {
-          "playerId": 54665893,
-          "name": "Alessandro Vitiello"
+          "playerId": 54665514,
+          "name": "Stefano Blugaro"
         },
         {
           "playerId": 54666317,
@@ -1664,12 +1656,16 @@
           "name": "Paolo Menardo"
         },
         {
-          "playerId": 54974226,
-          "name": "Lucio Carboni"
+          "playerId": 54972285,
+          "name": "Donato Bauducco"
         },
         {
           "playerId": 54974878,
           "name": "Beniamino Roncisvalle"
+        },
+        {
+          "playerId": 55279272,
+          "name": "Marco Provenzano"
         }
       ]
     },
@@ -2204,10 +2200,6 @@
           "name": "Lars Versteegh"
         },
         {
-          "playerId": 55033302,
-          "name": "Leroy Pach"
-        },
-        {
           "playerId": 55338088,
           "name": "Jordy Frijling"
         },
@@ -2532,10 +2524,6 @@
           "name": "Ulisses Caramez"
         },
         {
-          "playerId": 55038587,
-          "name": "Manuel Maria da Costa"
-        },
-        {
           "playerId": 55038868,
           "name": "Rafael Nogueira"
         },
@@ -2646,6 +2634,10 @@
       "pool": "Pool G",
       "players": [
         {
+          "playerId": 55347670,
+          "name": "Maxim Raskin"
+        },
+        {
           "playerId": 55042558,
           "name": "Veniamin Mitchenko"
         },
@@ -2708,10 +2700,6 @@
         {
           "playerId": 55347476,
           "name": "Ilya Kostyushin"
-        },
-        {
-          "playerId": 55347582,
-          "name": "Timur Pivovarov"
         },
         {
           "playerId": 55347740,
@@ -2897,10 +2885,6 @@
         {
           "playerId": 54850680,
           "name": "George Aitken"
-        },
-        {
-          "playerId": 54852288,
-          "name": "Jeffrey Dundas"
         },
         {
           "playerId": 54853203,
@@ -3470,6 +3454,10 @@
         {
           "playerId": 55555806,
           "name": "Önder Agirtas"
+        },
+        {
+          "playerId": 55555924,
+          "name": "Ali Haydar Ergüder"
         }
       ]
     },

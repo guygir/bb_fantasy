@@ -74,20 +74,86 @@ export function parsePoolsFromStandings(html) {
   return countries;
 }
 
+/**
+ * Parse U21 roster page. Marks forSale when Repeater1_forSaleImage_N is present
+ * for the same repeater index as the player name link.
+ */
 export function parseRosterPage(html) {
+  const saleIndices = new Set(
+    [...html.matchAll(/id=["']cphContent_Repeater1_forSaleImage_(\d+)["']/gi)].map((m) =>
+      Number(m[1])
+    )
+  );
   const seen = new Set();
   const rows = [];
-  const linkRe = /href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)</gi;
+
+  const indexedRe =
+    /id=["']cphContent_Repeater1_\w+_(\d+)["'][^>]*href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)/gi;
   let m;
+  while ((m = indexedRe.exec(html)) !== null) {
+    const idx = Number(m[1]);
+    const playerId = Number(m[2]);
+    const name = (m[3] || "").replace(/&nbsp;/g, " ").trim() || `Player ${playerId}`;
+    if (!playerId || seen.has(playerId)) continue;
+    if (/season average|total/i.test(name)) continue;
+    seen.add(playerId);
+    rows.push({ playerId, name, forSale: saleIndices.has(idx) });
+  }
+
+  // Fallback if BB markup lacks repeater ids
+  const linkRe = /href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)</gi;
   while ((m = linkRe.exec(html)) !== null) {
     const playerId = Number(m[1]);
     const name = (m[2] || "").replace(/&nbsp;/g, " ").trim() || `Player ${playerId}`;
     if (!playerId || seen.has(playerId)) continue;
     if (/season average|total/i.test(name)) continue;
     seen.add(playerId);
-    rows.push({ playerId, name });
+    rows.push({ playerId, name, forSale: false });
   }
   return rows;
+}
+
+/** Current-day on-sale snapshot only (overwrites previous file). */
+export function writeOnSaleSnapshot(
+  season,
+  { date, week, scrapedAt, countries, mergePrevious = false }
+) {
+  const dir = trackerDir(season);
+  const path = join(dir, "on-sale.json");
+  const players = [];
+  for (const c of countries || []) {
+    if (c.error) continue;
+    for (const p of c.players || []) {
+      if (!p.forSale) continue;
+      players.push({
+        playerId: p.playerId,
+        name: p.name,
+        countryId: c.countryId,
+        countryName: c.name,
+        pool: c.pool,
+      });
+    }
+  }
+  if (mergePrevious) {
+    const prev = readJson(path);
+    const scrapedIds = new Set((countries || []).map((c) => c.countryId));
+    for (const p of prev?.players || []) {
+      if (!scrapedIds.has(p.countryId)) players.push(p);
+    }
+  }
+  players.sort(
+    (a, b) =>
+      a.countryName.localeCompare(b.countryName) || a.name.localeCompare(b.name)
+  );
+  const payload = {
+    season,
+    date,
+    week,
+    updatedAt: scrapedAt,
+    players,
+  };
+  writeJson(path, payload);
+  return { path, count: players.length };
 }
 
 export function looksLikeLoginWall(html) {

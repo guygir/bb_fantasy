@@ -14,14 +14,21 @@ export async function GET(request: Request) {
   }
 
   if (countryIdParam == null) {
-    const { meta, changesToday, changesThisWeek } = await loadAllRosterChanges(season);
+    const { meta, changesToday, changesThisWeek, onSale, onSaleUpdatedAt } =
+      await loadAllRosterChanges(season);
     if (!meta) {
       return NextResponse.json(
         { error: `No U21 tracker data for season ${season} yet` },
         { status: 404 }
       );
     }
-    return NextResponse.json({ ...meta, changesToday, changesThisWeek });
+    return NextResponse.json({
+      ...meta,
+      changesToday,
+      changesThisWeek,
+      onSale,
+      onSaleUpdatedAt,
+    });
   }
 
   const countryId = Number(countryIdParam);
