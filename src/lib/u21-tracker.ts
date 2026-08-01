@@ -79,6 +79,7 @@ export interface U21OnSalePlayer {
   countryId: number;
   countryName: string;
   pool?: string;
+  dmi?: number | null;
 }
 
 export interface U21OnSaleFile {

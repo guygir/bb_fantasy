@@ -74,9 +74,16 @@ export function parsePoolsFromStandings(html) {
   return countries;
 }
 
+function parseDmiFromChunk(chunk) {
+  const m = chunk.match(/DMI:\s*([\d\s&nbsp;]+)/i);
+  if (!m) return null;
+  const n = Number(String(m[1]).replace(/[^\d]/g, ""));
+  return Number.isFinite(n) ? n : null;
+}
+
 /**
  * Parse U21 roster page. Marks forSale when Repeater1_forSaleImage_N is present
- * for the same repeater index as the player name link.
+ * for the same repeater index as the player name link. Also reads DMI from the card.
  */
 export function parseRosterPage(html) {
   const saleIndices = new Set(
@@ -87,6 +94,33 @@ export function parseRosterPage(html) {
   const seen = new Set();
   const rows = [];
 
+  // Prefer HyperLink1 blocks (one per roster card) so DMI/sale stay in-card
+  const linkStarts = [...html.matchAll(/id=["']cphContent_Repeater1_HyperLink1_(\d+)["']/gi)];
+  for (let i = 0; i < linkStarts.length; i++) {
+    const idx = Number(linkStarts[i][1]);
+    const start = linkStarts[i].index;
+    const end = i + 1 < linkStarts.length ? linkStarts[i + 1].index : start + 5000;
+    const chunk = html.slice(start, end);
+    const pm = chunk.match(
+      /href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)/i
+    );
+    if (!pm) continue;
+    const playerId = Number(pm[1]);
+    const name = (pm[2] || "").replace(/&nbsp;/g, " ").trim() || `Player ${playerId}`;
+    if (!playerId || seen.has(playerId)) continue;
+    if (/season average|total/i.test(name)) continue;
+    seen.add(playerId);
+    rows.push({
+      playerId,
+      name,
+      forSale: saleIndices.has(idx),
+      dmi: parseDmiFromChunk(chunk),
+    });
+  }
+
+  if (rows.length) return rows;
+
+  // Fallback if BB markup lacks HyperLink1 ids
   const indexedRe =
     /id=["']cphContent_Repeater1_\w+_(\d+)["'][^>]*href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)/gi;
   let m;
@@ -97,10 +131,9 @@ export function parseRosterPage(html) {
     if (!playerId || seen.has(playerId)) continue;
     if (/season average|total/i.test(name)) continue;
     seen.add(playerId);
-    rows.push({ playerId, name, forSale: saleIndices.has(idx) });
+    rows.push({ playerId, name, forSale: saleIndices.has(idx), dmi: null });
   }
 
-  // Fallback if BB markup lacks repeater ids
   const linkRe = /href=["'][^"']*\/player\/(\d+)\/overview\.aspx["'][^>]*>([^<]+)</gi;
   while ((m = linkRe.exec(html)) !== null) {
     const playerId = Number(m[1]);
@@ -108,7 +141,7 @@ export function parseRosterPage(html) {
     if (!playerId || seen.has(playerId)) continue;
     if (/season average|total/i.test(name)) continue;
     seen.add(playerId);
-    rows.push({ playerId, name, forSale: false });
+    rows.push({ playerId, name, forSale: false, dmi: null });
   }
   return rows;
 }
@@ -131,6 +164,7 @@ export function writeOnSaleSnapshot(
         countryId: c.countryId,
         countryName: c.name,
         pool: c.pool,
+        dmi: p.dmi ?? null,
       });
     }
   }
