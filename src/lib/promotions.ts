@@ -102,9 +102,93 @@ function parseTeamIdFromUrl(url: string | null): number | null {
   return match ? parseInt(match[1], 10) : null;
 }
 
+export type PromotionBandStyle = "yellow" | "green" | "striped" | "white";
+
+type BandStyleRow = {
+  playoff_status: PlayoffStatus;
+  league_id: number;
+  team_url: string | null;
+};
+
+/**
+ * Count finals pairs where both finalists sit in the green or striped band.
+ * Done incrementally: newly striped teams can unlock further pairs until stable.
+ */
+function countFinalsPairsInBand(
+  rows: BandStyleRow[],
+  styles: PromotionBandStyle[],
+  finalsByLeague: Record<string, FinalsInfo>
+): number {
+  const bandByLeague = new Map<number, number[]>();
+  for (let i = 0; i < rows.length; i++) {
+    if (styles[i] !== "green" && styles[i] !== "striped") continue;
+    const leagueId = rows[i].league_id;
+    if (!bandByLeague.has(leagueId)) bandByLeague.set(leagueId, []);
+    bandByLeague.get(leagueId)!.push(i);
+  }
+
+  let extraSlots = 0;
+  for (const [leagueId, indices] of bandByLeague) {
+    if (indices.length < 2) continue;
+    const fi = finalsByLeague[String(leagueId)];
+    if (!fi || fi.leftTeamId == null || fi.rightTeamId == null) continue;
+
+    const finalistIds = new Set([fi.leftTeamId, fi.rightTeamId]);
+    const bandFinalists = indices.filter((i) => {
+      const teamId = parseTeamIdFromUrl(rows[i].team_url);
+      return teamId != null && finalistIds.has(teamId);
+    });
+    if (bandFinalists.length === 2) extraSlots++;
+  }
+  return extraSlots;
+}
+
+/**
+ * Green = first `bandSize` non-champ rows. Striped = next N white rows, where N is
+ * the number of same-league finals pairs with both finalists in green+striped,
+ * expanded to a fixed point so striped teams can unlock further pairs.
+ */
+export function assignPromotionBandStyles(
+  rows: BandStyleRow[],
+  bandSize: number,
+  finalsByLeague: Record<string, FinalsInfo> | null
+): PromotionBandStyle[] {
+  let greenLeft = bandSize;
+  const styles: PromotionBandStyle[] = rows.map((row) => {
+    if (row.playoff_status === "Champ") return "yellow";
+    if (greenLeft > 0) {
+      greenLeft -= 1;
+      return "green";
+    }
+    return "white";
+  });
+
+  if (!finalsByLeague) return styles;
+
+  let prevExtra = -1;
+  let extraSlots = 0;
+  for (let iter = 0; iter < rows.length && extraSlots !== prevExtra; iter++) {
+    prevExtra = extraSlots;
+    extraSlots = countFinalsPairsInBand(rows, styles, finalsByLeague);
+
+    for (let i = 0; i < styles.length; i++) {
+      if (styles[i] === "striped") styles[i] = "white";
+    }
+    let left = extraSlots;
+    for (let i = 0; i < styles.length && left > 0; i++) {
+      if (styles[i] === "white") {
+        styles[i] = "striped";
+        left--;
+      }
+    }
+  }
+
+  return styles;
+}
+
 /**
  * Calculate "to-be-promoted" team keys: teams that will enter the band when
- * two green-band teams from the same league finish their finals.
+ * same-league finals pairs in the green/striped band free champion slots.
  */
 function toBePromotedTeamKeys(
   rows: Row[],
@@ -112,56 +196,14 @@ function toBePromotedTeamKeys(
   finalsByLeague: Record<string, FinalsInfo> | null
 ): Set<string> {
   if (!finalsByLeague) return new Set();
-  
-  // First, identify green band teams (non-champ, first bandSize)
-  let greenLeft = bandSize;
-  const greenIndices: number[] = [];
-  for (let i = 0; i < rows.length; i++) {
-    if (rows[i].playoff_status === "Champ") continue;
-    if (greenLeft > 0) {
-      greenLeft--;
-      greenIndices.push(i);
-    }
-  }
-  
-  // Group green teams by league
-  const greenTeamsByLeague = new Map<number, number[]>();
-  for (const i of greenIndices) {
-    const leagueId = rows[i].league_id;
-    if (!greenTeamsByLeague.has(leagueId)) {
-      greenTeamsByLeague.set(leagueId, []);
-    }
-    greenTeamsByLeague.get(leagueId)!.push(i);
-  }
-  
-  // Count extra slots from leagues where both finalists are in green band
-  let extraSlots = 0;
-  for (const [leagueId, indices] of greenTeamsByLeague) {
-    if (indices.length < 2) continue;
-    const fi = finalsByLeague[String(leagueId)];
-    if (!fi || fi.leftTeamId == null || fi.rightTeamId == null) continue;
-    
-    const finalistIds = new Set([fi.leftTeamId, fi.rightTeamId]);
-    const greenFinalists = indices.filter(i => {
-      const teamId = parseTeamIdFromUrl(rows[i].team_url);
-      return teamId != null && finalistIds.has(teamId);
-    });
-    
-    if (greenFinalists.length === 2) {
-      extraSlots++;
-    }
-  }
-  
-  // Get the next N teams outside the band
+
+  const styles = assignPromotionBandStyles(rows, bandSize, finalsByLeague);
   const result = new Set<string>();
-  const greenIndexSet = new Set(greenIndices);
-  for (let i = 0; i < rows.length && extraSlots > 0; i++) {
-    if (rows[i].playoff_status === "Champ") continue;
-    if (greenIndexSet.has(i)) continue;
-    result.add(teamKey(rows[i].league_id, rows[i].conf, rows[i].team_name));
-    extraSlots--;
+  for (let i = 0; i < rows.length; i++) {
+    if (styles[i] === "striped") {
+      result.add(teamKey(rows[i].league_id, rows[i].conf, rows[i].team_name));
+    }
   }
-  
   return result;
 }
 
