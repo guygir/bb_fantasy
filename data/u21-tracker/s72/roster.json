@@ -1,8 +1,8 @@
 {
   "season": 72,
   "week": 14,
-  "date": "2026-08-01",
-  "updatedAt": "2026-08-01T08:02:30.393Z",
+  "date": "2026-08-02",
+  "updatedAt": "2026-08-02T08:03:23.933Z",
   "countries": [
     {
       "countryId": 75,
@@ -2492,60 +2492,12 @@
       "pool": "Pool F",
       "players": [
         {
-          "playerId": 55038514,
-          "name": "Hermínio Alhinho"
+          "playerId": 54730930,
+          "name": "Rodrigo Tomé"
         },
         {
-          "playerId": 55038485,
-          "name": "Raimundo Jesus"
-        },
-        {
-          "playerId": 55038805,
-          "name": "Leandro Cardona"
-        },
-        {
-          "playerId": 55343485,
-          "name": "Flávio Boaventura"
-        },
-        {
-          "playerId": 55038471,
-          "name": "Luís Pedro Cancela"
-        },
-        {
-          "playerId": 54730721,
-          "name": "Diamantino Barral"
-        },
-        {
-          "playerId": 54731378,
-          "name": "João Pedro Peneda"
-        },
-        {
-          "playerId": 54731469,
-          "name": "Ulisses Caramez"
-        },
-        {
-          "playerId": 55038868,
-          "name": "Rafael Nogueira"
-        },
-        {
-          "playerId": 55038912,
-          "name": "Bruno Gamboa"
-        },
-        {
-          "playerId": 55039114,
-          "name": "António Borges"
-        },
-        {
-          "playerId": 55039166,
-          "name": "Alexandre Veloso"
-        },
-        {
-          "playerId": 55039317,
-          "name": "Alexandre Coroado"
-        },
-        {
-          "playerId": 55343588,
-          "name": "José França"
+          "playerId": 55610595,
+          "name": "Adão Guedes"
         }
       ]
     },
@@ -3519,16 +3471,16 @@
           "name": "Martyn Poltavets"
         },
         {
-          "playerId": 55382389,
-          "name": "Vladyslav Popko"
-        },
-        {
           "playerId": 55463584,
           "name": "Volodymyr Romanenko"
         },
         {
           "playerId": 55464227,
           "name": "Illya Pavlyukh"
+        },
+        {
+          "playerId": 55640687,
+          "name": "Yuriy Danilenko"
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
   "season": 72,
-  "updatedAt": "2026-08-01T08:02:30.393Z",
+  "updatedAt": "2026-08-02T08:03:23.933Z",
   "players": {
     "54638257": {
       "name": "Rifki Toman",
@@ -1064,12 +1064,25 @@
     "54730721": {
       "name": "Diamantino Barral",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
+          "toDate": "2026-08-02"
+        }
+      ]
+    },
+    "54730930": {
+      "name": "Rodrigo Tomé",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 14,
+          "toWeek": null,
+          "fromDate": "2026-08-02",
           "toDate": null
         }
       ]
@@ -1077,26 +1090,26 @@
     "54731378": {
       "name": "João Pedro Peneda",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "54731469": {
       "name": "Ulisses Caramez",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
@@ -3105,39 +3118,39 @@
     "55038471": {
       "name": "Luís Pedro Cancela",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55038485": {
       "name": "Raimundo Jesus",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55038514": {
       "name": "Hermínio Alhinho",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
@@ -3157,78 +3170,78 @@
     "55038805": {
       "name": "Leandro Cardona",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55038868": {
       "name": "Rafael Nogueira",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55038912": {
       "name": "Bruno Gamboa",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55039114": {
       "name": "António Borges",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55039166": {
       "name": "Alexandre Veloso",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55039317": {
       "name": "Alexandre Coroado",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
@@ -7668,26 +7681,26 @@
     "55343485": {
       "name": "Flávio Boaventura",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
     "55343588": {
       "name": "José França",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
@@ -8136,13 +8149,13 @@
     "55382389": {
       "name": "Vladyslav Popko",
       "countryId": 33,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 13,
-          "toWeek": null,
+          "toWeek": 14,
           "fromDate": "2026-07-28",
-          "toDate": null
+          "toDate": "2026-08-02"
         }
       ]
     },
@@ -10226,6 +10239,19 @@
         }
       ]
     },
+    "55610595": {
+      "name": "Adão Guedes",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 14,
+          "toWeek": null,
+          "fromDate": "2026-08-02",
+          "toDate": null
+        }
+      ]
+    },
     "55628168": {
       "name": "Alen Bašan",
       "countryId": 24,
@@ -10287,6 +10313,19 @@
           "fromWeek": 13,
           "toWeek": null,
           "fromDate": "2026-07-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55640687": {
+      "name": "Yuriy Danilenko",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 14,
+          "toWeek": null,
+          "fromDate": "2026-08-02",
           "toDate": null
         }
       ]

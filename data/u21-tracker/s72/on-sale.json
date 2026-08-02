@@ -1,16 +1,16 @@
 {
   "season": 72,
-  "date": "2026-08-01",
+  "date": "2026-08-02",
   "week": 14,
-  "updatedAt": "2026-08-01T08:02:30.393Z",
+  "updatedAt": "2026-08-02T08:03:23.933Z",
   "players": [
     {
-      "playerId": 55165067,
-      "name": "Elgiz Chertoganov",
+      "playerId": 55165057,
+      "name": "Baldadan Gozalov",
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 205000
+      "dmi": 365000
     },
     {
       "playerId": 55720042,
@@ -37,28 +37,12 @@
       "dmi": 725000
     },
     {
-      "playerId": 54846014,
-      "name": "Stefan Obradović",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 260100
-    },
-    {
       "playerId": 55464277,
       "name": "Mark Maric",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
       "dmi": 90400
-    },
-    {
-      "playerId": 55459408,
-      "name": "Christoforos Papadaskalopoulos",
-      "countryId": 77,
-      "countryName": "Cyprus",
-      "pool": "Pool B",
-      "dmi": 118300
     },
     {
       "playerId": 54781962,
@@ -189,12 +173,28 @@
       "dmi": 684400
     },
     {
+      "playerId": 54666500,
+      "name": "Antonio Zaniolo",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "Pool H",
+      "dmi": 1069200
+    },
+    {
       "playerId": 54664855,
       "name": "Duilio Citti",
       "countryId": 10,
       "countryName": "Italia",
       "pool": "Pool H",
       "dmi": 1500400
+    },
+    {
+      "playerId": 54665482,
+      "name": "Luca Spanu",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "Pool H",
+      "dmi": 749700
     },
     {
       "playerId": 54664566,
@@ -229,6 +229,38 @@
       "dmi": 552100
     },
     {
+      "playerId": 55048394,
+      "name": "Deividas Steckevicius",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "Pool H",
+      "dmi": 844100
+    },
+    {
+      "playerId": 54740746,
+      "name": "Kristijonas Enikas",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "Pool H",
+      "dmi": 868900
+    },
+    {
+      "playerId": 55047695,
+      "name": "Leticijus Rozenblatas",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "Pool H",
+      "dmi": 2425500
+    },
+    {
+      "playerId": 55061198,
+      "name": "Olegas Sergadejevas",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "Pool H",
+      "dmi": 1348800
+    },
+    {
       "playerId": 54795684,
       "name": "Ádám Elekes",
       "countryId": 48,
@@ -259,6 +291,14 @@
       "countryName": "Magyarország",
       "pool": "Pool H",
       "dmi": 432100
+    },
+    {
+      "playerId": 54795439,
+      "name": "Márton Csák",
+      "countryId": 48,
+      "countryName": "Magyarország",
+      "pool": "Pool H",
+      "dmi": 343300
     },
     {
       "playerId": 54795413,
@@ -293,28 +333,12 @@
       "dmi": 80200
     },
     {
-      "playerId": 54761719,
-      "name": "Gunnar Johansen",
-      "countryId": 26,
-      "countryName": "Norge",
-      "pool": "Pool E",
-      "dmi": 326500
-    },
-    {
       "playerId": 55437748,
       "name": "Gigo Barkaia",
       "countryId": 62,
       "countryName": "Sakartvelo",
       "pool": "Pool C",
       "dmi": 66500
-    },
-    {
-      "playerId": 55133356,
-      "name": "Kristesia Burjanadze",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 54200
     },
     {
       "playerId": 54849643,
@@ -325,12 +349,20 @@
       "dmi": 278200
     },
     {
-      "playerId": 54764880,
-      "name": "Dejan Nikić",
+      "playerId": 54764769,
+      "name": "Aleksandar Kolarov",
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "Pool G",
-      "dmi": 268700
+      "dmi": 964400
+    },
+    {
+      "playerId": 54765426,
+      "name": "Igor Šormaz",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "Pool G",
+      "dmi": 758500
     },
     {
       "playerId": 54765128,
@@ -347,14 +379,6 @@
       "countryName": "Srbija",
       "pool": "Pool G",
       "dmi": 1875300
-    },
-    {
-      "playerId": 55445335,
-      "name": "Joni-Pekka Sjöström",
-      "countryId": 69,
-      "countryName": "Suomi",
-      "pool": "Pool E",
-      "dmi": 87900
     },
     {
       "playerId": 55275464,
