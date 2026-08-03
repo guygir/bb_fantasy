@@ -1,8 +1,8 @@
 {
   "season": 72,
   "week": 14,
-  "date": "2026-08-02",
-  "updatedAt": "2026-08-02T08:03:23.933Z",
+  "date": "2026-08-03",
+  "updatedAt": "2026-08-03T09:00:53.495Z",
   "countries": [
     {
       "countryId": 75,
@@ -1217,20 +1217,12 @@
           "name": "Tasoulis Gittas"
         },
         {
-          "playerId": 54697505,
-          "name": "Themistoklis Chalkitis"
+          "playerId": 55005421,
+          "name": "Thodoros Avgerinos"
         },
         {
-          "playerId": 55006790,
-          "name": "Lefteris Sfikopoulos"
-        },
-        {
-          "playerId": 54697729,
-          "name": "Stilianos Theodoratos"
-        },
-        {
-          "playerId": 54696878,
-          "name": "Renos Grafopoulos"
+          "playerId": 55309855,
+          "name": "Dantis Karras"
         },
         {
           "playerId": 54696917,
@@ -1261,10 +1253,6 @@
           "name": "Akis Kotsalos"
         },
         {
-          "playerId": 54697544,
-          "name": "Stefanis Kotoulas"
-        },
-        {
           "playerId": 54698275,
           "name": "Vlasis Tzougkarakis"
         },
@@ -1279,6 +1267,14 @@
         {
           "playerId": 54699033,
           "name": "Nikos Karaindros"
+        },
+        {
+          "playerId": 55004944,
+          "name": "Yiorgos Mistriotis"
+        },
+        {
+          "playerId": 55309881,
+          "name": "Ploutonas Egnatiadis"
         }
       ]
     },
@@ -1612,28 +1608,16 @@
           "name": "Roberto Bellentani"
         },
         {
-          "playerId": 54664865,
-          "name": "Andrea Ferrari"
-        },
-        {
           "playerId": 54973937,
           "name": "Giancarlo Razzi"
         },
         {
-          "playerId": 54667118,
-          "name": "Luca Cecchi"
+          "playerId": 54973149,
+          "name": "Paolo Sorce"
         },
         {
           "playerId": 54665029,
           "name": "Santo Amidani"
-        },
-        {
-          "playerId": 54664511,
-          "name": "Roberto Petretto"
-        },
-        {
-          "playerId": 54664952,
-          "name": "Livio Pastore"
         },
         {
           "playerId": 54665482,
@@ -1644,28 +1628,40 @@
           "name": "Stefano Blugaro"
         },
         {
-          "playerId": 54666317,
-          "name": "Giuseppe Orrico"
+          "playerId": 54666314,
+          "name": "Gaetano Zappalà"
         },
         {
           "playerId": 54666500,
           "name": "Antonio Zaniolo"
         },
         {
-          "playerId": 54666666,
-          "name": "Paolo Menardo"
+          "playerId": 54971980,
+          "name": "Alessandro Hoz"
         },
         {
           "playerId": 54972285,
           "name": "Donato Bauducco"
         },
         {
+          "playerId": 54973780,
+          "name": "Rino Succu"
+        },
+        {
+          "playerId": 54974368,
+          "name": "Bruno Nicastro"
+        },
+        {
           "playerId": 54974878,
           "name": "Beniamino Roncisvalle"
         },
         {
-          "playerId": 55279272,
-          "name": "Marco Provenzano"
+          "playerId": 54975189,
+          "name": "Paolo Locci"
+        },
+        {
+          "playerId": 54975342,
+          "name": "Seran Soverini"
         }
       ]
     },
@@ -1677,6 +1673,10 @@
         {
           "playerId": 55099719,
           "name": "Aristids Teniss"
+        },
+        {
+          "playerId": 54791547,
+          "name": "Knuts Krauklits"
         },
         {
           "playerId": 55403677,
@@ -2259,16 +2259,12 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55069528,
-          "name": "Andreas Arnesen"
-        },
-        {
           "playerId": 55160090,
           "name": "Arne Haugen"
         },
         {
-          "playerId": 55069454,
-          "name": "Hans Wisth"
+          "playerId": 54761678,
+          "name": "Espen Holtedal"
         },
         {
           "playerId": 55462414,
@@ -2287,12 +2283,20 @@
           "name": "Ola Kydland"
         },
         {
+          "playerId": 54761654,
+          "name": "Even Grønhaug"
+        },
+        {
           "playerId": 54761719,
           "name": "Gunnar Johansen"
         },
         {
           "playerId": 54761727,
           "name": "Lukas Ekravik"
+        },
+        {
+          "playerId": 54849278,
+          "name": "Adam Elvenes"
         },
         {
           "playerId": 54853933,
@@ -2305,10 +2309,6 @@
         {
           "playerId": 55069493,
           "name": "Alfred Ulving"
-        },
-        {
-          "playerId": 55160710,
-          "name": "Dag-Ove Laugen"
         },
         {
           "playerId": 55373789,
@@ -2492,12 +2492,64 @@
       "pool": "Pool F",
       "players": [
         {
-          "playerId": 54730930,
-          "name": "Rodrigo Tomé"
+          "playerId": 55038514,
+          "name": "Hermínio Alhinho"
         },
         {
-          "playerId": 55610595,
-          "name": "Adão Guedes"
+          "playerId": 55038485,
+          "name": "Raimundo Jesus"
+        },
+        {
+          "playerId": 55038805,
+          "name": "Leandro Cardona"
+        },
+        {
+          "playerId": 55343485,
+          "name": "Flávio Boaventura"
+        },
+        {
+          "playerId": 55038471,
+          "name": "Luís Pedro Cancela"
+        },
+        {
+          "playerId": 54731378,
+          "name": "João Pedro Peneda"
+        },
+        {
+          "playerId": 54731469,
+          "name": "Ulisses Caramez"
+        },
+        {
+          "playerId": 55038587,
+          "name": "Manuel Maria da Costa"
+        },
+        {
+          "playerId": 55038868,
+          "name": "Rafael Nogueira"
+        },
+        {
+          "playerId": 55038912,
+          "name": "Bruno Gamboa"
+        },
+        {
+          "playerId": 55039114,
+          "name": "António Borges"
+        },
+        {
+          "playerId": 55039166,
+          "name": "Alexandre Veloso"
+        },
+        {
+          "playerId": 55039317,
+          "name": "Alexandre Coroado"
+        },
+        {
+          "playerId": 55161699,
+          "name": "Zé Sales"
+        },
+        {
+          "playerId": 55343588,
+          "name": "José França"
         }
       ]
     },
@@ -2527,6 +2579,10 @@
           "name": "Alfred Talpãu"
         },
         {
+          "playerId": 55160136,
+          "name": "Leonard Apostolache"
+        },
+        {
           "playerId": 54824273,
           "name": "Horea Lascu"
         },
@@ -2553,10 +2609,6 @@
         {
           "playerId": 55132597,
           "name": "Fabian Enãchescu"
-        },
-        {
-          "playerId": 55160136,
-          "name": "Leonard Apostolache"
         },
         {
           "playerId": 55161826,
@@ -3477,10 +3529,6 @@
         {
           "playerId": 55464227,
           "name": "Illya Pavlyukh"
-        },
-        {
-          "playerId": 55640687,
-          "name": "Yuriy Danilenko"
         }
       ]
     }
