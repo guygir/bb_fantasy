@@ -1,8 +1,8 @@
 {
   "season": 72,
   "week": 14,
-  "date": "2026-08-03",
-  "updatedAt": "2026-08-03T09:00:53.495Z",
+  "date": "2026-08-04",
+  "updatedAt": "2026-08-04T08:16:38.385Z",
   "countries": [
     {
       "countryId": 75,
@@ -65,64 +65,20 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55164881,
-          "name": "Yarın Maqomayev"
-        },
-        {
-          "playerId": 54856959,
-          "name": "Domrul Məşədi"
-        },
-        {
-          "playerId": 55157855,
-          "name": "Terxan Ordubadlı"
-        },
-        {
           "playerId": 55720042,
           "name": "Toros Hampartsoumyan"
-        },
-        {
-          "playerId": 54853609,
-          "name": "Eldegez Qara"
-        },
-        {
-          "playerId": 54854196,
-          "name": "Anatoliy Sahil"
         },
         {
           "playerId": 55158219,
           "name": "Coşar Tanryverdiyev"
         },
         {
-          "playerId": 55158573,
-          "name": "Serin Qurbanov"
-        },
-        {
-          "playerId": 55159253,
-          "name": "Qulu Turabov"
-        },
-        {
-          "playerId": 55159426,
-          "name": "Fikrət Qədiri"
-        },
-        {
-          "playerId": 55160338,
-          "name": "Əhməd Tevfiq Nuriyev"
-        },
-        {
           "playerId": 55161249,
           "name": "Vyktor Sabo"
         },
         {
-          "playerId": 55162454,
-          "name": "Qurtuluş Sahil"
-        },
-        {
           "playerId": 55165057,
           "name": "Baldadan Gozalov"
-        },
-        {
-          "playerId": 55165067,
-          "name": "Elgiz Chertoganov"
         },
         {
           "playerId": 55464034,
@@ -219,72 +175,24 @@
       "pool": "Pool H",
       "players": [
         {
-          "playerId": 54713464,
-          "name": "John Albers"
-        },
-        {
-          "playerId": 54713499,
-          "name": "Boudewijn Wauters"
-        },
-        {
-          "playerId": 54713292,
-          "name": "Fabrice Isenbaert"
-        },
-        {
-          "playerId": 54713337,
-          "name": "Vincent Geniets"
-        },
-        {
-          "playerId": 55021100,
-          "name": "Vick Van Helvert"
-        },
-        {
-          "playerId": 55021006,
-          "name": "Silvain De Graaf"
-        },
-        {
-          "playerId": 54713334,
-          "name": "Jeen Franssen"
-        },
-        {
-          "playerId": 54713327,
-          "name": "Gervais Bauchau"
-        },
-        {
-          "playerId": 54713361,
-          "name": "Raf Lampaert"
-        },
-        {
-          "playerId": 54713496,
-          "name": "Gaetano Bochmans"
-        },
-        {
-          "playerId": 54713633,
-          "name": "Emanuel De Sutter"
-        },
-        {
-          "playerId": 54713696,
-          "name": "Bart Gepts"
-        },
-        {
-          "playerId": 54713704,
-          "name": "Harry Borré"
-        },
-        {
-          "playerId": 54853718,
-          "name": "Jo Lobbestael"
-        },
-        {
-          "playerId": 55021031,
-          "name": "Nic Meeus"
+          "playerId": 55021110,
+          "name": "Jorden Geerts"
         },
         {
           "playerId": 55021432,
           "name": "Joery Van den Heuvel"
         },
         {
-          "playerId": 55021483,
-          "name": "Herben Marquez"
+          "playerId": 55021448,
+          "name": "Mamadou Diatta"
+        },
+        {
+          "playerId": 55325801,
+          "name": "Adolf Steensels"
+        },
+        {
+          "playerId": 55326101,
+          "name": "Gérard Deolet"
         }
       ]
     },
@@ -356,6 +264,14 @@
         {
           "playerId": 55383231,
           "name": "Suad Dobrić"
+        },
+        {
+          "playerId": 55920078,
+          "name": "Danko Zlatić"
+        },
+        {
+          "playerId": 55920370,
+          "name": "Oliver Volcanšek"
         }
       ]
     },
@@ -586,16 +502,16 @@
           "name": "Steven Litherland"
         },
         {
+          "playerId": 55464277,
+          "name": "Mark Maric"
+        },
+        {
           "playerId": 55463552,
           "name": "Rhodri Matthews"
         },
         {
           "playerId": 55463756,
           "name": "Robbie McCulloch"
-        },
-        {
-          "playerId": 55464277,
-          "name": "Mark Maric"
         },
         {
           "playerId": 55468163,
@@ -704,10 +620,6 @@
           "name": "Klaus Løkkegård"
         },
         {
-          "playerId": 54780041,
-          "name": "Nicolas Dahlberg"
-        },
-        {
           "playerId": 54780055,
           "name": "Brian Bögebjerg"
         },
@@ -724,16 +636,8 @@
           "name": "Michael Lerche"
         },
         {
-          "playerId": 55088192,
-          "name": "Christian Smidemann"
-        },
-        {
           "playerId": 55158273,
           "name": "Sven Dyrholm"
-        },
-        {
-          "playerId": 55160034,
-          "name": "Tore Budde"
         },
         {
           "playerId": 55160875,
@@ -742,14 +646,6 @@
         {
           "playerId": 55161180,
           "name": "Gert Birkemose"
-        },
-        {
-          "playerId": 55161301,
-          "name": "Brian Knudsen"
-        },
-        {
-          "playerId": 55161876,
-          "name": "Thorbjørn Hingebjerg"
         },
         {
           "playerId": 55392424,
@@ -762,6 +658,14 @@
         {
           "playerId": 55712563,
           "name": "Marcus Harlind Aagaard"
+        },
+        {
+          "playerId": 55929245,
+          "name": "Teis Askham"
+        },
+        {
+          "playerId": 55929334,
+          "name": "Ben Von Eyben"
         }
       ]
     },
@@ -846,6 +750,10 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 54781962,
+          "name": "Andreas Raidmets"
+        },
+        {
           "playerId": 55393610,
           "name": "Osip Loshchilov"
         },
@@ -872,10 +780,6 @@
         {
           "playerId": 54781215,
           "name": "Sergo Lapeteus"
-        },
-        {
-          "playerId": 54781962,
-          "name": "Andreas Raidmets"
         },
         {
           "playerId": 55089156,
@@ -913,76 +817,32 @@
       "pool": "Pool A",
       "players": [
         {
-          "playerId": 55329838,
-          "name": "Emile Hunt"
+          "playerId": 55875726,
+          "name": "Jon Sharpe"
         },
         {
-          "playerId": 55329865,
-          "name": "Johnny Royston"
+          "playerId": 55875754,
+          "name": "Joshua McDonna"
         },
         {
-          "playerId": 55329781,
-          "name": "Barker Koutrakos"
+          "playerId": 55875787,
+          "name": "Tanish Porsezhian"
         },
         {
-          "playerId": 55329997,
-          "name": "Stephen Ham"
+          "playerId": 55875799,
+          "name": "Lewis Marshall"
         },
         {
-          "playerId": 55330167,
-          "name": "Brian Lynch"
+          "playerId": 55876008,
+          "name": "Dave Gray"
         },
         {
-          "playerId": 55330015,
-          "name": "Stephen Lockhart"
+          "playerId": 55876121,
+          "name": "Dallas Blackmore"
         },
         {
-          "playerId": 55461763,
-          "name": "Gary Starmer"
-        },
-        {
-          "playerId": 55025161,
-          "name": "Cabot Pernet"
-        },
-        {
-          "playerId": 55463783,
-          "name": "Hamilton Ansell"
-        },
-        {
-          "playerId": 55330029,
-          "name": "Brady Malin"
-        },
-        {
-          "playerId": 55329802,
-          "name": "Jason Furlong"
-        },
-        {
-          "playerId": 55711430,
-          "name": "Kendrick Loftus"
-        },
-        {
-          "playerId": 55025148,
-          "name": "Brian Parkes"
-        },
-        {
-          "playerId": 55025639,
-          "name": "Thomas Moore"
-        },
-        {
-          "playerId": 55329988,
-          "name": "Stu Lavender"
-        },
-        {
-          "playerId": 55461670,
-          "name": "Ross Read"
-        },
-        {
-          "playerId": 55597475,
-          "name": "Brent Campbell"
-        },
-        {
-          "playerId": 55597598,
-          "name": "Christopher Chiara"
+          "playerId": 55876214,
+          "name": "Carl Cook"
         }
       ]
     },
@@ -1065,72 +925,7 @@
       "countryId": 11,
       "name": "France",
       "pool": "Pool G",
-      "players": [
-        {
-          "playerId": 54681748,
-          "name": "Sylvain Dutrey"
-        },
-        {
-          "playerId": 54681395,
-          "name": "Pascal Breheret"
-        },
-        {
-          "playerId": 54680584,
-          "name": "Éric Rigollet"
-        },
-        {
-          "playerId": 54682686,
-          "name": "Philippe Flandrin"
-        },
-        {
-          "playerId": 54681168,
-          "name": "Dominique Noir"
-        },
-        {
-          "playerId": 54680467,
-          "name": "Thibault Gauduchon"
-        },
-        {
-          "playerId": 54680570,
-          "name": "Yann Véricel"
-        },
-        {
-          "playerId": 54680683,
-          "name": "Zacharia Saoui"
-        },
-        {
-          "playerId": 54681052,
-          "name": "Christophe Goubet"
-        },
-        {
-          "playerId": 54681379,
-          "name": "Morgan Devarenne"
-        },
-        {
-          "playerId": 54681383,
-          "name": "Anthony Boucher"
-        },
-        {
-          "playerId": 54681481,
-          "name": "Philippe Alonso"
-        },
-        {
-          "playerId": 54682366,
-          "name": "Mikaël Ducrot"
-        },
-        {
-          "playerId": 54682871,
-          "name": "Alfred Hoarau"
-        },
-        {
-          "playerId": 54683011,
-          "name": "Xavier Loubet"
-        },
-        {
-          "playerId": 54894340,
-          "name": "Adrien Desmaretz"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 87,
@@ -1213,28 +1008,8 @@
       "pool": "Pool G",
       "players": [
         {
-          "playerId": 54698597,
-          "name": "Tasoulis Gittas"
-        },
-        {
           "playerId": 55005421,
           "name": "Thodoros Avgerinos"
-        },
-        {
-          "playerId": 55309855,
-          "name": "Dantis Karras"
-        },
-        {
-          "playerId": 54696917,
-          "name": "Alexios Thanos"
-        },
-        {
-          "playerId": 54696955,
-          "name": "Panteleimon Amanatis"
-        },
-        {
-          "playerId": 54697105,
-          "name": "Gryllakis Antonopoulos"
         },
         {
           "playerId": 54697198,
@@ -1245,36 +1020,64 @@
           "name": "Aristidis Vlastarakis"
         },
         {
-          "playerId": 54697327,
-          "name": "Nikos Loukoumis"
-        },
-        {
-          "playerId": 54697370,
-          "name": "Akis Kotsalos"
-        },
-        {
           "playerId": 54698275,
           "name": "Vlasis Tzougkarakis"
-        },
-        {
-          "playerId": 54698500,
-          "name": "Kostas Tampakis"
         },
         {
           "playerId": 54698540,
           "name": "Antonios Sterpis"
         },
         {
-          "playerId": 54699033,
-          "name": "Nikos Karaindros"
-        },
-        {
-          "playerId": 55004944,
-          "name": "Yiorgos Mistriotis"
-        },
-        {
           "playerId": 55309881,
           "name": "Ploutonas Egnatiadis"
+        },
+        {
+          "playerId": 55864489,
+          "name": "Isiodos Kozapalidis"
+        },
+        {
+          "playerId": 55864858,
+          "name": "Erotokritos Karaflochetoulas"
+        },
+        {
+          "playerId": 55864870,
+          "name": "Nasos Moustakakis"
+        },
+        {
+          "playerId": 55864890,
+          "name": "Aggelos Chaldoupis"
+        },
+        {
+          "playerId": 55864917,
+          "name": "Yiorgos Mpalotis"
+        },
+        {
+          "playerId": 55865098,
+          "name": "Dionisis Tsalouchidis"
+        },
+        {
+          "playerId": 55865105,
+          "name": "Dakis Karampelas"
+        },
+        {
+          "playerId": 55865180,
+          "name": "Yiorgos Pouliasis"
+        },
+        {
+          "playerId": 55865672,
+          "name": "Nikos Galanatos"
+        },
+        {
+          "playerId": 55865814,
+          "name": "Imam Urgun"
+        },
+        {
+          "playerId": 55866049,
+          "name": "Dimosthenis Karagkounis"
+        },
+        {
+          "playerId": 55866710,
+          "name": "Kosmas Gagalakos"
         }
       ]
     },
@@ -1283,10 +1086,6 @@
       "name": "Hrvatska",
       "pool": "Pool F",
       "players": [
-        {
-          "playerId": 55065310,
-          "name": "Petar Velović"
-        },
         {
           "playerId": 55065577,
           "name": "Tomica Komadina"
@@ -1367,10 +1166,6 @@
           "name": "Darren Cuneen"
         },
         {
-          "playerId": 55710734,
-          "name": "Turlough Wall"
-        },
-        {
           "playerId": 55462267,
           "name": "Les Mac Geralt"
         },
@@ -1391,28 +1186,8 @@
           "name": "Wacker Cahill"
         },
         {
-          "playerId": 54786356,
-          "name": "Quinton Horan"
-        },
-        {
-          "playerId": 55094229,
-          "name": "Paulie Boland"
-        },
-        {
-          "playerId": 55094285,
-          "name": "Stephen Moran"
-        },
-        {
-          "playerId": 55094315,
-          "name": "Jamie Baker Conroy"
-        },
-        {
-          "playerId": 55157201,
-          "name": "James Horsfall"
-        },
-        {
-          "playerId": 55160752,
-          "name": "Todd Cascarino"
+          "playerId": 55158318,
+          "name": "Brian Dunphy"
         },
         {
           "playerId": 55398567,
@@ -1427,12 +1202,24 @@
           "name": "Milo Feenan"
         },
         {
+          "playerId": 55398674,
+          "name": "Humphrey Dineen"
+        },
+        {
+          "playerId": 55462407,
+          "name": "Alex Donovan"
+        },
+        {
           "playerId": 55462448,
           "name": "Stuart Torrance"
         },
         {
           "playerId": 55713805,
           "name": "Sol Flynn"
+        },
+        {
+          "playerId": 55935458,
+          "name": "Louis Mulcahy"
         }
       ]
     },
@@ -1517,76 +1304,64 @@
       "pool": "Pool H",
       "players": [
         {
-          "playerId": 54721516,
-          "name": "Elram Linezky"
+          "playerId": 55334059,
+          "name": "Meidad Yesha'ayahu"
         },
         {
-          "playerId": 54721618,
-          "name": "Gilad Avidar"
+          "playerId": 55334060,
+          "name": "Farook Ben-Dror"
         },
         {
-          "playerId": 55029913,
-          "name": "Oded Narkis"
+          "playerId": 55334164,
+          "name": "Avni Barzilay"
         },
         {
-          "playerId": 54721949,
-          "name": "Yechezkel Amrani"
+          "playerId": 55334232,
+          "name": "Jed Dekel"
         },
         {
-          "playerId": 54721465,
-          "name": "Kobi Buaron"
+          "playerId": 55334333,
+          "name": "Nativ Dolev"
         },
         {
-          "playerId": 54721556,
-          "name": "Nitzan Wolf"
+          "playerId": 55601393,
+          "name": "Raz Gilad"
         },
         {
-          "playerId": 54721686,
-          "name": "Ori Hayman"
+          "playerId": 55601722,
+          "name": "Adi Stone"
         },
         {
-          "playerId": 54721805,
-          "name": "Tzoori Kischitzky"
+          "playerId": 55879883,
+          "name": "Tamir Shaharabani"
         },
         {
-          "playerId": 54721812,
-          "name": "Eliav Birenbaum"
+          "playerId": 55880008,
+          "name": "Meni Kruglov"
         },
         {
-          "playerId": 54721825,
-          "name": "Yaacov Nissim"
+          "playerId": 55880030,
+          "name": "Almog Chalfon"
         },
         {
-          "playerId": 54721938,
-          "name": "Almog Ivgy"
+          "playerId": 55880232,
+          "name": "Yaki Greenberg"
         },
         {
-          "playerId": 54722016,
-          "name": "Masud Abu-Abdel"
+          "playerId": 55880308,
+          "name": "Nissim Yam"
         },
         {
-          "playerId": 54722033,
-          "name": "Elran Simkin"
+          "playerId": 55880317,
+          "name": "Abir Mansour"
         },
         {
-          "playerId": 54722117,
-          "name": "Moran Azrieli"
+          "playerId": 55880517,
+          "name": "Benny Shomron"
         },
         {
-          "playerId": 54722119,
-          "name": "Sharon Zuqert"
-        },
-        {
-          "playerId": 55029538,
-          "name": "Oneg Ben-Yaacov"
-        },
-        {
-          "playerId": 55029696,
-          "name": "Tuvi Ashkenazi"
-        },
-        {
-          "playerId": 55029914,
-          "name": "Alex Avramov"
+          "playerId": 55880543,
+          "name": "Haim Frishman"
         }
       ]
     },
@@ -1596,16 +1371,8 @@
       "pool": "Pool H",
       "players": [
         {
-          "playerId": 54664855,
-          "name": "Duilio Citti"
-        },
-        {
           "playerId": 54664496,
           "name": "Alessio Cuppini"
-        },
-        {
-          "playerId": 54664566,
-          "name": "Roberto Bellentani"
         },
         {
           "playerId": 54973937,
@@ -1662,6 +1429,14 @@
         {
           "playerId": 54975342,
           "name": "Seran Soverini"
+        },
+        {
+          "playerId": 55160239,
+          "name": "Roberto Toti"
+        },
+        {
+          "playerId": 55810301,
+          "name": "Luca Piccinonno"
         }
       ]
     },
@@ -1673,10 +1448,6 @@
         {
           "playerId": 55099719,
           "name": "Aristids Teniss"
-        },
-        {
-          "playerId": 54791547,
-          "name": "Knuts Krauklits"
         },
         {
           "playerId": 55403677,
@@ -1770,14 +1541,6 @@
           "name": "Simonas Znamenskas"
         },
         {
-          "playerId": 54739914,
-          "name": "Vytautas Urnežas"
-        },
-        {
-          "playerId": 54739915,
-          "name": "Dainotas Slivinskas"
-        },
-        {
           "playerId": 54739989,
           "name": "Kęstutis Jaudžimas"
         },
@@ -1794,24 +1557,20 @@
           "name": "Rytas Juškevičius"
         },
         {
-          "playerId": 55046912,
-          "name": "Arnas Dzindzalietas"
-        },
-        {
           "playerId": 55047318,
           "name": "Valdas Peldunas"
         },
         {
-          "playerId": 55047732,
-          "name": "Ramūnas Katavicius"
-        },
-        {
-          "playerId": 55048296,
-          "name": "Vytukas Ružinas"
+          "playerId": 55047943,
+          "name": "Alvytas Cholupniakas"
         },
         {
           "playerId": 55048480,
           "name": "Vilgirmas Asakavičius"
+        },
+        {
+          "playerId": 55462207,
+          "name": "Marius Verketis"
         }
       ]
     },
@@ -1849,26 +1608,6 @@
           "name": "Steffen Preiss"
         },
         {
-          "playerId": 54850652,
-          "name": "Gabriel Badewitz"
-        },
-        {
-          "playerId": 54855928,
-          "name": "Gillian Roeloffzen"
-        },
-        {
-          "playerId": 55157997,
-          "name": "Cristiano Magalhães"
-        },
-        {
-          "playerId": 55159766,
-          "name": "Marco Craveiro"
-        },
-        {
-          "playerId": 55161661,
-          "name": "Quentin Mari"
-        },
-        {
           "playerId": 55462450,
           "name": "Mike Dorst"
         },
@@ -1891,6 +1630,18 @@
         {
           "playerId": 55711866,
           "name": "Bruno Alves"
+        },
+        {
+          "playerId": 55989456,
+          "name": "Jean-Baptiste Durand"
+        },
+        {
+          "playerId": 55990109,
+          "name": "Christian Saat"
+        },
+        {
+          "playerId": 55993560,
+          "name": "Jérôme Villain"
         }
       ]
     },
@@ -2188,68 +1939,28 @@
       "pool": "Pool H",
       "players": [
         {
-          "playerId": 55033625,
-          "name": "Elbert Smulders"
+          "playerId": 55883947,
+          "name": "Jaapjan Issendorf"
         },
         {
-          "playerId": 55337971,
-          "name": "George Westbroek"
+          "playerId": 55883952,
+          "name": "Ward Hensen"
         },
         {
-          "playerId": 55338033,
-          "name": "Lars Versteegh"
+          "playerId": 55883998,
+          "name": "Lennard van der Marel"
         },
         {
-          "playerId": 55338088,
-          "name": "Jordy Frijling"
+          "playerId": 55884053,
+          "name": "Jerôme de Ruyter"
         },
         {
-          "playerId": 55033309,
-          "name": "Laurent Straathof"
+          "playerId": 55884089,
+          "name": "Folkert Jan Bitterling"
         },
         {
-          "playerId": 55033388,
-          "name": "Nicholas Alleyn"
-        },
-        {
-          "playerId": 55033414,
-          "name": "Harm-Jan Scheringa"
-        },
-        {
-          "playerId": 55033428,
-          "name": "Francis Mulier"
-        },
-        {
-          "playerId": 55033451,
-          "name": "Duncan van Osch"
-        },
-        {
-          "playerId": 55337907,
-          "name": "Jean-Marc Weener"
-        },
-        {
-          "playerId": 55337939,
-          "name": "Tigo Wielaert"
-        },
-        {
-          "playerId": 55337944,
-          "name": "Wilibrord Hensen"
-        },
-        {
-          "playerId": 55338004,
-          "name": "Jo Helmus"
-        },
-        {
-          "playerId": 55338155,
-          "name": "Yonah Waterreus"
-        },
-        {
-          "playerId": 55461811,
-          "name": "Selwyn Rats"
-        },
-        {
-          "playerId": 55464826,
-          "name": "Alfonso de Zwart"
+          "playerId": 55884134,
+          "name": "Renaat Vedder"
         }
       ]
     },
@@ -2550,6 +2261,14 @@
         {
           "playerId": 55343588,
           "name": "José França"
+        },
+        {
+          "playerId": 55889687,
+          "name": "Célio Melo"
+        },
+        {
+          "playerId": 55889697,
+          "name": "Carlos Pereira"
         }
       ]
     },
@@ -2812,16 +2531,8 @@
           "name": "Arnold Hufschmied"
         },
         {
-          "playerId": 55634399,
-          "name": "Rolf Kist"
-        },
-        {
           "playerId": 55375934,
           "name": "Adolf Solak"
-        },
-        {
-          "playerId": 55465481,
-          "name": "Pascal Darchinger"
         },
         {
           "playerId": 55071660,
@@ -2875,16 +2586,16 @@
       "pool": "Pool A",
       "players": [
         {
+          "playerId": 55463942,
+          "name": "John Holmes"
+        },
+        {
           "playerId": 55160801,
           "name": "Bob Soutar"
         },
         {
           "playerId": 55462433,
           "name": "James MacLintock"
-        },
-        {
-          "playerId": 55463942,
-          "name": "John Holmes"
         },
         {
           "playerId": 54850680,
@@ -3175,20 +2886,12 @@
           "name": "Mirko Stojadinov"
         },
         {
-          "playerId": 55073028,
-          "name": "Nenad Culafić"
-        },
-        {
           "playerId": 54764769,
           "name": "Aleksandar Kolarov"
         },
         {
           "playerId": 54764844,
           "name": "Vuk Simeunović"
-        },
-        {
-          "playerId": 54764880,
-          "name": "Dejan Nikić"
         },
         {
           "playerId": 54764907,
@@ -3211,20 +2914,12 @@
           "name": "Miodrag Simov"
         },
         {
-          "playerId": 55072644,
-          "name": "Budo Smolović"
-        },
-        {
           "playerId": 55072646,
           "name": "Anđelko Karić"
         },
         {
           "playerId": 55072667,
           "name": "Nikola Bajić"
-        },
-        {
-          "playerId": 55073422,
-          "name": "Dražen Samardžić"
         },
         {
           "playerId": 55073514,
@@ -3237,6 +2932,10 @@
         {
           "playerId": 55377439,
           "name": "Dule Vasiljević"
+        },
+        {
+          "playerId": 55914568,
+          "name": "Petar Četojević"
         }
       ]
     },
@@ -3246,68 +2945,12 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55445144,
-          "name": "Lasse Pelkonen"
+          "playerId": 55972710,
+          "name": "Arto Mikkola"
         },
         {
-          "playerId": 55140634,
-          "name": "Matti Bergström"
-        },
-        {
-          "playerId": 55140735,
-          "name": "Erno Pankkonen"
-        },
-        {
-          "playerId": 55140741,
-          "name": "Juho Hilden"
-        },
-        {
-          "playerId": 55140761,
-          "name": "Juha Korander"
-        },
-        {
-          "playerId": 55140812,
-          "name": "Martti Levomäki"
-        },
-        {
-          "playerId": 55140866,
-          "name": "Juuso Rautio"
-        },
-        {
-          "playerId": 55140873,
-          "name": "Ville Juntunen"
-        },
-        {
-          "playerId": 55141000,
-          "name": "Lauri Rosqvist"
-        },
-        {
-          "playerId": 55141049,
-          "name": "Pauli Meltola"
-        },
-        {
-          "playerId": 55141151,
-          "name": "Markus Peuranen"
-        },
-        {
-          "playerId": 55159107,
-          "name": "Eetu Siiropää"
-        },
-        {
-          "playerId": 55159343,
-          "name": "Pekka Palmgrén"
-        },
-        {
-          "playerId": 55444876,
-          "name": "Mikko Rautavuori"
-        },
-        {
-          "playerId": 55445335,
-          "name": "Joni-Pekka Sjöström"
-        },
-        {
-          "playerId": 55445413,
-          "name": "Jani Kankainen"
+          "playerId": 55972715,
+          "name": "Petteri Uosukainen"
         }
       ]
     },
@@ -3317,76 +2960,72 @@
       "pool": "Pool D",
       "players": [
         {
-          "playerId": 55275283,
-          "name": "Ronny Melin"
+          "playerId": 55863429,
+          "name": "Mårten Askensjö"
         },
         {
-          "playerId": 54970780,
-          "name": "Karl Lindbratt"
+          "playerId": 55863446,
+          "name": "Johan Tellmar"
         },
         {
-          "playerId": 55275302,
-          "name": "Tomas Uddlund"
+          "playerId": 55863484,
+          "name": "Jonas Gottskär"
         },
         {
-          "playerId": 55570385,
-          "name": "Tore Lundlius"
+          "playerId": 55863544,
+          "name": "Bosse Pettersson"
         },
         {
-          "playerId": 55275464,
-          "name": "Johan Oskarsson"
+          "playerId": 55863560,
+          "name": "Stefan Matsson"
         },
         {
-          "playerId": 55161701,
-          "name": "Peter Josefsson"
+          "playerId": 55863566,
+          "name": "Anders Håkansson"
         },
         {
-          "playerId": 54970621,
-          "name": "Nick Fredbom"
+          "playerId": 55863603,
+          "name": "Miikka Grekula"
         },
         {
-          "playerId": 54970798,
-          "name": "Daniel Paulsson"
+          "playerId": 55863610,
+          "name": "Inge Einarsson"
         },
         {
-          "playerId": 54970800,
-          "name": "Jonas Stenbratt"
+          "playerId": 55863614,
+          "name": "Hans Isskär"
         },
         {
-          "playerId": 55160924,
-          "name": "Michael Blomlund"
+          "playerId": 55863639,
+          "name": "Ola Claesson"
         },
         {
-          "playerId": 55275294,
-          "name": "Alexander Askenér"
+          "playerId": 55863640,
+          "name": "Tomas Grönmar"
         },
         {
-          "playerId": 55275315,
-          "name": "Chipako Mali"
+          "playerId": 55863652,
+          "name": "Ludvig Granlund"
         },
         {
-          "playerId": 55275334,
-          "name": "Leonard Grip"
+          "playerId": 55863711,
+          "name": "Anders Hassellund"
         },
         {
-          "playerId": 55275338,
-          "name": "Clas Rogersson"
+          "playerId": 55863716,
+          "name": "Enrique Gomez"
         },
         {
-          "playerId": 55275373,
-          "name": "Jaakko Jolkkonen"
+          "playerId": 55863720,
+          "name": "Juhani Lehtinen"
         },
         {
-          "playerId": 55275376,
-          "name": "Patrik Håkansson"
+          "playerId": 55863760,
+          "name": "Erik Andersson"
         },
         {
-          "playerId": 55275420,
-          "name": "Markku Popoff"
-        },
-        {
-          "playerId": 55471956,
-          "name": "Ulf Jansson"
+          "playerId": 55991914,
+          "name": "Peter Kyhlstrand"
         }
       ]
     },
@@ -3396,10 +3035,6 @@
       "pool": "Pool D",
       "players": [
         {
-          "playerId": 54945792,
-          "name": "Mustafa Vahid"
-        },
-        {
           "playerId": 55251101,
           "name": "Idris Salkan"
         },
@@ -3408,12 +3043,12 @@
           "name": "Amir Olçun"
         },
         {
-          "playerId": 55250908,
-          "name": "Cansever Savtunç"
+          "playerId": 55251473,
+          "name": "Kerim Algim"
         },
         {
-          "playerId": 54639156,
-          "name": "Ismail Hakki Oksu"
+          "playerId": 55250908,
+          "name": "Cansever Savtunç"
         },
         {
           "playerId": 54945772,
@@ -3462,6 +3097,10 @@
         {
           "playerId": 55555924,
           "name": "Ali Haydar Ergüder"
+        },
+        {
+          "playerId": 55840197,
+          "name": "Arel Gülsoy"
         }
       ]
     },

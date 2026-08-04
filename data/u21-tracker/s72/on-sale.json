@@ -1,9 +1,17 @@
 {
   "season": 72,
-  "date": "2026-08-03",
+  "date": "2026-08-04",
   "week": 14,
-  "updatedAt": "2026-08-03T09:00:53.495Z",
+  "updatedAt": "2026-08-04T08:16:38.385Z",
   "players": [
+    {
+      "playerId": 55158237,
+      "name": "Albert Clar",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool E",
+      "dmi": 232400
+    },
     {
       "playerId": 55165057,
       "name": "Baldadan Gozalov",
@@ -13,44 +21,12 @@
       "dmi": 365000
     },
     {
-      "playerId": 55165067,
-      "name": "Elgiz Chertoganov",
+      "playerId": 55720042,
+      "name": "Toros Hampartsoumyan",
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 205000
-    },
-    {
-      "playerId": 55159426,
-      "name": "Fikrət Qədiri",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 575800
-    },
-    {
-      "playerId": 55162454,
-      "name": "Qurtuluş Sahil",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 266100
-    },
-    {
-      "playerId": 54713327,
-      "name": "Gervais Bauchau",
-      "countryId": 13,
-      "countryName": "Belgium",
-      "pool": "Pool H",
-      "dmi": 492200
-    },
-    {
-      "playerId": 55021006,
-      "name": "Silvain De Graaf",
-      "countryId": 13,
-      "countryName": "Belgium",
-      "pool": "Pool H",
-      "dmi": 741800
+      "dmi": 64600
     },
     {
       "playerId": 55078955,
@@ -61,52 +37,116 @@
       "dmi": 230500
     },
     {
-      "playerId": 55464277,
-      "name": "Mark Maric",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 90400
+      "playerId": 54775002,
+      "name": "Atanas Alexandrov",
+      "countryId": 36,
+      "countryName": "Bulgaria",
+      "pool": "Pool F",
+      "dmi": 477900
     },
     {
-      "playerId": 54781962,
-      "name": "Andreas Raidmets",
-      "countryId": 41,
-      "countryName": "Eesti",
-      "pool": "Pool C",
-      "dmi": 545300
+      "playerId": 55083039,
+      "name": "Dimitar Gitzov",
+      "countryId": 36,
+      "countryName": "Bulgaria",
+      "pool": "Pool F",
+      "dmi": 251600
     },
     {
-      "playerId": 54781215,
-      "name": "Sergo Lapeteus",
-      "countryId": 41,
-      "countryName": "Eesti",
-      "pool": "Pool C",
-      "dmi": 345400
+      "playerId": 55159233,
+      "name": "Tibor Lombardi-Kloss",
+      "countryId": 8,
+      "countryName": "Deutschland",
+      "pool": "Pool D",
+      "dmi": 282800
     },
     {
-      "playerId": 54682871,
-      "name": "Alfred Hoarau",
-      "countryId": 11,
-      "countryName": "France",
+      "playerId": 55876121,
+      "name": "Dallas Blackmore",
+      "countryId": 14,
+      "countryName": "England",
+      "pool": "Pool A",
+      "dmi": 0
+    },
+    {
+      "playerId": 55875726,
+      "name": "Jon Sharpe",
+      "countryId": 14,
+      "countryName": "England",
+      "pool": "Pool A",
+      "dmi": 0
+    },
+    {
+      "playerId": 55875754,
+      "name": "Joshua McDonna",
+      "countryId": 14,
+      "countryName": "England",
+      "pool": "Pool A",
+      "dmi": 0
+    },
+    {
+      "playerId": 55875787,
+      "name": "Tanish Porsezhian",
+      "countryId": 14,
+      "countryName": "England",
+      "pool": "Pool A",
+      "dmi": 0
+    },
+    {
+      "playerId": 54643071,
+      "name": "Alejandro Guridi",
+      "countryId": 7,
+      "countryName": "España",
       "pool": "Pool G",
-      "dmi": 3832100
+      "dmi": 597800
     },
     {
-      "playerId": 54681383,
-      "name": "Anthony Boucher",
-      "countryId": 11,
-      "countryName": "France",
+      "playerId": 54950659,
+      "name": "Humberto Orrantia",
+      "countryId": 7,
+      "countryName": "España",
       "pool": "Pool G",
-      "dmi": 2958300
+      "dmi": 786600
     },
     {
-      "playerId": 54680570,
-      "name": "Yann Véricel",
-      "countryId": 11,
-      "countryName": "France",
+      "playerId": 54643229,
+      "name": "Joaquín Moreno Sánchez",
+      "countryId": 7,
+      "countryName": "España",
       "pool": "Pool G",
-      "dmi": 2054500
+      "dmi": 1005900
+    },
+    {
+      "playerId": 54952067,
+      "name": "José Badillo",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "Pool G",
+      "dmi": 818100
+    },
+    {
+      "playerId": 54951008,
+      "name": "Juan de Dios Martín González",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "Pool G",
+      "dmi": 803300
+    },
+    {
+      "playerId": 54644598,
+      "name": "Luis María Ramo",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "Pool G",
+      "dmi": 566200
+    },
+    {
+      "playerId": 54643143,
+      "name": "Pere Colmener",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "Pool G",
+      "dmi": 1677700
     },
     {
       "playerId": 55468324,
@@ -117,76 +157,12 @@
       "dmi": 95700
     },
     {
-      "playerId": 54697370,
-      "name": "Akis Kotsalos",
+      "playerId": 55864870,
+      "name": "Nasos Moustakakis",
       "countryId": 12,
       "countryName": "Hellas",
       "pool": "Pool G",
-      "dmi": 798300
-    },
-    {
-      "playerId": 54696917,
-      "name": "Alexios Thanos",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 704400
-    },
-    {
-      "playerId": 54698540,
-      "name": "Antonios Sterpis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 2315500
-    },
-    {
-      "playerId": 54697298,
-      "name": "Aristidis Vlastarakis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 1322100
-    },
-    {
-      "playerId": 54698500,
-      "name": "Kostas Tampakis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 1644600
-    },
-    {
-      "playerId": 54699033,
-      "name": "Nikos Karaindros",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 517600
-    },
-    {
-      "playerId": 54697327,
-      "name": "Nikos Loukoumis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 523100
-    },
-    {
-      "playerId": 54697198,
-      "name": "Vardis Alvanos",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 3187400
-    },
-    {
-      "playerId": 54698275,
-      "name": "Vlasis Tzougkarakis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "Pool G",
-      "dmi": 553300
+      "dmi": 0
     },
     {
       "playerId": 55160568,
@@ -195,6 +171,30 @@
       "countryName": "Ísland",
       "pool": "Pool C",
       "dmi": 371600
+    },
+    {
+      "playerId": 55880030,
+      "name": "Almog Chalfon",
+      "countryId": 15,
+      "countryName": "Israel",
+      "pool": "Pool H",
+      "dmi": 0
+    },
+    {
+      "playerId": 55880008,
+      "name": "Meni Kruglov",
+      "countryId": 15,
+      "countryName": "Israel",
+      "pool": "Pool H",
+      "dmi": 0
+    },
+    {
+      "playerId": 55880232,
+      "name": "Yaki Greenberg",
+      "countryId": 15,
+      "countryName": "Israel",
+      "pool": "Pool H",
+      "dmi": 0
     },
     {
       "playerId": 54664496,
@@ -213,28 +213,12 @@
       "dmi": 1069200
     },
     {
-      "playerId": 54664855,
-      "name": "Duilio Citti",
-      "countryId": 10,
-      "countryName": "Italia",
-      "pool": "Pool H",
-      "dmi": 1500400
-    },
-    {
       "playerId": 54665482,
       "name": "Luca Spanu",
       "countryId": 10,
       "countryName": "Italia",
       "pool": "Pool H",
       "dmi": 749700
-    },
-    {
-      "playerId": 54664566,
-      "name": "Roberto Bellentani",
-      "countryId": 10,
-      "countryName": "Italia",
-      "pool": "Pool H",
-      "dmi": 2107000
     },
     {
       "playerId": 54665029,
@@ -251,14 +235,6 @@
       "countryName": "Latvija",
       "pool": "Pool G",
       "dmi": 98700
-    },
-    {
-      "playerId": 55046912,
-      "name": "Arnas Dzindzalietas",
-      "countryId": 20,
-      "countryName": "Lietuva",
-      "pool": "Pool H",
-      "dmi": 552100
     },
     {
       "playerId": 55048394,
@@ -293,12 +269,12 @@
       "dmi": 1348800
     },
     {
-      "playerId": 54795684,
-      "name": "Ádám Elekes",
-      "countryId": 48,
-      "countryName": "Magyarország",
-      "pool": "Pool H",
-      "dmi": 2095400
+      "playerId": 55990109,
+      "name": "Christian Saat",
+      "countryId": 91,
+      "countryName": "Luxembourg",
+      "pool": "Pool E",
+      "dmi": 0
     },
     {
       "playerId": 54795988,
@@ -325,22 +301,6 @@
       "dmi": 343300
     },
     {
-      "playerId": 54795413,
-      "name": "Norbert Csorba",
-      "countryId": 48,
-      "countryName": "Magyarország",
-      "pool": "Pool H",
-      "dmi": 3188900
-    },
-    {
-      "playerId": 55160654,
-      "name": "Jean-Luke Gauci",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool C",
-      "dmi": 1622400
-    },
-    {
       "playerId": 55179521,
       "name": "Raymond Scicluna",
       "countryId": 90,
@@ -355,6 +315,22 @@
       "countryName": "Moldova",
       "pool": "Pool A",
       "dmi": 435200
+    },
+    {
+      "playerId": 55884134,
+      "name": "Renaat Vedder",
+      "countryId": 16,
+      "countryName": "Nederland",
+      "pool": "Pool H",
+      "dmi": 0
+    },
+    {
+      "playerId": 55463457,
+      "name": "Daniel Buchbinder",
+      "countryId": 27,
+      "countryName": "Österreich",
+      "pool": "Pool A",
+      "dmi": 41100
     },
     {
       "playerId": 54762736,
@@ -373,6 +349,14 @@
       "dmi": 231500
     },
     {
+      "playerId": 55161826,
+      "name": "Ion Marin",
+      "countryId": 61,
+      "countryName": "România",
+      "pool": "Pool D",
+      "dmi": 943000
+    },
+    {
       "playerId": 55132289,
       "name": "Toni Nutã",
       "countryId": 61,
@@ -381,12 +365,12 @@
       "dmi": 264000
     },
     {
-      "playerId": 55437748,
-      "name": "Gigo Barkaia",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 66500
+      "playerId": 55042910,
+      "name": "Boris Khrustalev",
+      "countryId": 19,
+      "countryName": "Rossiya",
+      "pool": "Pool G",
+      "dmi": 566400
     },
     {
       "playerId": 55133356,
@@ -405,14 +389,6 @@
       "dmi": 243500
     },
     {
-      "playerId": 54849643,
-      "name": "Lulkuq Asllani",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 278200
-    },
-    {
       "playerId": 54764769,
       "name": "Aleksandar Kolarov",
       "countryId": 29,
@@ -427,6 +403,14 @@
       "countryName": "Srbija",
       "pool": "Pool G",
       "dmi": 797100
+    },
+    {
+      "playerId": 55377439,
+      "name": "Dule Vasiljević",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "Pool G",
+      "dmi": 337900
     },
     {
       "playerId": 54765426,
@@ -461,20 +445,28 @@
       "dmi": 1875300
     },
     {
-      "playerId": 55157453,
-      "name": "Ediz Osman",
-      "countryId": 6,
-      "countryName": "Türkiye",
-      "pool": "Pool D",
-      "dmi": 1228200
+      "playerId": 55914568,
+      "name": "Petar Četojević",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "Pool G",
+      "dmi": 0
     },
     {
-      "playerId": 55464227,
-      "name": "Illya Pavlyukh",
-      "countryId": 33,
-      "countryName": "Ukraina",
-      "pool": "Pool A",
-      "dmi": 218900
+      "playerId": 55863639,
+      "name": "Ola Claesson",
+      "countryId": 9,
+      "countryName": "Sverige",
+      "pool": "Pool D",
+      "dmi": 0
+    },
+    {
+      "playerId": 55991914,
+      "name": "Peter Kyhlstrand",
+      "countryId": 9,
+      "countryName": "Sverige",
+      "pool": "Pool D",
+      "dmi": 0
     }
   ]
 }
