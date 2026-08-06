@@ -334,17 +334,43 @@ export default function U21TrackerPage() {
     setHiddenPlayers(hidden);
   }, [primaryData, compareData, compareCountryId]);
 
-  const filteredCountries = useMemo(() => {
+  const chartCountries = useMemo(() => {
     const list = meta?.countries ?? [];
+    const worldCup = list.filter((c) => /world\s*cup/i.test(c.pool));
+    return worldCup.length ? worldCup : list;
+  }, [meta]);
+
+  useEffect(() => {
+    if (
+      selectedCountryId != null &&
+      chartCountries.length > 0 &&
+      !chartCountries.some((c) => c.countryId === selectedCountryId)
+    ) {
+      setSelectedCountryId(null);
+      setCompareCountryId(null);
+    }
+  }, [selectedCountryId, chartCountries]);
+
+  useEffect(() => {
+    if (
+      compareCountryId != null &&
+      chartCountries.length > 0 &&
+      !chartCountries.some((c) => c.countryId === compareCountryId)
+    ) {
+      setCompareCountryId(null);
+    }
+  }, [compareCountryId, chartCountries]);
+
+  const filteredCountries = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (!q) return list;
-    return list.filter(
+    if (!q) return chartCountries;
+    return chartCountries.filter(
       (c) => c.name.toLowerCase().includes(q) || c.pool.toLowerCase().includes(q)
     );
-  }, [meta, search]);
+  }, [chartCountries, search]);
 
-  const selectedCountry = meta?.countries.find((c) => c.countryId === selectedCountryId) ?? null;
-  const compareCountry = meta?.countries.find((c) => c.countryId === compareCountryId) ?? null;
+  const selectedCountry = chartCountries.find((c) => c.countryId === selectedCountryId) ?? null;
+  const compareCountry = chartCountries.find((c) => c.countryId === compareCountryId) ?? null;
 
   const primaryPlayers = useMemo(() => {
     return (primaryData?.players ?? []).map((p, index) => ({
@@ -398,7 +424,11 @@ export default function U21TrackerPage() {
     <div className="max-w-6xl mx-auto">
       <h2 className="mb-2 text-xl font-bold">U21 Tracker</h2>
       <p className="mb-6 text-sm text-gray-600">
-        Weekly DMI / game shape snapshots for U21 Round Robin pool countries (season {season}).
+        Weekly DMI / game shape snapshots for U21 countries in the current stage (season {season}
+        {chartCountries.length && chartCountries.some((c) => /world\s*cup/i.test(c.pool))
+          ? " · World Cup"
+          : ""}
+        ).
         {meta?.updatedAt ? ` Last scrape: ${new Date(meta.updatedAt).toLocaleString()}.` : ""}
         {meta?.weeks?.length ? ` Weeks on file: ${meta.weeks.join(", ")}.` : ""}
       </p>
@@ -415,7 +445,7 @@ export default function U21TrackerPage() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Israel, Pool H…"
+            placeholder="Israel, Pool A…"
             className="mb-3 w-full rounded-lg border border-bb-border px-3 py-2 text-sm"
           />
           <div className="max-h-[70vh] space-y-1 overflow-y-auto">
@@ -487,7 +517,7 @@ export default function U21TrackerPage() {
                       }
                     >
                       <option value="">None</option>
-                      {(meta?.countries ?? [])
+                      {(chartCountries ?? [])
                         .filter((c) => c.countryId !== selectedCountryId)
                         .map((c) => (
                           <option key={c.countryId} value={c.countryId}>
@@ -586,7 +616,8 @@ function AggregatedChangesView({
         <div>
           <h3 className="text-lg font-semibold text-bb-text">All countries — roster changes</h3>
           <p className="text-sm text-gray-500">
-            Select a country on the left for the DMI chart. Use × to hide a country from these lists.
+            Includes every tracked U21 country (not only World Cup). Select a country on the left for
+            the DMI chart. Use × to hide a country from these lists.
           </p>
         </div>
         {hiddenCountries.size > 0 && (
