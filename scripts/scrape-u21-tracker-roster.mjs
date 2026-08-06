@@ -24,6 +24,9 @@ import {
   sleep,
   applyRosterDiff,
   writeOnSaleSnapshot,
+  loadKnownTrackerCountries,
+  mergeCountryLists,
+  mergeMetaCountryPools,
 } from "./lib/u21-tracker-shared.mjs";
 
 const PASSWORD = process.env.BB_PASSWORD;
@@ -57,8 +60,22 @@ async function main() {
   console.log(`Season ${SEASON}, week ${week}, date ${date} (roster-only)`);
   console.log(`Fetching standings ${STANDINGS_URL}...`);
   const standingsHtml = await fetchText(STANDINGS_URL);
-  let countries = parsePoolsFromStandings(standingsHtml);
-  if (!countries.length) throw new Error("No Pool countries parsed from standings page");
+  const standingsCountries = parsePoolsFromStandings(standingsHtml);
+  const knownCountries = loadKnownTrackerCountries(SEASON);
+  // World Cup standings only list 16 teams — still scrape full catalog for roster changes
+  let countries = mergeCountryLists(standingsCountries, knownCountries);
+  if (!countries.length) throw new Error("No Pool countries parsed from standings page (and no roster/meta fallback)");
+
+  if (standingsCountries.length) {
+    mergeMetaCountryPools(SEASON, standingsCountries, scrapedAt);
+    console.log(
+      `Standings countries: ${standingsCountries.length}; scraping full catalog: ${countries.length}`
+    );
+  } else if (knownCountries.length) {
+    console.warn(
+      `Standings parse returned 0 countries — falling back to ${knownCountries.length} known from roster/meta`
+    );
+  }
 
   if (args.countries?.length) {
     const allow = new Set(args.countries);

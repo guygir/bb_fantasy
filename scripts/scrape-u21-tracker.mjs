@@ -160,7 +160,11 @@ async function main() {
   if (args.maxCountries && args.maxCountries > 0) {
     countries = countries.slice(0, args.maxCountries);
   }
-  console.log(`Countries to scrape: ${countries.length}`);
+  const wcCount = countries.filter((c) => /world\s*cup/i.test(c.pool)).length;
+  console.log(
+    `Countries to scrape: ${countries.length}` +
+      (wcCount ? ` (${wcCount} World Cup — DMI/charts only; daily roster still covers full catalog)` : "")
+  );
 
   if (!PASSWORD && !SITE_COOKIE_HEADER) {
     throw new Error("BB_PASSWORD or BB_SITE_COOKIES is required for roster pages");

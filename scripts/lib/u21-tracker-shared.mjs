@@ -45,12 +45,88 @@ export function trackerDir(season) {
   return join(ROOT, "data", "u21-tracker", `s${season}`);
 }
 
+/** True when standings label is a World Cup pool (e.g. "World Cup - Pool A"). */
+export function isWorldCupPool(pool) {
+  return /world\s*cup/i.test(String(pool || ""));
+}
+
+/**
+ * Merge country catalogs by id. `preferred` wins on name/pool conflicts
+ * (use standings over roster/meta so World Cup labels stick).
+ */
+export function mergeCountryLists(preferred, fallback) {
+  const byId = new Map();
+  for (const c of fallback || []) {
+    if (!c?.countryId) continue;
+    byId.set(c.countryId, {
+      countryId: c.countryId,
+      name: c.name,
+      pool: c.pool,
+    });
+  }
+  for (const c of preferred || []) {
+    if (!c?.countryId) continue;
+    const prev = byId.get(c.countryId);
+    byId.set(c.countryId, {
+      countryId: c.countryId,
+      name: c.name || prev?.name,
+      pool: c.pool || prev?.pool,
+    });
+  }
+  return [...byId.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+}
+
+/** Countries known from roster.json and/or meta.json (full catalog for daily diffs). */
+export function loadKnownTrackerCountries(season) {
+  const dir = trackerDir(season);
+  const fromRoster = readJson(join(dir, "roster.json"))?.countries || [];
+  const fromMeta = readJson(join(dir, "meta.json"))?.countries || [];
+  return mergeCountryLists(fromRoster, fromMeta);
+}
+
+/**
+ * Update meta.json name/pool for countries present on standings (keeps full catalog).
+ * Used by daily roster scrape so the UI can detect World Cup phase without waiting for Friday.
+ */
+export function mergeMetaCountryPools(season, standingsCountries, updatedAt = null) {
+  if (!standingsCountries?.length) return null;
+  const metaPath = join(trackerDir(season), "meta.json");
+  const meta = readJson(metaPath);
+  if (!meta?.countries?.length) return null;
+  const byId = new Map(meta.countries.map((c) => [c.countryId, { ...c }]));
+  for (const c of standingsCountries) {
+    const prev = byId.get(c.countryId);
+    if (prev) {
+      byId.set(c.countryId, {
+        ...prev,
+        name: c.name || prev.name,
+        pool: c.pool || prev.pool,
+      });
+    } else {
+      byId.set(c.countryId, {
+        countryId: c.countryId,
+        name: c.name,
+        pool: c.pool,
+      });
+    }
+  }
+  const next = {
+    ...meta,
+    countries: [...byId.values()].sort((a, b) => a.name.localeCompare(b.name)),
+    updatedAt: updatedAt || meta.updatedAt || new Date().toISOString(),
+  };
+  writeJson(metaPath, next);
+  return metaPath;
+}
+
 export function parsePoolsFromStandings(html) {
-  const idx = html.search(/Round Robin Pools/i);
+  const idx = html.search(/Round Robin Pools|World Cup/i);
   const chunk = idx >= 0 ? html.slice(idx) : html;
   const countries = [];
   const seenCountry = new Set();
-  const poolRe = /<b>\s*(Pool\s+[A-Z0-9]+)\s*<\/b>([\s\S]*?)(?=<b>\s*Pool\s+[A-Z0-9]+\s*<\/b>|$)/gi;
+  // RR: <b>Pool A</b> · WC: <b>World Cup - Pool A</b>
+  const poolLabel = "(?:World\\s+Cup\\s*[-–—]\\s*)?Pool\\s+[A-Z0-9]+";
+  const poolRe = new RegExp(`<b>\\s*(${poolLabel})\\s*<\\/b>([\\s\\S]*?)(?=<b>\\s*${poolLabel}\\s*<\\/b>|$)`, "gi");
   let poolMatch;
   while ((poolMatch = poolRe.exec(chunk)) !== null) {
     const pool = poolMatch[1].replace(/\s+/g, " ").trim();
@@ -270,12 +346,20 @@ export function syncRosterFromWeekPayload(season, week, payload, { date = null }
     })),
   }));
 
+  // Keep countries not in this week's scrape (e.g. non–World Cup teams during WC phase)
+  const prevRoster = readJson(join(dir, "roster.json"));
+  const scrapedIds = new Set(rosterCountries.map((c) => c.countryId));
+  const mergedCountries = [
+    ...rosterCountries,
+    ...(prevRoster?.countries || []).filter((c) => !scrapedIds.has(c.countryId)),
+  ].sort((a, b) => a.name.localeCompare(b.name));
+
   const roster = {
     season,
     week,
     date: dateStr,
     updatedAt,
-    countries: rosterCountries.sort((a, b) => a.name.localeCompare(b.name)),
+    countries: mergedCountries,
   };
   writeJson(join(dir, "roster.json"), roster);
 
@@ -312,9 +396,6 @@ export function syncRosterFromWeekPayload(season, week, payload, { date = null }
       if (rec.countryId !== c.countryId) continue;
       if (onRoster.has(Number(key))) continue;
       if (!rec.active) continue;
-      // Don't close during silent sync from weekly if we only know weekly membership —
-      // actually plan says refresh roster membership from week's player lists.
-      // Weekly snapshot is authoritative for "who was on roster at scrape time".
       rec.active = false;
       const open = (rec.stints || []).find((s) => s.toWeek == null && s.toDate == null);
       if (open) {
