@@ -1,16 +1,24 @@
 {
   "season": 72,
-  "date": "2026-08-06",
+  "date": "2026-08-07",
   "week": 14,
-  "updatedAt": "2026-08-06T09:05:16.957Z",
+  "updatedAt": "2026-08-07T06:59:21.883Z",
   "players": [
     {
-      "playerId": 55158237,
-      "name": "Albert Clar",
+      "playerId": 55991127,
+      "name": "Roger Ibáñez",
       "countryId": 75,
       "countryName": "Andorra",
       "pool": "Pool E",
-      "dmi": 232400
+      "dmi": 0
+    },
+    {
+      "playerId": 54917696,
+      "name": "Guido Colombo",
+      "countryId": 2,
+      "countryName": "Argentina",
+      "pool": "World Cup - Pool B",
+      "dmi": 137100
     },
     {
       "playerId": 55720042,
@@ -19,14 +27,6 @@
       "countryName": "Azərbaycan",
       "pool": "Pool E",
       "dmi": 64600
-    },
-    {
-      "playerId": 55990565,
-      "name": "Bernie Tall",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 0
     },
     {
       "playerId": 55462419,
@@ -61,38 +61,6 @@
       "dmi": 0
     },
     {
-      "playerId": 55159233,
-      "name": "Tibor Lombardi-Kloss",
-      "countryId": 8,
-      "countryName": "Deutschland",
-      "pool": "Pool D",
-      "dmi": 282800
-    },
-    {
-      "playerId": 55876121,
-      "name": "Dallas Blackmore",
-      "countryId": 14,
-      "countryName": "England",
-      "pool": "Pool A",
-      "dmi": 0
-    },
-    {
-      "playerId": 55875726,
-      "name": "Jon Sharpe",
-      "countryId": 14,
-      "countryName": "England",
-      "pool": "Pool A",
-      "dmi": 0
-    },
-    {
-      "playerId": 55875754,
-      "name": "Joshua McDonna",
-      "countryId": 14,
-      "countryName": "England",
-      "pool": "Pool A",
-      "dmi": 0
-    },
-    {
       "playerId": 55875799,
       "name": "Lewis Marshall",
       "countryId": 14,
@@ -101,36 +69,44 @@
       "dmi": 0
     },
     {
-      "playerId": 55875787,
-      "name": "Tanish Porsezhian",
-      "countryId": 14,
-      "countryName": "England",
-      "pool": "Pool A",
+      "playerId": 55857166,
+      "name": "Florian Guyomard",
+      "countryId": 11,
+      "countryName": "France",
+      "pool": "World Cup - Pool A",
       "dmi": 0
     },
     {
-      "playerId": 55864489,
-      "name": "Isiodos Kozapalidis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "World Cup - Pool B",
+      "playerId": 55857905,
+      "name": "Jules Rambaud",
+      "countryId": 11,
+      "countryName": "France",
+      "pool": "World Cup - Pool A",
       "dmi": 0
     },
     {
-      "playerId": 55864870,
-      "name": "Nasos Moustakakis",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "World Cup - Pool B",
+      "playerId": 55858337,
+      "name": "Khalid Abrahmi",
+      "countryId": 11,
+      "countryName": "France",
+      "pool": "World Cup - Pool A",
       "dmi": 0
     },
     {
-      "playerId": 55398623,
-      "name": "Con O'Connor",
-      "countryId": 44,
-      "countryName": "Ireland",
-      "pool": "Pool F",
-      "dmi": 45000
+      "playerId": 55858325,
+      "name": "Pascal Lequesne",
+      "countryId": 11,
+      "countryName": "France",
+      "pool": "World Cup - Pool A",
+      "dmi": 0
+    },
+    {
+      "playerId": 55468324,
+      "name": "Khacho Asdvadzaduryan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 95700
     },
     {
       "playerId": 55466815,
@@ -189,6 +165,14 @@
       "dmi": 178700
     },
     {
+      "playerId": 55115414,
+      "name": "Ryszard Kozimor",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 449700
+    },
+    {
       "playerId": 55042910,
       "name": "Boris Khrustalev",
       "countryId": 19,
@@ -205,6 +189,14 @@
       "dmi": 288000
     },
     {
+      "playerId": 55133358,
+      "name": "Soso Cheishvili",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 31500
+    },
+    {
       "playerId": 55711449,
       "name": "Andrew Skinner",
       "countryId": 64,
@@ -213,60 +205,36 @@
       "dmi": 236200
     },
     {
-      "playerId": 55377439,
-      "name": "Dule Vasiljević",
-      "countryId": 29,
-      "countryName": "Srbija",
+      "playerId": 55464291,
+      "name": "Damé Agne",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 112300
+    },
+    {
+      "playerId": 55710901,
+      "name": "Edi Abdurrahmani",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 183800
+    },
+    {
+      "playerId": 55570385,
+      "name": "Tore Lundlius",
+      "countryId": 9,
+      "countryName": "Sverige",
+      "pool": "Pool D",
+      "dmi": 157000
+    },
+    {
+      "playerId": 55461617,
+      "name": "Law Ting Lun",
+      "countryId": 70,
+      "countryName": "Taiwan",
       "pool": "World Cup - Pool B",
-      "dmi": 337900
-    },
-    {
-      "playerId": 55377164,
-      "name": "Nenad Bačić",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 198800
-    },
-    {
-      "playerId": 55914568,
-      "name": "Petar Četojević",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 0
-    },
-    {
-      "playerId": 55863614,
-      "name": "Hans Isskär",
-      "countryId": 9,
-      "countryName": "Sverige",
-      "pool": "Pool D",
-      "dmi": 0
-    },
-    {
-      "playerId": 55863446,
-      "name": "Johan Tellmar",
-      "countryId": 9,
-      "countryName": "Sverige",
-      "pool": "Pool D",
-      "dmi": 0
-    },
-    {
-      "playerId": 55992578,
-      "name": "Jörgen Pålsson",
-      "countryId": 9,
-      "countryName": "Sverige",
-      "pool": "Pool D",
-      "dmi": 0
-    },
-    {
-      "playerId": 55863603,
-      "name": "Miikka Grekula",
-      "countryId": 9,
-      "countryName": "Sverige",
-      "pool": "Pool D",
-      "dmi": 0
+      "dmi": 107500
     },
     {
       "playerId": 55145198,
