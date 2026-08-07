@@ -2,7 +2,8 @@
   "season": 72,
   "weeks": [
     0,
-    13
+    13,
+    14
   ],
   "countries": [
     {
@@ -286,5 +287,5 @@
       "pool": "World Cup - Pool A"
     }
   ],
-  "updatedAt": "2026-08-07T06:59:21.883Z"
+  "updatedAt": "2026-08-07T11:26:08.921Z"
 }

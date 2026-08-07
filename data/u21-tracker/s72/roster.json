@@ -2,7 +2,7 @@
   "season": 72,
   "week": 14,
   "date": "2026-08-07",
-  "updatedAt": "2026-08-07T06:59:21.883Z",
+  "updatedAt": "2026-08-07T11:26:08.921Z",
   "countries": [
     {
       "countryId": 31,
@@ -10,8 +10,8 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 55880219,
-          "name": "Bidding time expired! Check out all of the bids in one page."
+          "playerId": 55834507,
+          "name": "Chen Cunwei"
         }
       ]
     },
@@ -1096,8 +1096,8 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55880219,
-          "name": "Bidding time expired! Check out all of the bids in one page."
+          "playerId": 55834507,
+          "name": "Chen Cunwei"
         }
       ]
     },
@@ -1107,76 +1107,8 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55857754,
-          "name": "Guy Idmont"
-        },
-        {
-          "playerId": 55856713,
-          "name": "Jean Donval"
-        },
-        {
-          "playerId": 55856826,
-          "name": "Vincent Lebihan"
-        },
-        {
-          "playerId": 55857166,
-          "name": "Florian Guyomard"
-        },
-        {
-          "playerId": 55857196,
-          "name": "Franck Lepage"
-        },
-        {
-          "playerId": 55857273,
-          "name": "Vincent Courvoisier"
-        },
-        {
-          "playerId": 55857468,
-          "name": "François Parise"
-        },
-        {
-          "playerId": 55857772,
-          "name": "Yannick Buisson"
-        },
-        {
-          "playerId": 55857860,
-          "name": "David Chevalier"
-        },
-        {
-          "playerId": 55857905,
-          "name": "Jules Rambaud"
-        },
-        {
-          "playerId": 55857926,
-          "name": "Anthony Sauvaire"
-        },
-        {
-          "playerId": 55858093,
-          "name": "Nicolas Baucher"
-        },
-        {
-          "playerId": 55858317,
-          "name": "Anisse Grange"
-        },
-        {
-          "playerId": 55858325,
-          "name": "Pascal Lequesne"
-        },
-        {
-          "playerId": 55858337,
-          "name": "Khalid Abrahmi"
-        },
-        {
-          "playerId": 55858708,
-          "name": "Yoann Ravoux"
-        },
-        {
-          "playerId": 55859651,
-          "name": "Alain Mascret"
-        },
-        {
-          "playerId": 55859666,
-          "name": "Mathieu Debuyser"
+          "playerId": 55834507,
+          "name": "Chen Cunwei"
         }
       ]
     },
@@ -1269,12 +1201,12 @@
           "name": "Thimios Ntouvaris"
         },
         {
-          "playerId": 55310821,
-          "name": "Iosif Vaitsis"
+          "playerId": 55309629,
+          "name": "Takis Tzanetos"
         },
         {
-          "playerId": 55864858,
-          "name": "Erotokritos Karaflochetoulas"
+          "playerId": 55310821,
+          "name": "Iosif Vaitsis"
         },
         {
           "playerId": 55309522,
@@ -1287,6 +1219,10 @@
         {
           "playerId": 55586487,
           "name": "Nasos Kalakos"
+        },
+        {
+          "playerId": 55309618,
+          "name": "Pavlos Karidas"
         },
         {
           "playerId": 55005108,
@@ -1592,12 +1528,20 @@
           "name": "Oneg Ben-Yaacov"
         },
         {
+          "playerId": 55029695,
+          "name": "Aviram Tzarfati"
+        },
+        {
           "playerId": 55029696,
           "name": "Tuvi Ashkenazi"
         },
         {
           "playerId": 55029769,
           "name": "Assi Farkash"
+        },
+        {
+          "playerId": 55029806,
+          "name": "Michael Meron"
         },
         {
           "playerId": 55029866,
@@ -3054,10 +2998,6 @@
           "name": "Wang Thiam Loy"
         },
         {
-          "playerId": 55461617,
-          "name": "Law Ting Lun"
-        },
-        {
           "playerId": 55449113,
           "name": "Liang Jang Lu"
         },
@@ -3096,6 +3036,10 @@
         {
           "playerId": 55449219,
           "name": "Huang Tat Ho"
+        },
+        {
+          "playerId": 55461617,
+          "name": "Law Ting Lun"
         },
         {
           "playerId": 55464576,
@@ -3251,8 +3195,8 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55880219,
-          "name": "Bidding time expired! Check out all of the bids in one page."
+          "playerId": 55834507,
+          "name": "Chen Cunwei"
         }
       ]
     }
