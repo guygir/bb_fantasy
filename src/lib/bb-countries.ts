@@ -1,7 +1,15 @@
 /**
  * Hardcoded BuzzerBeater country names (scraped April 2026) and season start dates.
- * Season 72 starts 2026-05-01; each season = 14 weeks (98 days).
+ * Season calendar: 98-day seasons anchored at season 72 / 2026-05-02.
  */
+
+import {
+  SEASON_DURATION_DAYS,
+  currentWeekForSeason,
+  getSeasonStartMs,
+} from "@/lib/season-calendar";
+
+export { SEASON_DURATION_DAYS };
 
 export const BB_COUNTRY_NAMES: Record<number, string> = {
   1: "USA",
@@ -116,16 +124,10 @@ export function getTeamName(countryId: number): string {
 
 /**
  * U21 analyzer week boundaries run Saturday to Saturday.
- * Season 72 week 1 starts on 2026-05-02; each prior season starts 98 days (14 weeks) earlier.
+ * Season calendar: 98-day seasons anchored at season 72 / 2026-05-02.
  */
-const SEASON_72_START = new Date("2026-05-02T00:00:00Z");
-const SEASON_DURATION_DAYS = 98;
-
 export function getSeasonStartDate(season: number): Date {
-  const deltaDays = (72 - season) * SEASON_DURATION_DAYS;
-  const d = new Date(SEASON_72_START);
-  d.setUTCDate(d.getUTCDate() - deltaDays);
-  return d;
+  return new Date(getSeasonStartMs(season));
 }
 
 /**
@@ -140,10 +142,7 @@ export function getGameWeek(dateStr: string, season: number): number | null {
   const [m, d, y] = parts.map(Number);
   if (!m || !d || !y) return null;
   const gameDate = new Date(Date.UTC(y, m - 1, d));
-  const seasonStart = getSeasonStartDate(season);
-  const diffDays = Math.floor((gameDate.getTime() - seasonStart.getTime()) / 86400000);
-  if (diffDays < 0 || diffDays >= SEASON_DURATION_DAYS) return null;
-  return Math.floor(diffDays / 7) + 1;
+  return currentWeekForSeason(season, gameDate);
 }
 
 /** Game types that do NOT count for minutes/stats aggregations */

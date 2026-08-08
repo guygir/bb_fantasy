@@ -1,5 +1,8 @@
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
+import { currentWeekForSeason, resolveCurrentSeasonFromEnv } from "@/lib/season-calendar";
+
+export { currentWeekForSeason, resolveCurrentSeasonFromEnv };
 
 export interface U21TrackerPlayer {
   playerId: number;
@@ -104,9 +107,6 @@ export interface U21TrackerPlayerSeries {
   }[];
 }
 
-const SEASON_72_START = Date.UTC(2026, 4, 2);
-const SEASON_DURATION_DAYS = 98;
-
 function dataDir(season: number): string {
   return join(process.cwd(), "data", "u21-tracker", `s${season}`);
 }
@@ -143,13 +143,6 @@ export function israelDateString(now = new Date()): string {
     month: "2-digit",
     day: "2-digit",
   }).format(now);
-}
-
-export function currentWeekForSeason(season: number, now = new Date()): number | null {
-  const start = SEASON_72_START - (72 - season) * SEASON_DURATION_DAYS * 86400000;
-  const diffDays = Math.floor((now.getTime() - start) / 86400000);
-  if (diffDays < 0 || diffDays >= SEASON_DURATION_DAYS) return null;
-  return Math.floor(diffDays / 7) + 1;
 }
 
 export async function loadTrackerMeta(season: number): Promise<U21TrackerMeta | null> {
