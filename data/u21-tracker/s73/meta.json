@@ -1,0 +1,288 @@
+{
+  "season": 73,
+  "weeks": [],
+  "countries": [
+    {
+      "countryId": 31,
+      "name": "Al Jazair",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 75,
+      "name": "Andorra",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 2,
+      "name": "Argentina",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 88,
+      "name": "Azərbaycan",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 85,
+      "name": "Belarus",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 13,
+      "name": "Belgium",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 35,
+      "name": "Bosna i Hercegovina",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 36,
+      "name": "Bulgaria",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 37,
+      "name": "Ceska Rep.",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 5,
+      "name": "China",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 22,
+      "name": "Colombia",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 76,
+      "name": "Crna Gora",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 81,
+      "name": "Cymru",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 77,
+      "name": "Cyprus",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 39,
+      "name": "Danmark",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 8,
+      "name": "Deutschland",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 41,
+      "name": "Eesti",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 14,
+      "name": "England",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 7,
+      "name": "España",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 11,
+      "name": "France",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 87,
+      "name": "Hayastan",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 12,
+      "name": "Hellas",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 45,
+      "name": "Hong Kong",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 24,
+      "name": "Hrvatska",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 44,
+      "name": "Ireland",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 78,
+      "name": "Ísland",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 15,
+      "name": "Israel",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 10,
+      "name": "Italia",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 46,
+      "name": "Latvija",
+      "pool": "Pool G"
+    },
+    {
+      "countryId": 20,
+      "name": "Lietuva",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 91,
+      "name": "Luxembourg",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 48,
+      "name": "Magyarország",
+      "pool": "Pool H"
+    },
+    {
+      "countryId": 49,
+      "name": "Makedonija",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 90,
+      "name": "Malta",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 86,
+      "name": "Moldova",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 16,
+      "name": "Nederland",
+      "pool": "Pool H"
+    },
+    {
+      "countryId": 26,
+      "name": "Norge",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 27,
+      "name": "Österreich",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 58,
+      "name": "Polska",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 18,
+      "name": "Portugal",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 61,
+      "name": "România",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 19,
+      "name": "Rossiya",
+      "pool": "Pool G"
+    },
+    {
+      "countryId": 62,
+      "name": "Sakartvelo",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 28,
+      "name": "Schweiz",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 64,
+      "name": "Scotland",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 94,
+      "name": "Senegal",
+      "pool": "World Cup - Pool A"
+    },
+    {
+      "countryId": 79,
+      "name": "Shqipëria",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 66,
+      "name": "Slovenija",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 67,
+      "name": "Slovensko",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 29,
+      "name": "Srbija",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 69,
+      "name": "Suomi",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 9,
+      "name": "Sverige",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 70,
+      "name": "Taiwan",
+      "pool": "World Cup - Pool B"
+    },
+    {
+      "countryId": 6,
+      "name": "Türkiye",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 33,
+      "name": "Ukraina",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 1,
+      "name": "United States",
+      "pool": "World Cup - Pool A"
+    }
+  ],
+  "updatedAt": "2026-08-08T10:31:26.408Z",
+  "note": "Seeded country catalog from s72 for World Cup / full roster diffs; weeks filled by scrapers."
+}

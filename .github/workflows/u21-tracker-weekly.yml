@@ -42,7 +42,8 @@ jobs:
           BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
           BB_PASSWORD: ${{ secrets.BB_PASSWORD }}
           BB_SITE_COOKIES: ${{ secrets.BB_SITE_COOKIES }}
-          CURRENT_SEASON: ${{ vars.CURRENT_SEASON || '72' }}
+          # Optional override; leave unset to use 98-day calendar (s72 anchor 2026-05-02)
+          CURRENT_SEASON: ${{ vars.CURRENT_SEASON }}
           PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: |
           EXTRA=""

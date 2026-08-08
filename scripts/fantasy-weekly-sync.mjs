@@ -15,10 +15,12 @@
 import { spawnSync } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { resolveCurrentSeasonFromEnv } from "./lib/season-calendar.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : Number(process.env.CURRENT_SEASON ?? 71);
+const argSeason = process.argv[2] && String(process.argv[2]).trim() !== "" ? parseInt(process.argv[2], 10) : null;
+const SEASON = Number.isFinite(argSeason) && argSeason > 0 ? argSeason : resolveCurrentSeasonFromEnv();
 
 function run(name, cmd, args = [], extraEnv = {}) {
   console.log(`\n--- ${name} ---`);

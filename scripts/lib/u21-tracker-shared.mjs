@@ -14,21 +14,18 @@ export const BB_BASE = "https://buzzerbeater.com";
 export const UA =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
-export const SEASON_72_START = Date.UTC(2026, 4, 2); // 2026-05-02
-export const SEASON_DURATION_DAYS = 98;
+export {
+  SEASON_ANCHOR_START_MS as SEASON_72_START,
+  SEASON_DURATION_DAYS,
+  getSeasonStartMs,
+  currentWeekForSeason,
+  resolveCurrentSeasonFromEnv,
+} from "./season-calendar.mjs";
+
+import { resolveCurrentSeasonFromEnv } from "./season-calendar.mjs";
 
 export function getSeason() {
-  return Number(process.env.CURRENT_SEASON ?? process.env.NEXT_PUBLIC_CURRENT_SEASON ?? 72);
-}
-
-export function getSeasonStartMs(season) {
-  return SEASON_72_START - (72 - season) * SEASON_DURATION_DAYS * 86400000;
-}
-
-export function currentWeekForSeason(season, now = new Date()) {
-  const diffDays = Math.floor((now.getTime() - getSeasonStartMs(season)) / 86400000);
-  if (diffDays < 0 || diffDays >= SEASON_DURATION_DAYS) return null;
-  return Math.floor(diffDays / 7) + 1;
+  return resolveCurrentSeasonFromEnv();
 }
 
 /** Calendar date in Asia/Jerusalem as YYYY-MM-DD */

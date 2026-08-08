@@ -2,6 +2,8 @@
  * App config - BBAPI credentials, game rules
  */
 
+import { resolveCurrentSeasonFromEnv } from "@/lib/season-calendar";
+
 export const config = {
   bbapi: {
     baseUrl: "http://bbapi.buzzerbeater.com/",
@@ -11,7 +13,8 @@ export const config = {
   game: {
     cap: Number(process.env.FANTASY_CAP ?? 30),
     rosterSize: Number(process.env.ROSTER_SIZE ?? 5),
-    currentSeason: Number(process.env.NEXT_PUBLIC_CURRENT_SEASON ?? process.env.CURRENT_SEASON ?? 72),
+    /** Calendar-inferred unless CURRENT_SEASON / NEXT_PUBLIC_CURRENT_SEASON is set. */
+    currentSeason: resolveCurrentSeasonFromEnv(),
     israelU21TeamId: Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015),
   },
   u21dle: {
