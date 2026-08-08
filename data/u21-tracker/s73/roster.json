@@ -1,0 +1,3324 @@
+{
+  "season": 73,
+  "week": 1,
+  "date": "2026-08-08",
+  "updatedAt": "2026-08-08T10:33:37.849Z",
+  "countries": [
+    {
+      "countryId": 31,
+      "name": "Al Jazair",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55465989,
+          "name": "Messaoud Jelloul"
+        },
+        {
+          "playerId": 55158011,
+          "name": "Khidr Betrouni"
+        },
+        {
+          "playerId": 55158231,
+          "name": "Youcef Touati"
+        },
+        {
+          "playerId": 55159649,
+          "name": "Fethi Bedja"
+        },
+        {
+          "playerId": 55160421,
+          "name": "Jaber Liani"
+        },
+        {
+          "playerId": 55161239,
+          "name": "Nabil Bouchahda"
+        },
+        {
+          "playerId": 55464339,
+          "name": "Mehdi Bentoumi"
+        },
+        {
+          "playerId": 55711587,
+          "name": "Zyad Riane"
+        },
+        {
+          "playerId": 55711960,
+          "name": "Arsalane Birem"
+        }
+      ]
+    },
+    {
+      "countryId": 75,
+      "name": "Andorra",
+      "pool": "Pool E",
+      "players": [
+        {
+          "playerId": 55466524,
+          "name": "Pere Jordi Cusí"
+        },
+        {
+          "playerId": 55468084,
+          "name": "Víctor Dillet"
+        },
+        {
+          "playerId": 55994750,
+          "name": "Serni Basset"
+        },
+        {
+          "playerId": 55997462,
+          "name": "Guillem Baixas"
+        },
+        {
+          "playerId": 55159280,
+          "name": "Marc Llabot"
+        },
+        {
+          "playerId": 55462247,
+          "name": "Carles Sarro"
+        },
+        {
+          "playerId": 55158237,
+          "name": "Albert Clar"
+        },
+        {
+          "playerId": 55464286,
+          "name": "Miquel Montserrat"
+        },
+        {
+          "playerId": 55468149,
+          "name": "Joel Valdés"
+        },
+        {
+          "playerId": 55468215,
+          "name": "Xavi Companys"
+        },
+        {
+          "playerId": 55989372,
+          "name": "Xavier Sallà"
+        },
+        {
+          "playerId": 55991127,
+          "name": "Roger Ibáñez"
+        },
+        {
+          "playerId": 55994455,
+          "name": "Nofre Estivill"
+        },
+        {
+          "playerId": 55997346,
+          "name": "Albert Dalmau"
+        },
+        {
+          "playerId": 55997351,
+          "name": "Emili Altimira"
+        },
+        {
+          "playerId": 55997371,
+          "name": "Adrià Pellicer"
+        },
+        {
+          "playerId": 55997418,
+          "name": "Jonatan Giró"
+        }
+      ]
+    },
+    {
+      "countryId": 2,
+      "name": "Argentina",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55844218,
+          "name": "Bidding time expired! Check out all of the bids in one page."
+        }
+      ]
+    },
+    {
+      "countryId": 88,
+      "name": "Azərbaycan",
+      "pool": "Pool E",
+      "players": [
+        {
+          "playerId": 55713952,
+          "name": "Ruslan Yolçuyev"
+        },
+        {
+          "playerId": 55469389,
+          "name": "Serin Abdulla"
+        },
+        {
+          "playerId": 55715979,
+          "name": "Aras Qərabəyli"
+        },
+        {
+          "playerId": 55720042,
+          "name": "Toros Hampartsoumyan"
+        },
+        {
+          "playerId": 55158219,
+          "name": "Coşar Tanryverdiyev"
+        },
+        {
+          "playerId": 55161249,
+          "name": "Vyktor Sabo"
+        },
+        {
+          "playerId": 55165057,
+          "name": "Baldadan Gozalov"
+        },
+        {
+          "playerId": 55461589,
+          "name": "Dilğem Şahbazov"
+        },
+        {
+          "playerId": 55463408,
+          "name": "Ayman Əjdərov"
+        },
+        {
+          "playerId": 55464034,
+          "name": "Dönüş Novruzov"
+        },
+        {
+          "playerId": 55466227,
+          "name": "Bektaş İsgandarov"
+        },
+        {
+          "playerId": 55466338,
+          "name": "Həsən Mikayilov"
+        },
+        {
+          "playerId": 55991604,
+          "name": "Baysu Həşimov"
+        }
+      ]
+    },
+    {
+      "countryId": 85,
+      "name": "Belarus",
+      "pool": "Pool D",
+      "players": [
+        {
+          "playerId": 55460390,
+          "name": "Liaksej Hershanovich"
+        },
+        {
+          "playerId": 55156111,
+          "name": "Baliaslau Kasianovich"
+        },
+        {
+          "playerId": 55156116,
+          "name": "Kirill Khmelev"
+        },
+        {
+          "playerId": 55156139,
+          "name": "Z'mitrok Kamlenich"
+        },
+        {
+          "playerId": 55156140,
+          "name": "Alexey Stefanovskiy"
+        },
+        {
+          "playerId": 55160098,
+          "name": "Bahuslau Nastusevich"
+        },
+        {
+          "playerId": 55162413,
+          "name": "Zaharej Sapojnikau"
+        },
+        {
+          "playerId": 55460319,
+          "name": "Hipalit Larszyk"
+        },
+        {
+          "playerId": 55460321,
+          "name": "Alexey Soloninkin"
+        },
+        {
+          "playerId": 55460322,
+          "name": "Makar Atrakhovich"
+        },
+        {
+          "playerId": 55460356,
+          "name": "Jakub Al'hovik"
+        },
+        {
+          "playerId": 55460373,
+          "name": "Nestser Petrykau"
+        },
+        {
+          "playerId": 55460376,
+          "name": "Pakhom Birukou"
+        },
+        {
+          "playerId": 55460433,
+          "name": "Antsip Tsyrul'"
+        },
+        {
+          "playerId": 55460439,
+          "name": "Liaksej Ratau"
+        },
+        {
+          "playerId": 55464508,
+          "name": "Vitaut Markijanau"
+        },
+        {
+          "playerId": 55709531,
+          "name": "Siarhey Miadouski"
+        }
+      ]
+    },
+    {
+      "countryId": 13,
+      "name": "Belgium",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55021110,
+          "name": "Jorden Geerts"
+        },
+        {
+          "playerId": 55325992,
+          "name": "Loren Bernimolin"
+        },
+        {
+          "playerId": 55021024,
+          "name": "Arthur Claessens"
+        },
+        {
+          "playerId": 55021022,
+          "name": "Enrique Bultinck"
+        },
+        {
+          "playerId": 55020995,
+          "name": "Gerrit Vanduffel"
+        },
+        {
+          "playerId": 55021148,
+          "name": "Aristide Dalle"
+        },
+        {
+          "playerId": 55021432,
+          "name": "Joery Van den Heuvel"
+        },
+        {
+          "playerId": 55021448,
+          "name": "Mamadou Diatta"
+        },
+        {
+          "playerId": 55161933,
+          "name": "Thibaut De Haes"
+        },
+        {
+          "playerId": 55325734,
+          "name": "Geoff Manzan"
+        },
+        {
+          "playerId": 55325801,
+          "name": "Adolf Steensels"
+        },
+        {
+          "playerId": 55325939,
+          "name": "Kedar Issa"
+        },
+        {
+          "playerId": 55326101,
+          "name": "Gérard Deolet"
+        }
+      ]
+    },
+    {
+      "countryId": 35,
+      "name": "Bosna i Hercegovina",
+      "pool": "Pool B",
+      "players": [
+        {
+          "playerId": 55079085,
+          "name": "Davor Šprljan"
+        },
+        {
+          "playerId": 55383406,
+          "name": "Minel Bulidža"
+        },
+        {
+          "playerId": 55465496,
+          "name": "Igor Lučić"
+        },
+        {
+          "playerId": 55462810,
+          "name": "Mahir Mucinić"
+        },
+        {
+          "playerId": 55383234,
+          "name": "Vahid Kuduzović"
+        },
+        {
+          "playerId": 55383200,
+          "name": "Safet Hajduković"
+        },
+        {
+          "playerId": 55383342,
+          "name": "Sergej Trogrlić"
+        },
+        {
+          "playerId": 55078955,
+          "name": "Avdo Tintor"
+        },
+        {
+          "playerId": 55078795,
+          "name": "Nemanja Milosavljević"
+        },
+        {
+          "playerId": 55078800,
+          "name": "Zlatko Kljajić"
+        },
+        {
+          "playerId": 55078859,
+          "name": "Oliver Jakelić"
+        },
+        {
+          "playerId": 55079018,
+          "name": "Sead Dželilović"
+        },
+        {
+          "playerId": 55079081,
+          "name": "Aldin Vinčić"
+        },
+        {
+          "playerId": 55079162,
+          "name": "Minel Bajramović"
+        },
+        {
+          "playerId": 55159180,
+          "name": "Sanel Raščić"
+        },
+        {
+          "playerId": 55383231,
+          "name": "Suad Dobrić"
+        }
+      ]
+    },
+    {
+      "countryId": 36,
+      "name": "Bulgaria",
+      "pool": "Pool F",
+      "players": [
+        {
+          "playerId": 55083067,
+          "name": "Dimitar Gergov"
+        },
+        {
+          "playerId": 55387543,
+          "name": "Krum Vasilev"
+        }
+      ]
+    },
+    {
+      "countryId": 37,
+      "name": "Ceska Rep.",
+      "pool": "Pool C",
+      "players": [
+        {
+          "playerId": 55083906,
+          "name": "Miroslav Flaška"
+        },
+        {
+          "playerId": 55388521,
+          "name": "Adam Šilhánek"
+        },
+        {
+          "playerId": 55084249,
+          "name": "Radek Krístek"
+        },
+        {
+          "playerId": 55083915,
+          "name": "David Roth"
+        },
+        {
+          "playerId": 55084041,
+          "name": "Jiří Maštalíř"
+        },
+        {
+          "playerId": 55084087,
+          "name": "Zbyněk Klusáček"
+        },
+        {
+          "playerId": 55388394,
+          "name": "Oskar Crhonek"
+        },
+        {
+          "playerId": 55388396,
+          "name": "Bedřich Bukáček"
+        },
+        {
+          "playerId": 55388557,
+          "name": "Miroslav Stempel"
+        },
+        {
+          "playerId": 55388561,
+          "name": "Bohuslav Zúbek"
+        },
+        {
+          "playerId": 55388617,
+          "name": "Karel Jaroš"
+        },
+        {
+          "playerId": 55646646,
+          "name": "Jindřich Vichnar"
+        },
+        {
+          "playerId": 55646685,
+          "name": "Miroslav Vocásek"
+        }
+      ]
+    },
+    {
+      "countryId": 5,
+      "name": "China",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 54930089,
+          "name": "Mo Zuyang"
+        },
+        {
+          "playerId": 54930100,
+          "name": "Hou Junxing"
+        },
+        {
+          "playerId": 54929799,
+          "name": "Mo Wendong"
+        },
+        {
+          "playerId": 54929847,
+          "name": "Xie Ruimin"
+        },
+        {
+          "playerId": 55235196,
+          "name": "Luo Xiaoliang"
+        },
+        {
+          "playerId": 54929908,
+          "name": "Zhang Erlei"
+        },
+        {
+          "playerId": 54930242,
+          "name": "He Hanping"
+        },
+        {
+          "playerId": 54930439,
+          "name": "Tao Nanxiong"
+        },
+        {
+          "playerId": 54930497,
+          "name": "Li Zhining"
+        },
+        {
+          "playerId": 55463717,
+          "name": "Zhuang Chuyi"
+        },
+        {
+          "playerId": 55235789,
+          "name": "Song Yingjiang"
+        },
+        {
+          "playerId": 54929725,
+          "name": "Kwang-Rae Kim"
+        },
+        {
+          "playerId": 54929750,
+          "name": "Lin Erwen"
+        },
+        {
+          "playerId": 54929849,
+          "name": "Ye Tiancai"
+        },
+        {
+          "playerId": 54929982,
+          "name": "Shen Yunda"
+        },
+        {
+          "playerId": 55234347,
+          "name": "Xue Kunqian"
+        },
+        {
+          "playerId": 55235118,
+          "name": "Wu Yufeng"
+        }
+      ]
+    },
+    {
+      "countryId": 22,
+      "name": "Colombia",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55368678,
+          "name": "León Moscoso"
+        },
+        {
+          "playerId": 55368739,
+          "name": "Ignacio Brahim"
+        },
+        {
+          "playerId": 55368618,
+          "name": "Mario Portales"
+        },
+        {
+          "playerId": 55368615,
+          "name": "Iván Sopó"
+        },
+        {
+          "playerId": 55064255,
+          "name": "Néstor Raúl Montero"
+        },
+        {
+          "playerId": 55064193,
+          "name": "Fernando Fernán Pérez"
+        },
+        {
+          "playerId": 55064292,
+          "name": "Luis Enrique Guerrero"
+        },
+        {
+          "playerId": 55160809,
+          "name": "Asdrúbal Trujillo"
+        },
+        {
+          "playerId": 55161093,
+          "name": "Carlos Armando Díaz"
+        },
+        {
+          "playerId": 55368620,
+          "name": "Adolfo Calderón"
+        },
+        {
+          "playerId": 55464876,
+          "name": "Fernando Marcos Igualada"
+        },
+        {
+          "playerId": 55466348,
+          "name": "Ignacio Puyana"
+        },
+        {
+          "playerId": 55466446,
+          "name": "Armando Angarita"
+        }
+      ]
+    },
+    {
+      "countryId": 76,
+      "name": "Crna Gora",
+      "pool": "Pool F",
+      "players": [
+        {
+          "playerId": 55462212,
+          "name": "Viktor Radojičić"
+        },
+        {
+          "playerId": 55158440,
+          "name": "Ivan Crnojević"
+        },
+        {
+          "playerId": 55458282,
+          "name": "Dado Petrone"
+        },
+        {
+          "playerId": 55462698,
+          "name": "Batrić Preradović"
+        },
+        {
+          "playerId": 55707500,
+          "name": "Pavle Boljević"
+        },
+        {
+          "playerId": 55707902,
+          "name": "Simon Čvorović"
+        },
+        {
+          "playerId": 55708456,
+          "name": "Mihajlo Perović"
+        },
+        {
+          "playerId": 55713747,
+          "name": "Darko Tafra"
+        }
+      ]
+    },
+    {
+      "countryId": 81,
+      "name": "Cymru",
+      "pool": "Pool B",
+      "players": [
+        {
+          "playerId": 55160888,
+          "name": "Eric Skinner"
+        },
+        {
+          "playerId": 55461699,
+          "name": "Jonathan MacFergus"
+        },
+        {
+          "playerId": 55715111,
+          "name": "Steven Litherland"
+        },
+        {
+          "playerId": 55464277,
+          "name": "Mark Maric"
+        },
+        {
+          "playerId": 55462419,
+          "name": "Neal Marsh"
+        },
+        {
+          "playerId": 55463552,
+          "name": "Rhodri Matthews"
+        },
+        {
+          "playerId": 55463756,
+          "name": "Robbie McCulloch"
+        },
+        {
+          "playerId": 55468163,
+          "name": "Lewis Pryce"
+        },
+        {
+          "playerId": 55711002,
+          "name": "Duncan Gluckman"
+        },
+        {
+          "playerId": 55714073,
+          "name": "Michael Neal-Sturgess"
+        },
+        {
+          "playerId": 55718855,
+          "name": "Gerry Gardiner"
+        },
+        {
+          "playerId": 55718874,
+          "name": "Mickey Johnston"
+        },
+        {
+          "playerId": 55718893,
+          "name": "David Hughes"
+        },
+        {
+          "playerId": 55990565,
+          "name": "Bernie Tall"
+        },
+        {
+          "playerId": 55992141,
+          "name": "David Clarke"
+        }
+      ]
+    },
+    {
+      "countryId": 77,
+      "name": "Cyprus",
+      "pool": "Pool B",
+      "players": [
+        {
+          "playerId": 55465579,
+          "name": "Kleanthis Asteridis"
+        },
+        {
+          "playerId": 55734563,
+          "name": "Isaak Mavilis"
+        },
+        {
+          "playerId": 55708495,
+          "name": "Erotokritos Mantarinopoulos"
+        },
+        {
+          "playerId": 55986802,
+          "name": "Eftichis Egkelados"
+        },
+        {
+          "playerId": 55154987,
+          "name": "Vardis Gkotzis"
+        },
+        {
+          "playerId": 55154989,
+          "name": "Minas Gaganis"
+        },
+        {
+          "playerId": 55155040,
+          "name": "Andreas Galaktopoulos"
+        },
+        {
+          "playerId": 55155092,
+          "name": "Pantelakis Vougiouklakis"
+        },
+        {
+          "playerId": 55161730,
+          "name": "Kleanthis Siouras"
+        },
+        {
+          "playerId": 55459294,
+          "name": "Themos Solonas"
+        },
+        {
+          "playerId": 55459313,
+          "name": "Themis Mantzourakis"
+        },
+        {
+          "playerId": 55459339,
+          "name": "Christos Mpriakos"
+        },
+        {
+          "playerId": 55459408,
+          "name": "Christoforos Papadaskalopoulos"
+        },
+        {
+          "playerId": 55464097,
+          "name": "Yiannis Dragotis"
+        },
+        {
+          "playerId": 55466541,
+          "name": "Nikos Mpotsis"
+        },
+        {
+          "playerId": 55715563,
+          "name": "Lisandros Gouninos"
+        },
+        {
+          "playerId": 55986790,
+          "name": "Efthimis Avdikos"
+        }
+      ]
+    },
+    {
+      "countryId": 39,
+      "name": "Danmark",
+      "pool": "Pool C",
+      "players": [
+        {
+          "playerId": 55650737,
+          "name": "Ricco Bøgholm"
+        },
+        {
+          "playerId": 55929334,
+          "name": "Ben Von Eyben"
+        },
+        {
+          "playerId": 55715889,
+          "name": "Anker Kjaergaard"
+        },
+        {
+          "playerId": 55392426,
+          "name": "Klaus Løkkegård"
+        },
+        {
+          "playerId": 55088123,
+          "name": "Nicolai Fredslund"
+        },
+        {
+          "playerId": 55088174,
+          "name": "Michael Lerche"
+        },
+        {
+          "playerId": 55158273,
+          "name": "Sven Dyrholm"
+        },
+        {
+          "playerId": 55160875,
+          "name": "Jimmy Hentze"
+        },
+        {
+          "playerId": 55161180,
+          "name": "Gert Birkemose"
+        },
+        {
+          "playerId": 55392424,
+          "name": "Carsten Bostrup"
+        },
+        {
+          "playerId": 55392431,
+          "name": "Mogens Kramer"
+        },
+        {
+          "playerId": 55392446,
+          "name": "Mik Lade"
+        },
+        {
+          "playerId": 55712563,
+          "name": "Marcus Harlind Aagaard"
+        },
+        {
+          "playerId": 55929245,
+          "name": "Teis Askham"
+        }
+      ]
+    },
+    {
+      "countryId": 8,
+      "name": "Deutschland",
+      "pool": "Pool D",
+      "players": [
+        {
+          "playerId": 55271679,
+          "name": "Vincent Poell"
+        },
+        {
+          "playerId": 55272305,
+          "name": "Adam Tibor Schmerschneider"
+        },
+        {
+          "playerId": 54966944,
+          "name": "Ulrich Spörcken"
+        },
+        {
+          "playerId": 55159233,
+          "name": "Tibor Lombardi-Kloss"
+        },
+        {
+          "playerId": 54966446,
+          "name": "Manuel Grobow"
+        },
+        {
+          "playerId": 54966513,
+          "name": "Carsten Grasedyck"
+        },
+        {
+          "playerId": 54966548,
+          "name": "Folke Benning"
+        },
+        {
+          "playerId": 54966622,
+          "name": "Sascha Brodnig"
+        },
+        {
+          "playerId": 54966827,
+          "name": "Ingo Dresel"
+        },
+        {
+          "playerId": 54966849,
+          "name": "Constantin Repperthien"
+        },
+        {
+          "playerId": 54966986,
+          "name": "Benno Kiltz"
+        },
+        {
+          "playerId": 54967145,
+          "name": "Gert Wiechert"
+        },
+        {
+          "playerId": 55271288,
+          "name": "Axel Dziemballa"
+        },
+        {
+          "playerId": 55271441,
+          "name": "Kai Brook"
+        },
+        {
+          "playerId": 55271726,
+          "name": "Adalger Sedlintzky"
+        },
+        {
+          "playerId": 55566759,
+          "name": "Magnus Daumen"
+        }
+      ]
+    },
+    {
+      "countryId": 41,
+      "name": "Eesti",
+      "pool": "Pool C",
+      "players": [
+        {
+          "playerId": 55393610,
+          "name": "Osip Loshchilov"
+        },
+        {
+          "playerId": 55393757,
+          "name": "Gunnar Ambros"
+        },
+        {
+          "playerId": 55159629,
+          "name": "Jarold Lõhmus"
+        },
+        {
+          "playerId": 55089362,
+          "name": "Sergo Hiie"
+        },
+        {
+          "playerId": 55089291,
+          "name": "Carl-Martin Naudi"
+        },
+        {
+          "playerId": 55089883,
+          "name": "Viktor Mosyakov"
+        },
+        {
+          "playerId": 55089156,
+          "name": "Ewert Põld"
+        },
+        {
+          "playerId": 55089394,
+          "name": "Roman Kornienko"
+        },
+        {
+          "playerId": 55089525,
+          "name": "Tanel Tamm"
+        },
+        {
+          "playerId": 55089799,
+          "name": "Rainer Hang"
+        },
+        {
+          "playerId": 55090043,
+          "name": "Fridrich Vessmann"
+        },
+        {
+          "playerId": 55090056,
+          "name": "Andreas Oja"
+        },
+        {
+          "playerId": 55393741,
+          "name": "Alexander Didenko"
+        }
+      ]
+    },
+    {
+      "countryId": 14,
+      "name": "England",
+      "pool": "Pool A",
+      "players": [
+        {
+          "playerId": 55329838,
+          "name": "Emile Hunt"
+        },
+        {
+          "playerId": 55329865,
+          "name": "Johnny Royston"
+        },
+        {
+          "playerId": 55329781,
+          "name": "Barker Koutrakos"
+        },
+        {
+          "playerId": 55329997,
+          "name": "Stephen Ham"
+        },
+        {
+          "playerId": 55330015,
+          "name": "Stephen Lockhart"
+        },
+        {
+          "playerId": 55025161,
+          "name": "Cabot Pernet"
+        },
+        {
+          "playerId": 55463783,
+          "name": "Hamilton Ansell"
+        },
+        {
+          "playerId": 55329874,
+          "name": "Gavin Pamic"
+        },
+        {
+          "playerId": 55330029,
+          "name": "Brady Malin"
+        },
+        {
+          "playerId": 55329806,
+          "name": "Johnny Treacher"
+        },
+        {
+          "playerId": 55329802,
+          "name": "Jason Furlong"
+        },
+        {
+          "playerId": 55711430,
+          "name": "Kendrick Loftus"
+        },
+        {
+          "playerId": 55025639,
+          "name": "Thomas Moore"
+        },
+        {
+          "playerId": 55329817,
+          "name": "David Crawford"
+        },
+        {
+          "playerId": 55329988,
+          "name": "Stu Lavender"
+        },
+        {
+          "playerId": 55461670,
+          "name": "Ross Read"
+        },
+        {
+          "playerId": 55597475,
+          "name": "Brent Campbell"
+        },
+        {
+          "playerId": 55597690,
+          "name": "Ad Jawaid"
+        }
+      ]
+    },
+    {
+      "countryId": 7,
+      "name": "España",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55844218,
+          "name": "Bidding time expired! Check out all of the bids in one page."
+        }
+      ]
+    },
+    {
+      "countryId": 11,
+      "name": "France",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55844218,
+          "name": "Bidding time expired! Check out all of the bids in one page."
+        }
+      ]
+    },
+    {
+      "countryId": 87,
+      "name": "Hayastan",
+      "pool": "Pool B",
+      "players": [
+        {
+          "playerId": 55711198,
+          "name": "Nahapet Manucharyan"
+        },
+        {
+          "playerId": 55466633,
+          "name": "Hairig Haroutyunyan"
+        },
+        {
+          "playerId": 55715066,
+          "name": "Gagik Vartanyan"
+        },
+        {
+          "playerId": 55159347,
+          "name": "Tatevos Torosyan"
+        },
+        {
+          "playerId": 55468348,
+          "name": "Petik Hovakimyan"
+        },
+        {
+          "playerId": 55468324,
+          "name": "Khacho Asdvadzaduryan"
+        },
+        {
+          "playerId": 55160571,
+          "name": "Aramayis Khachatryan"
+        },
+        {
+          "playerId": 55162304,
+          "name": "Feliks Mardirosyan"
+        },
+        {
+          "playerId": 55163757,
+          "name": "Badrig Eliasyan"
+        },
+        {
+          "playerId": 55465566,
+          "name": "Vagharsh Boghosyan"
+        },
+        {
+          "playerId": 55466456,
+          "name": "Benjamin Pedrosyan"
+        },
+        {
+          "playerId": 55466813,
+          "name": "Haik Garbisyan"
+        },
+        {
+          "playerId": 55468137,
+          "name": "Nareg Shahumyan"
+        },
+        {
+          "playerId": 55711584,
+          "name": "Paren Zakarigyan"
+        },
+        {
+          "playerId": 55712234,
+          "name": "Movses Ardashyan"
+        },
+        {
+          "playerId": 55712461,
+          "name": "Smbat Badrigyan"
+        },
+        {
+          "playerId": 55718750,
+          "name": "Babken Ovagimyan"
+        },
+        {
+          "playerId": 55718921,
+          "name": "Robert Askanazyan"
+        }
+      ]
+    },
+    {
+      "countryId": 12,
+      "name": "Hellas",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55006129,
+          "name": "Thimios Ntouvaris"
+        },
+        {
+          "playerId": 55309629,
+          "name": "Takis Tzanetos"
+        },
+        {
+          "playerId": 55310821,
+          "name": "Iosif Vaitsis"
+        },
+        {
+          "playerId": 55310039,
+          "name": "Periklis Tsiafkaris"
+        },
+        {
+          "playerId": 55309522,
+          "name": "Fikret Neside"
+        },
+        {
+          "playerId": 55462159,
+          "name": "Zefiros Chrisoulas"
+        },
+        {
+          "playerId": 55309618,
+          "name": "Pavlos Karidas"
+        },
+        {
+          "playerId": 55005108,
+          "name": "Trifonas Kioulekas"
+        },
+        {
+          "playerId": 55006097,
+          "name": "Ioannis Iordanidis"
+        },
+        {
+          "playerId": 55309396,
+          "name": "Yiannis Volanis"
+        },
+        {
+          "playerId": 55309643,
+          "name": "Dimitris Rokkos"
+        },
+        {
+          "playerId": 55309656,
+          "name": "Kostas Gagalakos"
+        },
+        {
+          "playerId": 55309678,
+          "name": "Antonios Papadoyiorgakis"
+        },
+        {
+          "playerId": 55309881,
+          "name": "Ploutonas Egnatiadis"
+        },
+        {
+          "playerId": 55311284,
+          "name": "Eftichios Yiayias"
+        },
+        {
+          "playerId": 55587724,
+          "name": "Yiorgos Masourakis"
+        },
+        {
+          "playerId": 55864870,
+          "name": "Nasos Moustakakis"
+        }
+      ]
+    },
+    {
+      "countryId": 45,
+      "name": "Hong Kong",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55095551,
+          "name": "Lung Hoi Ching"
+        },
+        {
+          "playerId": 55095685,
+          "name": "Chin Hok Loi"
+        },
+        {
+          "playerId": 55158664,
+          "name": "Saimun Chun"
+        },
+        {
+          "playerId": 55095738,
+          "name": "Li Kong Chun"
+        },
+        {
+          "playerId": 55095256,
+          "name": "Kwok Shing Wun"
+        },
+        {
+          "playerId": 55095347,
+          "name": "Lam Sing Wun"
+        },
+        {
+          "playerId": 55095420,
+          "name": "Wu Kangning"
+        },
+        {
+          "playerId": 55095491,
+          "name": "Ngai Foo Lim"
+        },
+        {
+          "playerId": 55095534,
+          "name": "Wong Kong Pei"
+        },
+        {
+          "playerId": 55095610,
+          "name": "Ned Ingles"
+        },
+        {
+          "playerId": 55095625,
+          "name": "Un Lai Wan"
+        },
+        {
+          "playerId": 55095640,
+          "name": "Fok Luka"
+        },
+        {
+          "playerId": 55399967,
+          "name": "Lo Kim Tam"
+        }
+      ]
+    },
+    {
+      "countryId": 24,
+      "name": "Hrvatska",
+      "pool": "Pool F",
+      "players": [
+        {
+          "playerId": 55065577,
+          "name": "Tomica Komadina"
+        },
+        {
+          "playerId": 55065331,
+          "name": "Miran Vojvodić"
+        },
+        {
+          "playerId": 55065533,
+          "name": "Gordan Bugarija"
+        },
+        {
+          "playerId": 55065591,
+          "name": "Mate Antolković"
+        },
+        {
+          "playerId": 55369649,
+          "name": "Živko Mikuličić"
+        },
+        {
+          "playerId": 55369697,
+          "name": "Aleksandar Španić"
+        },
+        {
+          "playerId": 55369755,
+          "name": "Giovanni Batković"
+        },
+        {
+          "playerId": 55369772,
+          "name": "Miroslav Canjuga"
+        },
+        {
+          "playerId": 55369861,
+          "name": "Valentin Strelec"
+        },
+        {
+          "playerId": 55369945,
+          "name": "Pier Cesare Morbelli"
+        },
+        {
+          "playerId": 55369946,
+          "name": "Gvozden Despotović"
+        },
+        {
+          "playerId": 55370026,
+          "name": "Miran Simeunović"
+        },
+        {
+          "playerId": 55466031,
+          "name": "Branko Meštrić"
+        },
+        {
+          "playerId": 55628168,
+          "name": "Alen Bašan"
+        },
+        {
+          "playerId": 55628299,
+          "name": "Adam Rasol"
+        },
+        {
+          "playerId": 55628436,
+          "name": "Marin Turčinov"
+        },
+        {
+          "playerId": 55710741,
+          "name": "Kristo Saraga"
+        }
+      ]
+    },
+    {
+      "countryId": 44,
+      "name": "Ireland",
+      "pool": "Pool F",
+      "players": [
+        {
+          "playerId": 55162031,
+          "name": "Kevin Cunningham"
+        },
+        {
+          "playerId": 55712807,
+          "name": "Gary Kelly"
+        },
+        {
+          "playerId": 55462267,
+          "name": "Les Mac Geralt"
+        },
+        {
+          "playerId": 55466692,
+          "name": "Stuart Ó Lorcáin"
+        },
+        {
+          "playerId": 55461963,
+          "name": "Thomas Ward"
+        },
+        {
+          "playerId": 55398576,
+          "name": "Wacker Cahill"
+        },
+        {
+          "playerId": 55158318,
+          "name": "Brian Dunphy"
+        },
+        {
+          "playerId": 55398567,
+          "name": "Tim O'Dowd"
+        },
+        {
+          "playerId": 55398568,
+          "name": "Tony Broe"
+        },
+        {
+          "playerId": 55398587,
+          "name": "Milo Feenan"
+        },
+        {
+          "playerId": 55398623,
+          "name": "Con O'Connor"
+        },
+        {
+          "playerId": 55398674,
+          "name": "Humphrey Dineen"
+        },
+        {
+          "playerId": 55398681,
+          "name": "Marsden Kildare"
+        },
+        {
+          "playerId": 55462407,
+          "name": "Alex Donovan"
+        },
+        {
+          "playerId": 55462447,
+          "name": "Gearóid Walsh"
+        },
+        {
+          "playerId": 55462448,
+          "name": "Stuart Torrance"
+        },
+        {
+          "playerId": 55465956,
+          "name": "Mark Brady"
+        },
+        {
+          "playerId": 55713805,
+          "name": "Sol Flynn"
+        }
+      ]
+    },
+    {
+      "countryId": 78,
+      "name": "Ísland",
+      "pool": "Pool C",
+      "players": [
+        {
+          "playerId": 55468308,
+          "name": "Flóki Geirfinnsson"
+        },
+        {
+          "playerId": 55161485,
+          "name": "Símon Arnarsson"
+        },
+        {
+          "playerId": 55163698,
+          "name": "Styrmir Hjaltason"
+        },
+        {
+          "playerId": 55163722,
+          "name": "Auðunn Axelsson"
+        },
+        {
+          "playerId": 55163910,
+          "name": "Vilberg Sighvatsson"
+        },
+        {
+          "playerId": 55163957,
+          "name": "Valbergur Rafnsson"
+        },
+        {
+          "playerId": 55464266,
+          "name": "Gunnar Hólmsteinsson"
+        },
+        {
+          "playerId": 55464945,
+          "name": "Jóngeir Þrastarson"
+        },
+        {
+          "playerId": 55465228,
+          "name": "Rafnar Sigfússon"
+        },
+        {
+          "playerId": 55466073,
+          "name": "Arinnbjörn Hjörleifsson"
+        },
+        {
+          "playerId": 55468250,
+          "name": "Brynleifur Ottósson"
+        },
+        {
+          "playerId": 55468255,
+          "name": "Hreggviður Ellertsson"
+        },
+        {
+          "playerId": 55468381,
+          "name": "Guðmann Barðason"
+        },
+        {
+          "playerId": 55718869,
+          "name": "Sverrir Guðmundsson"
+        }
+      ]
+    },
+    {
+      "countryId": 15,
+      "name": "Israel",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55029755,
+          "name": "Dekel Keinan"
+        },
+        {
+          "playerId": 55029423,
+          "name": "Yoni Ashkenazi"
+        },
+        {
+          "playerId": 55029329,
+          "name": "Yonatan Benno"
+        },
+        {
+          "playerId": 55029385,
+          "name": "Elishav Brener"
+        },
+        {
+          "playerId": 55029422,
+          "name": "Benny Yavin"
+        },
+        {
+          "playerId": 55029538,
+          "name": "Oneg Ben-Yaacov"
+        },
+        {
+          "playerId": 55029695,
+          "name": "Aviram Tzarfati"
+        },
+        {
+          "playerId": 55029696,
+          "name": "Tuvi Ashkenazi"
+        },
+        {
+          "playerId": 55029769,
+          "name": "Assi Farkash"
+        },
+        {
+          "playerId": 55029806,
+          "name": "Michael Meron"
+        },
+        {
+          "playerId": 55029866,
+          "name": "Elram Zeytuni"
+        },
+        {
+          "playerId": 55029883,
+          "name": "Farook Danieli"
+        },
+        {
+          "playerId": 55029914,
+          "name": "Alex Avramov"
+        },
+        {
+          "playerId": 55334164,
+          "name": "Avni Barzilay"
+        },
+        {
+          "playerId": 55334232,
+          "name": "Jed Dekel"
+        }
+      ]
+    },
+    {
+      "countryId": 10,
+      "name": "Italia",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 54975300,
+          "name": "William Piscaglia"
+        },
+        {
+          "playerId": 54975047,
+          "name": "Florindo Cairo"
+        },
+        {
+          "playerId": 54973149,
+          "name": "Paolo Sorce"
+        },
+        {
+          "playerId": 54971980,
+          "name": "Alessandro Hoz"
+        },
+        {
+          "playerId": 54972285,
+          "name": "Donato Bauducco"
+        },
+        {
+          "playerId": 54973780,
+          "name": "Rino Succu"
+        },
+        {
+          "playerId": 54974368,
+          "name": "Bruno Nicastro"
+        },
+        {
+          "playerId": 54974878,
+          "name": "Beniamino Roncisvalle"
+        },
+        {
+          "playerId": 54975189,
+          "name": "Paolo Locci"
+        },
+        {
+          "playerId": 54975342,
+          "name": "Seran Soverini"
+        },
+        {
+          "playerId": 55160239,
+          "name": "Roberto Toti"
+        }
+      ]
+    },
+    {
+      "countryId": 46,
+      "name": "Latvija",
+      "pool": "Pool G",
+      "players": [
+        {
+          "playerId": 55099719,
+          "name": "Aristids Teniss"
+        },
+        {
+          "playerId": 55403677,
+          "name": "Kārlis Turkupolis"
+        },
+        {
+          "playerId": 55403849,
+          "name": "Markus Cavinš"
+        },
+        {
+          "playerId": 55403842,
+          "name": "Druvis Garsenieks"
+        },
+        {
+          "playerId": 55099408,
+          "name": "Gerhards Jegers"
+        },
+        {
+          "playerId": 55099427,
+          "name": "Egils Virpulis"
+        },
+        {
+          "playerId": 55099817,
+          "name": "Janis Klavenieks"
+        },
+        {
+          "playerId": 55099823,
+          "name": "Edvards Vavuls"
+        },
+        {
+          "playerId": 55403751,
+          "name": "Oskars Anerauds"
+        },
+        {
+          "playerId": 55403863,
+          "name": "Vents Bitenbinders"
+        },
+        {
+          "playerId": 55403952,
+          "name": "Einars Jozepsons"
+        },
+        {
+          "playerId": 55403996,
+          "name": "Peteris Diediškis"
+        },
+        {
+          "playerId": 55404075,
+          "name": "Dzintars Gasparovics"
+        },
+        {
+          "playerId": 55404112,
+          "name": "Fricis Danis"
+        },
+        {
+          "playerId": 55465237,
+          "name": "Rauls Kurpnieks"
+        }
+      ]
+    },
+    {
+      "countryId": 20,
+      "name": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55048510,
+          "name": "Vytautas Dorofejus"
+        },
+        {
+          "playerId": 55048229,
+          "name": "Edvardas Napeklys"
+        },
+        {
+          "playerId": 55046732,
+          "name": "Galaktijonas Krasnopiorovas"
+        },
+        {
+          "playerId": 55046775,
+          "name": "Matas Maziliauskas"
+        },
+        {
+          "playerId": 55046957,
+          "name": "Linas Bajorynas"
+        },
+        {
+          "playerId": 55047318,
+          "name": "Valdas Peldunas"
+        },
+        {
+          "playerId": 55047388,
+          "name": "Dovydas Raukštus"
+        },
+        {
+          "playerId": 55047646,
+          "name": "Ginutis Petrauskis"
+        },
+        {
+          "playerId": 55047870,
+          "name": "Juvencijus Kondratenkovas"
+        },
+        {
+          "playerId": 55047943,
+          "name": "Alvytas Cholupniakas"
+        },
+        {
+          "playerId": 55048296,
+          "name": "Vytukas Ružinas"
+        },
+        {
+          "playerId": 55048304,
+          "name": "Donatas Staponkevicius"
+        },
+        {
+          "playerId": 55048489,
+          "name": "Viachka Ledakovich"
+        },
+        {
+          "playerId": 55462207,
+          "name": "Marius Verketis"
+        }
+      ]
+    },
+    {
+      "countryId": 91,
+      "name": "Luxembourg",
+      "pool": "Pool E",
+      "players": [
+        {
+          "playerId": 55462603,
+          "name": "Timmy Gillard"
+        },
+        {
+          "playerId": 55463809,
+          "name": "Rodrigo Arrepia"
+        },
+        {
+          "playerId": 55718950,
+          "name": "Mortimer Roose"
+        },
+        {
+          "playerId": 55468162,
+          "name": "Daniel Filipe Rainho"
+        },
+        {
+          "playerId": 55468352,
+          "name": "Frédéric Degrelle"
+        },
+        {
+          "playerId": 55993733,
+          "name": "Reimund Sproll"
+        },
+        {
+          "playerId": 55714281,
+          "name": "Lorentz Dechilly"
+        },
+        {
+          "playerId": 55159043,
+          "name": "Ivo Silva"
+        },
+        {
+          "playerId": 55715748,
+          "name": "Steffen Preiss"
+        },
+        {
+          "playerId": 55462450,
+          "name": "Mike Dorst"
+        },
+        {
+          "playerId": 55464251,
+          "name": "Laurent Bazoge"
+        },
+        {
+          "playerId": 55465572,
+          "name": "Ruedi Legnick"
+        },
+        {
+          "playerId": 55466090,
+          "name": "Jan-Philipp Mathe"
+        },
+        {
+          "playerId": 55468171,
+          "name": "Philippe Anciaux"
+        },
+        {
+          "playerId": 55527251,
+          "name": "Armand Le Boulch"
+        },
+        {
+          "playerId": 55711866,
+          "name": "Bruno Alves"
+        },
+        {
+          "playerId": 55714989,
+          "name": "Hanns Lederhuber"
+        }
+      ]
+    },
+    {
+      "countryId": 48,
+      "name": "Magyarország",
+      "pool": "Pool H",
+      "players": [
+        {
+          "playerId": 55160209,
+          "name": "Zsolt Wittich"
+        },
+        {
+          "playerId": 55104208,
+          "name": "András Széles"
+        },
+        {
+          "playerId": 55104421,
+          "name": "Pál Novák"
+        },
+        {
+          "playerId": 55103553,
+          "name": "Miklós Jakatics"
+        },
+        {
+          "playerId": 55103498,
+          "name": "Mihály Herceg"
+        },
+        {
+          "playerId": 55103510,
+          "name": "Roland Geller"
+        },
+        {
+          "playerId": 55103523,
+          "name": "Kelemen Jablonkai"
+        },
+        {
+          "playerId": 55103619,
+          "name": "István Babiák"
+        },
+        {
+          "playerId": 55103713,
+          "name": "Donát Józsi"
+        },
+        {
+          "playerId": 55103734,
+          "name": "Ákos Sipőcz"
+        },
+        {
+          "playerId": 55103814,
+          "name": "Szilárd Májer"
+        },
+        {
+          "playerId": 55103819,
+          "name": "Mateo Pahlić"
+        },
+        {
+          "playerId": 55103841,
+          "name": "Vytaliy Volotek"
+        },
+        {
+          "playerId": 55103997,
+          "name": "Szabolcs Gárdián"
+        },
+        {
+          "playerId": 55104030,
+          "name": "Elõd Dárday"
+        },
+        {
+          "playerId": 55104222,
+          "name": "Rómeó Bancsó"
+        },
+        {
+          "playerId": 55104396,
+          "name": "Sándor Garaba"
+        },
+        {
+          "playerId": 55104442,
+          "name": "Ugron Vizi"
+        }
+      ]
+    },
+    {
+      "countryId": 49,
+      "name": "Makedonija",
+      "pool": "Pool F",
+      "players": [
+        {
+          "playerId": 55411851,
+          "name": "Anton Dzuvalekovski"
+        },
+        {
+          "playerId": 55203500,
+          "name": "Pane Rajchin"
+        },
+        {
+          "playerId": 55203491,
+          "name": "Veshtak Metarapi"
+        },
+        {
+          "playerId": 55107708,
+          "name": "Misko Levi"
+        },
+        {
+          "playerId": 55107740,
+          "name": "Klime Zlatkov"
+        },
+        {
+          "playerId": 55107822,
+          "name": "Marko Loteski"
+        },
+        {
+          "playerId": 55160332,
+          "name": "Mikan Çausholli"
+        },
+        {
+          "playerId": 55411901,
+          "name": "Majlind Dedja"
+        },
+        {
+          "playerId": 55411914,
+          "name": "Vlatko Chakroski"
+        },
+        {
+          "playerId": 55412038,
+          "name": "Mitan Cuculovski"
+        },
+        {
+          "playerId": 55412041,
+          "name": "Bojan Abrashev"
+        },
+        {
+          "playerId": 55670409,
+          "name": "Rangel Serafimovski"
+        }
+      ]
+    },
+    {
+      "countryId": 90,
+      "name": "Malta",
+      "pool": "Pool C",
+      "players": [
+        {
+          "playerId": 55464756,
+          "name": "Michael Sullivan"
+        },
+        {
+          "playerId": 55465344,
+          "name": "Joe Sammut"
+        },
+        {
+          "playerId": 55712557,
+          "name": "Jonathan Bonnici"
+        },
+        {
+          "playerId": 55160961,
+          "name": "Ralph Seguna"
+        },
+        {
+          "playerId": 55162086,
+          "name": "Stephen Grech"
+        },
+        {
+          "playerId": 55163758,
+          "name": "Kenneth Seguna"
+        },
+        {
+          "playerId": 55463268,
+          "name": "Clive Lia"
+        },
+        {
+          "playerId": 55463498,
+          "name": "Stephen Briffa"
+        },
+        {
+          "playerId": 55466033,
+          "name": "Peter Decesare"
+        },
+        {
+          "playerId": 55466914,
+          "name": "Rodney Griffiths"
+        },
+        {
+          "playerId": 55468155,
+          "name": "Ernest Incorvaia"
+        },
+        {
+          "playerId": 55468260,
+          "name": "Wayne Fava"
+        },
+        {
+          "playerId": 55468276,
+          "name": "Jeremy Camenzuli"
+        },
+        {
+          "playerId": 55711459,
+          "name": "Ian Parisi"
+        },
+        {
+          "playerId": 55714412,
+          "name": "Shaun Borg"
+        },
+        {
+          "playerId": 55715107,
+          "name": "Vincent Fabri"
+        },
+        {
+          "playerId": 55715917,
+          "name": "Donald Farrugia"
+        }
+      ]
+    },
+    {
+      "countryId": 86,
+      "name": "Moldova",
+      "pool": "Pool A",
+      "players": [
+        {
+          "playerId": 55163785,
+          "name": "Spiridon Mîrzenco"
+        },
+        {
+          "playerId": 55463282,
+          "name": "Aurel Filimon"
+        },
+        {
+          "playerId": 55468108,
+          "name": "Alexandru Cilivan"
+        },
+        {
+          "playerId": 55461564,
+          "name": "Grigory Kokotov"
+        },
+        {
+          "playerId": 55465060,
+          "name": "Ghenadie Vaisman"
+        },
+        {
+          "playerId": 55465850,
+          "name": "Ionel Negruta"
+        },
+        {
+          "playerId": 55468205,
+          "name": "Vitalie Jomiru"
+        },
+        {
+          "playerId": 55718832,
+          "name": "Serghei Magariu"
+        },
+        {
+          "playerId": 55989181,
+          "name": "Vsevolod Lamonov"
+        }
+      ]
+    },
+    {
+      "countryId": 16,
+      "name": "Nederland",
+      "pool": "Pool H",
+      "players": [
+        {
+          "playerId": 55033625,
+          "name": "Elbert Smulders"
+        },
+        {
+          "playerId": 55337971,
+          "name": "George Westbroek"
+        },
+        {
+          "playerId": 55338033,
+          "name": "Lars Versteegh"
+        },
+        {
+          "playerId": 55338088,
+          "name": "Jordy Frijling"
+        },
+        {
+          "playerId": 55033309,
+          "name": "Laurent Straathof"
+        },
+        {
+          "playerId": 55033388,
+          "name": "Nicholas Alleyn"
+        },
+        {
+          "playerId": 55033414,
+          "name": "Harm-Jan Scheringa"
+        },
+        {
+          "playerId": 55033428,
+          "name": "Francis Mulier"
+        },
+        {
+          "playerId": 55033451,
+          "name": "Duncan van Osch"
+        },
+        {
+          "playerId": 55337944,
+          "name": "Wilibrord Hensen"
+        },
+        {
+          "playerId": 55338155,
+          "name": "Yonah Waterreus"
+        },
+        {
+          "playerId": 55461811,
+          "name": "Selwyn Rats"
+        },
+        {
+          "playerId": 55464826,
+          "name": "Alfonso de Zwart"
+        },
+        {
+          "playerId": 55884098,
+          "name": "Gomarus Jegerings"
+        }
+      ]
+    },
+    {
+      "countryId": 26,
+      "name": "Norge",
+      "pool": "Pool E",
+      "players": [
+        {
+          "playerId": 55844218,
+          "name": "Bidding time expired! Check out all of the bids in one page."
+        }
+      ]
+    },
+    {
+      "countryId": 27,
+      "name": "Österreich",
+      "pool": "Pool A",
+      "players": [
+        {
+          "playerId": 55161501,
+          "name": "Georg Stöger"
+        },
+        {
+          "playerId": 55463116,
+          "name": "Arnulf Doll"
+        },
+        {
+          "playerId": 55070399,
+          "name": "Johannes Ender"
+        },
+        {
+          "playerId": 55070438,
+          "name": "Herbert Stein"
+        },
+        {
+          "playerId": 55070506,
+          "name": "Johannes Danzinger"
+        },
+        {
+          "playerId": 55070524,
+          "name": "Gottfried Tritscher"
+        },
+        {
+          "playerId": 55070544,
+          "name": "Aleksandar Huemer"
+        },
+        {
+          "playerId": 55158600,
+          "name": "David Hosp"
+        },
+        {
+          "playerId": 55374827,
+          "name": "Bohuslav Miška"
+        },
+        {
+          "playerId": 55374832,
+          "name": "Johann Haberlandner"
+        },
+        {
+          "playerId": 55374900,
+          "name": "Patrick Mayerhofer"
+        },
+        {
+          "playerId": 55374958,
+          "name": "Lukas Offner"
+        },
+        {
+          "playerId": 55633226,
+          "name": "David Tiefenbach"
+        },
+        {
+          "playerId": 55633336,
+          "name": "Çetin Sen"
+        }
+      ]
+    },
+    {
+      "countryId": 58,
+      "name": "Polska",
+      "pool": "Pool B",
+      "players": [
+        {
+          "playerId": 55116854,
+          "name": "Igor Kluczka"
+        },
+        {
+          "playerId": 55205111,
+          "name": "Józef Wieszczek"
+        },
+        {
+          "playerId": 55116471,
+          "name": "Bartłomiej Filipek"
+        },
+        {
+          "playerId": 55117524,
+          "name": "Dorian Czachór"
+        },
+        {
+          "playerId": 55115414,
+          "name": "Ryszard Kozimor"
+        },
+        {
+          "playerId": 55115467,
+          "name": "Hubert Rokaszewicz"
+        },
+        {
+          "playerId": 55115515,
+          "name": "Zbigniew Chabasiński"
+        },
+        {
+          "playerId": 55115536,
+          "name": "Ferdynand Strykowski"
+        },
+        {
+          "playerId": 55115800,
+          "name": "Stefan Gujski"
+        },
+        {
+          "playerId": 55116105,
+          "name": "Telesfor Hamerski"
+        },
+        {
+          "playerId": 55116740,
+          "name": "Franciszek Barczyszyn"
+        },
+        {
+          "playerId": 55116906,
+          "name": "Sebastian Dębowski"
+        },
+        {
+          "playerId": 55117100,
+          "name": "Grzegorz Dobroczyński"
+        },
+        {
+          "playerId": 55117259,
+          "name": "Tomasz Frączyk"
+        },
+        {
+          "playerId": 55117329,
+          "name": "Ludwik Miastowski"
+        },
+        {
+          "playerId": 55419517,
+          "name": "Maciej Warych"
+        },
+        {
+          "playerId": 55420768,
+          "name": "Filip Kopaczynski"
+        },
+        {
+          "playerId": 55421497,
+          "name": "Dariusz Bączyk"
+        }
+      ]
+    },
+    {
+      "countryId": 18,
+      "name": "Portugal",
+      "pool": "Pool F",
+      "players": [
+        {
+          "playerId": 55038514,
+          "name": "Hermínio Alhinho"
+        },
+        {
+          "playerId": 55039317,
+          "name": "Alexandre Coroado"
+        },
+        {
+          "playerId": 55038485,
+          "name": "Raimundo Jesus"
+        },
+        {
+          "playerId": 55038805,
+          "name": "Leandro Cardona"
+        },
+        {
+          "playerId": 55343485,
+          "name": "Flávio Boaventura"
+        },
+        {
+          "playerId": 55038471,
+          "name": "Luís Pedro Cancela"
+        },
+        {
+          "playerId": 55343770,
+          "name": "Jacinto Ávila"
+        },
+        {
+          "playerId": 55038587,
+          "name": "Manuel Maria da Costa"
+        },
+        {
+          "playerId": 55038868,
+          "name": "Rafael Nogueira"
+        },
+        {
+          "playerId": 55038912,
+          "name": "Bruno Gamboa"
+        },
+        {
+          "playerId": 55039114,
+          "name": "António Borges"
+        },
+        {
+          "playerId": 55039166,
+          "name": "Alexandre Veloso"
+        },
+        {
+          "playerId": 55161699,
+          "name": "Zé Sales"
+        },
+        {
+          "playerId": 55343588,
+          "name": "José França"
+        }
+      ]
+    },
+    {
+      "countryId": 61,
+      "name": "România",
+      "pool": "Pool D",
+      "players": [
+        {
+          "playerId": 55132346,
+          "name": "Gabriel Mazilu"
+        },
+        {
+          "playerId": 55711557,
+          "name": "Octavian Cruceru"
+        },
+        {
+          "playerId": 55132302,
+          "name": "Liviu Miron"
+        },
+        {
+          "playerId": 55436683,
+          "name": "Georgian Plesa"
+        },
+        {
+          "playerId": 55132417,
+          "name": "Rareș Marcu"
+        },
+        {
+          "playerId": 55132368,
+          "name": "Liviu Titã"
+        },
+        {
+          "playerId": 55436794,
+          "name": "Ioan Vicol"
+        },
+        {
+          "playerId": 55132404,
+          "name": "Luca Juncu"
+        },
+        {
+          "playerId": 55132285,
+          "name": "Mihăițã Stoica"
+        },
+        {
+          "playerId": 55132289,
+          "name": "Toni Nutã"
+        },
+        {
+          "playerId": 55132375,
+          "name": "Sorin David"
+        },
+        {
+          "playerId": 55132403,
+          "name": "Valentin Uceanu"
+        },
+        {
+          "playerId": 55436575,
+          "name": "Petruț Zamfir"
+        },
+        {
+          "playerId": 55436595,
+          "name": "Damian Tomescu"
+        },
+        {
+          "playerId": 55436675,
+          "name": "Iliuțã Constantinescu"
+        },
+        {
+          "playerId": 55436790,
+          "name": "Ovidiu Drãgoi"
+        },
+        {
+          "playerId": 55436883,
+          "name": "Constantin Calotã"
+        },
+        {
+          "playerId": 55466428,
+          "name": "Dimitar Sarov"
+        }
+      ]
+    },
+    {
+      "countryId": 19,
+      "name": "Rossiya",
+      "pool": "Pool G",
+      "players": [
+        {
+          "playerId": 55347670,
+          "name": "Maxim Raskin"
+        },
+        {
+          "playerId": 55042558,
+          "name": "Veniamin Mitchenko"
+        },
+        {
+          "playerId": 55347679,
+          "name": "Valeriy Tartak"
+        },
+        {
+          "playerId": 55042539,
+          "name": "Nikanor Kaunov"
+        },
+        {
+          "playerId": 55042570,
+          "name": "Viktor Volkov"
+        },
+        {
+          "playerId": 55042694,
+          "name": "Leonid Buskin"
+        },
+        {
+          "playerId": 55042809,
+          "name": "Ilya Tikhmyanov"
+        },
+        {
+          "playerId": 55042872,
+          "name": "Denis Belogorodskiy"
+        },
+        {
+          "playerId": 55042910,
+          "name": "Boris Khrustalev"
+        },
+        {
+          "playerId": 55043130,
+          "name": "Vadim Tyazhkin"
+        },
+        {
+          "playerId": 55045867,
+          "name": "Veniamin Shabaev"
+        },
+        {
+          "playerId": 55347151,
+          "name": "Valery Nachkebiya"
+        },
+        {
+          "playerId": 55347211,
+          "name": "Daniil Berdov"
+        },
+        {
+          "playerId": 55347298,
+          "name": "Vyacheslav Kastorskiy"
+        },
+        {
+          "playerId": 55347476,
+          "name": "Ilya Kostyushin"
+        },
+        {
+          "playerId": 55347514,
+          "name": "Stanislav Erokhov"
+        },
+        {
+          "playerId": 55347735,
+          "name": "Ilya Ovsyanikov"
+        }
+      ]
+    },
+    {
+      "countryId": 62,
+      "name": "Sakartvelo",
+      "pool": "Pool C",
+      "players": [
+        {
+          "playerId": 55463549,
+          "name": "David Sopromadze"
+        },
+        {
+          "playerId": 55437673,
+          "name": "Pavle Geladze"
+        },
+        {
+          "playerId": 55133356,
+          "name": "Kristesia Burjanadze"
+        },
+        {
+          "playerId": 55133358,
+          "name": "Soso Cheishvili"
+        },
+        {
+          "playerId": 55133582,
+          "name": "Nodar Khitarishvili"
+        },
+        {
+          "playerId": 55162235,
+          "name": "Buba Aladashvili"
+        },
+        {
+          "playerId": 55437648,
+          "name": "Valery Sologub"
+        },
+        {
+          "playerId": 55437678,
+          "name": "Paata Rekhviashvili"
+        },
+        {
+          "playerId": 55437697,
+          "name": "Zura Imnadze"
+        },
+        {
+          "playerId": 55437724,
+          "name": "Jarji Noghaideli"
+        },
+        {
+          "playerId": 55437748,
+          "name": "Gigo Barkaia"
+        },
+        {
+          "playerId": 55461600,
+          "name": "Nodar Adeishvili"
+        },
+        {
+          "playerId": 55466676,
+          "name": "Sergo Kukulava"
+        }
+      ]
+    },
+    {
+      "countryId": 28,
+      "name": "Schweiz",
+      "pool": "Pool B",
+      "players": [
+        {
+          "playerId": 55071771,
+          "name": "Julien Causse"
+        },
+        {
+          "playerId": 55466455,
+          "name": "Paolo Rodenbeck"
+        },
+        {
+          "playerId": 55071683,
+          "name": "Arnold Hufschmied"
+        },
+        {
+          "playerId": 55375934,
+          "name": "Adolf Solak"
+        },
+        {
+          "playerId": 55465481,
+          "name": "Pascal Darchinger"
+        },
+        {
+          "playerId": 55071660,
+          "name": "Timon Wyss"
+        },
+        {
+          "playerId": 55375893,
+          "name": "Albert Crettaz"
+        },
+        {
+          "playerId": 55375989,
+          "name": "Andreas Merrits"
+        },
+        {
+          "playerId": 55376076,
+          "name": "Jean-Jacques Giosefi"
+        },
+        {
+          "playerId": 55376085,
+          "name": "Elliott Slotter"
+        },
+        {
+          "playerId": 55376123,
+          "name": "Norberto Kimmel"
+        },
+        {
+          "playerId": 55465419,
+          "name": "Alois Wedekind"
+        }
+      ]
+    },
+    {
+      "countryId": 64,
+      "name": "Scotland",
+      "pool": "Pool A",
+      "players": [
+        {
+          "playerId": 55463942,
+          "name": "John Holmes"
+        },
+        {
+          "playerId": 55160801,
+          "name": "Bob Soutar"
+        },
+        {
+          "playerId": 55462433,
+          "name": "James MacLintock"
+        },
+        {
+          "playerId": 55711449,
+          "name": "Andrew Skinner"
+        },
+        {
+          "playerId": 55158636,
+          "name": "Louis Adam"
+        },
+        {
+          "playerId": 55158819,
+          "name": "Brieve MacCarter"
+        },
+        {
+          "playerId": 55160326,
+          "name": "Michael Obree"
+        },
+        {
+          "playerId": 55161597,
+          "name": "Jonathan Brodie"
+        },
+        {
+          "playerId": 55163891,
+          "name": "Michael MacKimmie"
+        },
+        {
+          "playerId": 55163955,
+          "name": "Barker MacKenzie"
+        },
+        {
+          "playerId": 55463372,
+          "name": "Lewis Fairclough"
+        },
+        {
+          "playerId": 55464205,
+          "name": "Dylan Murdoch"
+        },
+        {
+          "playerId": 55468200,
+          "name": "Allen MacGruer"
+        },
+        {
+          "playerId": 55712363,
+          "name": "Ronnie FitzGerald"
+        },
+        {
+          "playerId": 55718888,
+          "name": "Ariel Zegarek"
+        },
+        {
+          "playerId": 55718904,
+          "name": "Gregor Lindsay"
+        },
+        {
+          "playerId": 55718931,
+          "name": "Dean Risk"
+        }
+      ]
+    },
+    {
+      "countryId": 94,
+      "name": "Senegal",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55464066,
+          "name": "Mbar Diouf"
+        },
+        {
+          "playerId": 55162600,
+          "name": "Charaf Diallo"
+        },
+        {
+          "playerId": 55464291,
+          "name": "Damé Agne"
+        }
+      ]
+    },
+    {
+      "countryId": 79,
+      "name": "Shqipëria",
+      "pool": "Pool D",
+      "players": [
+        {
+          "playerId": 55465488,
+          "name": "Nedin Perashi"
+        },
+        {
+          "playerId": 55158125,
+          "name": "Kron Drenica"
+        },
+        {
+          "playerId": 55710901,
+          "name": "Edi Abdurrahmani"
+        },
+        {
+          "playerId": 55992350,
+          "name": "Edin Cana"
+        },
+        {
+          "playerId": 55713279,
+          "name": "Bilind Bixhaj"
+        },
+        {
+          "playerId": 55160156,
+          "name": "Rudan Juka"
+        },
+        {
+          "playerId": 55160966,
+          "name": "Pleurat Kurtolli"
+        },
+        {
+          "playerId": 55464867,
+          "name": "Gazmadh Bregu"
+        },
+        {
+          "playerId": 55468270,
+          "name": "Verim Rasha"
+        },
+        {
+          "playerId": 55710800,
+          "name": "Perinjak Hila"
+        },
+        {
+          "playerId": 55719002,
+          "name": "Denis Salihu"
+        },
+        {
+          "playerId": 55992050,
+          "name": "Pandeli Curri"
+        },
+        {
+          "playerId": 55997393,
+          "name": "Arsim Krashi"
+        },
+        {
+          "playerId": 55997488,
+          "name": "Bleart Boletini"
+        }
+      ]
+    },
+    {
+      "countryId": 66,
+      "name": "Slovenija",
+      "pool": "Pool E",
+      "players": [
+        {
+          "playerId": 55689060,
+          "name": "Dore Lovreković"
+        },
+        {
+          "playerId": 55135479,
+          "name": "Demis Tahiri"
+        },
+        {
+          "playerId": 55135557,
+          "name": "Čarli Jurković"
+        },
+        {
+          "playerId": 55158715,
+          "name": "Milan Peterec"
+        },
+        {
+          "playerId": 55439831,
+          "name": "Drejc Kožel"
+        },
+        {
+          "playerId": 55135438,
+          "name": "Kevin Turkoš"
+        },
+        {
+          "playerId": 55135459,
+          "name": "Nejc Baltič"
+        },
+        {
+          "playerId": 55135461,
+          "name": "Samir Lipušček"
+        },
+        {
+          "playerId": 55135621,
+          "name": "Dare Ogrinec"
+        },
+        {
+          "playerId": 55135792,
+          "name": "Anton Šuštar"
+        },
+        {
+          "playerId": 55439689,
+          "name": "Leonard Verhovčak"
+        },
+        {
+          "playerId": 55439841,
+          "name": "Timo Lep"
+        },
+        {
+          "playerId": 55439881,
+          "name": "Lovro Bric"
+        },
+        {
+          "playerId": 55439925,
+          "name": "Darjan Aljančič"
+        },
+        {
+          "playerId": 55688943,
+          "name": "Tezej Tomaš"
+        }
+      ]
+    },
+    {
+      "countryId": 67,
+      "name": "Slovensko",
+      "pool": "Pool A",
+      "players": [
+        {
+          "playerId": 55466587,
+          "name": "Nino Slabej"
+        },
+        {
+          "playerId": 55157466,
+          "name": "Zoran Zverka"
+        },
+        {
+          "playerId": 55158054,
+          "name": "Vojtech Mladšík"
+        },
+        {
+          "playerId": 55139859,
+          "name": "Miloš Mikuliak"
+        },
+        {
+          "playerId": 55443828,
+          "name": "Matej Hálka"
+        },
+        {
+          "playerId": 55139616,
+          "name": "Víťazoslav Čajkovský"
+        },
+        {
+          "playerId": 55139657,
+          "name": "Orest Durcenka"
+        },
+        {
+          "playerId": 55139692,
+          "name": "Timon Michalovčík"
+        },
+        {
+          "playerId": 55139760,
+          "name": "Ondrej Velčovský"
+        },
+        {
+          "playerId": 55139868,
+          "name": "Milan Kosturský"
+        },
+        {
+          "playerId": 55157458,
+          "name": "Martin Babka"
+        },
+        {
+          "playerId": 55158095,
+          "name": "Alfréd Martinek"
+        },
+        {
+          "playerId": 55443908,
+          "name": "Marián Kalinák"
+        },
+        {
+          "playerId": 55443949,
+          "name": "Jakub Savčák"
+        },
+        {
+          "playerId": 55444042,
+          "name": "Šimon Gužák"
+        },
+        {
+          "playerId": 55444121,
+          "name": "Andreas Lopuchovský"
+        }
+      ]
+    },
+    {
+      "countryId": 29,
+      "name": "Srbija",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55377145,
+          "name": "Krstivoje Naumovski"
+        },
+        {
+          "playerId": 55635389,
+          "name": "Dejan Kežman"
+        },
+        {
+          "playerId": 55072669,
+          "name": "Slobodan Rapajić"
+        },
+        {
+          "playerId": 55377164,
+          "name": "Nenad Bačić"
+        },
+        {
+          "playerId": 55377239,
+          "name": "Darko Popović"
+        },
+        {
+          "playerId": 55377439,
+          "name": "Dule Vasiljević"
+        },
+        {
+          "playerId": 55635437,
+          "name": "Ivica Novaković"
+        },
+        {
+          "playerId": 55913924,
+          "name": "Radu Râpan"
+        },
+        {
+          "playerId": 55914387,
+          "name": "Vlada Vidić"
+        },
+        {
+          "playerId": 55914429,
+          "name": "Kosta Brković"
+        }
+      ]
+    },
+    {
+      "countryId": 69,
+      "name": "Suomi",
+      "pool": "Pool E",
+      "players": [
+        {
+          "playerId": 55844218,
+          "name": "Bidding time expired! Check out all of the bids in one page."
+        }
+      ]
+    },
+    {
+      "countryId": 9,
+      "name": "Sverige",
+      "pool": "Pool D",
+      "players": [
+        {
+          "playerId": 55275283,
+          "name": "Ronny Melin"
+        },
+        {
+          "playerId": 54970780,
+          "name": "Karl Lindbratt"
+        },
+        {
+          "playerId": 55275302,
+          "name": "Tomas Uddlund"
+        },
+        {
+          "playerId": 55161701,
+          "name": "Peter Josefsson"
+        },
+        {
+          "playerId": 54970621,
+          "name": "Nick Fredbom"
+        },
+        {
+          "playerId": 54970758,
+          "name": "Viktor Karlsson"
+        },
+        {
+          "playerId": 54970798,
+          "name": "Daniel Paulsson"
+        },
+        {
+          "playerId": 54970800,
+          "name": "Jonas Stenbratt"
+        },
+        {
+          "playerId": 55160924,
+          "name": "Michael Blomlund"
+        },
+        {
+          "playerId": 55275294,
+          "name": "Alexander Askenér"
+        },
+        {
+          "playerId": 55275315,
+          "name": "Chipako Mali"
+        },
+        {
+          "playerId": 55275334,
+          "name": "Leonard Grip"
+        },
+        {
+          "playerId": 55275373,
+          "name": "Jaakko Jolkkonen"
+        },
+        {
+          "playerId": 55275376,
+          "name": "Patrik Håkansson"
+        },
+        {
+          "playerId": 55275420,
+          "name": "Markku Popoff"
+        },
+        {
+          "playerId": 55275464,
+          "name": "Johan Oskarsson"
+        },
+        {
+          "playerId": 55570385,
+          "name": "Tore Lundlius"
+        }
+      ]
+    },
+    {
+      "countryId": 70,
+      "name": "Taiwan",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55144837,
+          "name": "Chan Yong chul"
+        },
+        {
+          "playerId": 55144777,
+          "name": "Liang Shaiming"
+        },
+        {
+          "playerId": 55144755,
+          "name": "Wong Sheng Nan"
+        },
+        {
+          "playerId": 55449367,
+          "name": "Wang Thiam Loy"
+        },
+        {
+          "playerId": 55449113,
+          "name": "Liang Jang Lu"
+        },
+        {
+          "playerId": 55449202,
+          "name": "Han Yok Lee"
+        },
+        {
+          "playerId": 55145198,
+          "name": "Sun Kheong"
+        },
+        {
+          "playerId": 55144951,
+          "name": "Ma Lui Dan"
+        },
+        {
+          "playerId": 55144965,
+          "name": "Luo Wing Kuen"
+        },
+        {
+          "playerId": 55145043,
+          "name": "Lim Than Long"
+        },
+        {
+          "playerId": 55145045,
+          "name": "Mo Gyong si"
+        },
+        {
+          "playerId": 55145093,
+          "name": "Huang Cheung"
+        },
+        {
+          "playerId": 55449200,
+          "name": "Ouyang Tu An"
+        },
+        {
+          "playerId": 55449219,
+          "name": "Huang Tat Ho"
+        },
+        {
+          "playerId": 55461617,
+          "name": "Law Ting Lun"
+        },
+        {
+          "playerId": 55464576,
+          "name": "Ban Jya Syin"
+        }
+      ]
+    },
+    {
+      "countryId": 6,
+      "name": "Türkiye",
+      "pool": "Pool D",
+      "players": [
+        {
+          "playerId": 55251101,
+          "name": "Idris Salkan"
+        },
+        {
+          "playerId": 54946658,
+          "name": "Amir Olçun"
+        },
+        {
+          "playerId": 55251473,
+          "name": "Kerim Algim"
+        },
+        {
+          "playerId": 55250908,
+          "name": "Cansever Savtunç"
+        },
+        {
+          "playerId": 54945772,
+          "name": "Tarkan Pekdemir"
+        },
+        {
+          "playerId": 54945777,
+          "name": "Gaffar Pasa"
+        },
+        {
+          "playerId": 54946367,
+          "name": "Mürsit Yarkin"
+        },
+        {
+          "playerId": 54946497,
+          "name": "Gezgin Baba"
+        },
+        {
+          "playerId": 55157453,
+          "name": "Ediz Osman"
+        },
+        {
+          "playerId": 55250654,
+          "name": "Tunç Demirtas"
+        },
+        {
+          "playerId": 55250682,
+          "name": "Durmus Gökdeniz"
+        },
+        {
+          "playerId": 55251191,
+          "name": "Numan Ölgür"
+        },
+        {
+          "playerId": 55251400,
+          "name": "Ahmet Onur Çizgen"
+        },
+        {
+          "playerId": 55251406,
+          "name": "Cebrail Süpheli"
+        },
+        {
+          "playerId": 55251591,
+          "name": "Kemal Tezcanli"
+        },
+        {
+          "playerId": 55555806,
+          "name": "Önder Agirtas"
+        }
+      ]
+    },
+    {
+      "countryId": 33,
+      "name": "Ukraina",
+      "pool": "Pool A",
+      "players": [
+        {
+          "playerId": 55077985,
+          "name": "Anton Golovnya"
+        },
+        {
+          "playerId": 55077918,
+          "name": "Leonid Dopilka"
+        },
+        {
+          "playerId": 55077785,
+          "name": "Semen Berko"
+        },
+        {
+          "playerId": 55078040,
+          "name": "Olexiy Dobryanskiy"
+        },
+        {
+          "playerId": 55382274,
+          "name": "Yuhym Peresada"
+        },
+        {
+          "playerId": 55077875,
+          "name": "Nicolae Cotoi"
+        },
+        {
+          "playerId": 55078050,
+          "name": "Borymyr Palyanitsa"
+        },
+        {
+          "playerId": 55078088,
+          "name": "Sergiy Stecenko"
+        },
+        {
+          "playerId": 55162198,
+          "name": "Genadiy Gubskiy"
+        },
+        {
+          "playerId": 55382179,
+          "name": "Rinat Denisenko"
+        },
+        {
+          "playerId": 55382266,
+          "name": "Yaroslav Ovchinnikov"
+        },
+        {
+          "playerId": 55382302,
+          "name": "Vladimir Shkirin"
+        },
+        {
+          "playerId": 55382352,
+          "name": "Martyn Poltavets"
+        },
+        {
+          "playerId": 55463584,
+          "name": "Volodymyr Romanenko"
+        },
+        {
+          "playerId": 55464227,
+          "name": "Illya Pavlyukh"
+        }
+      ]
+    },
+    {
+      "countryId": 1,
+      "name": "United States",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 54902750,
+          "name": "Joshua Rouse"
+        },
+        {
+          "playerId": 54903083,
+          "name": "Walt Sorenson"
+        },
+        {
+          "playerId": 54901145,
+          "name": "Harry Mathews"
+        },
+        {
+          "playerId": 54903294,
+          "name": "Jarom Bess"
+        },
+        {
+          "playerId": 54902890,
+          "name": "Freddy Cockrell"
+        },
+        {
+          "playerId": 54902633,
+          "name": "Laverne Mercado"
+        },
+        {
+          "playerId": 54900604,
+          "name": "Erik Beauchamp"
+        },
+        {
+          "playerId": 54900612,
+          "name": "Thomas Brown"
+        },
+        {
+          "playerId": 54902535,
+          "name": "Morris Cheney"
+        },
+        {
+          "playerId": 54902672,
+          "name": "Charles Dowell"
+        },
+        {
+          "playerId": 54902924,
+          "name": "Weston Wilson"
+        }
+      ]
+    }
+  ]
+}

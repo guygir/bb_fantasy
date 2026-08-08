@@ -1,0 +1,184 @@
+{
+  "season": 73,
+  "date": "2026-08-08",
+  "week": 1,
+  "updatedAt": "2026-08-08T10:33:37.849Z",
+  "players": [
+    {
+      "playerId": 55997462,
+      "name": "Guillem Baixas",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool E",
+      "dmi": 43500
+    },
+    {
+      "playerId": 55991127,
+      "name": "Roger Ibáñez",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool E",
+      "dmi": 13500
+    },
+    {
+      "playerId": 55468084,
+      "name": "Víctor Dillet",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool E",
+      "dmi": 60500
+    },
+    {
+      "playerId": 55720042,
+      "name": "Toros Hampartsoumyan",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 19600
+    },
+    {
+      "playerId": 55462698,
+      "name": "Batrić Preradović",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 83600
+    },
+    {
+      "playerId": 55459408,
+      "name": "Christoforos Papadaskalopoulos",
+      "countryId": 77,
+      "countryName": "Cyprus",
+      "pool": "Pool B",
+      "dmi": 67400
+    },
+    {
+      "playerId": 55461670,
+      "name": "Ross Read",
+      "countryId": 14,
+      "countryName": "England",
+      "pool": "Pool A",
+      "dmi": 81800
+    },
+    {
+      "playerId": 55468324,
+      "name": "Khacho Asdvadzaduryan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 33000
+    },
+    {
+      "playerId": 55412038,
+      "name": "Mitan Cuculovski",
+      "countryId": 49,
+      "countryName": "Makedonija",
+      "pool": "Pool F",
+      "dmi": 46600
+    },
+    {
+      "playerId": 55466914,
+      "name": "Rodney Griffiths",
+      "countryId": 90,
+      "countryName": "Malta",
+      "pool": "Pool C",
+      "dmi": 109300
+    },
+    {
+      "playerId": 55633336,
+      "name": "Çetin Sen",
+      "countryId": 27,
+      "countryName": "Österreich",
+      "pool": "Pool A",
+      "dmi": 65300
+    },
+    {
+      "playerId": 55070506,
+      "name": "Johannes Danzinger",
+      "countryId": 27,
+      "countryName": "Österreich",
+      "pool": "Pool A",
+      "dmi": 119500
+    },
+    {
+      "playerId": 55115414,
+      "name": "Ryszard Kozimor",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 158000
+    },
+    {
+      "playerId": 55437673,
+      "name": "Pavle Geladze",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 93100
+    },
+    {
+      "playerId": 55133358,
+      "name": "Soso Cheishvili",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 32200
+    },
+    {
+      "playerId": 55162600,
+      "name": "Charaf Diallo",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 249000
+    },
+    {
+      "playerId": 55464291,
+      "name": "Damé Agne",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 43600
+    },
+    {
+      "playerId": 55710901,
+      "name": "Edi Abdurrahmani",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 50900
+    },
+    {
+      "playerId": 55992050,
+      "name": "Pandeli Curri",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 12300
+    },
+    {
+      "playerId": 55635389,
+      "name": "Dejan Kežman",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 52100
+    },
+    {
+      "playerId": 55145198,
+      "name": "Sun Kheong",
+      "countryId": 70,
+      "countryName": "Taiwan",
+      "pool": "World Cup - Pool B",
+      "dmi": 215400
+    },
+    {
+      "playerId": 55157453,
+      "name": "Ediz Osman",
+      "countryId": 6,
+      "countryName": "Türkiye",
+      "pool": "Pool D",
+      "dmi": 409900
+    }
+  ]
+}
