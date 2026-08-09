@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 1,
-  "date": "2026-08-08",
-  "updatedAt": "2026-08-08T10:33:37.849Z",
+  "date": "2026-08-09",
+  "updatedAt": "2026-08-09T06:37:12.512Z",
   "countries": [
     {
       "countryId": 31,
@@ -128,7 +128,7 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 55844218,
+          "playerId": 55956232,
           "name": "Bidding time expired! Check out all of the bids in one page."
         }
       ]
@@ -149,6 +149,10 @@
         {
           "playerId": 55715979,
           "name": "Aras Qərabəyli"
+        },
+        {
+          "playerId": 55991604,
+          "name": "Baysu Həşimov"
         },
         {
           "playerId": 55720042,
@@ -175,6 +179,10 @@
           "name": "Ayman Əjdərov"
         },
         {
+          "playerId": 55463508,
+          "name": "Yurdman Atakişiyev"
+        },
+        {
           "playerId": 55464034,
           "name": "Dönüş Novruzov"
         },
@@ -185,10 +193,6 @@
         {
           "playerId": 55466338,
           "name": "Həsən Mikayilov"
-        },
-        {
-          "playerId": 55991604,
-          "name": "Baysu Həşimov"
         }
       ]
     },
@@ -309,6 +313,10 @@
           "name": "Thibaut De Haes"
         },
         {
+          "playerId": 55325688,
+          "name": "Bjorn Rausin"
+        },
+        {
           "playerId": 55325734,
           "name": "Geoff Manzan"
         },
@@ -317,8 +325,16 @@
           "name": "Adolf Steensels"
         },
         {
+          "playerId": 55325879,
+          "name": "Mouss N'Dao"
+        },
+        {
           "playerId": 55325939,
           "name": "Kedar Issa"
+        },
+        {
+          "playerId": 55326063,
+          "name": "Seth Delcart"
         },
         {
           "playerId": 55326101,
@@ -403,8 +419,64 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55160918,
+          "name": "Kiril Atanasov"
+        },
+        {
           "playerId": 55083067,
           "name": "Dimitar Gergov"
+        },
+        {
+          "playerId": 55464700,
+          "name": "Nedelcho Mitkov"
+        },
+        {
+          "playerId": 55082858,
+          "name": "Bozhidar Terziev"
+        },
+        {
+          "playerId": 55082922,
+          "name": "Ivaylo Nichev"
+        },
+        {
+          "playerId": 55083090,
+          "name": "Iliyan Stoilov"
+        },
+        {
+          "playerId": 55158925,
+          "name": "Boris Mishev"
+        },
+        {
+          "playerId": 55161859,
+          "name": "Stefan Shebov"
+        },
+        {
+          "playerId": 55387304,
+          "name": "Vasil Zahariev"
+        },
+        {
+          "playerId": 55387329,
+          "name": "Nizam Alemsah"
+        },
+        {
+          "playerId": 55387346,
+          "name": "Dursun Yahsi"
+        },
+        {
+          "playerId": 55387384,
+          "name": "Ivan Andreev"
+        },
+        {
+          "playerId": 55387407,
+          "name": "Boris Kirilov"
+        },
+        {
+          "playerId": 55387497,
+          "name": "Slavi Markovski"
+        },
+        {
+          "playerId": 55387540,
+          "name": "Vasil Pankov"
         },
         {
           "playerId": 55387543,
@@ -658,6 +730,10 @@
           "name": "Jonathan MacFergus"
         },
         {
+          "playerId": 55464900,
+          "name": "Gareth Duncan"
+        },
+        {
           "playerId": 55715111,
           "name": "Steven Litherland"
         },
@@ -678,6 +754,10 @@
           "name": "Robbie McCulloch"
         },
         {
+          "playerId": 55466582,
+          "name": "Gregor Francis"
+        },
+        {
           "playerId": 55468163,
           "name": "Lewis Pryce"
         },
@@ -690,16 +770,8 @@
           "name": "Michael Neal-Sturgess"
         },
         {
-          "playerId": 55718855,
-          "name": "Gerry Gardiner"
-        },
-        {
           "playerId": 55718874,
           "name": "Mickey Johnston"
-        },
-        {
-          "playerId": 55718893,
-          "name": "David Hughes"
         },
         {
           "playerId": 55990565,
@@ -1013,10 +1085,6 @@
           "name": "Hamilton Ansell"
         },
         {
-          "playerId": 55329874,
-          "name": "Gavin Pamic"
-        },
-        {
           "playerId": 55330029,
           "name": "Brady Malin"
         },
@@ -1064,7 +1132,7 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55844218,
+          "playerId": 55956232,
           "name": "Bidding time expired! Check out all of the bids in one page."
         }
       ]
@@ -1075,7 +1143,7 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55844218,
+          "playerId": 55956232,
           "name": "Bidding time expired! Check out all of the bids in one page."
         }
       ]
@@ -1138,10 +1206,6 @@
           "name": "Nareg Shahumyan"
         },
         {
-          "playerId": 55711584,
-          "name": "Paren Zakarigyan"
-        },
-        {
           "playerId": 55712234,
           "name": "Movses Ardashyan"
         },
@@ -1193,6 +1257,10 @@
           "name": "Pavlos Karidas"
         },
         {
+          "playerId": 55004944,
+          "name": "Yiorgos Mistriotis"
+        },
+        {
           "playerId": 55005108,
           "name": "Trifonas Kioulekas"
         },
@@ -1225,12 +1293,12 @@
           "name": "Eftichios Yiayias"
         },
         {
-          "playerId": 55587724,
-          "name": "Yiorgos Masourakis"
-        },
-        {
           "playerId": 55864870,
           "name": "Nasos Moustakakis"
+        },
+        {
+          "playerId": 55866139,
+          "name": "Adonis Michailidis"
         }
       ]
     },
@@ -1309,10 +1377,6 @@
         {
           "playerId": 55065533,
           "name": "Gordan Bugarija"
-        },
-        {
-          "playerId": 55065591,
-          "name": "Mate Antolković"
         },
         {
           "playerId": 55369649,
@@ -1568,12 +1632,20 @@
           "name": "Alex Avramov"
         },
         {
+          "playerId": 55334059,
+          "name": "Meidad Yesha'ayahu"
+        },
+        {
           "playerId": 55334164,
           "name": "Avni Barzilay"
         },
         {
           "playerId": 55334232,
           "name": "Jed Dekel"
+        },
+        {
+          "playerId": 55334333,
+          "name": "Nativ Dolev"
         }
       ]
     },
@@ -1601,6 +1673,10 @@
         {
           "playerId": 54972285,
           "name": "Donato Bauducco"
+        },
+        {
+          "playerId": 54972588,
+          "name": "Ettore Taini"
         },
         {
           "playerId": 54973780,
@@ -2127,8 +2203,20 @@
           "name": "Duncan van Osch"
         },
         {
+          "playerId": 55033463,
+          "name": "Davy Holtman"
+        },
+        {
+          "playerId": 55337907,
+          "name": "Jean-Marc Weener"
+        },
+        {
           "playerId": 55337944,
           "name": "Wilibrord Hensen"
+        },
+        {
+          "playerId": 55338004,
+          "name": "Jo Helmus"
         },
         {
           "playerId": 55338155,
@@ -2154,7 +2242,7 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55844218,
+          "playerId": 55956232,
           "name": "Bidding time expired! Check out all of the bids in one page."
         }
       ]
@@ -2572,6 +2660,10 @@
           "name": "Nodar Adeishvili"
         },
         {
+          "playerId": 55464035,
+          "name": "Temur Chanturia"
+        },
+        {
           "playerId": 55466676,
           "name": "Sergo Kukulava"
         }
@@ -2980,7 +3072,7 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55844218,
+          "playerId": 55956232,
           "name": "Bidding time expired! Check out all of the bids in one page."
         }
       ]
@@ -3090,10 +3182,6 @@
           "name": "Han Yok Lee"
         },
         {
-          "playerId": 55145198,
-          "name": "Sun Kheong"
-        },
-        {
           "playerId": 55144951,
           "name": "Ma Lui Dan"
         },
@@ -3112,6 +3200,10 @@
         {
           "playerId": 55145093,
           "name": "Huang Cheung"
+        },
+        {
+          "playerId": 55145198,
+          "name": "Sun Kheong"
         },
         {
           "playerId": 55449200,

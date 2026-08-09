@@ -1,4 +1,410 @@
 {
   "season": 73,
-  "events": []
+  "events": [
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 2,
+      "playerId": 55956232,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 2,
+      "playerId": 55844218,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 88,
+      "playerId": 55463508,
+      "name": "Yurdman Atakişiyev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 13,
+      "playerId": 55325688,
+      "name": "Bjorn Rausin",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 13,
+      "playerId": 55325879,
+      "name": "Mouss N'Dao",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 13,
+      "playerId": 55326063,
+      "name": "Seth Delcart",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55160918,
+      "name": "Kiril Atanasov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55464700,
+      "name": "Nedelcho Mitkov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55082858,
+      "name": "Bozhidar Terziev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55082922,
+      "name": "Ivaylo Nichev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55083090,
+      "name": "Iliyan Stoilov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55158925,
+      "name": "Boris Mishev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55161859,
+      "name": "Stefan Shebov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387304,
+      "name": "Vasil Zahariev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387329,
+      "name": "Nizam Alemsah",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387346,
+      "name": "Dursun Yahsi",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387384,
+      "name": "Ivan Andreev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387407,
+      "name": "Boris Kirilov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387497,
+      "name": "Slavi Markovski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 36,
+      "playerId": 55387540,
+      "name": "Vasil Pankov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 81,
+      "playerId": 55464900,
+      "name": "Gareth Duncan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 81,
+      "playerId": 55466582,
+      "name": "Gregor Francis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 81,
+      "playerId": 55718855,
+      "name": "Gerry Gardiner",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 81,
+      "playerId": 55718893,
+      "name": "David Hughes",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 14,
+      "playerId": 55329874,
+      "name": "Gavin Pamic",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 7,
+      "playerId": 55956232,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 7,
+      "playerId": 55844218,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 11,
+      "playerId": 55956232,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 11,
+      "playerId": 55844218,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 87,
+      "playerId": 55711584,
+      "name": "Paren Zakarigyan",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55004944,
+      "name": "Yiorgos Mistriotis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55866139,
+      "name": "Adonis Michailidis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55587724,
+      "name": "Yiorgos Masourakis",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 24,
+      "playerId": 55065591,
+      "name": "Mate Antolković",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55334059,
+      "name": "Meidad Yesha'ayahu",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55334333,
+      "name": "Nativ Dolev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 54972588,
+      "name": "Ettore Taini",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 16,
+      "playerId": 55033463,
+      "name": "Davy Holtman",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 16,
+      "playerId": 55337907,
+      "name": "Jean-Marc Weener",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 16,
+      "playerId": 55338004,
+      "name": "Jo Helmus",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 26,
+      "playerId": 55956232,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 26,
+      "playerId": 55844218,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 62,
+      "playerId": 55464035,
+      "name": "Temur Chanturia",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 69,
+      "playerId": 55956232,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-09T06:37:12.512Z",
+      "date": "2026-08-09",
+      "week": 1,
+      "countryId": 69,
+      "playerId": 55844218,
+      "name": "Bidding time expired! Check out all of the bids in one page.",
+      "type": "left"
+    }
+  ]
 }

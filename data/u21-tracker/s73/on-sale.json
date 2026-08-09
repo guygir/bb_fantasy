@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-08",
+  "date": "2026-08-09",
   "week": 1,
-  "updatedAt": "2026-08-08T10:33:37.849Z",
+  "updatedAt": "2026-08-09T06:37:12.512Z",
   "players": [
     {
       "playerId": 55997462,
@@ -37,12 +37,28 @@
       "dmi": 19600
     },
     {
+      "playerId": 55082858,
+      "name": "Bozhidar Terziev",
+      "countryId": 36,
+      "countryName": "Bulgaria",
+      "pool": "Pool F",
+      "dmi": 60000
+    },
+    {
       "playerId": 55462698,
       "name": "Batrić Preradović",
       "countryId": 76,
       "countryName": "Crna Gora",
       "pool": "Pool F",
       "dmi": 83600
+    },
+    {
+      "playerId": 55466582,
+      "name": "Gregor Francis",
+      "countryId": 81,
+      "countryName": "Cymru",
+      "pool": "Pool B",
+      "dmi": 62700
     },
     {
       "playerId": 55459408,
@@ -109,14 +125,6 @@
       "dmi": 158000
     },
     {
-      "playerId": 55437673,
-      "name": "Pavle Geladze",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 93100
-    },
-    {
       "playerId": 55133358,
       "name": "Soso Cheishvili",
       "countryId": 62,
@@ -163,14 +171,6 @@
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
       "dmi": 52100
-    },
-    {
-      "playerId": 55145198,
-      "name": "Sun Kheong",
-      "countryId": 70,
-      "countryName": "Taiwan",
-      "pool": "World Cup - Pool B",
-      "dmi": 215400
     },
     {
       "playerId": 55157453,
