@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "source": "BBAPI",
+    "teamId": 1015,
+    "season": 73,
+    "fetched": "2026-08-09T03:25:50.568Z"
+  },
+  "matches": [
+    {
+      "id": "85546",
+      "start": "2026-08-10T08:00:00Z",
+      "type": "nt.friendly",
+      "awayTeamId": "1009",
+      "awayTeamName": "Sverige U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "86288",
+      "start": "2026-08-17T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1012",
+      "awayTeamName": "Hellas U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "86296",
+      "start": "2026-08-31T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1029",
+      "awayTeamName": "Srbija U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "86312",
+      "start": "2026-09-28T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1070",
+      "awayTeamName": "Taiwan U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "86292",
+      "start": "2026-08-24T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1045",
+      "homeTeamName": "Hong Kong U21",
+      "homeScore": null
+    },
+    {
+      "id": "86300",
+      "start": "2026-09-07T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1031",
+      "homeTeamName": "Al Jazair U21",
+      "homeScore": null
+    },
+    {
+      "id": "86308",
+      "start": "2026-09-21T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1002",
+      "homeTeamName": "Argentina U21",
+      "homeScore": null
+    },
+    {
+      "id": "86304",
+      "start": "2026-09-14T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1020",
+      "awayTeamName": "Lietuva U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    }
+  ]
+}
