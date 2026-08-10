@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-09",
+  "date": "2026-08-10",
   "week": 1,
-  "updatedAt": "2026-08-09T06:37:12.512Z",
+  "updatedAt": "2026-08-10T07:08:16.952Z",
   "players": [
     {
       "playerId": 55997462,
@@ -11,14 +11,6 @@
       "countryName": "Andorra",
       "pool": "Pool E",
       "dmi": 43500
-    },
-    {
-      "playerId": 55991127,
-      "name": "Roger Ibáñez",
-      "countryId": 75,
-      "countryName": "Andorra",
-      "pool": "Pool E",
-      "dmi": 13500
     },
     {
       "playerId": 55468084,
@@ -69,12 +61,12 @@
       "dmi": 67400
     },
     {
-      "playerId": 55461670,
-      "name": "Ross Read",
-      "countryId": 14,
-      "countryName": "England",
-      "pool": "Pool A",
-      "dmi": 81800
+      "playerId": 55088123,
+      "name": "Nicolai Fredslund",
+      "countryId": 39,
+      "countryName": "Danmark",
+      "pool": "Pool C",
+      "dmi": 96800
     },
     {
       "playerId": 55468324,
@@ -83,6 +75,22 @@
       "countryName": "Hayastan",
       "pool": "Pool B",
       "dmi": 33000
+    },
+    {
+      "playerId": 55936528,
+      "name": "Ho Yui Hei",
+      "countryId": 45,
+      "countryName": "Hong Kong",
+      "pool": "World Cup - Pool B",
+      "dmi": 37500
+    },
+    {
+      "playerId": 55046850,
+      "name": "Mariusz Harazim",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 411700
     },
     {
       "playerId": 55412038,
@@ -125,14 +133,6 @@
       "dmi": 158000
     },
     {
-      "playerId": 55133358,
-      "name": "Soso Cheishvili",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 32200
-    },
-    {
       "playerId": 55162600,
       "name": "Charaf Diallo",
       "countryId": 94,
@@ -141,36 +141,36 @@
       "dmi": 249000
     },
     {
-      "playerId": 55464291,
-      "name": "Damé Agne",
-      "countryId": 94,
-      "countryName": "Senegal",
-      "pool": "World Cup - Pool A",
-      "dmi": 43600
-    },
-    {
-      "playerId": 55710901,
-      "name": "Edi Abdurrahmani",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 50900
-    },
-    {
-      "playerId": 55992050,
-      "name": "Pandeli Curri",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 12300
-    },
-    {
       "playerId": 55635389,
       "name": "Dejan Kežman",
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
       "dmi": 52100
+    },
+    {
+      "playerId": 55914429,
+      "name": "Kosta Brković",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 11300
+    },
+    {
+      "playerId": 55145093,
+      "name": "Huang Cheung",
+      "countryId": 70,
+      "countryName": "Taiwan",
+      "pool": "World Cup - Pool B",
+      "dmi": 100000
+    },
+    {
+      "playerId": 54946658,
+      "name": "Amir Olçun",
+      "countryId": 6,
+      "countryName": "Türkiye",
+      "pool": "Pool D",
+      "dmi": 191400
     },
     {
       "playerId": 55157453,
