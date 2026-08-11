@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-10",
+  "date": "2026-08-11",
   "week": 1,
-  "updatedAt": "2026-08-10T07:08:16.952Z",
+  "updatedAt": "2026-08-11T06:45:30.026Z",
   "players": [
     {
       "playerId": 55997462,
@@ -37,22 +37,6 @@
       "dmi": 60000
     },
     {
-      "playerId": 55462698,
-      "name": "Batrić Preradović",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 83600
-    },
-    {
-      "playerId": 55466582,
-      "name": "Gregor Francis",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 62700
-    },
-    {
       "playerId": 55459408,
       "name": "Christoforos Papadaskalopoulos",
       "countryId": 77,
@@ -77,14 +61,6 @@
       "dmi": 33000
     },
     {
-      "playerId": 55936528,
-      "name": "Ho Yui Hei",
-      "countryId": 45,
-      "countryName": "Hong Kong",
-      "pool": "World Cup - Pool B",
-      "dmi": 37500
-    },
-    {
       "playerId": 55046850,
       "name": "Mariusz Harazim",
       "countryId": 20,
@@ -93,12 +69,12 @@
       "dmi": 411700
     },
     {
-      "playerId": 55412038,
-      "name": "Mitan Cuculovski",
+      "playerId": 55107740,
+      "name": "Klime Zlatkov",
       "countryId": 49,
       "countryName": "Makedonija",
       "pool": "Pool F",
-      "dmi": 46600
+      "dmi": 92300
     },
     {
       "playerId": 55466914,
@@ -141,20 +117,28 @@
       "dmi": 249000
     },
     {
-      "playerId": 55635389,
-      "name": "Dejan Kežman",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 52100
+      "playerId": 55464291,
+      "name": "Damé Agne",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 43600
     },
     {
-      "playerId": 55914429,
-      "name": "Kosta Brković",
+      "playerId": 55377128,
+      "name": "Milentije Golubović",
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
-      "dmi": 11300
+      "dmi": 186900
+    },
+    {
+      "playerId": 55073069,
+      "name": "Slobodan Bačetić",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 108300
     },
     {
       "playerId": 55145093,
