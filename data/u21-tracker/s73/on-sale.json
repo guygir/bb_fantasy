@@ -1,24 +1,16 @@
 {
   "season": 73,
-  "date": "2026-08-11",
+  "date": "2026-08-12",
   "week": 1,
-  "updatedAt": "2026-08-11T06:45:30.026Z",
+  "updatedAt": "2026-08-12T07:06:25.570Z",
   "players": [
     {
-      "playerId": 55997462,
-      "name": "Guillem Baixas",
-      "countryId": 75,
-      "countryName": "Andorra",
+      "playerId": 55461589,
+      "name": "Dilğem Şahbazov",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 43500
-    },
-    {
-      "playerId": 55468084,
-      "name": "Víctor Dillet",
-      "countryId": 75,
-      "countryName": "Andorra",
-      "pool": "Pool E",
-      "dmi": 60500
+      "dmi": 63400
     },
     {
       "playerId": 55720042,
@@ -85,14 +77,6 @@
       "dmi": 109300
     },
     {
-      "playerId": 55633336,
-      "name": "Çetin Sen",
-      "countryId": 27,
-      "countryName": "Österreich",
-      "pool": "Pool A",
-      "dmi": 65300
-    },
-    {
       "playerId": 55070506,
       "name": "Johannes Danzinger",
       "countryId": 27,
@@ -107,14 +91,6 @@
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 158000
-    },
-    {
-      "playerId": 55162600,
-      "name": "Charaf Diallo",
-      "countryId": 94,
-      "countryName": "Senegal",
-      "pool": "World Cup - Pool A",
-      "dmi": 249000
     },
     {
       "playerId": 55464291,
@@ -155,14 +131,6 @@
       "countryName": "Türkiye",
       "pool": "Pool D",
       "dmi": 191400
-    },
-    {
-      "playerId": 55157453,
-      "name": "Ediz Osman",
-      "countryId": 6,
-      "countryName": "Türkiye",
-      "pool": "Pool D",
-      "dmi": 409900
     }
   ]
 }
