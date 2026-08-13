@@ -2577,6 +2577,195 @@
       "playerId": 55445413,
       "name": "Jani Kankainen",
       "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 88,
+      "playerId": 55990742,
+      "name": "Əvəz İlyasov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 22,
+      "playerId": 55905463,
+      "name": "José David Lozano",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 76,
+      "playerId": 55458246,
+      "name": "Vuk Marković",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 76,
+      "playerId": 55708438,
+      "name": "Ljubomir Luković",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 76,
+      "playerId": 55989185,
+      "name": "Vojin Medenica",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 77,
+      "playerId": 55161306,
+      "name": "Zefiros Arkas",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 77,
+      "playerId": 55459408,
+      "name": "Christoforos Papadaskalopoulos",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 77,
+      "playerId": 55986790,
+      "name": "Efthimis Avdikos",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 87,
+      "playerId": 55464271,
+      "name": "Harout Adamyan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55868589,
+      "name": "Michalis Polizos",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 45,
+      "playerId": 55936610,
+      "name": "Ng Chung Cheong",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 55278575,
+      "name": "Vito Tremolada",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 54974695,
+      "name": "Cassio Turrini",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 54973304,
+      "name": "Sergio Tassani",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 54974089,
+      "name": "Giancarlo Fellegara",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 54974878,
+      "name": "Beniamino Roncisvalle",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 16,
+      "playerId": 55338004,
+      "name": "Jo Helmus",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 18,
+      "playerId": 55343761,
+      "name": "Edgar Sabrosa",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 18,
+      "playerId": 55343366,
+      "name": "Tiago Souto",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 69,
+      "playerId": 55445010,
+      "name": "Tuomas Käyhty",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-13T07:10:25.923Z",
+      "date": "2026-08-13",
+      "week": 1,
+      "countryId": 69,
+      "playerId": 55445027,
+      "name": "Janne Sarjonen",
+      "type": "left"
     }
   ]
 }

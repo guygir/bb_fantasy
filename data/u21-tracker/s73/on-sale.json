@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-12",
+  "date": "2026-08-13",
   "week": 1,
-  "updatedAt": "2026-08-12T07:06:25.570Z",
+  "updatedAt": "2026-08-13T07:10:25.923Z",
   "players": [
     {
       "playerId": 55461589,
@@ -13,14 +13,6 @@
       "dmi": 63400
     },
     {
-      "playerId": 55720042,
-      "name": "Toros Hampartsoumyan",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 19600
-    },
-    {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
       "countryId": 36,
@@ -29,20 +21,20 @@
       "dmi": 60000
     },
     {
-      "playerId": 55459408,
-      "name": "Christoforos Papadaskalopoulos",
-      "countryId": 77,
-      "countryName": "Cyprus",
+      "playerId": 55462419,
+      "name": "Neal Marsh",
+      "countryId": 81,
+      "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 67400
+      "dmi": 52600
     },
     {
-      "playerId": 55088123,
-      "name": "Nicolai Fredslund",
-      "countryId": 39,
-      "countryName": "Danmark",
-      "pool": "Pool C",
-      "dmi": 96800
+      "playerId": 55464271,
+      "name": "Harout Adamyan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 29800
     },
     {
       "playerId": 55468324,
@@ -75,6 +67,14 @@
       "countryName": "Malta",
       "pool": "Pool C",
       "dmi": 109300
+    },
+    {
+      "playerId": 55461564,
+      "name": "Grigory Kokotov",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 116100
     },
     {
       "playerId": 55070506,
@@ -123,14 +123,6 @@
       "countryName": "Taiwan",
       "pool": "World Cup - Pool B",
       "dmi": 100000
-    },
-    {
-      "playerId": 54946658,
-      "name": "Amir Olçun",
-      "countryId": 6,
-      "countryName": "Türkiye",
-      "pool": "Pool D",
-      "dmi": 191400
     }
   ]
 }

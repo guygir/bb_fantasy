@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 1,
-  "date": "2026-08-12",
-  "updatedAt": "2026-08-12T07:06:25.570Z",
+  "date": "2026-08-13",
+  "updatedAt": "2026-08-13T07:10:25.923Z",
   "countries": [
     {
       "countryId": 31,
@@ -257,6 +257,10 @@
         {
           "playerId": 55466338,
           "name": "Həsən Mikayilov"
+        },
+        {
+          "playerId": 55990742,
+          "name": "Əvəz İlyasov"
         }
       ]
     },
@@ -570,6 +574,10 @@
           "name": "Adam Šilhánek"
         },
         {
+          "playerId": 55161846,
+          "name": "Igor Křen"
+        },
+        {
           "playerId": 55084138,
           "name": "Jaroslav Dorotík"
         },
@@ -584,10 +592,6 @@
         {
           "playerId": 55084087,
           "name": "Zbyněk Klusáček"
-        },
-        {
-          "playerId": 55161846,
-          "name": "Igor Křen"
         },
         {
           "playerId": 55388394,
@@ -758,6 +762,10 @@
         {
           "playerId": 55466446,
           "name": "Armando Angarita"
+        },
+        {
+          "playerId": 55905463,
+          "name": "José David Lozano"
         }
       ]
     },
@@ -766,6 +774,10 @@
       "name": "Crna Gora",
       "pool": "Pool F",
       "players": [
+        {
+          "playerId": 55458246,
+          "name": "Vuk Marković"
+        },
         {
           "playerId": 55462212,
           "name": "Viktor Radojičić"
@@ -791,12 +803,20 @@
           "name": "Simon Čvorović"
         },
         {
+          "playerId": 55708438,
+          "name": "Ljubomir Luković"
+        },
+        {
           "playerId": 55708456,
           "name": "Mihajlo Perović"
         },
         {
           "playerId": 55713747,
           "name": "Darko Tafra"
+        },
+        {
+          "playerId": 55989185,
+          "name": "Vojin Medenica"
         }
       ]
     },
@@ -905,6 +925,10 @@
           "name": "Pantelakis Vougiouklakis"
         },
         {
+          "playerId": 55161306,
+          "name": "Zefiros Arkas"
+        },
+        {
           "playerId": 55161730,
           "name": "Kleanthis Siouras"
         },
@@ -921,10 +945,6 @@
           "name": "Christos Mpriakos"
         },
         {
-          "playerId": 55459408,
-          "name": "Christoforos Papadaskalopoulos"
-        },
-        {
           "playerId": 55464097,
           "name": "Yiannis Dragotis"
         },
@@ -935,10 +955,6 @@
         {
           "playerId": 55715563,
           "name": "Lisandros Gouninos"
-        },
-        {
-          "playerId": 55986790,
-          "name": "Efthimis Avdikos"
         }
       ]
     },
@@ -1285,6 +1301,10 @@
           "name": "Nahapet Manucharyan"
         },
         {
+          "playerId": 55464271,
+          "name": "Harout Adamyan"
+        },
+        {
           "playerId": 55466633,
           "name": "Hairig Haroutyunyan"
         },
@@ -1418,6 +1438,10 @@
         {
           "playerId": 55311284,
           "name": "Eftichios Yiayias"
+        },
+        {
+          "playerId": 55868589,
+          "name": "Michalis Polizos"
         }
       ]
     },
@@ -1485,10 +1509,6 @@
         {
           "playerId": 55399967,
           "name": "Lo Kim Tam"
-        },
-        {
-          "playerId": 55936610,
-          "name": "Ng Chung Cheong"
         }
       ]
     },
@@ -1790,12 +1810,20 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
+          "playerId": 55278575,
+          "name": "Vito Tremolada"
+        },
+        {
           "playerId": 54975300,
           "name": "William Piscaglia"
         },
         {
           "playerId": 54975047,
           "name": "Florindo Cairo"
+        },
+        {
+          "playerId": 54974695,
+          "name": "Cassio Turrini"
         },
         {
           "playerId": 54973149,
@@ -1814,16 +1842,20 @@
           "name": "Ettore Taini"
         },
         {
+          "playerId": 54973304,
+          "name": "Sergio Tassani"
+        },
+        {
           "playerId": 54973780,
           "name": "Rino Succu"
         },
         {
-          "playerId": 54974368,
-          "name": "Bruno Nicastro"
+          "playerId": 54974089,
+          "name": "Giancarlo Fellegara"
         },
         {
-          "playerId": 54974878,
-          "name": "Beniamino Roncisvalle"
+          "playerId": 54974368,
+          "name": "Bruno Nicastro"
         },
         {
           "playerId": 54975189,
@@ -2382,10 +2414,6 @@
           "name": "Wilibrord Hensen"
         },
         {
-          "playerId": 55338004,
-          "name": "Jo Helmus"
-        },
-        {
           "playerId": 55338155,
           "name": "Yonah Waterreus"
         },
@@ -2610,10 +2638,6 @@
           "name": "Alexandre Coroado"
         },
         {
-          "playerId": 55343761,
-          "name": "Edgar Sabrosa"
-        },
-        {
           "playerId": 55038485,
           "name": "Raimundo Jesus"
         },
@@ -2624,10 +2648,6 @@
         {
           "playerId": 55038471,
           "name": "Luís Pedro Cancela"
-        },
-        {
-          "playerId": 55343366,
-          "name": "Tiago Souto"
         },
         {
           "playerId": 55343770,
@@ -3387,12 +3407,12 @@
           "name": "Jyrki Haapamäki"
         },
         {
-          "playerId": 55445012,
-          "name": "Kristian Veijola"
+          "playerId": 55445010,
+          "name": "Tuomas Käyhty"
         },
         {
-          "playerId": 55445027,
-          "name": "Janne Sarjonen"
+          "playerId": 55445012,
+          "name": "Kristian Veijola"
         },
         {
           "playerId": 55445050,
@@ -3576,10 +3596,6 @@
           "name": "Idris Salkan"
         },
         {
-          "playerId": 54946658,
-          "name": "Amir Olçun"
-        },
-        {
           "playerId": 55251473,
           "name": "Kerim Algim"
         },
@@ -3606,6 +3622,10 @@
         {
           "playerId": 54946497,
           "name": "Gezgin Baba"
+        },
+        {
+          "playerId": 54946658,
+          "name": "Amir Olçun"
         },
         {
           "playerId": 55157453,
