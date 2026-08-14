@@ -2,7 +2,7 @@
   "season": 73,
   "week": 1,
   "date": "2026-08-14",
-  "updatedAt": "2026-08-14T07:06:45.842Z",
+  "updatedAt": "2026-08-14T11:22:41.026Z",
   "countries": [
     {
       "countryId": 31,
@@ -365,12 +365,8 @@
           "name": "Mamadou Diatta"
         },
         {
-          "playerId": 55161933,
-          "name": "Thibaut De Haes"
-        },
-        {
-          "playerId": 55325688,
-          "name": "Bjorn Rausin"
+          "playerId": 55325650,
+          "name": "Rogier Thibaut"
         },
         {
           "playerId": 55325734,
@@ -382,7 +378,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N'Dao"
+          "name": "Mouss N&#39;Dao"
         },
         {
           "playerId": 55325939,
@@ -704,6 +700,10 @@
           "name": "León Moscoso"
         },
         {
+          "playerId": 55464208,
+          "name": "Edgar Caicedo"
+        },
+        {
           "playerId": 55368739,
           "name": "Ignacio Brahim"
         },
@@ -724,12 +724,20 @@
           "name": "Fernando Fernán Pérez"
         },
         {
-          "playerId": 55064292,
-          "name": "Luis Enrique Guerrero"
+          "playerId": 55160809,
+          "name": "Asdrúbal Trujillo"
+        },
+        {
+          "playerId": 55161047,
+          "name": "José David Martínez"
         },
         {
           "playerId": 55161093,
           "name": "Carlos Armando Díaz"
+        },
+        {
+          "playerId": 55368620,
+          "name": "Adolfo Calderón"
         },
         {
           "playerId": 55464876,
@@ -744,8 +752,8 @@
           "name": "Armando Angarita"
         },
         {
-          "playerId": 55905463,
-          "name": "José David Lozano"
+          "playerId": 55627029,
+          "name": "Jorge Enrique Tarquino"
         }
       ]
     },
@@ -1206,60 +1214,7 @@
       "countryId": 7,
       "name": "España",
       "pool": "World Cup - Pool A",
-      "players": [
-        {
-          "playerId": 54950929,
-          "name": "Juan Luis Álvarez de Miranda"
-        },
-        {
-          "playerId": 54952195,
-          "name": "Daniel Pallarès"
-        },
-        {
-          "playerId": 54952056,
-          "name": "Martín Cerdeira"
-        },
-        {
-          "playerId": 55254944,
-          "name": "Nardo Aceija"
-        },
-        {
-          "playerId": 55256660,
-          "name": "Tomás Leciñana"
-        },
-        {
-          "playerId": 55254915,
-          "name": "Roc Martínez"
-        },
-        {
-          "playerId": 54950016,
-          "name": "Manuel Sánchez"
-        },
-        {
-          "playerId": 54950709,
-          "name": "Pedro Puig Duran"
-        },
-        {
-          "playerId": 54952584,
-          "name": "Miquel Planas"
-        },
-        {
-          "playerId": 55257162,
-          "name": "Alfredo Abellá"
-        },
-        {
-          "playerId": 55257783,
-          "name": "Federico Montiel"
-        },
-        {
-          "playerId": 55258406,
-          "name": "Cristòfor Agramunt"
-        },
-        {
-          "playerId": 55847392,
-          "name": "Joan García Huidobro"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 11,
@@ -1380,10 +1335,6 @@
           "name": "Periklis Tsiafkaris"
         },
         {
-          "playerId": 55866040,
-          "name": "Ermis Sagris"
-        },
-        {
           "playerId": 55309522,
           "name": "Fikret Neside"
         },
@@ -1400,10 +1351,6 @@
           "name": "Trifonas Kioulekas"
         },
         {
-          "playerId": 55005291,
-          "name": "Thanos Trechalidis"
-        },
-        {
           "playerId": 55309643,
           "name": "Dimitris Rokkos"
         },
@@ -1412,12 +1359,12 @@
           "name": "Ploutonas Egnatiadis"
         },
         {
-          "playerId": 55311284,
-          "name": "Eftichios Yiayias"
+          "playerId": 55310027,
+          "name": "Petros Kakoglou"
         },
         {
-          "playerId": 55866131,
-          "name": "Yiannis Gasparis"
+          "playerId": 55311284,
+          "name": "Eftichios Yiayias"
         }
       ]
     },
@@ -1755,10 +1702,6 @@
           "name": "Alex Avramov"
         },
         {
-          "playerId": 55333982,
-          "name": "Guy Adler"
-        },
-        {
           "playerId": 55334164,
           "name": "Avni Barzilay"
         },
@@ -1772,64 +1715,7 @@
       "countryId": 10,
       "name": "Italia",
       "pool": "World Cup - Pool A",
-      "players": [
-        {
-          "playerId": 54975300,
-          "name": "William Piscaglia"
-        },
-        {
-          "playerId": 54975047,
-          "name": "Florindo Cairo"
-        },
-        {
-          "playerId": 54973149,
-          "name": "Paolo Sorce"
-        },
-        {
-          "playerId": 54971980,
-          "name": "Alessandro Hoz"
-        },
-        {
-          "playerId": 54972285,
-          "name": "Donato Bauducco"
-        },
-        {
-          "playerId": 54972588,
-          "name": "Ettore Taini"
-        },
-        {
-          "playerId": 54973304,
-          "name": "Sergio Tassani"
-        },
-        {
-          "playerId": 54973780,
-          "name": "Rino Succu"
-        },
-        {
-          "playerId": 54974089,
-          "name": "Giancarlo Fellegara"
-        },
-        {
-          "playerId": 54974368,
-          "name": "Bruno Nicastro"
-        },
-        {
-          "playerId": 54975189,
-          "name": "Paolo Locci"
-        },
-        {
-          "playerId": 54975342,
-          "name": "Seran Soverini"
-        },
-        {
-          "playerId": 55160239,
-          "name": "Roberto Toti"
-        },
-        {
-          "playerId": 55278133,
-          "name": "Filippo Ribet"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 46,
@@ -3033,7 +2919,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },
@@ -3428,6 +3314,10 @@
           "name": "Wong Sheng Nan"
         },
         {
+          "playerId": 55144951,
+          "name": "Ma Lui Dan"
+        },
+        {
           "playerId": 55449367,
           "name": "Wang Thiam Loy"
         },
@@ -3442,10 +3332,6 @@
         {
           "playerId": 55449202,
           "name": "Han Yok Lee"
-        },
-        {
-          "playerId": 55144951,
-          "name": "Ma Lui Dan"
         },
         {
           "playerId": 55144965,
