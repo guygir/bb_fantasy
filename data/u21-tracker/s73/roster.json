@@ -1,18 +1,14 @@
 {
   "season": 73,
   "week": 1,
-  "date": "2026-08-13",
-  "updatedAt": "2026-08-13T07:10:25.923Z",
+  "date": "2026-08-14",
+  "updatedAt": "2026-08-14T07:06:45.842Z",
   "countries": [
     {
       "countryId": 31,
       "name": "Al Jazair",
       "pool": "World Cup - Pool B",
       "players": [
-        {
-          "playerId": 55710983,
-          "name": "Hadi Makaci"
-        },
         {
           "playerId": 55466958,
           "name": "Ali Benzaza"
@@ -50,16 +46,8 @@
           "name": "Mehdi Bentoumi"
         },
         {
-          "playerId": 55467165,
-          "name": "Abderraouf Chenah"
-        },
-        {
           "playerId": 55711587,
           "name": "Zyad Riane"
-        },
-        {
-          "playerId": 55711960,
-          "name": "Arsalane Birem"
         }
       ]
     },
@@ -219,10 +207,6 @@
           "name": "Baysu Həşimov"
         },
         {
-          "playerId": 55720042,
-          "name": "Toros Hampartsoumyan"
-        },
-        {
           "playerId": 55158219,
           "name": "Coşar Tanryverdiyev"
         },
@@ -257,6 +241,10 @@
         {
           "playerId": 55466338,
           "name": "Həsən Mikayilov"
+        },
+        {
+          "playerId": 55990577,
+          "name": "Ataş Bəşirli"
         },
         {
           "playerId": 55990742,
@@ -740,16 +728,8 @@
           "name": "Luis Enrique Guerrero"
         },
         {
-          "playerId": 55160809,
-          "name": "Asdrúbal Trujillo"
-        },
-        {
           "playerId": 55161093,
           "name": "Carlos Armando Díaz"
-        },
-        {
-          "playerId": 55368620,
-          "name": "Adolfo Calderón"
         },
         {
           "playerId": 55464876,
@@ -1209,16 +1189,8 @@
           "name": "Thomas Moore"
         },
         {
-          "playerId": 55329817,
-          "name": "David Crawford"
-        },
-        {
           "playerId": 55329988,
           "name": "Stu Lavender"
-        },
-        {
-          "playerId": 55461670,
-          "name": "Ross Read"
         },
         {
           "playerId": 55597475,
@@ -1282,6 +1254,10 @@
         {
           "playerId": 55258406,
           "name": "Cristòfor Agramunt"
+        },
+        {
+          "playerId": 55847392,
+          "name": "Joan García Huidobro"
         }
       ]
     },
@@ -1299,10 +1275,6 @@
         {
           "playerId": 55711198,
           "name": "Nahapet Manucharyan"
-        },
-        {
-          "playerId": 55464271,
-          "name": "Harout Adamyan"
         },
         {
           "playerId": 55466633,
@@ -1335,6 +1307,10 @@
         {
           "playerId": 55163757,
           "name": "Badrig Eliasyan"
+        },
+        {
+          "playerId": 55464271,
+          "name": "Harout Adamyan"
         },
         {
           "playerId": 55465566,
@@ -1392,10 +1368,6 @@
           "name": "Thodoros Avgerinos"
         },
         {
-          "playerId": 55006129,
-          "name": "Thimios Ntouvaris"
-        },
-        {
           "playerId": 55309629,
           "name": "Takis Tzanetos"
         },
@@ -1406,6 +1378,10 @@
         {
           "playerId": 55310039,
           "name": "Periklis Tsiafkaris"
+        },
+        {
+          "playerId": 55866040,
+          "name": "Ermis Sagris"
         },
         {
           "playerId": 55309522,
@@ -1440,8 +1416,8 @@
           "name": "Eftichios Yiayias"
         },
         {
-          "playerId": 55868589,
-          "name": "Michalis Polizos"
+          "playerId": 55866131,
+          "name": "Yiannis Gasparis"
         }
       ]
     },
@@ -1755,14 +1731,6 @@
           "name": "Benny Yavin"
         },
         {
-          "playerId": 55029538,
-          "name": "Oneg Ben-Yaacov"
-        },
-        {
-          "playerId": 55029598,
-          "name": "Ofir Shmueli"
-        },
-        {
           "playerId": 55029695,
           "name": "Aviram Tzarfati"
         },
@@ -1773,10 +1741,6 @@
         {
           "playerId": 55029769,
           "name": "Assi Farkash"
-        },
-        {
-          "playerId": 55029806,
-          "name": "Michael Meron"
         },
         {
           "playerId": 55029823,
@@ -1791,8 +1755,8 @@
           "name": "Alex Avramov"
         },
         {
-          "playerId": 55334059,
-          "name": "Meidad Yesha'ayahu"
+          "playerId": 55333982,
+          "name": "Guy Adler"
         },
         {
           "playerId": 55334164,
@@ -1810,20 +1774,12 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55278575,
-          "name": "Vito Tremolada"
-        },
-        {
           "playerId": 54975300,
           "name": "William Piscaglia"
         },
         {
           "playerId": 54975047,
           "name": "Florindo Cairo"
-        },
-        {
-          "playerId": 54974695,
-          "name": "Cassio Turrini"
         },
         {
           "playerId": 54973149,
@@ -1868,10 +1824,6 @@
         {
           "playerId": 55160239,
           "name": "Roberto Toti"
-        },
-        {
-          "playerId": 55277963,
-          "name": "Aldo Scarpa"
         },
         {
           "playerId": 55278133,
@@ -2642,6 +2594,10 @@
           "name": "Raimundo Jesus"
         },
         {
+          "playerId": 55038805,
+          "name": "Leandro Cardona"
+        },
+        {
           "playerId": 55343485,
           "name": "Flávio Boaventura"
         },
@@ -3302,68 +3258,7 @@
       "countryId": 29,
       "name": "Srbija",
       "pool": "World Cup - Pool B",
-      "players": [
-        {
-          "playerId": 55073194,
-          "name": "Pavle Tankosić"
-        },
-        {
-          "playerId": 55377145,
-          "name": "Krstivoje Naumovski"
-        },
-        {
-          "playerId": 55466193,
-          "name": "Slobodan Špirović"
-        },
-        {
-          "playerId": 55073020,
-          "name": "Dragan Karadžić"
-        },
-        {
-          "playerId": 55072669,
-          "name": "Slobodan Rapajić"
-        },
-        {
-          "playerId": 55072745,
-          "name": "Miloš Mišić"
-        },
-        {
-          "playerId": 55073069,
-          "name": "Slobodan Bačetić"
-        },
-        {
-          "playerId": 55073094,
-          "name": "Nemanja Jovičić"
-        },
-        {
-          "playerId": 55073514,
-          "name": "Alexandru Croitoru"
-        },
-        {
-          "playerId": 55376992,
-          "name": "Lazar Vlastimirović"
-        },
-        {
-          "playerId": 55377128,
-          "name": "Milentije Golubović"
-        },
-        {
-          "playerId": 55377164,
-          "name": "Nenad Bačić"
-        },
-        {
-          "playerId": 55377239,
-          "name": "Darko Popović"
-        },
-        {
-          "playerId": 55377439,
-          "name": "Dule Vasiljević"
-        },
-        {
-          "playerId": 55635437,
-          "name": "Ivica Novaković"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 69,
@@ -3563,10 +3458,6 @@
         {
           "playerId": 55145045,
           "name": "Mo Gyong si"
-        },
-        {
-          "playerId": 55145093,
-          "name": "Huang Cheung"
         },
         {
           "playerId": 55449200,

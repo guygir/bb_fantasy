@@ -2766,6 +2766,358 @@
       "playerId": 55445027,
       "name": "Janne Sarjonen",
       "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 31,
+      "playerId": 55710983,
+      "name": "Hadi Makaci",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 31,
+      "playerId": 55467165,
+      "name": "Abderraouf Chenah",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 31,
+      "playerId": 55711960,
+      "name": "Arsalane Birem",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 88,
+      "playerId": 55990577,
+      "name": "Ataş Bəşirli",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 88,
+      "playerId": 55720042,
+      "name": "Toros Hampartsoumyan",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 22,
+      "playerId": 55160809,
+      "name": "Asdrúbal Trujillo",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 22,
+      "playerId": 55368620,
+      "name": "Adolfo Calderón",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 14,
+      "playerId": 55329817,
+      "name": "David Crawford",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 14,
+      "playerId": 55461670,
+      "name": "Ross Read",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 7,
+      "playerId": 55847392,
+      "name": "Joan García Huidobro",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55866040,
+      "name": "Ermis Sagris",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55866131,
+      "name": "Yiannis Gasparis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55006129,
+      "name": "Thimios Ntouvaris",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 12,
+      "playerId": 55868589,
+      "name": "Michalis Polizos",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55333982,
+      "name": "Guy Adler",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55029538,
+      "name": "Oneg Ben-Yaacov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55029598,
+      "name": "Ofir Shmueli",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55029806,
+      "name": "Michael Meron",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 15,
+      "playerId": 55334059,
+      "name": "Meidad Yesha'ayahu",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 55278575,
+      "name": "Vito Tremolada",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 54974695,
+      "name": "Cassio Turrini",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 10,
+      "playerId": 55277963,
+      "name": "Aldo Scarpa",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 18,
+      "playerId": 55038805,
+      "name": "Leandro Cardona",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55073194,
+      "name": "Pavle Tankosić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55377145,
+      "name": "Krstivoje Naumovski",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55466193,
+      "name": "Slobodan Špirović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55073020,
+      "name": "Dragan Karadžić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55072669,
+      "name": "Slobodan Rapajić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55072745,
+      "name": "Miloš Mišić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55073069,
+      "name": "Slobodan Bačetić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55073094,
+      "name": "Nemanja Jovičić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55073514,
+      "name": "Alexandru Croitoru",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55376992,
+      "name": "Lazar Vlastimirović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55377128,
+      "name": "Milentije Golubović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55377164,
+      "name": "Nenad Bačić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55377239,
+      "name": "Darko Popović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55377439,
+      "name": "Dule Vasiljević",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 29,
+      "playerId": 55635437,
+      "name": "Ivica Novaković",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-14T07:06:45.842Z",
+      "date": "2026-08-14",
+      "week": 1,
+      "countryId": 70,
+      "playerId": 55145093,
+      "name": "Huang Cheung",
+      "type": "left"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-13",
+  "date": "2026-08-14",
   "week": 1,
-  "updatedAt": "2026-08-13T07:10:25.923Z",
+  "updatedAt": "2026-08-14T07:06:45.842Z",
   "players": [
     {
       "playerId": 55461589,
@@ -29,36 +29,12 @@
       "dmi": 52600
     },
     {
-      "playerId": 55464271,
-      "name": "Harout Adamyan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 29800
-    },
-    {
       "playerId": 55468324,
       "name": "Khacho Asdvadzaduryan",
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
       "dmi": 33000
-    },
-    {
-      "playerId": 55046850,
-      "name": "Mariusz Harazim",
-      "countryId": 20,
-      "countryName": "Lietuva",
-      "pool": "World Cup - Pool B",
-      "dmi": 411700
-    },
-    {
-      "playerId": 55107740,
-      "name": "Klime Zlatkov",
-      "countryId": 49,
-      "countryName": "Makedonija",
-      "pool": "Pool F",
-      "dmi": 92300
     },
     {
       "playerId": 55466914,
@@ -83,46 +59,6 @@
       "countryName": "Österreich",
       "pool": "Pool A",
       "dmi": 119500
-    },
-    {
-      "playerId": 55115414,
-      "name": "Ryszard Kozimor",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 158000
-    },
-    {
-      "playerId": 55464291,
-      "name": "Damé Agne",
-      "countryId": 94,
-      "countryName": "Senegal",
-      "pool": "World Cup - Pool A",
-      "dmi": 43600
-    },
-    {
-      "playerId": 55377128,
-      "name": "Milentije Golubović",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 186900
-    },
-    {
-      "playerId": 55073069,
-      "name": "Slobodan Bačetić",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 108300
-    },
-    {
-      "playerId": 55145093,
-      "name": "Huang Cheung",
-      "countryId": 70,
-      "countryName": "Taiwan",
-      "pool": "World Cup - Pool B",
-      "dmi": 100000
     }
   ]
 }
