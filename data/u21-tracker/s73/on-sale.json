@@ -1,24 +1,24 @@
 {
   "season": 73,
-  "date": "2026-08-14",
-  "week": 1,
-  "updatedAt": "2026-08-14T07:06:45.842Z",
+  "date": "2026-08-15",
+  "week": 2,
+  "updatedAt": "2026-08-15T06:19:14.309Z",
   "players": [
-    {
-      "playerId": 55461589,
-      "name": "Dilğem Şahbazov",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 63400
-    },
     {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 60000
+      "dmi": 75800
+    },
+    {
+      "playerId": 55388617,
+      "name": "Karel Jaroš",
+      "countryId": 37,
+      "countryName": "Ceska Rep.",
+      "pool": "Pool C",
+      "dmi": 58400
     },
     {
       "playerId": 55462419,
@@ -26,7 +26,7 @@
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 52600
+      "dmi": 90600
     },
     {
       "playerId": 55468324,
@@ -34,7 +34,7 @@
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 33000
+      "dmi": 34900
     },
     {
       "playerId": 55466914,
@@ -42,7 +42,7 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool C",
-      "dmi": 109300
+      "dmi": 411300
     },
     {
       "playerId": 55461564,
@@ -50,15 +50,15 @@
       "countryId": 86,
       "countryName": "Moldova",
       "pool": "Pool A",
-      "dmi": 116100
+      "dmi": 189100
     },
     {
-      "playerId": 55070506,
-      "name": "Johannes Danzinger",
-      "countryId": 27,
-      "countryName": "Österreich",
-      "pool": "Pool A",
-      "dmi": 119500
+      "playerId": 55158715,
+      "name": "Milan Peterec",
+      "countryId": 66,
+      "countryName": "Slovenija",
+      "pool": "Pool E",
+      "dmi": 213500
     }
   ]
 }
