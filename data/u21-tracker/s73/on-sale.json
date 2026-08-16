@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-15",
+  "date": "2026-08-16",
   "week": 2,
-  "updatedAt": "2026-08-15T06:19:14.309Z",
+  "updatedAt": "2026-08-16T06:21:26.609Z",
   "players": [
     {
       "playerId": 55082858,
@@ -21,14 +21,6 @@
       "dmi": 58400
     },
     {
-      "playerId": 55462419,
-      "name": "Neal Marsh",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 90600
-    },
-    {
       "playerId": 55468324,
       "name": "Khacho Asdvadzaduryan",
       "countryId": 87,
@@ -43,14 +35,6 @@
       "countryName": "Malta",
       "pool": "Pool C",
       "dmi": 411300
-    },
-    {
-      "playerId": 55461564,
-      "name": "Grigory Kokotov",
-      "countryId": 86,
-      "countryName": "Moldova",
-      "pool": "Pool A",
-      "dmi": 189100
     },
     {
       "playerId": 55158715,

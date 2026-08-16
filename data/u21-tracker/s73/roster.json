@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 2,
-  "date": "2026-08-15",
-  "updatedAt": "2026-08-15T06:19:14.309Z",
+  "date": "2026-08-16",
+  "updatedAt": "2026-08-16T06:21:26.609Z",
   "countries": [
     {
       "countryId": 31,
@@ -59,76 +59,7 @@
       "countryId": 75,
       "name": "Andorra",
       "pool": "Pool E",
-      "players": [
-        {
-          "playerId": 55991127,
-          "name": "Roger Ibáñez"
-        },
-        {
-          "playerId": 55466524,
-          "name": "Pere Jordi Cusí"
-        },
-        {
-          "playerId": 55468084,
-          "name": "Víctor Dillet"
-        },
-        {
-          "playerId": 55994750,
-          "name": "Serni Basset"
-        },
-        {
-          "playerId": 55997462,
-          "name": "Guillem Baixas"
-        },
-        {
-          "playerId": 55159280,
-          "name": "Marc Llabot"
-        },
-        {
-          "playerId": 55462247,
-          "name": "Carles Sarro"
-        },
-        {
-          "playerId": 55158237,
-          "name": "Albert Clar"
-        },
-        {
-          "playerId": 55464286,
-          "name": "Miquel Montserrat"
-        },
-        {
-          "playerId": 55468149,
-          "name": "Joel Valdés"
-        },
-        {
-          "playerId": 55468215,
-          "name": "Xavi Companys"
-        },
-        {
-          "playerId": 55989372,
-          "name": "Xavier Sallà"
-        },
-        {
-          "playerId": 55994455,
-          "name": "Nofre Estivill"
-        },
-        {
-          "playerId": 55997346,
-          "name": "Albert Dalmau"
-        },
-        {
-          "playerId": 55997351,
-          "name": "Emili Altimira"
-        },
-        {
-          "playerId": 55997371,
-          "name": "Adrià Pellicer"
-        },
-        {
-          "playerId": 55997418,
-          "name": "Jonatan Giró"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 2,
@@ -288,6 +219,10 @@
           "name": "Loren Bernimolin"
         },
         {
+          "playerId": 55325859,
+          "name": "Jelko Geerinck"
+        },
+        {
           "playerId": 55021024,
           "name": "Arthur Claessens"
         },
@@ -324,20 +259,8 @@
           "name": "Adolf Steensels"
         },
         {
-          "playerId": 55325879,
-          "name": "Mouss N'Dao"
-        },
-        {
           "playerId": 55325939,
           "name": "Kedar Issa"
-        },
-        {
-          "playerId": 55326063,
-          "name": "Seth Delcart"
-        },
-        {
-          "playerId": 55326101,
-          "name": "Gérard Deolet"
         },
         {
           "playerId": 55326188,
@@ -1246,20 +1169,12 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 55004780,
-          "name": "Apollon Leras"
-        },
-        {
-          "playerId": 55310589,
-          "name": "Andreas Vaxevanakis"
-        },
-        {
           "playerId": 55006775,
           "name": "Petros Kapataidakis"
         },
         {
-          "playerId": 55005421,
-          "name": "Thodoros Avgerinos"
+          "playerId": 55006129,
+          "name": "Thimios Ntouvaris"
         },
         {
           "playerId": 55309629,
@@ -1286,8 +1201,8 @@
           "name": "Pavlos Karidas"
         },
         {
-          "playerId": 55005108,
-          "name": "Trifonas Kioulekas"
+          "playerId": 55004944,
+          "name": "Yiorgos Mistriotis"
         },
         {
           "playerId": 55309643,
@@ -1298,8 +1213,8 @@
           "name": "Ploutonas Egnatiadis"
         },
         {
-          "playerId": 55310027,
-          "name": "Petros Kakoglou"
+          "playerId": 55310674,
+          "name": "Kiriakos Piatas"
         },
         {
           "playerId": 55311284,
@@ -2931,7 +2846,36 @@
       "countryId": 67,
       "name": "Slovensko",
       "pool": "Pool A",
-      "players": []
+      "players": [
+        {
+          "playerId": 55466587,
+          "name": "Nino Slabej"
+        },
+        {
+          "playerId": 55158054,
+          "name": "Vojtech Mladšík"
+        },
+        {
+          "playerId": 55139657,
+          "name": "Orest Durcenka"
+        },
+        {
+          "playerId": 55139760,
+          "name": "Ondrej Velčovský"
+        },
+        {
+          "playerId": 55158095,
+          "name": "Alfréd Martinek"
+        },
+        {
+          "playerId": 55444042,
+          "name": "Šimon Gužák"
+        },
+        {
+          "playerId": 55444121,
+          "name": "Andreas Lopuchovský"
+        }
+      ]
     },
     {
       "countryId": 29,
@@ -3093,24 +3037,12 @@
       "pool": "Pool D",
       "players": [
         {
-          "playerId": 55250848,
-          "name": "Bayram Saglamer"
-        },
-        {
           "playerId": 55251101,
           "name": "Idris Salkan"
         },
         {
-          "playerId": 55251473,
-          "name": "Kerim Algim"
-        },
-        {
           "playerId": 54946522,
           "name": "Osman Kardes"
-        },
-        {
-          "playerId": 55250908,
-          "name": "Cansever Savtunç"
         },
         {
           "playerId": 54945772,
@@ -3129,8 +3061,8 @@
           "name": "Gezgin Baba"
         },
         {
-          "playerId": 54946658,
-          "name": "Amir Olçun"
+          "playerId": 54946601,
+          "name": "Ceylan Özlüer"
         },
         {
           "playerId": 55157453,
@@ -3141,8 +3073,8 @@
           "name": "Tunç Demirtas"
         },
         {
-          "playerId": 55250682,
-          "name": "Durmus Gökdeniz"
+          "playerId": 55251024,
+          "name": "Semih Karhan"
         },
         {
           "playerId": 55251191,
@@ -3155,14 +3087,6 @@
         {
           "playerId": 55251406,
           "name": "Cebrail Süpheli"
-        },
-        {
-          "playerId": 55251591,
-          "name": "Kemal Tezcanli"
-        },
-        {
-          "playerId": 55555806,
-          "name": "Önder Agirtas"
         }
       ]
     },
