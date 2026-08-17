@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 2,
-  "date": "2026-08-16",
-  "updatedAt": "2026-08-16T06:21:26.609Z",
+  "date": "2026-08-17",
+  "updatedAt": "2026-08-17T06:31:30.442Z",
   "countries": [
     {
       "countryId": 31,
@@ -1076,7 +1076,56 @@
       "countryId": 7,
       "name": "España",
       "pool": "World Cup - Pool A",
-      "players": []
+      "players": [
+        {
+          "playerId": 54950929,
+          "name": "Juan Luis Álvarez de Miranda"
+        },
+        {
+          "playerId": 54952195,
+          "name": "Daniel Pallarès"
+        },
+        {
+          "playerId": 54950824,
+          "name": "Javier Fernández Madrigal"
+        },
+        {
+          "playerId": 54952056,
+          "name": "Martín Cerdeira"
+        },
+        {
+          "playerId": 55256660,
+          "name": "Tomás Leciñana"
+        },
+        {
+          "playerId": 55254915,
+          "name": "Roc Martínez"
+        },
+        {
+          "playerId": 54950016,
+          "name": "Manuel Sánchez"
+        },
+        {
+          "playerId": 54950254,
+          "name": "Santiago Riba Peña"
+        },
+        {
+          "playerId": 54950709,
+          "name": "Pedro Puig Duran"
+        },
+        {
+          "playerId": 55257162,
+          "name": "Alfredo Abellá"
+        },
+        {
+          "playerId": 55257783,
+          "name": "Federico Montiel"
+        },
+        {
+          "playerId": 55258406,
+          "name": "Cristòfor Agramunt"
+        }
+      ]
     },
     {
       "countryId": 11,
@@ -1638,7 +1687,52 @@
       "countryId": 20,
       "name": "Lietuva",
       "pool": "World Cup - Pool B",
-      "players": []
+      "players": [
+        {
+          "playerId": 55048510,
+          "name": "Vytautas Dorofejus"
+        },
+        {
+          "playerId": 55048229,
+          "name": "Edvardas Napeklys"
+        },
+        {
+          "playerId": 55047898,
+          "name": "Kastytis Žandaravicius"
+        },
+        {
+          "playerId": 55046850,
+          "name": "Mariusz Harazim"
+        },
+        {
+          "playerId": 55046775,
+          "name": "Matas Maziliauskas"
+        },
+        {
+          "playerId": 55047001,
+          "name": "Kostas Plukys"
+        },
+        {
+          "playerId": 55047646,
+          "name": "Ginutis Petrauskis"
+        },
+        {
+          "playerId": 55047870,
+          "name": "Juvencijus Kondratenkovas"
+        },
+        {
+          "playerId": 55048296,
+          "name": "Vytukas Ružinas"
+        },
+        {
+          "playerId": 55048489,
+          "name": "Viachka Ledakovich"
+        },
+        {
+          "playerId": 55048588,
+          "name": "Malkelis Kievinas"
+        }
+      ]
     },
     {
       "countryId": 91,
@@ -1796,6 +1890,10 @@
           "name": "Pane Rajchin"
         },
         {
+          "playerId": 55412038,
+          "name": "Mitan Cuculovski"
+        },
+        {
           "playerId": 55203491,
           "name": "Veshtak Metarapi"
         },
@@ -1822,10 +1920,6 @@
         {
           "playerId": 55411914,
           "name": "Vlatko Chakroski"
-        },
-        {
-          "playerId": 55412038,
-          "name": "Mitan Cuculovski"
         },
         {
           "playerId": 55412041,
@@ -2096,8 +2190,20 @@
           "name": "Steffen Jo Rømo"
         },
         {
+          "playerId": 55462306,
+          "name": "Jan Osmundsen"
+        },
+        {
           "playerId": 55462498,
           "name": "Eirik Blindheim"
+        },
+        {
+          "playerId": 55463310,
+          "name": "Hugo Borch"
+        },
+        {
+          "playerId": 55993310,
+          "name": "Bendik Lindstad"
         }
       ]
     },
@@ -2793,10 +2899,6 @@
           "name": "Čarli Jurković"
         },
         {
-          "playerId": 55158715,
-          "name": "Milan Peterec"
-        },
-        {
           "playerId": 55439831,
           "name": "Drejc Kožel"
         },
@@ -2819,6 +2921,10 @@
         {
           "playerId": 55135792,
           "name": "Anton Šuštar"
+        },
+        {
+          "playerId": 55158715,
+          "name": "Milan Peterec"
         },
         {
           "playerId": 55439747,
@@ -2856,6 +2962,10 @@
           "name": "Vojtech Mladšík"
         },
         {
+          "playerId": 55443828,
+          "name": "Matej Hálka"
+        },
+        {
           "playerId": 55139657,
           "name": "Orest Durcenka"
         },
@@ -2864,8 +2974,16 @@
           "name": "Ondrej Velčovský"
         },
         {
+          "playerId": 55139868,
+          "name": "Milan Kosturský"
+        },
+        {
           "playerId": 55158095,
           "name": "Alfréd Martinek"
+        },
+        {
+          "playerId": 55443949,
+          "name": "Jakub Savčák"
         },
         {
           "playerId": 55444042,
@@ -2887,7 +3005,52 @@
       "countryId": 69,
       "name": "Suomi",
       "pool": "Pool E",
-      "players": []
+      "players": [
+        {
+          "playerId": 55140634,
+          "name": "Matti Bergström"
+        },
+        {
+          "playerId": 55140735,
+          "name": "Erno Pankkonen"
+        },
+        {
+          "playerId": 55140741,
+          "name": "Juho Hilden"
+        },
+        {
+          "playerId": 55140761,
+          "name": "Juha Korander"
+        },
+        {
+          "playerId": 55140866,
+          "name": "Juuso Rautio"
+        },
+        {
+          "playerId": 55140873,
+          "name": "Ville Juntunen"
+        },
+        {
+          "playerId": 55141000,
+          "name": "Lauri Rosqvist"
+        },
+        {
+          "playerId": 55141151,
+          "name": "Markus Peuranen"
+        },
+        {
+          "playerId": 55159107,
+          "name": "Eetu Siiropää"
+        },
+        {
+          "playerId": 55159343,
+          "name": "Pekka Palmgrén"
+        },
+        {
+          "playerId": 55444876,
+          "name": "Mikko Rautavuori"
+        }
+      ]
     },
     {
       "countryId": 9,

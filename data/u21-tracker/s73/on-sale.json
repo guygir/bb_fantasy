@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-16",
+  "date": "2026-08-17",
   "week": 2,
-  "updatedAt": "2026-08-16T06:21:26.609Z",
+  "updatedAt": "2026-08-17T06:31:30.442Z",
   "players": [
     {
       "playerId": 55082858,
@@ -29,12 +29,28 @@
       "dmi": 34900
     },
     {
-      "playerId": 55466914,
-      "name": "Rodney Griffiths",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool C",
-      "dmi": 411300
+      "playerId": 55884098,
+      "name": "Gomarus Jegerings",
+      "countryId": 16,
+      "countryName": "Nederland",
+      "pool": "Pool H",
+      "dmi": 33500
+    },
+    {
+      "playerId": 55633336,
+      "name": "Çetin Sen",
+      "countryId": 27,
+      "countryName": "Österreich",
+      "pool": "Pool A",
+      "dmi": 110300
+    },
+    {
+      "playerId": 55115515,
+      "name": "Zbigniew Chabasiński",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 468600
     },
     {
       "playerId": 55158715,
