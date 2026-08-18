@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-17",
+  "date": "2026-08-18",
   "week": 2,
-  "updatedAt": "2026-08-17T06:31:30.442Z",
+  "updatedAt": "2026-08-18T06:23:38.754Z",
   "players": [
     {
       "playerId": 55082858,
@@ -13,20 +13,28 @@
       "dmi": 75800
     },
     {
-      "playerId": 55388617,
-      "name": "Karel Jaroš",
-      "countryId": 37,
-      "countryName": "Ceska Rep.",
-      "pool": "Pool C",
-      "dmi": 58400
-    },
-    {
       "playerId": 55468324,
       "name": "Khacho Asdvadzaduryan",
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
       "dmi": 34900
+    },
+    {
+      "playerId": 55159043,
+      "name": "Ivo Silva",
+      "countryId": 91,
+      "countryName": "Luxembourg",
+      "pool": "Pool E",
+      "dmi": 283700
+    },
+    {
+      "playerId": 55466914,
+      "name": "Rodney Griffiths",
+      "countryId": 90,
+      "countryName": "Malta",
+      "pool": "Pool C",
+      "dmi": 411300
     },
     {
       "playerId": 55884098,
@@ -51,14 +59,6 @@
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 468600
-    },
-    {
-      "playerId": 55158715,
-      "name": "Milan Peterec",
-      "countryId": 66,
-      "countryName": "Slovenija",
-      "pool": "Pool E",
-      "dmi": 213500
     }
   ]
 }

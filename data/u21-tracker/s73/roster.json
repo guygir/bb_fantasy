@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 2,
-  "date": "2026-08-17",
-  "updatedAt": "2026-08-17T06:31:30.442Z",
+  "date": "2026-08-18",
+  "updatedAt": "2026-08-18T06:23:38.754Z",
   "countries": [
     {
       "countryId": 31,
@@ -65,7 +65,56 @@
       "countryId": 2,
       "name": "Argentina",
       "pool": "World Cup - Pool B",
-      "players": []
+      "players": [
+        {
+          "playerId": 54917374,
+          "name": "Jean Luca Peralta"
+        },
+        {
+          "playerId": 54917195,
+          "name": "Víctor Villaragut"
+        },
+        {
+          "playerId": 55222003,
+          "name": "Michael Heck"
+        },
+        {
+          "playerId": 54917865,
+          "name": "Chimo Sobis"
+        },
+        {
+          "playerId": 55221888,
+          "name": "Édouard Ferrari"
+        },
+        {
+          "playerId": 54917021,
+          "name": "Julián Gabriel Gareca"
+        },
+        {
+          "playerId": 55222058,
+          "name": "Héctor Julio Cavallo"
+        },
+        {
+          "playerId": 55221781,
+          "name": "Gerónimo Nieto"
+        },
+        {
+          "playerId": 55221819,
+          "name": "Laro Suelves"
+        },
+        {
+          "playerId": 55221841,
+          "name": "Juan Ernesto Válido"
+        },
+        {
+          "playerId": 55221941,
+          "name": "Juan Rezza"
+        },
+        {
+          "playerId": 55221984,
+          "name": "Patricio José Giordano"
+        }
+      ]
     },
     {
       "countryId": 88,
@@ -1059,12 +1108,24 @@
           "name": "Kendrick Loftus"
         },
         {
+          "playerId": 55025189,
+          "name": "Rory Stalker"
+        },
+        {
           "playerId": 55025639,
           "name": "Thomas Moore"
         },
         {
           "playerId": 55329988,
           "name": "Stu Lavender"
+        },
+        {
+          "playerId": 55330254,
+          "name": "Derrick Radley"
+        },
+        {
+          "playerId": 55330269,
+          "name": "Jeff Sparke"
         },
         {
           "playerId": 55597690,
@@ -1131,7 +1192,64 @@
       "countryId": 11,
       "name": "France",
       "pool": "World Cup - Pool A",
-      "players": []
+      "players": [
+        {
+          "playerId": 54988835,
+          "name": "Édouard Vienne"
+        },
+        {
+          "playerId": 54988479,
+          "name": "Mathieu Silvestre"
+        },
+        {
+          "playerId": 54990238,
+          "name": "Benoît Quétier"
+        },
+        {
+          "playerId": 54990509,
+          "name": "Jean Barlet"
+        },
+        {
+          "playerId": 54988142,
+          "name": "Stéphane Jeanmaire"
+        },
+        {
+          "playerId": 54988230,
+          "name": "Pierre Beauquis"
+        },
+        {
+          "playerId": 54988317,
+          "name": "William Louis"
+        },
+        {
+          "playerId": 54988749,
+          "name": "Pierre Billard"
+        },
+        {
+          "playerId": 54988824,
+          "name": "David Chevallier"
+        },
+        {
+          "playerId": 54989057,
+          "name": "Younes Ben Amara"
+        },
+        {
+          "playerId": 54989620,
+          "name": "Thibaut Lafontaine"
+        },
+        {
+          "playerId": 54989914,
+          "name": "David Véron"
+        },
+        {
+          "playerId": 55158754,
+          "name": "Robin Lenoël"
+        },
+        {
+          "playerId": 55295114,
+          "name": "Kaddour El Karni"
+        }
+      ]
     },
     {
       "countryId": 87,
@@ -1218,6 +1336,10 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
+          "playerId": 55004780,
+          "name": "Apollon Leras"
+        },
+        {
           "playerId": 55006775,
           "name": "Petros Kapataidakis"
         },
@@ -1252,6 +1374,10 @@
         {
           "playerId": 55004944,
           "name": "Yiorgos Mistriotis"
+        },
+        {
+          "playerId": 55005084,
+          "name": "Dantis Sferas"
         },
         {
           "playerId": 55309643,
@@ -1614,7 +1740,60 @@
       "countryId": 10,
       "name": "Italia",
       "pool": "World Cup - Pool A",
-      "players": []
+      "players": [
+        {
+          "playerId": 55278761,
+          "name": "Cristiano Sbattelia"
+        },
+        {
+          "playerId": 54975300,
+          "name": "William Piscaglia"
+        },
+        {
+          "playerId": 54975047,
+          "name": "Florindo Cairo"
+        },
+        {
+          "playerId": 54973149,
+          "name": "Paolo Sorce"
+        },
+        {
+          "playerId": 54971980,
+          "name": "Alessandro Hoz"
+        },
+        {
+          "playerId": 54972285,
+          "name": "Donato Bauducco"
+        },
+        {
+          "playerId": 54972588,
+          "name": "Ettore Taini"
+        },
+        {
+          "playerId": 54973780,
+          "name": "Rino Succu"
+        },
+        {
+          "playerId": 54974368,
+          "name": "Bruno Nicastro"
+        },
+        {
+          "playerId": 54975189,
+          "name": "Paolo Locci"
+        },
+        {
+          "playerId": 54975342,
+          "name": "Seran Soverini"
+        },
+        {
+          "playerId": 55160239,
+          "name": "Roberto Toti"
+        },
+        {
+          "playerId": 55278133,
+          "name": "Filippo Ribet"
+        }
+      ]
     },
     {
       "countryId": 46,
@@ -1713,6 +1892,10 @@
           "name": "Kostas Plukys"
         },
         {
+          "playerId": 55047318,
+          "name": "Valdas Peldunas"
+        },
+        {
           "playerId": 55047646,
           "name": "Ginutis Petrauskis"
         },
@@ -1731,6 +1914,10 @@
         {
           "playerId": 55048588,
           "name": "Malkelis Kievinas"
+        },
+        {
+          "playerId": 55058006,
+          "name": "Aivaras Simas Basius"
         }
       ]
     },
@@ -2178,6 +2365,10 @@
           "name": "Gunnar Røkke"
         },
         {
+          "playerId": 55993310,
+          "name": "Bendik Lindstad"
+        },
+        {
           "playerId": 55715249,
           "name": "Idar Buseth"
         },
@@ -2200,10 +2391,6 @@
         {
           "playerId": 55463310,
           "name": "Hugo Borch"
-        },
-        {
-          "playerId": 55993310,
-          "name": "Bendik Lindstad"
         }
       ]
     },
@@ -2958,6 +3145,10 @@
           "name": "Nino Slabej"
         },
         {
+          "playerId": 55157466,
+          "name": "Zoran Zverka"
+        },
+        {
           "playerId": 55158054,
           "name": "Vojtech Mladšík"
         },
@@ -2999,7 +3190,56 @@
       "countryId": 29,
       "name": "Srbija",
       "pool": "World Cup - Pool B",
-      "players": []
+      "players": [
+        {
+          "playerId": 55073194,
+          "name": "Pavle Tankosić"
+        },
+        {
+          "playerId": 55377145,
+          "name": "Krstivoje Naumovski"
+        },
+        {
+          "playerId": 55466193,
+          "name": "Slobodan Špirović"
+        },
+        {
+          "playerId": 55159130,
+          "name": "Radoje Lambulić"
+        },
+        {
+          "playerId": 55072649,
+          "name": "Jovan Cvijanovic"
+        },
+        {
+          "playerId": 55072669,
+          "name": "Slobodan Rapajić"
+        },
+        {
+          "playerId": 55072745,
+          "name": "Miloš Mišić"
+        },
+        {
+          "playerId": 55073068,
+          "name": "Slobodan Kalinić"
+        },
+        {
+          "playerId": 55376992,
+          "name": "Lazar Vlastimirović"
+        },
+        {
+          "playerId": 55377239,
+          "name": "Darko Popović"
+        },
+        {
+          "playerId": 55377439,
+          "name": "Dule Vasiljević"
+        },
+        {
+          "playerId": 55377707,
+          "name": "Zoran Kitić"
+        }
+      ]
     },
     {
       "countryId": 69,
