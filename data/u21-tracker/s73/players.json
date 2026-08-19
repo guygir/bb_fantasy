@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-18T06:23:38.754Z",
+  "updatedAt": "2026-08-19T06:24:10.535Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -8734,6 +8734,32 @@
         }
       ]
     },
+    "55411855": {
+      "name": "Zizi Rushidov",
+      "countryId": 49,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-19",
+          "toDate": null
+        }
+      ]
+    },
+    "55411877": {
+      "name": "Koce Ignjatov",
+      "countryId": 49,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-19",
+          "toDate": null
+        }
+      ]
+    },
     "55411901": {
       "name": "Majlind Dedja",
       "countryId": 49,
@@ -11805,6 +11831,19 @@
         }
       ]
     },
+    "55670354": {
+      "name": "Stojan Stojkovski",
+      "countryId": 49,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-19",
+          "toDate": null
+        }
+      ]
+    },
     "55670409": {
       "name": "Rangel Serafimovski",
       "countryId": 49,
@@ -12924,13 +12963,13 @@
     "55884098": {
       "name": "Gomarus Jegerings",
       "countryId": 16,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 2,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-08-19"
         }
       ]
     },
@@ -13319,6 +13358,19 @@
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        }
+      ]
+    },
+    "55994615": {
+      "name": "Arian Lazami",
+      "countryId": 49,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-19",
+          "toDate": null
         }
       ]
     },

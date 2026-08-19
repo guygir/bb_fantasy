@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-18",
+  "date": "2026-08-19",
   "week": 2,
-  "updatedAt": "2026-08-18T06:23:38.754Z",
+  "updatedAt": "2026-08-19T06:24:10.535Z",
   "players": [
     {
       "playerId": 55082858,
@@ -11,14 +11,6 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 75800
-    },
-    {
-      "playerId": 55468324,
-      "name": "Khacho Asdvadzaduryan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 34900
     },
     {
       "playerId": 55159043,
@@ -35,14 +27,6 @@
       "countryName": "Malta",
       "pool": "Pool C",
       "dmi": 411300
-    },
-    {
-      "playerId": 55884098,
-      "name": "Gomarus Jegerings",
-      "countryId": 16,
-      "countryName": "Nederland",
-      "pool": "Pool H",
-      "dmi": 33500
     },
     {
       "playerId": 55633336,

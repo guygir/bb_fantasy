@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 2,
-  "date": "2026-08-18",
-  "updatedAt": "2026-08-18T06:23:38.754Z",
+  "date": "2026-08-19",
+  "updatedAt": "2026-08-19T06:24:10.535Z",
   "countries": [
     {
       "countryId": 31,
@@ -2101,6 +2101,14 @@
           "name": "Mikan Çausholli"
         },
         {
+          "playerId": 55411855,
+          "name": "Zizi Rushidov"
+        },
+        {
+          "playerId": 55411877,
+          "name": "Koce Ignjatov"
+        },
+        {
           "playerId": 55411901,
           "name": "Majlind Dedja"
         },
@@ -2113,8 +2121,16 @@
           "name": "Bojan Abrashev"
         },
         {
+          "playerId": 55670354,
+          "name": "Stojan Stojkovski"
+        },
+        {
           "playerId": 55670409,
           "name": "Rangel Serafimovski"
+        },
+        {
+          "playerId": 55994615,
+          "name": "Arian Lazami"
         }
       ]
     },
@@ -2215,16 +2231,16 @@
           "name": "Alexandru Cilivan"
         },
         {
+          "playerId": 55464354,
+          "name": "Taras Fokin"
+        },
+        {
           "playerId": 55468237,
           "name": "Vitalie Onovetchi"
         },
         {
           "playerId": 55461564,
           "name": "Grigory Kokotov"
-        },
-        {
-          "playerId": 55464354,
-          "name": "Taras Fokin"
         },
         {
           "playerId": 55465060,
@@ -2324,10 +2340,6 @@
         {
           "playerId": 55464826,
           "name": "Alfonso de Zwart"
-        },
-        {
-          "playerId": 55884098,
-          "name": "Gomarus Jegerings"
         }
       ]
     },
@@ -2601,6 +2613,10 @@
           "name": "Gabriel Mazilu"
         },
         {
+          "playerId": 55132289,
+          "name": "Toni Nutã"
+        },
+        {
           "playerId": 55711557,
           "name": "Octavian Cruceru"
         },
@@ -2631,10 +2647,6 @@
         {
           "playerId": 55132285,
           "name": "Mihăițã Stoica"
-        },
-        {
-          "playerId": 55132289,
-          "name": "Toni Nutã"
         },
         {
           "playerId": 55132375,

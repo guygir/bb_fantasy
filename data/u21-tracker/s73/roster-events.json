@@ -5482,6 +5482,51 @@
       "playerId": 55377707,
       "name": "Zoran Kitić",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-19T06:24:10.535Z",
+      "date": "2026-08-19",
+      "week": 2,
+      "countryId": 49,
+      "playerId": 55411855,
+      "name": "Zizi Rushidov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-19T06:24:10.535Z",
+      "date": "2026-08-19",
+      "week": 2,
+      "countryId": 49,
+      "playerId": 55411877,
+      "name": "Koce Ignjatov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-19T06:24:10.535Z",
+      "date": "2026-08-19",
+      "week": 2,
+      "countryId": 49,
+      "playerId": 55670354,
+      "name": "Stojan Stojkovski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-19T06:24:10.535Z",
+      "date": "2026-08-19",
+      "week": 2,
+      "countryId": 49,
+      "playerId": 55994615,
+      "name": "Arian Lazami",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-19T06:24:10.535Z",
+      "date": "2026-08-19",
+      "week": 2,
+      "countryId": 16,
+      "playerId": 55884098,
+      "name": "Gomarus Jegerings",
+      "type": "left"
     }
   ]
 }
