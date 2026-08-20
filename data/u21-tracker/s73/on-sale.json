@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-19",
+  "date": "2026-08-20",
   "week": 2,
-  "updatedAt": "2026-08-19T06:24:10.535Z",
+  "updatedAt": "2026-08-20T06:25:13.300Z",
   "players": [
     {
       "playerId": 55082858,
@@ -11,6 +11,14 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 75800
+    },
+    {
+      "playerId": 55468324,
+      "name": "Khacho Asdvadzaduryan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 34900
     },
     {
       "playerId": 55159043,
@@ -29,12 +37,20 @@
       "dmi": 411300
     },
     {
-      "playerId": 55633336,
-      "name": "Çetin Sen",
+      "playerId": 55461564,
+      "name": "Grigory Kokotov",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 189100
+    },
+    {
+      "playerId": 55070506,
+      "name": "Johannes Danzinger",
       "countryId": 27,
       "countryName": "Österreich",
       "pool": "Pool A",
-      "dmi": 110300
+      "dmi": 102200
     },
     {
       "playerId": 55115515,
