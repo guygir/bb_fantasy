@@ -2,7 +2,7 @@
   "season": 73,
   "week": 2,
   "date": "2026-08-21",
-  "updatedAt": "2026-08-21T06:26:51.700Z",
+  "updatedAt": "2026-08-21T11:00:58.262Z",
   "countries": [
     {
       "countryId": 31,
@@ -1344,6 +1344,10 @@
           "name": "Petros Kapataidakis"
         },
         {
+          "playerId": 55005421,
+          "name": "Thodoros Avgerinos"
+        },
+        {
           "playerId": 55006129,
           "name": "Thimios Ntouvaris"
         },
@@ -1378,6 +1382,10 @@
         {
           "playerId": 55005084,
           "name": "Dantis Sferas"
+        },
+        {
+          "playerId": 55005108,
+          "name": "Trifonas Kioulekas"
         },
         {
           "playerId": 55309643,
@@ -1904,6 +1912,10 @@
           "name": "Juvencijus Kondratenkovas"
         },
         {
+          "playerId": 55047943,
+          "name": "Alvytas Cholupniakas"
+        },
+        {
           "playerId": 55048296,
           "name": "Vytukas Ružinas"
         },
@@ -1918,6 +1930,10 @@
         {
           "playerId": 55058006,
           "name": "Aivaras Simas Basius"
+        },
+        {
+          "playerId": 55462207,
+          "name": "Marius Verketis"
         }
       ]
     },
@@ -2997,7 +3013,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },

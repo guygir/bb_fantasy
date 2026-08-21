@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-21T06:26:51.700Z",
+  "updatedAt": "2026-08-21T11:00:58.262Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -1311,13 +1311,19 @@
     "55005108": {
       "name": "Trifonas Kioulekas",
       "countryId": 12,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        },
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-21",
+          "toDate": null
         }
       ]
     },
@@ -1337,13 +1343,19 @@
     "55005421": {
       "name": "Thodoros Avgerinos",
       "countryId": 12,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-10",
           "toDate": "2026-08-16"
+        },
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-21",
+          "toDate": null
         }
       ]
     },
@@ -2268,13 +2280,19 @@
     "55047943": {
       "name": "Alvytas Cholupniakas",
       "countryId": 20,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-21",
+          "toDate": null
         }
       ]
     },
@@ -9846,13 +9864,19 @@
     "55462207": {
       "name": "Marius Verketis",
       "countryId": 20,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 2,
+          "toWeek": null,
+          "fromDate": "2026-08-21",
+          "toDate": null
         }
       ]
     },
@@ -12443,7 +12467,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
