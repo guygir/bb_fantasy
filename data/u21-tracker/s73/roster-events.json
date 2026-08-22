@@ -5527,6 +5527,82 @@
       "playerId": 55884098,
       "name": "Gomarus Jegerings",
       "type": "left"
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 85,
+      "playerId": 55709501,
+      "name": "Davyd Maistruk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 78,
+      "playerId": 55464386,
+      "name": "Rósberg Sæbjörnsson",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 91,
+      "playerId": 55990834,
+      "name": "Kristof Vannieuwenkerke",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 91,
+      "playerId": 55715748,
+      "name": "Steffen Preiss",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 19,
+      "playerId": 55042910,
+      "name": "Boris Khrustalev",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 67,
+      "playerId": 55139859,
+      "name": "Miloš Mikuliak",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 67,
+      "playerId": 55443908,
+      "name": "Marián Kalinák",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-22T06:20:50.037Z",
+      "date": "2026-08-22",
+      "week": 3,
+      "countryId": 69,
+      "playerId": 55141049,
+      "name": "Pauli Meltola",
+      "type": "returned",
+      "weeksAway": 2
     }
   ]
 }

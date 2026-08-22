@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-21",
-  "week": 2,
-  "updatedAt": "2026-08-21T06:26:51.700Z",
+  "date": "2026-08-22",
+  "week": 3,
+  "updatedAt": "2026-08-22T06:20:50.037Z",
   "players": [
     {
       "playerId": 55082858,
@@ -10,7 +10,7 @@
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 75800
+      "dmi": 100100
     },
     {
       "playerId": 55468324,
@@ -18,7 +18,7 @@
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 34900
+      "dmi": 86300
     },
     {
       "playerId": 55065533,
@@ -26,7 +26,7 @@
       "countryId": 24,
       "countryName": "Hrvatska",
       "pool": "Pool F",
-      "dmi": 92700
+      "dmi": 208000
     },
     {
       "playerId": 55461564,
@@ -34,7 +34,7 @@
       "countryId": 86,
       "countryName": "Moldova",
       "pool": "Pool A",
-      "dmi": 189100
+      "dmi": 123800
     },
     {
       "playerId": 55070506,
@@ -42,7 +42,23 @@
       "countryId": 27,
       "countryName": "Österreich",
       "pool": "Pool A",
-      "dmi": 102200
+      "dmi": 88600
+    },
+    {
+      "playerId": 55115467,
+      "name": "Hubert Rokaszewicz",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 633100
+    },
+    {
+      "playerId": 55117259,
+      "name": "Tomasz Frączyk",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 838500
     },
     {
       "playerId": 55115515,
@@ -50,7 +66,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 468600
+      "dmi": 297100
     },
     {
       "playerId": 55162600,
@@ -58,7 +74,7 @@
       "countryId": 94,
       "countryName": "Senegal",
       "pool": "World Cup - Pool A",
-      "dmi": 528600
+      "dmi": 307400
     }
   ]
 }

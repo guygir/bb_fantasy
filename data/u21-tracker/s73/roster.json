@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 2,
-  "date": "2026-08-21",
-  "updatedAt": "2026-08-21T11:00:58.262Z",
+  "week": 3,
+  "date": "2026-08-22",
+  "updatedAt": "2026-08-22T06:20:50.037Z",
   "countries": [
     {
       "countryId": 31,
@@ -251,6 +251,10 @@
         {
           "playerId": 55464508,
           "name": "Vitaut Markijanau"
+        },
+        {
+          "playerId": 55709501,
+          "name": "Davyd Maistruk"
         }
       ]
     },
@@ -1624,6 +1628,10 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 55464386,
+          "name": "Rósberg Sæbjörnsson"
+        },
+        {
           "playerId": 55468308,
           "name": "Flóki Geirfinnsson"
         },
@@ -1971,8 +1979,8 @@
           "name": "Lorentz Dechilly"
         },
         {
-          "playerId": 55715748,
-          "name": "Steffen Preiss"
+          "playerId": 55990834,
+          "name": "Kristof Vannieuwenkerke"
         },
         {
           "playerId": 55159043,
@@ -2732,6 +2740,10 @@
           "name": "Denis Belogorodskiy"
         },
         {
+          "playerId": 55042910,
+          "name": "Boris Khrustalev"
+        },
+        {
           "playerId": 55043130,
           "name": "Vadim Tyazhkin"
         },
@@ -3013,7 +3025,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3181,6 +3193,10 @@
           "name": "Vojtech Mladšík"
         },
         {
+          "playerId": 55139859,
+          "name": "Miloš Mikuliak"
+        },
+        {
           "playerId": 55443828,
           "name": "Matej Hálka"
         },
@@ -3199,6 +3215,10 @@
         {
           "playerId": 55158095,
           "name": "Alfréd Martinek"
+        },
+        {
+          "playerId": 55443908,
+          "name": "Marián Kalinák"
         },
         {
           "playerId": 55443949,
@@ -3301,6 +3321,10 @@
         {
           "playerId": 55141000,
           "name": "Lauri Rosqvist"
+        },
+        {
+          "playerId": 55141049,
+          "name": "Pauli Meltola"
         },
         {
           "playerId": 55141151,
