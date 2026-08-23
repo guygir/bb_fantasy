@@ -5603,6 +5603,15 @@
       "name": "Pauli Meltola",
       "type": "returned",
       "weeksAway": 2
+    },
+    {
+      "ts": "2026-08-23T06:22:25.032Z",
+      "date": "2026-08-23",
+      "week": 3,
+      "countryId": 67,
+      "playerId": 55444087,
+      "name": "Vavrinec Vilikovský",
+      "type": "joined"
     }
   ]
 }

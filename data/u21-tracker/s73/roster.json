@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 3,
-  "date": "2026-08-22",
-  "updatedAt": "2026-08-22T06:20:50.037Z",
+  "date": "2026-08-23",
+  "updatedAt": "2026-08-23T06:22:25.032Z",
   "countries": [
     {
       "countryId": 31,
@@ -3199,6 +3199,10 @@
         {
           "playerId": 55443828,
           "name": "Matej Hálka"
+        },
+        {
+          "playerId": 55444087,
+          "name": "Vavrinec Vilikovský"
         },
         {
           "playerId": 55139657,

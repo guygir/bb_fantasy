@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-22T06:20:50.037Z",
+  "updatedAt": "2026-08-23T06:22:25.032Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -9219,6 +9219,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-16",
+          "toDate": null
+        }
+      ]
+    },
+    "55444087": {
+      "name": "Vavrinec Vilikovský",
+      "countryId": 67,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-23",
           "toDate": null
         }
       ]

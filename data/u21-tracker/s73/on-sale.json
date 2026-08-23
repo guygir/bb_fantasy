@@ -1,9 +1,17 @@
 {
   "season": 73,
-  "date": "2026-08-22",
+  "date": "2026-08-23",
   "week": 3,
-  "updatedAt": "2026-08-22T06:20:50.037Z",
+  "updatedAt": "2026-08-23T06:22:25.032Z",
   "players": [
+    {
+      "playerId": 55466619,
+      "name": "Arsalan Əsri",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 235900
+    },
     {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
@@ -13,12 +21,12 @@
       "dmi": 100100
     },
     {
-      "playerId": 55468324,
-      "name": "Khacho Asdvadzaduryan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 86300
+      "playerId": 55368739,
+      "name": "Ignacio Brahim",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 146400
     },
     {
       "playerId": 55065533,
@@ -37,14 +45,6 @@
       "dmi": 123800
     },
     {
-      "playerId": 55070506,
-      "name": "Johannes Danzinger",
-      "countryId": 27,
-      "countryName": "Österreich",
-      "pool": "Pool A",
-      "dmi": 88600
-    },
-    {
       "playerId": 55115467,
       "name": "Hubert Rokaszewicz",
       "countryId": 58,
@@ -61,12 +61,12 @@
       "dmi": 838500
     },
     {
-      "playerId": 55115515,
-      "name": "Zbigniew Chabasiński",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 297100
+      "playerId": 55437673,
+      "name": "Pavle Geladze",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 193100
     },
     {
       "playerId": 55162600,
