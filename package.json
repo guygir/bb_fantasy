@@ -35,7 +35,8 @@
     "test-bb-site-login": "node scripts/test-bb-site-login.mjs",
     "fetch-promotions": "node scripts/fetch-promotions-leagues.mjs all",
     "scrape-u21-tracker": "node scripts/scrape-u21-tracker.mjs",
-    "scrape-u21-tracker-roster": "node scripts/scrape-u21-tracker-roster.mjs"
+    "scrape-u21-tracker-roster": "node scripts/scrape-u21-tracker-roster.mjs",
+    "validate-u21-roster-returns": "node scripts/validate-u21-roster-returns.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.1-canary.0",
