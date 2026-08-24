@@ -5612,6 +5612,166 @@
       "playerId": 55444087,
       "name": "Vavrinec Vilikovský",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55157214,
+      "name": "Carles Burguès",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55466524,
+      "name": "Pere Jordi Cusí",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55713050,
+      "name": "Daniel Obrador",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55711600,
+      "name": "Francesc Piferrer",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55162475,
+      "name": "Martí Trincher",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55159280,
+      "name": "Marc Llabot",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55462247,
+      "name": "Carles Sarro",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55158237,
+      "name": "Albert Clar",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55463389,
+      "name": "Pol Escribà",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55464286,
+      "name": "Miquel Montserrat",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55466963,
+      "name": "Ferran Angulo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55468149,
+      "name": "Joel Valdés",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 75,
+      "playerId": 55718991,
+      "name": "Martí Castell",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 45,
+      "playerId": 55095236,
+      "name": "Lei Junguo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 28,
+      "playerId": 55375875,
+      "name": "Lucien Dünsch",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 69,
+      "playerId": 55444881,
+      "name": "George Jokisalo",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-24T06:34:49.136Z",
+      "date": "2026-08-24",
+      "week": 3,
+      "countryId": 1,
+      "playerId": 54902733,
+      "name": "Jonathan Beer",
+      "type": "joined"
     }
   ]
 }

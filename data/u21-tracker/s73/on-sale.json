@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-23",
+  "date": "2026-08-24",
   "week": 3,
-  "updatedAt": "2026-08-23T06:22:25.032Z",
+  "updatedAt": "2026-08-24T06:34:49.136Z",
   "players": [
     {
       "playerId": 55466619,
@@ -27,14 +27,6 @@
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
       "dmi": 146400
-    },
-    {
-      "playerId": 55065533,
-      "name": "Gordan Bugarija",
-      "countryId": 24,
-      "countryName": "Hrvatska",
-      "pool": "Pool F",
-      "dmi": 208000
     },
     {
       "playerId": 55461564,
@@ -69,12 +61,12 @@
       "dmi": 193100
     },
     {
-      "playerId": 55162600,
-      "name": "Charaf Diallo",
-      "countryId": 94,
-      "countryName": "Senegal",
-      "pool": "World Cup - Pool A",
-      "dmi": 307400
+      "playerId": 55133358,
+      "name": "Soso Cheishvili",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 56000
     }
   ]
 }

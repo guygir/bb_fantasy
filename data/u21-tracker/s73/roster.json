@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 3,
-  "date": "2026-08-23",
-  "updatedAt": "2026-08-23T06:22:25.032Z",
+  "date": "2026-08-24",
+  "updatedAt": "2026-08-24T06:34:49.136Z",
   "countries": [
     {
       "countryId": 31,
@@ -59,7 +59,60 @@
       "countryId": 75,
       "name": "Andorra",
       "pool": "Pool E",
-      "players": []
+      "players": [
+        {
+          "playerId": 55157214,
+          "name": "Carles Burguès"
+        },
+        {
+          "playerId": 55466524,
+          "name": "Pere Jordi Cusí"
+        },
+        {
+          "playerId": 55713050,
+          "name": "Daniel Obrador"
+        },
+        {
+          "playerId": 55711600,
+          "name": "Francesc Piferrer"
+        },
+        {
+          "playerId": 55162475,
+          "name": "Martí Trincher"
+        },
+        {
+          "playerId": 55159280,
+          "name": "Marc Llabot"
+        },
+        {
+          "playerId": 55462247,
+          "name": "Carles Sarro"
+        },
+        {
+          "playerId": 55158237,
+          "name": "Albert Clar"
+        },
+        {
+          "playerId": 55463389,
+          "name": "Pol Escribà"
+        },
+        {
+          "playerId": 55464286,
+          "name": "Miquel Montserrat"
+        },
+        {
+          "playerId": 55466963,
+          "name": "Ferran Angulo"
+        },
+        {
+          "playerId": 55468149,
+          "name": "Joel Valdés"
+        },
+        {
+          "playerId": 55718991,
+          "name": "Martí Castell"
+        }
+      ]
     },
     {
       "countryId": 2,
@@ -1425,6 +1478,10 @@
         {
           "playerId": 55158664,
           "name": "Saimun Chun"
+        },
+        {
+          "playerId": 55095236,
+          "name": "Lei Junguo"
         },
         {
           "playerId": 55095738,
@@ -2878,6 +2935,10 @@
           "name": "Quentin Ritaine"
         },
         {
+          "playerId": 55375875,
+          "name": "Lucien Dünsch"
+        },
+        {
           "playerId": 55375893,
           "name": "Albert Crettaz"
         },
@@ -3345,6 +3406,10 @@
         {
           "playerId": 55444876,
           "name": "Mikko Rautavuori"
+        },
+        {
+          "playerId": 55444881,
+          "name": "George Jokisalo"
         }
       ]
     },
@@ -3632,6 +3697,10 @@
         {
           "playerId": 54902890,
           "name": "Freddy Cockrell"
+        },
+        {
+          "playerId": 54902733,
+          "name": "Jonathan Beer"
         },
         {
           "playerId": 54902633,
