@@ -37,3 +37,17 @@ export function currentWeekForSeason(season, now = new Date()) {
   if (diffDays < 0 || diffDays >= SEASON_DURATION_DAYS) return null;
   return Math.floor(diffDays / 7) + 1;
 }
+
+/**
+ * First date that counts for return-vs-new roster classification.
+ * W1 is U21 training. Competitive tracking starts Sunday of W2
+ * (season start Saturday + 8 days). Saturday of W2 does not count.
+ */
+export function competitiveRosterStartMs(season) {
+  return getSeasonStartMs(season) + 8 * 86400000;
+}
+
+/** YYYY-MM-DD (UTC) of Sunday of W2. */
+export function competitiveRosterStartDate(season) {
+  return new Date(competitiveRosterStartMs(season)).toISOString().slice(0, 10);
+}

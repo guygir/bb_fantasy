@@ -1,6 +1,10 @@
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
-import { currentWeekForSeason, resolveCurrentSeasonFromEnv } from "@/lib/season-calendar";
+import {
+  competitiveRosterStartDate,
+  currentWeekForSeason,
+  resolveCurrentSeasonFromEnv,
+} from "@/lib/season-calendar";
 
 export { currentWeekForSeason, resolveCurrentSeasonFromEnv };
 
@@ -74,6 +78,50 @@ export interface U21RosterEvent {
 export interface U21RosterEventsFile {
   season: number;
   events: U21RosterEvent[];
+}
+
+/** Leave on or after Sunday of W2 counts for a later "returned". */
+export function dateCountsForRosterReturn(season: number, date: string | null | undefined): boolean {
+  if (!date) return false;
+  return date >= competitiveRosterStartDate(season);
+}
+
+/** Rewrite stored "returned" events that only had a W1 / Saturday-W2 leave. */
+export function reclassifyRosterReturnEvents(
+  season: number,
+  events: U21RosterEvent[],
+  players?: Record<string, U21TrackerPlayerRecord> | null
+): U21RosterEvent[] {
+  return events.map((event, index) => {
+    if (event.type !== "returned") return event;
+    let lastLeft: U21RosterEvent | null = null;
+    for (let i = index - 1; i >= 0; i--) {
+      const prev = events[i];
+      if (
+        prev.playerId === event.playerId &&
+        prev.countryId === event.countryId &&
+        prev.type === "left"
+      ) {
+        lastLeft = prev;
+        break;
+      }
+    }
+    const leaveCounts = lastLeft
+      ? dateCountsForRosterReturn(season, lastLeft.date) ||
+        (!lastLeft.date && (lastLeft.week ?? 0) >= 3)
+      : false;
+    if (leaveCounts) return event;
+    const rec = players?.[String(event.playerId)];
+    const priorCounting = (rec?.stints || []).some(
+      (s) =>
+        Boolean(s.toDate) &&
+        s.toDate! < event.date &&
+        s.toDate! >= competitiveRosterStartDate(season)
+    );
+    if (priorCounting) return event;
+    const { weeksAway: _weeksAway, ...rest } = event;
+    return { ...rest, type: "joined" };
+  });
 }
 
 export interface U21OnSalePlayer {
@@ -170,8 +218,17 @@ export async function loadRosterEvents(season: number): Promise<U21RosterEventsF
   const local = await readJsonLocal<U21RosterEventsFile>(
     join(dataDir(season), "roster-events.json")
   );
-  if (local) return local;
-  return readJsonRemote<U21RosterEventsFile>(`${githubRawBase()}/s${season}/roster-events.json`);
+  const [file, players] = await Promise.all([
+    local
+      ? Promise.resolve(local)
+      : readJsonRemote<U21RosterEventsFile>(`${githubRawBase()}/s${season}/roster-events.json`),
+    loadPlayersIndex(season),
+  ]);
+  if (!file) return null;
+  return {
+    ...file,
+    events: reclassifyRosterReturnEvents(season, file.events || [], players?.players),
+  };
 }
 
 export async function loadOnSale(season: number): Promise<U21OnSaleFile | null> {

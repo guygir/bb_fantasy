@@ -20,12 +20,81 @@ export {
   getSeasonStartMs,
   currentWeekForSeason,
   resolveCurrentSeasonFromEnv,
+  competitiveRosterStartDate,
 } from "./season-calendar.mjs";
 
-import { resolveCurrentSeasonFromEnv } from "./season-calendar.mjs";
+import { competitiveRosterStartDate, resolveCurrentSeasonFromEnv } from "./season-calendar.mjs";
 
 export function getSeason() {
   return resolveCurrentSeasonFromEnv();
+}
+
+/** Leave/stint end on or after Sunday of W2 counts for a later "returned". */
+export function dateCountsForRosterReturn(season, date) {
+  if (!date) return false;
+  return String(date) >= competitiveRosterStartDate(season);
+}
+
+export function closedStintCountsForRosterReturn(season, stint) {
+  if (!stint) return false;
+  if (stint.toDate) return dateCountsForRosterReturn(season, stint.toDate);
+  return (stint.toWeek ?? 0) >= 3;
+}
+
+/**
+ * Rejoin is "returned" only if the player already had a closed stint that
+ * lasted into the competitive window (Sunday W2 onward). W1 / Saturday W2
+ * leaves do not count — those later rejoins are "joined" (new).
+ */
+export function shouldClassifyAsReturn(season, existing, countryId) {
+  if (!existing || existing.countryId !== countryId) return false;
+  const stints = existing.stints || [];
+  if (stints.some((s) => s.toWeek == null && s.toDate == null)) return false;
+  return stints.some(
+    (s) => (s.toWeek != null || s.toDate != null) && closedStintCountsForRosterReturn(season, s)
+  );
+}
+
+export function lastCountingClosedStint(season, existing) {
+  return (existing?.stints || [])
+    .filter((s) => (s.toWeek != null || s.toDate != null) && closedStintCountsForRosterReturn(season, s))
+    .sort((a, b) => {
+      const weekCmp = (a.toWeek ?? 0) - (b.toWeek ?? 0);
+      if (weekCmp !== 0) return weekCmp;
+      return String(a.toDate || "").localeCompare(String(b.toDate || ""));
+    })
+    .at(-1);
+}
+
+/** Rewrite stored "returned" events that only had a pre-competitive leave. */
+export function reclassifyRosterReturnEvents(season, events, players = null) {
+  return (events || []).map((event, index) => {
+    if (event.type !== "returned") return event;
+    let lastLeft = null;
+    for (let i = index - 1; i >= 0; i--) {
+      const prev = events[i];
+      if (
+        prev.playerId === event.playerId &&
+        prev.countryId === event.countryId &&
+        prev.type === "left"
+      ) {
+        lastLeft = prev;
+        break;
+      }
+    }
+    const leaveCounts = lastLeft
+      ? dateCountsForRosterReturn(season, lastLeft.date) ||
+        (!lastLeft.date && (lastLeft.week ?? 0) >= 3)
+      : false;
+    if (leaveCounts) return event;
+    const rec = players?.[String(event.playerId)];
+    const priorCounting = (rec?.stints || []).some(
+      (s) => s.toDate && s.toDate < event.date && closedStintCountsForRosterReturn(season, s)
+    );
+    if (priorCounting) return event;
+    const { weeksAway: _weeksAway, ...rest } = event;
+    return { ...rest, type: "joined" };
+  });
 }
 
 /** Calendar date in Asia/Jerusalem as YYYY-MM-DD */
@@ -492,19 +561,11 @@ export function applyRosterDiff({
 
       const key = String(p.playerId);
       const existing = players[key];
-      const closedStints = (existing?.stints || [])
-        .filter((s) => s.toWeek != null || s.toDate != null)
-        .sort((a, b) => (a.toWeek ?? 0) - (b.toWeek ?? 0));
-      const isReturn = Boolean(
-        existing &&
-          closedStints.length &&
-          existing.countryId === c.countryId &&
-          !(existing.stints || []).some((s) => s.toWeek == null && s.toDate == null)
-      );
+      const isReturn = shouldClassifyAsReturn(season, existing, c.countryId);
 
       if (isReturn) {
-        const last = closedStints[closedStints.length - 1];
-        const lastWeek = last.toWeek ?? week - 1;
+        const last = lastCountingClosedStint(season, existing);
+        const lastWeek = last?.toWeek ?? week - 1;
         const weeksAway = Math.max(1, week - lastWeek);
         events.push({
           ts: scrapedAt,
@@ -635,7 +696,7 @@ export function applyRosterDiff({
     countries: mergedCountries,
   });
   writeJson(playersPath, { season, updatedAt: scrapedAt, players });
-  writeJson(eventsPath, { season, events });
+  writeJson(eventsPath, { season, events: reclassifyRosterReturnEvents(season, events, players) });
 
   return { bootstrapped: false, eventsAdded, rosterPath, playersPath, eventsPath };
 }
