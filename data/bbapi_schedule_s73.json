@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 73,
-    "fetched": "2026-08-24T02:56:11.843Z"
+    "fetched": "2026-08-25T02:51:49.638Z"
   },
   "matches": [
     {
@@ -55,10 +55,10 @@
       "start": "2026-08-24T17:30:00Z",
       "type": "nt.roundrobin",
       "awayTeamId": "1015",
-      "awayTeamName": "Israel U21",
+      "awayTeamName": "Israel",
       "awayScore": null,
       "homeTeamId": "1045",
-      "homeTeamName": "Hong Kong U21",
+      "homeTeamName": "Hong Kong",
       "homeScore": null
     },
     {
