@@ -1565,8 +1565,7 @@
       "countryId": 15,
       "playerId": 55029695,
       "name": "Aviram Tzarfati",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-11T06:45:30.026Z",
@@ -1575,8 +1574,7 @@
       "countryId": 15,
       "playerId": 55029806,
       "name": "Michael Meron",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-11T06:45:30.026Z",
@@ -1585,8 +1583,7 @@
       "countryId": 15,
       "playerId": 55334059,
       "name": "Meidad Yesha'ayahu",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-11T06:45:30.026Z",
@@ -2972,8 +2969,7 @@
       "countryId": 18,
       "playerId": 55038805,
       "name": "Leandro Cardona",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-14T07:06:45.842Z",
@@ -3513,8 +3509,7 @@
       "countryId": 15,
       "playerId": 55334333,
       "name": "Nativ Dolev",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-15T06:19:14.309Z",
@@ -4297,8 +4292,7 @@
       "countryId": 12,
       "playerId": 55006129,
       "name": "Thimios Ntouvaris",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4307,8 +4301,7 @@
       "countryId": 12,
       "playerId": 55004944,
       "name": "Yiorgos Mistriotis",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4371,8 +4364,7 @@
       "countryId": 67,
       "playerId": 55466587,
       "name": "Nino Slabej",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4381,8 +4373,7 @@
       "countryId": 67,
       "playerId": 55158054,
       "name": "Vojtech Mladšík",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4391,8 +4382,7 @@
       "countryId": 67,
       "playerId": 55139657,
       "name": "Orest Durcenka",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4401,8 +4391,7 @@
       "countryId": 67,
       "playerId": 55139760,
       "name": "Ondrej Velčovský",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4411,8 +4400,7 @@
       "countryId": 67,
       "playerId": 55158095,
       "name": "Alfréd Martinek",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4421,8 +4409,7 @@
       "countryId": 67,
       "playerId": 55444042,
       "name": "Šimon Gužák",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4431,8 +4418,7 @@
       "countryId": 67,
       "playerId": 55444121,
       "name": "Andreas Lopuchovský",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-16T06:21:26.609Z",
@@ -4522,8 +4508,7 @@
       "countryId": 7,
       "playerId": 54950929,
       "name": "Juan Luis Álvarez de Miranda",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4532,8 +4517,7 @@
       "countryId": 7,
       "playerId": 54952195,
       "name": "Daniel Pallarès",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4551,8 +4535,7 @@
       "countryId": 7,
       "playerId": 54952056,
       "name": "Martín Cerdeira",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4561,8 +4544,7 @@
       "countryId": 7,
       "playerId": 55256660,
       "name": "Tomás Leciñana",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4571,8 +4553,7 @@
       "countryId": 7,
       "playerId": 55254915,
       "name": "Roc Martínez",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4581,8 +4562,7 @@
       "countryId": 7,
       "playerId": 54950016,
       "name": "Manuel Sánchez",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4600,8 +4580,7 @@
       "countryId": 7,
       "playerId": 54950709,
       "name": "Pedro Puig Duran",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4610,8 +4589,7 @@
       "countryId": 7,
       "playerId": 55257162,
       "name": "Alfredo Abellá",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4620,8 +4598,7 @@
       "countryId": 7,
       "playerId": 55257783,
       "name": "Federico Montiel",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4630,8 +4607,7 @@
       "countryId": 7,
       "playerId": 55258406,
       "name": "Cristòfor Agramunt",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4640,8 +4616,7 @@
       "countryId": 20,
       "playerId": 55048510,
       "name": "Vytautas Dorofejus",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4650,8 +4625,7 @@
       "countryId": 20,
       "playerId": 55048229,
       "name": "Edvardas Napeklys",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4669,8 +4643,7 @@
       "countryId": 20,
       "playerId": 55046850,
       "name": "Mariusz Harazim",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4679,8 +4652,7 @@
       "countryId": 20,
       "playerId": 55046775,
       "name": "Matas Maziliauskas",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4689,8 +4661,7 @@
       "countryId": 20,
       "playerId": 55047001,
       "name": "Kostas Plukys",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4699,8 +4670,7 @@
       "countryId": 20,
       "playerId": 55047646,
       "name": "Ginutis Petrauskis",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4709,8 +4679,7 @@
       "countryId": 20,
       "playerId": 55047870,
       "name": "Juvencijus Kondratenkovas",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4719,8 +4688,7 @@
       "countryId": 20,
       "playerId": 55048296,
       "name": "Vytukas Ružinas",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4729,8 +4697,7 @@
       "countryId": 20,
       "playerId": 55048489,
       "name": "Viachka Ledakovich",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4739,8 +4706,7 @@
       "countryId": 20,
       "playerId": 55048588,
       "name": "Malkelis Kievinas",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4776,8 +4742,7 @@
       "countryId": 67,
       "playerId": 55443828,
       "name": "Matej Hálka",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4786,8 +4751,7 @@
       "countryId": 67,
       "playerId": 55139868,
       "name": "Milan Kosturský",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4796,8 +4760,7 @@
       "countryId": 67,
       "playerId": 55443949,
       "name": "Jakub Savčák",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4806,8 +4769,7 @@
       "countryId": 69,
       "playerId": 55140634,
       "name": "Matti Bergström",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4816,8 +4778,7 @@
       "countryId": 69,
       "playerId": 55140735,
       "name": "Erno Pankkonen",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4826,8 +4787,7 @@
       "countryId": 69,
       "playerId": 55140741,
       "name": "Juho Hilden",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4836,8 +4796,7 @@
       "countryId": 69,
       "playerId": 55140761,
       "name": "Juha Korander",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4846,8 +4805,7 @@
       "countryId": 69,
       "playerId": 55140866,
       "name": "Juuso Rautio",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4856,8 +4814,7 @@
       "countryId": 69,
       "playerId": 55140873,
       "name": "Ville Juntunen",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4866,8 +4823,7 @@
       "countryId": 69,
       "playerId": 55141000,
       "name": "Lauri Rosqvist",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4876,8 +4832,7 @@
       "countryId": 69,
       "playerId": 55141151,
       "name": "Markus Peuranen",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4886,8 +4841,7 @@
       "countryId": 69,
       "playerId": 55159107,
       "name": "Eetu Siiropää",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4896,8 +4850,7 @@
       "countryId": 69,
       "playerId": 55159343,
       "name": "Pekka Palmgrén",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-17T06:31:30.442Z",
@@ -4906,8 +4859,7 @@
       "countryId": 69,
       "playerId": 55444876,
       "name": "Mikko Rautavuori",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4916,8 +4868,7 @@
       "countryId": 2,
       "playerId": 54917374,
       "name": "Jean Luca Peralta",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4926,8 +4877,7 @@
       "countryId": 2,
       "playerId": 54917195,
       "name": "Víctor Villaragut",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4936,8 +4886,7 @@
       "countryId": 2,
       "playerId": 55222003,
       "name": "Michael Heck",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4946,8 +4895,7 @@
       "countryId": 2,
       "playerId": 54917865,
       "name": "Chimo Sobis",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4956,8 +4904,7 @@
       "countryId": 2,
       "playerId": 55221888,
       "name": "Édouard Ferrari",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4966,8 +4913,7 @@
       "countryId": 2,
       "playerId": 54917021,
       "name": "Julián Gabriel Gareca",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4976,8 +4922,7 @@
       "countryId": 2,
       "playerId": 55222058,
       "name": "Héctor Julio Cavallo",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4986,8 +4931,7 @@
       "countryId": 2,
       "playerId": 55221781,
       "name": "Gerónimo Nieto",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -4996,8 +4940,7 @@
       "countryId": 2,
       "playerId": 55221819,
       "name": "Laro Suelves",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5006,8 +4949,7 @@
       "countryId": 2,
       "playerId": 55221841,
       "name": "Juan Ernesto Válido",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5016,8 +4958,7 @@
       "countryId": 2,
       "playerId": 55221941,
       "name": "Juan Rezza",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5026,8 +4967,7 @@
       "countryId": 2,
       "playerId": 55221984,
       "name": "Patricio José Giordano",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5063,8 +5003,7 @@
       "countryId": 11,
       "playerId": 54988835,
       "name": "Édouard Vienne",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5082,8 +5021,7 @@
       "countryId": 11,
       "playerId": 54990238,
       "name": "Benoît Quétier",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5110,8 +5048,7 @@
       "countryId": 11,
       "playerId": 54988230,
       "name": "Pierre Beauquis",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5138,8 +5075,7 @@
       "countryId": 11,
       "playerId": 54988824,
       "name": "David Chevallier",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5148,8 +5084,7 @@
       "countryId": 11,
       "playerId": 54989057,
       "name": "Younes Ben Amara",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5167,8 +5102,7 @@
       "countryId": 11,
       "playerId": 54989914,
       "name": "David Véron",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5177,8 +5111,7 @@
       "countryId": 11,
       "playerId": 55158754,
       "name": "Robin Lenoël",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5187,8 +5120,7 @@
       "countryId": 11,
       "playerId": 55295114,
       "name": "Kaddour El Karni",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5225,8 +5157,7 @@
       "countryId": 10,
       "playerId": 54975300,
       "name": "William Piscaglia",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5235,8 +5166,7 @@
       "countryId": 10,
       "playerId": 54975047,
       "name": "Florindo Cairo",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5245,8 +5175,7 @@
       "countryId": 10,
       "playerId": 54973149,
       "name": "Paolo Sorce",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5255,8 +5184,7 @@
       "countryId": 10,
       "playerId": 54971980,
       "name": "Alessandro Hoz",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5265,8 +5193,7 @@
       "countryId": 10,
       "playerId": 54972285,
       "name": "Donato Bauducco",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5275,8 +5202,7 @@
       "countryId": 10,
       "playerId": 54972588,
       "name": "Ettore Taini",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5285,8 +5211,7 @@
       "countryId": 10,
       "playerId": 54973780,
       "name": "Rino Succu",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5295,8 +5220,7 @@
       "countryId": 10,
       "playerId": 54974368,
       "name": "Bruno Nicastro",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5305,8 +5229,7 @@
       "countryId": 10,
       "playerId": 54975189,
       "name": "Paolo Locci",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5315,8 +5238,7 @@
       "countryId": 10,
       "playerId": 54975342,
       "name": "Seran Soverini",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5325,8 +5247,7 @@
       "countryId": 10,
       "playerId": 55160239,
       "name": "Roberto Toti",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5335,8 +5256,7 @@
       "countryId": 10,
       "playerId": 55278133,
       "name": "Filippo Ribet",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5345,8 +5265,7 @@
       "countryId": 20,
       "playerId": 55047318,
       "name": "Valdas Peldunas",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5364,8 +5283,7 @@
       "countryId": 67,
       "playerId": 55157466,
       "name": "Zoran Zverka",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5374,8 +5292,7 @@
       "countryId": 29,
       "playerId": 55073194,
       "name": "Pavle Tankosić",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5384,8 +5301,7 @@
       "countryId": 29,
       "playerId": 55377145,
       "name": "Krstivoje Naumovski",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5394,8 +5310,7 @@
       "countryId": 29,
       "playerId": 55466193,
       "name": "Slobodan Špirović",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5422,8 +5337,7 @@
       "countryId": 29,
       "playerId": 55072669,
       "name": "Slobodan Rapajić",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5432,8 +5346,7 @@
       "countryId": 29,
       "playerId": 55072745,
       "name": "Miloš Mišić",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5451,8 +5364,7 @@
       "countryId": 29,
       "playerId": 55376992,
       "name": "Lazar Vlastimirović",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5461,8 +5373,7 @@
       "countryId": 29,
       "playerId": 55377239,
       "name": "Darko Popović",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5471,8 +5382,7 @@
       "countryId": 29,
       "playerId": 55377439,
       "name": "Dule Vasiljević",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-18T06:23:38.754Z",
@@ -5571,8 +5481,7 @@
       "countryId": 19,
       "playerId": 55042910,
       "name": "Boris Khrustalev",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-22T06:20:50.037Z",
@@ -5581,8 +5490,7 @@
       "countryId": 67,
       "playerId": 55139859,
       "name": "Miloš Mikuliak",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-22T06:20:50.037Z",
@@ -5591,8 +5499,7 @@
       "countryId": 67,
       "playerId": 55443908,
       "name": "Marián Kalinák",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-22T06:20:50.037Z",
@@ -5601,8 +5508,7 @@
       "countryId": 69,
       "playerId": 55141049,
       "name": "Pauli Meltola",
-      "type": "returned",
-      "weeksAway": 2
+      "type": "joined"
     },
     {
       "ts": "2026-08-23T06:22:25.032Z",
@@ -5761,8 +5667,7 @@
       "countryId": 69,
       "playerId": 55444881,
       "name": "George Jokisalo",
-      "type": "returned",
-      "weeksAway": 1
+      "type": "joined"
     },
     {
       "ts": "2026-08-24T06:34:49.136Z",
@@ -5771,6 +5676,132 @@
       "countryId": 1,
       "playerId": 54902733,
       "name": "Jonathan Beer",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 31,
+      "playerId": 55464258,
+      "name": "Abdelbaki Betrouni",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 2,
+      "playerId": 54916968,
+      "name": "Alfredo Serrano",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 76,
+      "playerId": 55710855,
+      "name": "Nikša Kaljić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 76,
+      "playerId": 55462416,
+      "name": "Sreten Vuković",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 76,
+      "playerId": 55466749,
+      "name": "Slobodan Penezić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 76,
+      "playerId": 55707492,
+      "name": "Vojo Luković",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 7,
+      "playerId": 54952321,
+      "name": "Pablo Ventura Rodríguez",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 7,
+      "playerId": 55254944,
+      "name": "Nardo Aceija",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 7,
+      "playerId": 54952584,
+      "name": "Miquel Planas",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 11,
+      "playerId": 54989511,
+      "name": "Mar Samb",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 11,
+      "playerId": 54988835,
+      "name": "Édouard Vienne",
+      "type": "left"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 45,
+      "playerId": 55095544,
+      "name": "Lo Shuen",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 45,
+      "playerId": 55399723,
+      "name": "Lo Yuk Chau",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-25T06:25:53.913Z",
+      "date": "2026-08-25",
+      "week": 3,
+      "countryId": 29,
+      "playerId": 55073514,
+      "name": "Alexandru Croitoru",
       "type": "joined"
     }
   ]

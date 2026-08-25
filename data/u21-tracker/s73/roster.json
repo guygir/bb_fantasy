@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 3,
-  "date": "2026-08-24",
-  "updatedAt": "2026-08-24T06:34:49.136Z",
+  "date": "2026-08-25",
+  "updatedAt": "2026-08-25T06:25:53.913Z",
   "countries": [
     {
       "countryId": 31,
@@ -16,6 +16,10 @@
         {
           "playerId": 55465989,
           "name": "Messaoud Jelloul"
+        },
+        {
+          "playerId": 55464258,
+          "name": "Abdelbaki Betrouni"
         },
         {
           "playerId": 55158011,
@@ -146,6 +150,10 @@
         {
           "playerId": 55222058,
           "name": "Héctor Julio Cavallo"
+        },
+        {
+          "playerId": 54916968,
+          "name": "Alfredo Serrano"
         },
         {
           "playerId": 55221781,
@@ -739,6 +747,10 @@
           "name": "Vuk Marković"
         },
         {
+          "playerId": 55710855,
+          "name": "Nikša Kaljić"
+        },
+        {
           "playerId": 55462212,
           "name": "Viktor Radojičić"
         },
@@ -751,8 +763,20 @@
           "name": "Dado Petrone"
         },
         {
+          "playerId": 55462416,
+          "name": "Sreten Vuković"
+        },
+        {
           "playerId": 55462698,
           "name": "Batrić Preradović"
+        },
+        {
+          "playerId": 55466749,
+          "name": "Slobodan Penezić"
+        },
+        {
+          "playerId": 55707492,
+          "name": "Vojo Luković"
         },
         {
           "playerId": 55707500,
@@ -1212,6 +1236,14 @@
           "name": "Martín Cerdeira"
         },
         {
+          "playerId": 54952321,
+          "name": "Pablo Ventura Rodríguez"
+        },
+        {
+          "playerId": 55254944,
+          "name": "Nardo Aceija"
+        },
+        {
           "playerId": 55256660,
           "name": "Tomás Leciñana"
         },
@@ -1230,6 +1262,10 @@
         {
           "playerId": 54950709,
           "name": "Pedro Puig Duran"
+        },
+        {
+          "playerId": 54952584,
+          "name": "Miquel Planas"
         },
         {
           "playerId": 55257162,
@@ -1251,12 +1287,12 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 54988835,
-          "name": "Édouard Vienne"
-        },
-        {
           "playerId": 54988479,
           "name": "Mathieu Silvestre"
+        },
+        {
+          "playerId": 54989511,
+          "name": "Mar Samb"
         },
         {
           "playerId": 54990238,
@@ -1417,6 +1453,10 @@
           "name": "Iosif Vaitsis"
         },
         {
+          "playerId": 55005084,
+          "name": "Dantis Sferas"
+        },
+        {
           "playerId": 55310039,
           "name": "Periklis Tsiafkaris"
         },
@@ -1435,10 +1475,6 @@
         {
           "playerId": 55004944,
           "name": "Yiorgos Mistriotis"
-        },
-        {
-          "playerId": 55005084,
-          "name": "Dantis Sferas"
         },
         {
           "playerId": 55005108,
@@ -1484,6 +1520,10 @@
           "name": "Lei Junguo"
         },
         {
+          "playerId": 55095544,
+          "name": "Lo Shuen"
+        },
+        {
           "playerId": 55095738,
           "name": "Li Kong Chun"
         },
@@ -1514,6 +1554,10 @@
         {
           "playerId": 55157703,
           "name": "Sung Hong Wan"
+        },
+        {
+          "playerId": 55399723,
+          "name": "Lo Yuk Chau"
         },
         {
           "playerId": 55399967,
@@ -2316,10 +2360,6 @@
           "name": "Taras Fokin"
         },
         {
-          "playerId": 55468237,
-          "name": "Vitalie Onovetchi"
-        },
-        {
           "playerId": 55461564,
           "name": "Grigory Kokotov"
         },
@@ -2334,6 +2374,10 @@
         {
           "playerId": 55468205,
           "name": "Vitalie Jomiru"
+        },
+        {
+          "playerId": 55468237,
+          "name": "Vitalie Onovetchi"
         },
         {
           "playerId": 55468292,
@@ -3335,6 +3379,10 @@
         {
           "playerId": 55073068,
           "name": "Slobodan Kalinić"
+        },
+        {
+          "playerId": 55073514,
+          "name": "Alexandru Croitoru"
         },
         {
           "playerId": 55376992,

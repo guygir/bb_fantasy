@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-24",
+  "date": "2026-08-25",
   "week": 3,
-  "updatedAt": "2026-08-24T06:34:49.136Z",
+  "updatedAt": "2026-08-25T06:25:53.913Z",
   "players": [
     {
       "playerId": 55466619,
@@ -29,6 +29,14 @@
       "dmi": 146400
     },
     {
+      "playerId": 55065533,
+      "name": "Gordan Bugarija",
+      "countryId": 24,
+      "countryName": "Hrvatska",
+      "pool": "Pool F",
+      "dmi": 208000
+    },
+    {
       "playerId": 55461564,
       "name": "Grigory Kokotov",
       "countryId": 86,
@@ -37,20 +45,12 @@
       "dmi": 123800
     },
     {
-      "playerId": 55115467,
-      "name": "Hubert Rokaszewicz",
+      "playerId": 55115515,
+      "name": "Zbigniew Chabasiński",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 633100
-    },
-    {
-      "playerId": 55117259,
-      "name": "Tomasz Frączyk",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 838500
+      "dmi": 297100
     },
     {
       "playerId": 55437673,
