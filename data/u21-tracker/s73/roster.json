@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 3,
-  "date": "2026-08-25",
-  "updatedAt": "2026-08-25T06:25:53.913Z",
+  "date": "2026-08-26",
+  "updatedAt": "2026-08-26T06:28:36.126Z",
   "countries": [
     {
       "countryId": 31,
@@ -2514,6 +2514,10 @@
           "name": "Per Mathisen"
         },
         {
+          "playerId": 55373878,
+          "name": "Jan Syrstad"
+        },
+        {
           "playerId": 55373884,
           "name": "Steffen Jo Rømo"
         },
@@ -2528,6 +2532,10 @@
         {
           "playerId": 55463310,
           "name": "Hugo Borch"
+        },
+        {
+          "playerId": 55910787,
+          "name": "Tom Pedersen"
         }
       ]
     },

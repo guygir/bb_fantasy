@@ -5803,6 +5803,24 @@
       "playerId": 55073514,
       "name": "Alexandru Croitoru",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-26T06:28:36.126Z",
+      "date": "2026-08-26",
+      "week": 3,
+      "countryId": 26,
+      "playerId": 55373878,
+      "name": "Jan Syrstad",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-26T06:28:36.126Z",
+      "date": "2026-08-26",
+      "week": 3,
+      "countryId": 26,
+      "playerId": 55910787,
+      "name": "Tom Pedersen",
+      "type": "joined"
     }
   ]
 }

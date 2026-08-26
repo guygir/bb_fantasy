@@ -1,25 +1,9 @@
 {
   "season": 73,
-  "date": "2026-08-25",
+  "date": "2026-08-26",
   "week": 3,
-  "updatedAt": "2026-08-25T06:25:53.913Z",
+  "updatedAt": "2026-08-26T06:28:36.126Z",
   "players": [
-    {
-      "playerId": 55466619,
-      "name": "Arsalan Əsri",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 235900
-    },
-    {
-      "playerId": 55082858,
-      "name": "Bozhidar Terziev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 100100
-    },
     {
       "playerId": 55368739,
       "name": "Ignacio Brahim",
@@ -45,20 +29,20 @@
       "dmi": 123800
     },
     {
+      "playerId": 55468237,
+      "name": "Vitalie Onovetchi",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 193400
+    },
+    {
       "playerId": 55115515,
       "name": "Zbigniew Chabasiński",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 297100
-    },
-    {
-      "playerId": 55437673,
-      "name": "Pavle Geladze",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 193100
     },
     {
       "playerId": 55133358,

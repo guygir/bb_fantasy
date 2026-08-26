@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-25T06:25:53.913Z",
+  "updatedAt": "2026-08-26T06:28:36.126Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7950,6 +7950,19 @@
         }
       ]
     },
+    "55373878": {
+      "name": "Jan Syrstad",
+      "countryId": 26,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-26",
+          "toDate": null
+        }
+      ]
+    },
     "55373884": {
       "name": "Steffen Jo Rømo",
       "countryId": 26,
@@ -13395,6 +13408,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-15",
+          "toDate": null
+        }
+      ]
+    },
+    "55910787": {
+      "name": "Tom Pedersen",
+      "countryId": 26,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-26",
           "toDate": null
         }
       ]
