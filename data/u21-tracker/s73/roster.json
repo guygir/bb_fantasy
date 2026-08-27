@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 3,
-  "date": "2026-08-26",
-  "updatedAt": "2026-08-26T06:28:36.126Z",
+  "date": "2026-08-27",
+  "updatedAt": "2026-08-27T17:01:36.720Z",
   "countries": [
     {
       "countryId": 31,
@@ -1579,6 +1579,10 @@
           "name": "Petar Velović"
         },
         {
+          "playerId": 55065533,
+          "name": "Gordan Bugarija"
+        },
+        {
           "playerId": 55628286,
           "name": "Emil Gega"
         },
@@ -1589,10 +1593,6 @@
         {
           "playerId": 55065331,
           "name": "Miran Vojvodić"
-        },
-        {
-          "playerId": 55065533,
-          "name": "Gordan Bugarija"
         },
         {
           "playerId": 55369649,
@@ -2216,6 +2216,10 @@
         {
           "playerId": 55107740,
           "name": "Klime Zlatkov"
+        },
+        {
+          "playerId": 55107762,
+          "name": "Kuzey Özozan"
         },
         {
           "playerId": 55107822,

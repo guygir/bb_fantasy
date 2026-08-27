@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-26T06:28:36.126Z",
+  "updatedAt": "2026-08-27T17:01:36.720Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -3846,6 +3846,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55107762": {
+      "name": "Kuzey Özozan",
+      "countryId": 49,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-27",
           "toDate": null
         }
       ]

@@ -5821,6 +5821,15 @@
       "playerId": 55910787,
       "name": "Tom Pedersen",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-27T17:01:36.720Z",
+      "date": "2026-08-27",
+      "week": 3,
+      "countryId": 49,
+      "playerId": 55107762,
+      "name": "Kuzey Özozan",
+      "type": "joined"
     }
   ]
 }

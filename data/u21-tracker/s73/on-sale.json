@@ -1,9 +1,17 @@
 {
   "season": 73,
-  "date": "2026-08-26",
+  "date": "2026-08-27",
   "week": 3,
-  "updatedAt": "2026-08-26T06:28:36.126Z",
+  "updatedAt": "2026-08-27T17:01:36.720Z",
   "players": [
+    {
+      "playerId": 55082858,
+      "name": "Bozhidar Terziev",
+      "countryId": 36,
+      "countryName": "Bulgaria",
+      "pool": "Pool F",
+      "dmi": 100100
+    },
     {
       "playerId": 55368739,
       "name": "Ignacio Brahim",
@@ -11,14 +19,6 @@
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
       "dmi": 146400
-    },
-    {
-      "playerId": 55065533,
-      "name": "Gordan Bugarija",
-      "countryId": 24,
-      "countryName": "Hrvatska",
-      "pool": "Pool F",
-      "dmi": 208000
     },
     {
       "playerId": 55461564,
@@ -37,20 +37,20 @@
       "dmi": 193400
     },
     {
-      "playerId": 55115515,
-      "name": "Zbigniew Chabasiński",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 297100
+      "playerId": 55997488,
+      "name": "Bleart Boletini",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 105900
     },
     {
-      "playerId": 55133358,
-      "name": "Soso Cheishvili",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 56000
+      "playerId": 55710901,
+      "name": "Edi Abdurrahmani",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 78600
     }
   ]
 }
