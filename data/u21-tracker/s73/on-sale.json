@@ -1,16 +1,32 @@
 {
   "season": 73,
-  "date": "2026-08-27",
+  "date": "2026-08-28",
   "week": 3,
-  "updatedAt": "2026-08-27T17:01:36.720Z",
+  "updatedAt": "2026-08-28T17:50:43.286Z",
   "players": [
+    {
+      "playerId": 55158237,
+      "name": "Albert Clar",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool E",
+      "dmi": 306100
+    },
+    {
+      "playerId": 55383231,
+      "name": "Suad Dobrić",
+      "countryId": 35,
+      "countryName": "Bosna i Hercegovina",
+      "pool": "Pool B",
+      "dmi": 199100
+    },
     {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 100100
+      "dmi": 137900
     },
     {
       "playerId": 55368739,
@@ -18,15 +34,7 @@
       "countryId": 22,
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
-      "dmi": 146400
-    },
-    {
-      "playerId": 55461564,
-      "name": "Grigory Kokotov",
-      "countryId": 86,
-      "countryName": "Moldova",
-      "pool": "Pool A",
-      "dmi": 123800
+      "dmi": 241400
     },
     {
       "playerId": 55468237,
@@ -34,7 +42,7 @@
       "countryId": 86,
       "countryName": "Moldova",
       "pool": "Pool A",
-      "dmi": 193400
+      "dmi": 98600
     },
     {
       "playerId": 55997488,
@@ -42,7 +50,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 105900
+      "dmi": 95800
     },
     {
       "playerId": 55710901,
@@ -50,7 +58,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 78600
+      "dmi": 176200
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 3,
-  "date": "2026-08-27",
-  "updatedAt": "2026-08-27T17:01:36.720Z",
+  "date": "2026-08-28",
+  "updatedAt": "2026-08-28T17:50:43.286Z",
   "countries": [
     {
       "countryId": 31,
@@ -398,6 +398,10 @@
         {
           "playerId": 55465496,
           "name": "Igor Lučić"
+        },
+        {
+          "playerId": 55078849,
+          "name": "Muhamed Sudić"
         },
         {
           "playerId": 55462810,
@@ -1120,6 +1124,10 @@
         {
           "playerId": 55089525,
           "name": "Tanel Tamm"
+        },
+        {
+          "playerId": 55089664,
+          "name": "Endel Liiv"
         },
         {
           "playerId": 55089799,
@@ -2896,6 +2904,14 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 55686960,
+          "name": "Kartlos Akhalaia"
+        },
+        {
+          "playerId": 55686961,
+          "name": "Vefik Acahan"
+        },
+        {
           "playerId": 55463549,
           "name": "David Sopromadze"
         },
@@ -2983,6 +2999,10 @@
           "name": "Pascal Darchinger"
         },
         {
+          "playerId": 55634402,
+          "name": "Alois Rindlisbacher"
+        },
+        {
           "playerId": 55071660,
           "name": "Timon Wyss"
         },
@@ -3013,6 +3033,14 @@
         {
           "playerId": 55376123,
           "name": "Norberto Kimmel"
+        },
+        {
+          "playerId": 55465543,
+          "name": "Udo Hochstetter"
+        },
+        {
+          "playerId": 55634342,
+          "name": "Denis Rauschenberger"
         }
       ]
     },
@@ -3322,6 +3350,10 @@
           "name": "Vavrinec Vilikovský"
         },
         {
+          "playerId": 55139616,
+          "name": "Víťazoslav Čajkovský"
+        },
+        {
           "playerId": 55139657,
           "name": "Orest Durcenka"
         },
@@ -3629,6 +3661,10 @@
           "name": "Osman Kardes"
         },
         {
+          "playerId": 55250908,
+          "name": "Cansever Savtunç"
+        },
+        {
           "playerId": 54945772,
           "name": "Tarkan Pekdemir"
         },
@@ -3647,6 +3683,10 @@
         {
           "playerId": 54946601,
           "name": "Ceylan Özlüer"
+        },
+        {
+          "playerId": 54946658,
+          "name": "Amir Olçun"
         },
         {
           "playerId": 55157453,
@@ -3694,6 +3734,10 @@
         {
           "playerId": 55078040,
           "name": "Olexiy Dobryanskiy"
+        },
+        {
+          "playerId": 55077787,
+          "name": "Yuliy Kotov"
         },
         {
           "playerId": 55382274,
@@ -3755,16 +3799,16 @@
           "name": "Jarom Bess"
         },
         {
-          "playerId": 54902890,
-          "name": "Freddy Cockrell"
-        },
-        {
           "playerId": 54902733,
           "name": "Jonathan Beer"
         },
         {
           "playerId": 54902633,
           "name": "Laverne Mercado"
+        },
+        {
+          "playerId": 54902890,
+          "name": "Freddy Cockrell"
         },
         {
           "playerId": 54900604,

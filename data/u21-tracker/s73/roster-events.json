@@ -5830,6 +5830,107 @@
       "playerId": 55107762,
       "name": "Kuzey Özozan",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 35,
+      "playerId": 55078849,
+      "name": "Muhamed Sudić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 41,
+      "playerId": 55089664,
+      "name": "Endel Liiv",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 62,
+      "playerId": 55686960,
+      "name": "Kartlos Akhalaia",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 62,
+      "playerId": 55686961,
+      "name": "Vefik Acahan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 28,
+      "playerId": 55634402,
+      "name": "Alois Rindlisbacher",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 28,
+      "playerId": 55465543,
+      "name": "Udo Hochstetter",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 28,
+      "playerId": 55634342,
+      "name": "Denis Rauschenberger",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 67,
+      "playerId": 55139616,
+      "name": "Víťazoslav Čajkovský",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 6,
+      "playerId": 55250908,
+      "name": "Cansever Savtunç",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 6,
+      "playerId": 54946658,
+      "name": "Amir Olçun",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-08-28T17:50:43.286Z",
+      "date": "2026-08-28",
+      "week": 3,
+      "countryId": 33,
+      "playerId": 55077787,
+      "name": "Yuliy Kotov",
+      "type": "joined"
     }
   ]
 }

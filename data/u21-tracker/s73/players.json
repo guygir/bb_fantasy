@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-27T17:01:36.720Z",
+  "updatedAt": "2026-08-28T17:50:43.286Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -497,13 +497,19 @@
     "54946658": {
       "name": "Amir Olçun",
       "countryId": 6,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        },
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
         }
       ]
     },
@@ -2888,6 +2894,19 @@
         }
       ]
     },
+    "55077787": {
+      "name": "Yuliy Kotov",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
+        }
+      ]
+    },
     "55077875": {
       "name": "Nicolae Cotoi",
       "countryId": 33,
@@ -2988,6 +3007,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55078849": {
+      "name": "Muhamed Sudić",
+      "countryId": 35,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
           "toDate": null
         }
       ]
@@ -3287,6 +3319,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55089664": {
+      "name": "Endel Liiv",
+      "countryId": 41,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
           "toDate": null
         }
       ]
@@ -4321,13 +4366,19 @@
     "55139616": {
       "name": "Víťazoslav Čajkovský",
       "countryId": 67,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
         }
       ]
     },
@@ -6327,13 +6378,19 @@
     "55250908": {
       "name": "Cansever Savtunç",
       "countryId": 6,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        },
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
         }
       ]
     },
@@ -11115,6 +11172,19 @@
         }
       ]
     },
+    "55465543": {
+      "name": "Udo Hochstetter",
+      "countryId": 28,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
+        }
+      ]
+    },
     "55465566": {
       "name": "Vagharsh Boghosyan",
       "countryId": 87,
@@ -12101,6 +12171,32 @@
         }
       ]
     },
+    "55634342": {
+      "name": "Denis Rauschenberger",
+      "countryId": 28,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55634402": {
+      "name": "Alois Rindlisbacher",
+      "countryId": 28,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
+        }
+      ]
+    },
     "55635389": {
       "name": "Dejan Kežman",
       "countryId": 29,
@@ -12201,6 +12297,32 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55686960": {
+      "name": "Kartlos Akhalaia",
+      "countryId": 62,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55686961": {
+      "name": "Vefik Acahan",
+      "countryId": 62,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 3,
+          "toWeek": null,
+          "fromDate": "2026-08-28",
           "toDate": null
         }
       ]
