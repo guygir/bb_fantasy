@@ -5931,6 +5931,33 @@
       "playerId": 55077787,
       "name": "Yuliy Kotov",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-29T11:55:02.705Z",
+      "date": "2026-08-29",
+      "week": 4,
+      "countryId": 9,
+      "playerId": 54970654,
+      "name": "Björn Beckman",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-29T11:55:02.705Z",
+      "date": "2026-08-29",
+      "week": 4,
+      "countryId": 9,
+      "playerId": 55570553,
+      "name": "Yiannis Aggelakakis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-29T11:55:02.705Z",
+      "date": "2026-08-29",
+      "week": 4,
+      "countryId": 9,
+      "playerId": 55570385,
+      "name": "Tore Lundlius",
+      "type": "left"
     }
   ]
 }

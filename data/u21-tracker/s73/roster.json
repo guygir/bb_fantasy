@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 3,
+  "week": 4,
   "date": "2026-08-29",
-  "updatedAt": "2026-08-28T21:14:43.544Z",
+  "updatedAt": "2026-08-29T11:55:02.705Z",
   "countries": [
     {
       "countryId": 31,
@@ -688,10 +688,6 @@
           "name": "Edgar Caicedo"
         },
         {
-          "playerId": 55368739,
-          "name": "Ignacio Brahim"
-        },
-        {
           "playerId": 55368618,
           "name": "Mario Portales"
         },
@@ -722,6 +718,10 @@
         {
           "playerId": 55368620,
           "name": "Adolfo Calderón"
+        },
+        {
+          "playerId": 55368739,
+          "name": "Ignacio Brahim"
         },
         {
           "playerId": 55464876,
@@ -3170,7 +3170,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3531,6 +3531,10 @@
           "name": "Nick Fredbom"
         },
         {
+          "playerId": 54970654,
+          "name": "Björn Beckman"
+        },
+        {
           "playerId": 54970798,
           "name": "Daniel Paulsson"
         },
@@ -3571,12 +3575,12 @@
           "name": "Johan Oskarsson"
         },
         {
-          "playerId": 55570385,
-          "name": "Tore Lundlius"
-        },
-        {
           "playerId": 55570503,
           "name": "Mikael Persson"
+        },
+        {
+          "playerId": 55570553,
+          "name": "Yiannis Aggelakakis"
         }
       ]
     },

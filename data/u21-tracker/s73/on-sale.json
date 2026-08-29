@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-28",
-  "week": 3,
-  "updatedAt": "2026-08-28T17:50:43.286Z",
+  "date": "2026-08-29",
+  "week": 4,
+  "updatedAt": "2026-08-29T11:55:02.705Z",
   "players": [
     {
       "playerId": 55158237,
@@ -29,12 +29,20 @@
       "dmi": 137900
     },
     {
-      "playerId": 55368739,
-      "name": "Ignacio Brahim",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 241400
+      "playerId": 55388646,
+      "name": "Milan Mlejnek",
+      "countryId": 37,
+      "countryName": "Ceska Rep.",
+      "pool": "Pool C",
+      "dmi": 248500
+    },
+    {
+      "playerId": 55468324,
+      "name": "Khacho Asdvadzaduryan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 133800
     },
     {
       "playerId": 55468237,
@@ -43,6 +51,14 @@
       "countryName": "Moldova",
       "pool": "Pool A",
       "dmi": 98600
+    },
+    {
+      "playerId": 55115515,
+      "name": "Zbigniew Chabasiński",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 451500
     },
     {
       "playerId": 55997488,
