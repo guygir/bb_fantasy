@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-08-29",
+  "date": "2026-08-30",
   "week": 4,
-  "updatedAt": "2026-08-29T11:55:02.705Z",
+  "updatedAt": "2026-08-30T10:52:10.606Z",
   "players": [
     {
       "playerId": 55158237,
@@ -45,12 +45,12 @@
       "dmi": 133800
     },
     {
-      "playerId": 55468237,
-      "name": "Vitalie Onovetchi",
-      "countryId": 86,
-      "countryName": "Moldova",
+      "playerId": 55463116,
+      "name": "Arnulf Doll",
+      "countryId": 27,
+      "countryName": "Österreich",
       "pool": "Pool A",
-      "dmi": 98600
+      "dmi": 44000
     },
     {
       "playerId": 55115515,
@@ -69,12 +69,12 @@
       "dmi": 95800
     },
     {
-      "playerId": 55710901,
-      "name": "Edi Abdurrahmani",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 176200
+      "playerId": 55073514,
+      "name": "Alexandru Croitoru",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 332800
     }
   ]
 }

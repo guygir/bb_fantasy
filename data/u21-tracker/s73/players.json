@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-29T11:55:02.705Z",
+  "updatedAt": "2026-08-30T10:52:10.606Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -5771,13 +5771,19 @@
     "55161699": {
       "name": "Zé Sales",
       "countryId": 18,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-10"
+        },
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-08-30",
+          "toDate": null
         }
       ]
     },
@@ -12310,6 +12316,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-19",
+          "toDate": null
+        }
+      ]
+    },
+    "55670366": {
+      "name": "Lavrentij Dostinov",
+      "countryId": 49,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-08-30",
           "toDate": null
         }
       ]

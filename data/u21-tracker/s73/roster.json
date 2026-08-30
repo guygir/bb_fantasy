@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 4,
-  "date": "2026-08-29",
-  "updatedAt": "2026-08-29T11:55:02.705Z",
+  "date": "2026-08-30",
+  "updatedAt": "2026-08-30T10:52:10.606Z",
   "countries": [
     {
       "countryId": 31,
@@ -2262,6 +2262,10 @@
           "name": "Stojan Stojkovski"
         },
         {
+          "playerId": 55670366,
+          "name": "Lavrentij Dostinov"
+        },
+        {
           "playerId": 55670409,
           "name": "Rangel Serafimovski"
         },
@@ -2741,6 +2745,10 @@
         {
           "playerId": 55039166,
           "name": "Alexandre Veloso"
+        },
+        {
+          "playerId": 55161699,
+          "name": "Zé Sales"
         },
         {
           "playerId": 55343588,

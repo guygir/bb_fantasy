@@ -5958,6 +5958,24 @@
       "playerId": 55570385,
       "name": "Tore Lundlius",
       "type": "left"
+    },
+    {
+      "ts": "2026-08-30T10:52:10.606Z",
+      "date": "2026-08-30",
+      "week": 4,
+      "countryId": 49,
+      "playerId": 55670366,
+      "name": "Lavrentij Dostinov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-08-30T10:52:10.606Z",
+      "date": "2026-08-30",
+      "week": 4,
+      "countryId": 18,
+      "playerId": 55161699,
+      "name": "Zé Sales",
+      "type": "joined"
     }
   ]
 }
