@@ -5976,6 +5976,15 @@
       "playerId": 55161699,
       "name": "Zé Sales",
       "type": "joined"
+    },
+    {
+      "ts": "2026-08-31T12:03:25.969Z",
+      "date": "2026-08-31",
+      "week": 4,
+      "countryId": 29,
+      "playerId": 55073069,
+      "name": "Slobodan Bačetić",
+      "type": "joined"
     }
   ]
 }

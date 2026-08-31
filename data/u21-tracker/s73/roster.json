@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 4,
-  "date": "2026-08-30",
-  "updatedAt": "2026-08-30T10:52:10.606Z",
+  "date": "2026-08-31",
+  "updatedAt": "2026-08-31T12:03:25.969Z",
   "countries": [
     {
       "countryId": 31,
@@ -3431,6 +3431,10 @@
         {
           "playerId": 55073068,
           "name": "Slobodan Kalinić"
+        },
+        {
+          "playerId": 55073069,
+          "name": "Slobodan Bačetić"
         },
         {
           "playerId": 55073514,

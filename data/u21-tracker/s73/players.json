@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-30T10:52:10.606Z",
+  "updatedAt": "2026-08-31T12:03:25.969Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -2833,13 +2833,19 @@
     "55073069": {
       "name": "Slobodan Bačetić",
       "countryId": 29,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-11",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-08-31",
+          "toDate": null
         }
       ]
     },
