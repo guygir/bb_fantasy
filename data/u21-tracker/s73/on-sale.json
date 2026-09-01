@@ -1,17 +1,9 @@
 {
   "season": 73,
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "week": 4,
-  "updatedAt": "2026-08-31T12:03:25.969Z",
+  "updatedAt": "2026-09-01T10:42:06.372Z",
   "players": [
-    {
-      "playerId": 55158237,
-      "name": "Albert Clar",
-      "countryId": 75,
-      "countryName": "Andorra",
-      "pool": "Pool E",
-      "dmi": 306100
-    },
     {
       "playerId": 55383231,
       "name": "Suad Dobrić",
@@ -29,20 +21,12 @@
       "dmi": 137900
     },
     {
-      "playerId": 55388646,
-      "name": "Milan Mlejnek",
-      "countryId": 37,
-      "countryName": "Ceska Rep.",
+      "playerId": 55463268,
+      "name": "Clive Lia",
+      "countryId": 90,
+      "countryName": "Malta",
       "pool": "Pool C",
-      "dmi": 248500
-    },
-    {
-      "playerId": 55468324,
-      "name": "Khacho Asdvadzaduryan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 133800
+      "dmi": 74400
     },
     {
       "playerId": 55463116,

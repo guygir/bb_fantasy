@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 4,
-  "date": "2026-08-31",
-  "updatedAt": "2026-08-31T12:03:25.969Z",
+  "date": "2026-09-01",
+  "updatedAt": "2026-09-01T10:42:06.372Z",
   "countries": [
     {
       "countryId": 31,
@@ -217,6 +217,10 @@
         {
           "playerId": 55165057,
           "name": "Baldadan Gozalov"
+        },
+        {
+          "playerId": 55463232,
+          "name": "Selgüc Hasanov"
         },
         {
           "playerId": 55463408,
@@ -473,6 +477,10 @@
         {
           "playerId": 55464700,
           "name": "Nedelcho Mitkov"
+        },
+        {
+          "playerId": 55082969,
+          "name": "Angel Sokolov"
         },
         {
           "playerId": 55082858,
@@ -1294,6 +1302,10 @@
       "name": "France",
       "pool": "World Cup - Pool A",
       "players": [
+        {
+          "playerId": 54988835,
+          "name": "Édouard Vienne"
+        },
         {
           "playerId": 54988479,
           "name": "Mathieu Silvestre"
@@ -2498,6 +2510,10 @@
           "name": "Leif Ludvig Gustavsen"
         },
         {
+          "playerId": 55712141,
+          "name": "Kåre Hauge"
+        },
+        {
           "playerId": 55160090,
           "name": "Arne Haugen"
         },
@@ -2508,6 +2524,10 @@
         {
           "playerId": 55069454,
           "name": "Hans Wisth"
+        },
+        {
+          "playerId": 55632195,
+          "name": "Jon-Ove Ryen"
         },
         {
           "playerId": 55462414,

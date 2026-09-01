@@ -5985,6 +5985,52 @@
       "playerId": 55073069,
       "name": "Slobodan Bačetić",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-01T10:42:06.372Z",
+      "date": "2026-09-01",
+      "week": 4,
+      "countryId": 88,
+      "playerId": 55463232,
+      "name": "Selgüc Hasanov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-01T10:42:06.372Z",
+      "date": "2026-09-01",
+      "week": 4,
+      "countryId": 36,
+      "playerId": 55082969,
+      "name": "Angel Sokolov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-01T10:42:06.372Z",
+      "date": "2026-09-01",
+      "week": 4,
+      "countryId": 11,
+      "playerId": 54988835,
+      "name": "Édouard Vienne",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-09-01T10:42:06.372Z",
+      "date": "2026-09-01",
+      "week": 4,
+      "countryId": 26,
+      "playerId": 55712141,
+      "name": "Kåre Hauge",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-01T10:42:06.372Z",
+      "date": "2026-09-01",
+      "week": 4,
+      "countryId": 26,
+      "playerId": 55632195,
+      "name": "Jon-Ove Ryen",
+      "type": "joined"
     }
   ]
 }

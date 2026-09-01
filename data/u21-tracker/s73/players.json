@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-08-31T12:03:25.969Z",
+  "updatedAt": "2026-09-01T10:42:06.372Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -1209,7 +1209,7 @@
     "54988835": {
       "name": "Édouard Vienne",
       "countryId": 11,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
@@ -1222,6 +1222,12 @@
           "toWeek": 3,
           "fromDate": "2026-08-18",
           "toDate": "2026-08-25"
+        },
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-01",
+          "toDate": null
         }
       ]
     },
@@ -3143,6 +3149,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-09",
+          "toDate": null
+        }
+      ]
+    },
+    "55082969": {
+      "name": "Angel Sokolov",
+      "countryId": 36,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-01",
           "toDate": null
         }
       ]
@@ -10476,6 +10495,19 @@
         }
       ]
     },
+    "55463232": {
+      "name": "Selgüc Hasanov",
+      "countryId": 88,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-01",
+          "toDate": null
+        }
+      ]
+    },
     "55463268": {
       "name": "Clive Lia",
       "countryId": 90,
@@ -12183,6 +12215,19 @@
         }
       ]
     },
+    "55632195": {
+      "name": "Jon-Ove Ryen",
+      "countryId": 26,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-01",
+          "toDate": null
+        }
+      ]
+    },
     "55633226": {
       "name": "David Tiefenbach",
       "countryId": 27,
@@ -12751,6 +12796,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-11",
+          "toDate": null
+        }
+      ]
+    },
+    "55712141": {
+      "name": "Kåre Hauge",
+      "countryId": 26,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-01",
           "toDate": null
         }
       ]
