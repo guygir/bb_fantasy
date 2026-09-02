@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-01T10:42:06.372Z",
+  "updatedAt": "2026-09-02T10:07:44.921Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -1924,13 +1924,13 @@
     "55038471": {
       "name": "Luís Pedro Cancela",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 4,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-02"
         }
       ]
     },
@@ -7664,6 +7664,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-10",
+          "toDate": null
+        }
+      ]
+    },
+    "55343037": {
+      "name": "André Capelas",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-02",
           "toDate": null
         }
       ]

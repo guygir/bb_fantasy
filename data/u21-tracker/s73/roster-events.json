@@ -6031,6 +6031,24 @@
       "playerId": 55632195,
       "name": "Jon-Ove Ryen",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-02T10:07:44.921Z",
+      "date": "2026-09-02",
+      "week": 4,
+      "countryId": 18,
+      "playerId": 55343037,
+      "name": "André Capelas",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-02T10:07:44.921Z",
+      "date": "2026-09-02",
+      "week": 4,
+      "countryId": 18,
+      "playerId": 55038471,
+      "name": "Luís Pedro Cancela",
+      "type": "left"
     }
   ]
 }
