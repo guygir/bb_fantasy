@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-02T10:07:44.921Z",
+  "updatedAt": "2026-09-03T10:18:31.184Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -3221,13 +3221,19 @@
     "55084041": {
       "name": "Jiří Maštalíř",
       "countryId": 37,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-12"
+        },
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-03",
+          "toDate": null
         }
       ]
     },

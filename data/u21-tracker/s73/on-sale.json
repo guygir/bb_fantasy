@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-02",
+  "date": "2026-09-03",
   "week": 4,
-  "updatedAt": "2026-09-02T10:07:44.921Z",
+  "updatedAt": "2026-09-03T10:18:31.184Z",
   "players": [
     {
       "playerId": 55383231,
@@ -19,6 +19,14 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 137900
+    },
+    {
+      "playerId": 55388617,
+      "name": "Karel Jaroš",
+      "countryId": 37,
+      "countryName": "Ceska Rep.",
+      "pool": "Pool C",
+      "dmi": 50800
     },
     {
       "playerId": 55468324,
@@ -45,6 +53,14 @@
       "dmi": 44000
     },
     {
+      "playerId": 55115414,
+      "name": "Ryszard Kozimor",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 716900
+    },
+    {
       "playerId": 55115515,
       "name": "Zbigniew Chabasiński",
       "countryId": 58,
@@ -53,12 +69,12 @@
       "dmi": 451500
     },
     {
-      "playerId": 55461600,
-      "name": "Nodar Adeishvili",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 81500
+      "playerId": 55997393,
+      "name": "Arsim Krashi",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 59200
     },
     {
       "playerId": 55465972,

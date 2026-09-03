@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 4,
-  "date": "2026-09-02",
-  "updatedAt": "2026-09-02T10:07:44.921Z",
+  "date": "2026-09-03",
+  "updatedAt": "2026-09-03T10:18:31.184Z",
   "countries": [
     {
       "countryId": 31,
@@ -572,6 +572,10 @@
         {
           "playerId": 55083915,
           "name": "David Roth"
+        },
+        {
+          "playerId": 55084041,
+          "name": "Jiří Maštalíř"
         },
         {
           "playerId": 55084087,

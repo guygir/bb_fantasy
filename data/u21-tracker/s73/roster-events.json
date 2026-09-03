@@ -6049,6 +6049,15 @@
       "playerId": 55038471,
       "name": "Luís Pedro Cancela",
       "type": "left"
+    },
+    {
+      "ts": "2026-09-03T10:18:31.184Z",
+      "date": "2026-09-03",
+      "week": 4,
+      "countryId": 37,
+      "playerId": 55084041,
+      "name": "Jiří Maštalíř",
+      "type": "joined"
     }
   ]
 }
