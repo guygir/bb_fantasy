@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-04T10:13:36.437Z",
+  "updatedAt": "2026-09-04T14:31:19.194Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7468,9 +7468,9 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha'ayahu",
+      "name": "Meidad Yesha&#39;ayahu",
       "countryId": 15,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
@@ -7483,6 +7483,12 @@
           "toWeek": 1,
           "fromDate": "2026-08-11",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 4,
+          "toWeek": null,
+          "fromDate": "2026-09-04",
+          "toDate": null
         }
       ]
     },
@@ -13106,7 +13112,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [

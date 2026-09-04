@@ -3,7 +3,8 @@
   "weeks": [
     1,
     2,
-    3
+    3,
+    4
   ],
   "countries": [
     {
@@ -287,5 +288,5 @@
       "pool": "World Cup - Pool A"
     }
   ],
-  "updatedAt": "2026-09-04T10:13:36.437Z"
+  "updatedAt": "2026-09-04T14:31:19.194Z"
 }

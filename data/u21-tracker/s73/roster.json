@@ -2,7 +2,7 @@
   "season": 73,
   "week": 4,
   "date": "2026-09-04",
-  "updatedAt": "2026-09-04T10:13:36.437Z",
+  "updatedAt": "2026-09-04T14:31:19.194Z",
   "countries": [
     {
       "countryId": 31,
@@ -1864,6 +1864,10 @@
           "name": "Alex Avramov"
         },
         {
+          "playerId": 55334059,
+          "name": "Meidad Yesha&#39;ayahu"
+        },
+        {
           "playerId": 55334164,
           "name": "Avni Barzilay"
         },
@@ -3202,7 +3206,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },
