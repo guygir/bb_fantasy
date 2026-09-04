@@ -1,24 +1,16 @@
 {
   "season": 73,
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "week": 4,
-  "updatedAt": "2026-09-03T10:18:31.184Z",
+  "updatedAt": "2026-09-04T10:13:36.437Z",
   "players": [
-    {
-      "playerId": 55383231,
-      "name": "Suad Dobrić",
-      "countryId": 35,
-      "countryName": "Bosna i Hercegovina",
-      "pool": "Pool B",
-      "dmi": 199100
-    },
     {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 137900
+      "dmi": 239700
     },
     {
       "playerId": 55388617,
@@ -26,7 +18,7 @@
       "countryId": 37,
       "countryName": "Ceska Rep.",
       "pool": "Pool C",
-      "dmi": 50800
+      "dmi": 47700
     },
     {
       "playerId": 55468324,
@@ -34,23 +26,15 @@
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 133800
+      "dmi": 68700
     },
     {
-      "playerId": 55463268,
-      "name": "Clive Lia",
-      "countryId": 90,
-      "countryName": "Malta",
+      "playerId": 55468250,
+      "name": "Brynleifur Ottósson",
+      "countryId": 78,
+      "countryName": "Ísland",
       "pool": "Pool C",
-      "dmi": 74400
-    },
-    {
-      "playerId": 55463116,
-      "name": "Arnulf Doll",
-      "countryId": 27,
-      "countryName": "Österreich",
-      "pool": "Pool A",
-      "dmi": 44000
+      "dmi": 170900
     },
     {
       "playerId": 55115414,
@@ -58,15 +42,15 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 716900
+      "dmi": 767400
     },
     {
-      "playerId": 55115515,
-      "name": "Zbigniew Chabasiński",
+      "playerId": 55117259,
+      "name": "Tomasz Frączyk",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 451500
+      "dmi": 441200
     },
     {
       "playerId": 55997393,
@@ -74,7 +58,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 59200
+      "dmi": 65300
     },
     {
       "playerId": 55465972,
@@ -82,7 +66,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 174900
+      "dmi": 182500
     },
     {
       "playerId": 55073514,
@@ -90,7 +74,7 @@
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
-      "dmi": 332800
+      "dmi": 418400
     }
   ]
 }

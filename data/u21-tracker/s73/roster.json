@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 4,
-  "date": "2026-09-03",
-  "updatedAt": "2026-09-03T10:18:31.184Z",
+  "date": "2026-09-04",
+  "updatedAt": "2026-09-04T10:13:36.437Z",
   "countries": [
     {
       "countryId": 31,
@@ -2589,10 +2589,6 @@
           "name": "Georg Stöger"
         },
         {
-          "playerId": 55463116,
-          "name": "Arnulf Doll"
-        },
-        {
           "playerId": 55070399,
           "name": "Johannes Ender"
         },
@@ -2631,6 +2627,10 @@
         {
           "playerId": 55374958,
           "name": "Lukas Offner"
+        },
+        {
+          "playerId": 55463116,
+          "name": "Arnulf Doll"
         },
         {
           "playerId": 55633226,
