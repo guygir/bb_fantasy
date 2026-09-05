@@ -6058,6 +6058,24 @@
       "playerId": 55084041,
       "name": "Jiří Maštalíř",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-05T09:36:43.555Z",
+      "date": "2026-09-05",
+      "week": 5,
+      "countryId": 46,
+      "playerId": 55404236,
+      "name": "Guntars Lipsks",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-05T09:36:43.555Z",
+      "date": "2026-09-05",
+      "week": 5,
+      "countryId": 64,
+      "playerId": 55462481,
+      "name": "Kieran MacNuir",
+      "type": "joined"
     }
   ]
 }

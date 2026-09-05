@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-04T14:31:19.194Z",
+  "updatedAt": "2026-09-05T09:36:43.555Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7468,7 +7468,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha&#39;ayahu",
+      "name": "Meidad Yesha'ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -9062,6 +9062,19 @@
         }
       ]
     },
+    "55404236": {
+      "name": "Guntars Lipsks",
+      "countryId": 46,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-05",
+          "toDate": null
+        }
+      ]
+    },
     "55411851": {
       "name": "Anton Dzuvalekovski",
       "countryId": 49,
@@ -10399,6 +10412,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55462481": {
+      "name": "Kieran MacNuir",
+      "countryId": 64,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-05",
           "toDate": null
         }
       ]
@@ -13112,7 +13138,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N&#39;Diaye",
+      "name": "Sidy N'Diaye",
       "countryId": 94,
       "active": true,
       "stints": [

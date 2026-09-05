@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 4,
-  "date": "2026-09-04",
-  "updatedAt": "2026-09-04T14:31:19.194Z",
+  "week": 5,
+  "date": "2026-09-05",
+  "updatedAt": "2026-09-05T09:36:43.555Z",
   "countries": [
     {
       "countryId": 31,
@@ -1394,10 +1394,6 @@
           "name": "Petik Hovakimyan"
         },
         {
-          "playerId": 55468324,
-          "name": "Khacho Asdvadzaduryan"
-        },
-        {
           "playerId": 55160571,
           "name": "Aramayis Khachatryan"
         },
@@ -1428,6 +1424,10 @@
         {
           "playerId": 55468137,
           "name": "Nareg Shahumyan"
+        },
+        {
+          "playerId": 55468324,
+          "name": "Khacho Asdvadzaduryan"
         },
         {
           "playerId": 55712234,
@@ -1865,7 +1865,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -1948,6 +1948,10 @@
         {
           "playerId": 55099719,
           "name": "Aristids Teniss"
+        },
+        {
+          "playerId": 55404236,
+          "name": "Guntars Lipsks"
         },
         {
           "playerId": 55403677,
@@ -3130,6 +3134,10 @@
           "name": "Barker MacKenzie"
         },
         {
+          "playerId": 55462481,
+          "name": "Kieran MacNuir"
+        },
+        {
           "playerId": 55463372,
           "name": "Lewis Fairclough"
         },
@@ -3206,7 +3214,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3216,16 +3224,16 @@
       "pool": "Pool D",
       "players": [
         {
+          "playerId": 55710901,
+          "name": "Edi Abdurrahmani"
+        },
+        {
           "playerId": 55465488,
           "name": "Nedin Perashi"
         },
         {
           "playerId": 55158125,
           "name": "Kron Drenica"
-        },
-        {
-          "playerId": 55710901,
-          "name": "Edi Abdurrahmani"
         },
         {
           "playerId": 55715503,
