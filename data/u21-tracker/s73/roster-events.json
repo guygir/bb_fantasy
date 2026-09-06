@@ -6076,6 +6076,24 @@
       "playerId": 55462481,
       "name": "Kieran MacNuir",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-06T09:51:46.878Z",
+      "date": "2026-09-06",
+      "week": 5,
+      "countryId": 19,
+      "playerId": 55347136,
+      "name": "Denis Merenkov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-06T09:51:46.878Z",
+      "date": "2026-09-06",
+      "week": 5,
+      "countryId": 6,
+      "playerId": 54945707,
+      "name": "Tunç Ömür",
+      "type": "joined"
     }
   ]
 }

@@ -1,9 +1,17 @@
 {
   "season": 73,
-  "date": "2026-09-05",
+  "date": "2026-09-06",
   "week": 5,
-  "updatedAt": "2026-09-05T09:36:43.555Z",
+  "updatedAt": "2026-09-06T09:51:46.878Z",
   "players": [
+    {
+      "playerId": 55383231,
+      "name": "Suad Dobrić",
+      "countryId": 35,
+      "countryName": "Bosna i Hercegovina",
+      "pool": "Pool B",
+      "dmi": 187500
+    },
     {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
@@ -13,28 +21,12 @@
       "dmi": 239700
     },
     {
-      "playerId": 55388617,
-      "name": "Karel Jaroš",
-      "countryId": 37,
-      "countryName": "Ceska Rep.",
-      "pool": "Pool C",
-      "dmi": 47700
-    },
-    {
       "playerId": 55468250,
       "name": "Brynleifur Ottósson",
       "countryId": 78,
       "countryName": "Ísland",
       "pool": "Pool C",
       "dmi": 170900
-    },
-    {
-      "playerId": 55115414,
-      "name": "Ryszard Kozimor",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 767400
     },
     {
       "playerId": 55117259,
@@ -53,12 +45,12 @@
       "dmi": 455900
     },
     {
-      "playerId": 55997393,
-      "name": "Arsim Krashi",
-      "countryId": 79,
-      "countryName": "Shqipëria",
+      "playerId": 55132368,
+      "name": "Liviu Titã",
+      "countryId": 61,
+      "countryName": "România",
       "pool": "Pool D",
-      "dmi": 65300
+      "dmi": 67300
     },
     {
       "playerId": 55997488,
@@ -67,14 +59,6 @@
       "countryName": "Shqipëria",
       "pool": "Pool D",
       "dmi": 166800
-    },
-    {
-      "playerId": 55465972,
-      "name": "Ramadan Zeka",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 182500
     },
     {
       "playerId": 55073514,

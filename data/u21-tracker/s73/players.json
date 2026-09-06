@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-05T09:36:43.555Z",
+  "updatedAt": "2026-09-06T09:51:46.878Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -412,6 +412,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "54945707": {
+      "name": "Tunç Ömür",
+      "countryId": 6,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-06",
           "toDate": null
         }
       ]
@@ -7767,6 +7780,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-15",
+          "toDate": null
+        }
+      ]
+    },
+    "55347136": {
+      "name": "Denis Merenkov",
+      "countryId": 19,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-06",
           "toDate": null
         }
       ]

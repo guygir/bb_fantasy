@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 5,
-  "date": "2026-09-05",
-  "updatedAt": "2026-09-05T09:36:43.555Z",
+  "date": "2026-09-06",
+  "updatedAt": "2026-09-06T09:51:46.878Z",
   "countries": [
     {
       "countryId": 31,
@@ -2917,6 +2917,10 @@
           "name": "Vyacheslav Kolinko"
         },
         {
+          "playerId": 55347136,
+          "name": "Denis Merenkov"
+        },
+        {
           "playerId": 55347151,
           "name": "Valery Nachkebiya"
         },
@@ -3715,6 +3719,10 @@
         {
           "playerId": 55250908,
           "name": "Cansever Savtunç"
+        },
+        {
+          "playerId": 54945707,
+          "name": "Tunç Ömür"
         },
         {
           "playerId": 54945772,
