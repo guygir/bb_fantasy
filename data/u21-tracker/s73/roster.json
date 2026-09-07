@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 5,
-  "date": "2026-09-06",
-  "updatedAt": "2026-09-06T09:51:46.878Z",
+  "date": "2026-09-07",
+  "updatedAt": "2026-09-07T10:57:35.225Z",
   "countries": [
     {
       "countryId": 31,
@@ -1607,10 +1607,6 @@
           "name": "Gordan Bugarija"
         },
         {
-          "playerId": 55628286,
-          "name": "Emil Gega"
-        },
-        {
           "playerId": 55065577,
           "name": "Tomica Komadina"
         },
@@ -1657,6 +1653,10 @@
         {
           "playerId": 55628436,
           "name": "Marin Turčinov"
+        },
+        {
+          "playerId": 55628592,
+          "name": "Vice Skorić"
         },
         {
           "playerId": 55710741,
@@ -2493,6 +2493,10 @@
         {
           "playerId": 55337944,
           "name": "Wilibrord Hensen"
+        },
+        {
+          "playerId": 55338004,
+          "name": "Jo Helmus"
         },
         {
           "playerId": 55338155,
@@ -3554,6 +3558,10 @@
         {
           "playerId": 55444881,
           "name": "George Jokisalo"
+        },
+        {
+          "playerId": 55445413,
+          "name": "Jani Kankainen"
         }
       ]
     },
@@ -3603,10 +3611,6 @@
           "name": "Alexander Askenér"
         },
         {
-          "playerId": 55275315,
-          "name": "Chipako Mali"
-        },
-        {
           "playerId": 55275334,
           "name": "Leonard Grip"
         },
@@ -3633,6 +3637,10 @@
         {
           "playerId": 55570553,
           "name": "Yiannis Aggelakakis"
+        },
+        {
+          "playerId": 55711537,
+          "name": "Anton Morgansson"
         }
       ]
     },

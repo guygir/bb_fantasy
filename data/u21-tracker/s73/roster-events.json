@@ -6094,6 +6094,60 @@
       "playerId": 54945707,
       "name": "Tunç Ömür",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-07T10:57:35.225Z",
+      "date": "2026-09-07",
+      "week": 5,
+      "countryId": 24,
+      "playerId": 55628592,
+      "name": "Vice Skorić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-07T10:57:35.225Z",
+      "date": "2026-09-07",
+      "week": 5,
+      "countryId": 24,
+      "playerId": 55628286,
+      "name": "Emil Gega",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-07T10:57:35.225Z",
+      "date": "2026-09-07",
+      "week": 5,
+      "countryId": 16,
+      "playerId": 55338004,
+      "name": "Jo Helmus",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-07T10:57:35.225Z",
+      "date": "2026-09-07",
+      "week": 5,
+      "countryId": 69,
+      "playerId": 55445413,
+      "name": "Jani Kankainen",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-07T10:57:35.225Z",
+      "date": "2026-09-07",
+      "week": 5,
+      "countryId": 9,
+      "playerId": 55711537,
+      "name": "Anton Morgansson",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-07T10:57:35.225Z",
+      "date": "2026-09-07",
+      "week": 5,
+      "countryId": 9,
+      "playerId": 55275315,
+      "name": "Chipako Mali",
+      "type": "left"
     }
   ]
 }

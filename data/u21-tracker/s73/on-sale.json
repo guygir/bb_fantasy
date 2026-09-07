@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-06",
+  "date": "2026-09-07",
   "week": 5,
-  "updatedAt": "2026-09-06T09:51:46.878Z",
+  "updatedAt": "2026-09-07T10:57:35.225Z",
   "players": [
     {
       "playerId": 55383231,
@@ -21,20 +21,12 @@
       "dmi": 239700
     },
     {
-      "playerId": 55468250,
-      "name": "Brynleifur Ottósson",
-      "countryId": 78,
-      "countryName": "Ísland",
-      "pool": "Pool C",
-      "dmi": 170900
-    },
-    {
-      "playerId": 55117259,
-      "name": "Tomasz Frączyk",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 441200
+      "playerId": 55910787,
+      "name": "Tom Pedersen",
+      "countryId": 26,
+      "countryName": "Norge",
+      "pool": "Pool E",
+      "dmi": 5300
     },
     {
       "playerId": 55115515,

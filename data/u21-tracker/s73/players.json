@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-06T09:51:46.878Z",
+  "updatedAt": "2026-09-07T10:57:35.225Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -6769,13 +6769,13 @@
     "55275315": {
       "name": "Chipako Mali",
       "countryId": 9,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 5,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-07"
         }
       ]
     },
@@ -7631,13 +7631,19 @@
     "55338004": {
       "name": "Jo Helmus",
       "countryId": 16,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-09",
           "toDate": "2026-08-13"
+        },
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-07",
+          "toDate": null
         }
       ]
     },
@@ -9822,13 +9828,19 @@
     "55445413": {
       "name": "Jani Kankainen",
       "countryId": 69,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-10",
           "toDate": "2026-08-12"
+        },
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-07",
+          "toDate": null
         }
       ]
     },
@@ -12256,13 +12268,13 @@
     "55628286": {
       "name": "Emil Gega",
       "countryId": 24,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 5,
           "fromDate": "2026-08-12",
-          "toDate": null
+          "toDate": "2026-09-07"
         }
       ]
     },
@@ -12288,6 +12300,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55628592": {
+      "name": "Vice Skorić",
+      "countryId": 24,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-07",
           "toDate": null
         }
       ]
@@ -12782,6 +12807,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55711537": {
+      "name": "Anton Morgansson",
+      "countryId": 9,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-07",
           "toDate": null
         }
       ]
