@@ -6148,6 +6148,78 @@
       "playerId": 55275315,
       "name": "Chipako Mali",
       "type": "left"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 2,
+      "playerId": 55222060,
+      "name": "Massimiliano Carella",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 7,
+      "playerId": 54953095,
+      "name": "Ignacio Dolius",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 11,
+      "playerId": 54988668,
+      "name": "Mickaël Bosc",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 11,
+      "playerId": 54990509,
+      "name": "Jean Barlet",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 10,
+      "playerId": 55279176,
+      "name": "Omar Dalmo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 10,
+      "playerId": 54974089,
+      "name": "Giancarlo Fellegara",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 61,
+      "playerId": 55132368,
+      "name": "Liviu Titã",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-08T10:14:14.449Z",
+      "date": "2026-09-08",
+      "week": 5,
+      "countryId": 29,
+      "playerId": 55072727,
+      "name": "Milovan Lopićević",
+      "type": "joined"
     }
   ]
 }

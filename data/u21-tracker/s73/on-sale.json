@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-07",
+  "date": "2026-09-08",
   "week": 5,
-  "updatedAt": "2026-09-07T10:57:35.225Z",
+  "updatedAt": "2026-09-08T10:14:14.449Z",
   "players": [
     {
       "playerId": 55383231,
@@ -13,14 +13,6 @@
       "dmi": 187500
     },
     {
-      "playerId": 55082858,
-      "name": "Bozhidar Terziev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 239700
-    },
-    {
       "playerId": 55910787,
       "name": "Tom Pedersen",
       "countryId": 26,
@@ -29,28 +21,12 @@
       "dmi": 5300
     },
     {
-      "playerId": 55115515,
-      "name": "Zbigniew Chabasiński",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 455900
-    },
-    {
-      "playerId": 55132368,
-      "name": "Liviu Titã",
-      "countryId": 61,
-      "countryName": "România",
-      "pool": "Pool D",
-      "dmi": 67300
-    },
-    {
-      "playerId": 55997488,
-      "name": "Bleart Boletini",
+      "playerId": 55997393,
+      "name": "Arsim Krashi",
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 166800
+      "dmi": 65300
     },
     {
       "playerId": 55073514,

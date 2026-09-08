@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-07T10:57:35.225Z",
+  "updatedAt": "2026-09-08T10:14:14.449Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -679,6 +679,19 @@
         }
       ]
     },
+    "54953095": {
+      "name": "Ignacio Dolius",
+      "countryId": 7,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-08",
+          "toDate": null
+        }
+      ]
+    },
     "54966446": {
       "name": "Manuel Grobow",
       "countryId": 8,
@@ -985,13 +998,19 @@
     "54974089": {
       "name": "Giancarlo Fellegara",
       "countryId": 10,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-13",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-08",
+          "toDate": null
         }
       ]
     },
@@ -1187,6 +1206,19 @@
         }
       ]
     },
+    "54988668": {
+      "name": "Mickaël Bosc",
+      "countryId": 11,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-08",
+          "toDate": null
+        }
+      ]
+    },
     "54988749": {
       "name": "Pierre Billard",
       "countryId": 11,
@@ -1336,13 +1368,13 @@
     "54990509": {
       "name": "Jean Barlet",
       "countryId": 11,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 2,
-          "toWeek": null,
+          "toWeek": 5,
           "fromDate": "2026-08-18",
-          "toDate": null
+          "toDate": "2026-09-08"
         }
       ]
     },
@@ -2804,6 +2836,19 @@
         }
       ]
     },
+    "55072727": {
+      "name": "Milovan Lopićević",
+      "countryId": 29,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-08",
+          "toDate": null
+        }
+      ]
+    },
     "55072745": {
       "name": "Miloš Mišić",
       "countryId": 29,
@@ -4228,13 +4273,13 @@
     "55132368": {
       "name": "Liviu Titã",
       "countryId": 61,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 5,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-08"
         }
       ]
     },
@@ -6321,6 +6366,19 @@
         }
       ]
     },
+    "55222060": {
+      "name": "Massimiliano Carella",
+      "countryId": 2,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-08",
+          "toDate": null
+        }
+      ]
+    },
     "55234190": {
       "name": "Chen Cunjun",
       "countryId": 5,
@@ -6898,6 +6956,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-18",
+          "toDate": null
+        }
+      ]
+    },
+    "55279176": {
+      "name": "Omar Dalmo",
+      "countryId": 10,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-08",
           "toDate": null
         }
       ]
