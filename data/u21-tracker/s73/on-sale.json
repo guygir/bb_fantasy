@@ -1,16 +1,24 @@
 {
   "season": 73,
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "week": 5,
-  "updatedAt": "2026-09-08T10:14:14.449Z",
+  "updatedAt": "2026-09-09T10:18:56.193Z",
   "players": [
     {
-      "playerId": 55383231,
-      "name": "Suad Dobrić",
-      "countryId": 35,
-      "countryName": "Bosna i Hercegovina",
-      "pool": "Pool B",
-      "dmi": 187500
+      "playerId": 55466619,
+      "name": "Arsalan Əsri",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 126800
+    },
+    {
+      "playerId": 55082858,
+      "name": "Bozhidar Terziev",
+      "countryId": 36,
+      "countryName": "Bulgaria",
+      "pool": "Pool F",
+      "dmi": 239700
     },
     {
       "playerId": 55910787,
@@ -19,6 +27,14 @@
       "countryName": "Norge",
       "pool": "Pool E",
       "dmi": 5300
+    },
+    {
+      "playerId": 55115515,
+      "name": "Zbigniew Chabasiński",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 455900
     },
     {
       "playerId": 55997393,
