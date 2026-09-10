@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 5,
-  "date": "2026-09-09",
-  "updatedAt": "2026-09-09T10:18:56.193Z",
+  "date": "2026-09-10",
+  "updatedAt": "2026-09-10T10:12:33.120Z",
   "countries": [
     {
       "countryId": 31,
@@ -124,16 +124,16 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 54917374,
-          "name": "Jean Luca Peralta"
-        },
-        {
           "playerId": 54917195,
           "name": "Víctor Villaragut"
         },
         {
           "playerId": 55222003,
           "name": "Michael Heck"
+        },
+        {
+          "playerId": 54917374,
+          "name": "Jean Luca Peralta"
         },
         {
           "playerId": 54917865,
