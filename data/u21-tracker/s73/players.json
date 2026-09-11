@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-11T10:09:30.035Z",
+  "updatedAt": "2026-09-11T14:35:54.096Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -1723,13 +1723,19 @@
     "55029538": {
       "name": "Oneg Ben-Yaacov",
       "countryId": 15,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 5,
+          "toWeek": null,
+          "fromDate": "2026-09-11",
+          "toDate": null
         }
       ]
     },
@@ -7552,7 +7558,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha'ayahu",
+      "name": "Meidad Yesha&#39;ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -13273,7 +13279,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [

@@ -2,7 +2,7 @@
   "season": 73,
   "week": 5,
   "date": "2026-09-11",
-  "updatedAt": "2026-09-11T10:09:30.035Z",
+  "updatedAt": "2026-09-11T14:35:54.096Z",
   "countries": [
     {
       "countryId": 31,
@@ -1848,6 +1848,10 @@
           "name": "Benny Yavin"
         },
         {
+          "playerId": 55029538,
+          "name": "Oneg Ben-Yaacov"
+        },
+        {
           "playerId": 55029695,
           "name": "Aviram Tzarfati"
         },
@@ -1873,7 +1877,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha'ayahu"
+          "name": "Meidad Yesha&#39;ayahu"
         },
         {
           "playerId": 55334164,
@@ -3230,7 +3234,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },
