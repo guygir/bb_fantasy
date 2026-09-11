@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "week": 5,
-  "updatedAt": "2026-09-10T10:12:33.120Z",
+  "updatedAt": "2026-09-11T10:09:30.035Z",
   "players": [
     {
       "playerId": 55466619,
@@ -10,7 +10,7 @@
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 126800
+      "dmi": 251100
     },
     {
       "playerId": 55082858,
@@ -18,15 +18,23 @@
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 239700
+      "dmi": 166500
     },
     {
-      "playerId": 55910787,
-      "name": "Tom Pedersen",
-      "countryId": 26,
-      "countryName": "Norge",
-      "pool": "Pool E",
-      "dmi": 5300
+      "playerId": 55388646,
+      "name": "Milan Mlejnek",
+      "countryId": 37,
+      "countryName": "Ceska Rep.",
+      "pool": "Pool C",
+      "dmi": 303200
+    },
+    {
+      "playerId": 55463268,
+      "name": "Clive Lia",
+      "countryId": 90,
+      "countryName": "Malta",
+      "pool": "Pool C",
+      "dmi": 155800
     },
     {
       "playerId": 55115515,
@@ -34,23 +42,15 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 455900
+      "dmi": 1294300
     },
     {
-      "playerId": 55997393,
-      "name": "Arsim Krashi",
+      "playerId": 55710901,
+      "name": "Edi Abdurrahmani",
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 65300
-    },
-    {
-      "playerId": 55073514,
-      "name": "Alexandru Croitoru",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 418400
+      "dmi": 196900
     }
   ]
 }

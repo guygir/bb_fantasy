@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 5,
-  "date": "2026-09-10",
-  "updatedAt": "2026-09-10T10:12:33.120Z",
+  "date": "2026-09-11",
+  "updatedAt": "2026-09-11T10:09:30.035Z",
   "countries": [
     {
       "countryId": 31,
@@ -2688,6 +2688,10 @@
           "name": "Kazimierz Paździor"
         },
         {
+          "playerId": 55116906,
+          "name": "Sebastian Dębowski"
+        },
+        {
           "playerId": 55116471,
           "name": "Bartłomiej Filipek"
         },
@@ -2722,10 +2726,6 @@
         {
           "playerId": 55116740,
           "name": "Franciszek Barczyszyn"
-        },
-        {
-          "playerId": 55116906,
-          "name": "Sebastian Dębowski"
         },
         {
           "playerId": 55117100,
@@ -3073,10 +3073,6 @@
         {
           "playerId": 55375875,
           "name": "Lucien Dünsch"
-        },
-        {
-          "playerId": 55375893,
-          "name": "Albert Crettaz"
         },
         {
           "playerId": 55375989,

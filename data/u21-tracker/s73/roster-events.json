@@ -6220,6 +6220,15 @@
       "playerId": 55072727,
       "name": "Milovan Lopićević",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-11T10:09:30.035Z",
+      "date": "2026-09-11",
+      "week": 5,
+      "countryId": 28,
+      "playerId": 55375893,
+      "name": "Albert Crettaz",
+      "type": "left"
     }
   ]
 }
