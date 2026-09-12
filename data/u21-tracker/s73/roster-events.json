@@ -6229,6 +6229,42 @@
       "playerId": 55375893,
       "name": "Albert Crettaz",
       "type": "left"
+    },
+    {
+      "ts": "2026-09-12T09:44:08.316Z",
+      "date": "2026-09-12",
+      "week": 6,
+      "countryId": 16,
+      "playerId": 55463059,
+      "name": "Micha Eggenkamp",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-12T09:44:08.316Z",
+      "date": "2026-09-12",
+      "week": 6,
+      "countryId": 18,
+      "playerId": 55343552,
+      "name": "Luciano Anselmo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-12T09:44:08.316Z",
+      "date": "2026-09-12",
+      "week": 6,
+      "countryId": 28,
+      "playerId": 55071568,
+      "name": "Hennes Ladwein",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-12T09:44:08.316Z",
+      "date": "2026-09-12",
+      "week": 6,
+      "countryId": 33,
+      "playerId": 55382339,
+      "name": "Stanyslav Saltovetc",
+      "type": "joined"
     }
   ]
 }

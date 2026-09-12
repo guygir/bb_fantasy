@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 5,
-  "date": "2026-09-11",
-  "updatedAt": "2026-09-11T14:35:54.096Z",
+  "week": 6,
+  "date": "2026-09-12",
+  "updatedAt": "2026-09-12T09:44:08.316Z",
   "countries": [
     {
       "countryId": 31,
@@ -1877,7 +1877,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2475,6 +2475,10 @@
           "name": "George Westbroek"
         },
         {
+          "playerId": 55463059,
+          "name": "Micha Eggenkamp"
+        },
+        {
           "playerId": 55338033,
           "name": "Lars Versteegh"
         },
@@ -2807,6 +2811,10 @@
           "name": "André Capelas"
         },
         {
+          "playerId": 55343552,
+          "name": "Luciano Anselmo"
+        },
+        {
           "playerId": 55343588,
           "name": "José França"
         }
@@ -3047,6 +3055,10 @@
           "name": "Julien Causse"
         },
         {
+          "playerId": 55071568,
+          "name": "Hennes Ladwein"
+        },
+        {
           "playerId": 55466455,
           "name": "Paolo Rodenbeck"
         },
@@ -3234,7 +3246,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3850,6 +3862,10 @@
         {
           "playerId": 55382302,
           "name": "Vladimir Shkirin"
+        },
+        {
+          "playerId": 55382339,
+          "name": "Stanyslav Saltovetc"
         },
         {
           "playerId": 55382352,
