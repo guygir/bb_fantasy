@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 6,
-  "date": "2026-09-12",
-  "updatedAt": "2026-09-12T09:44:08.316Z",
+  "date": "2026-09-13",
+  "updatedAt": "2026-09-13T10:45:39.409Z",
   "countries": [
     {
       "countryId": 31,
@@ -369,6 +369,10 @@
           "name": "Mamadou Diatta"
         },
         {
+          "playerId": 55161933,
+          "name": "Thibaut De Haes"
+        },
+        {
           "playerId": 55325650,
           "name": "Rogier Thibaut"
         },
@@ -379,6 +383,10 @@
         {
           "playerId": 55325801,
           "name": "Adolf Steensels"
+        },
+        {
+          "playerId": 55325879,
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -3122,16 +3130,16 @@
       "pool": "Pool A",
       "players": [
         {
-          "playerId": 55463942,
-          "name": "John Holmes"
-        },
-        {
           "playerId": 55160801,
           "name": "Bob Soutar"
         },
         {
           "playerId": 55462433,
           "name": "James MacLintock"
+        },
+        {
+          "playerId": 55463942,
+          "name": "John Holmes"
         },
         {
           "playerId": 55711449,

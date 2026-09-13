@@ -6265,6 +6265,25 @@
       "playerId": 55382339,
       "name": "Stanyslav Saltovetc",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-13T10:45:39.409Z",
+      "date": "2026-09-13",
+      "week": 6,
+      "countryId": 13,
+      "playerId": 55161933,
+      "name": "Thibaut De Haes",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-13T10:45:39.409Z",
+      "date": "2026-09-13",
+      "week": 6,
+      "countryId": 13,
+      "playerId": 55325879,
+      "name": "Mouss N'Dao",
+      "type": "returned",
+      "weeksAway": 4
     }
   ]
 }

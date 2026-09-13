@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-12",
+  "date": "2026-09-13",
   "week": 6,
-  "updatedAt": "2026-09-12T09:44:08.316Z",
+  "updatedAt": "2026-09-13T10:45:39.409Z",
   "players": [
     {
       "playerId": 55082858,
@@ -59,6 +59,14 @@
       "countryName": "Shqipëria",
       "pool": "Pool D",
       "dmi": 196900
+    },
+    {
+      "playerId": 55465972,
+      "name": "Ramadan Zeka",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 188700
     },
     {
       "playerId": 55439841,
