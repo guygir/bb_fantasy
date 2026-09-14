@@ -1,25 +1,9 @@
 {
   "season": 73,
-  "date": "2026-09-13",
+  "date": "2026-09-14",
   "week": 6,
-  "updatedAt": "2026-09-13T10:45:39.409Z",
+  "updatedAt": "2026-09-14T11:10:30.459Z",
   "players": [
-    {
-      "playerId": 55082858,
-      "name": "Bozhidar Terziev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 166500
-    },
-    {
-      "playerId": 55388646,
-      "name": "Milan Mlejnek",
-      "countryId": 37,
-      "countryName": "Ceska Rep.",
-      "pool": "Pool C",
-      "dmi": 303200
-    },
     {
       "playerId": 55155040,
       "name": "Andreas Galaktopoulos",
@@ -37,28 +21,12 @@
       "dmi": 1750100
     },
     {
-      "playerId": 55463268,
-      "name": "Clive Lia",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool C",
-      "dmi": 155800
-    },
-    {
       "playerId": 55115515,
       "name": "Zbigniew Chabasiński",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 1294300
-    },
-    {
-      "playerId": 55710901,
-      "name": "Edi Abdurrahmani",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 196900
     },
     {
       "playerId": 55465972,

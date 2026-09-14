@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-13T10:45:39.409Z",
+  "updatedAt": "2026-09-14T11:10:30.459Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -966,13 +966,19 @@
     "54973304": {
       "name": "Sergio Tassani",
       "countryId": 10,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-13",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 6,
+          "toWeek": null,
+          "fromDate": "2026-09-14",
+          "toDate": null
         }
       ]
     },
@@ -2470,13 +2476,19 @@
     "55048304": {
       "name": "Donatas Staponkevicius",
       "countryId": 20,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-10"
+        },
+        {
+          "fromWeek": 6,
+          "toWeek": null,
+          "fromDate": "2026-09-14",
+          "toDate": null
         }
       ]
     },
@@ -3479,6 +3491,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55089965": {
+      "name": "Rudolf Toomeoks",
+      "countryId": 41,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 6,
+          "toWeek": null,
+          "fromDate": "2026-09-14",
           "toDate": null
         }
       ]

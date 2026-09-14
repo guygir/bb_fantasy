@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 6,
-  "date": "2026-09-13",
-  "updatedAt": "2026-09-13T10:45:39.409Z",
+  "date": "2026-09-14",
+  "updatedAt": "2026-09-14T11:10:30.459Z",
   "countries": [
     {
       "countryId": 31,
@@ -842,12 +842,12 @@
           "name": "Eric Skinner"
         },
         {
-          "playerId": 55461699,
-          "name": "Jonathan MacFergus"
-        },
-        {
           "playerId": 55464900,
           "name": "Gareth Duncan"
+        },
+        {
+          "playerId": 55461699,
+          "name": "Jonathan MacFergus"
         },
         {
           "playerId": 55715111,
@@ -1136,6 +1136,10 @@
         {
           "playerId": 55089883,
           "name": "Viktor Mosyakov"
+        },
+        {
+          "playerId": 55089965,
+          "name": "Rudolf Toomeoks"
         },
         {
           "playerId": 55089156,
@@ -1939,6 +1943,10 @@
           "name": "Ettore Taini"
         },
         {
+          "playerId": 54973304,
+          "name": "Sergio Tassani"
+        },
+        {
           "playerId": 54973780,
           "name": "Rino Succu"
         },
@@ -2087,6 +2095,10 @@
         {
           "playerId": 55048296,
           "name": "Vytukas Ružinas"
+        },
+        {
+          "playerId": 55048304,
+          "name": "Donatas Staponkevicius"
         },
         {
           "playerId": 55048489,

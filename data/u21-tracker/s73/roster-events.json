@@ -6284,6 +6284,33 @@
       "name": "Mouss N'Dao",
       "type": "returned",
       "weeksAway": 4
+    },
+    {
+      "ts": "2026-09-14T11:10:30.459Z",
+      "date": "2026-09-14",
+      "week": 6,
+      "countryId": 41,
+      "playerId": 55089965,
+      "name": "Rudolf Toomeoks",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-14T11:10:30.459Z",
+      "date": "2026-09-14",
+      "week": 6,
+      "countryId": 10,
+      "playerId": 54973304,
+      "name": "Sergio Tassani",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-14T11:10:30.459Z",
+      "date": "2026-09-14",
+      "week": 6,
+      "countryId": 20,
+      "playerId": 55048304,
+      "name": "Donatas Staponkevicius",
+      "type": "joined"
     }
   ]
 }
