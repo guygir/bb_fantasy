@@ -6311,6 +6311,132 @@
       "playerId": 55048304,
       "name": "Donatas Staponkevicius",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 2,
+      "playerId": 54917657,
+      "name": "Hernán Vega",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 5,
+      "playerId": 55547693,
+      "name": "Cao Kunlei",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 5,
+      "playerId": 55548499,
+      "name": "Wang Ruifeng",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 5,
+      "playerId": 55711465,
+      "name": "Linghu Xianxiong",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 5,
+      "playerId": 54929750,
+      "name": "Lin Erwen",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 5,
+      "playerId": 55234961,
+      "name": "Deng Xue",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 7,
+      "playerId": 55256323,
+      "name": "Alfredo Roxas Sotolongo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 11,
+      "playerId": 54989620,
+      "name": "Thibaut Lafontaine",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 45,
+      "playerId": 55095491,
+      "name": "Ngai Foo Lim",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 15,
+      "playerId": 55334268,
+      "name": "Eilon Kalderon",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 15,
+      "playerId": 55029823,
+      "name": "Naim Talpaz",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 20,
+      "playerId": 55047048,
+      "name": "Almis Stafejevas",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 49,
+      "playerId": 55466146,
+      "name": "Lazar Cuculovski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-15T10:38:38.494Z",
+      "date": "2026-09-15",
+      "week": 6,
+      "countryId": 49,
+      "playerId": 55203491,
+      "name": "Veshtak Metarapi",
+      "type": "left"
     }
   ]
 }

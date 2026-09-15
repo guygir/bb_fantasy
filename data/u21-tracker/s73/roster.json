@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 6,
-  "date": "2026-09-14",
-  "updatedAt": "2026-09-14T11:10:30.459Z",
+  "date": "2026-09-15",
+  "updatedAt": "2026-09-15T10:38:38.494Z",
   "countries": [
     {
       "countryId": 31,
@@ -154,6 +154,10 @@
         {
           "playerId": 54916968,
           "name": "Alfredo Serrano"
+        },
+        {
+          "playerId": 54917657,
+          "name": "Hernán Vega"
         },
         {
           "playerId": 55221781,
@@ -661,6 +665,10 @@
           "name": "Li Zhining"
         },
         {
+          "playerId": 55547693,
+          "name": "Cao Kunlei"
+        },
+        {
           "playerId": 55463717,
           "name": "Zhuang Chuyi"
         },
@@ -669,12 +677,12 @@
           "name": "Song Yingjiang"
         },
         {
-          "playerId": 54929725,
-          "name": "Kwang-Rae Kim"
+          "playerId": 55548499,
+          "name": "Wang Ruifeng"
         },
         {
-          "playerId": 54929750,
-          "name": "Lin Erwen"
+          "playerId": 54929725,
+          "name": "Kwang-Rae Kim"
         },
         {
           "playerId": 54929849,
@@ -689,12 +697,12 @@
           "name": "Xue Kunqian"
         },
         {
-          "playerId": 55234961,
-          "name": "Deng Xue"
-        },
-        {
           "playerId": 55235118,
           "name": "Wu Yufeng"
+        },
+        {
+          "playerId": 55711465,
+          "name": "Linghu Xianxiong"
         }
       ]
     },
@@ -1308,6 +1316,10 @@
           "name": "Miquel Planas"
         },
         {
+          "playerId": 55256323,
+          "name": "Alfredo Roxas Sotolongo"
+        },
+        {
           "playerId": 55257162,
           "name": "Alfredo Abellá"
         },
@@ -1369,10 +1381,6 @@
         {
           "playerId": 54989057,
           "name": "Younes Ben Amara"
-        },
-        {
-          "playerId": 54989620,
-          "name": "Thibaut Lafontaine"
         },
         {
           "playerId": 54989914,
@@ -1582,6 +1590,10 @@
         {
           "playerId": 55095420,
           "name": "Wu Kangning"
+        },
+        {
+          "playerId": 55095491,
+          "name": "Ngai Foo Lim"
         },
         {
           "playerId": 55095534,
@@ -1844,6 +1856,10 @@
           "name": "Dekel Keinan"
         },
         {
+          "playerId": 55334268,
+          "name": "Eilon Kalderon"
+        },
+        {
           "playerId": 55029423,
           "name": "Yoni Ashkenazi"
         },
@@ -1874,10 +1890,6 @@
         {
           "playerId": 55029769,
           "name": "Assi Farkash"
-        },
-        {
-          "playerId": 55029823,
-          "name": "Naim Talpaz"
         },
         {
           "playerId": 55029866,
@@ -2075,6 +2087,10 @@
         {
           "playerId": 55047001,
           "name": "Kostas Plukys"
+        },
+        {
+          "playerId": 55047048,
+          "name": "Almis Stafejevas"
         },
         {
           "playerId": 55047318,
@@ -2278,10 +2294,6 @@
           "name": "Mitan Cuculovski"
         },
         {
-          "playerId": 55203491,
-          "name": "Veshtak Metarapi"
-        },
-        {
           "playerId": 55107708,
           "name": "Misko Levi"
         },
@@ -2320,6 +2332,10 @@
         {
           "playerId": 55412041,
           "name": "Bojan Abrashev"
+        },
+        {
+          "playerId": 55466146,
+          "name": "Lazar Cuculovski"
         },
         {
           "playerId": 55670354,
