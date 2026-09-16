@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-15",
+  "date": "2026-09-16",
   "week": 6,
-  "updatedAt": "2026-09-15T10:38:38.494Z",
+  "updatedAt": "2026-09-16T10:26:50.427Z",
   "players": [
     {
       "playerId": 55082858,
@@ -19,6 +19,54 @@
       "countryName": "China",
       "pool": "World Cup - Pool A",
       "dmi": 491700
+    },
+    {
+      "playerId": 54930497,
+      "name": "Li Zhining",
+      "countryId": 5,
+      "countryName": "China",
+      "pool": "World Cup - Pool A",
+      "dmi": 477600
+    },
+    {
+      "playerId": 54950016,
+      "name": "Manuel Sánchez",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "World Cup - Pool A",
+      "dmi": 1750100
+    },
+    {
+      "playerId": 55468250,
+      "name": "Brynleifur Ottósson",
+      "countryId": 78,
+      "countryName": "Ísland",
+      "pool": "Pool C",
+      "dmi": 147800
+    },
+    {
+      "playerId": 55437673,
+      "name": "Pavle Geladze",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 129500
+    },
+    {
+      "playerId": 55997393,
+      "name": "Arsim Krashi",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 33300
+    },
+    {
+      "playerId": 55465972,
+      "name": "Ramadan Zeka",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 188700
     }
   ]
 }
