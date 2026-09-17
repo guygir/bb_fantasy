@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-16",
+  "date": "2026-09-17",
   "week": 6,
-  "updatedAt": "2026-09-16T10:26:50.427Z",
+  "updatedAt": "2026-09-17T10:36:17.598Z",
   "players": [
     {
       "playerId": 55082858,
@@ -11,6 +11,14 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 166500
+    },
+    {
+      "playerId": 54930242,
+      "name": "He Hanping",
+      "countryId": 5,
+      "countryName": "China",
+      "pool": "World Cup - Pool A",
+      "dmi": 305300
     },
     {
       "playerId": 54929725,
@@ -29,6 +37,30 @@
       "dmi": 477600
     },
     {
+      "playerId": 54929847,
+      "name": "Xie Ruimin",
+      "countryId": 5,
+      "countryName": "China",
+      "pool": "World Cup - Pool A",
+      "dmi": 1653800
+    },
+    {
+      "playerId": 54929908,
+      "name": "Zhang Erlei",
+      "countryId": 5,
+      "countryName": "China",
+      "pool": "World Cup - Pool A",
+      "dmi": 1217700
+    },
+    {
+      "playerId": 55463552,
+      "name": "Rhodri Matthews",
+      "countryId": 81,
+      "countryName": "Cymru",
+      "pool": "Pool B",
+      "dmi": 354900
+    },
+    {
       "playerId": 54950016,
       "name": "Manuel Sánchez",
       "countryId": 7,
@@ -37,12 +69,28 @@
       "dmi": 1750100
     },
     {
+      "playerId": 55464271,
+      "name": "Harout Adamyan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 19100
+    },
+    {
       "playerId": 55468250,
       "name": "Brynleifur Ottósson",
       "countryId": 78,
       "countryName": "Ísland",
       "pool": "Pool C",
       "dmi": 147800
+    },
+    {
+      "playerId": 55117259,
+      "name": "Tomasz Frączyk",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 474400
     },
     {
       "playerId": 55437673,
