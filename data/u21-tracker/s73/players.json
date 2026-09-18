@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-18T10:12:29.332Z",
+  "updatedAt": "2026-09-18T14:38:01.955Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7360,7 +7360,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N'Dao",
+      "name": "Mouss N&#39;Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7639,7 +7639,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha'ayahu",
+      "name": "Meidad Yesha&#39;ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -13457,7 +13457,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
