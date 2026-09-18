@@ -6437,6 +6437,24 @@
       "playerId": 55203491,
       "name": "Veshtak Metarapi",
       "type": "left"
+    },
+    {
+      "ts": "2026-09-18T10:12:29.332Z",
+      "date": "2026-09-18",
+      "week": 6,
+      "countryId": 81,
+      "playerId": 55993837,
+      "name": "Marrock Conway",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-18T10:12:29.332Z",
+      "date": "2026-09-18",
+      "week": 6,
+      "countryId": 18,
+      "playerId": 55343037,
+      "name": "André Capelas",
+      "type": "left"
     }
   ]
 }

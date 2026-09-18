@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-17",
+  "date": "2026-09-18",
   "week": 6,
-  "updatedAt": "2026-09-17T10:36:17.598Z",
+  "updatedAt": "2026-09-18T10:12:29.332Z",
   "players": [
     {
       "playerId": 55082858,
@@ -10,7 +10,7 @@
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 166500
+      "dmi": 256200
     },
     {
       "playerId": 54930242,
@@ -18,15 +18,7 @@
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 305300
-    },
-    {
-      "playerId": 54929725,
-      "name": "Kwang-Rae Kim",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 491700
+      "dmi": 174100
     },
     {
       "playerId": 54930497,
@@ -34,7 +26,15 @@
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 477600
+      "dmi": 497300
+    },
+    {
+      "playerId": 54929799,
+      "name": "Mo Wendong",
+      "countryId": 5,
+      "countryName": "China",
+      "pool": "World Cup - Pool A",
+      "dmi": 211800
     },
     {
       "playerId": 54929847,
@@ -58,7 +58,7 @@
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 354900
+      "dmi": 369800
     },
     {
       "playerId": 54950016,
@@ -66,7 +66,7 @@
       "countryId": 7,
       "countryName": "España",
       "pool": "World Cup - Pool A",
-      "dmi": 1750100
+      "dmi": 775200
     },
     {
       "playerId": 55464271,
@@ -74,7 +74,7 @@
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 19100
+      "dmi": 18000
     },
     {
       "playerId": 55468250,
@@ -82,7 +82,15 @@
       "countryId": 78,
       "countryName": "Ísland",
       "pool": "Pool C",
-      "dmi": 147800
+      "dmi": 130800
+    },
+    {
+      "playerId": 55278133,
+      "name": "Filippo Ribet",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "World Cup - Pool A",
+      "dmi": 1302700
     },
     {
       "playerId": 55117259,
@@ -90,7 +98,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 474400
+      "dmi": 520700
     },
     {
       "playerId": 55437673,
@@ -98,7 +106,7 @@
       "countryId": 62,
       "countryName": "Sakartvelo",
       "pool": "Pool C",
-      "dmi": 129500
+      "dmi": 196300
     },
     {
       "playerId": 55997393,
@@ -106,7 +114,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 33300
+      "dmi": 52700
     },
     {
       "playerId": 55465972,
@@ -114,7 +122,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 188700
+      "dmi": 71600
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-17T10:36:17.598Z",
+  "updatedAt": "2026-09-18T10:12:29.332Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7866,13 +7866,13 @@
     "55343037": {
       "name": "André Capelas",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 4,
-          "toWeek": null,
+          "toWeek": 6,
           "fromDate": "2026-09-02",
-          "toDate": null
+          "toDate": "2026-09-18"
         }
       ]
     },
@@ -14397,6 +14397,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55993837": {
+      "name": "Marrock Conway",
+      "countryId": 81,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 6,
+          "toWeek": null,
+          "fromDate": "2026-09-18",
           "toDate": null
         }
       ]

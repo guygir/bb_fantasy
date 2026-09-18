@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 6,
-  "date": "2026-09-17",
-  "updatedAt": "2026-09-17T10:36:17.598Z",
+  "date": "2026-09-18",
+  "updatedAt": "2026-09-18T10:12:29.332Z",
   "countries": [
     {
       "countryId": 31,
@@ -864,6 +864,10 @@
         {
           "playerId": 55464277,
           "name": "Mark Maric"
+        },
+        {
+          "playerId": 55993837,
+          "name": "Marrock Conway"
         },
         {
           "playerId": 55462419,
@@ -2843,10 +2847,6 @@
           "name": "Zé Sales"
         },
         {
-          "playerId": 55343037,
-          "name": "André Capelas"
-        },
-        {
           "playerId": 55343552,
           "name": "Luciano Anselmo"
         },
@@ -2937,16 +2937,16 @@
           "name": "Maxim Raskin"
         },
         {
-          "playerId": 55042558,
-          "name": "Veniamin Mitchenko"
-        },
-        {
           "playerId": 55347679,
           "name": "Valeriy Tartak"
         },
         {
           "playerId": 55042539,
           "name": "Nikanor Kaunov"
+        },
+        {
+          "playerId": 55042558,
+          "name": "Veniamin Mitchenko"
         },
         {
           "playerId": 55042570,
