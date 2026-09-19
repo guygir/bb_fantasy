@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-18",
-  "week": 6,
-  "updatedAt": "2026-09-18T10:12:29.332Z",
+  "date": "2026-09-19",
+  "week": 7,
+  "updatedAt": "2026-09-19T09:53:37.042Z",
   "players": [
     {
       "playerId": 55082858,
@@ -34,7 +34,7 @@
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 211800
+      "dmi": 379900
     },
     {
       "playerId": 54929847,
@@ -42,7 +42,7 @@
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 1653800
+      "dmi": 1677000
     },
     {
       "playerId": 54929908,
@@ -50,7 +50,7 @@
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 1217700
+      "dmi": 813900
     },
     {
       "playerId": 55463552,
@@ -61,28 +61,12 @@
       "dmi": 369800
     },
     {
-      "playerId": 54950016,
-      "name": "Manuel Sánchez",
-      "countryId": 7,
-      "countryName": "España",
-      "pool": "World Cup - Pool A",
-      "dmi": 775200
-    },
-    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
       "dmi": 18000
-    },
-    {
-      "playerId": 55468250,
-      "name": "Brynleifur Ottósson",
-      "countryId": 78,
-      "countryName": "Ísland",
-      "pool": "Pool C",
-      "dmi": 130800
     },
     {
       "playerId": 55278133,
@@ -99,30 +83,6 @@
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 520700
-    },
-    {
-      "playerId": 55437673,
-      "name": "Pavle Geladze",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 196300
-    },
-    {
-      "playerId": 55997393,
-      "name": "Arsim Krashi",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 52700
-    },
-    {
-      "playerId": 55465972,
-      "name": "Ramadan Zeka",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 71600
     }
   ]
 }

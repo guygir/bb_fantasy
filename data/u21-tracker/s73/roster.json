@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 6,
-  "date": "2026-09-18",
-  "updatedAt": "2026-09-18T14:38:01.955Z",
+  "week": 7,
+  "date": "2026-09-19",
+  "updatedAt": "2026-09-19T09:53:37.042Z",
   "countries": [
     {
       "countryId": 31,
@@ -390,7 +390,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -996,6 +996,10 @@
           "name": "Ricco Bøgholm"
         },
         {
+          "playerId": 55712563,
+          "name": "Marcus Harlind Aagaard"
+        },
+        {
           "playerId": 55929334,
           "name": "Ben Von Eyben"
         },
@@ -1038,10 +1042,6 @@
         {
           "playerId": 55392446,
           "name": "Mik Lade"
-        },
-        {
-          "playerId": 55712563,
-          "name": "Marcus Harlind Aagaard"
         },
         {
           "playerId": 55929245,
@@ -1905,7 +1905,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2511,6 +2511,10 @@
           "name": "Elbert Smulders"
         },
         {
+          "playerId": 55465624,
+          "name": "Joseph Hering"
+        },
+        {
           "playerId": 55337971,
           "name": "George Westbroek"
         },
@@ -2549,10 +2553,6 @@
         {
           "playerId": 55033463,
           "name": "Davy Holtman"
-        },
-        {
-          "playerId": 55337907,
-          "name": "Jean-Marc Weener"
         },
         {
           "playerId": 55337944,
@@ -3024,10 +3024,6 @@
           "name": "David Sopromadze"
         },
         {
-          "playerId": 55437673,
-          "name": "Pavle Geladze"
-        },
-        {
           "playerId": 55133356,
           "name": "Kristesia Burjanadze"
         },
@@ -3046,6 +3042,10 @@
         {
           "playerId": 55437648,
           "name": "Valery Sologub"
+        },
+        {
+          "playerId": 55437673,
+          "name": "Pavle Geladze"
         },
         {
           "playerId": 55437678,
@@ -3282,7 +3282,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3576,6 +3576,10 @@
           "name": "Matti Bergström"
         },
         {
+          "playerId": 55140639,
+          "name": "Miika Tiaskorpi"
+        },
+        {
           "playerId": 55140735,
           "name": "Erno Pankkonen"
         },
@@ -3622,6 +3626,10 @@
         {
           "playerId": 55444881,
           "name": "George Jokisalo"
+        },
+        {
+          "playerId": 55444981,
+          "name": "Heikki Sarahete"
         },
         {
           "playerId": 55445413,

@@ -6455,6 +6455,42 @@
       "playerId": 55343037,
       "name": "André Capelas",
       "type": "left"
+    },
+    {
+      "ts": "2026-09-19T09:53:37.042Z",
+      "date": "2026-09-19",
+      "week": 7,
+      "countryId": 16,
+      "playerId": 55465624,
+      "name": "Joseph Hering",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-19T09:53:37.042Z",
+      "date": "2026-09-19",
+      "week": 7,
+      "countryId": 16,
+      "playerId": 55337907,
+      "name": "Jean-Marc Weener",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-19T09:53:37.042Z",
+      "date": "2026-09-19",
+      "week": 7,
+      "countryId": 69,
+      "playerId": 55140639,
+      "name": "Miika Tiaskorpi",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-19T09:53:37.042Z",
+      "date": "2026-09-19",
+      "week": 7,
+      "countryId": 69,
+      "playerId": 55444981,
+      "name": "Heikki Sarahete",
+      "type": "joined"
     }
   ]
 }

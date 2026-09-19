@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-18T14:38:01.955Z",
+  "updatedAt": "2026-09-19T09:53:37.042Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -4654,6 +4654,19 @@
         }
       ]
     },
+    "55140639": {
+      "name": "Miika Tiaskorpi",
+      "countryId": 69,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-19",
+          "toDate": null
+        }
+      ]
+    },
     "55140735": {
       "name": "Erno Pankkonen",
       "countryId": 69,
@@ -7360,7 +7373,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N&#39;Dao",
+      "name": "Mouss N'Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7639,7 +7652,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha&#39;ayahu",
+      "name": "Meidad Yesha'ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -7756,13 +7769,13 @@
     "55337907": {
       "name": "Jean-Marc Weener",
       "countryId": 16,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-09",
-          "toDate": null
+          "toDate": "2026-09-19"
         }
       ]
     },
@@ -9849,13 +9862,19 @@
     "55444981": {
       "name": "Heikki Sarahete",
       "countryId": 69,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-12",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-19",
+          "toDate": null
         }
       ]
     },
@@ -11569,6 +11588,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55465624": {
+      "name": "Joseph Hering",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-19",
           "toDate": null
         }
       ]
@@ -13457,7 +13489,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N&#39;Diaye",
+      "name": "Sidy N'Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
