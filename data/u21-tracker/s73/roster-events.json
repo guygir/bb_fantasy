@@ -6491,6 +6491,60 @@
       "playerId": 55444981,
       "name": "Heikki Sarahete",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-20T10:15:12.797Z",
+      "date": "2026-09-20",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 54929908,
+      "name": "Zhang Erlei",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-20T10:15:12.797Z",
+      "date": "2026-09-20",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 54930497,
+      "name": "Li Zhining",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-20T10:15:12.797Z",
+      "date": "2026-09-20",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 54929725,
+      "name": "Kwang-Rae Kim",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-20T10:15:12.797Z",
+      "date": "2026-09-20",
+      "week": 7,
+      "countryId": 18,
+      "playerId": 55157091,
+      "name": "João Miguel Novo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-20T10:15:12.797Z",
+      "date": "2026-09-20",
+      "week": 7,
+      "countryId": 18,
+      "playerId": 55343642,
+      "name": "David Couceiro",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-20T10:15:12.797Z",
+      "date": "2026-09-20",
+      "week": 7,
+      "countryId": 18,
+      "playerId": 55342997,
+      "name": "Jorge Dinis",
+      "type": "joined"
     }
   ]
 }

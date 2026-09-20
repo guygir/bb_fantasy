@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-19T09:53:37.042Z",
+  "updatedAt": "2026-09-20T10:15:12.797Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -269,13 +269,13 @@
     "54929725": {
       "name": "Kwang-Rae Kim",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-20"
         }
       ]
     },
@@ -334,13 +334,13 @@
     "54929908": {
       "name": "Zhang Erlei",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-20"
         }
       ]
     },
@@ -412,13 +412,13 @@
     "54930497": {
       "name": "Li Zhining",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-20"
         }
       ]
     },
@@ -5066,6 +5066,19 @@
         }
       ]
     },
+    "55157091": {
+      "name": "João Miguel Novo",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-20",
+          "toDate": null
+        }
+      ]
+    },
     "55157214": {
       "name": "Carles Burguès",
       "countryId": 75,
@@ -7863,6 +7876,19 @@
         }
       ]
     },
+    "55342997": {
+      "name": "Jorge Dinis",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-20",
+          "toDate": null
+        }
+      ]
+    },
     "55343005": {
       "name": "Guilherme Oliveira",
       "countryId": 18,
@@ -7937,6 +7963,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55343642": {
+      "name": "David Couceiro",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-20",
           "toDate": null
         }
       ]

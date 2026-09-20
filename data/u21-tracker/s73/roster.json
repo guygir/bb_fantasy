@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 7,
-  "date": "2026-09-19",
-  "updatedAt": "2026-09-19T09:53:37.042Z",
+  "date": "2026-09-20",
+  "updatedAt": "2026-09-20T10:15:12.797Z",
   "countries": [
     {
       "countryId": 31,
@@ -649,20 +649,12 @@
           "name": "Xie Ruimin"
         },
         {
-          "playerId": 54929908,
-          "name": "Zhang Erlei"
-        },
-        {
           "playerId": 54930242,
           "name": "He Hanping"
         },
         {
           "playerId": 54930439,
           "name": "Tao Nanxiong"
-        },
-        {
-          "playerId": 54930497,
-          "name": "Li Zhining"
         },
         {
           "playerId": 55547693,
@@ -679,10 +671,6 @@
         {
           "playerId": 55548499,
           "name": "Wang Ruifeng"
-        },
-        {
-          "playerId": 54929725,
-          "name": "Kwang-Rae Kim"
         },
         {
           "playerId": 54929849,
@@ -2817,6 +2805,18 @@
         {
           "playerId": 55343770,
           "name": "Jacinto Ávila"
+        },
+        {
+          "playerId": 55157091,
+          "name": "João Miguel Novo"
+        },
+        {
+          "playerId": 55343642,
+          "name": "David Couceiro"
+        },
+        {
+          "playerId": 55342997,
+          "name": "Jorge Dinis"
         },
         {
           "playerId": 55038587,

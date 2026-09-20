@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-19",
+  "date": "2026-09-20",
   "week": 7,
-  "updatedAt": "2026-09-19T09:53:37.042Z",
+  "updatedAt": "2026-09-20T10:15:12.797Z",
   "players": [
     {
       "playerId": 55082858,
@@ -21,14 +21,6 @@
       "dmi": 174100
     },
     {
-      "playerId": 54930497,
-      "name": "Li Zhining",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 497300
-    },
-    {
       "playerId": 54929799,
       "name": "Mo Wendong",
       "countryId": 5,
@@ -45,20 +37,12 @@
       "dmi": 1677000
     },
     {
-      "playerId": 54929908,
-      "name": "Zhang Erlei",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 813900
-    },
-    {
-      "playerId": 55463552,
-      "name": "Rhodri Matthews",
+      "playerId": 55463756,
+      "name": "Robbie McCulloch",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 369800
+      "dmi": 224800
     },
     {
       "playerId": 55464271,
@@ -75,14 +59,6 @@
       "countryName": "Italia",
       "pool": "World Cup - Pool A",
       "dmi": 1302700
-    },
-    {
-      "playerId": 55117259,
-      "name": "Tomasz Frączyk",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 520700
     }
   ]
 }
