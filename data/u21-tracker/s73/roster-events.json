@@ -6545,6 +6545,160 @@
       "playerId": 55342997,
       "name": "Jorge Dinis",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 13,
+      "playerId": 55325688,
+      "name": "Bjorn Rausin",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 13,
+      "playerId": 55326063,
+      "name": "Seth Delcart",
+      "type": "returned",
+      "weeksAway": 5
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 13,
+      "playerId": 55326120,
+      "name": "Mahmoud Ali",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 13,
+      "playerId": 55325734,
+      "name": "Geoff Manzan",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55235196,
+      "name": "Luo Xiaoliang",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55235336,
+      "name": "Pan Decai",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55235194,
+      "name": "Chen Tinghua",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55234617,
+      "name": "Fang Xiangyang",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55235180,
+      "name": "Xiahou Kunhong",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55235741,
+      "name": "Zhou Qiong",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55548208,
+      "name": "Yue Wenqing",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 54929847,
+      "name": "Xie Ruimin",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55235118,
+      "name": "Wu Yufeng",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 5,
+      "playerId": 55711465,
+      "name": "Linghu Xianxiong",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 22,
+      "playerId": 55064269,
+      "name": "Mauricio Ariza",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 22,
+      "playerId": 55368654,
+      "name": "Hugo Osmar Piano",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-21T11:20:43.300Z",
+      "date": "2026-09-21",
+      "week": 7,
+      "countryId": 45,
+      "playerId": 55095557,
+      "name": "Eu So Nin",
+      "type": "joined"
     }
   ]
 }

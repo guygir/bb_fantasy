@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-20",
+  "date": "2026-09-21",
   "week": 7,
-  "updatedAt": "2026-09-20T10:15:12.797Z",
+  "updatedAt": "2026-09-21T11:20:43.300Z",
   "players": [
     {
       "playerId": 55082858,
@@ -11,30 +11,6 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 256200
-    },
-    {
-      "playerId": 54930242,
-      "name": "He Hanping",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 174100
-    },
-    {
-      "playerId": 54929799,
-      "name": "Mo Wendong",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 379900
-    },
-    {
-      "playerId": 54929847,
-      "name": "Xie Ruimin",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 1677000
     },
     {
       "playerId": 55463756,
@@ -53,12 +29,20 @@
       "dmi": 18000
     },
     {
-      "playerId": 55278133,
-      "name": "Filippo Ribet",
-      "countryId": 10,
-      "countryName": "Italia",
-      "pool": "World Cup - Pool A",
-      "dmi": 1302700
+      "playerId": 55117100,
+      "name": "Grzegorz Dobroczyński",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 184600
+    },
+    {
+      "playerId": 55468270,
+      "name": "Verim Rasha",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 59500
     }
   ]
 }

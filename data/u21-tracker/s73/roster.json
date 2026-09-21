@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 7,
-  "date": "2026-09-20",
-  "updatedAt": "2026-09-20T10:15:12.797Z",
+  "date": "2026-09-21",
+  "updatedAt": "2026-09-21T11:20:43.300Z",
   "countries": [
     {
       "countryId": 31,
@@ -381,8 +381,8 @@
           "name": "Rogier Thibaut"
         },
         {
-          "playerId": 55325734,
-          "name": "Geoff Manzan"
+          "playerId": 55325688,
+          "name": "Bjorn Rausin"
         },
         {
           "playerId": 55325801,
@@ -395,6 +395,14 @@
         {
           "playerId": 55325939,
           "name": "Kedar Issa"
+        },
+        {
+          "playerId": 55326063,
+          "name": "Seth Delcart"
+        },
+        {
+          "playerId": 55326120,
+          "name": "Mahmoud Ali"
         },
         {
           "playerId": 55326188,
@@ -641,24 +649,24 @@
           "name": "Hou Junxing"
         },
         {
-          "playerId": 54929799,
-          "name": "Mo Wendong"
-        },
-        {
-          "playerId": 54929847,
-          "name": "Xie Ruimin"
-        },
-        {
-          "playerId": 54930242,
-          "name": "He Hanping"
+          "playerId": 55235196,
+          "name": "Luo Xiaoliang"
         },
         {
           "playerId": 54930439,
           "name": "Tao Nanxiong"
         },
         {
+          "playerId": 55235336,
+          "name": "Pan Decai"
+        },
+        {
           "playerId": 55547693,
           "name": "Cao Kunlei"
+        },
+        {
+          "playerId": 55235194,
+          "name": "Chen Tinghua"
         },
         {
           "playerId": 55463717,
@@ -673,6 +681,10 @@
           "name": "Wang Ruifeng"
         },
         {
+          "playerId": 54929799,
+          "name": "Mo Wendong"
+        },
+        {
           "playerId": 54929849,
           "name": "Ye Tiancai"
         },
@@ -681,16 +693,28 @@
           "name": "Shen Yunda"
         },
         {
+          "playerId": 54930242,
+          "name": "He Hanping"
+        },
+        {
           "playerId": 55234347,
           "name": "Xue Kunqian"
         },
         {
-          "playerId": 55235118,
-          "name": "Wu Yufeng"
+          "playerId": 55234617,
+          "name": "Fang Xiangyang"
         },
         {
-          "playerId": 55711465,
-          "name": "Linghu Xianxiong"
+          "playerId": 55235180,
+          "name": "Xiahou Kunhong"
+        },
+        {
+          "playerId": 55235741,
+          "name": "Zhou Qiong"
+        },
+        {
+          "playerId": 55548208,
+          "name": "Yue Wenqing"
         }
       ]
     },
@@ -724,6 +748,10 @@
           "name": "Fernando Fernán Pérez"
         },
         {
+          "playerId": 55064269,
+          "name": "Mauricio Ariza"
+        },
+        {
           "playerId": 55160809,
           "name": "Asdrúbal Trujillo"
         },
@@ -738,6 +766,10 @@
         {
           "playerId": 55368620,
           "name": "Adolfo Calderón"
+        },
+        {
+          "playerId": 55368654,
+          "name": "Hugo Osmar Piano"
         },
         {
           "playerId": 55368739,
@@ -1590,6 +1622,10 @@
         {
           "playerId": 55095534,
           "name": "Wong Kong Pei"
+        },
+        {
+          "playerId": 55095557,
+          "name": "Eu So Nin"
         },
         {
           "playerId": 55095610,
