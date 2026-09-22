@@ -6699,6 +6699,106 @@
       "playerId": 55095557,
       "name": "Eu So Nin",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 22,
+      "playerId": 55905463,
+      "name": "José David Lozano",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 14,
+      "playerId": 55329802,
+      "name": "Jason Furlong",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 14,
+      "playerId": 55330132,
+      "name": "Steve Blackwell",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 14,
+      "playerId": 55597475,
+      "name": "Brent Campbell",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 14,
+      "playerId": 55597690,
+      "name": "Ad Jawaid",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 11,
+      "playerId": 54990509,
+      "name": "Jean Barlet",
+      "type": "returned",
+      "weeksAway": 2
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 11,
+      "playerId": 54988576,
+      "name": "Martin Lemonnier",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 11,
+      "playerId": 55294406,
+      "name": "Fabrice Galante",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 20,
+      "playerId": 55619495,
+      "name": "Dorotėjas Pikcilingis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 9,
+      "playerId": 55275334,
+      "name": "Leonard Grip",
+      "type": "left"
+    },
+    {
+      "ts": "2026-09-22T10:30:35.391Z",
+      "date": "2026-09-22",
+      "week": 7,
+      "countryId": 33,
+      "playerId": 55382493,
+      "name": "Vasyl Zherzh",
+      "type": "joined"
     }
   ]
 }

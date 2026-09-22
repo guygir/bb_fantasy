@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-21T11:20:43.300Z",
+  "updatedAt": "2026-09-22T10:30:35.391Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -1218,6 +1218,19 @@
         }
       ]
     },
+    "54988576": {
+      "name": "Martin Lemonnier",
+      "countryId": 11,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
+          "toDate": null
+        }
+      ]
+    },
     "54988668": {
       "name": "Mickaël Bosc",
       "countryId": 11,
@@ -1380,13 +1393,19 @@
     "54990509": {
       "name": "Jean Barlet",
       "countryId": 11,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 2,
           "toWeek": 5,
           "fromDate": "2026-08-18",
           "toDate": "2026-09-08"
+        },
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
+          "toDate": null
         }
       ]
     },
@@ -7037,13 +7056,13 @@
     "55275334": {
       "name": "Leonard Grip",
       "countryId": 9,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-22"
         }
       ]
     },
@@ -7199,13 +7218,19 @@
     "55294406": {
       "name": "Fabrice Galante",
       "countryId": 11,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-11",
           "toDate": "2026-08-12"
+        },
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
+          "toDate": null
         }
       ]
     },
@@ -7600,13 +7625,19 @@
     "55329802": {
       "name": "Jason Furlong",
       "countryId": 14,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
+          "toDate": null
         }
       ]
     },
@@ -7723,6 +7754,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55330132": {
+      "name": "Steve Blackwell",
+      "countryId": 14,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
           "toDate": null
         }
       ]
@@ -8836,6 +8880,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55382493": {
+      "name": "Vasyl Zherzh",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
           "toDate": null
         }
       ]
@@ -12670,25 +12727,44 @@
     "55597475": {
       "name": "Brent Campbell",
       "countryId": 14,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
+          "toDate": null
         }
       ]
     },
     "55597690": {
       "name": "Ad Jawaid",
       "countryId": 14,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-08",
+          "toDate": "2026-09-22"
+        }
+      ]
+    },
+    "55619495": {
+      "name": "Dorotėjas Pikcilingis",
+      "countryId": 20,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
           "toDate": null
         }
       ]
@@ -14215,13 +14291,19 @@
     "55905463": {
       "name": "José David Lozano",
       "countryId": 22,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-13",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 7,
+          "toWeek": null,
+          "fromDate": "2026-09-22",
+          "toDate": null
         }
       ]
     },

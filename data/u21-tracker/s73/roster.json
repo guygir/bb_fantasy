@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 7,
-  "date": "2026-09-21",
-  "updatedAt": "2026-09-21T11:20:43.300Z",
+  "date": "2026-09-22",
+  "updatedAt": "2026-09-22T10:30:35.391Z",
   "countries": [
     {
       "countryId": 31,
@@ -790,6 +790,10 @@
         {
           "playerId": 55627029,
           "name": "Jorge Enrique Tarquino"
+        },
+        {
+          "playerId": 55905463,
+          "name": "José David Lozano"
         }
       ]
     },
@@ -1253,6 +1257,10 @@
           "name": "Johnny Treacher"
         },
         {
+          "playerId": 55329802,
+          "name": "Jason Furlong"
+        },
+        {
           "playerId": 55711430,
           "name": "Kendrick Loftus"
         },
@@ -1269,6 +1277,10 @@
           "name": "Stu Lavender"
         },
         {
+          "playerId": 55330132,
+          "name": "Steve Blackwell"
+        },
+        {
           "playerId": 55330254,
           "name": "Derrick Radley"
         },
@@ -1277,8 +1289,8 @@
           "name": "Jeff Sparke"
         },
         {
-          "playerId": 55597690,
-          "name": "Ad Jawaid"
+          "playerId": 55597475,
+          "name": "Brent Campbell"
         }
       ]
     },
@@ -1379,6 +1391,10 @@
           "name": "Benoît Quétier"
         },
         {
+          "playerId": 54990509,
+          "name": "Jean Barlet"
+        },
+        {
           "playerId": 54988142,
           "name": "Stéphane Jeanmaire"
         },
@@ -1389,6 +1405,10 @@
         {
           "playerId": 54988317,
           "name": "William Louis"
+        },
+        {
+          "playerId": 54988576,
+          "name": "Martin Lemonnier"
         },
         {
           "playerId": 54988668,
@@ -1413,6 +1433,10 @@
         {
           "playerId": 55158754,
           "name": "Robin Lenoël"
+        },
+        {
+          "playerId": 55294406,
+          "name": "Fabrice Galante"
         },
         {
           "playerId": 55295114,
@@ -2103,6 +2127,10 @@
         {
           "playerId": 55047898,
           "name": "Kastytis Žandaravicius"
+        },
+        {
+          "playerId": 55619495,
+          "name": "Dorotėjas Pikcilingis"
         },
         {
           "playerId": 55046850,
@@ -3719,10 +3747,6 @@
           "name": "Alexander Askenér"
         },
         {
-          "playerId": 55275334,
-          "name": "Leonard Grip"
-        },
-        {
           "playerId": 55275373,
           "name": "Jaakko Jolkkonen"
         },
@@ -3950,6 +3974,10 @@
         {
           "playerId": 55382352,
           "name": "Martyn Poltavets"
+        },
+        {
+          "playerId": 55382493,
+          "name": "Vasyl Zherzh"
         },
         {
           "playerId": 55463584,
