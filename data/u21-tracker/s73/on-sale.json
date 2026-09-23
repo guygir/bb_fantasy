@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "week": 7,
-  "updatedAt": "2026-09-22T10:30:35.391Z",
+  "updatedAt": "2026-09-23T10:25:34.100Z",
   "players": [
     {
       "playerId": 55082858,
@@ -11,14 +11,6 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 256200
-    },
-    {
-      "playerId": 55463756,
-      "name": "Robbie McCulloch",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 224800
     },
     {
       "playerId": 55464271,
@@ -35,6 +27,14 @@
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 184600
+    },
+    {
+      "playerId": 55465972,
+      "name": "Ramadan Zeka",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 71600
     },
     {
       "playerId": 55468270,
