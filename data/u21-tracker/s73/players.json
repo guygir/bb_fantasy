@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-24T10:42:16.334Z",
+  "updatedAt": "2026-09-25T10:45:41.437Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7134,7 +7134,7 @@
     "55278133": {
       "name": "Filippo Ribet",
       "countryId": 10,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
@@ -7144,9 +7144,9 @@
         },
         {
           "fromWeek": 2,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-18",
-          "toDate": null
+          "toDate": "2026-09-25"
         }
       ]
     },

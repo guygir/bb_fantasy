@@ -6808,6 +6808,15 @@
       "playerId": 55713171,
       "name": "Illarion Ermolenko",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-25T10:45:41.437Z",
+      "date": "2026-09-25",
+      "week": 7,
+      "countryId": 10,
+      "playerId": 55278133,
+      "name": "Filippo Ribet",
+      "type": "left"
     }
   ]
 }

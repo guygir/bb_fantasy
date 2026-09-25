@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 7,
-  "date": "2026-09-24",
-  "updatedAt": "2026-09-24T10:42:16.334Z",
+  "date": "2026-09-25",
+  "updatedAt": "2026-09-25T10:45:41.437Z",
   "countries": [
     {
       "countryId": 31,
@@ -2033,10 +2033,6 @@
         {
           "playerId": 55160239,
           "name": "Roberto Toti"
-        },
-        {
-          "playerId": 55278133,
-          "name": "Filippo Ribet"
         }
       ]
     },
