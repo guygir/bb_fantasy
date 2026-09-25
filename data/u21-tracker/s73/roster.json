@@ -2,7 +2,7 @@
   "season": 73,
   "week": 7,
   "date": "2026-09-25",
-  "updatedAt": "2026-09-25T10:45:41.437Z",
+  "updatedAt": "2026-09-25T15:29:22.702Z",
   "countries": [
     {
       "countryId": 31,
@@ -36,10 +36,6 @@
         {
           "playerId": 55160421,
           "name": "Jaber Liani"
-        },
-        {
-          "playerId": 55161239,
-          "name": "Nabil Bouchahda"
         },
         {
           "playerId": 55464233,
@@ -390,7 +386,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N'Dao"
+          "name": "Mouss N&#39;Dao"
         },
         {
           "playerId": 55325939,
@@ -1953,7 +1949,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha'ayahu"
+          "name": "Meidad Yesha&#39;ayahu"
         },
         {
           "playerId": 55334164,
@@ -2163,10 +2159,6 @@
         {
           "playerId": 55048296,
           "name": "Vytukas Ružinas"
-        },
-        {
-          "playerId": 55048304,
-          "name": "Donatas Staponkevicius"
         },
         {
           "playerId": 55048489,
@@ -3346,7 +3338,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },

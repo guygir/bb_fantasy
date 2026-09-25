@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-25T10:45:41.437Z",
+  "updatedAt": "2026-09-25T15:29:22.702Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -2507,7 +2507,7 @@
     "55048304": {
       "name": "Donatas Staponkevicius",
       "countryId": 20,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
@@ -2517,9 +2517,9 @@
         },
         {
           "fromWeek": 6,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-09-14",
-          "toDate": null
+          "toDate": "2026-09-25"
         }
       ]
     },
@@ -5895,13 +5895,13 @@
     "55161239": {
       "name": "Nabil Bouchahda",
       "countryId": 31,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 7,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-09-25"
         }
       ]
     },
@@ -7507,7 +7507,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N'Dao",
+      "name": "Mouss N&#39;Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7824,7 +7824,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha'ayahu",
+      "name": "Meidad Yesha&#39;ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -13758,7 +13758,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
