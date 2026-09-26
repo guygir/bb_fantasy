@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 7,
-  "date": "2026-09-25",
-  "updatedAt": "2026-09-25T15:29:22.702Z",
+  "week": 8,
+  "date": "2026-09-26",
+  "updatedAt": "2026-09-26T10:28:09.640Z",
   "countries": [
     {
       "countryId": 31,
@@ -386,7 +386,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -1949,7 +1949,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2613,6 +2613,10 @@
         {
           "playerId": 55464826,
           "name": "Alfonso de Zwart"
+        },
+        {
+          "playerId": 55466897,
+          "name": "Eppo Schreiner"
         }
       ]
     },
@@ -2745,6 +2749,10 @@
           "name": "Lukas Offner"
         },
         {
+          "playerId": 55375002,
+          "name": "Werner Mayr"
+        },
+        {
           "playerId": 55463116,
           "name": "Arnulf Doll"
         },
@@ -2788,6 +2796,10 @@
           "name": "Dorian Czachór"
         },
         {
+          "playerId": 55117100,
+          "name": "Grzegorz Dobroczyński"
+        },
+        {
           "playerId": 55115112,
           "name": "Józef Perka"
         },
@@ -2814,10 +2826,6 @@
         {
           "playerId": 55116740,
           "name": "Franciszek Barczyszyn"
-        },
-        {
-          "playerId": 55117100,
-          "name": "Grzegorz Dobroczyński"
         },
         {
           "playerId": 55117259,
@@ -3338,7 +3346,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3354,6 +3362,10 @@
         {
           "playerId": 55465488,
           "name": "Nedin Perashi"
+        },
+        {
+          "playerId": 55465972,
+          "name": "Ramadan Zeka"
         },
         {
           "playerId": 55158125,
@@ -3390,10 +3402,6 @@
         {
           "playerId": 55464867,
           "name": "Gazmadh Bregu"
-        },
-        {
-          "playerId": 55465972,
-          "name": "Ramadan Zeka"
         },
         {
           "playerId": 55468270,

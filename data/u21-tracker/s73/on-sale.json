@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-25",
-  "week": 7,
-  "updatedAt": "2026-09-25T10:45:41.437Z",
+  "date": "2026-09-26",
+  "week": 8,
+  "updatedAt": "2026-09-26T10:28:09.640Z",
   "players": [
     {
       "playerId": 55082858,
@@ -29,36 +29,12 @@
       "dmi": 200200
     },
     {
-      "playerId": 55464271,
-      "name": "Harout Adamyan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 17300
-    },
-    {
       "playerId": 55309522,
       "name": "Fikret Neside",
       "countryId": 12,
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
       "dmi": 782000
-    },
-    {
-      "playerId": 55117100,
-      "name": "Grzegorz Dobroczyński",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 184600
-    },
-    {
-      "playerId": 55465972,
-      "name": "Ramadan Zeka",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 71400
     }
   ]
 }

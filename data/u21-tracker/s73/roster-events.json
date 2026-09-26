@@ -6817,6 +6817,24 @@
       "playerId": 55278133,
       "name": "Filippo Ribet",
       "type": "left"
+    },
+    {
+      "ts": "2026-09-26T10:28:09.640Z",
+      "date": "2026-09-26",
+      "week": 8,
+      "countryId": 16,
+      "playerId": 55466897,
+      "name": "Eppo Schreiner",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-26T10:28:09.640Z",
+      "date": "2026-09-26",
+      "week": 8,
+      "countryId": 27,
+      "playerId": 55375002,
+      "name": "Werner Mayr",
+      "type": "joined"
     }
   ]
 }

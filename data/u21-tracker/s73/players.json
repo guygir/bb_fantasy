@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-25T15:29:22.702Z",
+  "updatedAt": "2026-09-26T10:28:09.640Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7507,7 +7507,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N&#39;Dao",
+      "name": "Mouss N'Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7824,7 +7824,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha&#39;ayahu",
+      "name": "Meidad Yesha'ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -8596,6 +8596,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55375002": {
+      "name": "Werner Mayr",
+      "countryId": 27,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-26",
           "toDate": null
         }
       ]
@@ -12198,6 +12211,19 @@
         }
       ]
     },
+    "55466897": {
+      "name": "Eppo Schreiner",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-26",
+          "toDate": null
+        }
+      ]
+    },
     "55466914": {
       "name": "Rodney Griffiths",
       "countryId": 90,
@@ -13758,7 +13784,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N&#39;Diaye",
+      "name": "Sidy N'Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
