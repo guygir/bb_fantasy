@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-26T10:28:09.640Z",
+  "updatedAt": "2026-09-27T10:59:31.607Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -5146,13 +5146,19 @@
     "55157458": {
       "name": "Martin Babka",
       "countryId": 67,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-27",
+          "toDate": null
         }
       ]
     },
@@ -6102,13 +6108,19 @@
     "55162198": {
       "name": "Genadiy Gubskiy",
       "countryId": 33,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-27",
+          "toDate": null
         }
       ]
     },
@@ -6676,13 +6688,19 @@
     "55250682": {
       "name": "Durmus Gökdeniz",
       "countryId": 6,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-27",
+          "toDate": null
         }
       ]
     },
@@ -13077,6 +13095,19 @@
           "fromWeek": 3,
           "toWeek": null,
           "fromDate": "2026-08-28",
+          "toDate": null
+        }
+      ]
+    },
+    "55686993": {
+      "name": "Dato Rekhviashvili",
+      "countryId": 62,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-27",
           "toDate": null
         }
       ]

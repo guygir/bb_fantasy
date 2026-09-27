@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-26",
+  "date": "2026-09-27",
   "week": 8,
-  "updatedAt": "2026-09-26T10:28:09.640Z",
+  "updatedAt": "2026-09-27T10:59:31.607Z",
   "players": [
     {
       "playerId": 55082858,
@@ -13,20 +13,20 @@
       "dmi": 265200
     },
     {
-      "playerId": 54930439,
-      "name": "Tao Nanxiong",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 316000
+      "playerId": 55463756,
+      "name": "Robbie McCulloch",
+      "countryId": 81,
+      "countryName": "Cymru",
+      "pool": "Pool B",
+      "dmi": 396600
     },
     {
-      "playerId": 55392426,
-      "name": "Klaus Løkkegård",
-      "countryId": 39,
-      "countryName": "Danmark",
-      "pool": "Pool C",
-      "dmi": 200200
+      "playerId": 55464271,
+      "name": "Harout Adamyan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 17300
     },
     {
       "playerId": 55309522,
@@ -35,6 +35,22 @@
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
       "dmi": 782000
+    },
+    {
+      "playerId": 55338155,
+      "name": "Yonah Waterreus",
+      "countryId": 16,
+      "countryName": "Nederland",
+      "pool": "Pool H",
+      "dmi": 168500
+    },
+    {
+      "playerId": 55343005,
+      "name": "Guilherme Oliveira",
+      "countryId": 18,
+      "countryName": "Portugal",
+      "pool": "Pool F",
+      "dmi": 248300
     }
   ]
 }

@@ -6835,6 +6835,43 @@
       "playerId": 55375002,
       "name": "Werner Mayr",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-27T10:59:31.607Z",
+      "date": "2026-09-27",
+      "week": 8,
+      "countryId": 62,
+      "playerId": 55686993,
+      "name": "Dato Rekhviashvili",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-27T10:59:31.607Z",
+      "date": "2026-09-27",
+      "week": 8,
+      "countryId": 67,
+      "playerId": 55157458,
+      "name": "Martin Babka",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-27T10:59:31.607Z",
+      "date": "2026-09-27",
+      "week": 8,
+      "countryId": 6,
+      "playerId": 55250682,
+      "name": "Durmus Gökdeniz",
+      "type": "returned",
+      "weeksAway": 6
+    },
+    {
+      "ts": "2026-09-27T10:59:31.607Z",
+      "date": "2026-09-27",
+      "week": 8,
+      "countryId": 33,
+      "playerId": 55162198,
+      "name": "Genadiy Gubskiy",
+      "type": "joined"
     }
   ]
 }
