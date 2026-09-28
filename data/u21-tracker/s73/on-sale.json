@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-27",
+  "date": "2026-09-28",
   "week": 8,
-  "updatedAt": "2026-09-27T10:59:31.607Z",
+  "updatedAt": "2026-09-28T12:15:46.887Z",
   "players": [
     {
       "playerId": 55082858,
@@ -13,12 +13,68 @@
       "dmi": 265200
     },
     {
+      "playerId": 54930100,
+      "name": "Hou Junxing",
+      "countryId": 5,
+      "countryName": "China",
+      "pool": "World Cup - Pool A",
+      "dmi": 661800
+    },
+    {
+      "playerId": 55466446,
+      "name": "Armando Angarita",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 247700
+    },
+    {
+      "playerId": 55368654,
+      "name": "Hugo Osmar Piano",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 52700
+    },
+    {
+      "playerId": 55466348,
+      "name": "Ignacio Puyana",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 576700
+    },
+    {
+      "playerId": 55064269,
+      "name": "Mauricio Ariza",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 24600
+    },
+    {
+      "playerId": 55461699,
+      "name": "Jonathan MacFergus",
+      "countryId": 81,
+      "countryName": "Cymru",
+      "pool": "Pool B",
+      "dmi": 306200
+    },
+    {
       "playerId": 55463756,
       "name": "Robbie McCulloch",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
       "dmi": 396600
+    },
+    {
+      "playerId": 55566759,
+      "name": "Magnus Daumen",
+      "countryId": 8,
+      "countryName": "Deutschland",
+      "pool": "Pool D",
+      "dmi": 166100
     },
     {
       "playerId": 55464271,
@@ -29,12 +85,12 @@
       "dmi": 17300
     },
     {
-      "playerId": 55309522,
-      "name": "Fikret Neside",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "World Cup - Pool B",
-      "dmi": 782000
+      "playerId": 55464945,
+      "name": "Jóngeir Þrastarson",
+      "countryId": 78,
+      "countryName": "Ísland",
+      "pool": "Pool C",
+      "dmi": 193500
     },
     {
       "playerId": 55338155,
@@ -51,6 +107,14 @@
       "countryName": "Portugal",
       "pool": "Pool F",
       "dmi": 248300
+    },
+    {
+      "playerId": 55710901,
+      "name": "Edi Abdurrahmani",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 183200
     }
   ]
 }

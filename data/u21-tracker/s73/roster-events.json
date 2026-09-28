@@ -6872,6 +6872,24 @@
       "playerId": 55162198,
       "name": "Genadiy Gubskiy",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-28T12:15:46.887Z",
+      "date": "2026-09-28",
+      "week": 8,
+      "countryId": 15,
+      "playerId": 55334017,
+      "name": "Elishav Oved",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-28T12:15:46.887Z",
+      "date": "2026-09-28",
+      "week": 8,
+      "countryId": 20,
+      "playerId": 55046957,
+      "name": "Linas Bajorynas",
+      "type": "joined"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-09-27T10:59:31.607Z",
+  "updatedAt": "2026-09-28T12:15:46.887Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -2316,13 +2316,19 @@
     "55046957": {
       "name": "Linas Bajorynas",
       "countryId": 20,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-28",
+          "toDate": null
         }
       ]
     },
@@ -7825,6 +7831,19 @@
           "toWeek": 1,
           "fromDate": "2026-08-14",
           "toDate": "2026-08-14"
+        }
+      ]
+    },
+    "55334017": {
+      "name": "Elishav Oved",
+      "countryId": 15,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-09-28",
+          "toDate": null
         }
       ]
     },

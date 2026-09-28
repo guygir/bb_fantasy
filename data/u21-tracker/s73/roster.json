@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 8,
-  "date": "2026-09-27",
-  "updatedAt": "2026-09-27T10:59:31.607Z",
+  "date": "2026-09-28",
+  "updatedAt": "2026-09-28T12:15:46.887Z",
   "countries": [
     {
       "countryId": 31,
@@ -874,10 +874,6 @@
           "name": "Gareth Duncan"
         },
         {
-          "playerId": 55461699,
-          "name": "Jonathan MacFergus"
-        },
-        {
           "playerId": 55715111,
           "name": "Steven Litherland"
         },
@@ -888,6 +884,10 @@
         {
           "playerId": 55993837,
           "name": "Marrock Conway"
+        },
+        {
+          "playerId": 55461699,
+          "name": "Jonathan MacFergus"
         },
         {
           "playerId": 55462419,
@@ -1948,6 +1948,10 @@
           "name": "Alex Avramov"
         },
         {
+          "playerId": 55334017,
+          "name": "Elishav Oved"
+        },
+        {
           "playerId": 55334059,
           "name": "Meidad Yesha'ayahu"
         },
@@ -2131,6 +2135,10 @@
         {
           "playerId": 55046775,
           "name": "Matas Maziliauskas"
+        },
+        {
+          "playerId": 55046957,
+          "name": "Linas Bajorynas"
         },
         {
           "playerId": 55047001,
