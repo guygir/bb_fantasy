@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 73,
-    "fetched": "2026-09-28T08:02:01.959Z"
+    "fetched": "2026-09-29T07:43:19.121Z"
   },
   "matches": [
     {
@@ -81,6 +81,50 @@
       "awayScore": null,
       "homeTeamId": "1002",
       "homeTeamName": "Argentina U21",
+      "homeScore": null
+    },
+    {
+      "id": "86364",
+      "start": "2026-10-05T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1001",
+      "homeTeamName": "United States U21",
+      "homeScore": null
+    },
+    {
+      "id": "86369",
+      "start": "2026-10-12T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1007",
+      "homeTeamName": "España U21",
+      "homeScore": null
+    },
+    {
+      "id": "86375",
+      "start": "2026-10-19T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1010",
+      "homeTeamName": "Italia U21",
+      "homeScore": null
+    },
+    {
+      "id": "86378",
+      "start": "2026-10-26T17:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "Israel U21",
+      "awayScore": null,
+      "homeTeamId": "1011",
+      "homeTeamName": "France U21",
       "homeScore": null
     },
     {
