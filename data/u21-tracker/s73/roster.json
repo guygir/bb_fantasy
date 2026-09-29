@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 8,
-  "date": "2026-09-28",
-  "updatedAt": "2026-09-28T12:15:46.887Z",
+  "date": "2026-09-29",
+  "updatedAt": "2026-09-29T11:45:07.822Z",
   "countries": [
     {
       "countryId": 31,
@@ -119,6 +119,10 @@
       "name": "Argentina",
       "pool": "World Cup - Pool B",
       "players": [
+        {
+          "playerId": 55466726,
+          "name": "Ariel Dertycia"
+        },
         {
           "playerId": 54917195,
           "name": "Víctor Villaragut"
@@ -1974,6 +1978,10 @@
       "name": "Italia",
       "pool": "World Cup - Pool A",
       "players": [
+        {
+          "playerId": 55278575,
+          "name": "Vito Tremolada"
+        },
         {
           "playerId": 55278761,
           "name": "Cristiano Sbattelia"

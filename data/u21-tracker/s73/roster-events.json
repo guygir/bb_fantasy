@@ -6890,6 +6890,24 @@
       "playerId": 55046957,
       "name": "Linas Bajorynas",
       "type": "joined"
+    },
+    {
+      "ts": "2026-09-29T11:45:07.822Z",
+      "date": "2026-09-29",
+      "week": 8,
+      "countryId": 2,
+      "playerId": 55466726,
+      "name": "Ariel Dertycia",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-09-29T11:45:07.822Z",
+      "date": "2026-09-29",
+      "week": 8,
+      "countryId": 10,
+      "playerId": 55278575,
+      "name": "Vito Tremolada",
+      "type": "joined"
     }
   ]
 }
