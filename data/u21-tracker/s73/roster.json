@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 8,
-  "date": "2026-09-30",
-  "updatedAt": "2026-09-30T11:32:10.358Z",
+  "date": "2026-10-01",
+  "updatedAt": "2026-10-01T12:00:36.258Z",
   "countries": [
     {
       "countryId": 31,
@@ -645,10 +645,6 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 54930100,
-          "name": "Hou Junxing"
-        },
-        {
           "playerId": 55235196,
           "name": "Luo Xiaoliang"
         },
@@ -687,6 +683,10 @@
         {
           "playerId": 54929982,
           "name": "Shen Yunda"
+        },
+        {
+          "playerId": 54930100,
+          "name": "Hou Junxing"
         },
         {
           "playerId": 54930242,

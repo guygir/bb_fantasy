@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-09-30",
+  "date": "2026-10-01",
   "week": 8,
-  "updatedAt": "2026-09-30T11:32:10.358Z",
+  "updatedAt": "2026-10-01T12:00:36.258Z",
   "players": [
     {
       "playerId": 55463508,
@@ -29,22 +29,6 @@
       "dmi": 98100
     },
     {
-      "playerId": 54930100,
-      "name": "Hou Junxing",
-      "countryId": 5,
-      "countryName": "China",
-      "pool": "World Cup - Pool A",
-      "dmi": 661800
-    },
-    {
-      "playerId": 55466446,
-      "name": "Armando Angarita",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 247700
-    },
-    {
       "playerId": 55368654,
       "name": "Hugo Osmar Piano",
       "countryId": 22,
@@ -69,28 +53,12 @@
       "dmi": 24600
     },
     {
-      "playerId": 55461699,
-      "name": "Jonathan MacFergus",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 306200
-    },
-    {
       "playerId": 55463756,
       "name": "Robbie McCulloch",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
       "dmi": 396600
-    },
-    {
-      "playerId": 55566759,
-      "name": "Magnus Daumen",
-      "countryId": 8,
-      "countryName": "Deutschland",
-      "pool": "Pool D",
-      "dmi": 166100
     },
     {
       "playerId": 55464271,
@@ -107,6 +75,14 @@
       "countryName": "Ísland",
       "pool": "Pool C",
       "dmi": 193500
+    },
+    {
+      "playerId": 55343005,
+      "name": "Guilherme Oliveira",
+      "countryId": 18,
+      "countryName": "Portugal",
+      "pool": "Pool F",
+      "dmi": 248300
     },
     {
       "playerId": 55997488,
