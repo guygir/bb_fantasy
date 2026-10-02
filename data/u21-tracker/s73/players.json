@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-02T11:31:47.134Z",
+  "updatedAt": "2026-10-02T16:22:14.687Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7510,6 +7510,19 @@
         }
       ]
     },
+    "55325763": {
+      "name": "Marijn Hennuy",
+      "countryId": 13,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-10-02",
+          "toDate": null
+        }
+      ]
+    },
     "55325801": {
       "name": "Adolf Steensels",
       "countryId": 13,
@@ -7526,18 +7539,18 @@
     "55325859": {
       "name": "Jelko Geerinck",
       "countryId": 13,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 2,
-          "toWeek": null,
+          "toWeek": 8,
           "fromDate": "2026-08-16",
-          "toDate": null
+          "toDate": "2026-10-02"
         }
       ]
     },
     "55325879": {
-      "name": "Mouss N'Dao",
+      "name": "Mouss N&#39;Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7873,7 +7886,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha'ayahu",
+      "name": "Meidad Yesha&#39;ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -13865,7 +13878,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [

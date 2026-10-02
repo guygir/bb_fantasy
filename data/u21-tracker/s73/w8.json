@@ -1,0 +1,1905 @@
+{
+  "season": 73,
+  "week": 8,
+  "scrapedAt": "2026-10-02T16:22:14.687Z",
+  "source": "https://buzzerbeater.com/world/standings.aspx?teamid=1015",
+  "countries": [
+    {
+      "countryId": 31,
+      "name": "Al Jazair",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55466958,
+          "name": "Ali Benzaza",
+          "dmi": 201800,
+          "gameShape": 8,
+          "salary": 14418
+        },
+        {
+          "playerId": 55465989,
+          "name": "Messaoud Jelloul",
+          "dmi": 230100,
+          "gameShape": 8,
+          "salary": 17050
+        },
+        {
+          "playerId": 55464258,
+          "name": "Abdelbaki Betrouni",
+          "dmi": 295000,
+          "gameShape": 8,
+          "salary": 12109
+        },
+        {
+          "playerId": 55158011,
+          "name": "Khidr Betrouni",
+          "dmi": 218900,
+          "gameShape": 8,
+          "salary": 20980
+        },
+        {
+          "playerId": 55158231,
+          "name": "Youcef Touati",
+          "dmi": 440700,
+          "gameShape": 8,
+          "salary": 34916
+        },
+        {
+          "playerId": 55159649,
+          "name": "Fethi Bedja",
+          "dmi": 315300,
+          "gameShape": 8,
+          "salary": 27170
+        },
+        {
+          "playerId": 55160421,
+          "name": "Jaber Liani",
+          "dmi": 158700,
+          "gameShape": 7,
+          "salary": 20688
+        },
+        {
+          "playerId": 55464233,
+          "name": "Abdenour Ould Mammar",
+          "dmi": 339600,
+          "gameShape": 8,
+          "salary": 14309
+        },
+        {
+          "playerId": 55464339,
+          "name": "Mehdi Bentoumi",
+          "dmi": 315500,
+          "gameShape": 8,
+          "salary": 16421
+        },
+        {
+          "playerId": 55711587,
+          "name": "Zyad Riane",
+          "dmi": 117000,
+          "gameShape": 7,
+          "salary": 13738
+        },
+        {
+          "playerId": 55713892,
+          "name": "Aziz Brakchi",
+          "dmi": 49800,
+          "gameShape": 7,
+          "salary": 7449
+        }
+      ]
+    },
+    {
+      "countryId": 2,
+      "name": "Argentina",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55466726,
+          "name": "Ariel Dertycia",
+          "dmi": 940500,
+          "gameShape": 9,
+          "salary": 26183
+        },
+        {
+          "playerId": 54917195,
+          "name": "Víctor Villaragut",
+          "dmi": 590700,
+          "gameShape": 9,
+          "salary": 22140
+        },
+        {
+          "playerId": 55222003,
+          "name": "Michael Heck",
+          "dmi": 797600,
+          "gameShape": 9,
+          "salary": 28260
+        },
+        {
+          "playerId": 54917374,
+          "name": "Jean Luca Peralta",
+          "dmi": 604500,
+          "gameShape": 8,
+          "salary": 41550
+        },
+        {
+          "playerId": 54917865,
+          "name": "Chimo Sobis",
+          "dmi": 296400,
+          "gameShape": 8,
+          "salary": 20644
+        },
+        {
+          "playerId": 55221888,
+          "name": "Édouard Ferrari",
+          "dmi": 359100,
+          "gameShape": 8,
+          "salary": 17443
+        },
+        {
+          "playerId": 54917021,
+          "name": "Julián Gabriel Gareca",
+          "dmi": 238900,
+          "gameShape": 8,
+          "salary": 17497
+        },
+        {
+          "playerId": 55222058,
+          "name": "Héctor Julio Cavallo",
+          "dmi": 768700,
+          "gameShape": 8,
+          "salary": 57220
+        },
+        {
+          "playerId": 54916968,
+          "name": "Alfredo Serrano",
+          "dmi": 905100,
+          "gameShape": 8,
+          "salary": 30766
+        },
+        {
+          "playerId": 54917657,
+          "name": "Hernán Vega",
+          "dmi": 1368200,
+          "gameShape": 9,
+          "salary": 40439
+        },
+        {
+          "playerId": 55221781,
+          "name": "Gerónimo Nieto",
+          "dmi": 658800,
+          "gameShape": 9,
+          "salary": 21070
+        },
+        {
+          "playerId": 55221819,
+          "name": "Laro Suelves",
+          "dmi": 837300,
+          "gameShape": 9,
+          "salary": 34656
+        },
+        {
+          "playerId": 55221841,
+          "name": "Juan Ernesto Válido",
+          "dmi": 162500,
+          "gameShape": 7,
+          "salary": 19024
+        },
+        {
+          "playerId": 55221941,
+          "name": "Juan Rezza",
+          "dmi": 556400,
+          "gameShape": 8,
+          "salary": 31295
+        },
+        {
+          "playerId": 55221984,
+          "name": "Patricio José Giordano",
+          "dmi": 981700,
+          "gameShape": 8,
+          "salary": 37626
+        },
+        {
+          "playerId": 55222060,
+          "name": "Massimiliano Carella",
+          "dmi": 659800,
+          "gameShape": 8,
+          "salary": 24205
+        }
+      ]
+    },
+    {
+      "countryId": 13,
+      "name": "Belgium",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55021110,
+          "name": "Jorden Geerts",
+          "dmi": 406600,
+          "gameShape": 8,
+          "salary": 24216
+        },
+        {
+          "playerId": 55325992,
+          "name": "Loren Bernimolin",
+          "dmi": 671100,
+          "gameShape": 8,
+          "salary": 24930
+        },
+        {
+          "playerId": 55021024,
+          "name": "Arthur Claessens",
+          "dmi": 1135200,
+          "gameShape": 8,
+          "salary": 43345
+        },
+        {
+          "playerId": 55021022,
+          "name": "Enrique Bultinck",
+          "dmi": 752500,
+          "gameShape": 8,
+          "salary": 38370
+        },
+        {
+          "playerId": 55020995,
+          "name": "Gerrit Vanduffel",
+          "dmi": 559100,
+          "gameShape": 9,
+          "salary": 21190
+        },
+        {
+          "playerId": 55021148,
+          "name": "Aristide Dalle",
+          "dmi": 483600,
+          "gameShape": 8,
+          "salary": 19212
+        },
+        {
+          "playerId": 55021432,
+          "name": "Joery Van den Heuvel",
+          "dmi": 1596500,
+          "gameShape": 9,
+          "salary": 70166
+        },
+        {
+          "playerId": 55021448,
+          "name": "Mamadou Diatta",
+          "dmi": 359300,
+          "gameShape": 8,
+          "salary": 18193
+        },
+        {
+          "playerId": 55161933,
+          "name": "Thibaut De Haes",
+          "dmi": 594000,
+          "gameShape": 9,
+          "salary": 25542
+        },
+        {
+          "playerId": 55325650,
+          "name": "Rogier Thibaut",
+          "dmi": 239900,
+          "gameShape": 8,
+          "salary": 16245
+        },
+        {
+          "playerId": 55325688,
+          "name": "Bjorn Rausin",
+          "dmi": 511600,
+          "gameShape": 8,
+          "salary": 25428
+        },
+        {
+          "playerId": 55325763,
+          "name": "Marijn Hennuy",
+          "dmi": 374400,
+          "gameShape": 9,
+          "salary": 13674
+        },
+        {
+          "playerId": 55325801,
+          "name": "Adolf Steensels",
+          "dmi": 1178400,
+          "gameShape": 9,
+          "salary": 42156
+        },
+        {
+          "playerId": 55325879,
+          "name": "Mouss N&#39;Dao",
+          "dmi": 373900,
+          "gameShape": 8,
+          "salary": 26558
+        },
+        {
+          "playerId": 55325939,
+          "name": "Kedar Issa",
+          "dmi": 371100,
+          "gameShape": 9,
+          "salary": 16749
+        },
+        {
+          "playerId": 55326063,
+          "name": "Seth Delcart",
+          "dmi": 383000,
+          "gameShape": 8,
+          "salary": 19568
+        },
+        {
+          "playerId": 55326120,
+          "name": "Mahmoud Ali",
+          "dmi": 707400,
+          "gameShape": 9,
+          "salary": 17912
+        },
+        {
+          "playerId": 55326188,
+          "name": "Oleg De Leyn",
+          "dmi": 442000,
+          "gameShape": 8,
+          "salary": 18359
+        }
+      ]
+    },
+    {
+      "countryId": 5,
+      "name": "China",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55235196,
+          "name": "Luo Xiaoliang",
+          "dmi": 117400,
+          "gameShape": 7,
+          "salary": 20438
+        },
+        {
+          "playerId": 55235336,
+          "name": "Pan Decai",
+          "dmi": 282200,
+          "gameShape": 9,
+          "salary": 12085
+        },
+        {
+          "playerId": 55547693,
+          "name": "Cao Kunlei",
+          "dmi": 31000,
+          "gameShape": 5,
+          "salary": 5735
+        },
+        {
+          "playerId": 55235194,
+          "name": "Chen Tinghua",
+          "dmi": 362300,
+          "gameShape": 9,
+          "salary": 13567
+        },
+        {
+          "playerId": 55463717,
+          "name": "Zhuang Chuyi",
+          "dmi": 239500,
+          "gameShape": 8,
+          "salary": 17220
+        },
+        {
+          "playerId": 55235789,
+          "name": "Song Yingjiang",
+          "dmi": 575300,
+          "gameShape": 9,
+          "salary": 18502
+        },
+        {
+          "playerId": 55548499,
+          "name": "Wang Ruifeng",
+          "dmi": 294100,
+          "gameShape": 9,
+          "salary": 9771
+        },
+        {
+          "playerId": 54929799,
+          "name": "Mo Wendong",
+          "dmi": 99300,
+          "gameShape": 6,
+          "salary": 18801
+        },
+        {
+          "playerId": 54929849,
+          "name": "Ye Tiancai",
+          "dmi": 776300,
+          "gameShape": 8,
+          "salary": 30241
+        },
+        {
+          "playerId": 54929982,
+          "name": "Shen Yunda",
+          "dmi": 920700,
+          "gameShape": 9,
+          "salary": 45206
+        },
+        {
+          "playerId": 54930100,
+          "name": "Hou Junxing",
+          "dmi": 259900,
+          "gameShape": 7,
+          "salary": 22898
+        },
+        {
+          "playerId": 54930242,
+          "name": "He Hanping",
+          "dmi": 389200,
+          "gameShape": 9,
+          "salary": 17377
+        },
+        {
+          "playerId": 54930439,
+          "name": "Tao Nanxiong",
+          "dmi": 407700,
+          "gameShape": 8,
+          "salary": 21078
+        },
+        {
+          "playerId": 55234347,
+          "name": "Xue Kunqian",
+          "dmi": 264000,
+          "gameShape": 7,
+          "salary": 27235
+        },
+        {
+          "playerId": 55234617,
+          "name": "Fang Xiangyang",
+          "dmi": 215900,
+          "gameShape": 8,
+          "salary": 12331
+        },
+        {
+          "playerId": 55235180,
+          "name": "Xiahou Kunhong",
+          "dmi": 410200,
+          "gameShape": 9,
+          "salary": 12842
+        },
+        {
+          "playerId": 55235741,
+          "name": "Zhou Qiong",
+          "dmi": 371900,
+          "gameShape": 9,
+          "salary": 13583
+        },
+        {
+          "playerId": 55548208,
+          "name": "Yue Wenqing",
+          "dmi": 144600,
+          "gameShape": 7,
+          "salary": 9762
+        }
+      ]
+    },
+    {
+      "countryId": 22,
+      "name": "Colombia",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55368678,
+          "name": "León Moscoso",
+          "dmi": 643000,
+          "gameShape": 9,
+          "salary": 24864
+        },
+        {
+          "playerId": 55464208,
+          "name": "Edgar Caicedo",
+          "dmi": 75900,
+          "gameShape": 8,
+          "salary": 7695
+        },
+        {
+          "playerId": 55368618,
+          "name": "Mario Portales",
+          "dmi": 219200,
+          "gameShape": 8,
+          "salary": 10726
+        },
+        {
+          "playerId": 55368615,
+          "name": "Iván Sopó",
+          "dmi": 122500,
+          "gameShape": 7,
+          "salary": 12009
+        },
+        {
+          "playerId": 55064255,
+          "name": "Néstor Raúl Montero",
+          "dmi": 236300,
+          "gameShape": 9,
+          "salary": 11404
+        },
+        {
+          "playerId": 55064193,
+          "name": "Fernando Fernán Pérez",
+          "dmi": 462400,
+          "gameShape": 8,
+          "salary": 53627
+        },
+        {
+          "playerId": 55064269,
+          "name": "Mauricio Ariza",
+          "dmi": 24600,
+          "gameShape": 5,
+          "salary": 6015
+        },
+        {
+          "playerId": 55160809,
+          "name": "Asdrúbal Trujillo",
+          "dmi": 928800,
+          "gameShape": 9,
+          "salary": 33148
+        },
+        {
+          "playerId": 55161047,
+          "name": "José David Martínez",
+          "dmi": 45100,
+          "gameShape": 6,
+          "salary": 8308
+        },
+        {
+          "playerId": 55161093,
+          "name": "Carlos Armando Díaz",
+          "dmi": 132600,
+          "gameShape": 7,
+          "salary": 14901
+        },
+        {
+          "playerId": 55368620,
+          "name": "Adolfo Calderón",
+          "dmi": 1538800,
+          "gameShape": 8,
+          "salary": 51485
+        },
+        {
+          "playerId": 55368654,
+          "name": "Hugo Osmar Piano",
+          "dmi": 38700,
+          "gameShape": 7,
+          "salary": 5118
+        },
+        {
+          "playerId": 55368739,
+          "name": "Ignacio Brahim",
+          "dmi": 70300,
+          "gameShape": 6,
+          "salary": 10613
+        },
+        {
+          "playerId": 55464876,
+          "name": "Fernando Marcos Igualada",
+          "dmi": 234100,
+          "gameShape": 8,
+          "salary": 16703
+        },
+        {
+          "playerId": 55466348,
+          "name": "Ignacio Puyana",
+          "dmi": 576700,
+          "gameShape": 8,
+          "salary": 33566
+        },
+        {
+          "playerId": 55466446,
+          "name": "Armando Angarita",
+          "dmi": 233200,
+          "gameShape": 7,
+          "salary": 35610
+        },
+        {
+          "playerId": 55627029,
+          "name": "Jorge Enrique Tarquino",
+          "dmi": 69800,
+          "gameShape": 7,
+          "salary": 10716
+        },
+        {
+          "playerId": 55905463,
+          "name": "José David Lozano",
+          "dmi": 135500,
+          "gameShape": 9,
+          "salary": 6114
+        }
+      ]
+    },
+    {
+      "countryId": 7,
+      "name": "España",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 54950929,
+          "name": "Juan Luis Álvarez de Miranda",
+          "dmi": 957400,
+          "gameShape": 8,
+          "salary": 44656
+        },
+        {
+          "playerId": 54952195,
+          "name": "Daniel Pallarès",
+          "dmi": 852100,
+          "gameShape": 9,
+          "salary": 25189
+        },
+        {
+          "playerId": 54950824,
+          "name": "Javier Fernández Madrigal",
+          "dmi": 768000,
+          "gameShape": 9,
+          "salary": 28592
+        },
+        {
+          "playerId": 54952056,
+          "name": "Martín Cerdeira",
+          "dmi": 1005000,
+          "gameShape": 9,
+          "salary": 32534
+        },
+        {
+          "playerId": 54952321,
+          "name": "Pablo Ventura Rodríguez",
+          "dmi": 683200,
+          "gameShape": 9,
+          "salary": 26791
+        },
+        {
+          "playerId": 54953095,
+          "name": "Ignacio Dolius",
+          "dmi": 926800,
+          "gameShape": 9,
+          "salary": 42967
+        },
+        {
+          "playerId": 55254944,
+          "name": "Nardo Aceija",
+          "dmi": 832800,
+          "gameShape": 9,
+          "salary": 30251
+        },
+        {
+          "playerId": 55256660,
+          "name": "Tomás Leciñana",
+          "dmi": 770700,
+          "gameShape": 9,
+          "salary": 26152
+        },
+        {
+          "playerId": 55254915,
+          "name": "Roc Martínez",
+          "dmi": 1052700,
+          "gameShape": 8,
+          "salary": 52809
+        },
+        {
+          "playerId": 54950016,
+          "name": "Manuel Sánchez",
+          "dmi": 411800,
+          "gameShape": 5,
+          "salary": 64858
+        },
+        {
+          "playerId": 54950254,
+          "name": "Santiago Riba Peña",
+          "dmi": 1014200,
+          "gameShape": 9,
+          "salary": 35096
+        },
+        {
+          "playerId": 54950709,
+          "name": "Pedro Puig Duran",
+          "dmi": 668700,
+          "gameShape": 8,
+          "salary": 22585
+        },
+        {
+          "playerId": 54952584,
+          "name": "Miquel Planas",
+          "dmi": 644600,
+          "gameShape": 9,
+          "salary": 26652
+        },
+        {
+          "playerId": 55256323,
+          "name": "Alfredo Roxas Sotolongo",
+          "dmi": 644100,
+          "gameShape": 8,
+          "salary": 29399
+        },
+        {
+          "playerId": 55257162,
+          "name": "Alfredo Abellá",
+          "dmi": 546800,
+          "gameShape": 9,
+          "salary": 27550
+        },
+        {
+          "playerId": 55257783,
+          "name": "Federico Montiel",
+          "dmi": 405800,
+          "gameShape": 8,
+          "salary": 22427
+        },
+        {
+          "playerId": 55258406,
+          "name": "Cristòfor Agramunt",
+          "dmi": 588400,
+          "gameShape": 9,
+          "salary": 22470
+        }
+      ]
+    },
+    {
+      "countryId": 11,
+      "name": "France",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 54988835,
+          "name": "Édouard Vienne",
+          "dmi": 2070600,
+          "gameShape": 9,
+          "salary": 72075
+        },
+        {
+          "playerId": 54988479,
+          "name": "Mathieu Silvestre",
+          "dmi": 832600,
+          "gameShape": 9,
+          "salary": 30089
+        },
+        {
+          "playerId": 54989511,
+          "name": "Mar Samb",
+          "dmi": 716800,
+          "gameShape": 9,
+          "salary": 26958
+        },
+        {
+          "playerId": 54990238,
+          "name": "Benoît Quétier",
+          "dmi": 755700,
+          "gameShape": 9,
+          "salary": 25935
+        },
+        {
+          "playerId": 54990509,
+          "name": "Jean Barlet",
+          "dmi": 527800,
+          "gameShape": 7,
+          "salary": 78477
+        },
+        {
+          "playerId": 54988142,
+          "name": "Stéphane Jeanmaire",
+          "dmi": 610600,
+          "gameShape": 8,
+          "salary": 27921
+        },
+        {
+          "playerId": 54988230,
+          "name": "Pierre Beauquis",
+          "dmi": 2526900,
+          "gameShape": 9,
+          "salary": 76493
+        },
+        {
+          "playerId": 54988317,
+          "name": "William Louis",
+          "dmi": 1167500,
+          "gameShape": 9,
+          "salary": 49866
+        },
+        {
+          "playerId": 54988576,
+          "name": "Martin Lemonnier",
+          "dmi": 813700,
+          "gameShape": 9,
+          "salary": 21277
+        },
+        {
+          "playerId": 54988668,
+          "name": "Mickaël Bosc",
+          "dmi": 1952900,
+          "gameShape": 9,
+          "salary": 53876
+        },
+        {
+          "playerId": 54988749,
+          "name": "Pierre Billard",
+          "dmi": 1112200,
+          "gameShape": 9,
+          "salary": 32371
+        },
+        {
+          "playerId": 54988824,
+          "name": "David Chevallier",
+          "dmi": 541700,
+          "gameShape": 9,
+          "salary": 21710
+        },
+        {
+          "playerId": 54989057,
+          "name": "Younes Ben Amara",
+          "dmi": 1002000,
+          "gameShape": 9,
+          "salary": 29769
+        },
+        {
+          "playerId": 54989914,
+          "name": "David Véron",
+          "dmi": 753700,
+          "gameShape": 7,
+          "salary": 52789
+        },
+        {
+          "playerId": 55158754,
+          "name": "Robin Lenoël",
+          "dmi": 820600,
+          "gameShape": 9,
+          "salary": 30150
+        },
+        {
+          "playerId": 55294406,
+          "name": "Fabrice Galante",
+          "dmi": 1140600,
+          "gameShape": 9,
+          "salary": 32709
+        },
+        {
+          "playerId": 55295114,
+          "name": "Kaddour El Karni",
+          "dmi": 978200,
+          "gameShape": 9,
+          "salary": 34917
+        }
+      ]
+    },
+    {
+      "countryId": 12,
+      "name": "Hellas",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55004780,
+          "name": "Apollon Leras",
+          "dmi": 102500,
+          "gameShape": 6,
+          "salary": 19917
+        },
+        {
+          "playerId": 55006775,
+          "name": "Petros Kapataidakis",
+          "dmi": 440900,
+          "gameShape": 9,
+          "salary": 17165
+        },
+        {
+          "playerId": 55005421,
+          "name": "Thodoros Avgerinos",
+          "dmi": 193100,
+          "gameShape": 8,
+          "salary": 20723
+        },
+        {
+          "playerId": 55006129,
+          "name": "Thimios Ntouvaris",
+          "dmi": 229300,
+          "gameShape": 8,
+          "salary": 16845
+        },
+        {
+          "playerId": 55309629,
+          "name": "Takis Tzanetos",
+          "dmi": 452500,
+          "gameShape": 8,
+          "salary": 23305
+        },
+        {
+          "playerId": 55310821,
+          "name": "Iosif Vaitsis",
+          "dmi": 108900,
+          "gameShape": 7,
+          "salary": 13940
+        },
+        {
+          "playerId": 55005084,
+          "name": "Dantis Sferas",
+          "dmi": 586000,
+          "gameShape": 9,
+          "salary": 20367
+        },
+        {
+          "playerId": 55310039,
+          "name": "Periklis Tsiafkaris",
+          "dmi": 1287500,
+          "gameShape": 9,
+          "salary": 46320
+        },
+        {
+          "playerId": 55309522,
+          "name": "Fikret Neside",
+          "dmi": 283800,
+          "gameShape": 7,
+          "salary": 27907
+        },
+        {
+          "playerId": 55462159,
+          "name": "Zefiros Chrisoulas",
+          "dmi": 674700,
+          "gameShape": 9,
+          "salary": 28104
+        },
+        {
+          "playerId": 55309618,
+          "name": "Pavlos Karidas",
+          "dmi": 651000,
+          "gameShape": 9,
+          "salary": 26504
+        },
+        {
+          "playerId": 55004944,
+          "name": "Yiorgos Mistriotis",
+          "dmi": 462300,
+          "gameShape": 8,
+          "salary": 24835
+        },
+        {
+          "playerId": 55005108,
+          "name": "Trifonas Kioulekas",
+          "dmi": 1170400,
+          "gameShape": 8,
+          "salary": 50225
+        },
+        {
+          "playerId": 55309643,
+          "name": "Dimitris Rokkos",
+          "dmi": 574100,
+          "gameShape": 7,
+          "salary": 54570
+        },
+        {
+          "playerId": 55309881,
+          "name": "Ploutonas Egnatiadis",
+          "dmi": 841900,
+          "gameShape": 9,
+          "salary": 32394
+        },
+        {
+          "playerId": 55310674,
+          "name": "Kiriakos Piatas",
+          "dmi": 1586400,
+          "gameShape": 9,
+          "salary": 43512
+        },
+        {
+          "playerId": 55311284,
+          "name": "Eftichios Yiayias",
+          "dmi": 347500,
+          "gameShape": 8,
+          "salary": 20406
+        }
+      ]
+    },
+    {
+      "countryId": 45,
+      "name": "Hong Kong",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55095551,
+          "name": "Lung Hoi Ching",
+          "dmi": 1285300,
+          "gameShape": 9,
+          "salary": 38324
+        },
+        {
+          "playerId": 55095685,
+          "name": "Chin Hok Loi",
+          "dmi": 3500600,
+          "gameShape": 9,
+          "salary": 76145
+        },
+        {
+          "playerId": 55158664,
+          "name": "Saimun Chun",
+          "dmi": 1203800,
+          "gameShape": 9,
+          "salary": 31654
+        },
+        {
+          "playerId": 55095236,
+          "name": "Lei Junguo",
+          "dmi": 775400,
+          "gameShape": 9,
+          "salary": 21697
+        },
+        {
+          "playerId": 55095544,
+          "name": "Lo Shuen",
+          "dmi": 251700,
+          "gameShape": 8,
+          "salary": 19706
+        },
+        {
+          "playerId": 55095738,
+          "name": "Li Kong Chun",
+          "dmi": 1169500,
+          "gameShape": 8,
+          "salary": 53864
+        },
+        {
+          "playerId": 55095256,
+          "name": "Kwok Shing Wun",
+          "dmi": 815100,
+          "gameShape": 8,
+          "salary": 73717
+        },
+        {
+          "playerId": 55095347,
+          "name": "Lam Sing Wun",
+          "dmi": 1147600,
+          "gameShape": 9,
+          "salary": 35576
+        },
+        {
+          "playerId": 55095420,
+          "name": "Wu Kangning",
+          "dmi": 364200,
+          "gameShape": 7,
+          "salary": 32244
+        },
+        {
+          "playerId": 55095491,
+          "name": "Ngai Foo Lim",
+          "dmi": 1417400,
+          "gameShape": 9,
+          "salary": 50717
+        },
+        {
+          "playerId": 55095534,
+          "name": "Wong Kong Pei",
+          "dmi": 630800,
+          "gameShape": 9,
+          "salary": 23204
+        },
+        {
+          "playerId": 55095557,
+          "name": "Eu So Nin",
+          "dmi": 1440400,
+          "gameShape": 9,
+          "salary": 50750
+        },
+        {
+          "playerId": 55095610,
+          "name": "Ned Ingles",
+          "dmi": 394400,
+          "gameShape": 8,
+          "salary": 20390
+        },
+        {
+          "playerId": 55095640,
+          "name": "Fok Luka",
+          "dmi": 757100,
+          "gameShape": 9,
+          "salary": 23677
+        },
+        {
+          "playerId": 55157703,
+          "name": "Sung Hong Wan",
+          "dmi": 1131300,
+          "gameShape": 9,
+          "salary": 35031
+        },
+        {
+          "playerId": 55399723,
+          "name": "Lo Yuk Chau",
+          "dmi": 1223300,
+          "gameShape": 9,
+          "salary": 35960
+        },
+        {
+          "playerId": 55399967,
+          "name": "Lo Kim Tam",
+          "dmi": 394600,
+          "gameShape": 9,
+          "salary": 20087
+        }
+      ]
+    },
+    {
+      "countryId": 15,
+      "name": "Israel",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55029755,
+          "name": "Dekel Keinan",
+          "dmi": 680100,
+          "gameShape": 8,
+          "salary": 33510
+        },
+        {
+          "playerId": 55334268,
+          "name": "Eilon Kalderon",
+          "dmi": 320000,
+          "gameShape": 9,
+          "salary": 15611
+        },
+        {
+          "playerId": 55029423,
+          "name": "Yoni Ashkenazi",
+          "dmi": 810100,
+          "gameShape": 9,
+          "salary": 27407
+        },
+        {
+          "playerId": 55029329,
+          "name": "Yonatan Benno",
+          "dmi": 1402900,
+          "gameShape": 9,
+          "salary": 66441
+        },
+        {
+          "playerId": 55029385,
+          "name": "Elishav Brener",
+          "dmi": 841900,
+          "gameShape": 9,
+          "salary": 33767
+        },
+        {
+          "playerId": 55029422,
+          "name": "Benny Yavin",
+          "dmi": 609300,
+          "gameShape": 9,
+          "salary": 19147
+        },
+        {
+          "playerId": 55029538,
+          "name": "Oneg Ben-Yaacov",
+          "dmi": 1277400,
+          "gameShape": 8,
+          "salary": 78594
+        },
+        {
+          "playerId": 55029695,
+          "name": "Aviram Tzarfati",
+          "dmi": 282600,
+          "gameShape": 7,
+          "salary": 31066
+        },
+        {
+          "playerId": 55029696,
+          "name": "Tuvi Ashkenazi",
+          "dmi": 3708500,
+          "gameShape": 9,
+          "salary": 135704
+        },
+        {
+          "playerId": 55029769,
+          "name": "Assi Farkash",
+          "dmi": 2793600,
+          "gameShape": 8,
+          "salary": 85420
+        },
+        {
+          "playerId": 55029866,
+          "name": "Elram Zeytuni",
+          "dmi": 1663500,
+          "gameShape": 9,
+          "salary": 57296
+        },
+        {
+          "playerId": 55029914,
+          "name": "Alex Avramov",
+          "dmi": 1732300,
+          "gameShape": 9,
+          "salary": 66030
+        },
+        {
+          "playerId": 55333982,
+          "name": "Guy Adler",
+          "dmi": 753300,
+          "gameShape": 9,
+          "salary": 27268
+        },
+        {
+          "playerId": 55334017,
+          "name": "Elishav Oved",
+          "dmi": 1137200,
+          "gameShape": 8,
+          "salary": 48249
+        },
+        {
+          "playerId": 55334059,
+          "name": "Meidad Yesha&#39;ayahu",
+          "dmi": 734200,
+          "gameShape": 8,
+          "salary": 28869
+        },
+        {
+          "playerId": 55334164,
+          "name": "Avni Barzilay",
+          "dmi": 2471100,
+          "gameShape": 8,
+          "salary": 92647
+        },
+        {
+          "playerId": 55334232,
+          "name": "Jed Dekel",
+          "dmi": 509500,
+          "gameShape": 8,
+          "salary": 34766
+        },
+        {
+          "playerId": 55334333,
+          "name": "Nativ Dolev",
+          "dmi": 748900,
+          "gameShape": 9,
+          "salary": 27348
+        }
+      ]
+    },
+    {
+      "countryId": 10,
+      "name": "Italia",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55278575,
+          "name": "Vito Tremolada",
+          "dmi": 352500,
+          "gameShape": 8,
+          "salary": 21882
+        },
+        {
+          "playerId": 55278761,
+          "name": "Cristiano Sbattelia",
+          "dmi": 2150100,
+          "gameShape": 9,
+          "salary": 52130
+        },
+        {
+          "playerId": 54975300,
+          "name": "William Piscaglia",
+          "dmi": 843800,
+          "gameShape": 9,
+          "salary": 26847
+        },
+        {
+          "playerId": 54975047,
+          "name": "Florindo Cairo",
+          "dmi": 674600,
+          "gameShape": 9,
+          "salary": 23454
+        },
+        {
+          "playerId": 55279176,
+          "name": "Omar Dalmo",
+          "dmi": 724200,
+          "gameShape": 9,
+          "salary": 21525
+        },
+        {
+          "playerId": 54973149,
+          "name": "Paolo Sorce",
+          "dmi": 841100,
+          "gameShape": 9,
+          "salary": 23595
+        },
+        {
+          "playerId": 54971980,
+          "name": "Alessandro Hoz",
+          "dmi": 972800,
+          "gameShape": 9,
+          "salary": 26108
+        },
+        {
+          "playerId": 54972285,
+          "name": "Donato Bauducco",
+          "dmi": 3055000,
+          "gameShape": 9,
+          "salary": 98230
+        },
+        {
+          "playerId": 54972588,
+          "name": "Ettore Taini",
+          "dmi": 935800,
+          "gameShape": 9,
+          "salary": 33315
+        },
+        {
+          "playerId": 54973304,
+          "name": "Sergio Tassani",
+          "dmi": 624300,
+          "gameShape": 8,
+          "salary": 50293
+        },
+        {
+          "playerId": 54973780,
+          "name": "Rino Succu",
+          "dmi": 560600,
+          "gameShape": 9,
+          "salary": 21570
+        },
+        {
+          "playerId": 54974089,
+          "name": "Giancarlo Fellegara",
+          "dmi": 1167300,
+          "gameShape": 9,
+          "salary": 41737
+        },
+        {
+          "playerId": 54974368,
+          "name": "Bruno Nicastro",
+          "dmi": 2656300,
+          "gameShape": 9,
+          "salary": 78410
+        },
+        {
+          "playerId": 54975189,
+          "name": "Paolo Locci",
+          "dmi": 401100,
+          "gameShape": 8,
+          "salary": 26173
+        },
+        {
+          "playerId": 54975342,
+          "name": "Seran Soverini",
+          "dmi": 1323400,
+          "gameShape": 8,
+          "salary": 54131
+        },
+        {
+          "playerId": 55160239,
+          "name": "Roberto Toti",
+          "dmi": 1042200,
+          "gameShape": 9,
+          "salary": 45304
+        }
+      ]
+    },
+    {
+      "countryId": 20,
+      "name": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55048510,
+          "name": "Vytautas Dorofejus",
+          "dmi": 1166600,
+          "gameShape": 9,
+          "salary": 42472
+        },
+        {
+          "playerId": 55048229,
+          "name": "Edvardas Napeklys",
+          "dmi": 623400,
+          "gameShape": 9,
+          "salary": 22985
+        },
+        {
+          "playerId": 55047898,
+          "name": "Kastytis Žandaravicius",
+          "dmi": 2463800,
+          "gameShape": 9,
+          "salary": 64244
+        },
+        {
+          "playerId": 55619495,
+          "name": "Dorotėjas Pikcilingis",
+          "dmi": 290400,
+          "gameShape": 8,
+          "salary": 19057
+        },
+        {
+          "playerId": 55046850,
+          "name": "Mariusz Harazim",
+          "dmi": 1222300,
+          "gameShape": 8,
+          "salary": 69735
+        },
+        {
+          "playerId": 55046775,
+          "name": "Matas Maziliauskas",
+          "dmi": 413600,
+          "gameShape": 9,
+          "salary": 19922
+        },
+        {
+          "playerId": 55046957,
+          "name": "Linas Bajorynas",
+          "dmi": 551300,
+          "gameShape": 9,
+          "salary": 20397
+        },
+        {
+          "playerId": 55047001,
+          "name": "Kostas Plukys",
+          "dmi": 506300,
+          "gameShape": 8,
+          "salary": 16631
+        },
+        {
+          "playerId": 55047048,
+          "name": "Almis Stafejevas",
+          "dmi": 1628300,
+          "gameShape": 9,
+          "salary": 64043
+        },
+        {
+          "playerId": 55047318,
+          "name": "Valdas Peldunas",
+          "dmi": 394200,
+          "gameShape": 8,
+          "salary": 33327
+        },
+        {
+          "playerId": 55047646,
+          "name": "Ginutis Petrauskis",
+          "dmi": 1346700,
+          "gameShape": 8,
+          "salary": 89824
+        },
+        {
+          "playerId": 55047870,
+          "name": "Juvencijus Kondratenkovas",
+          "dmi": 511300,
+          "gameShape": 8,
+          "salary": 28427
+        },
+        {
+          "playerId": 55047943,
+          "name": "Alvytas Cholupniakas",
+          "dmi": 1178600,
+          "gameShape": 8,
+          "salary": 86694
+        },
+        {
+          "playerId": 55048296,
+          "name": "Vytukas Ružinas",
+          "dmi": 647600,
+          "gameShape": 9,
+          "salary": 32841
+        },
+        {
+          "playerId": 55048489,
+          "name": "Viachka Ledakovich",
+          "dmi": 563900,
+          "gameShape": 8,
+          "salary": 28590
+        },
+        {
+          "playerId": 55048588,
+          "name": "Malkelis Kievinas",
+          "dmi": 745300,
+          "gameShape": 9,
+          "salary": 23526
+        },
+        {
+          "playerId": 55058006,
+          "name": "Aivaras Simas Basius",
+          "dmi": 1321900,
+          "gameShape": 8,
+          "salary": 67160
+        },
+        {
+          "playerId": 55462207,
+          "name": "Marius Verketis",
+          "dmi": 539400,
+          "gameShape": 9,
+          "salary": 23166
+        }
+      ]
+    },
+    {
+      "countryId": 94,
+      "name": "Senegal",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 55464695,
+          "name": "Samory Sy",
+          "dmi": 170800,
+          "gameShape": 9,
+          "salary": 9358
+        },
+        {
+          "playerId": 55712771,
+          "name": "Salilou Kefy",
+          "dmi": 84000,
+          "gameShape": 8,
+          "salary": 8985
+        },
+        {
+          "playerId": 55464066,
+          "name": "Mbar Diouf",
+          "dmi": 521900,
+          "gameShape": 9,
+          "salary": 23177
+        },
+        {
+          "playerId": 55162600,
+          "name": "Charaf Diallo",
+          "dmi": 358400,
+          "gameShape": 7,
+          "salary": 39308
+        },
+        {
+          "playerId": 55461870,
+          "name": "Allé Ndaw",
+          "dmi": 184900,
+          "gameShape": 9,
+          "salary": 7762
+        },
+        {
+          "playerId": 55463227,
+          "name": "Ferdinand Banor",
+          "dmi": 54500,
+          "gameShape": 7,
+          "salary": 6538
+        },
+        {
+          "playerId": 55464291,
+          "name": "Damé Agne",
+          "dmi": 62000,
+          "gameShape": 7,
+          "salary": 9328
+        },
+        {
+          "playerId": 55464519,
+          "name": "Macky Bocoum",
+          "dmi": 234100,
+          "gameShape": 9,
+          "salary": 12061
+        },
+        {
+          "playerId": 55467235,
+          "name": "Bassirou Bilaly",
+          "dmi": 130700,
+          "gameShape": 8,
+          "salary": 10302
+        },
+        {
+          "playerId": 55711267,
+          "name": "Ndiankou Diassé",
+          "dmi": 98800,
+          "gameShape": 8,
+          "salary": 6955
+        },
+        {
+          "playerId": 55712075,
+          "name": "Niankou Dieng",
+          "dmi": 78400,
+          "gameShape": 7,
+          "salary": 11199
+        },
+        {
+          "playerId": 55715074,
+          "name": "Sidy N&#39;Diaye",
+          "dmi": 54400,
+          "gameShape": 7,
+          "salary": 8941
+        }
+      ]
+    },
+    {
+      "countryId": 29,
+      "name": "Srbija",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55073194,
+          "name": "Pavle Tankosić",
+          "dmi": 318800,
+          "gameShape": 8,
+          "salary": 25306
+        },
+        {
+          "playerId": 55377145,
+          "name": "Krstivoje Naumovski",
+          "dmi": 467500,
+          "gameShape": 9,
+          "salary": 26665
+        },
+        {
+          "playerId": 55466193,
+          "name": "Slobodan Špirović",
+          "dmi": 504300,
+          "gameShape": 8,
+          "salary": 26590
+        },
+        {
+          "playerId": 55159130,
+          "name": "Radoje Lambulić",
+          "dmi": 353100,
+          "gameShape": 8,
+          "salary": 19844
+        },
+        {
+          "playerId": 55072649,
+          "name": "Jovan Cvijanovic",
+          "dmi": 446500,
+          "gameShape": 9,
+          "salary": 22313
+        },
+        {
+          "playerId": 55072727,
+          "name": "Milovan Lopićević",
+          "dmi": 389500,
+          "gameShape": 9,
+          "salary": 17850
+        },
+        {
+          "playerId": 55072669,
+          "name": "Slobodan Rapajić",
+          "dmi": 712900,
+          "gameShape": 8,
+          "salary": 42714
+        },
+        {
+          "playerId": 55072745,
+          "name": "Miloš Mišić",
+          "dmi": 1116700,
+          "gameShape": 9,
+          "salary": 30307
+        },
+        {
+          "playerId": 55073068,
+          "name": "Slobodan Kalinić",
+          "dmi": 360200,
+          "gameShape": 9,
+          "salary": 13474
+        },
+        {
+          "playerId": 55073069,
+          "name": "Slobodan Bačetić",
+          "dmi": 294400,
+          "gameShape": 8,
+          "salary": 21328
+        },
+        {
+          "playerId": 55073514,
+          "name": "Alexandru Croitoru",
+          "dmi": 512900,
+          "gameShape": 7,
+          "salary": 56671
+        },
+        {
+          "playerId": 55376992,
+          "name": "Lazar Vlastimirović",
+          "dmi": 1219700,
+          "gameShape": 9,
+          "salary": 39078
+        },
+        {
+          "playerId": 55377239,
+          "name": "Darko Popović",
+          "dmi": 1844100,
+          "gameShape": 8,
+          "salary": 55232
+        },
+        {
+          "playerId": 55377439,
+          "name": "Dule Vasiljević",
+          "dmi": 594900,
+          "gameShape": 9,
+          "salary": 30971
+        },
+        {
+          "playerId": 55377707,
+          "name": "Zoran Kitić",
+          "dmi": 703800,
+          "gameShape": 9,
+          "salary": 19768
+        }
+      ]
+    },
+    {
+      "countryId": 70,
+      "name": "Taiwan",
+      "pool": "World Cup - Pool B",
+      "players": [
+        {
+          "playerId": 55144837,
+          "name": "Chan Yong chul",
+          "dmi": 1069500,
+          "gameShape": 9,
+          "salary": 40241
+        },
+        {
+          "playerId": 55144777,
+          "name": "Liang Shaiming",
+          "dmi": 255200,
+          "gameShape": 8,
+          "salary": 21921
+        },
+        {
+          "playerId": 55144755,
+          "name": "Wong Sheng Nan",
+          "dmi": 323300,
+          "gameShape": 9,
+          "salary": 13323
+        },
+        {
+          "playerId": 55144951,
+          "name": "Ma Lui Dan",
+          "dmi": 284100,
+          "gameShape": 9,
+          "salary": 12082
+        },
+        {
+          "playerId": 55449367,
+          "name": "Wang Thiam Loy",
+          "dmi": 403600,
+          "gameShape": 9,
+          "salary": 18156
+        },
+        {
+          "playerId": 55145198,
+          "name": "Sun Kheong",
+          "dmi": 867300,
+          "gameShape": 9,
+          "salary": 35647
+        },
+        {
+          "playerId": 55449113,
+          "name": "Liang Jang Lu",
+          "dmi": 364200,
+          "gameShape": 9,
+          "salary": 16505
+        },
+        {
+          "playerId": 55449202,
+          "name": "Han Yok Lee",
+          "dmi": 189200,
+          "gameShape": 9,
+          "salary": 10164
+        },
+        {
+          "playerId": 55144965,
+          "name": "Luo Wing Kuen",
+          "dmi": 966000,
+          "gameShape": 8,
+          "salary": 39085
+        },
+        {
+          "playerId": 55145043,
+          "name": "Lim Than Long",
+          "dmi": 437700,
+          "gameShape": 9,
+          "salary": 19136
+        },
+        {
+          "playerId": 55145045,
+          "name": "Mo Gyong si",
+          "dmi": 561600,
+          "gameShape": 9,
+          "salary": 28292
+        },
+        {
+          "playerId": 55449200,
+          "name": "Ouyang Tu An",
+          "dmi": 515900,
+          "gameShape": 9,
+          "salary": 24915
+        },
+        {
+          "playerId": 55449219,
+          "name": "Huang Tat Ho",
+          "dmi": 341600,
+          "gameShape": 7,
+          "salary": 26481
+        },
+        {
+          "playerId": 55461617,
+          "name": "Law Ting Lun",
+          "dmi": 126100,
+          "gameShape": 7,
+          "salary": 19323
+        },
+        {
+          "playerId": 55464576,
+          "name": "Ban Jya Syin",
+          "dmi": 479900,
+          "gameShape": 9,
+          "salary": 22981
+        }
+      ]
+    },
+    {
+      "countryId": 1,
+      "name": "United States",
+      "pool": "World Cup - Pool A",
+      "players": [
+        {
+          "playerId": 54902750,
+          "name": "Joshua Rouse",
+          "dmi": 715800,
+          "gameShape": 8,
+          "salary": 34978
+        },
+        {
+          "playerId": 54903083,
+          "name": "Walt Sorenson",
+          "dmi": 2384200,
+          "gameShape": 9,
+          "salary": 99917
+        },
+        {
+          "playerId": 54901145,
+          "name": "Harry Mathews",
+          "dmi": 873000,
+          "gameShape": 9,
+          "salary": 37113
+        },
+        {
+          "playerId": 54903294,
+          "name": "Jarom Bess",
+          "dmi": 712600,
+          "gameShape": 7,
+          "salary": 90859
+        },
+        {
+          "playerId": 54902733,
+          "name": "Jonathan Beer",
+          "dmi": 800200,
+          "gameShape": 9,
+          "salary": 32283
+        },
+        {
+          "playerId": 54902633,
+          "name": "Laverne Mercado",
+          "dmi": 699900,
+          "gameShape": 8,
+          "salary": 58945
+        },
+        {
+          "playerId": 54902890,
+          "name": "Freddy Cockrell",
+          "dmi": 767900,
+          "gameShape": 7,
+          "salary": 70932
+        },
+        {
+          "playerId": 54900604,
+          "name": "Erik Beauchamp",
+          "dmi": 1435000,
+          "gameShape": 9,
+          "salary": 44086
+        },
+        {
+          "playerId": 54900612,
+          "name": "Thomas Brown",
+          "dmi": 1039600,
+          "gameShape": 9,
+          "salary": 32510
+        },
+        {
+          "playerId": 54902535,
+          "name": "Morris Cheney",
+          "dmi": 915100,
+          "gameShape": 8,
+          "salary": 35402
+        },
+        {
+          "playerId": 54902672,
+          "name": "Charles Dowell",
+          "dmi": 1100600,
+          "gameShape": 9,
+          "salary": 43098
+        },
+        {
+          "playerId": 54902924,
+          "name": "Weston Wilson",
+          "dmi": 1078300,
+          "gameShape": 9,
+          "salary": 38406
+        }
+      ]
+    }
+  ]
+}
