@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-01T12:00:36.258Z",
+  "updatedAt": "2026-10-02T11:31:47.134Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7830,13 +7830,19 @@
     "55333982": {
       "name": "Guy Adler",
       "countryId": 15,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-14",
           "toDate": "2026-08-14"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-10-02",
+          "toDate": null
         }
       ]
     },
@@ -8172,13 +8178,13 @@
     "55343642": {
       "name": "David Couceiro",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 7,
-          "toWeek": null,
+          "toWeek": 8,
           "fromDate": "2026-09-20",
-          "toDate": null
+          "toDate": "2026-10-02"
         }
       ]
     },
@@ -13283,13 +13289,19 @@
     "55709531": {
       "name": "Siarhey Miadouski",
       "countryId": 85,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-15"
+        },
+        {
+          "fromWeek": 8,
+          "toWeek": null,
+          "fromDate": "2026-10-02",
+          "toDate": null
         }
       ]
     },

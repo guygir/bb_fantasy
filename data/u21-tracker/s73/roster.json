@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 8,
-  "date": "2026-10-01",
-  "updatedAt": "2026-10-01T12:00:36.258Z",
+  "date": "2026-10-02",
+  "updatedAt": "2026-10-02T11:31:47.134Z",
   "countries": [
     {
       "countryId": 31,
@@ -328,6 +328,10 @@
         {
           "playerId": 55709501,
           "name": "Davyd Maistruk"
+        },
+        {
+          "playerId": 55709531,
+          "name": "Siarhey Miadouski"
         }
       ]
     },
@@ -1952,6 +1956,10 @@
           "name": "Alex Avramov"
         },
         {
+          "playerId": 55333982,
+          "name": "Guy Adler"
+        },
+        {
           "playerId": 55334017,
           "name": "Elishav Oved"
         },
@@ -2885,10 +2893,6 @@
         {
           "playerId": 55157091,
           "name": "João Miguel Novo"
-        },
-        {
-          "playerId": 55343642,
-          "name": "David Couceiro"
         },
         {
           "playerId": 55342997,

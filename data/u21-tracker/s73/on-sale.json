@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "week": 8,
-  "updatedAt": "2026-10-01T12:00:36.258Z",
+  "updatedAt": "2026-10-02T11:31:47.134Z",
   "players": [
     {
       "playerId": 55463508,
@@ -10,7 +10,7 @@
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 263800
+      "dmi": 268900
     },
     {
       "playerId": 55082858,
@@ -18,7 +18,7 @@
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 265200
+      "dmi": 230200
     },
     {
       "playerId": 55388617,
@@ -26,15 +26,7 @@
       "countryId": 37,
       "countryName": "Ceska Rep.",
       "pool": "Pool C",
-      "dmi": 98100
-    },
-    {
-      "playerId": 55368654,
-      "name": "Hugo Osmar Piano",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 52700
+      "dmi": 153100
     },
     {
       "playerId": 55466348,
@@ -53,12 +45,20 @@
       "dmi": 24600
     },
     {
+      "playerId": 55707492,
+      "name": "Vojo Luković",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 65100
+    },
+    {
       "playerId": 55463756,
       "name": "Robbie McCulloch",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 396600
+      "dmi": 414300
     },
     {
       "playerId": 55464271,
@@ -66,7 +66,7 @@
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 17300
+      "dmi": 16900
     },
     {
       "playerId": 55464945,
@@ -77,12 +77,20 @@
       "dmi": 193500
     },
     {
+      "playerId": 55712793,
+      "name": "Eduard Tripac",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 232500
+    },
+    {
       "playerId": 55343005,
       "name": "Guilherme Oliveira",
       "countryId": 18,
       "countryName": "Portugal",
       "pool": "Pool F",
-      "dmi": 248300
+      "dmi": 222700
     },
     {
       "playerId": 55997488,
@@ -90,7 +98,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 56700
+      "dmi": 61500
     },
     {
       "playerId": 55710901,
@@ -98,7 +106,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 183200
+      "dmi": 159700
     }
   ]
 }

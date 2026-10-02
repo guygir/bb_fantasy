@@ -6908,6 +6908,33 @@
       "playerId": 55278575,
       "name": "Vito Tremolada",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-02T11:31:47.134Z",
+      "date": "2026-10-02",
+      "week": 8,
+      "countryId": 85,
+      "playerId": 55709531,
+      "name": "Siarhey Miadouski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-02T11:31:47.134Z",
+      "date": "2026-10-02",
+      "week": 8,
+      "countryId": 15,
+      "playerId": 55333982,
+      "name": "Guy Adler",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-02T11:31:47.134Z",
+      "date": "2026-10-02",
+      "week": 8,
+      "countryId": 18,
+      "playerId": 55343642,
+      "name": "David Couceiro",
+      "type": "left"
     }
   ]
 }
