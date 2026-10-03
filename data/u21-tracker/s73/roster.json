@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 8,
-  "date": "2026-10-02",
-  "updatedAt": "2026-10-02T16:22:14.687Z",
+  "week": 9,
+  "date": "2026-10-03",
+  "updatedAt": "2026-10-03T10:46:52.886Z",
   "countries": [
     {
       "countryId": 31,
@@ -394,7 +394,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -677,10 +677,6 @@
           "name": "Wang Ruifeng"
         },
         {
-          "playerId": 54929799,
-          "name": "Mo Wendong"
-        },
-        {
           "playerId": 54929849,
           "name": "Ye Tiancai"
         },
@@ -689,20 +685,12 @@
           "name": "Shen Yunda"
         },
         {
-          "playerId": 54930100,
-          "name": "Hou Junxing"
-        },
-        {
           "playerId": 54930242,
           "name": "He Hanping"
         },
         {
           "playerId": 54930439,
           "name": "Tao Nanxiong"
-        },
-        {
-          "playerId": 55234347,
-          "name": "Xue Kunqian"
         },
         {
           "playerId": 55234617,
@@ -1965,7 +1953,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2867,16 +2855,16 @@
       "pool": "Pool F",
       "players": [
         {
-          "playerId": 55038514,
-          "name": "Hermínio Alhinho"
-        },
-        {
           "playerId": 55039317,
           "name": "Alexandre Coroado"
         },
         {
           "playerId": 55038485,
           "name": "Raimundo Jesus"
+        },
+        {
+          "playerId": 55038514,
+          "name": "Hermínio Alhinho"
         },
         {
           "playerId": 55038805,
@@ -3370,7 +3358,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },

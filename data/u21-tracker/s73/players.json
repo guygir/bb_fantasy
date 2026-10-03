@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-02T16:22:14.687Z",
+  "updatedAt": "2026-10-03T10:46:52.886Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -295,13 +295,13 @@
     "54929799": {
       "name": "Mo Wendong",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-03"
         }
       ]
     },
@@ -373,13 +373,13 @@
     "54930100": {
       "name": "Hou Junxing",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-03"
         }
       ]
     },
@@ -6545,13 +6545,13 @@
     "55234347": {
       "name": "Xue Kunqian",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-03"
         }
       ]
     },
@@ -7550,7 +7550,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N&#39;Dao",
+      "name": "Mouss N'Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7886,7 +7886,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha&#39;ayahu",
+      "name": "Meidad Yesha'ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -13878,7 +13878,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N&#39;Diaye",
+      "name": "Sidy N'Diaye",
       "countryId": 94,
       "active": true,
       "stints": [

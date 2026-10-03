@@ -6935,6 +6935,33 @@
       "playerId": 55343642,
       "name": "David Couceiro",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-03T10:46:52.886Z",
+      "date": "2026-10-03",
+      "week": 9,
+      "countryId": 5,
+      "playerId": 54929799,
+      "name": "Mo Wendong",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-03T10:46:52.886Z",
+      "date": "2026-10-03",
+      "week": 9,
+      "countryId": 5,
+      "playerId": 54930100,
+      "name": "Hou Junxing",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-03T10:46:52.886Z",
+      "date": "2026-10-03",
+      "week": 9,
+      "countryId": 5,
+      "playerId": 55234347,
+      "name": "Xue Kunqian",
+      "type": "left"
     }
   ]
 }
