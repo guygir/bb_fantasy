@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-03",
+  "date": "2026-10-04",
   "week": 9,
-  "updatedAt": "2026-10-03T10:46:52.886Z",
+  "updatedAt": "2026-10-04T11:28:40.718Z",
   "players": [
     {
       "playerId": 55463508,
@@ -21,14 +21,6 @@
       "dmi": 230200
     },
     {
-      "playerId": 55388617,
-      "name": "Karel Jaroš",
-      "countryId": 37,
-      "countryName": "Ceska Rep.",
-      "pool": "Pool C",
-      "dmi": 153100
-    },
-    {
       "playerId": 55707492,
       "name": "Vojo Luković",
       "countryId": 76,
@@ -45,20 +37,20 @@
       "dmi": 16900
     },
     {
+      "playerId": 55309522,
+      "name": "Fikret Neside",
+      "countryId": 12,
+      "countryName": "Hellas",
+      "pool": "World Cup - Pool B",
+      "dmi": 283800
+    },
+    {
       "playerId": 55468250,
       "name": "Brynleifur Ottósson",
       "countryId": 78,
       "countryName": "Ísland",
       "pool": "Pool C",
       "dmi": 112500
-    },
-    {
-      "playerId": 55464945,
-      "name": "Jóngeir Þrastarson",
-      "countryId": 78,
-      "countryName": "Ísland",
-      "pool": "Pool C",
-      "dmi": 193500
     },
     {
       "playerId": 55464756,
@@ -77,12 +69,12 @@
       "dmi": 232500
     },
     {
-      "playerId": 55343005,
-      "name": "Guilherme Oliveira",
-      "countryId": 18,
-      "countryName": "Portugal",
-      "pool": "Pool F",
-      "dmi": 222700
+      "playerId": 55133358,
+      "name": "Soso Cheishvili",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 50400
     },
     {
       "playerId": 55997488,
@@ -99,6 +91,14 @@
       "countryName": "Shqipëria",
       "pool": "Pool D",
       "dmi": 159700
+    },
+    {
+      "playerId": 55073514,
+      "name": "Alexandru Croitoru",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 512900
     }
   ]
 }

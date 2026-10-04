@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 9,
-  "date": "2026-10-03",
-  "updatedAt": "2026-10-03T10:46:52.886Z",
+  "date": "2026-10-04",
+  "updatedAt": "2026-10-04T11:28:40.718Z",
   "countries": [
     {
       "countryId": 31,
@@ -3865,6 +3865,10 @@
       "pool": "Pool D",
       "players": [
         {
+          "playerId": 55250848,
+          "name": "Bayram Saglamer"
+        },
+        {
           "playerId": 55251101,
           "name": "Idris Salkan"
         },
@@ -3976,10 +3980,6 @@
           "name": "Sergiy Stecenko"
         },
         {
-          "playerId": 55162198,
-          "name": "Genadiy Gubskiy"
-        },
-        {
           "playerId": 55382179,
           "name": "Rinat Denisenko"
         },
@@ -3998,6 +3998,10 @@
         {
           "playerId": 55382352,
           "name": "Martyn Poltavets"
+        },
+        {
+          "playerId": 55382429,
+          "name": "Yan Klimov"
         },
         {
           "playerId": 55382493,

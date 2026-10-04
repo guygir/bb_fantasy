@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-03T10:46:52.886Z",
+  "updatedAt": "2026-10-04T11:28:40.718Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -6114,7 +6114,7 @@
     "55162198": {
       "name": "Genadiy Gubskiy",
       "countryId": 33,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
@@ -6124,9 +6124,9 @@
         },
         {
           "fromWeek": 8,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-09-27",
-          "toDate": null
+          "toDate": "2026-10-04"
         }
       ]
     },
@@ -6713,13 +6713,19 @@
     "55250848": {
       "name": "Bayram Saglamer",
       "countryId": 6,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 2,
           "toWeek": 2,
           "fromDate": "2026-08-15",
           "toDate": "2026-08-16"
+        },
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-04",
+          "toDate": null
         }
       ]
     },
@@ -8955,6 +8961,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55382429": {
+      "name": "Yan Klimov",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-04",
           "toDate": null
         }
       ]

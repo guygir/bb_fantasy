@@ -6962,6 +6962,34 @@
       "playerId": 55234347,
       "name": "Xue Kunqian",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-04T11:28:40.718Z",
+      "date": "2026-10-04",
+      "week": 9,
+      "countryId": 6,
+      "playerId": 55250848,
+      "name": "Bayram Saglamer",
+      "type": "returned",
+      "weeksAway": 7
+    },
+    {
+      "ts": "2026-10-04T11:28:40.718Z",
+      "date": "2026-10-04",
+      "week": 9,
+      "countryId": 33,
+      "playerId": 55382429,
+      "name": "Yan Klimov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-04T11:28:40.718Z",
+      "date": "2026-10-04",
+      "week": 9,
+      "countryId": 33,
+      "playerId": 55162198,
+      "name": "Genadiy Gubskiy",
+      "type": "left"
     }
   ]
 }
