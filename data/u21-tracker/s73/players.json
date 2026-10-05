@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-04T11:28:40.718Z",
+  "updatedAt": "2026-10-05T12:55:55.122Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -1393,7 +1393,7 @@
     "54990509": {
       "name": "Jean Barlet",
       "countryId": 11,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 2,
@@ -1403,9 +1403,9 @@
         },
         {
           "fromWeek": 7,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-09-22",
-          "toDate": null
+          "toDate": "2026-10-05"
         }
       ]
     },
@@ -6652,6 +6652,19 @@
         }
       ]
     },
+    "55235407": {
+      "name": "Hu Kangwei",
+      "countryId": 5,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-05",
+          "toDate": null
+        }
+      ]
+    },
     "55235741": {
       "name": "Zhou Qiong",
       "countryId": 5,
@@ -7241,13 +7254,19 @@
     "55293712": {
       "name": "Bruno Borget",
       "countryId": 11,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 1,
           "fromDate": "2026-08-11",
           "toDate": "2026-08-12"
+        },
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-05",
+          "toDate": null
         }
       ]
     },
@@ -10657,6 +10676,19 @@
         }
       ]
     },
+    "55461555": {
+      "name": "Afşar Zeynalov",
+      "countryId": 88,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-05",
+          "toDate": null
+        }
+      ]
+    },
     "55461564": {
       "name": "Grigory Kokotov",
       "countryId": 86,
@@ -14013,6 +14045,19 @@
         }
       ]
     },
+    "55715824": {
+      "name": "Laurids Grosser Jensen",
+      "countryId": 39,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-05",
+          "toDate": null
+        }
+      ]
+    },
     "55715889": {
       "name": "Anker Kjaergaard",
       "countryId": 39,
@@ -14766,6 +14811,19 @@
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        }
+      ]
+    },
+    "55991161": {
+      "name": "Sofus Pries",
+      "countryId": 39,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-05",
+          "toDate": null
         }
       ]
     },

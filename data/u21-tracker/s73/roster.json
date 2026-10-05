@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 9,
-  "date": "2026-10-04",
-  "updatedAt": "2026-10-04T11:28:40.718Z",
+  "date": "2026-10-05",
+  "updatedAt": "2026-10-05T12:55:55.122Z",
   "countries": [
     {
       "countryId": 31,
@@ -190,6 +190,10 @@
       "name": "Azərbaycan",
       "pool": "Pool E",
       "players": [
+        {
+          "playerId": 55461555,
+          "name": "Afşar Zeynalov"
+        },
         {
           "playerId": 55462221,
           "name": "Khristofor Kamalov"
@@ -653,6 +657,10 @@
           "name": "Luo Xiaoliang"
         },
         {
+          "playerId": 55235407,
+          "name": "Hu Kangwei"
+        },
+        {
           "playerId": 55235336,
           "name": "Pan Decai"
         },
@@ -882,6 +890,10 @@
           "name": "Marrock Conway"
         },
         {
+          "playerId": 55463756,
+          "name": "Robbie McCulloch"
+        },
+        {
           "playerId": 55461699,
           "name": "Jonathan MacFergus"
         },
@@ -892,10 +904,6 @@
         {
           "playerId": 55463552,
           "name": "Rhodri Matthews"
-        },
-        {
-          "playerId": 55463756,
-          "name": "Robbie McCulloch"
         },
         {
           "playerId": 55466582,
@@ -1060,8 +1068,16 @@
           "name": "Mik Lade"
         },
         {
+          "playerId": 55715824,
+          "name": "Laurids Grosser Jensen"
+        },
+        {
           "playerId": 55929245,
           "name": "Teis Askham"
+        },
+        {
+          "playerId": 55991161,
+          "name": "Sofus Pries"
         }
       ]
     },
@@ -1383,10 +1399,6 @@
           "name": "Benoît Quétier"
         },
         {
-          "playerId": 54990509,
-          "name": "Jean Barlet"
-        },
-        {
           "playerId": 54988142,
           "name": "Stéphane Jeanmaire"
         },
@@ -1425,6 +1437,10 @@
         {
           "playerId": 55158754,
           "name": "Robin Lenoël"
+        },
+        {
+          "playerId": 55293712,
+          "name": "Bruno Borget"
         },
         {
           "playerId": 55294406,

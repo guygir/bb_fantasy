@@ -6990,6 +6990,60 @@
       "playerId": 55162198,
       "name": "Genadiy Gubskiy",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-05T12:55:55.122Z",
+      "date": "2026-10-05",
+      "week": 9,
+      "countryId": 88,
+      "playerId": 55461555,
+      "name": "Afşar Zeynalov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-05T12:55:55.122Z",
+      "date": "2026-10-05",
+      "week": 9,
+      "countryId": 5,
+      "playerId": 55235407,
+      "name": "Hu Kangwei",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-05T12:55:55.122Z",
+      "date": "2026-10-05",
+      "week": 9,
+      "countryId": 39,
+      "playerId": 55715824,
+      "name": "Laurids Grosser Jensen",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-05T12:55:55.122Z",
+      "date": "2026-10-05",
+      "week": 9,
+      "countryId": 39,
+      "playerId": 55991161,
+      "name": "Sofus Pries",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-05T12:55:55.122Z",
+      "date": "2026-10-05",
+      "week": 9,
+      "countryId": 11,
+      "playerId": 55293712,
+      "name": "Bruno Borget",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-05T12:55:55.122Z",
+      "date": "2026-10-05",
+      "week": 9,
+      "countryId": 11,
+      "playerId": 54990509,
+      "name": "Jean Barlet",
+      "type": "left"
     }
   ]
 }
