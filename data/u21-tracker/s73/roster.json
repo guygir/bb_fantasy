@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 9,
-  "date": "2026-10-05",
-  "updatedAt": "2026-10-05T12:55:55.122Z",
+  "date": "2026-10-06",
+  "updatedAt": "2026-10-06T12:22:31.635Z",
   "countries": [
     {
       "countryId": 31,
@@ -1691,16 +1691,8 @@
           "name": "Moša Pantić"
         },
         {
-          "playerId": 55065310,
-          "name": "Petar Velović"
-        },
-        {
-          "playerId": 55065533,
-          "name": "Gordan Bugarija"
-        },
-        {
-          "playerId": 55065577,
-          "name": "Tomica Komadina"
+          "playerId": 55628104,
+          "name": "Ivan Datković"
         },
         {
           "playerId": 55065331,
@@ -1711,32 +1703,40 @@
           "name": "Živko Mikuličić"
         },
         {
-          "playerId": 55369697,
-          "name": "Aleksandar Španić"
-        },
-        {
-          "playerId": 55369755,
-          "name": "Giovanni Batković"
-        },
-        {
-          "playerId": 55369772,
-          "name": "Miroslav Canjuga"
+          "playerId": 55369730,
+          "name": "Marko Španjić"
         },
         {
           "playerId": 55369945,
           "name": "Pier Cesare Morbelli"
         },
         {
-          "playerId": 55369946,
-          "name": "Gvozden Despotović"
+          "playerId": 55369951,
+          "name": "Miroslav Fižuleto"
+        },
+        {
+          "playerId": 55370015,
+          "name": "Tomislav Strašek"
         },
         {
           "playerId": 55370026,
           "name": "Miran Simeunović"
         },
         {
+          "playerId": 55370079,
+          "name": "Valentin Gršković"
+        },
+        {
           "playerId": 55466031,
           "name": "Branko Meštrić"
+        },
+        {
+          "playerId": 55628099,
+          "name": "Tvrtko Tepavac"
+        },
+        {
+          "playerId": 55628278,
+          "name": "Ivo Patrk"
         },
         {
           "playerId": 55628299,
@@ -2974,10 +2974,6 @@
           "name": "Ioan Vicol"
         },
         {
-          "playerId": 55132404,
-          "name": "Luca Juncu"
-        },
-        {
           "playerId": 55132285,
           "name": "Mihăițã Stoica"
         },
@@ -3108,6 +3104,10 @@
           "name": "Vefik Acahan"
         },
         {
+          "playerId": 55461600,
+          "name": "Nodar Adeishvili"
+        },
+        {
           "playerId": 55463549,
           "name": "David Sopromadze"
         },
@@ -3150,10 +3150,6 @@
         {
           "playerId": 55437748,
           "name": "Gigo Barkaia"
-        },
-        {
-          "playerId": 55461600,
-          "name": "Nodar Adeishvili"
         },
         {
           "playerId": 55464035,
@@ -4069,6 +4065,10 @@
         {
           "playerId": 54900612,
           "name": "Thomas Brown"
+        },
+        {
+          "playerId": 54900695,
+          "name": "Fredrick Chastain"
         },
         {
           "playerId": 54902535,

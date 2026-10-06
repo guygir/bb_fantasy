@@ -7044,6 +7044,150 @@
       "playerId": 54990509,
       "name": "Jean Barlet",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55628104,
+      "name": "Ivan Datković",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55369730,
+      "name": "Marko Španjić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55369951,
+      "name": "Miroslav Fižuleto",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55370015,
+      "name": "Tomislav Strašek",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55370079,
+      "name": "Valentin Gršković",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55628099,
+      "name": "Tvrtko Tepavac",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55628278,
+      "name": "Ivo Patrk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55065310,
+      "name": "Petar Velović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55065533,
+      "name": "Gordan Bugarija",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55065577,
+      "name": "Tomica Komadina",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55369697,
+      "name": "Aleksandar Španić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55369755,
+      "name": "Giovanni Batković",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55369772,
+      "name": "Miroslav Canjuga",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55369946,
+      "name": "Gvozden Despotović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 61,
+      "playerId": 55132404,
+      "name": "Luca Juncu",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-06T12:22:31.635Z",
+      "date": "2026-10-06",
+      "week": 9,
+      "countryId": 1,
+      "playerId": 54900695,
+      "name": "Fredrick Chastain",
+      "type": "joined"
     }
   ]
 }

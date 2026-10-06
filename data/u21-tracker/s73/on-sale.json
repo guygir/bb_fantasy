@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "week": 9,
-  "updatedAt": "2026-10-05T12:55:55.122Z",
+  "updatedAt": "2026-10-06T12:22:31.635Z",
   "players": [
     {
       "playerId": 55082858,
@@ -29,20 +29,20 @@
       "dmi": 283800
     },
     {
-      "playerId": 55468250,
-      "name": "Brynleifur Ottósson",
-      "countryId": 78,
-      "countryName": "Ísland",
-      "pool": "Pool C",
-      "dmi": 112500
-    },
-    {
-      "playerId": 55464756,
-      "name": "Michael Sullivan",
+      "playerId": 55712557,
+      "name": "Jonathan Bonnici",
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool C",
-      "dmi": 71400
+      "dmi": 166600
+    },
+    {
+      "playerId": 55712793,
+      "name": "Eduard Tripac",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 232500
     },
     {
       "playerId": 55133358,
