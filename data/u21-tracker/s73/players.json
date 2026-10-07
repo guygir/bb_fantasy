@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-06T12:22:31.635Z",
+  "updatedAt": "2026-10-07T12:15:08.131Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -9809,6 +9809,19 @@
         }
       ]
     },
+    "55420758": {
+      "name": "Marek Kukulski",
+      "countryId": 58,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-07",
+          "toDate": null
+        }
+      ]
+    },
     "55420768": {
       "name": "Filip Kopaczynski",
       "countryId": 58,
@@ -10078,6 +10091,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55439918": {
+      "name": "Bor Grilanc",
+      "countryId": 66,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-07",
           "toDate": null
         }
       ]

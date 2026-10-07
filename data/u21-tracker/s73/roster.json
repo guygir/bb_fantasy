@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 9,
-  "date": "2026-10-06",
-  "updatedAt": "2026-10-06T12:22:31.635Z",
+  "date": "2026-10-07",
+  "updatedAt": "2026-10-07T12:15:08.131Z",
   "countries": [
     {
       "countryId": 31,
@@ -2862,6 +2862,10 @@
         {
           "playerId": 55117329,
           "name": "Ludwik Miastowski"
+        },
+        {
+          "playerId": 55420758,
+          "name": "Marek Kukulski"
         }
       ]
     },
@@ -3465,6 +3469,10 @@
         {
           "playerId": 55135479,
           "name": "Demis Tahiri"
+        },
+        {
+          "playerId": 55439918,
+          "name": "Bor Grilanc"
         },
         {
           "playerId": 55135557,

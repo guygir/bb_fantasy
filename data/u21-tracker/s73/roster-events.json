@@ -7188,6 +7188,24 @@
       "playerId": 54900695,
       "name": "Fredrick Chastain",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-07T12:15:08.131Z",
+      "date": "2026-10-07",
+      "week": 9,
+      "countryId": 58,
+      "playerId": 55420758,
+      "name": "Marek Kukulski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-07T12:15:08.131Z",
+      "date": "2026-10-07",
+      "week": 9,
+      "countryId": 66,
+      "playerId": 55439918,
+      "name": "Bor Grilanc",
+      "type": "joined"
     }
   ]
 }
