@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 9,
-  "date": "2026-10-07",
-  "updatedAt": "2026-10-07T12:15:08.131Z",
+  "date": "2026-10-08",
+  "updatedAt": "2026-10-08T12:25:00.291Z",
   "countries": [
     {
       "countryId": 31,
@@ -1036,6 +1036,10 @@
           "name": "Klaus Løkkegård"
         },
         {
+          "playerId": 55711210,
+          "name": "Leo Boelt"
+        },
+        {
           "playerId": 55088123,
           "name": "Nicolai Fredslund"
         },
@@ -1064,8 +1068,8 @@
           "name": "Mogens Kramer"
         },
         {
-          "playerId": 55392446,
-          "name": "Mik Lade"
+          "playerId": 55392573,
+          "name": "Sven Trier"
         },
         {
           "playerId": 55715824,
@@ -1733,10 +1737,6 @@
         {
           "playerId": 55628099,
           "name": "Tvrtko Tepavac"
-        },
-        {
-          "playerId": 55628278,
-          "name": "Ivo Patrk"
         },
         {
           "playerId": 55628299,

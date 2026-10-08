@@ -7206,6 +7206,42 @@
       "playerId": 55439918,
       "name": "Bor Grilanc",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-08T12:25:00.291Z",
+      "date": "2026-10-08",
+      "week": 9,
+      "countryId": 39,
+      "playerId": 55711210,
+      "name": "Leo Boelt",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-08T12:25:00.291Z",
+      "date": "2026-10-08",
+      "week": 9,
+      "countryId": 39,
+      "playerId": 55392573,
+      "name": "Sven Trier",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-08T12:25:00.291Z",
+      "date": "2026-10-08",
+      "week": 9,
+      "countryId": 39,
+      "playerId": 55392446,
+      "name": "Mik Lade",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-08T12:25:00.291Z",
+      "date": "2026-10-08",
+      "week": 9,
+      "countryId": 24,
+      "playerId": 55628278,
+      "name": "Ivo Patrk",
+      "type": "left"
     }
   ]
 }
