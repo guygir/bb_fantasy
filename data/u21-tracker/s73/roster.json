@@ -2,7 +2,7 @@
   "season": 73,
   "week": 9,
   "date": "2026-10-09",
-  "updatedAt": "2026-10-09T12:14:30.690Z",
+  "updatedAt": "2026-10-09T17:10:24.627Z",
   "countries": [
     {
       "countryId": 31,
@@ -378,7 +378,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N'Dao"
+          "name": "Mouss N&#39;Dao"
         },
         {
           "playerId": 55325939,
@@ -1949,7 +1949,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha'ayahu"
+          "name": "Meidad Yesha&#39;ayahu"
         },
         {
           "playerId": 55334164,
@@ -3366,7 +3366,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },
