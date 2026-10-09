@@ -1,24 +1,16 @@
 {
   "season": 73,
-  "date": "2026-10-08",
+  "date": "2026-10-09",
   "week": 9,
-  "updatedAt": "2026-10-08T12:25:00.291Z",
+  "updatedAt": "2026-10-09T12:14:30.690Z",
   "players": [
-    {
-      "playerId": 55082858,
-      "name": "Bozhidar Terziev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 230200
-    },
     {
       "playerId": 55462212,
       "name": "Viktor Radojičić",
       "countryId": 76,
       "countryName": "Crna Gora",
       "pool": "Pool F",
-      "dmi": 128400
+      "dmi": 127100
     },
     {
       "playerId": 55707492,
@@ -26,15 +18,15 @@
       "countryId": 76,
       "countryName": "Crna Gora",
       "pool": "Pool F",
-      "dmi": 65100
+      "dmi": 76800
     },
     {
-      "playerId": 55464271,
-      "name": "Harout Adamyan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 16900
+      "playerId": 54966513,
+      "name": "Carsten Grasedyck",
+      "countryId": 8,
+      "countryName": "Deutschland",
+      "pool": "Pool D",
+      "dmi": 1112700
     },
     {
       "playerId": 55628592,
@@ -42,23 +34,23 @@
       "countryId": 24,
       "countryName": "Hrvatska",
       "pool": "Pool F",
-      "dmi": 112300
+      "dmi": 167500
     },
     {
-      "playerId": 55712557,
-      "name": "Jonathan Bonnici",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool C",
-      "dmi": 166600
+      "playerId": 55115467,
+      "name": "Hubert Rokaszewicz",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 391900
     },
     {
-      "playerId": 55712793,
-      "name": "Eduard Tripac",
-      "countryId": 86,
-      "countryName": "Moldova",
-      "pool": "Pool A",
-      "dmi": 232500
+      "playerId": 55117259,
+      "name": "Tomasz Frączyk",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 430900
     },
     {
       "playerId": 55461870,
@@ -66,7 +58,7 @@
       "countryId": 94,
       "countryName": "Senegal",
       "pool": "World Cup - Pool A",
-      "dmi": 184900
+      "dmi": 110000
     },
     {
       "playerId": 55997488,
@@ -74,7 +66,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 61500
+      "dmi": 45400
     },
     {
       "playerId": 55439925,
@@ -82,7 +74,7 @@
       "countryId": 66,
       "countryName": "Slovenija",
       "pool": "Pool E",
-      "dmi": 509100
+      "dmi": 292400
     },
     {
       "playerId": 55439881,
@@ -90,7 +82,7 @@
       "countryId": 66,
       "countryName": "Slovenija",
       "pool": "Pool E",
-      "dmi": 349400
+      "dmi": 269500
     },
     {
       "playerId": 55382339,
@@ -98,7 +90,7 @@
       "countryId": 33,
       "countryName": "Ukraina",
       "pool": "Pool A",
-      "dmi": 658200
+      "dmi": 428500
     }
   ]
 }

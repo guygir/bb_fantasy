@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-08T12:25:00.291Z",
+  "updatedAt": "2026-10-09T12:14:30.690Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -2064,6 +2064,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55038689": {
+      "name": "Nuno Cabral",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-09",
           "toDate": null
         }
       ]
@@ -5074,52 +5087,52 @@
     "55156111": {
       "name": "Baliaslau Kasianovich",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
     "55156116": {
       "name": "Kirill Khmelev",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
     "55156139": {
       "name": "Z'mitrok Kamlenich",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
     "55156140": {
       "name": "Alexey Stefanovskiy",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
@@ -5661,13 +5674,13 @@
     "55160098": {
       "name": "Bahuslau Nastusevich",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
@@ -6172,13 +6185,13 @@
     "55162413": {
       "name": "Zaharej Sapojnikau",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
@@ -10069,6 +10082,19 @@
         }
       ]
     },
+    "55439765": {
+      "name": "Metod Glebov",
+      "countryId": 66,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-09",
+          "toDate": null
+        }
+      ]
+    },
     "55439831": {
       "name": "Drejc Kožel",
       "countryId": 66,
@@ -10724,13 +10750,13 @@
     "55460376": {
       "name": "Pakhom Birukou",
       "countryId": 85,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 9,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-09"
         }
       ]
     },
@@ -13317,6 +13343,19 @@
         }
       ]
     },
+    "55677723": {
+      "name": "Wojciech Goździewski",
+      "countryId": 58,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-09",
+          "toDate": null
+        }
+      ]
+    },
     "55686960": {
       "name": "Kartlos Akhalaia",
       "countryId": 62,
@@ -13501,6 +13540,19 @@
           "fromWeek": 8,
           "toWeek": null,
           "fromDate": "2026-10-02",
+          "toDate": null
+        }
+      ]
+    },
+    "55709554": {
+      "name": "Nichypar Czaropka",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-09",
           "toDate": null
         }
       ]
@@ -13947,6 +13999,19 @@
         }
       ]
     },
+    "55713236": {
+      "name": "Arnold Gialanze",
+      "countryId": 90,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-09",
+          "toDate": null
+        }
+      ]
+    },
     "55713279": {
       "name": "Bilind Bixhaj",
       "countryId": 79,
@@ -14177,6 +14242,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55715679": {
+      "name": "Jagor Lagasz",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 9,
+          "toWeek": null,
+          "fromDate": "2026-10-09",
           "toDate": null
         }
       ]

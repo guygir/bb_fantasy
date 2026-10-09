@@ -7242,6 +7242,123 @@
       "playerId": 55628278,
       "name": "Ivo Patrk",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55709554,
+      "name": "Nichypar Czaropka",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55715679,
+      "name": "Jagor Lagasz",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55156111,
+      "name": "Baliaslau Kasianovich",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55156116,
+      "name": "Kirill Khmelev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55156139,
+      "name": "Z'mitrok Kamlenich",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55156140,
+      "name": "Alexey Stefanovskiy",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55160098,
+      "name": "Bahuslau Nastusevich",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55162413,
+      "name": "Zaharej Sapojnikau",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 85,
+      "playerId": 55460376,
+      "name": "Pakhom Birukou",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 90,
+      "playerId": 55713236,
+      "name": "Arnold Gialanze",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 58,
+      "playerId": 55677723,
+      "name": "Wojciech Goździewski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 18,
+      "playerId": 55038689,
+      "name": "Nuno Cabral",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-09T12:14:30.690Z",
+      "date": "2026-10-09",
+      "week": 9,
+      "countryId": 66,
+      "playerId": 55439765,
+      "name": "Metod Glebov",
+      "type": "joined"
     }
   ]
 }
