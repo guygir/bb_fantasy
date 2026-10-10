@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-09T17:10:24.627Z",
+  "updatedAt": "2026-10-10T11:32:00.824Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7601,7 +7601,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N&#39;Dao",
+      "name": "Mouss N'Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -7937,7 +7937,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha&#39;ayahu",
+      "name": "Meidad Yesha'ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -9909,6 +9909,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55436617": {
+      "name": "Ionel Vasile",
+      "countryId": 61,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-10",
           "toDate": null
         }
       ]
@@ -14143,7 +14156,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N&#39;Diaye",
+      "name": "Sidy N'Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
@@ -14441,6 +14454,19 @@
         }
       ]
     },
+    "55718910": {
+      "name": "Zani Shala",
+      "countryId": 79,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-10",
+          "toDate": null
+        }
+      ]
+    },
     "55718921": {
       "name": "Robert Askanazyan",
       "countryId": 87,
@@ -14509,13 +14535,13 @@
     "55719002": {
       "name": "Denis Salihu",
       "countryId": 79,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-10"
         }
       ]
     },
@@ -15135,13 +15161,13 @@
     "55993837": {
       "name": "Marrock Conway",
       "countryId": 81,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 6,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-09-18",
-          "toDate": null
+          "toDate": "2026-10-10"
         }
       ]
     },

@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 9,
-  "date": "2026-10-09",
-  "updatedAt": "2026-10-09T17:10:24.627Z",
+  "week": 10,
+  "date": "2026-10-10",
+  "updatedAt": "2026-10-10T11:32:00.824Z",
   "countries": [
     {
       "countryId": 31,
@@ -378,7 +378,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -864,10 +864,6 @@
         {
           "playerId": 55464277,
           "name": "Mark Maric"
-        },
-        {
-          "playerId": 55993837,
-          "name": "Marrock Conway"
         },
         {
           "playerId": 55463756,
@@ -1949,7 +1945,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2966,6 +2962,10 @@
           "name": "Rareș Marcu"
         },
         {
+          "playerId": 55436617,
+          "name": "Ionel Vasile"
+        },
+        {
           "playerId": 55436794,
           "name": "Ioan Vicol"
         },
@@ -3366,7 +3366,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3432,12 +3432,12 @@
           "name": "Perinjak Hila"
         },
         {
-          "playerId": 55718924,
-          "name": "Devoll Zeka"
+          "playerId": 55718910,
+          "name": "Zani Shala"
         },
         {
-          "playerId": 55719002,
-          "name": "Denis Salihu"
+          "playerId": 55718924,
+          "name": "Devoll Zeka"
         },
         {
           "playerId": 55997393,

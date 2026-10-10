@@ -7359,6 +7359,42 @@
       "playerId": 55439765,
       "name": "Metod Glebov",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-10T11:32:00.824Z",
+      "date": "2026-10-10",
+      "week": 10,
+      "countryId": 81,
+      "playerId": 55993837,
+      "name": "Marrock Conway",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-10T11:32:00.824Z",
+      "date": "2026-10-10",
+      "week": 10,
+      "countryId": 61,
+      "playerId": 55436617,
+      "name": "Ionel Vasile",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-10T11:32:00.824Z",
+      "date": "2026-10-10",
+      "week": 10,
+      "countryId": 79,
+      "playerId": 55718910,
+      "name": "Zani Shala",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-10T11:32:00.824Z",
+      "date": "2026-10-10",
+      "week": 10,
+      "countryId": 79,
+      "playerId": 55719002,
+      "name": "Denis Salihu",
+      "type": "left"
     }
   ]
 }

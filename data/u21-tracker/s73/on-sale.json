@@ -1,24 +1,16 @@
 {
   "season": 73,
-  "date": "2026-10-09",
-  "week": 9,
-  "updatedAt": "2026-10-09T12:14:30.690Z",
+  "date": "2026-10-10",
+  "week": 10,
+  "updatedAt": "2026-10-10T11:32:00.824Z",
   "players": [
     {
-      "playerId": 55462212,
-      "name": "Viktor Radojičić",
-      "countryId": 76,
-      "countryName": "Crna Gora",
+      "playerId": 55082858,
+      "name": "Bozhidar Terziev",
+      "countryId": 36,
+      "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 127100
-    },
-    {
-      "playerId": 55707492,
-      "name": "Vojo Luković",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 76800
+      "dmi": 284100
     },
     {
       "playerId": 54966513,
@@ -29,12 +21,20 @@
       "dmi": 1112700
     },
     {
-      "playerId": 55628592,
-      "name": "Vice Skorić",
-      "countryId": 24,
-      "countryName": "Hrvatska",
-      "pool": "Pool F",
-      "dmi": 167500
+      "playerId": 55464271,
+      "name": "Harout Adamyan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 16600
+    },
+    {
+      "playerId": 55047646,
+      "name": "Ginutis Petrauskis",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 1173200
     },
     {
       "playerId": 55115467,
@@ -53,6 +53,14 @@
       "dmi": 430900
     },
     {
+      "playerId": 55343005,
+      "name": "Guilherme Oliveira",
+      "countryId": 18,
+      "countryName": "Portugal",
+      "pool": "Pool F",
+      "dmi": 151500
+    },
+    {
       "playerId": 55461870,
       "name": "Allé Ndaw",
       "countryId": 94,
@@ -61,12 +69,12 @@
       "dmi": 110000
     },
     {
-      "playerId": 55997488,
-      "name": "Bleart Boletini",
+      "playerId": 55718910,
+      "name": "Zani Shala",
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 45400
+      "dmi": 62000
     },
     {
       "playerId": 55439925,
@@ -83,14 +91,6 @@
       "countryName": "Slovenija",
       "pool": "Pool E",
       "dmi": 269500
-    },
-    {
-      "playerId": 55382339,
-      "name": "Stanyslav Saltovetc",
-      "countryId": 33,
-      "countryName": "Ukraina",
-      "pool": "Pool A",
-      "dmi": 428500
     }
   ]
 }
