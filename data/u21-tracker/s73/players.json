@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-10T11:32:00.824Z",
+  "updatedAt": "2026-10-11T11:45:34.984Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -8771,6 +8771,19 @@
         }
       ]
     },
+    "55375872": {
+      "name": "Agent Voigt",
+      "countryId": 28,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-11",
+          "toDate": null
+        }
+      ]
+    },
     "55375875": {
       "name": "Lucien Dünsch",
       "countryId": 28,
@@ -9497,16 +9510,29 @@
         }
       ]
     },
-    "55398576": {
-      "name": "Wacker Cahill",
+    "55398574": {
+      "name": "Scott Sullivan",
       "countryId": 44,
       "active": true,
       "stints": [
         {
-          "fromWeek": 1,
+          "fromWeek": 10,
           "toWeek": null,
-          "fromDate": "2026-08-08",
+          "fromDate": "2026-10-11",
           "toDate": null
+        }
+      ]
+    },
+    "55398576": {
+      "name": "Wacker Cahill",
+      "countryId": 44,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 1,
+          "toWeek": 10,
+          "fromDate": "2026-08-08",
+          "toDate": "2026-10-11"
         }
       ]
     },
@@ -9565,13 +9591,13 @@
     "55398681": {
       "name": "Marsden Kildare",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-11"
         }
       ]
     },
@@ -12185,13 +12211,13 @@
     "55466090": {
       "name": "Jan-Philipp Mathe",
       "countryId": 91,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-11"
         }
       ]
     },
@@ -12664,13 +12690,13 @@
     "55468171": {
       "name": "Philippe Anciaux",
       "countryId": 91,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-11"
         }
       ]
     },
@@ -13300,6 +13326,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55656842": {
+      "name": "Jimmy Phelan",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-11",
           "toDate": null
         }
       ]

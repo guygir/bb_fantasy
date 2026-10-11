@@ -7395,6 +7395,69 @@
       "playerId": 55719002,
       "name": "Denis Salihu",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 44,
+      "playerId": 55398574,
+      "name": "Scott Sullivan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 44,
+      "playerId": 55656842,
+      "name": "Jimmy Phelan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 44,
+      "playerId": 55398576,
+      "name": "Wacker Cahill",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 44,
+      "playerId": 55398681,
+      "name": "Marsden Kildare",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 91,
+      "playerId": 55466090,
+      "name": "Jan-Philipp Mathe",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 91,
+      "playerId": 55468171,
+      "name": "Philippe Anciaux",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-11T11:45:34.984Z",
+      "date": "2026-10-11",
+      "week": 10,
+      "countryId": 28,
+      "playerId": 55375872,
+      "name": "Agent Voigt",
+      "type": "joined"
     }
   ]
 }

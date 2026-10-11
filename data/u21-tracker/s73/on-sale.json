@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-10",
+  "date": "2026-10-11",
   "week": 10,
-  "updatedAt": "2026-10-10T11:32:00.824Z",
+  "updatedAt": "2026-10-11T11:45:34.984Z",
   "players": [
     {
       "playerId": 55082858,
@@ -21,12 +21,36 @@
       "dmi": 1112700
     },
     {
+      "playerId": 55254944,
+      "name": "Nardo Aceija",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "World Cup - Pool A",
+      "dmi": 814800
+    },
+    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
       "dmi": 16600
+    },
+    {
+      "playerId": 55309522,
+      "name": "Fikret Neside",
+      "countryId": 12,
+      "countryName": "Hellas",
+      "pool": "World Cup - Pool B",
+      "dmi": 835900
+    },
+    {
+      "playerId": 55158318,
+      "name": "Brian Dunphy",
+      "countryId": 44,
+      "countryName": "Ireland",
+      "pool": "Pool F",
+      "dmi": 381800
     },
     {
       "playerId": 55047646,
@@ -45,6 +69,14 @@
       "dmi": 391900
     },
     {
+      "playerId": 55115414,
+      "name": "Ryszard Kozimor",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 738100
+    },
+    {
       "playerId": 55117259,
       "name": "Tomasz Frączyk",
       "countryId": 58,
@@ -61,36 +93,12 @@
       "dmi": 151500
     },
     {
-      "playerId": 55461870,
-      "name": "Allé Ndaw",
-      "countryId": 94,
-      "countryName": "Senegal",
-      "pool": "World Cup - Pool A",
-      "dmi": 110000
-    },
-    {
       "playerId": 55718910,
       "name": "Zani Shala",
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
       "dmi": 62000
-    },
-    {
-      "playerId": 55439925,
-      "name": "Darjan Aljančič",
-      "countryId": 66,
-      "countryName": "Slovenija",
-      "pool": "Pool E",
-      "dmi": 292400
-    },
-    {
-      "playerId": 55439881,
-      "name": "Lovro Bric",
-      "countryId": 66,
-      "countryName": "Slovenija",
-      "pool": "Pool E",
-      "dmi": 269500
     }
   ]
 }

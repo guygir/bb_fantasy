@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 10,
-  "date": "2026-10-10",
-  "updatedAt": "2026-10-10T11:32:00.824Z",
+  "date": "2026-10-11",
+  "updatedAt": "2026-10-11T11:45:34.984Z",
   "countries": [
     {
       "countryId": 31,
@@ -1675,6 +1675,10 @@
           "name": "Ivan Datković"
         },
         {
+          "playerId": 55628592,
+          "name": "Vice Skorić"
+        },
+        {
           "playerId": 55065331,
           "name": "Miran Vojvodić"
         },
@@ -1723,10 +1727,6 @@
           "name": "Marin Turčinov"
         },
         {
-          "playerId": 55628592,
-          "name": "Vice Skorić"
-        },
-        {
           "playerId": 55710741,
           "name": "Kristo Saraga"
         },
@@ -1762,10 +1762,6 @@
           "name": "Thomas Ward"
         },
         {
-          "playerId": 55398576,
-          "name": "Wacker Cahill"
-        },
-        {
           "playerId": 55158318,
           "name": "Brian Dunphy"
         },
@@ -1778,6 +1774,10 @@
           "name": "Tony Broe"
         },
         {
+          "playerId": 55398574,
+          "name": "Scott Sullivan"
+        },
+        {
           "playerId": 55398587,
           "name": "Milo Feenan"
         },
@@ -1788,10 +1788,6 @@
         {
           "playerId": 55398674,
           "name": "Humphrey Dineen"
-        },
-        {
-          "playerId": 55398681,
-          "name": "Marsden Kildare"
         },
         {
           "playerId": 55462407,
@@ -1808,6 +1804,10 @@
         {
           "playerId": 55465956,
           "name": "Mark Brady"
+        },
+        {
+          "playerId": 55656842,
+          "name": "Jimmy Phelan"
         },
         {
           "playerId": 55713805,
@@ -2238,14 +2238,6 @@
         {
           "playerId": 55465572,
           "name": "Ruedi Legnick"
-        },
-        {
-          "playerId": 55466090,
-          "name": "Jan-Philipp Mathe"
-        },
-        {
-          "playerId": 55468171,
-          "name": "Philippe Anciaux"
         },
         {
           "playerId": 55527251,
@@ -3187,6 +3179,10 @@
           "name": "Arnold Hufschmied"
         },
         {
+          "playerId": 55375872,
+          "name": "Agent Voigt"
+        },
+        {
           "playerId": 55375934,
           "name": "Adolf Solak"
         },
@@ -3479,6 +3475,10 @@
           "name": "Metod Glebov"
         },
         {
+          "playerId": 55439881,
+          "name": "Lovro Bric"
+        },
+        {
           "playerId": 55135438,
           "name": "Kevin Turkoš"
         },
@@ -3509,10 +3509,6 @@
         {
           "playerId": 55439841,
           "name": "Timo Lep"
-        },
-        {
-          "playerId": 55439881,
-          "name": "Lovro Bric"
         },
         {
           "playerId": 55439925,
