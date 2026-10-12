@@ -1,9 +1,17 @@
 {
   "season": 73,
-  "date": "2026-10-11",
+  "date": "2026-10-12",
   "week": 10,
-  "updatedAt": "2026-10-11T11:45:34.984Z",
+  "updatedAt": "2026-10-12T13:47:43.399Z",
   "players": [
+    {
+      "playerId": 55463508,
+      "name": "Yurdman Atakişiyev",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 270700
+    },
     {
       "playerId": 55082858,
       "name": "Bozhidar Terziev",
@@ -13,12 +21,12 @@
       "dmi": 284100
     },
     {
-      "playerId": 54966513,
-      "name": "Carsten Grasedyck",
-      "countryId": 8,
-      "countryName": "Deutschland",
-      "pool": "Pool D",
-      "dmi": 1112700
+      "playerId": 55707492,
+      "name": "Vojo Luković",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 76800
     },
     {
       "playerId": 55254944,
@@ -53,6 +61,14 @@
       "dmi": 381800
     },
     {
+      "playerId": 55403952,
+      "name": "Einars Jozepsons",
+      "countryId": 46,
+      "countryName": "Latvija",
+      "pool": "Pool G",
+      "dmi": 418600
+    },
+    {
       "playerId": 55047646,
       "name": "Ginutis Petrauskis",
       "countryId": 20,
@@ -61,28 +77,12 @@
       "dmi": 1173200
     },
     {
-      "playerId": 55115467,
-      "name": "Hubert Rokaszewicz",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 391900
-    },
-    {
       "playerId": 55115414,
       "name": "Ryszard Kozimor",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 738100
-    },
-    {
-      "playerId": 55117259,
-      "name": "Tomasz Frączyk",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 430900
     },
     {
       "playerId": 55343005,

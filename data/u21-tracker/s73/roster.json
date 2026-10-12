@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 10,
-  "date": "2026-10-11",
-  "updatedAt": "2026-10-11T11:45:34.984Z",
+  "date": "2026-10-12",
+  "updatedAt": "2026-10-12T13:47:43.399Z",
   "countries": [
     {
       "countryId": 31,
@@ -1336,6 +1336,10 @@
           "name": "Pedro Puig Duran"
         },
         {
+          "playerId": 54950798,
+          "name": "Miguel Torres"
+        },
+        {
           "playerId": 54952584,
           "name": "Miquel Planas"
         },
@@ -1754,10 +1758,6 @@
           "name": "Mark Farrell"
         },
         {
-          "playerId": 55466692,
-          "name": "Stuart Ó Lorcáin"
-        },
-        {
           "playerId": 55461963,
           "name": "Thomas Ward"
         },
@@ -1812,6 +1812,10 @@
         {
           "playerId": 55713805,
           "name": "Sol Flynn"
+        },
+        {
+          "playerId": 55989623,
+          "name": "Graham Griffiths"
         }
       ]
     },
@@ -2220,6 +2224,10 @@
           "name": "Kristof Vannieuwenkerke"
         },
         {
+          "playerId": 55715748,
+          "name": "Steffen Preiss"
+        },
+        {
           "playerId": 55159043,
           "name": "Ivo Silva"
         },
@@ -2246,6 +2254,10 @@
         {
           "playerId": 55711866,
           "name": "Bruno Alves"
+        },
+        {
+          "playerId": 55713185,
+          "name": "Dimas Loureiro"
         },
         {
           "playerId": 55714989,
@@ -3096,16 +3108,16 @@
           "name": "Nodar Adeishvili"
         },
         {
+          "playerId": 55686831,
+          "name": "Gigi Devdariani"
+        },
+        {
           "playerId": 55463549,
           "name": "David Sopromadze"
         },
         {
           "playerId": 55133356,
           "name": "Kristesia Burjanadze"
-        },
-        {
-          "playerId": 55133358,
-          "name": "Soso Cheishvili"
         },
         {
           "playerId": 55133582,
@@ -3795,6 +3807,10 @@
           "name": "Mikael Persson"
         },
         {
+          "playerId": 55570512,
+          "name": "Urban Roding"
+        },
+        {
           "playerId": 55570553,
           "name": "Yiannis Aggelakakis"
         },
@@ -4069,6 +4085,10 @@
         {
           "playerId": 54900695,
           "name": "Fredrick Chastain"
+        },
+        {
+          "playerId": 54900996,
+          "name": "Terry Harkins"
         },
         {
           "playerId": 54902535,

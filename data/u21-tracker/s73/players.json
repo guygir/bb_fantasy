@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-11T11:45:34.984Z",
+  "updatedAt": "2026-10-12T13:47:43.399Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -37,6 +37,19 @@
           "fromWeek": 9,
           "toWeek": null,
           "fromDate": "2026-10-06",
+          "toDate": null
+        }
+      ]
+    },
+    "54900996": {
+      "name": "Terry Harkins",
+      "countryId": 1,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
           "toDate": null
         }
       ]
@@ -592,6 +605,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-17",
+          "toDate": null
+        }
+      ]
+    },
+    "54950798": {
+      "name": "Miguel Torres",
+      "countryId": 7,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
           "toDate": null
         }
       ]
@@ -4483,13 +4509,13 @@
     "55133358": {
       "name": "Soso Cheishvili",
       "countryId": 62,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-12"
         }
       ]
     },
@@ -12450,13 +12476,13 @@
     "55466692": {
       "name": "Stuart Ó Lorcáin",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-12"
         }
       ]
     },
@@ -13012,6 +13038,19 @@
         }
       ]
     },
+    "55570512": {
+      "name": "Urban Roding",
+      "countryId": 9,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
+          "toDate": null
+        }
+      ]
+    },
     "55570553": {
       "name": "Yiannis Aggelakakis",
       "countryId": 9,
@@ -13404,6 +13443,19 @@
           "fromWeek": 9,
           "toWeek": null,
           "fromDate": "2026-10-09",
+          "toDate": null
+        }
+      ]
+    },
+    "55686831": {
+      "name": "Gigi Devdariani",
+      "countryId": 62,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
           "toDate": null
         }
       ]
@@ -14051,6 +14103,19 @@
         }
       ]
     },
+    "55713185": {
+      "name": "Dimas Loureiro",
+      "countryId": 91,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
+          "toDate": null
+        }
+      ]
+    },
     "55713236": {
       "name": "Arnold Gialanze",
       "countryId": 90,
@@ -14314,13 +14379,19 @@
     "55715748": {
       "name": "Steffen Preiss",
       "countryId": 91,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 1,
           "toWeek": 3,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-22"
+        },
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
+          "toDate": null
         }
       ]
     },
@@ -15025,6 +15096,19 @@
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        }
+      ]
+    },
+    "55989623": {
+      "name": "Graham Griffiths",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-12",
+          "toDate": null
         }
       ]
     },

@@ -7458,6 +7458,88 @@
       "playerId": 55375872,
       "name": "Agent Voigt",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 7,
+      "playerId": 54950798,
+      "name": "Miguel Torres",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 44,
+      "playerId": 55989623,
+      "name": "Graham Griffiths",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 44,
+      "playerId": 55466692,
+      "name": "Stuart Ó Lorcáin",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 91,
+      "playerId": 55715748,
+      "name": "Steffen Preiss",
+      "type": "returned",
+      "weeksAway": 7
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 91,
+      "playerId": 55713185,
+      "name": "Dimas Loureiro",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 62,
+      "playerId": 55686831,
+      "name": "Gigi Devdariani",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 62,
+      "playerId": 55133358,
+      "name": "Soso Cheishvili",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 9,
+      "playerId": 55570512,
+      "name": "Urban Roding",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-12T13:47:43.399Z",
+      "date": "2026-10-12",
+      "week": 10,
+      "countryId": 1,
+      "playerId": 54900996,
+      "name": "Terry Harkins",
+      "type": "joined"
     }
   ]
 }
