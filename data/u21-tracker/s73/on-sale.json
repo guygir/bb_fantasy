@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "week": 10,
-  "updatedAt": "2026-10-12T13:47:43.399Z",
+  "updatedAt": "2026-10-13T13:06:43.026Z",
   "players": [
     {
       "playerId": 55463508,
@@ -77,6 +77,14 @@
       "dmi": 1173200
     },
     {
+      "playerId": 55115467,
+      "name": "Hubert Rokaszewicz",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 391900
+    },
+    {
       "playerId": 55115414,
       "name": "Ryszard Kozimor",
       "countryId": 58,
@@ -85,20 +93,28 @@
       "dmi": 738100
     },
     {
-      "playerId": 55343005,
-      "name": "Guilherme Oliveira",
-      "countryId": 18,
-      "countryName": "Portugal",
-      "pool": "Pool F",
-      "dmi": 151500
+      "playerId": 55117259,
+      "name": "Tomasz Frączyk",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 430900
     },
     {
-      "playerId": 55718910,
-      "name": "Zani Shala",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 62000
+      "playerId": 55072727,
+      "name": "Milovan Lopićević",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 332000
+    },
+    {
+      "playerId": 55077985,
+      "name": "Anton Golovnya",
+      "countryId": 33,
+      "countryName": "Ukraina",
+      "pool": "Pool A",
+      "dmi": 1328000
     }
   ]
 }
