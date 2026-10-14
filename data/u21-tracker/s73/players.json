@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-13T13:06:43.026Z",
+  "updatedAt": "2026-10-14T10:48:09.709Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -9711,6 +9711,19 @@
         }
       ]
     },
+    "55388681": {
+      "name": "Jindřich Kašpar",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
+          "toDate": null
+        }
+      ]
+    },
     "55392424": {
       "name": "Carsten Bostrup",
       "countryId": 39,
@@ -12357,6 +12370,19 @@
         }
       ]
     },
+    "55465292": {
+      "name": "Maxim Pivko",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
+          "toDate": null
+        }
+      ]
+    },
     "55465344": {
       "name": "Joe Sammut",
       "countryId": 90,
@@ -13986,6 +14012,19 @@
         }
       ]
     },
+    "55640595": {
+      "name": "Andriy Bashlay",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
+          "toDate": null
+        }
+      ]
+    },
     "55640680": {
       "name": "Roman Bovdur",
       "countryId": 33,
@@ -14008,6 +14047,19 @@
           "fromWeek": 10,
           "toWeek": null,
           "fromDate": "2026-10-13",
+          "toDate": null
+        }
+      ]
+    },
+    "55646614": {
+      "name": "Wiesław Tomal",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
           "toDate": null
         }
       ]
@@ -14041,12 +14093,64 @@
     "55646715": {
       "name": "Daniel Kolaja",
       "countryId": 37,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": 10,
+          "fromDate": "2026-10-13",
+          "toDate": "2026-10-14"
+        }
+      ]
+    },
+    "55646766": {
+      "name": "Pavel Albl",
+      "countryId": 37,
       "active": true,
       "stints": [
         {
           "fromWeek": 10,
           "toWeek": null,
-          "fromDate": "2026-10-13",
+          "fromDate": "2026-10-14",
+          "toDate": null
+        }
+      ]
+    },
+    "55646905": {
+      "name": "Jan Werthaim",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
+          "toDate": null
+        }
+      ]
+    },
+    "55646973": {
+      "name": "Kazimír Baťánek",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
+          "toDate": null
+        }
+      ]
+    },
+    "55647046": {
+      "name": "Pavel Hříbal",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
           "toDate": null
         }
       ]
@@ -14690,6 +14794,19 @@
           "fromWeek": 10,
           "toWeek": null,
           "fromDate": "2026-10-13",
+          "toDate": null
+        }
+      ]
+    },
+    "55712377": {
+      "name": "Ivan Lepeška",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
           "toDate": null
         }
       ]
@@ -15676,6 +15793,19 @@
           "toWeek": 1,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-11"
+        }
+      ]
+    },
+    "55925256": {
+      "name": "Tomáš Volf",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-14",
+          "toDate": null
         }
       ]
     },

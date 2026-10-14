@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 10,
-  "date": "2026-10-13",
-  "updatedAt": "2026-10-13T13:06:43.026Z",
+  "date": "2026-10-14",
+  "updatedAt": "2026-10-14T10:48:09.709Z",
   "countries": [
     {
       "countryId": 31,
@@ -566,12 +566,24 @@
           "name": "Ivo Ujčík"
         },
         {
+          "playerId": 55646614,
+          "name": "Wiesław Tomal"
+        },
+        {
           "playerId": 55388320,
           "name": "David Hejtmánek"
         },
         {
           "playerId": 55388396,
           "name": "Bedřich Bukáček"
+        },
+        {
+          "playerId": 55388681,
+          "name": "Jindřich Kašpar"
+        },
+        {
+          "playerId": 55465292,
+          "name": "Maxim Pivko"
         },
         {
           "playerId": 55646646,
@@ -582,12 +594,32 @@
           "name": "Miroslav Vocásek"
         },
         {
-          "playerId": 55646715,
-          "name": "Daniel Kolaja"
+          "playerId": 55646766,
+          "name": "Pavel Albl"
+        },
+        {
+          "playerId": 55646905,
+          "name": "Jan Werthaim"
+        },
+        {
+          "playerId": 55646973,
+          "name": "Kazimír Baťánek"
+        },
+        {
+          "playerId": 55647046,
+          "name": "Pavel Hříbal"
         },
         {
           "playerId": 55711303,
           "name": "Vladimír Buchar"
+        },
+        {
+          "playerId": 55712377,
+          "name": "Ivan Lepeška"
+        },
+        {
+          "playerId": 55925256,
+          "name": "Tomáš Volf"
         }
       ]
     },
@@ -1284,12 +1316,12 @@
           "name": "Ignacio Dolius"
         },
         {
-          "playerId": 55254944,
-          "name": "Nardo Aceija"
-        },
-        {
           "playerId": 55256660,
           "name": "Tomás Leciñana"
+        },
+        {
+          "playerId": 55254944,
+          "name": "Nardo Aceija"
         },
         {
           "playerId": 55254915,
@@ -4010,6 +4042,10 @@
         {
           "playerId": 55463608,
           "name": "Klim Oshipko"
+        },
+        {
+          "playerId": 55640595,
+          "name": "Andriy Bashlay"
         },
         {
           "playerId": 55640882,

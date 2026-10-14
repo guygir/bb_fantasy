@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "week": 10,
-  "updatedAt": "2026-10-13T13:06:43.026Z",
+  "updatedAt": "2026-10-14T10:48:09.709Z",
   "players": [
     {
       "playerId": 55463508,
@@ -21,20 +21,20 @@
       "dmi": 284100
     },
     {
+      "playerId": 55462212,
+      "name": "Viktor Radojičić",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 127100
+    },
+    {
       "playerId": 55707492,
       "name": "Vojo Luković",
       "countryId": 76,
       "countryName": "Crna Gora",
       "pool": "Pool F",
       "dmi": 76800
-    },
-    {
-      "playerId": 55254944,
-      "name": "Nardo Aceija",
-      "countryId": 7,
-      "countryName": "España",
-      "pool": "World Cup - Pool A",
-      "dmi": 814800
     },
     {
       "playerId": 55464271,
@@ -51,6 +51,14 @@
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
       "dmi": 835900
+    },
+    {
+      "playerId": 55462159,
+      "name": "Zefiros Chrisoulas",
+      "countryId": 12,
+      "countryName": "Hellas",
+      "pool": "World Cup - Pool B",
+      "dmi": 446600
     },
     {
       "playerId": 55158318,
@@ -85,20 +93,28 @@
       "dmi": 391900
     },
     {
-      "playerId": 55115414,
-      "name": "Ryszard Kozimor",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 738100
-    },
-    {
       "playerId": 55117259,
       "name": "Tomasz Frączyk",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 430900
+    },
+    {
+      "playerId": 55343005,
+      "name": "Guilherme Oliveira",
+      "countryId": 18,
+      "countryName": "Portugal",
+      "pool": "Pool F",
+      "dmi": 151500
+    },
+    {
+      "playerId": 55710901,
+      "name": "Edi Abdurrahmani",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 105100
     },
     {
       "playerId": 55072727,

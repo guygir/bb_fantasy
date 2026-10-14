@@ -8639,6 +8639,105 @@
       "playerId": 55463584,
       "name": "Volodymyr Romanenko",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55646614,
+      "name": "Wiesław Tomal",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55388681,
+      "name": "Jindřich Kašpar",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55465292,
+      "name": "Maxim Pivko",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55646766,
+      "name": "Pavel Albl",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55646905,
+      "name": "Jan Werthaim",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55646973,
+      "name": "Kazimír Baťánek",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55647046,
+      "name": "Pavel Hříbal",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55712377,
+      "name": "Ivan Lepeška",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55925256,
+      "name": "Tomáš Volf",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55646715,
+      "name": "Daniel Kolaja",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-14T10:48:09.709Z",
+      "date": "2026-10-14",
+      "week": 10,
+      "countryId": 33,
+      "playerId": 55640595,
+      "name": "Andriy Bashlay",
+      "type": "joined"
     }
   ]
 }
