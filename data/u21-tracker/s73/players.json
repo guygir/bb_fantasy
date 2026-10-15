@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-14T10:48:09.709Z",
+  "updatedAt": "2026-10-15T10:30:55.508Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -10948,6 +10948,32 @@
         }
       ]
     },
+    "55449132": {
+      "name": "Liao Ling Hu",
+      "countryId": 70,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-15",
+          "toDate": null
+        }
+      ]
+    },
+    "55449177": {
+      "name": "Dai Jin Soon",
+      "countryId": 70,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-15",
+          "toDate": null
+        }
+      ]
+    },
     "55449200": {
       "name": "Ouyang Tu An",
       "countryId": 70,
@@ -15255,6 +15281,19 @@
           "fromWeek": 10,
           "toWeek": null,
           "fromDate": "2026-10-12",
+          "toDate": null
+        }
+      ]
+    },
+    "55715757": {
+      "name": "Ding Kien Anh",
+      "countryId": 70,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-15",
           "toDate": null
         }
       ]

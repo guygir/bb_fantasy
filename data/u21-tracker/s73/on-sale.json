@@ -1,16 +1,24 @@
 {
   "season": 73,
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "week": 10,
-  "updatedAt": "2026-10-14T10:48:09.709Z",
+  "updatedAt": "2026-10-15T10:30:55.508Z",
   "players": [
     {
-      "playerId": 55463508,
-      "name": "Yurdman Atakişiyev",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 270700
+      "playerId": 55221819,
+      "name": "Laro Suelves",
+      "countryId": 2,
+      "countryName": "Argentina",
+      "pool": "World Cup - Pool B",
+      "dmi": 630600
+    },
+    {
+      "playerId": 55383231,
+      "name": "Suad Dobrić",
+      "countryId": 35,
+      "countryName": "Bosna i Hercegovina",
+      "pool": "Pool B",
+      "dmi": 465400
     },
     {
       "playerId": 55082858,
@@ -27,14 +35,6 @@
       "countryName": "Crna Gora",
       "pool": "Pool F",
       "dmi": 127100
-    },
-    {
-      "playerId": 55707492,
-      "name": "Vojo Luković",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 76800
     },
     {
       "playerId": 55464271,
@@ -69,14 +69,6 @@
       "dmi": 381800
     },
     {
-      "playerId": 55403952,
-      "name": "Einars Jozepsons",
-      "countryId": 46,
-      "countryName": "Latvija",
-      "pool": "Pool G",
-      "dmi": 418600
-    },
-    {
       "playerId": 55047646,
       "name": "Ginutis Petrauskis",
       "countryId": 20,
@@ -107,6 +99,14 @@
       "countryName": "Portugal",
       "pool": "Pool F",
       "dmi": 151500
+    },
+    {
+      "playerId": 55160326,
+      "name": "Michael Obree",
+      "countryId": 64,
+      "countryName": "Scotland",
+      "pool": "Pool A",
+      "dmi": 343400
     },
     {
       "playerId": 55710901,

@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 10,
-  "date": "2026-10-14",
-  "updatedAt": "2026-10-14T10:48:09.709Z",
+  "date": "2026-10-15",
+  "updatedAt": "2026-10-15T10:30:55.508Z",
   "countries": [
     {
       "countryId": 31,
@@ -2062,6 +2062,10 @@
           "name": "Aristids Teniss"
         },
         {
+          "playerId": 55403952,
+          "name": "Einars Jozepsons"
+        },
+        {
           "playerId": 55404236,
           "name": "Guntars Lipsks"
         },
@@ -2100,10 +2104,6 @@
         {
           "playerId": 55403863,
           "name": "Vents Bitenbinders"
-        },
-        {
-          "playerId": 55403952,
-          "name": "Einars Jozepsons"
         },
         {
           "playerId": 55403996,
@@ -3838,6 +3838,10 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
+          "playerId": 55449132,
+          "name": "Liao Ling Hu"
+        },
+        {
           "playerId": 55144837,
           "name": "Chan Yong chul"
         },
@@ -3882,6 +3886,10 @@
           "name": "Mo Gyong si"
         },
         {
+          "playerId": 55449177,
+          "name": "Dai Jin Soon"
+        },
+        {
           "playerId": 55449200,
           "name": "Ouyang Tu An"
         },
@@ -3896,6 +3904,10 @@
         {
           "playerId": 55464576,
           "name": "Ban Jya Syin"
+        },
+        {
+          "playerId": 55715757,
+          "name": "Ding Kien Anh"
         }
       ]
     },
