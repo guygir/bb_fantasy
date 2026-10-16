@@ -8765,6 +8765,69 @@
       "playerId": 55715757,
       "name": "Ding Kien Anh",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 85,
+      "playerId": 55987896,
+      "name": "Juras' Alizarchyk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55388636,
+      "name": "Jakub Marek",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 37,
+      "playerId": 55646712,
+      "name": "Pavel Lípa",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 8,
+      "playerId": 55272284,
+      "name": "Constantin Kleinhenz",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 8,
+      "playerId": 55567125,
+      "name": "Ulf Fila",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 8,
+      "playerId": 55566772,
+      "name": "David Zschoch",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-16T10:18:03.881Z",
+      "date": "2026-10-16",
+      "week": 10,
+      "countryId": 24,
+      "playerId": 55628226,
+      "name": "Hrvoje Munivrana",
+      "type": "joined"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-15T10:30:55.508Z",
+  "updatedAt": "2026-10-16T10:18:03.881Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7187,6 +7187,19 @@
         }
       ]
     },
+    "55272284": {
+      "name": "Constantin Kleinhenz",
+      "countryId": 8,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-16",
+          "toDate": null
+        }
+      ]
+    },
     "55272305": {
       "name": "Adam Tibor Schmerschneider",
       "countryId": 8,
@@ -9695,6 +9708,19 @@
           "toWeek": 10,
           "fromDate": "2026-08-08",
           "toDate": "2026-10-13"
+        }
+      ]
+    },
+    "55388636": {
+      "name": "Jakub Marek",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-16",
+          "toDate": null
         }
       ]
     },
@@ -13489,13 +13515,13 @@
     "55566772": {
       "name": "David Zschoch",
       "countryId": 8,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-10-13",
-          "toDate": null
+          "toDate": "2026-10-16"
         }
       ]
     },
@@ -13528,13 +13554,13 @@
     "55567125": {
       "name": "Ulf Fila",
       "countryId": 8,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 10,
           "fromDate": "2026-10-13",
-          "toDate": null
+          "toDate": "2026-10-16"
         }
       ]
     },
@@ -13882,6 +13908,19 @@
         }
       ]
     },
+    "55628226": {
+      "name": "Hrvoje Munivrana",
+      "countryId": 24,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-16",
+          "toDate": null
+        }
+      ]
+    },
     "55628278": {
       "name": "Ivo Patrk",
       "countryId": 24,
@@ -14112,6 +14151,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55646712": {
+      "name": "Pavel Lípa",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-16",
           "toDate": null
         }
       ]
@@ -15972,6 +16024,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55987896": {
+      "name": "Juras' Alizarchyk",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 10,
+          "toWeek": null,
+          "fromDate": "2026-10-16",
           "toDate": null
         }
       ]

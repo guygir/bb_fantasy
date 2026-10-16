@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 10,
-  "date": "2026-10-15",
-  "updatedAt": "2026-10-15T10:30:55.508Z",
+  "date": "2026-10-16",
+  "updatedAt": "2026-10-16T10:18:03.881Z",
   "countries": [
     {
       "countryId": 31,
@@ -324,6 +324,10 @@
         {
           "playerId": 55715679,
           "name": "Jagor Lagasz"
+        },
+        {
+          "playerId": 55987896,
+          "name": "Juras' Alizarchyk"
         }
       ]
     },
@@ -578,6 +582,10 @@
           "name": "Bedřich Bukáček"
         },
         {
+          "playerId": 55388636,
+          "name": "Jakub Marek"
+        },
+        {
           "playerId": 55388681,
           "name": "Jindřich Kašpar"
         },
@@ -592,6 +600,10 @@
         {
           "playerId": 55646685,
           "name": "Miroslav Vocásek"
+        },
+        {
+          "playerId": 55646712,
+          "name": "Pavel Lípa"
         },
         {
           "playerId": 55646766,
@@ -1067,16 +1079,16 @@
           "name": "Jannick Hesler"
         },
         {
-          "playerId": 55567125,
-          "name": "Ulf Fila"
-        },
-        {
           "playerId": 55567194,
           "name": "Jakob Johannes van der Linden"
         },
         {
           "playerId": 55566756,
           "name": "Sebastian Schirra"
+        },
+        {
+          "playerId": 55272284,
+          "name": "Constantin Kleinhenz"
         },
         {
           "playerId": 55271358,
@@ -1121,10 +1133,6 @@
         {
           "playerId": 55566759,
           "name": "Magnus Daumen"
-        },
-        {
-          "playerId": 55566772,
-          "name": "David Zschoch"
         },
         {
           "playerId": 55566991,
@@ -1689,6 +1697,10 @@
         {
           "playerId": 55628592,
           "name": "Vice Skorić"
+        },
+        {
+          "playerId": 55628226,
+          "name": "Hrvoje Munivrana"
         },
         {
           "playerId": 55065331,
@@ -2879,16 +2891,16 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55038514,
+          "name": "Hermínio Alhinho"
+        },
+        {
           "playerId": 55039317,
           "name": "Alexandre Coroado"
         },
         {
           "playerId": 55038485,
           "name": "Raimundo Jesus"
-        },
-        {
-          "playerId": 55038514,
-          "name": "Hermínio Alhinho"
         },
         {
           "playerId": 55038805,
@@ -3641,12 +3653,12 @@
           "name": "Jovan Cvijanovic"
         },
         {
-          "playerId": 55072727,
-          "name": "Milovan Lopićević"
-        },
-        {
           "playerId": 55072669,
           "name": "Slobodan Rapajić"
+        },
+        {
+          "playerId": 55072727,
+          "name": "Milovan Lopićević"
         },
         {
           "playerId": 55072745,

@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "week": 10,
-  "updatedAt": "2026-10-15T10:30:55.508Z",
+  "updatedAt": "2026-10-16T10:18:03.881Z",
   "players": [
     {
       "playerId": 55221819,
@@ -13,12 +13,20 @@
       "dmi": 630600
     },
     {
+      "playerId": 55469389,
+      "name": "Serin Abdulla",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 160500
+    },
+    {
       "playerId": 55383231,
       "name": "Suad Dobrić",
       "countryId": 35,
       "countryName": "Bosna i Hercegovina",
       "pool": "Pool B",
-      "dmi": 465400
+      "dmi": 466000
     },
     {
       "playerId": 55082858,
@@ -26,7 +34,7 @@
       "countryId": 36,
       "countryName": "Bulgaria",
       "pool": "Pool F",
-      "dmi": 284100
+      "dmi": 293500
     },
     {
       "playerId": 55462212,
@@ -37,12 +45,36 @@
       "dmi": 127100
     },
     {
+      "playerId": 55161730,
+      "name": "Kleanthis Siouras",
+      "countryId": 77,
+      "countryName": "Cyprus",
+      "pool": "Pool B",
+      "dmi": 183700
+    },
+    {
+      "playerId": 55271801,
+      "name": "Marco Stussig",
+      "countryId": 8,
+      "countryName": "Deutschland",
+      "pool": "Pool D",
+      "dmi": 95200
+    },
+    {
+      "playerId": 54950824,
+      "name": "Javier Fernández Madrigal",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "World Cup - Pool A",
+      "dmi": 794800
+    },
+    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 16600
+      "dmi": 16500
     },
     {
       "playerId": 55309522,
@@ -50,7 +82,7 @@
       "countryId": 12,
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
-      "dmi": 835900
+      "dmi": 269900
     },
     {
       "playerId": 55462159,
@@ -58,7 +90,7 @@
       "countryId": 12,
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
-      "dmi": 446600
+      "dmi": 308900
     },
     {
       "playerId": 55158318,
@@ -66,7 +98,7 @@
       "countryId": 44,
       "countryName": "Ireland",
       "pool": "Pool F",
-      "dmi": 381800
+      "dmi": 404100
     },
     {
       "playerId": 55047646,
@@ -74,7 +106,23 @@
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 1173200
+      "dmi": 712400
+    },
+    {
+      "playerId": 55462603,
+      "name": "Timmy Gillard",
+      "countryId": 91,
+      "countryName": "Luxembourg",
+      "pool": "Pool E",
+      "dmi": 145700
+    },
+    {
+      "playerId": 55069528,
+      "name": "Andreas Arnesen",
+      "countryId": 26,
+      "countryName": "Norge",
+      "pool": "Pool E",
+      "dmi": 127800
     },
     {
       "playerId": 55115467,
@@ -82,7 +130,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 391900
+      "dmi": 349700
     },
     {
       "playerId": 55117259,
@@ -90,7 +138,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 430900
+      "dmi": 840200
     },
     {
       "playerId": 55343005,
@@ -98,7 +146,7 @@
       "countryId": 18,
       "countryName": "Portugal",
       "pool": "Pool F",
-      "dmi": 151500
+      "dmi": 171700
     },
     {
       "playerId": 55160326,
@@ -115,22 +163,6 @@
       "countryName": "Shqipëria",
       "pool": "Pool D",
       "dmi": 105100
-    },
-    {
-      "playerId": 55072727,
-      "name": "Milovan Lopićević",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 332000
-    },
-    {
-      "playerId": 55077985,
-      "name": "Anton Golovnya",
-      "countryId": 33,
-      "countryName": "Ukraina",
-      "pool": "Pool A",
-      "dmi": 1328000
     }
   ]
 }
