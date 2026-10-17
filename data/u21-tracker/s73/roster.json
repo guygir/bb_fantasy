@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 10,
-  "date": "2026-10-16",
-  "updatedAt": "2026-10-16T15:00:16.301Z",
+  "week": 11,
+  "date": "2026-10-17",
+  "updatedAt": "2026-10-17T09:52:07.116Z",
   "countries": [
     {
       "countryId": 31,
@@ -314,8 +314,16 @@
           "name": "Davyd Maistruk"
         },
         {
+          "playerId": 55709525,
+          "name": "Apanas Zholnacz"
+        },
+        {
           "playerId": 55709531,
           "name": "Siarhey Miadouski"
+        },
+        {
+          "playerId": 55709532,
+          "name": "Ivan Navumszyk"
         },
         {
           "playerId": 55709554,
@@ -328,6 +336,10 @@
         {
           "playerId": 55987896,
           "name": "Juras' Alizarchyk"
+        },
+        {
+          "playerId": 55989879,
+          "name": "Hvedar Chabar"
         }
       ]
     },
@@ -390,7 +402,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -1241,20 +1253,32 @@
           "name": "Stephen Lockhart"
         },
         {
-          "playerId": 55025161,
-          "name": "Cabot Pernet"
+          "playerId": 55461763,
+          "name": "Gary Starmer"
         },
         {
           "playerId": 55463783,
           "name": "Hamilton Ansell"
         },
         {
+          "playerId": 55329722,
+          "name": "John MacCause"
+        },
+        {
+          "playerId": 55329874,
+          "name": "Gavin Pamic"
+        },
+        {
           "playerId": 55330029,
           "name": "Brady Malin"
         },
         {
-          "playerId": 55329806,
-          "name": "Johnny Treacher"
+          "playerId": 55597659,
+          "name": "Ian Pall"
+        },
+        {
+          "playerId": 55330289,
+          "name": "Richard Sansom"
         },
         {
           "playerId": 55329802,
@@ -1265,32 +1289,20 @@
           "name": "Kendrick Loftus"
         },
         {
-          "playerId": 55025189,
-          "name": "Rory Stalker"
-        },
-        {
-          "playerId": 55025639,
-          "name": "Thomas Moore"
+          "playerId": 55329741,
+          "name": "Carl McAdam"
         },
         {
           "playerId": 55329988,
           "name": "Stu Lavender"
         },
         {
-          "playerId": 55330132,
-          "name": "Steve Blackwell"
-        },
-        {
-          "playerId": 55330254,
-          "name": "Derrick Radley"
-        },
-        {
-          "playerId": 55330269,
-          "name": "Jeff Sparke"
-        },
-        {
           "playerId": 55597475,
           "name": "Brent Campbell"
+        },
+        {
+          "playerId": 55597598,
+          "name": "Christopher Chiara"
         }
       ]
     },
@@ -1969,7 +1981,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2141,6 +2153,10 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
+          "playerId": 55048304,
+          "name": "Donatas Staponkevicius"
+        },
+        {
           "playerId": 55048510,
           "name": "Vytautas Dorofejus"
         },
@@ -2203,10 +2219,6 @@
         {
           "playerId": 55048588,
           "name": "Malkelis Kievinas"
-        },
-        {
-          "playerId": 55058006,
-          "name": "Aivaras Simas Basius"
         },
         {
           "playerId": 55462207,
@@ -2595,6 +2607,10 @@
           "name": "Joseph Hering"
         },
         {
+          "playerId": 55338162,
+          "name": "Timo Panhuis"
+        },
+        {
           "playerId": 55337971,
           "name": "George Westbroek"
         },
@@ -2629,10 +2645,6 @@
         {
           "playerId": 55033451,
           "name": "Duncan van Osch"
-        },
-        {
-          "playerId": 55033463,
-          "name": "Davy Holtman"
         },
         {
           "playerId": 55337944,
@@ -2911,8 +2923,8 @@
           "name": "Flávio Boaventura"
         },
         {
-          "playerId": 55038689,
-          "name": "Nuno Cabral"
+          "playerId": 55039033,
+          "name": "Sílvio Moura"
         },
         {
           "playerId": 55343770,
@@ -3398,7 +3410,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3787,14 +3799,6 @@
           "name": "Jonas Beckblad"
         },
         {
-          "playerId": 55275291,
-          "name": "Anders Alexandersson"
-        },
-        {
-          "playerId": 55275334,
-          "name": "Leonard Grip"
-        },
-        {
           "playerId": 55275360,
           "name": "Bengt Marcusson"
         },
@@ -3839,8 +3843,16 @@
           "name": "Yiannis Aggelakakis"
         },
         {
+          "playerId": 55710957,
+          "name": "Bertil Olsson"
+        },
+        {
           "playerId": 55711537,
           "name": "Anton Morgansson"
+        },
+        {
+          "playerId": 55757618,
+          "name": "Joakim Nissell"
         }
       ]
     },
@@ -4008,12 +4020,12 @@
       "pool": "Pool A",
       "players": [
         {
-          "playerId": 55077918,
-          "name": "Leonid Dopilka"
+          "playerId": 55382164,
+          "name": "Leonid Novoselskiy"
         },
         {
-          "playerId": 55078040,
-          "name": "Olexiy Dobryanskiy"
+          "playerId": 55077985,
+          "name": "Anton Golovnya"
         },
         {
           "playerId": 55382166,
@@ -4028,18 +4040,6 @@
           "name": "Roman Bovdur"
         },
         {
-          "playerId": 55077875,
-          "name": "Nicolae Cotoi"
-        },
-        {
-          "playerId": 55077985,
-          "name": "Anton Golovnya"
-        },
-        {
-          "playerId": 55078050,
-          "name": "Borymyr Palyanitsa"
-        },
-        {
           "playerId": 55078088,
           "name": "Sergiy Stecenko"
         },
@@ -4050,6 +4050,10 @@
         {
           "playerId": 55382302,
           "name": "Vladimir Shkirin"
+        },
+        {
+          "playerId": 55382306,
+          "name": "Dmytro Sharov"
         },
         {
           "playerId": 55382389,
@@ -4068,8 +4072,20 @@
           "name": "Klim Oshipko"
         },
         {
+          "playerId": 55640578,
+          "name": "Vakula Kosoi"
+        },
+        {
+          "playerId": 55640584,
+          "name": "Vojtus' Zagortsau"
+        },
+        {
           "playerId": 55640595,
           "name": "Andriy Bashlay"
+        },
+        {
+          "playerId": 55640712,
+          "name": "Sergiy Pavlenko"
         },
         {
           "playerId": 55640882,

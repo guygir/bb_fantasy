@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-16",
-  "week": 10,
-  "updatedAt": "2026-10-16T10:18:03.881Z",
+  "date": "2026-10-17",
+  "week": 11,
+  "updatedAt": "2026-10-17T09:52:07.116Z",
   "players": [
     {
       "playerId": 55221819,
@@ -10,7 +10,15 @@
       "countryId": 2,
       "countryName": "Argentina",
       "pool": "World Cup - Pool B",
-      "dmi": 630600
+      "dmi": 876000
+    },
+    {
+      "playerId": 55158381,
+      "name": "Adil Xaliqov",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 248200
     },
     {
       "playerId": 55469389,
@@ -18,7 +26,7 @@
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 160500
+      "dmi": 127500
     },
     {
       "playerId": 55383231,
@@ -35,14 +43,6 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 293500
-    },
-    {
-      "playerId": 55462212,
-      "name": "Viktor Radojičić",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 127100
     },
     {
       "playerId": 55161730,
@@ -77,28 +77,12 @@
       "dmi": 16500
     },
     {
-      "playerId": 55309522,
-      "name": "Fikret Neside",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "World Cup - Pool B",
-      "dmi": 269900
-    },
-    {
       "playerId": 55462159,
       "name": "Zefiros Chrisoulas",
       "countryId": 12,
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
       "dmi": 308900
-    },
-    {
-      "playerId": 55158318,
-      "name": "Brian Dunphy",
-      "countryId": 44,
-      "countryName": "Ireland",
-      "pool": "Pool F",
-      "dmi": 404100
     },
     {
       "playerId": 55047646,
@@ -114,7 +98,15 @@
       "countryId": 91,
       "countryName": "Luxembourg",
       "pool": "Pool E",
-      "dmi": 145700
+      "dmi": 176500
+    },
+    {
+      "playerId": 55158365,
+      "name": "Vsevolod Mocanu",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 112400
     },
     {
       "playerId": 55069528,
@@ -122,7 +114,7 @@
       "countryId": 26,
       "countryName": "Norge",
       "pool": "Pool E",
-      "dmi": 127800
+      "dmi": 164000
     },
     {
       "playerId": 55115467,
@@ -154,7 +146,7 @@
       "countryId": 64,
       "countryName": "Scotland",
       "pool": "Pool A",
-      "dmi": 343400
+      "dmi": 437400
     },
     {
       "playerId": 55710901,
@@ -162,7 +154,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool D",
-      "dmi": 105100
+      "dmi": 204100
     }
   ]
 }
