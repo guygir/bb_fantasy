@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 11,
-  "date": "2026-10-17",
-  "updatedAt": "2026-10-17T09:52:07.116Z",
+  "date": "2026-10-18",
+  "updatedAt": "2026-10-18T10:03:34.387Z",
   "countries": [
     {
       "countryId": 31,
@@ -1277,8 +1277,8 @@
           "name": "Ian Pall"
         },
         {
-          "playerId": 55330289,
-          "name": "Richard Sansom"
+          "playerId": 55462293,
+          "name": "Connor Hicks"
         },
         {
           "playerId": 55329802,
@@ -1289,12 +1289,12 @@
           "name": "Kendrick Loftus"
         },
         {
-          "playerId": 55329741,
-          "name": "Carl McAdam"
-        },
-        {
           "playerId": 55329988,
           "name": "Stu Lavender"
+        },
+        {
+          "playerId": 55597380,
+          "name": "Hayden Dean"
         },
         {
           "playerId": 55597475,
@@ -1585,10 +1585,6 @@
           "name": "Fikret Neside"
         },
         {
-          "playerId": 55462159,
-          "name": "Zefiros Chrisoulas"
-        },
-        {
           "playerId": 55309618,
           "name": "Pavlos Karidas"
         },
@@ -1615,6 +1611,10 @@
         {
           "playerId": 55311284,
           "name": "Eftichios Yiayias"
+        },
+        {
+          "playerId": 55462159,
+          "name": "Zefiros Chrisoulas"
         }
       ]
     },
@@ -3424,10 +3424,6 @@
           "name": "Ramadan Zeka"
         },
         {
-          "playerId": 55710901,
-          "name": "Edi Abdurrahmani"
-        },
-        {
           "playerId": 55465488,
           "name": "Nedin Perashi"
         },
@@ -3474,6 +3470,10 @@
         {
           "playerId": 55710800,
           "name": "Perinjak Hila"
+        },
+        {
+          "playerId": 55710901,
+          "name": "Edi Abdurrahmani"
         },
         {
           "playerId": 55718910,

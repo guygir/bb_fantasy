@@ -9153,6 +9153,42 @@
       "playerId": 55078050,
       "name": "Borymyr Palyanitsa",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-18T10:03:34.387Z",
+      "date": "2026-10-18",
+      "week": 11,
+      "countryId": 14,
+      "playerId": 55462293,
+      "name": "Connor Hicks",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-18T10:03:34.387Z",
+      "date": "2026-10-18",
+      "week": 11,
+      "countryId": 14,
+      "playerId": 55597380,
+      "name": "Hayden Dean",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-18T10:03:34.387Z",
+      "date": "2026-10-18",
+      "week": 11,
+      "countryId": 14,
+      "playerId": 55330289,
+      "name": "Richard Sansom",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-18T10:03:34.387Z",
+      "date": "2026-10-18",
+      "week": 11,
+      "countryId": 14,
+      "playerId": 55329741,
+      "name": "Carl McAdam",
+      "type": "left"
     }
   ]
 }

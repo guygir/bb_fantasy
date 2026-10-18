@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-17T09:52:07.116Z",
+  "updatedAt": "2026-10-18T10:03:34.387Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -7939,13 +7939,13 @@
     "55329741": {
       "name": "Carl McAdam",
       "countryId": 14,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-17",
-          "toDate": null
+          "toDate": "2026-10-18"
         }
       ]
     },
@@ -8146,13 +8146,13 @@
     "55330289": {
       "name": "Richard Sansom",
       "countryId": 14,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-17",
-          "toDate": null
+          "toDate": "2026-10-18"
         }
       ]
     },
@@ -11596,6 +11596,19 @@
         }
       ]
     },
+    "55462293": {
+      "name": "Connor Hicks",
+      "countryId": 14,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-18",
+          "toDate": null
+        }
+      ]
+    },
     "55462306": {
       "name": "Jan Osmundsen",
       "countryId": 26,
@@ -13833,6 +13846,19 @@
           "toWeek": 1,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-09"
+        }
+      ]
+    },
+    "55597380": {
+      "name": "Hayden Dean",
+      "countryId": 14,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-18",
+          "toDate": null
         }
       ]
     },

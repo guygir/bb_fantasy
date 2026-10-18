@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "week": 11,
-  "updatedAt": "2026-10-17T09:52:07.116Z",
+  "updatedAt": "2026-10-18T10:03:34.387Z",
   "players": [
     {
       "playerId": 55221819,
@@ -29,12 +29,12 @@
       "dmi": 127500
     },
     {
-      "playerId": 55383231,
-      "name": "Suad Dobrić",
-      "countryId": 35,
-      "countryName": "Bosna i Hercegovina",
-      "pool": "Pool B",
-      "dmi": 466000
+      "playerId": 55463508,
+      "name": "Yurdman Atakişiyev",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 276900
     },
     {
       "playerId": 55082858,
@@ -43,6 +43,14 @@
       "countryName": "Bulgaria",
       "pool": "Pool F",
       "dmi": 293500
+    },
+    {
+      "playerId": 55466582,
+      "name": "Gregor Francis",
+      "countryId": 81,
+      "countryName": "Cymru",
+      "pool": "Pool B",
+      "dmi": 291900
     },
     {
       "playerId": 55161730,
@@ -77,12 +85,20 @@
       "dmi": 16500
     },
     {
-      "playerId": 55462159,
-      "name": "Zefiros Chrisoulas",
+      "playerId": 55309522,
+      "name": "Fikret Neside",
       "countryId": 12,
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
-      "dmi": 308900
+      "dmi": 269900
+    },
+    {
+      "playerId": 55099719,
+      "name": "Aristids Teniss",
+      "countryId": 46,
+      "countryName": "Latvija",
+      "pool": "Pool G",
+      "dmi": 1096500
     },
     {
       "playerId": 55047646,
@@ -139,22 +155,6 @@
       "countryName": "Portugal",
       "pool": "Pool F",
       "dmi": 171700
-    },
-    {
-      "playerId": 55160326,
-      "name": "Michael Obree",
-      "countryId": 64,
-      "countryName": "Scotland",
-      "pool": "Pool A",
-      "dmi": 437400
-    },
-    {
-      "playerId": 55710901,
-      "name": "Edi Abdurrahmani",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 204100
     }
   ]
 }
