@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "week": 11,
-  "updatedAt": "2026-10-18T10:03:34.387Z",
+  "updatedAt": "2026-10-19T11:28:19.736Z",
   "players": [
     {
       "playerId": 55221819,
@@ -45,28 +45,28 @@
       "dmi": 293500
     },
     {
+      "playerId": 55368739,
+      "name": "Ignacio Brahim",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 260400
+    },
+    {
+      "playerId": 55707500,
+      "name": "Pavle Boljević",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 302600
+    },
+    {
       "playerId": 55466582,
       "name": "Gregor Francis",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
       "dmi": 291900
-    },
-    {
-      "playerId": 55161730,
-      "name": "Kleanthis Siouras",
-      "countryId": 77,
-      "countryName": "Cyprus",
-      "pool": "Pool B",
-      "dmi": 183700
-    },
-    {
-      "playerId": 55271801,
-      "name": "Marco Stussig",
-      "countryId": 8,
-      "countryName": "Deutschland",
-      "pool": "Pool D",
-      "dmi": 95200
     },
     {
       "playerId": 54950824,
@@ -109,12 +109,12 @@
       "dmi": 712400
     },
     {
-      "playerId": 55462603,
-      "name": "Timmy Gillard",
-      "countryId": 91,
-      "countryName": "Luxembourg",
-      "pool": "Pool E",
-      "dmi": 176500
+      "playerId": 55468237,
+      "name": "Vitalie Onovetchi",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 78100
     },
     {
       "playerId": 55158365,
@@ -125,20 +125,20 @@
       "dmi": 112400
     },
     {
-      "playerId": 55069528,
-      "name": "Andreas Arnesen",
-      "countryId": 26,
-      "countryName": "Norge",
-      "pool": "Pool E",
-      "dmi": 164000
-    },
-    {
       "playerId": 55115467,
       "name": "Hubert Rokaszewicz",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
       "dmi": 349700
+    },
+    {
+      "playerId": 55205111,
+      "name": "Józef Wieszczek",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 724000
     },
     {
       "playerId": 55117259,
@@ -155,6 +155,14 @@
       "countryName": "Portugal",
       "pool": "Pool F",
       "dmi": 171700
+    },
+    {
+      "playerId": 55464291,
+      "name": "Damé Agne",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 158100
     }
   ]
 }

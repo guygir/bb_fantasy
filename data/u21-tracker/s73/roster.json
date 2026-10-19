@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 11,
-  "date": "2026-10-18",
-  "updatedAt": "2026-10-18T10:03:34.387Z",
+  "date": "2026-10-19",
+  "updatedAt": "2026-10-19T11:28:19.736Z",
   "countries": [
     {
       "countryId": 31,
@@ -10,16 +10,16 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
+          "playerId": 55464258,
+          "name": "Abdelbaki Betrouni"
+        },
+        {
           "playerId": 55466958,
           "name": "Ali Benzaza"
         },
         {
           "playerId": 55465989,
           "name": "Messaoud Jelloul"
-        },
-        {
-          "playerId": 55464258,
-          "name": "Abdelbaki Betrouni"
         },
         {
           "playerId": 55158011,
@@ -594,10 +594,6 @@
           "name": "Bedřich Bukáček"
         },
         {
-          "playerId": 55388636,
-          "name": "Jakub Marek"
-        },
-        {
           "playerId": 55388681,
           "name": "Jindřich Kašpar"
         },
@@ -1099,6 +1095,10 @@
           "name": "Sebastian Schirra"
         },
         {
+          "playerId": 55271801,
+          "name": "Marco Stussig"
+        },
+        {
           "playerId": 55272284,
           "name": "Constantin Kleinhenz"
         },
@@ -1109,10 +1109,6 @@
         {
           "playerId": 55271506,
           "name": "Lukas Scharnwebber"
-        },
-        {
-          "playerId": 55271801,
-          "name": "Marco Stussig"
         },
         {
           "playerId": 55271839,
@@ -1348,10 +1344,6 @@
           "name": "Roc Martínez"
         },
         {
-          "playerId": 54950016,
-          "name": "Manuel Sánchez"
-        },
-        {
           "playerId": 54950254,
           "name": "Santiago Riba Peña"
         },
@@ -1366,6 +1358,10 @@
         {
           "playerId": 54952584,
           "name": "Miquel Planas"
+        },
+        {
+          "playerId": 55255567,
+          "name": "Juan Miguel Chávez"
         },
         {
           "playerId": 55256323,
@@ -2232,10 +2228,6 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55462603,
-          "name": "Timmy Gillard"
-        },
-        {
           "playerId": 55463809,
           "name": "Rodrigo Arrepia"
         },
@@ -2274,6 +2266,10 @@
         {
           "playerId": 55462450,
           "name": "Mike Dorst"
+        },
+        {
+          "playerId": 55462603,
+          "name": "Timmy Gillard"
         },
         {
           "playerId": 55463217,
@@ -3432,6 +3428,10 @@
           "name": "Kron Drenica"
         },
         {
+          "playerId": 55710901,
+          "name": "Edi Abdurrahmani"
+        },
+        {
           "playerId": 55715503,
           "name": "Drin Beka"
         },
@@ -3472,10 +3472,6 @@
           "name": "Perinjak Hila"
         },
         {
-          "playerId": 55710901,
-          "name": "Edi Abdurrahmani"
-        },
-        {
           "playerId": 55718910,
           "name": "Zani Shala"
         },
@@ -3505,6 +3501,10 @@
         {
           "playerId": 55135479,
           "name": "Demis Tahiri"
+        },
+        {
+          "playerId": 55688935,
+          "name": "Borja Rosić"
         },
         {
           "playerId": 55439918,
@@ -4086,10 +4086,6 @@
         {
           "playerId": 55640712,
           "name": "Sergiy Pavlenko"
-        },
-        {
-          "playerId": 55640882,
-          "name": "Olexiy Zabirchenko"
         }
       ]
     },

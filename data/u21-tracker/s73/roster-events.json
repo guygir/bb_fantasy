@@ -9189,6 +9189,51 @@
       "playerId": 55329741,
       "name": "Carl McAdam",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-19T11:28:19.736Z",
+      "date": "2026-10-19",
+      "week": 11,
+      "countryId": 37,
+      "playerId": 55388636,
+      "name": "Jakub Marek",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-19T11:28:19.736Z",
+      "date": "2026-10-19",
+      "week": 11,
+      "countryId": 7,
+      "playerId": 55255567,
+      "name": "Juan Miguel Chávez",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-19T11:28:19.736Z",
+      "date": "2026-10-19",
+      "week": 11,
+      "countryId": 7,
+      "playerId": 54950016,
+      "name": "Manuel Sánchez",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-19T11:28:19.736Z",
+      "date": "2026-10-19",
+      "week": 11,
+      "countryId": 66,
+      "playerId": 55688935,
+      "name": "Borja Rosić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-19T11:28:19.736Z",
+      "date": "2026-10-19",
+      "week": 11,
+      "countryId": 33,
+      "playerId": 55640882,
+      "name": "Olexiy Zabirchenko",
+      "type": "left"
     }
   ]
 }

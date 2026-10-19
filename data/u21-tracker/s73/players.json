@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-18T10:03:34.387Z",
+  "updatedAt": "2026-10-19T11:28:19.736Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -574,7 +574,7 @@
     "54950016": {
       "name": "Manuel Sánchez",
       "countryId": 7,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
@@ -584,9 +584,9 @@
         },
         {
           "fromWeek": 2,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-08-17",
-          "toDate": null
+          "toDate": "2026-10-19"
         }
       ]
     },
@@ -7000,6 +7000,19 @@
         }
       ]
     },
+    "55255567": {
+      "name": "Juan Miguel Chávez",
+      "countryId": 7,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-19",
+          "toDate": null
+        }
+      ]
+    },
     "55256323": {
       "name": "Alfredo Roxas Sotolongo",
       "countryId": 7,
@@ -9817,13 +9830,13 @@
     "55388636": {
       "name": "Jakub Marek",
       "countryId": 37,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-16",
-          "toDate": null
+          "toDate": "2026-10-19"
         }
       ]
     },
@@ -14313,13 +14326,13 @@
     "55640882": {
       "name": "Olexiy Zabirchenko",
       "countryId": 33,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-13",
-          "toDate": null
+          "toDate": "2026-10-19"
         }
       ]
     },
@@ -14579,6 +14592,19 @@
           "fromWeek": 8,
           "toWeek": null,
           "fromDate": "2026-09-27",
+          "toDate": null
+        }
+      ]
+    },
+    "55688935": {
+      "name": "Borja Rosić",
+      "countryId": 66,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-19",
           "toDate": null
         }
       ]
