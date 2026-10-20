@@ -9234,6 +9234,295 @@
       "playerId": 55640882,
       "name": "Olexiy Zabirchenko",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 31,
+      "playerId": 55990062,
+      "name": "Hilal Hafidh",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 31,
+      "playerId": 55161239,
+      "name": "Nabil Bouchahda",
+      "type": "returned",
+      "weeksAway": 4
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 31,
+      "playerId": 55467133,
+      "name": "Abderahman Abidat",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383211,
+      "name": "Vid Omrčen",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383254,
+      "name": "Mehmedalija Lagumdžija",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383282,
+      "name": "Nikola Pušić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383344,
+      "name": "Edin Vlašić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383347,
+      "name": "Joško Ljubić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383385,
+      "name": "Gaj Hašek",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383454,
+      "name": "Nadir Balić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383469,
+      "name": "Dino Zjalić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383475,
+      "name": "Josip Muštra",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55641589,
+      "name": "Samir Ovčina",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55641682,
+      "name": "Muamer Smiljanić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55641699,
+      "name": "Muamer Ferhatović",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55641734,
+      "name": "Almir Adilović",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55079085,
+      "name": "Davor Šprljan",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383406,
+      "name": "Minel Bulidža",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55078849,
+      "name": "Muhamed Sudić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383342,
+      "name": "Sergej Trogrlić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55078955,
+      "name": "Avdo Tintor",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55078795,
+      "name": "Nemanja Milosavljević",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55078800,
+      "name": "Zlatko Kljajić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55078859,
+      "name": "Oliver Jakelić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55079018,
+      "name": "Sead Dželilović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55079081,
+      "name": "Aldin Vinčić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55079162,
+      "name": "Minel Bajramović",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55159180,
+      "name": "Sanel Raščić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 35,
+      "playerId": 55383231,
+      "name": "Suad Dobrić",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403687,
+      "name": "Ziedonis Ennitis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55989266,
+      "name": "Arturs Eidinš",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-20T10:34:37.408Z",
+      "date": "2026-10-20",
+      "week": 11,
+      "countryId": 67,
+      "playerId": 55443870,
+      "name": "Peter Smolárik",
+      "type": "joined"
     }
   ]
 }

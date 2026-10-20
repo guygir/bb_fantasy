@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 11,
-  "date": "2026-10-19",
-  "updatedAt": "2026-10-19T11:28:19.736Z",
+  "date": "2026-10-20",
+  "updatedAt": "2026-10-20T10:34:37.408Z",
   "countries": [
     {
       "countryId": 31,
@@ -12,6 +12,10 @@
         {
           "playerId": 55464258,
           "name": "Abdelbaki Betrouni"
+        },
+        {
+          "playerId": 55990062,
+          "name": "Hilal Hafidh"
         },
         {
           "playerId": 55466958,
@@ -38,12 +42,20 @@
           "name": "Jaber Liani"
         },
         {
+          "playerId": 55161239,
+          "name": "Nabil Bouchahda"
+        },
+        {
           "playerId": 55464233,
           "name": "Abdenour Ould Mammar"
         },
         {
           "playerId": 55464339,
           "name": "Mehdi Bentoumi"
+        },
+        {
+          "playerId": 55467133,
+          "name": "Abderahman Abidat"
         },
         {
           "playerId": 55711587,
@@ -428,20 +440,8 @@
       "pool": "Pool B",
       "players": [
         {
-          "playerId": 55079085,
-          "name": "Davor Šprljan"
-        },
-        {
-          "playerId": 55383406,
-          "name": "Minel Bulidža"
-        },
-        {
           "playerId": 55465496,
           "name": "Igor Lučić"
-        },
-        {
-          "playerId": 55078849,
-          "name": "Muhamed Sudić"
         },
         {
           "playerId": 55462810,
@@ -456,44 +456,56 @@
           "name": "Safet Hajduković"
         },
         {
-          "playerId": 55383342,
-          "name": "Sergej Trogrlić"
+          "playerId": 55383211,
+          "name": "Vid Omrčen"
         },
         {
-          "playerId": 55078955,
-          "name": "Avdo Tintor"
+          "playerId": 55383254,
+          "name": "Mehmedalija Lagumdžija"
         },
         {
-          "playerId": 55078795,
-          "name": "Nemanja Milosavljević"
+          "playerId": 55383282,
+          "name": "Nikola Pušić"
         },
         {
-          "playerId": 55078800,
-          "name": "Zlatko Kljajić"
+          "playerId": 55383344,
+          "name": "Edin Vlašić"
         },
         {
-          "playerId": 55078859,
-          "name": "Oliver Jakelić"
+          "playerId": 55383347,
+          "name": "Joško Ljubić"
         },
         {
-          "playerId": 55079018,
-          "name": "Sead Dželilović"
+          "playerId": 55383385,
+          "name": "Gaj Hašek"
         },
         {
-          "playerId": 55079081,
-          "name": "Aldin Vinčić"
+          "playerId": 55383454,
+          "name": "Nadir Balić"
         },
         {
-          "playerId": 55079162,
-          "name": "Minel Bajramović"
+          "playerId": 55383469,
+          "name": "Dino Zjalić"
         },
         {
-          "playerId": 55159180,
-          "name": "Sanel Raščić"
+          "playerId": 55383475,
+          "name": "Josip Muštra"
         },
         {
-          "playerId": 55383231,
-          "name": "Suad Dobrić"
+          "playerId": 55641589,
+          "name": "Samir Ovčina"
+        },
+        {
+          "playerId": 55641682,
+          "name": "Muamer Smiljanić"
+        },
+        {
+          "playerId": 55641699,
+          "name": "Muamer Ferhatović"
+        },
+        {
+          "playerId": 55641734,
+          "name": "Almir Adilović"
         }
       ]
     },
@@ -657,6 +669,10 @@
           "name": "Hu Kangwei"
         },
         {
+          "playerId": 54929849,
+          "name": "Ye Tiancai"
+        },
+        {
           "playerId": 55235336,
           "name": "Pan Decai"
         },
@@ -683,10 +699,6 @@
         {
           "playerId": 55548499,
           "name": "Wang Ruifeng"
-        },
-        {
-          "playerId": 54929849,
-          "name": "Ye Tiancai"
         },
         {
           "playerId": 54930242,
@@ -2098,6 +2110,10 @@
           "name": "Markus Cavinš"
         },
         {
+          "playerId": 55403687,
+          "name": "Ziedonis Ennitis"
+        },
+        {
           "playerId": 55403842,
           "name": "Druvis Garsenieks"
         },
@@ -2140,6 +2156,10 @@
         {
           "playerId": 55465237,
           "name": "Rauls Kurpnieks"
+        },
+        {
+          "playerId": 55989266,
+          "name": "Arturs Eidinš"
         }
       ]
     },
@@ -2248,6 +2268,10 @@
           "name": "Reimund Sproll"
         },
         {
+          "playerId": 55462603,
+          "name": "Timmy Gillard"
+        },
+        {
           "playerId": 55714281,
           "name": "Lorentz Dechilly"
         },
@@ -2266,10 +2290,6 @@
         {
           "playerId": 55462450,
           "name": "Mike Dorst"
-        },
-        {
-          "playerId": 55462603,
-          "name": "Timmy Gillard"
         },
         {
           "playerId": 55463217,
@@ -2536,16 +2556,16 @@
           "name": "Aurel Filimon"
         },
         {
-          "playerId": 55158365,
-          "name": "Vsevolod Mocanu"
-        },
-        {
           "playerId": 55468108,
           "name": "Alexandru Cilivan"
         },
         {
           "playerId": 55464354,
           "name": "Taras Fokin"
+        },
+        {
+          "playerId": 55158365,
+          "name": "Vsevolod Mocanu"
         },
         {
           "playerId": 55461564,
@@ -2832,6 +2852,14 @@
           "name": "Kazimierz Paździor"
         },
         {
+          "playerId": 55117259,
+          "name": "Tomasz Frączyk"
+        },
+        {
+          "playerId": 55115467,
+          "name": "Hubert Rokaszewicz"
+        },
+        {
           "playerId": 55116906,
           "name": "Sebastian Dębowski"
         },
@@ -2856,10 +2884,6 @@
           "name": "Ryszard Kozimor"
         },
         {
-          "playerId": 55115467,
-          "name": "Hubert Rokaszewicz"
-        },
-        {
           "playerId": 55115515,
           "name": "Zbigniew Chabasiński"
         },
@@ -2874,10 +2898,6 @@
         {
           "playerId": 55116740,
           "name": "Franciszek Barczyszyn"
-        },
-        {
-          "playerId": 55117259,
-          "name": "Tomasz Frączyk"
         },
         {
           "playerId": 55117329,
@@ -3620,6 +3640,10 @@
         {
           "playerId": 55158095,
           "name": "Alfréd Martinek"
+        },
+        {
+          "playerId": 55443870,
+          "name": "Peter Smolárik"
         },
         {
           "playerId": 55443908,
