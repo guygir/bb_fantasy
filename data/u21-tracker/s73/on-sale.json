@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "week": 11,
-  "updatedAt": "2026-10-20T10:34:37.408Z",
+  "updatedAt": "2026-10-21T10:46:56.805Z",
   "players": [
     {
       "playerId": 55711587,
@@ -35,14 +35,6 @@
       "countryName": "Azərbaycan",
       "pool": "Pool E",
       "dmi": 127500
-    },
-    {
-      "playerId": 55463508,
-      "name": "Yurdman Atakişiyev",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 276900
     },
     {
       "playerId": 55158925,
@@ -117,12 +109,20 @@
       "dmi": 16500
     },
     {
-      "playerId": 55099719,
-      "name": "Aristids Teniss",
-      "countryId": 46,
-      "countryName": "Latvija",
-      "pool": "Pool G",
-      "dmi": 1096500
+      "playerId": 55309522,
+      "name": "Fikret Neside",
+      "countryId": 12,
+      "countryName": "Hellas",
+      "pool": "World Cup - Pool B",
+      "dmi": 269900
+    },
+    {
+      "playerId": 55468255,
+      "name": "Hreggviður Ellertsson",
+      "countryId": 78,
+      "countryName": "Ísland",
+      "pool": "Pool C",
+      "dmi": 105300
     },
     {
       "playerId": 55047646,
@@ -131,6 +131,14 @@
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
       "dmi": 712400
+    },
+    {
+      "playerId": 55046850,
+      "name": "Mariusz Harazim",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 1889400
     },
     {
       "playerId": 55468237,

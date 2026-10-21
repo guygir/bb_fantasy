@@ -9523,6 +9523,564 @@
       "playerId": 55443870,
       "name": "Peter Smolárik",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55393489,
+      "name": "Leonty Markin",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55393472,
+      "name": "Frank Rebane",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55394410,
+      "name": "Einar Kaasik",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55393488,
+      "name": "Tambet Raidmets",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55393863,
+      "name": "Sven Kolde",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55393981,
+      "name": "Peter Hõbe",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55394091,
+      "name": "Jaas Adamson",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55394122,
+      "name": "Ude Kastl",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55089362,
+      "name": "Sergo Hiie",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55089156,
+      "name": "Ewert Põld",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55089664,
+      "name": "Endel Liiv",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55089799,
+      "name": "Rainer Hang",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55090043,
+      "name": "Fridrich Vessmann",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 41,
+      "playerId": 55393741,
+      "name": "Alexander Didenko",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662470,
+      "name": "Vidmants Treinis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55661992,
+      "name": "Benedikts Ikstitis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662297,
+      "name": "Antons Raminš",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662170,
+      "name": "Intars Staris",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662214,
+      "name": "Juris Bilmanis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662161,
+      "name": "Guntars Versitis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403984,
+      "name": "Tālivaldis Taukacs",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55404225,
+      "name": "Tālivaldis Feldmanis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662042,
+      "name": "Ivo Ostinš",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662091,
+      "name": "Normunds Grinvalds",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662114,
+      "name": "Peteris Rungis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55662425,
+      "name": "Tore Davidsson",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55714471,
+      "name": "Austris Šteins-Akmentinš",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55099719,
+      "name": "Aristids Teniss",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403952,
+      "name": "Einars Jozepsons",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403677,
+      "name": "Kārlis Turkupolis",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403849,
+      "name": "Markus Cavinš",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403842,
+      "name": "Druvis Garsenieks",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55099408,
+      "name": "Gerhards Jegers",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55099427,
+      "name": "Egils Virpulis",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55099817,
+      "name": "Janis Klavenieks",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55099823,
+      "name": "Edvards Vavuls",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403751,
+      "name": "Oskars Anerauds",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403863,
+      "name": "Vents Bitenbinders",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55403996,
+      "name": "Peteris Diediškis",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55404075,
+      "name": "Dzintars Gasparovics",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55404112,
+      "name": "Fricis Danis",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 46,
+      "playerId": 55465237,
+      "name": "Rauls Kurpnieks",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55338039,
+      "name": "Klaas-Jan Bessems",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55337946,
+      "name": "Driekus Holla",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605504,
+      "name": "Jannes Klinkhamer",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55338072,
+      "name": "George Stuurman",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605546,
+      "name": "Mathieu Nekkers",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605733,
+      "name": "Darren Wagter",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605745,
+      "name": "Wijnand Oosterveld",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55033625,
+      "name": "Elbert Smulders",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55463059,
+      "name": "Micha Eggenkamp",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55338033,
+      "name": "Lars Versteegh",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55338088,
+      "name": "Jordy Frijling",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55033309,
+      "name": "Laurent Straathof",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55033388,
+      "name": "Nicholas Alleyn",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55033414,
+      "name": "Harm-Jan Scheringa",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55033428,
+      "name": "Francis Mulier",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55033451,
+      "name": "Duncan van Osch",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55337944,
+      "name": "Wilibrord Hensen",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55338004,
+      "name": "Jo Helmus",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55338155,
+      "name": "Yonah Waterreus",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-21T10:46:56.805Z",
+      "date": "2026-10-21",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55461811,
+      "name": "Selwyn Rats",
+      "type": "left"
     }
   ]
 }

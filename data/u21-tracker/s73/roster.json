@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 11,
-  "date": "2026-10-20",
-  "updatedAt": "2026-10-20T10:34:37.408Z",
+  "date": "2026-10-21",
+  "updatedAt": "2026-10-21T10:46:56.805Z",
   "countries": [
     {
       "countryId": 31,
@@ -1174,6 +1174,10 @@
           "name": "Osip Loshchilov"
         },
         {
+          "playerId": 55393489,
+          "name": "Leonty Markin"
+        },
+        {
           "playerId": 55393757,
           "name": "Gunnar Ambros"
         },
@@ -1182,8 +1186,12 @@
           "name": "Jarold Lõhmus"
         },
         {
-          "playerId": 55089362,
-          "name": "Sergo Hiie"
+          "playerId": 55393472,
+          "name": "Frank Rebane"
+        },
+        {
+          "playerId": 55394410,
+          "name": "Einar Kaasik"
         },
         {
           "playerId": 55089291,
@@ -1198,10 +1206,6 @@
           "name": "Rudolf Toomeoks"
         },
         {
-          "playerId": 55089156,
-          "name": "Ewert Põld"
-        },
-        {
           "playerId": 55089394,
           "name": "Roman Kornienko"
         },
@@ -1210,28 +1214,32 @@
           "name": "Tanel Tamm"
         },
         {
-          "playerId": 55089664,
-          "name": "Endel Liiv"
-        },
-        {
-          "playerId": 55089799,
-          "name": "Rainer Hang"
-        },
-        {
-          "playerId": 55090043,
-          "name": "Fridrich Vessmann"
-        },
-        {
           "playerId": 55090056,
           "name": "Andreas Oja"
+        },
+        {
+          "playerId": 55393488,
+          "name": "Tambet Raidmets"
         },
         {
           "playerId": 55393631,
           "name": "Mihkel Raudmets"
         },
         {
-          "playerId": 55393741,
-          "name": "Alexander Didenko"
+          "playerId": 55393863,
+          "name": "Sven Kolde"
+        },
+        {
+          "playerId": 55393981,
+          "name": "Peter Hõbe"
+        },
+        {
+          "playerId": 55394091,
+          "name": "Jaas Adamson"
+        },
+        {
+          "playerId": 55394122,
+          "name": "Ude Kastl"
         }
       ]
     },
@@ -2090,72 +2098,64 @@
       "pool": "Pool G",
       "players": [
         {
-          "playerId": 55099719,
-          "name": "Aristids Teniss"
+          "playerId": 55662470,
+          "name": "Vidmants Treinis"
         },
         {
-          "playerId": 55403952,
-          "name": "Einars Jozepsons"
+          "playerId": 55661992,
+          "name": "Benedikts Ikstitis"
         },
         {
           "playerId": 55404236,
           "name": "Guntars Lipsks"
         },
         {
-          "playerId": 55403677,
-          "name": "Kārlis Turkupolis"
-        },
-        {
-          "playerId": 55403849,
-          "name": "Markus Cavinš"
-        },
-        {
           "playerId": 55403687,
           "name": "Ziedonis Ennitis"
         },
         {
-          "playerId": 55403842,
-          "name": "Druvis Garsenieks"
+          "playerId": 55662297,
+          "name": "Antons Raminš"
         },
         {
-          "playerId": 55099408,
-          "name": "Gerhards Jegers"
+          "playerId": 55662170,
+          "name": "Intars Staris"
         },
         {
-          "playerId": 55099427,
-          "name": "Egils Virpulis"
+          "playerId": 55662214,
+          "name": "Juris Bilmanis"
         },
         {
-          "playerId": 55099817,
-          "name": "Janis Klavenieks"
+          "playerId": 55662161,
+          "name": "Guntars Versitis"
         },
         {
-          "playerId": 55099823,
-          "name": "Edvards Vavuls"
+          "playerId": 55403984,
+          "name": "Tālivaldis Taukacs"
         },
         {
-          "playerId": 55403751,
-          "name": "Oskars Anerauds"
+          "playerId": 55404225,
+          "name": "Tālivaldis Feldmanis"
         },
         {
-          "playerId": 55403863,
-          "name": "Vents Bitenbinders"
+          "playerId": 55662042,
+          "name": "Ivo Ostinš"
         },
         {
-          "playerId": 55403996,
-          "name": "Peteris Diediškis"
+          "playerId": 55662091,
+          "name": "Normunds Grinvalds"
         },
         {
-          "playerId": 55404075,
-          "name": "Dzintars Gasparovics"
+          "playerId": 55662114,
+          "name": "Peteris Rungis"
         },
         {
-          "playerId": 55404112,
-          "name": "Fricis Danis"
+          "playerId": 55662425,
+          "name": "Tore Davidsson"
         },
         {
-          "playerId": 55465237,
-          "name": "Rauls Kurpnieks"
+          "playerId": 55714471,
+          "name": "Austris Šteins-Akmentinš"
         },
         {
           "playerId": 55989266,
@@ -2615,8 +2615,8 @@
       "pool": "Pool H",
       "players": [
         {
-          "playerId": 55033625,
-          "name": "Elbert Smulders"
+          "playerId": 55338039,
+          "name": "Klaas-Jan Bessems"
         },
         {
           "playerId": 55465624,
@@ -2631,52 +2631,16 @@
           "name": "George Westbroek"
         },
         {
-          "playerId": 55463059,
-          "name": "Micha Eggenkamp"
+          "playerId": 55337946,
+          "name": "Driekus Holla"
         },
         {
-          "playerId": 55338033,
-          "name": "Lars Versteegh"
+          "playerId": 55605504,
+          "name": "Jannes Klinkhamer"
         },
         {
-          "playerId": 55338088,
-          "name": "Jordy Frijling"
-        },
-        {
-          "playerId": 55033309,
-          "name": "Laurent Straathof"
-        },
-        {
-          "playerId": 55033388,
-          "name": "Nicholas Alleyn"
-        },
-        {
-          "playerId": 55033414,
-          "name": "Harm-Jan Scheringa"
-        },
-        {
-          "playerId": 55033428,
-          "name": "Francis Mulier"
-        },
-        {
-          "playerId": 55033451,
-          "name": "Duncan van Osch"
-        },
-        {
-          "playerId": 55337944,
-          "name": "Wilibrord Hensen"
-        },
-        {
-          "playerId": 55338004,
-          "name": "Jo Helmus"
-        },
-        {
-          "playerId": 55338155,
-          "name": "Yonah Waterreus"
-        },
-        {
-          "playerId": 55461811,
-          "name": "Selwyn Rats"
+          "playerId": 55338072,
+          "name": "George Stuurman"
         },
         {
           "playerId": 55464826,
@@ -2685,6 +2649,18 @@
         {
           "playerId": 55466897,
           "name": "Eppo Schreiner"
+        },
+        {
+          "playerId": 55605546,
+          "name": "Mathieu Nekkers"
+        },
+        {
+          "playerId": 55605733,
+          "name": "Darren Wagter"
+        },
+        {
+          "playerId": 55605745,
+          "name": "Wijnand Oosterveld"
         }
       ]
     },
