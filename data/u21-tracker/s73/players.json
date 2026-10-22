@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-21T10:46:56.805Z",
+  "updatedAt": "2026-10-22T10:48:13.538Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -438,13 +438,13 @@
     "54930439": {
       "name": "Tao Nanxiong",
       "countryId": 5,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-22"
         }
       ]
     },
@@ -8364,13 +8364,13 @@
     "55337946": {
       "name": "Driekus Holla",
       "countryId": 16,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-22"
         }
       ]
     },
@@ -8383,6 +8383,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55337993": {
+      "name": "Wouter Speelman",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-22",
           "toDate": null
         }
       ]
@@ -12437,13 +12450,13 @@
     "55463942": {
       "name": "John Holmes",
       "countryId": 64,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-22"
         }
       ]
     },
@@ -14264,6 +14277,19 @@
         }
       ]
     },
+    "55605489": {
+      "name": "Henri Giesen",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-22",
+          "toDate": null
+        }
+      ]
+    },
     "55605504": {
       "name": "Jannes Klinkhamer",
       "countryId": 16,
@@ -14290,29 +14316,55 @@
         }
       ]
     },
-    "55605733": {
-      "name": "Darren Wagter",
+    "55605561": {
+      "name": "Niels Glastra",
       "countryId": 16,
       "active": true,
       "stints": [
         {
           "fromWeek": 11,
           "toWeek": null,
-          "fromDate": "2026-10-21",
+          "fromDate": "2026-10-22",
           "toDate": null
+        }
+      ]
+    },
+    "55605584": {
+      "name": "Ernesto Bles",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-22",
+          "toDate": null
+        }
+      ]
+    },
+    "55605733": {
+      "name": "Darren Wagter",
+      "countryId": 16,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": 11,
+          "fromDate": "2026-10-21",
+          "toDate": "2026-10-22"
         }
       ]
     },
     "55605745": {
       "name": "Wijnand Oosterveld",
       "countryId": 16,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-22"
         }
       ]
     },
@@ -17213,6 +17265,19 @@
           "toWeek": 2,
           "fromDate": "2026-08-08",
           "toDate": "2026-08-16"
+        }
+      ]
+    },
+    "55997282": {
+      "name": "Dickie Robison",
+      "countryId": 64,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-22",
+          "toDate": null
         }
       ]
     },

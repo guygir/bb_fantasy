@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "week": 11,
-  "updatedAt": "2026-10-21T10:46:56.805Z",
+  "updatedAt": "2026-10-22T10:48:13.538Z",
   "players": [
     {
       "playerId": 55711587,
@@ -13,12 +13,20 @@
       "dmi": 390000
     },
     {
-      "playerId": 55221819,
-      "name": "Laro Suelves",
+      "playerId": 54917865,
+      "name": "Chimo Sobis",
       "countryId": 2,
       "countryName": "Argentina",
       "pool": "World Cup - Pool B",
-      "dmi": 876000
+      "dmi": 234700
+    },
+    {
+      "playerId": 54917374,
+      "name": "Jean Luca Peralta",
+      "countryId": 2,
+      "countryName": "Argentina",
+      "pool": "World Cup - Pool B",
+      "dmi": 1258800
     },
     {
       "playerId": 55158381,
@@ -29,12 +37,12 @@
       "dmi": 248200
     },
     {
-      "playerId": 55469389,
-      "name": "Serin Abdulla",
+      "playerId": 55463508,
+      "name": "Yurdman Atakişiyev",
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 127500
+      "dmi": 276900
     },
     {
       "playerId": 55158925,
@@ -45,28 +53,12 @@
       "dmi": 1105700
     },
     {
-      "playerId": 55082858,
-      "name": "Bozhidar Terziev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 293500
-    },
-    {
       "playerId": 55368654,
       "name": "Hugo Osmar Piano",
       "countryId": 22,
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
       "dmi": 98000
-    },
-    {
-      "playerId": 55368739,
-      "name": "Ignacio Brahim",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 260400
     },
     {
       "playerId": 55707500,
@@ -85,6 +77,14 @@
       "dmi": 28200
     },
     {
+      "playerId": 55707492,
+      "name": "Vojo Luković",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 87600
+    },
+    {
       "playerId": 55466582,
       "name": "Gregor Francis",
       "countryId": 81,
@@ -101,12 +101,12 @@
       "dmi": 794800
     },
     {
-      "playerId": 55464271,
-      "name": "Harout Adamyan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 16500
+      "playerId": 55254915,
+      "name": "Roc Martínez",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "World Cup - Pool A",
+      "dmi": 996100
     },
     {
       "playerId": 55309522,
@@ -115,6 +115,14 @@
       "countryName": "Hellas",
       "pool": "World Cup - Pool B",
       "dmi": 269900
+    },
+    {
+      "playerId": 55462448,
+      "name": "Stuart Torrance",
+      "countryId": 44,
+      "countryName": "Ireland",
+      "pool": "Pool F",
+      "dmi": 529700
     },
     {
       "playerId": 55468255,
@@ -141,12 +149,20 @@
       "dmi": 1889400
     },
     {
-      "playerId": 55468237,
-      "name": "Vitalie Onovetchi",
+      "playerId": 55465850,
+      "name": "Ionel Negruta",
       "countryId": 86,
       "countryName": "Moldova",
       "pool": "Pool A",
-      "dmi": 78100
+      "dmi": 156200
+    },
+    {
+      "playerId": 55337993,
+      "name": "Wouter Speelman",
+      "countryId": 16,
+      "countryName": "Nederland",
+      "pool": "Pool H",
+      "dmi": 31900
     },
     {
       "playerId": 55069528,
@@ -155,14 +171,6 @@
       "countryName": "Norge",
       "pool": "Pool E",
       "dmi": 164000
-    },
-    {
-      "playerId": 55205111,
-      "name": "Józef Wieszczek",
-      "countryId": 58,
-      "countryName": "Polska",
-      "pool": "Pool B",
-      "dmi": 724000
     },
     {
       "playerId": 55343005,
@@ -179,6 +187,14 @@
       "countryName": "Scotland",
       "pool": "Pool A",
       "dmi": 109000
+    },
+    {
+      "playerId": 55160326,
+      "name": "Michael Obree",
+      "countryId": 64,
+      "countryName": "Scotland",
+      "pool": "Pool A",
+      "dmi": 437400
     },
     {
       "playerId": 55464291,

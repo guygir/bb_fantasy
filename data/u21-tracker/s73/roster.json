@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 11,
-  "date": "2026-10-21",
-  "updatedAt": "2026-10-21T10:46:56.805Z",
+  "date": "2026-10-22",
+  "updatedAt": "2026-10-22T10:48:13.538Z",
   "countries": [
     {
       "countryId": 31,
@@ -219,10 +219,6 @@
           "name": "Khristofor Kamalov"
         },
         {
-          "playerId": 55469389,
-          "name": "Serin Abdulla"
-        },
-        {
           "playerId": 55715979,
           "name": "Aras Qərabəyli"
         },
@@ -277,6 +273,10 @@
         {
           "playerId": 55466619,
           "name": "Arsalan Əsri"
+        },
+        {
+          "playerId": 55469389,
+          "name": "Serin Abdulla"
         },
         {
           "playerId": 55715306,
@@ -703,10 +703,6 @@
         {
           "playerId": 54930242,
           "name": "He Hanping"
-        },
-        {
-          "playerId": 54930439,
-          "name": "Tao Nanxiong"
         },
         {
           "playerId": 55234617,
@@ -2631,12 +2627,12 @@
           "name": "George Westbroek"
         },
         {
-          "playerId": 55337946,
-          "name": "Driekus Holla"
-        },
-        {
           "playerId": 55605504,
           "name": "Jannes Klinkhamer"
+        },
+        {
+          "playerId": 55337993,
+          "name": "Wouter Speelman"
         },
         {
           "playerId": 55338072,
@@ -2651,16 +2647,20 @@
           "name": "Eppo Schreiner"
         },
         {
+          "playerId": 55605489,
+          "name": "Henri Giesen"
+        },
+        {
           "playerId": 55605546,
           "name": "Mathieu Nekkers"
         },
         {
-          "playerId": 55605733,
-          "name": "Darren Wagter"
+          "playerId": 55605561,
+          "name": "Niels Glastra"
         },
         {
-          "playerId": 55605745,
-          "name": "Wijnand Oosterveld"
+          "playerId": 55605584,
+          "name": "Ernesto Bles"
         }
       ]
     },
@@ -3286,12 +3286,12 @@
           "name": "James MacLintock"
         },
         {
-          "playerId": 55463942,
-          "name": "John Holmes"
-        },
-        {
           "playerId": 55711449,
           "name": "Andrew Skinner"
+        },
+        {
+          "playerId": 55997282,
+          "name": "Dickie Robison"
         },
         {
           "playerId": 55468103,

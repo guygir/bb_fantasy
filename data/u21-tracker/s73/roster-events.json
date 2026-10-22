@@ -10081,6 +10081,96 @@
       "playerId": 55461811,
       "name": "Selwyn Rats",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 5,
+      "playerId": 54930439,
+      "name": "Tao Nanxiong",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55337993,
+      "name": "Wouter Speelman",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605489,
+      "name": "Henri Giesen",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605561,
+      "name": "Niels Glastra",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605584,
+      "name": "Ernesto Bles",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55337946,
+      "name": "Driekus Holla",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605733,
+      "name": "Darren Wagter",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605745,
+      "name": "Wijnand Oosterveld",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 64,
+      "playerId": 55997282,
+      "name": "Dickie Robison",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-22T10:48:13.538Z",
+      "date": "2026-10-22",
+      "week": 11,
+      "countryId": 64,
+      "playerId": 55463942,
+      "name": "John Holmes",
+      "type": "left"
     }
   ]
 }
