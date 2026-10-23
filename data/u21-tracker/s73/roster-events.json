@@ -10171,6 +10171,52 @@
       "playerId": 55463942,
       "name": "John Holmes",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-23T10:39:50.026Z",
+      "date": "2026-10-23",
+      "week": 11,
+      "countryId": 85,
+      "playerId": 55709510,
+      "name": "Arhip Zubkovich",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-23T10:39:50.026Z",
+      "date": "2026-10-23",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605552,
+      "name": "Edward Scholte",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-23T10:39:50.026Z",
+      "date": "2026-10-23",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55605733,
+      "name": "Darren Wagter",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-23T10:39:50.026Z",
+      "date": "2026-10-23",
+      "week": 11,
+      "countryId": 16,
+      "playerId": 55337993,
+      "name": "Wouter Speelman",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-23T10:39:50.026Z",
+      "date": "2026-10-23",
+      "week": 11,
+      "countryId": 18,
+      "playerId": 55343005,
+      "name": "Guilherme Oliveira",
+      "type": "left"
     }
   ]
 }

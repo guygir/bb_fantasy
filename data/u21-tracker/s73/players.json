@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-22T10:48:13.538Z",
+  "updatedAt": "2026-10-23T10:39:50.026Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -8390,13 +8390,13 @@
     "55337993": {
       "name": "Wouter Speelman",
       "countryId": 16,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-10-22",
-          "toDate": null
+          "toDate": "2026-10-23"
         }
       ]
     },
@@ -8513,13 +8513,13 @@
     "55343005": {
       "name": "Guilherme Oliveira",
       "countryId": 18,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 11,
           "fromDate": "2026-08-10",
-          "toDate": null
+          "toDate": "2026-10-23"
         }
       ]
     },
@@ -14316,6 +14316,19 @@
         }
       ]
     },
+    "55605552": {
+      "name": "Edward Scholte",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-23",
+          "toDate": null
+        }
+      ]
+    },
     "55605561": {
       "name": "Niels Glastra",
       "countryId": 16,
@@ -14345,13 +14358,19 @@
     "55605733": {
       "name": "Darren Wagter",
       "countryId": 16,
-      "active": false,
+      "active": true,
       "stints": [
         {
           "fromWeek": 11,
           "toWeek": 11,
           "fromDate": "2026-10-21",
           "toDate": "2026-10-22"
+        },
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-23",
+          "toDate": null
         }
       ]
     },
@@ -15352,6 +15371,19 @@
           "fromWeek": 3,
           "toWeek": null,
           "fromDate": "2026-08-22",
+          "toDate": null
+        }
+      ]
+    },
+    "55709510": {
+      "name": "Arhip Zubkovich",
+      "countryId": 85,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 11,
+          "toWeek": null,
+          "fromDate": "2026-10-23",
           "toDate": null
         }
       ]

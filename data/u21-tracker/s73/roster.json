@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 11,
-  "date": "2026-10-22",
-  "updatedAt": "2026-10-22T10:48:13.538Z",
+  "date": "2026-10-23",
+  "updatedAt": "2026-10-23T10:39:50.026Z",
   "countries": [
     {
       "countryId": 31,
@@ -324,6 +324,10 @@
         {
           "playerId": 55709501,
           "name": "Davyd Maistruk"
+        },
+        {
+          "playerId": 55709510,
+          "name": "Arhip Zubkovich"
         },
         {
           "playerId": 55709525,
@@ -2631,10 +2635,6 @@
           "name": "Jannes Klinkhamer"
         },
         {
-          "playerId": 55337993,
-          "name": "Wouter Speelman"
-        },
-        {
           "playerId": 55338072,
           "name": "George Stuurman"
         },
@@ -2655,12 +2655,20 @@
           "name": "Mathieu Nekkers"
         },
         {
+          "playerId": 55605552,
+          "name": "Edward Scholte"
+        },
+        {
           "playerId": 55605561,
           "name": "Niels Glastra"
         },
         {
           "playerId": 55605584,
           "name": "Ernesto Bles"
+        },
+        {
+          "playerId": 55605733,
+          "name": "Darren Wagter"
         }
       ]
     },
@@ -2895,16 +2903,16 @@
       "pool": "Pool F",
       "players": [
         {
-          "playerId": 55038514,
-          "name": "Hermínio Alhinho"
-        },
-        {
           "playerId": 55039317,
           "name": "Alexandre Coroado"
         },
         {
           "playerId": 55038485,
           "name": "Raimundo Jesus"
+        },
+        {
+          "playerId": 55038514,
+          "name": "Hermínio Alhinho"
         },
         {
           "playerId": 55038805,
@@ -2933,10 +2941,6 @@
         {
           "playerId": 55038587,
           "name": "Manuel Maria da Costa"
-        },
-        {
-          "playerId": 55343005,
-          "name": "Guilherme Oliveira"
         },
         {
           "playerId": 55038868,
