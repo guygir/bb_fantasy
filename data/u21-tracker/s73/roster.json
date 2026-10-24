@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 11,
-  "date": "2026-10-23",
-  "updatedAt": "2026-10-23T15:27:13.375Z",
+  "week": 12,
+  "date": "2026-10-24",
+  "updatedAt": "2026-10-24T09:57:44.998Z",
   "countries": [
     {
       "countryId": 31,
@@ -418,7 +418,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -1798,40 +1798,16 @@
           "name": "Gary Kelly"
         },
         {
-          "playerId": 55462267,
-          "name": "Les Mac Geralt"
-        },
-        {
           "playerId": 55398588,
           "name": "Mark Farrell"
-        },
-        {
-          "playerId": 55461963,
-          "name": "Thomas Ward"
-        },
-        {
-          "playerId": 55158318,
-          "name": "Brian Dunphy"
-        },
-        {
-          "playerId": 55398567,
-          "name": "Tim O'Dowd"
-        },
-        {
-          "playerId": 55398568,
-          "name": "Tony Broe"
         },
         {
           "playerId": 55398574,
           "name": "Scott Sullivan"
         },
         {
-          "playerId": 55398587,
-          "name": "Milo Feenan"
-        },
-        {
-          "playerId": 55398623,
-          "name": "Con O'Connor"
+          "playerId": 55398600,
+          "name": "Terry Heighway"
         },
         {
           "playerId": 55398674,
@@ -1846,20 +1822,44 @@
           "name": "Gearóid Walsh"
         },
         {
-          "playerId": 55462448,
-          "name": "Stuart Torrance"
-        },
-        {
-          "playerId": 55465956,
-          "name": "Mark Brady"
+          "playerId": 55656820,
+          "name": "Alan Zammit"
         },
         {
           "playerId": 55656842,
           "name": "Jimmy Phelan"
         },
         {
+          "playerId": 55656906,
+          "name": "Nick O'Malley"
+        },
+        {
+          "playerId": 55711904,
+          "name": "Ernie Murray"
+        },
+        {
+          "playerId": 55712485,
+          "name": "Naumantas Motulas"
+        },
+        {
+          "playerId": 55712781,
+          "name": "Ricky Brunt"
+        },
+        {
           "playerId": 55713805,
           "name": "Sol Flynn"
+        },
+        {
+          "playerId": 55935410,
+          "name": "Paul Gavin"
+        },
+        {
+          "playerId": 55935467,
+          "name": "Pete Gray"
+        },
+        {
+          "playerId": 55989171,
+          "name": "Kyle Wogan"
         },
         {
           "playerId": 55989623,
@@ -1997,7 +1997,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334164,
@@ -2098,68 +2098,20 @@
       "pool": "Pool G",
       "players": [
         {
-          "playerId": 55662470,
-          "name": "Vidmants Treinis"
+          "playerId": 55940834,
+          "name": "Zigmars Laudams"
         },
         {
-          "playerId": 55661992,
-          "name": "Benedikts Ikstitis"
+          "playerId": 55941139,
+          "name": "Rauls Uskans"
         },
         {
-          "playerId": 55404236,
-          "name": "Guntars Lipsks"
+          "playerId": 55940709,
+          "name": "Helmuts Elsinš"
         },
         {
-          "playerId": 55403687,
-          "name": "Ziedonis Ennitis"
-        },
-        {
-          "playerId": 55662297,
-          "name": "Antons Raminš"
-        },
-        {
-          "playerId": 55662170,
-          "name": "Intars Staris"
-        },
-        {
-          "playerId": 55662214,
-          "name": "Juris Bilmanis"
-        },
-        {
-          "playerId": 55662161,
-          "name": "Guntars Versitis"
-        },
-        {
-          "playerId": 55403984,
-          "name": "Tālivaldis Taukacs"
-        },
-        {
-          "playerId": 55404225,
-          "name": "Tālivaldis Feldmanis"
-        },
-        {
-          "playerId": 55662042,
-          "name": "Ivo Ostinš"
-        },
-        {
-          "playerId": 55662091,
-          "name": "Normunds Grinvalds"
-        },
-        {
-          "playerId": 55662114,
-          "name": "Peteris Rungis"
-        },
-        {
-          "playerId": 55662425,
-          "name": "Tore Davidsson"
-        },
-        {
-          "playerId": 55714471,
-          "name": "Austris Šteins-Akmentinš"
-        },
-        {
-          "playerId": 55989266,
-          "name": "Arturs Eidinš"
+          "playerId": 55941073,
+          "name": "Alfreds Kursitis"
         }
       ]
     },
@@ -2669,6 +2621,14 @@
         {
           "playerId": 55605733,
           "name": "Darren Wagter"
+        },
+        {
+          "playerId": 55884012,
+          "name": "Marvin de Klaver"
+        },
+        {
+          "playerId": 55884033,
+          "name": "Jobias Graas"
         }
       ]
     },
@@ -2961,6 +2921,10 @@
         {
           "playerId": 55161699,
           "name": "Zé Sales"
+        },
+        {
+          "playerId": 55343200,
+          "name": "Amadeu Cunha"
         },
         {
           "playerId": 55343552,
@@ -3365,6 +3329,10 @@
           "name": "Samory Sy"
         },
         {
+          "playerId": 55464291,
+          "name": "Damé Agne"
+        },
+        {
           "playerId": 55712771,
           "name": "Salilou Kefy"
         },
@@ -3385,10 +3353,6 @@
           "name": "Ferdinand Banor"
         },
         {
-          "playerId": 55464291,
-          "name": "Damé Agne"
-        },
-        {
           "playerId": 55464519,
           "name": "Macky Bocoum"
         },
@@ -3406,7 +3370,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3519,10 +3483,6 @@
           "name": "Drejc Kožel"
         },
         {
-          "playerId": 55439765,
-          "name": "Metod Glebov"
-        },
-        {
           "playerId": 55439881,
           "name": "Lovro Bric"
         },
@@ -3537,6 +3497,10 @@
         {
           "playerId": 55135461,
           "name": "Samir Lipušček"
+        },
+        {
+          "playerId": 55135484,
+          "name": "Alen Mac"
         },
         {
           "playerId": 55135621,
@@ -4028,10 +3992,6 @@
           "name": "Leonid Novoselskiy"
         },
         {
-          "playerId": 55077985,
-          "name": "Anton Golovnya"
-        },
-        {
           "playerId": 55382166,
           "name": "Stepan Kornishov"
         },
@@ -4084,12 +4044,20 @@
           "name": "Vojtus' Zagortsau"
         },
         {
-          "playerId": 55640595,
-          "name": "Andriy Bashlay"
+          "playerId": 55640668,
+          "name": "Olexiy Sviderskiy"
         },
         {
           "playerId": 55640712,
           "name": "Sergiy Pavlenko"
+        },
+        {
+          "playerId": 55640784,
+          "name": "Dumitru Sutula"
+        },
+        {
+          "playerId": 55919236,
+          "name": "Georgiy Bezdolny"
         }
       ]
     },

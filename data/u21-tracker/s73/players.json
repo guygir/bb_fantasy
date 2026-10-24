@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-23T15:27:13.375Z",
+  "updatedAt": "2026-10-24T09:57:44.998Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -3197,13 +3197,13 @@
     "55077985": {
       "name": "Anton Golovnya",
       "countryId": 33,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -4629,6 +4629,19 @@
         }
       ]
     },
+    "55135484": {
+      "name": "Alen Mac",
+      "countryId": 66,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55135557": {
       "name": "Čarli Jurković",
       "countryId": 66,
@@ -5422,13 +5435,13 @@
     "55158318": {
       "name": "Brian Dunphy",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -7840,7 +7853,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N&#39;Dao",
+      "name": "Mouss N'Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -8221,7 +8234,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha&#39;ayahu",
+      "name": "Meidad Yesha'ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -8533,6 +8546,19 @@
           "toWeek": 6,
           "fromDate": "2026-09-02",
           "toDate": "2026-09-18"
+        }
+      ]
+    },
+    "55343200": {
+      "name": "Amadeu Cunha",
+      "countryId": 18,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
         }
       ]
     },
@@ -10265,26 +10291,26 @@
     "55398567": {
       "name": "Tim O'Dowd",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55398568": {
       "name": "Tony Broe",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -10317,13 +10343,13 @@
     "55398587": {
       "name": "Milo Feenan",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -10340,16 +10366,29 @@
         }
       ]
     },
-    "55398623": {
-      "name": "Con O'Connor",
+    "55398600": {
+      "name": "Terry Heighway",
       "countryId": 44,
       "active": true,
       "stints": [
         {
-          "fromWeek": 1,
+          "fromWeek": 12,
           "toWeek": null,
-          "fromDate": "2026-08-08",
+          "fromDate": "2026-10-24",
           "toDate": null
+        }
+      ]
+    },
+    "55398623": {
+      "name": "Con O'Connor",
+      "countryId": 44,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 1,
+          "toWeek": 12,
+          "fromDate": "2026-08-08",
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -10421,13 +10460,13 @@
     "55403687": {
       "name": "Ziedonis Ennitis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-20",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -10499,13 +10538,13 @@
     "55403984": {
       "name": "Tālivaldis Taukacs",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -10551,26 +10590,26 @@
     "55404225": {
       "name": "Tālivaldis Feldmanis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55404236": {
       "name": "Guntars Lipsks",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 5,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-09-05",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -10941,13 +10980,13 @@
     "55439765": {
       "name": "Metod Glebov",
       "countryId": 66,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 9,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-09",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -11840,13 +11879,13 @@
     "55461963": {
       "name": "Thomas Ward",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -11930,13 +11969,13 @@
     "55462267": {
       "name": "Les Mac Geralt",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -12047,13 +12086,13 @@
     "55462448": {
       "name": "Stuart Torrance",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -13054,13 +13093,13 @@
     "55465956": {
       "name": "Mark Brady",
       "countryId": 44,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -14741,12 +14780,25 @@
     "55640595": {
       "name": "Andriy Bashlay",
       "countryId": 33,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-14",
+          "toDate": "2026-10-24"
+        }
+      ]
+    },
+    "55640668": {
+      "name": "Olexiy Sviderskiy",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
           "toDate": null
         }
       ]
@@ -14773,6 +14825,19 @@
           "fromWeek": 11,
           "toWeek": null,
           "fromDate": "2026-10-17",
+          "toDate": null
+        }
+      ]
+    },
+    "55640784": {
+      "name": "Dumitru Sutula",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
           "toDate": null
         }
       ]
@@ -14972,6 +15037,19 @@
         }
       ]
     },
+    "55656820": {
+      "name": "Alan Zammit",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55656842": {
       "name": "Jimmy Phelan",
       "countryId": 44,
@@ -14981,6 +15059,19 @@
           "fromWeek": 10,
           "toWeek": null,
           "fromDate": "2026-10-11",
+          "toDate": null
+        }
+      ]
+    },
+    "55656906": {
+      "name": "Nick O'Malley",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
           "toDate": null
         }
       ]
@@ -15001,130 +15092,130 @@
     "55661992": {
       "name": "Benedikts Ikstitis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662042": {
       "name": "Ivo Ostinš",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662091": {
       "name": "Normunds Grinvalds",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662114": {
       "name": "Peteris Rungis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662161": {
       "name": "Guntars Versitis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662170": {
       "name": "Intars Staris",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662214": {
       "name": "Juris Bilmanis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662297": {
       "name": "Antons Raminš",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662425": {
       "name": "Tore Davidsson",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
     "55662470": {
       "name": "Vidmants Treinis",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -15719,6 +15810,19 @@
         }
       ]
     },
+    "55711904": {
+      "name": "Ernie Murray",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55711960": {
       "name": "Arsalane Birem",
       "countryId": 31,
@@ -15823,6 +15927,19 @@
         }
       ]
     },
+    "55712485": {
+      "name": "Naumantas Motulas",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55712557": {
       "name": "Jonathan Bonnici",
       "countryId": 90,
@@ -15871,6 +15988,19 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-11",
+          "toDate": null
+        }
+      ]
+    },
+    "55712781": {
+      "name": "Ricky Brunt",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
           "toDate": null
         }
       ]
@@ -16099,13 +16229,13 @@
     "55714471": {
       "name": "Austris Šteins-Akmentinš",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-21",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
@@ -16136,7 +16266,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N&#39;Diaye",
+      "name": "Sidy N'Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
@@ -16737,6 +16867,32 @@
         }
       ]
     },
+    "55884012": {
+      "name": "Marvin de Klaver",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
+    "55884033": {
+      "name": "Jobias Graas",
+      "countryId": 16,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55884098": {
       "name": "Gomarus Jegerings",
       "countryId": 16,
@@ -16834,6 +16990,19 @@
         }
       ]
     },
+    "55919236": {
+      "name": "Georgiy Bezdolny",
+      "countryId": 33,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55925256": {
       "name": "Tomáš Volf",
       "countryId": 37,
@@ -16869,6 +17038,32 @@
           "fromWeek": 1,
           "toWeek": null,
           "fromDate": "2026-08-08",
+          "toDate": null
+        }
+      ]
+    },
+    "55935410": {
+      "name": "Paul Gavin",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
+    "55935467": {
+      "name": "Pete Gray",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
           "toDate": null
         }
       ]
@@ -16909,6 +17104,58 @@
           "toWeek": 1,
           "fromDate": "2026-08-10",
           "toDate": "2026-08-11"
+        }
+      ]
+    },
+    "55940709": {
+      "name": "Helmuts Elsinš",
+      "countryId": 46,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
+    "55940834": {
+      "name": "Zigmars Laudams",
+      "countryId": 46,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
+    "55941073": {
+      "name": "Alfreds Kursitis",
+      "countryId": 46,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
+    "55941139": {
+      "name": "Rauls Uskans",
+      "countryId": 46,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
         }
       ]
     },
@@ -16988,6 +17235,19 @@
         }
       ]
     },
+    "55989171": {
+      "name": "Kyle Wogan",
+      "countryId": 44,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-24",
+          "toDate": null
+        }
+      ]
+    },
     "55989181": {
       "name": "Vsevolod Lamonov",
       "countryId": 86,
@@ -17017,13 +17277,13 @@
     "55989266": {
       "name": "Arturs Eidinš",
       "countryId": 46,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 11,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-20",
-          "toDate": null
+          "toDate": "2026-10-24"
         }
       ]
     },
