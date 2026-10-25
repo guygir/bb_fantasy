@@ -1,25 +1,9 @@
 {
   "season": 73,
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "week": 12,
-  "updatedAt": "2026-10-24T09:57:44.998Z",
+  "updatedAt": "2026-10-25T10:20:15.841Z",
   "players": [
-    {
-      "playerId": 54917865,
-      "name": "Chimo Sobis",
-      "countryId": 2,
-      "countryName": "Argentina",
-      "pool": "World Cup - Pool B",
-      "dmi": 319800
-    },
-    {
-      "playerId": 54917374,
-      "name": "Jean Luca Peralta",
-      "countryId": 2,
-      "countryName": "Argentina",
-      "pool": "World Cup - Pool B",
-      "dmi": 1289900
-    },
     {
       "playerId": 55221819,
       "name": "Laro Suelves",
@@ -35,22 +19,6 @@
       "countryName": "Azərbaycan",
       "pool": "Pool E",
       "dmi": 241700
-    },
-    {
-      "playerId": 55463508,
-      "name": "Yurdman Atakişiyev",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 247800
-    },
-    {
-      "playerId": 55082858,
-      "name": "Bozhidar Terziev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 309000
     },
     {
       "playerId": 55368654,
@@ -69,30 +37,6 @@
       "dmi": 39600
     },
     {
-      "playerId": 55707492,
-      "name": "Vojo Luković",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 110500
-    },
-    {
-      "playerId": 54950824,
-      "name": "Javier Fernández Madrigal",
-      "countryId": 7,
-      "countryName": "España",
-      "pool": "World Cup - Pool A",
-      "dmi": 813000
-    },
-    {
-      "playerId": 55254915,
-      "name": "Roc Martínez",
-      "countryId": 7,
-      "countryName": "España",
-      "pool": "World Cup - Pool A",
-      "dmi": 1985900
-    },
-    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
@@ -101,44 +45,12 @@
       "dmi": 16400
     },
     {
-      "playerId": 55309522,
-      "name": "Fikret Neside",
-      "countryId": 12,
-      "countryName": "Hellas",
-      "pool": "World Cup - Pool B",
-      "dmi": 356400
-    },
-    {
-      "playerId": 55712781,
-      "name": "Ricky Brunt",
-      "countryId": 44,
-      "countryName": "Ireland",
-      "pool": "Pool F",
-      "dmi": 155200
-    },
-    {
       "playerId": 55047646,
       "name": "Ginutis Petrauskis",
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
       "dmi": 880700
-    },
-    {
-      "playerId": 55046850,
-      "name": "Mariusz Harazim",
-      "countryId": 20,
-      "countryName": "Lietuva",
-      "pool": "World Cup - Pool B",
-      "dmi": 707900
-    },
-    {
-      "playerId": 55465850,
-      "name": "Ionel Negruta",
-      "countryId": 86,
-      "countryName": "Moldova",
-      "pool": "Pool A",
-      "dmi": 119300
     },
     {
       "playerId": 55069528,

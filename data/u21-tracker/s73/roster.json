@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 12,
-  "date": "2026-10-24",
-  "updatedAt": "2026-10-24T09:57:44.998Z",
+  "date": "2026-10-25",
+  "updatedAt": "2026-10-25T10:20:15.841Z",
   "countries": [
     {
       "countryId": 31,
@@ -519,72 +519,76 @@
       "pool": "Pool F",
       "players": [
         {
-          "playerId": 55160918,
-          "name": "Kiril Atanasov"
+          "playerId": 55464891,
+          "name": "Valeri Iliev"
         },
         {
-          "playerId": 55083067,
-          "name": "Dimitar Gergov"
+          "playerId": 55711059,
+          "name": "Angel Alexandrov"
         },
         {
-          "playerId": 55464700,
-          "name": "Nedelcho Mitkov"
+          "playerId": 55645813,
+          "name": "Dobri Misliev"
         },
         {
-          "playerId": 55082969,
-          "name": "Angel Sokolov"
+          "playerId": 55387295,
+          "name": "Petar Tzvetkov"
         },
         {
-          "playerId": 55082858,
-          "name": "Bozhidar Terziev"
+          "playerId": 55387316,
+          "name": "Todor Vasilev"
         },
         {
-          "playerId": 55082922,
-          "name": "Ivaylo Nichev"
+          "playerId": 55387343,
+          "name": "Kiril Iliev"
         },
         {
-          "playerId": 55083090,
-          "name": "Iliyan Stoilov"
+          "playerId": 55387382,
+          "name": "Ivan Iliev"
         },
         {
-          "playerId": 55158925,
-          "name": "Boris Mishev"
+          "playerId": 55387395,
+          "name": "Petar Stoyanov"
         },
         {
-          "playerId": 55161859,
-          "name": "Stefan Shebov"
+          "playerId": 55387418,
+          "name": "Rusi Kolarov"
         },
         {
-          "playerId": 55387304,
-          "name": "Vasil Zahariev"
+          "playerId": 55387459,
+          "name": "Emanuel Hovhannesyan"
         },
         {
-          "playerId": 55387329,
-          "name": "Nizam Alemsah"
+          "playerId": 55387488,
+          "name": "Alexander Kerezov"
         },
         {
-          "playerId": 55387346,
-          "name": "Dursun Yahsi"
-        },
-        {
-          "playerId": 55387384,
-          "name": "Ivan Andreev"
-        },
-        {
-          "playerId": 55387407,
-          "name": "Boris Kirilov"
-        },
-        {
-          "playerId": 55387497,
-          "name": "Slavi Markovski"
-        },
-        {
-          "playerId": 55387540,
-          "name": "Vasil Pankov"
+          "playerId": 55387491,
+          "name": "Martin Zlatanov"
         },
         {
           "playerId": 55387543,
           "name": "Krum Vasilev"
+        },
+        {
+          "playerId": 55464229,
+          "name": "Atanas Mihaylov"
+        },
+        {
+          "playerId": 55465849,
+          "name": "Angel Petrov"
+        },
+        {
+          "playerId": 55466270,
+          "name": "Bolat Kurttekin"
+        },
+        {
+          "playerId": 55712662,
+          "name": "Vladimir Nanyov"
+        },
+        {
+          "playerId": 55715338,
+          "name": "Doychin Kolev"
         }
       ]
     },
@@ -1901,6 +1905,10 @@
           "name": "Valbergur Rafnsson"
         },
         {
+          "playerId": 55463851,
+          "name": "Þorgrímur Jakason"
+        },
+        {
           "playerId": 55464266,
           "name": "Gunnar Hólmsteinsson"
         },
@@ -2098,20 +2106,68 @@
       "pool": "Pool G",
       "players": [
         {
-          "playerId": 55940834,
-          "name": "Zigmars Laudams"
+          "playerId": 55662470,
+          "name": "Vidmants Treinis"
         },
         {
-          "playerId": 55941139,
-          "name": "Rauls Uskans"
+          "playerId": 55661992,
+          "name": "Benedikts Ikstitis"
         },
         {
-          "playerId": 55940709,
-          "name": "Helmuts Elsinš"
+          "playerId": 55404236,
+          "name": "Guntars Lipsks"
         },
         {
-          "playerId": 55941073,
-          "name": "Alfreds Kursitis"
+          "playerId": 55403687,
+          "name": "Ziedonis Ennitis"
+        },
+        {
+          "playerId": 55662297,
+          "name": "Antons Raminš"
+        },
+        {
+          "playerId": 55662170,
+          "name": "Intars Staris"
+        },
+        {
+          "playerId": 55662214,
+          "name": "Juris Bilmanis"
+        },
+        {
+          "playerId": 55662161,
+          "name": "Guntars Versitis"
+        },
+        {
+          "playerId": 55403984,
+          "name": "Tālivaldis Taukacs"
+        },
+        {
+          "playerId": 55404225,
+          "name": "Tālivaldis Feldmanis"
+        },
+        {
+          "playerId": 55662042,
+          "name": "Ivo Ostinš"
+        },
+        {
+          "playerId": 55662091,
+          "name": "Normunds Grinvalds"
+        },
+        {
+          "playerId": 55662114,
+          "name": "Peteris Rungis"
+        },
+        {
+          "playerId": 55662425,
+          "name": "Tore Davidsson"
+        },
+        {
+          "playerId": 55714471,
+          "name": "Austris Šteins-Akmentinš"
+        },
+        {
+          "playerId": 55989266,
+          "name": "Arturs Eidinš"
         }
       ]
     },
@@ -3004,6 +3060,10 @@
         {
           "playerId": 55466428,
           "name": "Dimitar Sarov"
+        },
+        {
+          "playerId": 55685941,
+          "name": "Neluțu Tudorache"
         }
       ]
     },

@@ -10649,6 +10649,517 @@
       "playerId": 55640595,
       "name": "Andriy Bashlay",
       "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55464891,
+      "name": "Valeri Iliev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55711059,
+      "name": "Angel Alexandrov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55645813,
+      "name": "Dobri Misliev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387295,
+      "name": "Petar Tzvetkov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387316,
+      "name": "Todor Vasilev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387343,
+      "name": "Kiril Iliev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387382,
+      "name": "Ivan Iliev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387395,
+      "name": "Petar Stoyanov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387418,
+      "name": "Rusi Kolarov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387459,
+      "name": "Emanuel Hovhannesyan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387488,
+      "name": "Alexander Kerezov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387491,
+      "name": "Martin Zlatanov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55464229,
+      "name": "Atanas Mihaylov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55465849,
+      "name": "Angel Petrov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55466270,
+      "name": "Bolat Kurttekin",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55712662,
+      "name": "Vladimir Nanyov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55715338,
+      "name": "Doychin Kolev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55160918,
+      "name": "Kiril Atanasov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55083067,
+      "name": "Dimitar Gergov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55464700,
+      "name": "Nedelcho Mitkov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55082969,
+      "name": "Angel Sokolov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55082858,
+      "name": "Bozhidar Terziev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55082922,
+      "name": "Ivaylo Nichev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55083090,
+      "name": "Iliyan Stoilov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55158925,
+      "name": "Boris Mishev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55161859,
+      "name": "Stefan Shebov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387304,
+      "name": "Vasil Zahariev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387329,
+      "name": "Nizam Alemsah",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387346,
+      "name": "Dursun Yahsi",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387384,
+      "name": "Ivan Andreev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387407,
+      "name": "Boris Kirilov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387497,
+      "name": "Slavi Markovski",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 36,
+      "playerId": 55387540,
+      "name": "Vasil Pankov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 78,
+      "playerId": 55463851,
+      "name": "Þorgrímur Jakason",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662470,
+      "name": "Vidmants Treinis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55661992,
+      "name": "Benedikts Ikstitis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55404236,
+      "name": "Guntars Lipsks",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55403687,
+      "name": "Ziedonis Ennitis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662297,
+      "name": "Antons Raminš",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662170,
+      "name": "Intars Staris",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662214,
+      "name": "Juris Bilmanis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662161,
+      "name": "Guntars Versitis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55403984,
+      "name": "Tālivaldis Taukacs",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55404225,
+      "name": "Tālivaldis Feldmanis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662042,
+      "name": "Ivo Ostinš",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662091,
+      "name": "Normunds Grinvalds",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662114,
+      "name": "Peteris Rungis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55662425,
+      "name": "Tore Davidsson",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55714471,
+      "name": "Austris Šteins-Akmentinš",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55989266,
+      "name": "Arturs Eidinš",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55940834,
+      "name": "Zigmars Laudams",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55941139,
+      "name": "Rauls Uskans",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55940709,
+      "name": "Helmuts Elsinš",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 46,
+      "playerId": 55941073,
+      "name": "Alfreds Kursitis",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-25T10:20:15.841Z",
+      "date": "2026-10-25",
+      "week": 12,
+      "countryId": 61,
+      "playerId": 55685941,
+      "name": "Neluțu Tudorache",
+      "type": "joined"
     }
   ]
 }
