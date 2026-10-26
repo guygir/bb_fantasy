@@ -1,16 +1,24 @@
 {
   "season": 73,
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "week": 12,
-  "updatedAt": "2026-10-25T10:20:15.841Z",
+  "updatedAt": "2026-10-26T11:47:29.958Z",
   "players": [
     {
-      "playerId": 55221819,
-      "name": "Laro Suelves",
+      "playerId": 55222058,
+      "name": "Héctor Julio Cavallo",
       "countryId": 2,
       "countryName": "Argentina",
       "pool": "World Cup - Pool B",
-      "dmi": 482200
+      "dmi": 1440700
+    },
+    {
+      "playerId": 54917374,
+      "name": "Jean Luca Peralta",
+      "countryId": 2,
+      "countryName": "Argentina",
+      "pool": "World Cup - Pool B",
+      "dmi": 1289900
     },
     {
       "playerId": 55158381,
@@ -37,6 +45,14 @@
       "dmi": 39600
     },
     {
+      "playerId": 55466582,
+      "name": "Gregor Francis",
+      "countryId": 81,
+      "countryName": "Cymru",
+      "pool": "Pool B",
+      "dmi": 152400
+    },
+    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
@@ -53,12 +69,12 @@
       "dmi": 880700
     },
     {
-      "playerId": 55069528,
-      "name": "Andreas Arnesen",
-      "countryId": 26,
-      "countryName": "Norge",
-      "pool": "Pool E",
-      "dmi": 172100
+      "playerId": 55046850,
+      "name": "Mariusz Harazim",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 707900
     },
     {
       "playerId": 55132289,
@@ -69,22 +85,6 @@
       "dmi": 852300
     },
     {
-      "playerId": 55347720,
-      "name": "Evgeny Nechkin",
-      "countryId": 19,
-      "countryName": "Rossiya",
-      "pool": "Pool G",
-      "dmi": 305700
-    },
-    {
-      "playerId": 55461600,
-      "name": "Nodar Adeishvili",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 123000
-    },
-    {
       "playerId": 55160326,
       "name": "Michael Obree",
       "countryId": 64,
@@ -93,12 +93,20 @@
       "dmi": 696300
     },
     {
-      "playerId": 55718910,
-      "name": "Zani Shala",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 143100
+      "playerId": 55712771,
+      "name": "Salilou Kefy",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 150000
+    },
+    {
+      "playerId": 55135557,
+      "name": "Čarli Jurković",
+      "countryId": 66,
+      "countryName": "Slovenija",
+      "pool": "Pool E",
+      "dmi": 497800
     }
   ]
 }

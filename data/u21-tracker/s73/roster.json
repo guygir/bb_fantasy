@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 12,
-  "date": "2026-10-25",
-  "updatedAt": "2026-10-25T10:20:15.841Z",
+  "date": "2026-10-26",
+  "updatedAt": "2026-10-26T11:47:29.958Z",
   "countries": [
     {
       "countryId": 31,
@@ -612,6 +612,10 @@
         {
           "playerId": 55388396,
           "name": "Bedřich Bukáček"
+        },
+        {
+          "playerId": 55388596,
+          "name": "Boris Serbin"
         },
         {
           "playerId": 55388681,
@@ -4114,10 +4118,6 @@
         {
           "playerId": 55640784,
           "name": "Dumitru Sutula"
-        },
-        {
-          "playerId": 55919236,
-          "name": "Georgiy Bezdolny"
         }
       ]
     },
@@ -4126,6 +4126,10 @@
       "name": "United States",
       "pool": "World Cup - Pool A",
       "players": [
+        {
+          "playerId": 54901056,
+          "name": "Charles Desroches"
+        },
         {
           "playerId": 54902750,
           "name": "Joshua Rouse"

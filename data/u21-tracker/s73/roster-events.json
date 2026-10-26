@@ -11160,6 +11160,33 @@
       "playerId": 55685941,
       "name": "Neluțu Tudorache",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-26T11:47:29.958Z",
+      "date": "2026-10-26",
+      "week": 12,
+      "countryId": 37,
+      "playerId": 55388596,
+      "name": "Boris Serbin",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-26T11:47:29.958Z",
+      "date": "2026-10-26",
+      "week": 12,
+      "countryId": 33,
+      "playerId": 55919236,
+      "name": "Georgiy Bezdolny",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-26T11:47:29.958Z",
+      "date": "2026-10-26",
+      "week": 12,
+      "countryId": 1,
+      "playerId": 54901056,
+      "name": "Charles Desroches",
+      "type": "joined"
     }
   ]
 }

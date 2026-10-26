@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-25T10:20:15.841Z",
+  "updatedAt": "2026-10-26T11:47:29.958Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -50,6 +50,19 @@
           "fromWeek": 10,
           "toWeek": null,
           "fromDate": "2026-10-12",
+          "toDate": null
+        }
+      ]
+    },
+    "54901056": {
+      "name": "Charles Desroches",
+      "countryId": 1,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-26",
           "toDate": null
         }
       ]
@@ -10132,6 +10145,19 @@
         }
       ]
     },
+    "55388596": {
+      "name": "Boris Serbin",
+      "countryId": 37,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-26",
+          "toDate": null
+        }
+      ]
+    },
     "55388617": {
       "name": "Karel Jaroš",
       "countryId": 37,
@@ -17330,13 +17356,13 @@
     "55919236": {
       "name": "Georgiy Bezdolny",
       "countryId": 33,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 12,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-24",
-          "toDate": null
+          "toDate": "2026-10-26"
         }
       ]
     },
