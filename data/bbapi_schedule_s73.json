@@ -3,7 +3,7 @@
     "source": "BBAPI",
     "teamId": 1015,
     "season": 73,
-    "fetched": "2026-10-26T07:15:46.190Z"
+    "fetched": "2026-10-27T07:06:33.743Z"
   },
   "matches": [
     {
@@ -34,6 +34,17 @@
       "type": "nt.roundrobin",
       "awayTeamId": "1029",
       "awayTeamName": "Srbija U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "Israel U21",
+      "homeScore": null
+    },
+    {
+      "id": "86703",
+      "start": "2026-11-02T18:30:00Z",
+      "type": "nt.semifinal",
+      "awayTeamId": "1045",
+      "awayTeamName": "Hong Kong U21",
       "awayScore": null,
       "homeTeamId": "1015",
       "homeTeamName": "Israel U21",
