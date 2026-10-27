@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 12,
-  "date": "2026-10-26",
-  "updatedAt": "2026-10-26T11:47:29.958Z",
+  "date": "2026-10-27",
+  "updatedAt": "2026-10-27T11:13:10.394Z",
   "countries": [
     {
       "countryId": 31,
@@ -136,72 +136,52 @@
           "name": "Ariel Dertycia"
         },
         {
-          "playerId": 54917195,
-          "name": "Víctor Villaragut"
+          "playerId": 55221952,
+          "name": "Nigel Taylor"
         },
         {
-          "playerId": 55222003,
-          "name": "Michael Heck"
+          "playerId": 55535470,
+          "name": "Franco Suárez"
         },
         {
-          "playerId": 54917374,
-          "name": "Jean Luca Peralta"
+          "playerId": 55222338,
+          "name": "Stefano Zagharián"
         },
         {
-          "playerId": 54917865,
-          "name": "Chimo Sobis"
+          "playerId": 55222383,
+          "name": "Javier Alejandro Demaría"
         },
         {
-          "playerId": 55221888,
-          "name": "Édouard Ferrari"
+          "playerId": 55222438,
+          "name": "Oscar Lorenzo Gagliardi"
         },
         {
-          "playerId": 54917021,
-          "name": "Julián Gabriel Gareca"
+          "playerId": 55222636,
+          "name": "Serviliano Cayetano Molodezky"
         },
         {
-          "playerId": 55222058,
-          "name": "Héctor Julio Cavallo"
+          "playerId": 55535185,
+          "name": "Alejandro Alurralde"
         },
         {
-          "playerId": 54916968,
-          "name": "Alfredo Serrano"
+          "playerId": 55535383,
+          "name": "Armando Ignacio Tallone"
         },
         {
-          "playerId": 54917466,
-          "name": "Guillermo Herrero"
+          "playerId": 55535403,
+          "name": "Francisco Ángel Sagas"
         },
         {
-          "playerId": 54917657,
-          "name": "Hernán Vega"
+          "playerId": 55535569,
+          "name": "Gerónimo Luis Angel"
         },
         {
-          "playerId": 55221781,
-          "name": "Gerónimo Nieto"
+          "playerId": 55536145,
+          "name": "Edmar Tatzer"
         },
         {
-          "playerId": 55221819,
-          "name": "Laro Suelves"
-        },
-        {
-          "playerId": 55221841,
-          "name": "Juan Ernesto Válido"
-        },
-        {
-          "playerId": 55221941,
-          "name": "Juan Rezza"
-        },
-        {
-          "playerId": 55221984,
-          "name": "Patricio José Giordano"
-        },
-        {
-          "playerId": 55222060,
-          "name": "Massimiliano Carella"
-        },
-        {
-          "playerId": 55222408,
-          "name": "Quentin Clerc"
+          "playerId": 55821540,
+          "name": "Pablo Rosales"
         }
       ]
     },
@@ -672,6 +652,14 @@
       "name": "China",
       "pool": "World Cup - Pool A",
       "players": [
+        {
+          "playerId": 54930089,
+          "name": "Mo Zuyang"
+        },
+        {
+          "playerId": 54929920,
+          "name": "Ko Shi Chun"
+        },
         {
           "playerId": 55235196,
           "name": "Luo Xiaoliang"
@@ -1573,72 +1561,68 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 55004780,
-          "name": "Apollon Leras"
+          "playerId": 55524248,
+          "name": "Nikos Zervos"
         },
         {
-          "playerId": 55006775,
-          "name": "Petros Kapataidakis"
-        },
-        {
-          "playerId": 55005421,
-          "name": "Thodoros Avgerinos"
+          "playerId": 55309305,
+          "name": "Spiros Andreopoulos"
         },
         {
           "playerId": 55006129,
           "name": "Thimios Ntouvaris"
         },
         {
-          "playerId": 55309629,
-          "name": "Takis Tzanetos"
-        },
-        {
           "playerId": 55310821,
           "name": "Iosif Vaitsis"
         },
         {
-          "playerId": 55005084,
-          "name": "Dantis Sferas"
-        },
-        {
-          "playerId": 55310039,
-          "name": "Periklis Tsiafkaris"
-        },
-        {
-          "playerId": 55309522,
-          "name": "Fikret Neside"
-        },
-        {
-          "playerId": 55309618,
-          "name": "Pavlos Karidas"
+          "playerId": 55311403,
+          "name": "Manolis Siagris"
         },
         {
           "playerId": 55004944,
           "name": "Yiorgos Mistriotis"
         },
         {
-          "playerId": 55005108,
-          "name": "Trifonas Kioulekas"
-        },
-        {
           "playerId": 55309643,
           "name": "Dimitris Rokkos"
+        },
+        {
+          "playerId": 55309656,
+          "name": "Kostas Gagalakos"
+        },
+        {
+          "playerId": 55309716,
+          "name": "Markos Zavoliarakis"
         },
         {
           "playerId": 55309881,
           "name": "Ploutonas Egnatiadis"
         },
         {
-          "playerId": 55310674,
-          "name": "Kiriakos Piatas"
-        },
-        {
           "playerId": 55311284,
           "name": "Eftichios Yiayias"
         },
         {
-          "playerId": 55462159,
-          "name": "Zefiros Chrisoulas"
+          "playerId": 55586509,
+          "name": "Eftichios Spourdoulas"
+        },
+        {
+          "playerId": 55587176,
+          "name": "Garifallos Lavakis"
+        },
+        {
+          "playerId": 55587305,
+          "name": "Fanis Manoukarakis"
+        },
+        {
+          "playerId": 55587716,
+          "name": "Marios Mpalamoutis"
+        },
+        {
+          "playerId": 55587748,
+          "name": "Theofanis Kokkinis"
         }
       ]
     },
@@ -2047,16 +2031,8 @@
           "name": "Florindo Cairo"
         },
         {
-          "playerId": 54974173,
-          "name": "Roberto Verderame"
-        },
-        {
           "playerId": 55279176,
           "name": "Omar Dalmo"
-        },
-        {
-          "playerId": 54973149,
-          "name": "Paolo Sorce"
         },
         {
           "playerId": 54971980,
@@ -2126,6 +2102,10 @@
           "name": "Ziedonis Ennitis"
         },
         {
+          "playerId": 55662161,
+          "name": "Guntars Versitis"
+        },
+        {
           "playerId": 55662297,
           "name": "Antons Raminš"
         },
@@ -2136,10 +2116,6 @@
         {
           "playerId": 55662214,
           "name": "Juris Bilmanis"
-        },
-        {
-          "playerId": 55662161,
-          "name": "Guntars Versitis"
         },
         {
           "playerId": 55403984,
@@ -2181,76 +2157,76 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 55048304,
-          "name": "Donatas Staponkevicius"
+          "playerId": 55351839,
+          "name": "Merkys Ernius"
         },
         {
-          "playerId": 55048510,
-          "name": "Vytautas Dorofejus"
+          "playerId": 55352653,
+          "name": "Andriejus Doroševicius"
         },
         {
-          "playerId": 55048229,
-          "name": "Edvardas Napeklys"
+          "playerId": 55620954,
+          "name": "Antanas Nagibinas"
         },
         {
-          "playerId": 55047898,
-          "name": "Kastytis Žandaravicius"
+          "playerId": 55352808,
+          "name": "Mark Borzenko"
         },
         {
           "playerId": 55619495,
           "name": "Dorotėjas Pikcilingis"
         },
         {
-          "playerId": 55046850,
-          "name": "Mariusz Harazim"
+          "playerId": 55351474,
+          "name": "Eugenijus Mašanauskas"
         },
         {
-          "playerId": 55046775,
-          "name": "Matas Maziliauskas"
+          "playerId": 55351393,
+          "name": "Lucjan Kunkel"
         },
         {
-          "playerId": 55046957,
-          "name": "Linas Bajorynas"
+          "playerId": 55351902,
+          "name": "Varūnas Jermalis"
         },
         {
-          "playerId": 55047001,
-          "name": "Kostas Plukys"
+          "playerId": 55351991,
+          "name": "Vytautas Seklenis"
         },
         {
-          "playerId": 55047048,
-          "name": "Almis Stafejevas"
+          "playerId": 55351995,
+          "name": "Virgutis Neciunskas"
         },
         {
-          "playerId": 55047318,
-          "name": "Valdas Peldunas"
+          "playerId": 55352445,
+          "name": "Eivydas Kudzinevicius"
         },
         {
-          "playerId": 55047646,
-          "name": "Ginutis Petrauskis"
+          "playerId": 55352459,
+          "name": "Nomedas Siatkovskis"
         },
         {
-          "playerId": 55047870,
-          "name": "Juvencijus Kondratenkovas"
+          "playerId": 55352485,
+          "name": "Arnas Naugžemis"
         },
         {
-          "playerId": 55047943,
-          "name": "Alvytas Cholupniakas"
+          "playerId": 55353197,
+          "name": "Aušrius Mišinys"
         },
         {
-          "playerId": 55048296,
-          "name": "Vytukas Ružinas"
+          "playerId": 55353247,
+          "name": "Naumantas Kriveliovas"
         },
         {
-          "playerId": 55048489,
-          "name": "Viachka Ledakovich"
+          "playerId": 55619305,
+          "name": "Ivas Peimas"
         },
         {
-          "playerId": 55048588,
-          "name": "Malkelis Kievinas"
+          "playerId": 55619758,
+          "name": "Aidas Liogis"
         },
         {
-          "playerId": 55462207,
-          "name": "Marius Verketis"
+          "playerId": 55620048,
+          "name": "Linas Piatnickis"
         }
       ]
     },
@@ -4185,6 +4161,10 @@
         {
           "playerId": 54902924,
           "name": "Weston Wilson"
+        },
+        {
+          "playerId": 54903566,
+          "name": "Ty Irvin"
         }
       ]
     }

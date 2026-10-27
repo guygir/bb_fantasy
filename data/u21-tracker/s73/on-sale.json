@@ -1,25 +1,9 @@
 {
   "season": 73,
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "week": 12,
-  "updatedAt": "2026-10-26T11:47:29.958Z",
+  "updatedAt": "2026-10-27T11:13:10.394Z",
   "players": [
-    {
-      "playerId": 55222058,
-      "name": "Héctor Julio Cavallo",
-      "countryId": 2,
-      "countryName": "Argentina",
-      "pool": "World Cup - Pool B",
-      "dmi": 1440700
-    },
-    {
-      "playerId": 54917374,
-      "name": "Jean Luca Peralta",
-      "countryId": 2,
-      "countryName": "Argentina",
-      "pool": "World Cup - Pool B",
-      "dmi": 1289900
-    },
     {
       "playerId": 55158381,
       "name": "Adil Xaliqov",
@@ -29,20 +13,28 @@
       "dmi": 241700
     },
     {
-      "playerId": 55368654,
-      "name": "Hugo Osmar Piano",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 110300
+      "playerId": 55463508,
+      "name": "Yurdman Atakişiyev",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 247800
     },
     {
-      "playerId": 55064269,
-      "name": "Mauricio Ariza",
+      "playerId": 55368620,
+      "name": "Adolfo Calderón",
       "countryId": 22,
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
-      "dmi": 39600
+      "dmi": 1783600
+    },
+    {
+      "playerId": 55160809,
+      "name": "Asdrúbal Trujillo",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 975800
     },
     {
       "playerId": 55466582,
@@ -61,20 +53,36 @@
       "dmi": 16400
     },
     {
-      "playerId": 55047646,
-      "name": "Ginutis Petrauskis",
-      "countryId": 20,
-      "countryName": "Lietuva",
+      "playerId": 55310821,
+      "name": "Iosif Vaitsis",
+      "countryId": 12,
+      "countryName": "Hellas",
       "pool": "World Cup - Pool B",
-      "dmi": 880700
+      "dmi": 217600
     },
     {
-      "playerId": 55046850,
-      "name": "Mariusz Harazim",
+      "playerId": 55006129,
+      "name": "Thimios Ntouvaris",
+      "countryId": 12,
+      "countryName": "Hellas",
+      "pool": "World Cup - Pool B",
+      "dmi": 218100
+    },
+    {
+      "playerId": 55935467,
+      "name": "Pete Gray",
+      "countryId": 44,
+      "countryName": "Ireland",
+      "pool": "Pool F",
+      "dmi": 171200
+    },
+    {
+      "playerId": 55352808,
+      "name": "Mark Borzenko",
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 707900
+      "dmi": 218900
     },
     {
       "playerId": 55132289,
@@ -83,6 +91,14 @@
       "countryName": "România",
       "pool": "Pool D",
       "dmi": 852300
+    },
+    {
+      "playerId": 55461600,
+      "name": "Nodar Adeishvili",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 123000
     },
     {
       "playerId": 55160326,
@@ -107,6 +123,14 @@
       "countryName": "Slovenija",
       "pool": "Pool E",
       "dmi": 497800
+    },
+    {
+      "playerId": 55251101,
+      "name": "Idris Salkan",
+      "countryId": 6,
+      "countryName": "Türkiye",
+      "pool": "Pool D",
+      "dmi": 444100
     }
   ]
 }
