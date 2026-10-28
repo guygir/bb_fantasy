@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 12,
-  "date": "2026-10-27",
-  "updatedAt": "2026-10-27T11:13:10.394Z",
+  "date": "2026-10-28",
+  "updatedAt": "2026-10-28T11:47:02.720Z",
   "countries": [
     {
       "countryId": 31,
@@ -12,6 +12,10 @@
         {
           "playerId": 55464258,
           "name": "Abdelbaki Betrouni"
+        },
+        {
+          "playerId": 55993316,
+          "name": "Habib Iarkane"
         },
         {
           "playerId": 55990062,

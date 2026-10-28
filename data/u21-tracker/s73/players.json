@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-27T11:13:10.394Z",
+  "updatedAt": "2026-10-28T11:47:02.720Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -18392,6 +18392,19 @@
           "fromWeek": 2,
           "toWeek": null,
           "fromDate": "2026-08-17",
+          "toDate": null
+        }
+      ]
+    },
+    "55993316": {
+      "name": "Habib Iarkane",
+      "countryId": 31,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 12,
+          "toWeek": null,
+          "fromDate": "2026-10-28",
           "toDate": null
         }
       ]

@@ -11988,6 +11988,15 @@
       "playerId": 54903566,
       "name": "Ty Irvin",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-28T11:47:02.720Z",
+      "date": "2026-10-28",
+      "week": 12,
+      "countryId": 31,
+      "playerId": 55993316,
+      "name": "Habib Iarkane",
+      "type": "joined"
     }
   ]
 }

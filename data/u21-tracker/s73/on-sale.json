@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "week": 12,
-  "updatedAt": "2026-10-27T11:13:10.394Z",
+  "updatedAt": "2026-10-28T11:47:02.720Z",
   "players": [
     {
       "playerId": 55158381,
@@ -21,6 +21,14 @@
       "dmi": 247800
     },
     {
+      "playerId": 55387343,
+      "name": "Kiril Iliev",
+      "countryId": 36,
+      "countryName": "Bulgaria",
+      "pool": "Pool F",
+      "dmi": 46300
+    },
+    {
       "playerId": 55368620,
       "name": "Adolfo Calderón",
       "countryId": 22,
@@ -37,12 +45,36 @@
       "dmi": 975800
     },
     {
+      "playerId": 55707492,
+      "name": "Vojo Luković",
+      "countryId": 76,
+      "countryName": "Crna Gora",
+      "pool": "Pool F",
+      "dmi": 110500
+    },
+    {
       "playerId": 55466582,
       "name": "Gregor Francis",
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
       "dmi": 152400
+    },
+    {
+      "playerId": 55154989,
+      "name": "Minas Gaganis",
+      "countryId": 77,
+      "countryName": "Cyprus",
+      "pool": "Pool B",
+      "dmi": 144000
+    },
+    {
+      "playerId": 54950824,
+      "name": "Javier Fernández Madrigal",
+      "countryId": 7,
+      "countryName": "España",
+      "pool": "World Cup - Pool A",
+      "dmi": 813000
     },
     {
       "playerId": 55464271,
@@ -77,12 +109,68 @@
       "dmi": 171200
     },
     {
+      "playerId": 55468250,
+      "name": "Brynleifur Ottósson",
+      "countryId": 78,
+      "countryName": "Ísland",
+      "pool": "Pool C",
+      "dmi": 99000
+    },
+    {
+      "playerId": 54972285,
+      "name": "Donato Bauducco",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "World Cup - Pool A",
+      "dmi": 3682100
+    },
+    {
+      "playerId": 55279176,
+      "name": "Omar Dalmo",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "World Cup - Pool A",
+      "dmi": 872500
+    },
+    {
+      "playerId": 54975300,
+      "name": "William Piscaglia",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "World Cup - Pool A",
+      "dmi": 552800
+    },
+    {
       "playerId": 55352808,
       "name": "Mark Borzenko",
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
       "dmi": 218900
+    },
+    {
+      "playerId": 55712557,
+      "name": "Jonathan Bonnici",
+      "countryId": 90,
+      "countryName": "Malta",
+      "pool": "Pool C",
+      "dmi": 132800
+    },
+    {
+      "playerId": 55468205,
+      "name": "Vitalie Jomiru",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool A",
+      "dmi": 376900
+    },
+    {
+      "playerId": 55633336,
+      "name": "Çetin Sen",
+      "countryId": 27,
+      "countryName": "Österreich",
+      "pool": "Pool A",
+      "dmi": 100800
     },
     {
       "playerId": 55132289,
@@ -99,6 +187,14 @@
       "countryName": "Sakartvelo",
       "pool": "Pool C",
       "dmi": 123000
+    },
+    {
+      "playerId": 55711449,
+      "name": "Andrew Skinner",
+      "countryId": 64,
+      "countryName": "Scotland",
+      "pool": "Pool A",
+      "dmi": 240700
     },
     {
       "playerId": 55160326,
@@ -123,6 +219,30 @@
       "countryName": "Slovenija",
       "pool": "Pool E",
       "dmi": 497800
+    },
+    {
+      "playerId": 55140741,
+      "name": "Juho Hilden",
+      "countryId": 69,
+      "countryName": "Suomi",
+      "pool": "Pool E",
+      "dmi": 1168800
+    },
+    {
+      "playerId": 55140634,
+      "name": "Matti Bergström",
+      "countryId": 69,
+      "countryName": "Suomi",
+      "pool": "Pool E",
+      "dmi": 1190400
+    },
+    {
+      "playerId": 55140873,
+      "name": "Ville Juntunen",
+      "countryId": 69,
+      "countryName": "Suomi",
+      "pool": "Pool E",
+      "dmi": 1831600
     },
     {
       "playerId": 55251101,
