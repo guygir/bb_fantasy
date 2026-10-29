@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "week": 12,
-  "updatedAt": "2026-10-28T11:47:02.720Z",
+  "updatedAt": "2026-10-29T11:55:23.110Z",
   "players": [
     {
       "playerId": 55158381,
@@ -51,14 +51,6 @@
       "countryName": "Crna Gora",
       "pool": "Pool F",
       "dmi": 110500
-    },
-    {
-      "playerId": 55466582,
-      "name": "Gregor Francis",
-      "countryId": 81,
-      "countryName": "Cymru",
-      "pool": "Pool B",
-      "dmi": 152400
     },
     {
       "playerId": 55154989,
@@ -189,6 +181,14 @@
       "dmi": 123000
     },
     {
+      "playerId": 55375934,
+      "name": "Adolf Solak",
+      "countryId": 28,
+      "countryName": "Schweiz",
+      "pool": "Pool B",
+      "dmi": 333200
+    },
+    {
       "playerId": 55711449,
       "name": "Andrew Skinner",
       "countryId": 64,
@@ -211,14 +211,6 @@
       "countryName": "Senegal",
       "pool": "World Cup - Pool A",
       "dmi": 150000
-    },
-    {
-      "playerId": 55135557,
-      "name": "Čarli Jurković",
-      "countryId": 66,
-      "countryName": "Slovenija",
-      "pool": "Pool E",
-      "dmi": 497800
     },
     {
       "playerId": 55140741,

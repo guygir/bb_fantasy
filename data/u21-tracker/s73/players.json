@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-10-28T11:47:02.720Z",
+  "updatedAt": "2026-10-29T11:55:23.110Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -4534,13 +4534,13 @@
     "55132375": {
       "name": "Sorin David",
       "countryId": 61,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
@@ -5047,91 +5047,91 @@
     "55144755": {
       "name": "Wong Sheng Nan",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55144777": {
       "name": "Liang Shaiming",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55144837": {
       "name": "Chan Yong chul",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55144951": {
       "name": "Ma Lui Dan",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55144965": {
       "name": "Luo Wing Kuen",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55145043": {
       "name": "Lim Than Long",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55145045": {
       "name": "Mo Gyong si",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
@@ -5151,13 +5151,13 @@
     "55145198": {
       "name": "Sun Kheong",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
@@ -11928,91 +11928,91 @@
     "55449113": {
       "name": "Liang Jang Lu",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55449132": {
       "name": "Liao Ling Hu",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-15",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55449177": {
       "name": "Dai Jin Soon",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-15",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55449200": {
       "name": "Ouyang Tu An",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55449202": {
       "name": "Han Yok Lee",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55449219": {
       "name": "Huang Tat Ho",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
     "55449367": {
       "name": "Wang Thiam Loy",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
@@ -12266,13 +12266,13 @@
     "55461617": {
       "name": "Law Ting Lun",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
@@ -13272,13 +13272,13 @@
     "55464576": {
       "name": "Ban Jya Syin",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },
@@ -17286,13 +17286,13 @@
     "55715757": {
       "name": "Ding Kien Anh",
       "countryId": 70,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 10,
-          "toWeek": null,
+          "toWeek": 12,
           "fromDate": "2026-10-15",
-          "toDate": null
+          "toDate": "2026-10-29"
         }
       ]
     },

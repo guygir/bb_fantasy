@@ -11997,6 +11997,177 @@
       "playerId": 55993316,
       "name": "Habib Iarkane",
       "type": "joined"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 61,
+      "playerId": 55132375,
+      "name": "Sorin David",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449132,
+      "name": "Liao Ling Hu",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55144837,
+      "name": "Chan Yong chul",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55144777,
+      "name": "Liang Shaiming",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55144755,
+      "name": "Wong Sheng Nan",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55144951,
+      "name": "Ma Lui Dan",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449367,
+      "name": "Wang Thiam Loy",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55145198,
+      "name": "Sun Kheong",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449113,
+      "name": "Liang Jang Lu",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449202,
+      "name": "Han Yok Lee",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55144965,
+      "name": "Luo Wing Kuen",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55145043,
+      "name": "Lim Than Long",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55145045,
+      "name": "Mo Gyong si",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449177,
+      "name": "Dai Jin Soon",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449200,
+      "name": "Ouyang Tu An",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55449219,
+      "name": "Huang Tat Ho",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55461617,
+      "name": "Law Ting Lun",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55464576,
+      "name": "Ban Jya Syin",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-29T11:55:23.110Z",
+      "date": "2026-10-29",
+      "week": 12,
+      "countryId": 70,
+      "playerId": 55715757,
+      "name": "Ding Kien Anh",
+      "type": "left"
     }
   ]
 }
