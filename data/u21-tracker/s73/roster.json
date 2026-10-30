@@ -2,7 +2,7 @@
   "season": 73,
   "week": 12,
   "date": "2026-10-30",
-  "updatedAt": "2026-10-30T11:49:08.277Z",
+  "updatedAt": "2026-10-30T16:48:53.707Z",
   "countries": [
     {
       "countryId": 31,
@@ -390,7 +390,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N'Dao"
+          "name": "Mouss N&#39;Dao"
         },
         {
           "playerId": 55325939,
@@ -1561,16 +1561,28 @@
           "name": "Spiros Andreopoulos"
         },
         {
+          "playerId": 55005421,
+          "name": "Thodoros Avgerinos"
+        },
+        {
+          "playerId": 55309629,
+          "name": "Takis Tzanetos"
+        },
+        {
+          "playerId": 55310039,
+          "name": "Periklis Tsiafkaris"
+        },
+        {
           "playerId": 55311403,
           "name": "Manolis Siagris"
         },
         {
-          "playerId": 55004944,
-          "name": "Yiorgos Mistriotis"
+          "playerId": 55309618,
+          "name": "Pavlos Karidas"
         },
         {
-          "playerId": 55006129,
-          "name": "Thimios Ntouvaris"
+          "playerId": 55004944,
+          "name": "Yiorgos Mistriotis"
         },
         {
           "playerId": 55309643,
@@ -1589,8 +1601,8 @@
           "name": "Ploutonas Egnatiadis"
         },
         {
-          "playerId": 55310821,
-          "name": "Iosif Vaitsis"
+          "playerId": 55310674,
+          "name": "Kiriakos Piatas"
         },
         {
           "playerId": 55311284,
@@ -1599,10 +1611,6 @@
         {
           "playerId": 55586509,
           "name": "Eftichios Spourdoulas"
-        },
-        {
-          "playerId": 55587176,
-          "name": "Garifallos Lavakis"
         },
         {
           "playerId": 55587305,
@@ -1985,7 +1993,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha'ayahu"
+          "name": "Meidad Yesha&#39;ayahu"
         },
         {
           "playerId": 55334060,
@@ -3353,12 +3361,12 @@
           "name": "Samory Sy"
         },
         {
-          "playerId": 55464291,
-          "name": "Damé Agne"
-        },
-        {
           "playerId": 55712771,
           "name": "Salilou Kefy"
+        },
+        {
+          "playerId": 55464291,
+          "name": "Damé Agne"
         },
         {
           "playerId": 55464066,
@@ -3394,7 +3402,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N'Diaye"
+          "name": "Sidy N&#39;Diaye"
         }
       ]
     },
