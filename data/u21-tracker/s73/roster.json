@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "week": 12,
-  "date": "2026-10-30",
-  "updatedAt": "2026-10-30T16:48:53.707Z",
+  "week": 13,
+  "date": "2026-10-31",
+  "updatedAt": "2026-10-31T11:23:29.802Z",
   "countries": [
     {
       "countryId": 31,
@@ -349,10 +349,6 @@
           "name": "Arthur Claessens"
         },
         {
-          "playerId": 55021022,
-          "name": "Enrique Bultinck"
-        },
-        {
           "playerId": 55020995,
           "name": "Gerrit Vanduffel"
         },
@@ -390,7 +386,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325939,
@@ -399,6 +395,10 @@
         {
           "playerId": 55326063,
           "name": "Seth Delcart"
+        },
+        {
+          "playerId": 55326119,
+          "name": "Edmundo Moutinho"
         },
         {
           "playerId": 55326120,
@@ -1993,7 +1993,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334060,
@@ -2217,8 +2217,8 @@
           "name": "Naumantas Kriveliovas"
         },
         {
-          "playerId": 55619305,
-          "name": "Ivas Peimas"
+          "playerId": 55619107,
+          "name": "Vaidas Naikauskas"
         },
         {
           "playerId": 55619758,
@@ -2619,8 +2619,20 @@
           "name": "George Westbroek"
         },
         {
+          "playerId": 55033302,
+          "name": "Leroy Pach"
+        },
+        {
           "playerId": 55605504,
           "name": "Jannes Klinkhamer"
+        },
+        {
+          "playerId": 55033388,
+          "name": "Nicholas Alleyn"
+        },
+        {
+          "playerId": 55337907,
+          "name": "Jean-Marc Weener"
         },
         {
           "playerId": 55338072,
@@ -2657,10 +2669,6 @@
         {
           "playerId": 55605733,
           "name": "Darren Wagter"
-        },
-        {
-          "playerId": 55884012,
-          "name": "Marvin de Klaver"
         },
         {
           "playerId": 55884033,
@@ -3402,7 +3410,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3570,72 +3578,60 @@
       "pool": "Pool A",
       "players": [
         {
-          "playerId": 55466587,
-          "name": "Nino Slabej"
+          "playerId": 55693285,
+          "name": "Šimon Borbeľ"
         },
         {
-          "playerId": 55157466,
-          "name": "Zoran Zverka"
+          "playerId": 55464121,
+          "name": "Kamil Zaťko"
         },
         {
-          "playerId": 55158054,
-          "name": "Vojtech Mladšík"
+          "playerId": 55692987,
+          "name": "Lukáš Vohnút"
         },
         {
-          "playerId": 55139859,
-          "name": "Miloš Mikuliak"
+          "playerId": 55444076,
+          "name": "Andrej Cekan"
         },
         {
-          "playerId": 55443828,
-          "name": "Matej Hálka"
-        },
-        {
-          "playerId": 55444087,
-          "name": "Vavrinec Vilikovský"
-        },
-        {
-          "playerId": 55139616,
-          "name": "Víťazoslav Čajkovský"
-        },
-        {
-          "playerId": 55139657,
-          "name": "Orest Durcenka"
-        },
-        {
-          "playerId": 55139760,
-          "name": "Ondrej Velčovský"
-        },
-        {
-          "playerId": 55139868,
-          "name": "Milan Kosturský"
-        },
-        {
-          "playerId": 55157458,
-          "name": "Martin Babka"
-        },
-        {
-          "playerId": 55158095,
-          "name": "Alfréd Martinek"
+          "playerId": 55444020,
+          "name": "Barnabáš Mičovský"
         },
         {
           "playerId": 55443870,
           "name": "Peter Smolárik"
         },
         {
+          "playerId": 55443882,
+          "name": "Martin Sklenák"
+        },
+        {
           "playerId": 55443908,
           "name": "Marián Kalinák"
         },
         {
-          "playerId": 55443949,
-          "name": "Jakub Savčák"
+          "playerId": 55443914,
+          "name": "Radoslav Tokár"
         },
         {
-          "playerId": 55444042,
-          "name": "Šimon Gužák"
+          "playerId": 55443995,
+          "name": "Julián Maják"
         },
         {
-          "playerId": 55444121,
-          "name": "Andreas Lopuchovský"
+          "playerId": 55444129,
+          "name": "Kamil Krajčír"
+        },
+        {
+          "playerId": 55463203,
+          "name": "Viktor Volanský"
+        },
+        {
+          "playerId": 55692994,
+          "name": "Amos Voznák"
+        },
+        {
+          "playerId": 55693089,
+          "name": "Vladimír Iskra"
         }
       ]
     },
@@ -4115,6 +4111,10 @@
           "name": "Jarom Bess"
         },
         {
+          "playerId": 54900604,
+          "name": "Erik Beauchamp"
+        },
+        {
           "playerId": 54902733,
           "name": "Jonathan Beer"
         },
@@ -4127,12 +4127,12 @@
           "name": "Freddy Cockrell"
         },
         {
-          "playerId": 54900604,
-          "name": "Erik Beauchamp"
-        },
-        {
           "playerId": 54900612,
           "name": "Thomas Brown"
+        },
+        {
+          "playerId": 54902535,
+          "name": "Morris Cheney"
         },
         {
           "playerId": 54900695,
@@ -4141,10 +4141,6 @@
         {
           "playerId": 54900996,
           "name": "Terry Harkins"
-        },
-        {
-          "playerId": 54902535,
-          "name": "Morris Cheney"
         },
         {
           "playerId": 54902672,

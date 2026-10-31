@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-10-30",
-  "week": 12,
-  "updatedAt": "2026-10-30T11:49:08.277Z",
+  "date": "2026-10-31",
+  "week": 13,
+  "updatedAt": "2026-10-31T11:23:29.802Z",
   "players": [
     {
       "playerId": 55466619,
@@ -13,12 +13,12 @@
       "dmi": 317500
     },
     {
-      "playerId": 55387343,
-      "name": "Kiril Iliev",
-      "countryId": 36,
-      "countryName": "Bulgaria",
-      "pool": "Pool F",
-      "dmi": 42000
+      "playerId": 55158219,
+      "name": "Coşar Tanryverdiyev",
+      "countryId": 88,
+      "countryName": "Azərbaycan",
+      "pool": "Pool E",
+      "dmi": 1623300
     },
     {
       "playerId": 55368620,
@@ -37,14 +37,6 @@
       "dmi": 514500
     },
     {
-      "playerId": 55707492,
-      "name": "Vojo Luković",
-      "countryId": 76,
-      "countryName": "Crna Gora",
-      "pool": "Pool F",
-      "dmi": 119100
-    },
-    {
       "playerId": 55154989,
       "name": "Minas Gaganis",
       "countryId": 77,
@@ -61,6 +53,14 @@
       "dmi": 829300
     },
     {
+      "playerId": 55163757,
+      "name": "Badrig Eliasyan",
+      "countryId": 87,
+      "countryName": "Hayastan",
+      "pool": "Pool B",
+      "dmi": 280300
+    },
+    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
@@ -75,22 +75,6 @@
       "countryName": "Hayastan",
       "pool": "Pool B",
       "dmi": 164600
-    },
-    {
-      "playerId": 55468250,
-      "name": "Brynleifur Ottósson",
-      "countryId": 78,
-      "countryName": "Ísland",
-      "pool": "Pool C",
-      "dmi": 159300
-    },
-    {
-      "playerId": 54972285,
-      "name": "Donato Bauducco",
-      "countryId": 10,
-      "countryName": "Italia",
-      "pool": "World Cup - Pool A",
-      "dmi": 2235900
     },
     {
       "playerId": 55279176,
@@ -125,22 +109,6 @@
       "dmi": 419100
     },
     {
-      "playerId": 55712557,
-      "name": "Jonathan Bonnici",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool C",
-      "dmi": 206700
-    },
-    {
-      "playerId": 55468205,
-      "name": "Vitalie Jomiru",
-      "countryId": 86,
-      "countryName": "Moldova",
-      "pool": "Pool A",
-      "dmi": 279300
-    },
-    {
       "playerId": 55069528,
       "name": "Andreas Arnesen",
       "countryId": 26,
@@ -155,14 +123,6 @@
       "countryName": "Österreich",
       "pool": "Pool A",
       "dmi": 376700
-    },
-    {
-      "playerId": 55633336,
-      "name": "Çetin Sen",
-      "countryId": 27,
-      "countryName": "Österreich",
-      "pool": "Pool A",
-      "dmi": 162700
     },
     {
       "playerId": 55132302,
@@ -189,30 +149,6 @@
       "dmi": 328500
     },
     {
-      "playerId": 55711449,
-      "name": "Andrew Skinner",
-      "countryId": 64,
-      "countryName": "Scotland",
-      "pool": "Pool A",
-      "dmi": 564100
-    },
-    {
-      "playerId": 55160326,
-      "name": "Michael Obree",
-      "countryId": 64,
-      "countryName": "Scotland",
-      "pool": "Pool A",
-      "dmi": 647600
-    },
-    {
-      "playerId": 55712771,
-      "name": "Salilou Kefy",
-      "countryId": 94,
-      "countryName": "Senegal",
-      "pool": "World Cup - Pool A",
-      "dmi": 150000
-    },
-    {
       "playerId": 55718910,
       "name": "Zani Shala",
       "countryId": 79,
@@ -221,20 +157,12 @@
       "dmi": 92400
     },
     {
-      "playerId": 55140741,
-      "name": "Juho Hilden",
+      "playerId": 55140761,
+      "name": "Juha Korander",
       "countryId": 69,
       "countryName": "Suomi",
       "pool": "Pool E",
-      "dmi": 1102500
-    },
-    {
-      "playerId": 55140634,
-      "name": "Matti Bergström",
-      "countryId": 69,
-      "countryName": "Suomi",
-      "pool": "Pool E",
-      "dmi": 1297200
+      "dmi": 1546400
     },
     {
       "playerId": 55140873,
@@ -251,6 +179,14 @@
       "countryName": "Taiwan",
       "pool": "World Cup - Pool B",
       "dmi": 167600
+    },
+    {
+      "playerId": 55698294,
+      "name": "He Chun Ho",
+      "countryId": 70,
+      "countryName": "Taiwan",
+      "pool": "World Cup - Pool B",
+      "dmi": 242500
     },
     {
       "playerId": 54946497,

@@ -12821,6 +12821,323 @@
       "name": "Ding Kien Anh",
       "type": "returned",
       "weeksAway": 1
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 13,
+      "playerId": 55326119,
+      "name": "Edmundo Moutinho",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 13,
+      "playerId": 55021022,
+      "name": "Enrique Bultinck",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 20,
+      "playerId": 55619107,
+      "name": "Vaidas Naikauskas",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 20,
+      "playerId": 55619305,
+      "name": "Ivas Peimas",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 16,
+      "playerId": 55033302,
+      "name": "Leroy Pach",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 16,
+      "playerId": 55033388,
+      "name": "Nicholas Alleyn",
+      "type": "returned",
+      "weeksAway": 2
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 16,
+      "playerId": 55337907,
+      "name": "Jean-Marc Weener",
+      "type": "returned",
+      "weeksAway": 6
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 16,
+      "playerId": 55884012,
+      "name": "Marvin de Klaver",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55693285,
+      "name": "Šimon Borbeľ",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55464121,
+      "name": "Kamil Zaťko",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55692987,
+      "name": "Lukáš Vohnút",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55444076,
+      "name": "Andrej Cekan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55444020,
+      "name": "Barnabáš Mičovský",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55443882,
+      "name": "Martin Sklenák",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55443914,
+      "name": "Radoslav Tokár",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55443995,
+      "name": "Julián Maják",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55444129,
+      "name": "Kamil Krajčír",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55463203,
+      "name": "Viktor Volanský",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55692994,
+      "name": "Amos Voznák",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55693089,
+      "name": "Vladimír Iskra",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55466587,
+      "name": "Nino Slabej",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55157466,
+      "name": "Zoran Zverka",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55158054,
+      "name": "Vojtech Mladšík",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55139859,
+      "name": "Miloš Mikuliak",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55443828,
+      "name": "Matej Hálka",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55444087,
+      "name": "Vavrinec Vilikovský",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55139616,
+      "name": "Víťazoslav Čajkovský",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55139657,
+      "name": "Orest Durcenka",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55139760,
+      "name": "Ondrej Velčovský",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55139868,
+      "name": "Milan Kosturský",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55157458,
+      "name": "Martin Babka",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55158095,
+      "name": "Alfréd Martinek",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55443949,
+      "name": "Jakub Savčák",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55444042,
+      "name": "Šimon Gužák",
+      "type": "left"
+    },
+    {
+      "ts": "2026-10-31T11:23:29.802Z",
+      "date": "2026-10-31",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55444121,
+      "name": "Andreas Lopuchovský",
+      "type": "left"
     }
   ]
 }
