@@ -13138,6 +13138,267 @@
       "playerId": 55444121,
       "name": "Andreas Lopuchovský",
       "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55277298,
+      "name": "Alexander Raffaele",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55279101,
+      "name": "Luigi Vivian",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55278599,
+      "name": "Eduardo Barlati",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55280233,
+      "name": "Nicola Laudadio",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55277104,
+      "name": "Scipio Rullo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55280216,
+      "name": "Ugo Fusaro",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55276639,
+      "name": "Pietro Varano",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55276681,
+      "name": "Enrico Rantolo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55279395,
+      "name": "Gene Vivian",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55279493,
+      "name": "Guido Cirrotti",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55279555,
+      "name": "Torquato Nigro",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55279727,
+      "name": "Gian Domenico Militello",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55278761,
+      "name": "Cristiano Sbattelia",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54975047,
+      "name": "Florindo Cairo",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54972285,
+      "name": "Donato Bauducco",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54972588,
+      "name": "Ettore Taini",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54973304,
+      "name": "Sergio Tassani",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54973780,
+      "name": "Rino Succu",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54974368,
+      "name": "Bruno Nicastro",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54975189,
+      "name": "Paolo Locci",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 54975342,
+      "name": "Seran Soverini",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55160239,
+      "name": "Roberto Toti",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55276888,
+      "name": "Giobbe Valgimigli",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 28,
+      "playerId": 55634474,
+      "name": "Moustapha Gautier",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 28,
+      "playerId": 55071771,
+      "name": "Julien Causse",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 28,
+      "playerId": 55912888,
+      "name": "Michaël Lépinay",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 28,
+      "playerId": 55375934,
+      "name": "Adolf Solak",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 28,
+      "playerId": 55634483,
+      "name": "Aaron Rindisbacher",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-01T12:15:30.771Z",
+      "date": "2026-11-01",
+      "week": 13,
+      "countryId": 28,
+      "playerId": 55913015,
+      "name": "Jacques Cadosch",
+      "type": "left"
     }
   ]
 }

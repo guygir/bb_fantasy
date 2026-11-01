@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 13,
-  "date": "2026-10-31",
-  "updatedAt": "2026-10-31T11:23:29.802Z",
+  "date": "2026-11-01",
+  "updatedAt": "2026-11-01T12:15:30.771Z",
   "countries": [
     {
       "countryId": 31,
@@ -2015,68 +2015,72 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
+          "playerId": 55277298,
+          "name": "Alexander Raffaele"
+        },
+        {
           "playerId": 55278575,
           "name": "Vito Tremolada"
         },
         {
-          "playerId": 55278761,
-          "name": "Cristiano Sbattelia"
+          "playerId": 55279101,
+          "name": "Luigi Vivian"
+        },
+        {
+          "playerId": 55278599,
+          "name": "Eduardo Barlati"
         },
         {
           "playerId": 54975300,
           "name": "William Piscaglia"
         },
         {
-          "playerId": 54975047,
-          "name": "Florindo Cairo"
+          "playerId": 55280233,
+          "name": "Nicola Laudadio"
         },
         {
           "playerId": 55279176,
           "name": "Omar Dalmo"
         },
         {
+          "playerId": 55277104,
+          "name": "Scipio Rullo"
+        },
+        {
+          "playerId": 55280216,
+          "name": "Ugo Fusaro"
+        },
+        {
           "playerId": 54971980,
           "name": "Alessandro Hoz"
-        },
-        {
-          "playerId": 54972285,
-          "name": "Donato Bauducco"
-        },
-        {
-          "playerId": 54972588,
-          "name": "Ettore Taini"
-        },
-        {
-          "playerId": 54973304,
-          "name": "Sergio Tassani"
-        },
-        {
-          "playerId": 54973780,
-          "name": "Rino Succu"
         },
         {
           "playerId": 54974089,
           "name": "Giancarlo Fellegara"
         },
         {
-          "playerId": 54974368,
-          "name": "Bruno Nicastro"
+          "playerId": 55276639,
+          "name": "Pietro Varano"
         },
         {
-          "playerId": 54975189,
-          "name": "Paolo Locci"
+          "playerId": 55276681,
+          "name": "Enrico Rantolo"
         },
         {
-          "playerId": 54975342,
-          "name": "Seran Soverini"
+          "playerId": 55279395,
+          "name": "Gene Vivian"
         },
         {
-          "playerId": 55160239,
-          "name": "Roberto Toti"
+          "playerId": 55279493,
+          "name": "Guido Cirrotti"
         },
         {
-          "playerId": 55276888,
-          "name": "Giobbe Valgimigli"
+          "playerId": 55279555,
+          "name": "Torquato Nigro"
+        },
+        {
+          "playerId": 55279727,
+          "name": "Gian Domenico Militello"
         }
       ]
     },
@@ -3211,10 +3215,6 @@
       "pool": "Pool B",
       "players": [
         {
-          "playerId": 55071771,
-          "name": "Julien Causse"
-        },
-        {
           "playerId": 55634399,
           "name": "Rolf Kist"
         },
@@ -3225,10 +3225,6 @@
         {
           "playerId": 55375979,
           "name": "Jasper Trolese"
-        },
-        {
-          "playerId": 55912888,
-          "name": "Michaël Lépinay"
         },
         {
           "playerId": 55634402,
@@ -3243,10 +3239,6 @@
           "name": "Hubert Bröcking"
         },
         {
-          "playerId": 55375934,
-          "name": "Adolf Solak"
-        },
-        {
           "playerId": 55376053,
           "name": "Julien Verdet"
         },
@@ -3259,8 +3251,8 @@
           "name": "Cyrill Elminger"
         },
         {
-          "playerId": 55634483,
-          "name": "Aaron Rindisbacher"
+          "playerId": 55634474,
+          "name": "Moustapha Gautier"
         },
         {
           "playerId": 55713847,
@@ -3273,10 +3265,6 @@
         {
           "playerId": 55716798,
           "name": "Luc Morrel"
-        },
-        {
-          "playerId": 55913015,
-          "name": "Jacques Cadosch"
         }
       ]
     },
