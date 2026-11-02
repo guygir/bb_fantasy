@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "week": 13,
-  "updatedAt": "2026-11-01T12:15:30.771Z",
+  "updatedAt": "2026-11-02T14:05:19.500Z",
   "players": [
     {
       "playerId": 55713050,
@@ -13,12 +13,12 @@
       "dmi": 93000
     },
     {
-      "playerId": 55466619,
-      "name": "Arsalan Əsri",
+      "playerId": 55158381,
+      "name": "Adil Xaliqov",
       "countryId": 88,
       "countryName": "Azərbaycan",
       "pool": "Pool E",
-      "dmi": 317500
+      "dmi": 265600
     },
     {
       "playerId": 55158219,
@@ -37,28 +37,20 @@
       "dmi": 288000
     },
     {
-      "playerId": 55368620,
-      "name": "Adolfo Calderón",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 1809800
-    },
-    {
-      "playerId": 55160809,
-      "name": "Asdrúbal Trujillo",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 514500
-    },
-    {
       "playerId": 55154989,
       "name": "Minas Gaganis",
       "countryId": 77,
       "countryName": "Cyprus",
       "pool": "Pool B",
       "dmi": 127200
+    },
+    {
+      "playerId": 55712563,
+      "name": "Marcus Harlind Aagaard",
+      "countryId": 39,
+      "countryName": "Danmark",
+      "pool": "Pool C",
+      "dmi": 176200
     },
     {
       "playerId": 55088123,
@@ -85,14 +77,6 @@
       "dmi": 16400
     },
     {
-      "playerId": 55712461,
-      "name": "Smbat Badrigyan",
-      "countryId": 87,
-      "countryName": "Hayastan",
-      "pool": "Pool B",
-      "dmi": 164600
-    },
-    {
       "playerId": 55279176,
       "name": "Omar Dalmo",
       "countryId": 10,
@@ -117,6 +101,62 @@
       "dmi": 1018100
     },
     {
+      "playerId": 55047388,
+      "name": "Dovydas Raukštus",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 621400
+    },
+    {
+      "playerId": 55047646,
+      "name": "Ginutis Petrauskis",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 630100
+    },
+    {
+      "playerId": 55047870,
+      "name": "Juvencijus Kondratenkovas",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 356400
+    },
+    {
+      "playerId": 55046957,
+      "name": "Linas Bajorynas",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 699700
+    },
+    {
+      "playerId": 55048489,
+      "name": "Viachka Ledakovich",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 767600
+    },
+    {
+      "playerId": 55107740,
+      "name": "Klime Zlatkov",
+      "countryId": 49,
+      "countryName": "Makedonija",
+      "pool": "Pool F",
+      "dmi": 379400
+    },
+    {
+      "playerId": 55160332,
+      "name": "Mikan Çausholli",
+      "countryId": 49,
+      "countryName": "Makedonija",
+      "pool": "Pool F",
+      "dmi": 928500
+    },
+    {
       "playerId": 55468155,
       "name": "Ernest Incorvaia",
       "countryId": 90,
@@ -133,6 +173,14 @@
       "dmi": 366500
     },
     {
+      "playerId": 55160090,
+      "name": "Arne Haugen",
+      "countryId": 26,
+      "countryName": "Norge",
+      "pool": "Pool E",
+      "dmi": 496000
+    },
+    {
       "playerId": 55373884,
       "name": "Steffen Jo Rømo",
       "countryId": 26,
@@ -141,36 +189,28 @@
       "dmi": 121600
     },
     {
-      "playerId": 55070544,
-      "name": "Aleksandar Huemer",
-      "countryId": 27,
-      "countryName": "Österreich",
-      "pool": "Pool A",
-      "dmi": 376700
+      "playerId": 55115536,
+      "name": "Ferdynand Strykowski",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 324700
     },
     {
-      "playerId": 55132302,
-      "name": "Liviu Miron",
-      "countryId": 61,
-      "countryName": "România",
-      "pool": "Pool D",
-      "dmi": 527800
+      "playerId": 55115515,
+      "name": "Zbigniew Chabasiński",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 1300300
     },
     {
-      "playerId": 55461600,
-      "name": "Nodar Adeishvili",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 179900
-    },
-    {
-      "playerId": 55718910,
-      "name": "Zani Shala",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 92400
+      "playerId": 55634475,
+      "name": "Jakob Sauthier",
+      "countryId": 28,
+      "countryName": "Schweiz",
+      "pool": "Pool B",
+      "dmi": 68300
     },
     {
       "playerId": 55377707,
@@ -203,14 +243,6 @@
       "countryName": "Sverige",
       "pool": "Pool D",
       "dmi": 181800
-    },
-    {
-      "playerId": 55449212,
-      "name": "Fang Yiming",
-      "countryId": 70,
-      "countryName": "Taiwan",
-      "pool": "World Cup - Pool B",
-      "dmi": 167600
     },
     {
       "playerId": 55698294,
