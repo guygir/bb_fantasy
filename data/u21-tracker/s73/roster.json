@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 13,
-  "date": "2026-11-02",
-  "updatedAt": "2026-11-02T14:05:19.500Z",
+  "date": "2026-11-03",
+  "updatedAt": "2026-11-03T13:12:14.064Z",
   "countries": [
     {
       "countryId": 31,
@@ -345,60 +345,24 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55021110,
-          "name": "Jorden Geerts"
-        },
-        {
-          "playerId": 55325992,
-          "name": "Loren Bernimolin"
-        },
-        {
-          "playerId": 55021024,
-          "name": "Arthur Claessens"
-        },
-        {
-          "playerId": 55020995,
-          "name": "Gerrit Vanduffel"
-        },
-        {
-          "playerId": 55021148,
-          "name": "Aristide Dalle"
-        },
-        {
-          "playerId": 55021432,
-          "name": "Joery Van den Heuvel"
-        },
-        {
-          "playerId": 55021448,
-          "name": "Mamadou Diatta"
-        },
-        {
-          "playerId": 55161933,
-          "name": "Thibaut De Haes"
-        },
-        {
-          "playerId": 55325650,
-          "name": "Rogier Thibaut"
-        },
-        {
-          "playerId": 55325688,
-          "name": "Bjorn Rausin"
-        },
-        {
           "playerId": 55325763,
           "name": "Marijn Hennuy"
         },
         {
-          "playerId": 55325801,
-          "name": "Adolf Steensels"
+          "playerId": 55325826,
+          "name": "Dylan Bogemans"
         },
         {
           "playerId": 55325879,
           "name": "Mouss N'Dao"
         },
         {
-          "playerId": 55325939,
-          "name": "Kedar Issa"
+          "playerId": 55325934,
+          "name": "Noah Robbens"
+        },
+        {
+          "playerId": 55325985,
+          "name": "Elias Mathieu"
         },
         {
           "playerId": 55326063,
@@ -411,6 +375,10 @@
         {
           "playerId": 55326120,
           "name": "Mahmoud Ali"
+        },
+        {
+          "playerId": 55326187,
+          "name": "Colin Blommaerts"
         },
         {
           "playerId": 55326188,
@@ -1668,6 +1636,10 @@
           "name": "Ngai Foo Lim"
         },
         {
+          "playerId": 55095531,
+          "name": "Leung Hor Sang"
+        },
+        {
           "playerId": 55095534,
           "name": "Wong Kong Pei"
         },
@@ -2027,16 +1999,8 @@
           "name": "Eduardo Barlati"
         },
         {
-          "playerId": 54975300,
-          "name": "William Piscaglia"
-        },
-        {
           "playerId": 55280233,
           "name": "Nicola Laudadio"
-        },
-        {
-          "playerId": 55279176,
-          "name": "Omar Dalmo"
         },
         {
           "playerId": 55277104,
@@ -2055,12 +2019,20 @@
           "name": "Giancarlo Fellegara"
         },
         {
+          "playerId": 54975300,
+          "name": "William Piscaglia"
+        },
+        {
           "playerId": 55276639,
           "name": "Pietro Varano"
         },
         {
           "playerId": 55276681,
           "name": "Enrico Rantolo"
+        },
+        {
+          "playerId": 55279176,
+          "name": "Omar Dalmo"
         },
         {
           "playerId": 55279395,
@@ -2181,12 +2153,12 @@
           "name": "Lucjan Kunkel"
         },
         {
-          "playerId": 55046957,
-          "name": "Linas Bajorynas"
+          "playerId": 55046850,
+          "name": "Mariusz Harazim"
         },
         {
-          "playerId": 55047388,
-          "name": "Dovydas Raukštus"
+          "playerId": 55046957,
+          "name": "Linas Bajorynas"
         },
         {
           "playerId": 55047646,
@@ -2311,60 +2283,72 @@
       "pool": "Pool H",
       "players": [
         {
-          "playerId": 55104208,
-          "name": "András Széles"
+          "playerId": 55408186,
+          "name": "Vilmos Fischl"
         },
         {
-          "playerId": 55104421,
-          "name": "Pál Novák"
+          "playerId": 55407935,
+          "name": "László Fábry"
         },
         {
-          "playerId": 55103553,
-          "name": "Miklós Jakatics"
+          "playerId": 55408459,
+          "name": "Győző Koltai"
         },
         {
-          "playerId": 55103498,
-          "name": "Mihály Herceg"
+          "playerId": 55410398,
+          "name": "Erik Takáts"
         },
         {
-          "playerId": 55103523,
-          "name": "Kelemen Jablonkai"
+          "playerId": 55408428,
+          "name": "Tamás Szentmihályi"
         },
         {
-          "playerId": 55103619,
-          "name": "István Babiák"
+          "playerId": 55407925,
+          "name": "Konstantin Jusztin"
         },
         {
-          "playerId": 55103713,
-          "name": "Donát Józsi"
+          "playerId": 55407939,
+          "name": "Gedeon Kapuvári"
         },
         {
-          "playerId": 55103734,
-          "name": "Ákos Sipőcz"
+          "playerId": 55407953,
+          "name": "Gergely Orth"
         },
         {
-          "playerId": 55103819,
-          "name": "Mateo Pahlić"
+          "playerId": 55407954,
+          "name": "Albin Aggod"
         },
         {
-          "playerId": 55103841,
-          "name": "Vytaliy Volotek"
+          "playerId": 55407968,
+          "name": "János Gujdár"
         },
         {
-          "playerId": 55103997,
-          "name": "Szabolcs Gárdián"
+          "playerId": 55408023,
+          "name": "Gábor Ballai"
         },
         {
-          "playerId": 55104030,
-          "name": "Elõd Dárday"
+          "playerId": 55408121,
+          "name": "András Gróf"
         },
         {
-          "playerId": 55104222,
-          "name": "Rómeó Bancsó"
+          "playerId": 55408145,
+          "name": "Csaba Nacsa"
         },
         {
-          "playerId": 55104442,
-          "name": "Ugron Vizi"
+          "playerId": 55408282,
+          "name": "István Hannich"
+        },
+        {
+          "playerId": 55408352,
+          "name": "Félix Dvéri"
+        },
+        {
+          "playerId": 55410389,
+          "name": "Karl Hinterleitner"
+        },
+        {
+          "playerId": 55465380,
+          "name": "Henrik Seres"
         }
       ]
     },
@@ -2986,6 +2970,10 @@
           "name": "Gabriel Mazilu"
         },
         {
+          "playerId": 55686067,
+          "name": "Silvian Nedelcu"
+        },
+        {
           "playerId": 55711557,
           "name": "Octavian Cruceru"
         },
@@ -3040,6 +3028,10 @@
         {
           "playerId": 55466428,
           "name": "Dimitar Sarov"
+        },
+        {
+          "playerId": 55685820,
+          "name": "Miticã Dobrescu"
         },
         {
           "playerId": 55685941,
@@ -3716,16 +3708,8 @@
           "name": "Antero Kantonen"
         },
         {
-          "playerId": 55694261,
-          "name": "Matti W. Viinanen"
-        },
-        {
           "playerId": 55140761,
           "name": "Juha Korander"
-        },
-        {
-          "playerId": 55140873,
-          "name": "Ville Juntunen"
         },
         {
           "playerId": 55141000,
@@ -3768,12 +3752,16 @@
           "name": "Andrian Khitrin"
         },
         {
-          "playerId": 55694191,
-          "name": "Antti Hukkanen"
+          "playerId": 55445292,
+          "name": "Petri Knuts"
         },
         {
-          "playerId": 55694506,
-          "name": "Marko Antikainen"
+          "playerId": 55445349,
+          "name": "Olli Mennander"
+        },
+        {
+          "playerId": 55694191,
+          "name": "Antti Hukkanen"
         },
         {
           "playerId": 55694558,
