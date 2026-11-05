@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 13,
-  "date": "2026-11-04",
-  "updatedAt": "2026-11-04T13:26:54.029Z",
+  "date": "2026-11-05",
+  "updatedAt": "2026-11-05T13:41:02.929Z",
   "countries": [
     {
       "countryId": 31,
@@ -606,12 +606,12 @@
           "name": "Pavel Albl"
         },
         {
-          "playerId": 55646973,
-          "name": "Kazimír Baťánek"
+          "playerId": 55646884,
+          "name": "Jan Vondrouš"
         },
         {
-          "playerId": 55647046,
-          "name": "Pavel Hříbal"
+          "playerId": 55646973,
+          "name": "Kazimír Baťánek"
         },
         {
           "playerId": 55711303,
@@ -620,6 +620,14 @@
         {
           "playerId": 55712377,
           "name": "Ivan Lepeška"
+        },
+        {
+          "playerId": 55925245,
+          "name": "Jakub Števko"
+        },
+        {
+          "playerId": 55925254,
+          "name": "Marcel Luža"
         },
         {
           "playerId": 55925256,
@@ -1511,56 +1519,24 @@
           "name": "Saimun Chun"
         },
         {
-          "playerId": 55095738,
-          "name": "Li Kong Chun"
+          "playerId": 55936455,
+          "name": "Wong Kwok Muk"
         },
         {
           "playerId": 55095215,
           "name": "Tang Wan Fui"
         },
         {
-          "playerId": 55095256,
-          "name": "Kwok Shing Wun"
-        },
-        {
-          "playerId": 55095347,
-          "name": "Lam Sing Wun"
-        },
-        {
-          "playerId": 55095420,
-          "name": "Wu Kangning"
-        },
-        {
           "playerId": 55095491,
           "name": "Ngai Foo Lim"
-        },
-        {
-          "playerId": 55095531,
-          "name": "Leung Hor Sang"
         },
         {
           "playerId": 55095557,
           "name": "Eu So Nin"
         },
         {
-          "playerId": 55095610,
-          "name": "Ned Ingles"
-        },
-        {
-          "playerId": 55095640,
-          "name": "Fok Luka"
-        },
-        {
           "playerId": 55399734,
           "name": "Wu Tze Man"
-        },
-        {
-          "playerId": 55399853,
-          "name": "Yip Wing Leung"
-        },
-        {
-          "playerId": 55658220,
-          "name": "Sze Tong Quang"
         }
       ]
     },
@@ -1886,10 +1862,6 @@
           "name": "Alexander Raffaele"
         },
         {
-          "playerId": 55278575,
-          "name": "Vito Tremolada"
-        },
-        {
           "playerId": 55279101,
           "name": "Luigi Vivian"
         },
@@ -1924,6 +1896,10 @@
         {
           "playerId": 55276681,
           "name": "Enrico Rantolo"
+        },
+        {
+          "playerId": 55278575,
+          "name": "Vito Tremolada"
         },
         {
           "playerId": 55279395,
@@ -3078,16 +3054,16 @@
       "pool": "Pool B",
       "players": [
         {
-          "playerId": 55634475,
-          "name": "Jakob Sauthier"
-        },
-        {
           "playerId": 55634524,
           "name": "Wisi Neugebauer"
         },
         {
           "playerId": 55634399,
           "name": "Rolf Kist"
+        },
+        {
+          "playerId": 55634475,
+          "name": "Jakob Sauthier"
         },
         {
           "playerId": 55634541,
@@ -3173,10 +3149,6 @@
           "name": "Dickie Robison"
         },
         {
-          "playerId": 55468103,
-          "name": "David McMortimer"
-        },
-        {
           "playerId": 55158636,
           "name": "Louis Adam"
         },
@@ -3215,6 +3187,10 @@
         {
           "playerId": 55468200,
           "name": "Allen MacGruer"
+        },
+        {
+          "playerId": 55711193,
+          "name": "Jon Joyce"
         },
         {
           "playerId": 55712363,
@@ -3808,20 +3784,12 @@
           "name": "Bayram Saglamer"
         },
         {
-          "playerId": 55555304,
-          "name": "Turan Abide"
-        },
-        {
           "playerId": 55465503,
           "name": "Talat Rençber"
         },
         {
           "playerId": 55251473,
           "name": "Kerim Algim"
-        },
-        {
-          "playerId": 54946522,
-          "name": "Osman Kardes"
         },
         {
           "playerId": 55250908,
@@ -3870,6 +3838,10 @@
         {
           "playerId": 55251591,
           "name": "Kemal Tezcanli"
+        },
+        {
+          "playerId": 55555647,
+          "name": "Tunç Okergin"
         },
         {
           "playerId": 55555806,

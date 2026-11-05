@@ -15155,6 +15155,177 @@
       "playerId": 55251406,
       "name": "Cebrail Süpheli",
       "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 37,
+      "playerId": 55646884,
+      "name": "Jan Vondrouš",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 37,
+      "playerId": 55925245,
+      "name": "Jakub Števko",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 37,
+      "playerId": 55925254,
+      "name": "Marcel Luža",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 37,
+      "playerId": 55647046,
+      "name": "Pavel Hříbal",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55936455,
+      "name": "Wong Kwok Muk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095738,
+      "name": "Li Kong Chun",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095256,
+      "name": "Kwok Shing Wun",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095347,
+      "name": "Lam Sing Wun",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095420,
+      "name": "Wu Kangning",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095531,
+      "name": "Leung Hor Sang",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095610,
+      "name": "Ned Ingles",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095640,
+      "name": "Fok Luka",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55399853,
+      "name": "Yip Wing Leung",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55658220,
+      "name": "Sze Tong Quang",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 64,
+      "playerId": 55711193,
+      "name": "Jon Joyce",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 64,
+      "playerId": 55468103,
+      "name": "David McMortimer",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 6,
+      "playerId": 55555647,
+      "name": "Tunç Okergin",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 6,
+      "playerId": 55555304,
+      "name": "Turan Abide",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-05T13:41:02.929Z",
+      "date": "2026-11-05",
+      "week": 13,
+      "countryId": 6,
+      "playerId": 54946522,
+      "name": "Osman Kardes",
+      "type": "left"
     }
   ]
 }
