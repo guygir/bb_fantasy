@@ -1,6 +1,6 @@
 {
   "season": 73,
-  "updatedAt": "2026-11-06T13:24:37.042Z",
+  "updatedAt": "2026-11-06T17:40:39.936Z",
   "players": {
     "54900604": {
       "name": "Erik Beauchamp",
@@ -4009,13 +4009,13 @@
     "55095685": {
       "name": "Chin Hok Loi",
       "countryId": 45,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 1,
-          "toWeek": null,
+          "toWeek": 13,
           "fromDate": "2026-08-08",
-          "toDate": null
+          "toDate": "2026-11-06"
         }
       ]
     },
@@ -8039,6 +8039,19 @@
     "55292793": {
       "name": "Jimmy Portalier",
       "countryId": 11,
+      "active": false,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": 13,
+          "fromDate": "2026-11-06",
+          "toDate": "2026-11-06"
+        }
+      ]
+    },
+    "55293495": {
+      "name": "Jérôme Bollengier",
+      "countryId": 11,
       "active": true,
       "stints": [
         {
@@ -8468,7 +8481,7 @@
       ]
     },
     "55325879": {
-      "name": "Mouss N'Dao",
+      "name": "Mouss N&#39;Dao",
       "countryId": 13,
       "active": true,
       "stints": [
@@ -8914,7 +8927,7 @@
       ]
     },
     "55334059": {
-      "name": "Meidad Yesha'ayahu",
+      "name": "Meidad Yesha&#39;ayahu",
       "countryId": 15,
       "active": true,
       "stints": [
@@ -19021,6 +19034,19 @@
         }
       ]
     },
+    "55714987": {
+      "name": "Marnix Lefevre",
+      "countryId": 13,
+      "active": true,
+      "stints": [
+        {
+          "fromWeek": 13,
+          "toWeek": null,
+          "fromDate": "2026-11-06",
+          "toDate": null
+        }
+      ]
+    },
     "55714989": {
       "name": "Hanns Lederhuber",
       "countryId": 91,
@@ -19061,7 +19087,7 @@
       ]
     },
     "55715074": {
-      "name": "Sidy N'Diaye",
+      "name": "Sidy N&#39;Diaye",
       "countryId": 94,
       "active": true,
       "stints": [
