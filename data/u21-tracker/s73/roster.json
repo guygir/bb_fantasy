@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 13,
-  "date": "2026-11-05",
-  "updatedAt": "2026-11-05T13:41:02.929Z",
+  "date": "2026-11-06",
+  "updatedAt": "2026-11-06T13:24:37.042Z",
   "countries": [
     {
       "countryId": 31,
@@ -207,40 +207,44 @@
       "pool": "Pool E",
       "players": [
         {
+          "playerId": 55992485,
+          "name": "Xan Muxtarov"
+        },
+        {
           "playerId": 55461555,
           "name": "Afşar Zeynalov"
         },
         {
-          "playerId": 55462221,
-          "name": "Khristofor Kamalov"
+          "playerId": 55713952,
+          "name": "Ruslan Yolçuyev"
         },
         {
           "playerId": 55715979,
           "name": "Aras Qərabəyli"
         },
         {
-          "playerId": 55161676,
-          "name": "Saday Sahil"
+          "playerId": 55712779,
+          "name": "Geray Musayev"
         },
         {
-          "playerId": 55158381,
-          "name": "Adil Xaliqov"
+          "playerId": 55720042,
+          "name": "Toros Hampartsoumyan"
         },
         {
-          "playerId": 55462882,
-          "name": "Qazan Paşayev"
+          "playerId": 55991604,
+          "name": "Baysu Həşimov"
         },
         {
-          "playerId": 55158219,
-          "name": "Coşar Tanryverdiyev"
+          "playerId": 55465734,
+          "name": "Gelenovca Şirinov"
         },
         {
-          "playerId": 55161249,
-          "name": "Vyktor Sabo"
+          "playerId": 55720038,
+          "name": "Qayım Bayramov"
         },
         {
-          "playerId": 55165057,
-          "name": "Baldadan Gozalov"
+          "playerId": 55462755,
+          "name": "Olcay Əlizadə"
         },
         {
           "playerId": 55463232,
@@ -251,28 +255,20 @@
           "name": "Ayman Əjdərov"
         },
         {
-          "playerId": 55463508,
-          "name": "Yurdman Atakişiyev"
-        },
-        {
-          "playerId": 55464034,
-          "name": "Dönüş Novruzov"
-        },
-        {
-          "playerId": 55466227,
-          "name": "Bektaş İsgandarov"
-        },
-        {
           "playerId": 55466338,
           "name": "Həsən Mikayilov"
         },
         {
-          "playerId": 55466619,
-          "name": "Arsalan Əsri"
-        },
-        {
           "playerId": 55469389,
           "name": "Serin Abdulla"
+        },
+        {
+          "playerId": 55711815,
+          "name": "Selcuq Sayadov"
+        },
+        {
+          "playerId": 55712282,
+          "name": "Bahadır Vekilov"
         },
         {
           "playerId": 55715306,
@@ -340,6 +336,10 @@
         {
           "playerId": 55709531,
           "name": "Siarhey Miadouski"
+        },
+        {
+          "playerId": 55987896,
+          "name": "Juras' Alizarchyk"
         }
       ]
     },
@@ -1341,7 +1341,12 @@
       "countryId": 11,
       "name": "France",
       "pool": "World Cup - Pool A",
-      "players": []
+      "players": [
+        {
+          "playerId": 55292793,
+          "name": "Jimmy Portalier"
+        }
+      ]
     },
     {
       "countryId": 87,
@@ -1511,10 +1516,6 @@
           "name": "Lung Hoi Ching"
         },
         {
-          "playerId": 55095685,
-          "name": "Chin Hok Loi"
-        },
-        {
           "playerId": 55158664,
           "name": "Saimun Chun"
         },
@@ -1523,8 +1524,16 @@
           "name": "Wong Kwok Muk"
         },
         {
+          "playerId": 55936954,
+          "name": "Bo Chun Cheong"
+        },
+        {
           "playerId": 55095215,
           "name": "Tang Wan Fui"
+        },
+        {
+          "playerId": 55095306,
+          "name": "Ngan Kai Tai"
         },
         {
           "playerId": 55095491,
@@ -1535,8 +1544,24 @@
           "name": "Eu So Nin"
         },
         {
+          "playerId": 55095685,
+          "name": "Chin Hok Loi"
+        },
+        {
           "playerId": 55399734,
           "name": "Wu Tze Man"
+        },
+        {
+          "playerId": 55399967,
+          "name": "Lo Kim Tam"
+        },
+        {
+          "playerId": 55658220,
+          "name": "Sze Tong Quang"
+        },
+        {
+          "playerId": 55936581,
+          "name": "Lung Hung Kim"
         }
       ]
     },
@@ -1703,6 +1728,10 @@
       "name": "Ísland",
       "pool": "Pool C",
       "players": [
+        {
+          "playerId": 55718714,
+          "name": "Óliver Mánason"
+        },
         {
           "playerId": 55464386,
           "name": "Rósberg Sæbjörnsson"
@@ -1898,10 +1927,6 @@
           "name": "Enrico Rantolo"
         },
         {
-          "playerId": 55278575,
-          "name": "Vito Tremolada"
-        },
-        {
           "playerId": 55279395,
           "name": "Gene Vivian"
         },
@@ -2034,10 +2059,6 @@
         {
           "playerId": 55047870,
           "name": "Juvencijus Kondratenkovas"
-        },
-        {
-          "playerId": 55048489,
-          "name": "Viachka Ledakovich"
         },
         {
           "playerId": 55351995,
@@ -2766,6 +2787,10 @@
           "name": "Sílvio Moura"
         },
         {
+          "playerId": 55038689,
+          "name": "Nuno Cabral"
+        },
+        {
           "playerId": 55343770,
           "name": "Jacinto Ávila"
         },
@@ -2804,10 +2829,6 @@
         {
           "playerId": 55343200,
           "name": "Amadeu Cunha"
-        },
-        {
-          "playerId": 55343552,
-          "name": "Luciano Anselmo"
         },
         {
           "playerId": 55343588,
@@ -3461,6 +3482,10 @@
           "name": "Radoslav Tokár"
         },
         {
+          "playerId": 55443954,
+          "name": "Jaroslav Hatvaník"
+        },
+        {
           "playerId": 55443995,
           "name": "Julián Maják"
         },
@@ -3561,14 +3586,6 @@
         {
           "playerId": 55445451,
           "name": "Antero Kantonen"
-        },
-        {
-          "playerId": 55140761,
-          "name": "Juha Korander"
-        },
-        {
-          "playerId": 55141000,
-          "name": "Lauri Rosqvist"
         },
         {
           "playerId": 55444870,

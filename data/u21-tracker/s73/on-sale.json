@@ -1,32 +1,16 @@
 {
   "season": 73,
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "week": 13,
-  "updatedAt": "2026-11-05T13:41:02.929Z",
+  "updatedAt": "2026-11-06T13:24:37.042Z",
   "players": [
-    {
-      "playerId": 55158381,
-      "name": "Adil Xaliqov",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 265600
-    },
-    {
-      "playerId": 55463508,
-      "name": "Yurdman Atakişiyev",
-      "countryId": 88,
-      "countryName": "Azərbaycan",
-      "pool": "Pool E",
-      "dmi": 288000
-    },
     {
       "playerId": 54930242,
       "name": "He Hanping",
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 304600
+      "dmi": 400500
     },
     {
       "playerId": 55368620,
@@ -34,7 +18,7 @@
       "countryId": 22,
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
-      "dmi": 1809800
+      "dmi": 893700
     },
     {
       "playerId": 55160809,
@@ -42,7 +26,7 @@
       "countryId": 22,
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
-      "dmi": 514500
+      "dmi": 540000
     },
     {
       "playerId": 55368654,
@@ -50,7 +34,7 @@
       "countryId": 22,
       "countryName": "Colombia",
       "pool": "World Cup - Pool A",
-      "dmi": 57900
+      "dmi": 49900
     },
     {
       "playerId": 55986790,
@@ -58,7 +42,7 @@
       "countryId": 77,
       "countryName": "Cyprus",
       "pool": "Pool B",
-      "dmi": 59100
+      "dmi": 57400
     },
     {
       "playerId": 55154989,
@@ -66,7 +50,7 @@
       "countryId": 77,
       "countryName": "Cyprus",
       "pool": "Pool B",
-      "dmi": 127200
+      "dmi": 80600
     },
     {
       "playerId": 55712563,
@@ -74,7 +58,15 @@
       "countryId": 39,
       "countryName": "Danmark",
       "pool": "Pool C",
-      "dmi": 176200
+      "dmi": 94400
+    },
+    {
+      "playerId": 55088123,
+      "name": "Nicolai Fredslund",
+      "countryId": 39,
+      "countryName": "Danmark",
+      "pool": "Pool C",
+      "dmi": 744600
     },
     {
       "playerId": 55089291,
@@ -82,7 +74,7 @@
       "countryId": 41,
       "countryName": "Eesti",
       "pool": "Pool C",
-      "dmi": 725200
+      "dmi": 770800
     },
     {
       "playerId": 55089883,
@@ -90,7 +82,7 @@
       "countryId": 41,
       "countryName": "Eesti",
       "pool": "Pool C",
-      "dmi": 875400
+      "dmi": 929400
     },
     {
       "playerId": 55464271,
@@ -98,15 +90,7 @@
       "countryId": 87,
       "countryName": "Hayastan",
       "pool": "Pool B",
-      "dmi": 16400
-    },
-    {
-      "playerId": 55095685,
-      "name": "Chin Hok Loi",
-      "countryId": 45,
-      "countryName": "Hong Kong",
-      "pool": "World Cup - Pool B",
-      "dmi": 4807300
+      "dmi": 16600
     },
     {
       "playerId": 55095557,
@@ -114,7 +98,15 @@
       "countryId": 45,
       "countryName": "Hong Kong",
       "pool": "World Cup - Pool B",
-      "dmi": 1551900
+      "dmi": 1584200
+    },
+    {
+      "playerId": 55399967,
+      "name": "Lo Kim Tam",
+      "countryId": 45,
+      "countryName": "Hong Kong",
+      "pool": "World Cup - Pool B",
+      "dmi": 451000
     },
     {
       "playerId": 55095551,
@@ -122,7 +114,7 @@
       "countryId": 45,
       "countryName": "Hong Kong",
       "pool": "World Cup - Pool B",
-      "dmi": 1049200
+      "dmi": 1768200
     },
     {
       "playerId": 55095491,
@@ -130,7 +122,15 @@
       "countryId": 45,
       "countryName": "Hong Kong",
       "pool": "World Cup - Pool B",
-      "dmi": 1639000
+      "dmi": 821400
+    },
+    {
+      "playerId": 55095306,
+      "name": "Ngan Kai Tai",
+      "countryId": 45,
+      "countryName": "Hong Kong",
+      "pool": "World Cup - Pool B",
+      "dmi": 242900
     },
     {
       "playerId": 55158664,
@@ -138,15 +138,7 @@
       "countryId": 45,
       "countryName": "Hong Kong",
       "pool": "World Cup - Pool B",
-      "dmi": 1587000
-    },
-    {
-      "playerId": 55095215,
-      "name": "Tang Wan Fui",
-      "countryId": 45,
-      "countryName": "Hong Kong",
-      "pool": "World Cup - Pool B",
-      "dmi": 459000
+      "dmi": 1690400
     },
     {
       "playerId": 55399734,
@@ -154,7 +146,7 @@
       "countryId": 45,
       "countryName": "Hong Kong",
       "pool": "World Cup - Pool B",
-      "dmi": 665500
+      "dmi": 668100
     },
     {
       "playerId": 54971980,
@@ -162,7 +154,7 @@
       "countryId": 10,
       "countryName": "Italia",
       "pool": "World Cup - Pool A",
-      "dmi": 571900
+      "dmi": 370100
     },
     {
       "playerId": 55047646,
@@ -170,7 +162,7 @@
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 630100
+      "dmi": 811200
     },
     {
       "playerId": 55047870,
@@ -178,7 +170,7 @@
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 356400
+      "dmi": 426900
     },
     {
       "playerId": 55046957,
@@ -186,15 +178,23 @@
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 699700
+      "dmi": 490900
     },
     {
-      "playerId": 55048489,
-      "name": "Viachka Ledakovich",
+      "playerId": 55046850,
+      "name": "Mariusz Harazim",
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 767600
+      "dmi": 1615500
+    },
+    {
+      "playerId": 55412038,
+      "name": "Mitan Cuculovski",
+      "countryId": 49,
+      "countryName": "Makedonija",
+      "pool": "Pool F",
+      "dmi": 109300
     },
     {
       "playerId": 55468155,
@@ -202,7 +202,7 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool C",
-      "dmi": 419100
+      "dmi": 178800
     },
     {
       "playerId": 55163758,
@@ -210,15 +210,15 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool C",
-      "dmi": 367500
+      "dmi": 340900
     },
     {
-      "playerId": 55468260,
-      "name": "Wayne Fava",
+      "playerId": 55464756,
+      "name": "Michael Sullivan",
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool C",
-      "dmi": 318100
+      "dmi": 163900
     },
     {
       "playerId": 55461564,
@@ -226,7 +226,7 @@
       "countryId": 86,
       "countryName": "Moldova",
       "pool": "Pool A",
-      "dmi": 595700
+      "dmi": 199500
     },
     {
       "playerId": 55160090,
@@ -234,7 +234,7 @@
       "countryId": 26,
       "countryName": "Norge",
       "pool": "Pool E",
-      "dmi": 496000
+      "dmi": 550200
     },
     {
       "playerId": 55910787,
@@ -242,7 +242,7 @@
       "countryId": 26,
       "countryName": "Norge",
       "pool": "Pool E",
-      "dmi": 41800
+      "dmi": 15900
     },
     {
       "playerId": 55633336,
@@ -250,7 +250,7 @@
       "countryId": 27,
       "countryName": "Österreich",
       "pool": "Pool A",
-      "dmi": 74100
+      "dmi": 106300
     },
     {
       "playerId": 55421654,
@@ -258,7 +258,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 93500
+      "dmi": 205300
     },
     {
       "playerId": 55115515,
@@ -269,12 +269,20 @@
       "dmi": 1300300
     },
     {
-      "playerId": 55347720,
-      "name": "Evgeny Nechkin",
-      "countryId": 19,
-      "countryName": "Rossiya",
-      "pool": "Pool G",
-      "dmi": 249800
+      "playerId": 55132302,
+      "name": "Liviu Miron",
+      "countryId": 61,
+      "countryName": "România",
+      "pool": "Pool D",
+      "dmi": 355200
+    },
+    {
+      "playerId": 55461600,
+      "name": "Nodar Adeishvili",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 100100
     },
     {
       "playerId": 55464066,
@@ -282,7 +290,15 @@
       "countryId": 94,
       "countryName": "Senegal",
       "pool": "World Cup - Pool A",
-      "dmi": 639300
+      "dmi": 455200
+    },
+    {
+      "playerId": 55718910,
+      "name": "Zani Shala",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool D",
+      "dmi": 43300
     },
     {
       "playerId": 55135438,
@@ -290,7 +306,15 @@
       "countryId": 66,
       "countryName": "Slovenija",
       "pool": "Pool E",
-      "dmi": 703700
+      "dmi": 459600
+    },
+    {
+      "playerId": 55072649,
+      "name": "Jovan Cvijanovic",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 511600
     },
     {
       "playerId": 55072745,
@@ -298,15 +322,31 @@
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
-      "dmi": 1277700
+      "dmi": 554600
     },
     {
-      "playerId": 55140761,
-      "name": "Juha Korander",
-      "countryId": 69,
-      "countryName": "Suomi",
-      "pool": "Pool E",
-      "dmi": 1546400
+      "playerId": 55698294,
+      "name": "He Chun Ho",
+      "countryId": 70,
+      "countryName": "Taiwan",
+      "pool": "World Cup - Pool B",
+      "dmi": 187000
+    },
+    {
+      "playerId": 55250848,
+      "name": "Bayram Saglamer",
+      "countryId": 6,
+      "countryName": "Türkiye",
+      "pool": "Pool D",
+      "dmi": 614200
+    },
+    {
+      "playerId": 55250908,
+      "name": "Cansever Savtunç",
+      "countryId": 6,
+      "countryName": "Türkiye",
+      "pool": "Pool D",
+      "dmi": 957700
     },
     {
       "playerId": 54946601,
@@ -314,7 +354,15 @@
       "countryId": 6,
       "countryName": "Türkiye",
       "pool": "Pool D",
-      "dmi": 666000
+      "dmi": 235600
+    },
+    {
+      "playerId": 55640668,
+      "name": "Olexiy Sviderskiy",
+      "countryId": 33,
+      "countryName": "Ukraina",
+      "pool": "Pool A",
+      "dmi": 75000
     }
   ]
 }

@@ -15326,6 +15326,334 @@
       "playerId": 54946522,
       "name": "Osman Kardes",
       "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55992485,
+      "name": "Xan Muxtarov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55713952,
+      "name": "Ruslan Yolçuyev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55712779,
+      "name": "Geray Musayev",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55720042,
+      "name": "Toros Hampartsoumyan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55991604,
+      "name": "Baysu Həşimov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55465734,
+      "name": "Gelenovca Şirinov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55720038,
+      "name": "Qayım Bayramov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55462755,
+      "name": "Olcay Əlizadə",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55711815,
+      "name": "Selcuq Sayadov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55712282,
+      "name": "Bahadır Vekilov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55462221,
+      "name": "Khristofor Kamalov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55161676,
+      "name": "Saday Sahil",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55158381,
+      "name": "Adil Xaliqov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55462882,
+      "name": "Qazan Paşayev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55158219,
+      "name": "Coşar Tanryverdiyev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55161249,
+      "name": "Vyktor Sabo",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55165057,
+      "name": "Baldadan Gozalov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55463508,
+      "name": "Yurdman Atakişiyev",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55464034,
+      "name": "Dönüş Novruzov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55466227,
+      "name": "Bektaş İsgandarov",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 88,
+      "playerId": 55466619,
+      "name": "Arsalan Əsri",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 85,
+      "playerId": 55987896,
+      "name": "Juras' Alizarchyk",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 11,
+      "playerId": 55292793,
+      "name": "Jimmy Portalier",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55936954,
+      "name": "Bo Chun Cheong",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55095306,
+      "name": "Ngan Kai Tai",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55399967,
+      "name": "Lo Kim Tam",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55658220,
+      "name": "Sze Tong Quang",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 45,
+      "playerId": 55936581,
+      "name": "Lung Hung Kim",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 78,
+      "playerId": 55718714,
+      "name": "Óliver Mánason",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 10,
+      "playerId": 55278575,
+      "name": "Vito Tremolada",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 20,
+      "playerId": 55048489,
+      "name": "Viachka Ledakovich",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 18,
+      "playerId": 55038689,
+      "name": "Nuno Cabral",
+      "type": "returned",
+      "weeksAway": 2
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 18,
+      "playerId": 55343552,
+      "name": "Luciano Anselmo",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 67,
+      "playerId": 55443954,
+      "name": "Jaroslav Hatvaník",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 69,
+      "playerId": 55140761,
+      "name": "Juha Korander",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-06T13:24:37.042Z",
+      "date": "2026-11-06",
+      "week": 13,
+      "countryId": 69,
+      "playerId": 55141000,
+      "name": "Lauri Rosqvist",
+      "type": "left"
     }
   ]
 }
