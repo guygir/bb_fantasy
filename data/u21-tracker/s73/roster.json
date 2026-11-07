@@ -1,18 +1,14 @@
 {
   "season": 73,
-  "week": 13,
-  "date": "2026-11-06",
-  "updatedAt": "2026-11-06T17:40:39.936Z",
+  "week": 14,
+  "date": "2026-11-07",
+  "updatedAt": "2026-11-07T12:02:52.726Z",
   "countries": [
     {
       "countryId": 31,
       "name": "Al Jazair",
       "pool": "World Cup - Pool B",
       "players": [
-        {
-          "playerId": 55464258,
-          "name": "Abdelbaki Betrouni"
-        },
         {
           "playerId": 55993316,
           "name": "Habib Iarkane"
@@ -28,38 +24,6 @@
         {
           "playerId": 55465989,
           "name": "Messaoud Jelloul"
-        },
-        {
-          "playerId": 55158011,
-          "name": "Khidr Betrouni"
-        },
-        {
-          "playerId": 55158231,
-          "name": "Youcef Touati"
-        },
-        {
-          "playerId": 55159649,
-          "name": "Fethi Bedja"
-        },
-        {
-          "playerId": 55160421,
-          "name": "Jaber Liani"
-        },
-        {
-          "playerId": 55161239,
-          "name": "Nabil Bouchahda"
-        },
-        {
-          "playerId": 55464233,
-          "name": "Abdenour Ould Mammar"
-        },
-        {
-          "playerId": 55464339,
-          "name": "Mehdi Bentoumi"
-        },
-        {
-          "playerId": 55467133,
-          "name": "Abderahman Abidat"
         },
         {
           "playerId": 55711587,
@@ -152,10 +116,6 @@
           "name": "Lautaro Battaglia"
         },
         {
-          "playerId": 55535470,
-          "name": "Franco Suárez"
-        },
-        {
           "playerId": 55222338,
           "name": "Stefano Zagharián"
         },
@@ -227,10 +187,6 @@
           "name": "Geray Musayev"
         },
         {
-          "playerId": 55720042,
-          "name": "Toros Hampartsoumyan"
-        },
-        {
           "playerId": 55991604,
           "name": "Baysu Həşimov"
         },
@@ -261,6 +217,10 @@
         {
           "playerId": 55469389,
           "name": "Serin Abdulla"
+        },
+        {
+          "playerId": 55710701,
+          "name": "Əfsələddin Alizada"
         },
         {
           "playerId": 55711815,
@@ -362,7 +322,7 @@
         },
         {
           "playerId": 55325879,
-          "name": "Mouss N&#39;Dao"
+          "name": "Mouss N'Dao"
         },
         {
           "playerId": 55325934,
@@ -720,44 +680,20 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55368678,
-          "name": "León Moscoso"
+          "playerId": 55627019,
+          "name": "Avelino Lora"
         },
         {
           "playerId": 55464208,
           "name": "Edgar Caicedo"
         },
         {
-          "playerId": 55368618,
-          "name": "Mario Portales"
-        },
-        {
-          "playerId": 55368615,
-          "name": "Iván Sopó"
-        },
-        {
-          "playerId": 55064255,
-          "name": "Néstor Raúl Montero"
-        },
-        {
-          "playerId": 55064193,
-          "name": "Fernando Fernán Pérez"
-        },
-        {
-          "playerId": 55064269,
-          "name": "Mauricio Ariza"
+          "playerId": 55711130,
+          "name": "José Alberto Caicedo"
         },
         {
           "playerId": 55160809,
           "name": "Asdrúbal Trujillo"
-        },
-        {
-          "playerId": 55161047,
-          "name": "José David Martínez"
-        },
-        {
-          "playerId": 55161093,
-          "name": "Carlos Armando Díaz"
         },
         {
           "playerId": 55368620,
@@ -768,24 +704,44 @@
           "name": "Hugo Osmar Piano"
         },
         {
-          "playerId": 55368739,
-          "name": "Ignacio Brahim"
+          "playerId": 55368679,
+          "name": "Juan Alberto Parada"
         },
         {
-          "playerId": 55464876,
-          "name": "Fernando Marcos Igualada"
-        },
-        {
-          "playerId": 55466348,
-          "name": "Ignacio Puyana"
-        },
-        {
-          "playerId": 55466446,
-          "name": "Armando Angarita"
+          "playerId": 55466173,
+          "name": "Weimar Arcila"
         },
         {
           "playerId": 55627029,
           "name": "Jorge Enrique Tarquino"
+        },
+        {
+          "playerId": 55627062,
+          "name": "Fabio Amaya"
+        },
+        {
+          "playerId": 55627095,
+          "name": "Charlie Prado"
+        },
+        {
+          "playerId": 55710828,
+          "name": "Emmanuel Santamaría"
+        },
+        {
+          "playerId": 55711000,
+          "name": "Ramiro Chauta"
+        },
+        {
+          "playerId": 55713636,
+          "name": "Óscar Andrés Bovea"
+        },
+        {
+          "playerId": 55713787,
+          "name": "Rubén Darío Machado"
+        },
+        {
+          "playerId": 55714120,
+          "name": "Giovanni Baracaldo"
         },
         {
           "playerId": 55905463,
@@ -1345,12 +1301,7 @@
       "countryId": 11,
       "name": "France",
       "pool": "World Cup - Pool A",
-      "players": [
-        {
-          "playerId": 55293495,
-          "name": "Jérôme Bollengier"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 87,
@@ -1516,14 +1467,6 @@
       "pool": "World Cup - Pool B",
       "players": [
         {
-          "playerId": 55095551,
-          "name": "Lung Hoi Ching"
-        },
-        {
-          "playerId": 55158664,
-          "name": "Saimun Chun"
-        },
-        {
           "playerId": 55936455,
           "name": "Wong Kwok Muk"
         },
@@ -1544,8 +1487,16 @@
           "name": "Ngai Foo Lim"
         },
         {
+          "playerId": 55095551,
+          "name": "Lung Hoi Ching"
+        },
+        {
           "playerId": 55095557,
           "name": "Eu So Nin"
+        },
+        {
+          "playerId": 55158664,
+          "name": "Saimun Chun"
         },
         {
           "playerId": 55399734,
@@ -1554,10 +1505,6 @@
         {
           "playerId": 55399967,
           "name": "Lo Kim Tam"
-        },
-        {
-          "playerId": 55658220,
-          "name": "Sze Tong Quang"
         },
         {
           "playerId": 55936581,
@@ -1865,7 +1812,7 @@
         },
         {
           "playerId": 55334059,
-          "name": "Meidad Yesha&#39;ayahu"
+          "name": "Meidad Yesha'ayahu"
         },
         {
           "playerId": 55334060,
@@ -1895,8 +1842,16 @@
           "name": "Luigi Vivian"
         },
         {
+          "playerId": 55572100,
+          "name": "Gianni Arcellotti"
+        },
+        {
           "playerId": 55278599,
           "name": "Eduardo Barlati"
+        },
+        {
+          "playerId": 55278451,
+          "name": "Catello Attazzo"
         },
         {
           "playerId": 55280233,
@@ -1913,10 +1868,6 @@
         {
           "playerId": 54971980,
           "name": "Alessandro Hoz"
-        },
-        {
-          "playerId": 54974089,
-          "name": "Giancarlo Fellegara"
         },
         {
           "playerId": 55276639,
@@ -1941,6 +1892,10 @@
         {
           "playerId": 55279727,
           "name": "Gian Domenico Militello"
+        },
+        {
+          "playerId": 55574910,
+          "name": "Yuri Dimartino"
         }
       ]
     },
@@ -2692,10 +2647,6 @@
           "name": "Józef Wieszczek"
         },
         {
-          "playerId": 55421654,
-          "name": "Kazimierz Paździor"
-        },
-        {
           "playerId": 55117259,
           "name": "Tomasz Frączyk"
         },
@@ -2716,6 +2667,10 @@
           "name": "Dorian Czachór"
         },
         {
+          "playerId": 55421654,
+          "name": "Kazimierz Paździor"
+        },
+        {
           "playerId": 55117100,
           "name": "Grzegorz Dobroczyński"
         },
@@ -2726,10 +2681,6 @@
         {
           "playerId": 55115414,
           "name": "Ryszard Kozimor"
-        },
-        {
-          "playerId": 55115515,
-          "name": "Zbigniew Chabasiński"
         },
         {
           "playerId": 55115536,
@@ -3278,7 +3229,7 @@
         },
         {
           "playerId": 55715074,
-          "name": "Sidy N&#39;Diaye"
+          "name": "Sidy N'Diaye"
         }
       ]
     },
@@ -3890,6 +3841,10 @@
         {
           "playerId": 55078088,
           "name": "Sergiy Stecenko"
+        },
+        {
+          "playerId": 55382160,
+          "name": "Shmavon Karapetyan"
         },
         {
           "playerId": 55382273,
