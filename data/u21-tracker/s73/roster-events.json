@@ -16041,6 +16041,124 @@
       "playerId": 55382160,
       "name": "Shmavon Karapetyan",
       "type": "joined"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 45,
+      "playerId": 55095215,
+      "name": "Tang Wan Fui",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 45,
+      "playerId": 55095491,
+      "name": "Ngai Foo Lim",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 45,
+      "playerId": 55095551,
+      "name": "Lung Hoi Ching",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 45,
+      "playerId": 55095557,
+      "name": "Eu So Nin",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 45,
+      "playerId": 55158664,
+      "name": "Saimun Chun",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 24,
+      "playerId": 55712908,
+      "name": "Mate Šutija",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 10,
+      "playerId": 55277298,
+      "name": "Alexander Raffaele",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 20,
+      "playerId": 55351902,
+      "name": "Varūnas Jermalis",
+      "type": "returned",
+      "weeksAway": 1
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 20,
+      "playerId": 55619676,
+      "name": "Augantas Iršėnas",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 28,
+      "playerId": 55634375,
+      "name": "Cyrill Elminger",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 33,
+      "playerId": 55919404,
+      "name": "Vladyslav Kniazik",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 33,
+      "playerId": 55382493,
+      "name": "Vasyl Zherzh",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-08T12:23:05.228Z",
+      "date": "2026-11-08",
+      "week": 14,
+      "countryId": 33,
+      "playerId": 55640578,
+      "name": "Vakula Kosoi",
+      "type": "left"
     }
   ]
 }

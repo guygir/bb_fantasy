@@ -1,8 +1,8 @@
 {
   "season": 73,
   "week": 14,
-  "date": "2026-11-07",
-  "updatedAt": "2026-11-07T12:02:52.726Z",
+  "date": "2026-11-08",
+  "updatedAt": "2026-11-08T12:23:05.228Z",
   "countries": [
     {
       "countryId": 31,
@@ -924,10 +924,6 @@
           "name": "Ricco Bøgholm"
         },
         {
-          "playerId": 55712563,
-          "name": "Marcus Harlind Aagaard"
-        },
-        {
           "playerId": 55929334,
           "name": "Ben Von Eyben"
         },
@@ -974,6 +970,10 @@
         {
           "playerId": 55392573,
           "name": "Sven Trier"
+        },
+        {
+          "playerId": 55712563,
+          "name": "Marcus Harlind Aagaard"
         },
         {
           "playerId": 55715824,
@@ -1475,28 +1475,8 @@
           "name": "Bo Chun Cheong"
         },
         {
-          "playerId": 55095215,
-          "name": "Tang Wan Fui"
-        },
-        {
           "playerId": 55095306,
           "name": "Ngan Kai Tai"
-        },
-        {
-          "playerId": 55095491,
-          "name": "Ngai Foo Lim"
-        },
-        {
-          "playerId": 55095551,
-          "name": "Lung Hoi Ching"
-        },
-        {
-          "playerId": 55095557,
-          "name": "Eu So Nin"
-        },
-        {
-          "playerId": 55158664,
-          "name": "Saimun Chun"
         },
         {
           "playerId": 55399734,
@@ -1517,10 +1497,6 @@
       "name": "Hrvatska",
       "pool": "Pool F",
       "players": [
-        {
-          "playerId": 55712908,
-          "name": "Mate Šutija"
-        },
         {
           "playerId": 55716087,
           "name": "Moša Pantić"
@@ -1834,10 +1810,6 @@
       "pool": "World Cup - Pool A",
       "players": [
         {
-          "playerId": 55277298,
-          "name": "Alexander Raffaele"
-        },
-        {
           "playerId": 55279101,
           "name": "Luigi Vivian"
         },
@@ -2016,6 +1988,10 @@
           "name": "Juvencijus Kondratenkovas"
         },
         {
+          "playerId": 55351902,
+          "name": "Varūnas Jermalis"
+        },
+        {
           "playerId": 55351995,
           "name": "Virgutis Neciunskas"
         },
@@ -2038,6 +2014,10 @@
         {
           "playerId": 55619107,
           "name": "Vaidas Naikauskas"
+        },
+        {
+          "playerId": 55619676,
+          "name": "Augantas Iršėnas"
         }
       ]
     },
@@ -2655,6 +2635,10 @@
           "name": "Hubert Rokaszewicz"
         },
         {
+          "playerId": 55421654,
+          "name": "Kazimierz Paździor"
+        },
+        {
           "playerId": 55116906,
           "name": "Sebastian Dębowski"
         },
@@ -2665,10 +2649,6 @@
         {
           "playerId": 55117524,
           "name": "Dorian Czachór"
-        },
-        {
-          "playerId": 55421654,
-          "name": "Kazimierz Paździor"
         },
         {
           "playerId": 55117100,
@@ -3076,10 +3056,6 @@
         {
           "playerId": 55634346,
           "name": "Werner Habenicht"
-        },
-        {
-          "playerId": 55634375,
-          "name": "Cyrill Elminger"
         },
         {
           "playerId": 55634483,
@@ -3867,16 +3843,8 @@
           "name": "Yan Klimov"
         },
         {
-          "playerId": 55382493,
-          "name": "Vasyl Zherzh"
-        },
-        {
           "playerId": 55463608,
           "name": "Klim Oshipko"
-        },
-        {
-          "playerId": 55640578,
-          "name": "Vakula Kosoi"
         },
         {
           "playerId": 55640584,
@@ -3893,6 +3861,10 @@
         {
           "playerId": 55640784,
           "name": "Dumitru Sutula"
+        },
+        {
+          "playerId": 55919404,
+          "name": "Vladyslav Kniazik"
         }
       ]
     },

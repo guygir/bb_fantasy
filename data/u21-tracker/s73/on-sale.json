@@ -1,8 +1,8 @@
 {
   "season": 73,
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "week": 14,
-  "updatedAt": "2026-11-07T12:02:52.726Z",
+  "updatedAt": "2026-11-08T12:23:05.228Z",
   "players": [
     {
       "playerId": 54930242,
@@ -11,30 +11,6 @@
       "countryName": "China",
       "pool": "World Cup - Pool A",
       "dmi": 400500
-    },
-    {
-      "playerId": 55368620,
-      "name": "Adolfo Calderón",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 893700
-    },
-    {
-      "playerId": 55160809,
-      "name": "Asdrúbal Trujillo",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 540000
-    },
-    {
-      "playerId": 55368654,
-      "name": "Hugo Osmar Piano",
-      "countryId": 22,
-      "countryName": "Colombia",
-      "pool": "World Cup - Pool A",
-      "dmi": 49900
     },
     {
       "playerId": 55734563,
@@ -51,14 +27,6 @@
       "countryName": "Cyprus",
       "pool": "Pool B",
       "dmi": 80600
-    },
-    {
-      "playerId": 55712563,
-      "name": "Marcus Harlind Aagaard",
-      "countryId": 39,
-      "countryName": "Danmark",
-      "pool": "Pool C",
-      "dmi": 94400
     },
     {
       "playerId": 55088123,
@@ -109,28 +77,12 @@
       "dmi": 242900
     },
     {
-      "playerId": 55095215,
-      "name": "Tang Wan Fui",
-      "countryId": 45,
-      "countryName": "Hong Kong",
-      "pool": "World Cup - Pool B",
-      "dmi": 402300
-    },
-    {
       "playerId": 55399734,
       "name": "Wu Tze Man",
       "countryId": 45,
       "countryName": "Hong Kong",
       "pool": "World Cup - Pool B",
       "dmi": 668100
-    },
-    {
-      "playerId": 54971980,
-      "name": "Alessandro Hoz",
-      "countryId": 10,
-      "countryName": "Italia",
-      "pool": "World Cup - Pool A",
-      "dmi": 370100
     },
     {
       "playerId": 55047646,
@@ -173,6 +125,14 @@
       "dmi": 163900
     },
     {
+      "playerId": 55605489,
+      "name": "Henri Giesen",
+      "countryId": 16,
+      "countryName": "Nederland",
+      "pool": "Pool H",
+      "dmi": 196700
+    },
+    {
       "playerId": 55069528,
       "name": "Andreas Arnesen",
       "countryId": 26,
@@ -197,20 +157,20 @@
       "dmi": 204400
     },
     {
-      "playerId": 55910787,
-      "name": "Tom Pedersen",
-      "countryId": 26,
-      "countryName": "Norge",
-      "pool": "Pool E",
-      "dmi": 15900
-    },
-    {
-      "playerId": 55421654,
-      "name": "Kazimierz Paździor",
+      "playerId": 55116740,
+      "name": "Franciszek Barczyszyn",
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool B",
-      "dmi": 205300
+      "dmi": 1578300
+    },
+    {
+      "playerId": 55115414,
+      "name": "Ryszard Kozimor",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 1208700
     },
     {
       "playerId": 55132302,
@@ -251,14 +211,6 @@
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
       "dmi": 511600
-    },
-    {
-      "playerId": 55072745,
-      "name": "Miloš Mišić",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "World Cup - Pool B",
-      "dmi": 554600
     },
     {
       "playerId": 55466193,
