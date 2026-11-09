@@ -1,16 +1,32 @@
 {
   "season": 73,
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "week": 14,
-  "updatedAt": "2026-11-08T12:23:05.228Z",
+  "updatedAt": "2026-11-09T14:37:35.024Z",
   "players": [
     {
-      "playerId": 54930242,
-      "name": "He Hanping",
+      "playerId": 54929849,
+      "name": "Ye Tiancai",
       "countryId": 5,
       "countryName": "China",
       "pool": "World Cup - Pool A",
-      "dmi": 400500
+      "dmi": 734300
+    },
+    {
+      "playerId": 55368620,
+      "name": "Adolfo Calderón",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 893700
+    },
+    {
+      "playerId": 55627062,
+      "name": "Fabio Amaya",
+      "countryId": 22,
+      "countryName": "Colombia",
+      "pool": "World Cup - Pool A",
+      "dmi": 79800
     },
     {
       "playerId": 55734563,
@@ -29,30 +45,6 @@
       "dmi": 80600
     },
     {
-      "playerId": 55088123,
-      "name": "Nicolai Fredslund",
-      "countryId": 39,
-      "countryName": "Danmark",
-      "pool": "Pool C",
-      "dmi": 744600
-    },
-    {
-      "playerId": 55089291,
-      "name": "Carl-Martin Naudi",
-      "countryId": 41,
-      "countryName": "Eesti",
-      "pool": "Pool C",
-      "dmi": 770800
-    },
-    {
-      "playerId": 55089883,
-      "name": "Viktor Mosyakov",
-      "countryId": 41,
-      "countryName": "Eesti",
-      "pool": "Pool C",
-      "dmi": 929400
-    },
-    {
       "playerId": 55464271,
       "name": "Harout Adamyan",
       "countryId": 87,
@@ -61,28 +53,28 @@
       "dmi": 16600
     },
     {
-      "playerId": 55399967,
-      "name": "Lo Kim Tam",
-      "countryId": 45,
-      "countryName": "Hong Kong",
+      "playerId": 55311403,
+      "name": "Manolis Siagris",
+      "countryId": 12,
+      "countryName": "Hellas",
       "pool": "World Cup - Pool B",
-      "dmi": 451000
+      "dmi": 349100
     },
     {
-      "playerId": 55095306,
-      "name": "Ngan Kai Tai",
-      "countryId": 45,
-      "countryName": "Hong Kong",
+      "playerId": 55524248,
+      "name": "Nikos Zervos",
+      "countryId": 12,
+      "countryName": "Hellas",
       "pool": "World Cup - Pool B",
-      "dmi": 242900
+      "dmi": 354000
     },
     {
-      "playerId": 55399734,
-      "name": "Wu Tze Man",
-      "countryId": 45,
-      "countryName": "Hong Kong",
-      "pool": "World Cup - Pool B",
-      "dmi": 668100
+      "playerId": 54971980,
+      "name": "Alessandro Hoz",
+      "countryId": 10,
+      "countryName": "Italia",
+      "pool": "World Cup - Pool A",
+      "dmi": 370100
     },
     {
       "playerId": 55047646,
@@ -93,12 +85,44 @@
       "dmi": 811200
     },
     {
-      "playerId": 55046850,
-      "name": "Mariusz Harazim",
+      "playerId": 55047870,
+      "name": "Juvencijus Kondratenkovas",
       "countryId": 20,
       "countryName": "Lietuva",
       "pool": "World Cup - Pool B",
-      "dmi": 1615500
+      "dmi": 426900
+    },
+    {
+      "playerId": 55046957,
+      "name": "Linas Bajorynas",
+      "countryId": 20,
+      "countryName": "Lietuva",
+      "pool": "World Cup - Pool B",
+      "dmi": 490900
+    },
+    {
+      "playerId": 55713185,
+      "name": "Dimas Loureiro",
+      "countryId": 91,
+      "countryName": "Luxembourg",
+      "pool": "Pool E",
+      "dmi": 41000
+    },
+    {
+      "playerId": 55462603,
+      "name": "Timmy Gillard",
+      "countryId": 91,
+      "countryName": "Luxembourg",
+      "pool": "Pool E",
+      "dmi": 57100
+    },
+    {
+      "playerId": 55411851,
+      "name": "Anton Dzuvalekovski",
+      "countryId": 49,
+      "countryName": "Makedonija",
+      "pool": "Pool F",
+      "dmi": 456600
     },
     {
       "playerId": 55412038,
@@ -117,14 +141,6 @@
       "dmi": 178800
     },
     {
-      "playerId": 55464756,
-      "name": "Michael Sullivan",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool C",
-      "dmi": 163900
-    },
-    {
       "playerId": 55605489,
       "name": "Henri Giesen",
       "countryId": 16,
@@ -141,20 +157,20 @@
       "dmi": 371500
     },
     {
-      "playerId": 55160090,
-      "name": "Arne Haugen",
-      "countryId": 26,
-      "countryName": "Norge",
-      "pool": "Pool E",
-      "dmi": 550200
-    },
-    {
       "playerId": 55373878,
       "name": "Jan Syrstad",
       "countryId": 26,
       "countryName": "Norge",
       "pool": "Pool E",
       "dmi": 204400
+    },
+    {
+      "playerId": 55115536,
+      "name": "Ferdynand Strykowski",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool B",
+      "dmi": 192800
     },
     {
       "playerId": 55116740,
@@ -189,20 +205,44 @@
       "dmi": 351600
     },
     {
-      "playerId": 55461600,
-      "name": "Nodar Adeishvili",
+      "playerId": 55686960,
+      "name": "Kartlos Akhalaia",
       "countryId": 62,
       "countryName": "Sakartvelo",
       "pool": "Pool C",
-      "dmi": 100100
+      "dmi": 311600
     },
     {
-      "playerId": 55718910,
-      "name": "Zani Shala",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool D",
-      "dmi": 43300
+      "playerId": 55686961,
+      "name": "Vefik Acahan",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 179800
+    },
+    {
+      "playerId": 55464066,
+      "name": "Mbar Diouf",
+      "countryId": 94,
+      "countryName": "Senegal",
+      "pool": "World Cup - Pool A",
+      "dmi": 455200
+    },
+    {
+      "playerId": 55439918,
+      "name": "Bor Grilanc",
+      "countryId": 66,
+      "countryName": "Slovenija",
+      "pool": "Pool E",
+      "dmi": 184900
+    },
+    {
+      "playerId": 55135479,
+      "name": "Demis Tahiri",
+      "countryId": 66,
+      "countryName": "Slovenija",
+      "pool": "Pool E",
+      "dmi": 772800
     },
     {
       "playerId": 55072649,
@@ -211,6 +251,14 @@
       "countryName": "Srbija",
       "pool": "World Cup - Pool B",
       "dmi": 511600
+    },
+    {
+      "playerId": 55072745,
+      "name": "Miloš Mišić",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "World Cup - Pool B",
+      "dmi": 554600
     },
     {
       "playerId": 55466193,
@@ -229,44 +277,28 @@
       "dmi": 740900
     },
     {
-      "playerId": 55698294,
-      "name": "He Chun Ho",
-      "countryId": 70,
-      "countryName": "Taiwan",
-      "pool": "World Cup - Pool B",
-      "dmi": 187000
-    },
-    {
-      "playerId": 55250848,
-      "name": "Bayram Saglamer",
-      "countryId": 6,
-      "countryName": "Türkiye",
+      "playerId": 55275373,
+      "name": "Jaakko Jolkkonen",
+      "countryId": 9,
+      "countryName": "Sverige",
       "pool": "Pool D",
-      "dmi": 614200
+      "dmi": 137600
     },
     {
-      "playerId": 55250908,
-      "name": "Cansever Savtunç",
-      "countryId": 6,
-      "countryName": "Türkiye",
-      "pool": "Pool D",
-      "dmi": 957700
-    },
-    {
-      "playerId": 54946601,
-      "name": "Ceylan Özlüer",
-      "countryId": 6,
-      "countryName": "Türkiye",
-      "pool": "Pool D",
-      "dmi": 235600
-    },
-    {
-      "playerId": 55640668,
-      "name": "Olexiy Sviderskiy",
+      "playerId": 55640784,
+      "name": "Dumitru Sutula",
       "countryId": 33,
       "countryName": "Ukraina",
       "pool": "Pool A",
-      "dmi": 75000
+      "dmi": 187800
+    },
+    {
+      "playerId": 55919404,
+      "name": "Vladyslav Kniazik",
+      "countryId": 33,
+      "countryName": "Ukraina",
+      "pool": "Pool A",
+      "dmi": 61100
     }
   ]
 }
