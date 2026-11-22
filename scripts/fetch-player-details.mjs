@@ -1,30 +1,28 @@
 /**
- * Fetch BBAPI player details (position, DMI, salary) for all Season 71 players
- * and save to JSON. Run before starting the app to ensure Players page has full data.
+ * Fetch BBAPI player details (position, DMI, salary, gameShape) and legacy API
+ * injury status (`injury.minDays` / `injury.maxDays`) for all Season N players.
  *
  * Run: node scripts/fetch-player-details.mjs [season]
- *
- * Injury: scraped from buzzerbeater.com overview. Cookie resolution order:
- *   1) BB_SITE_COOKIES if set
- *   2) Else BB_PASSWORD — Puppeteer login to login.aspx (same as fetch-player-face / cron)
- *   3) Else BBAPI session cookies (usually insufficient for the main site)
  */
 
 import { config } from "dotenv";
 import { readFileSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
+import { bbapiLogin, bbapiGet, DEFAULT_BBAPI_BASE } from "./lib/bbapi-cookies.mjs";
+import {
+  ISRAEL_U21_TEAM_ID,
+  getPlayer,
+  getTeamPlayers,
+  resolveIds,
+} from "./lib/bb-legacy-api.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
 config({ path: join(ROOT, ".env.local"), override: true });
 
-/** Optional override: full browser Cookie header for buzzerbeater.com (see .env.example). */
-const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
-
-const BASE = "http://bbapi.buzzerbeater.com/";
+const BASE = DEFAULT_BBAPI_BASE;
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : 71;
@@ -42,84 +40,6 @@ function parsePlayerXml(xml) {
   };
 }
 
-/**
- * BuzzerBeater overview injury block. Numbers may be split across tags ("3</span>-<span>5").
- * If "Injury!" is present but no range matches, return 0/0 (still injured; UI shows "INJURED!" without days).
- */
-function parseInjuryFromOverviewHtml(html) {
-  const head = html.match(/Injury!/i);
-  if (!head || head.index == null) return { injuryDaysMin: null, injuryDaysMax: null };
-  const slice = html.slice(head.index, head.index + 900);
-  const plain = slice
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/\u00a0/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  let m = plain.match(/(\d+)\s*[-–]\s*(\d+)\s*days?/i);
-  if (m) {
-    return {
-      injuryDaysMin: parseInt(m[1], 10),
-      injuryDaysMax: parseInt(m[2], 10),
-    };
-  }
-  m = plain.match(/(\d+)\s*days?/i);
-  if (m) {
-    const n = parseInt(m[1], 10);
-    return { injuryDaysMin: n, injuryDaysMax: n };
-  }
-  return { injuryDaysMin: 0, injuryDaysMax: 0 };
-}
-
-function overviewLooksLikeLoginWall(html) {
-  return (
-    /login\.css/i.test(html) ||
-    /<title>\s*Login\s*</i.test(html) ||
-    /Forgot Password/i.test(html)
-  );
-}
-
-let warnedOverviewLogin = false;
-
-/**
- * @param {string} cookieHeader
- * @param {"site_cookie"|"puppeteer"|"bbapi"} authMode — for login-wall diagnostics
- */
-async function fetchInjuryFromOverview(playerId, cookieHeader, authMode) {
-  const ch = (cookieHeader || "").trim();
-  try {
-    const headers = {
-      "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-      Accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
-    };
-    if (ch) headers.Cookie = ch;
-    const res = await fetch(`https://buzzerbeater.com/player/${playerId}/overview.aspx`, {
-      headers,
-      redirect: "follow",
-    });
-    if (!res.ok) return { injuryDaysMin: null, injuryDaysMax: null };
-    const html = await res.text();
-    if (overviewLooksLikeLoginWall(html)) {
-      if (!warnedOverviewLogin) {
-        warnedOverviewLogin = true;
-        const msg = !ch
-          ? "No cookies for overview."
-          : authMode === "site_cookie"
-            ? "BB_SITE_COOKIES may be expired; overview still looks like login."
-            : authMode === "puppeteer"
-              ? "Overview still looks like login after Puppeteer login (unexpected)."
-              : "BBAPI cookies did not unlock the main site. Set BB_PASSWORD (main site) for Puppeteer login, or BB_SITE_COOKIES.";
-        console.warn(`\n[fetch-player-details] ${msg}\n`);
-      }
-    }
-    return parseInjuryFromOverviewHtml(html);
-  } catch {
-    return { injuryDaysMin: null, injuryDaysMax: null };
-  }
-}
-
 /** BBAPI error responses must be rejected; match case-insensitively (`<error` vs `<Error`). */
 function bbapiXmlHasError(xml) {
   return /<error\b/i.test(xml);
@@ -133,40 +53,65 @@ function bbapiErrorMessage(xml) {
   return m?.[1]?.trim() || null;
 }
 
+function extractInjury(legacyPlayer) {
+  const inj = legacyPlayer?.injury;
+  if (!inj) return { injuryDaysMin: null, injuryDaysMax: null };
+  const min = Number.isFinite(Number(inj.minDays)) ? Number(inj.minDays) : 0;
+  const max = Number.isFinite(Number(inj.maxDays)) ? Number(inj.maxDays) : min;
+  return { injuryDaysMin: min, injuryDaysMax: max };
+}
+
+async function loadLegacyPlayersByNumericId(playerIds) {
+  const out = new Map();
+  if (!playerIds.length) return out;
+  try {
+    const idMap = await resolveIds("player", playerIds);
+    const teamMap = await resolveIds("team", [ISRAEL_U21_TEAM_ID]);
+    const israelUuid = teamMap.get(ISRAEL_U21_TEAM_ID);
+
+    const byUuid = new Map();
+    if (israelUuid) {
+      const roster = await getTeamPlayers(israelUuid);
+      for (const rp of roster) {
+        if (rp?.id) byUuid.set(rp.id, rp);
+      }
+    }
+
+    for (const numId of playerIds) {
+      const uuid = idMap.get(Number(numId));
+      if (!uuid) continue;
+      let lp = byUuid.get(uuid);
+      if (!lp) {
+        try {
+          lp = await getPlayer(uuid);
+          if (lp?.id) byUuid.set(lp.id, lp);
+        } catch (e) {
+          console.warn(`\n[fetch-player-details] legacy GetPlayer failed for ${numId}: ${e.message}`);
+        }
+      }
+      if (lp) out.set(Number(numId), lp);
+    }
+  } catch (e) {
+    console.warn(`\n[fetch-player-details] legacy injury lookup failed: ${e.message}`);
+  }
+  return out;
+}
+
 async function run() {
   const dataPath = join(__dirname, "../data", `season${SEASON}_stats.json`);
   const data = JSON.parse(readFileSync(dataPath, "utf-8"));
   const players = data.players ?? [];
 
-  console.log("Logging in...");
+  console.log("Logging in to BBAPI...");
   const { cookies, body: loginText } = await bbapiLogin(LOGIN, CODE, BASE);
 
   if (bbapiXmlHasError(loginText)) {
-    console.error("Login failed");
+    console.error("BBAPI login failed");
     process.exit(1);
   }
 
-  /** @type {"site_cookie"|"puppeteer"|"bbapi"} */
-  let overviewAuthMode = "bbapi";
-  let overviewCookieHeader = SITE_COOKIE_HEADER;
-  if (overviewCookieHeader) {
-    overviewAuthMode = "site_cookie";
-  } else if (process.env.BB_PASSWORD?.trim()) {
-    try {
-      const { getBuzzerbeaterCookieHeaderFromLogin } = await import("./lib/bb-site-session.mjs");
-      console.log("buzzerbeater.com login (Puppeteer) for injury overview...");
-      overviewCookieHeader = await getBuzzerbeaterCookieHeaderFromLogin();
-      overviewAuthMode = "puppeteer";
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      console.warn("[fetch-player-details] Puppeteer site login failed:", msg);
-      overviewCookieHeader = "";
-    }
-  }
-  if (!overviewCookieHeader) {
-    overviewCookieHeader = cookies.join("; ");
-    overviewAuthMode = "bbapi";
-  }
+  console.log(`Fetching legacy injury data for ${players.length} player(s)...`);
+  const legacyByNumericId = await loadLegacyPlayersByNumericId(players.map((p) => p.playerId));
 
   const details = {};
   /** Skipped players leave existing Supabase rows unchanged on sync — stale DMI/GS until a successful fetch. */
@@ -184,12 +129,12 @@ async function run() {
         continue;
       }
       const base = parsePlayerXml(xml);
-      const injury = await fetchInjuryFromOverview(p.playerId, overviewCookieHeader, overviewAuthMode);
+      const injury = extractInjury(legacyByNumericId.get(Number(p.playerId)));
       details[p.playerId] = { ...base, ...injury };
     } catch (e) {
       const err = e instanceof Error ? e.message : String(e);
       failures.push({ playerId: p.playerId, name: p.name, reason: err });
-      console.error(`\n[fetch-player-details] SKIP ${p.name} (${p.playerId}): ${err}`);
+      console.error(`\n[fetch-player-details] SKIP ${p.playerId}: ${err}`);
     }
     await new Promise((r) => setTimeout(r, 200)); // Rate limit
   }
@@ -202,7 +147,7 @@ async function run() {
         meta: {
           season: SEASON,
           fetched: new Date().toISOString(),
-          source: "BBAPI",
+          source: "BBAPI + legacy.buzzerbeater.com/api",
           expectedPlayers: players.length,
           detailCount: Object.keys(details).length,
           failures,

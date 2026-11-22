@@ -1,14 +1,11 @@
 #!/usr/bin/env node
 /**
- * Fetch Israel U21 roster + stats.
- * 1. Stats page (public): country/15/jnt/stats.aspx?season=N - players who have played
- * 2. Roster page (login): country/15/jnt/players.aspx - full roster (17 players)
- *    Uses Puppeteer + BB_PASSWORD when set to get roster-only players (no stats yet).
+ * Fetch Israel U21 roster + stats from legacy.buzzerbeater.com/api.
+ * 1. /team/GetStats — players who have played in the season
+ * 2. /player/GetPlayers — full current Israel U21 roster (includes players with 0 GP)
  *
  * Run: node scripts/fetch-season-stats.mjs [season]
- * Env: BBAPI_LOGIN, BBAPI_CODE (for player details)
- *      BB_PASSWORD (optional — full roster via HTTP login + fetch)
- *      BB_SITE_COOKIES (optional — use pre-existing cookie header; skips login entirely)
+ * Env: BBAPI_LOGIN, BBAPI_CODE (for player details + resolving new player IDs)
  *
  * Output: data/season{N}_stats.json (merged with any new players from roster)
  */
@@ -16,89 +13,20 @@
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
-import { getBuzzerbeaterCookieHeaderFromLogin } from "./lib/bb-site-session.mjs";
+import { bbapiLogin, bbapiGet, DEFAULT_BBAPI_BASE } from "./lib/bbapi-cookies.mjs";
+import {
+  ISRAEL_U21_TEAM_ID,
+  getSeasons,
+  getTeamPlayers,
+  getTeamStats,
+  resolveIds,
+  resolvePlayerUuidsToNumericIds,
+} from "./lib/bb-legacy-api.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const MAIN_BASE = "https://buzzerbeater.com/";
-const STATS_URL = "https://buzzerbeater.com/country/15/jnt/stats.aspx";
-const ROSTER_URL = "https://buzzerbeater.com/country/15/jnt/players.aspx";
-const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
+const BBAPI_BASE = DEFAULT_BBAPI_BASE;
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
-const PASSWORD = process.env.BB_PASSWORD;
-/** Same as fetch-player-details / fetch-player-face — bypasses login.aspx on CI when set. */
-const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
-
-function parseMadeAtt(val) {
-  const m = String(val).match(/^(\d+)-(\d+)$/);
-  return m ? [parseInt(m[1], 10), parseInt(m[2], 10)] : [0, 0];
-}
-
-function parseStatsTable(html) {
-  const rows = [];
-  const tableRows = html.match(/<tr[^>]*>[\s\S]*?<\/tr>/gi) || [];
-
-  for (const tr of tableRows) {
-    const linkMatch = tr.match(/\/player\/(\d+)\/overview\.aspx/);
-    if (!linkMatch) continue;
-
-    const playerId = parseInt(linkMatch[1], 10);
-    const nameMatch = tr.match(/\/player\/\d+\/overview\.aspx"[^>]*>([^<]+)</);
-    const name = nameMatch ? nameMatch[1].trim() : "";
-
-    const cells = tr.match(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi) || [];
-    if (cells.length < 18) continue;
-
-    const getCellText = (i) => {
-      const c = cells[i];
-      if (!c) return "";
-      return c.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").trim();
-    };
-
-    const gp = parseInt(getCellText(1), 10);
-    const min = parseFloat(getCellText(2));
-    const [fgMadeTot, fgAttTot] = parseMadeAtt(getCellText(3));
-    const [tpMadeTot, tpAttTot] = parseMadeAtt(getCellText(5));
-    const [ftMadeTot, ftAttTot] = parseMadeAtt(getCellText(7));
-    const or = parseFloat(getCellText(9)) || 0;
-    const trVal = parseFloat(getCellText(10)) || 0;
-    const ast = parseFloat(getCellText(11)) || 0;
-    const to = parseFloat(getCellText(12)) || 0;
-    const stl = parseFloat(getCellText(13)) || 0;
-    const blk = parseFloat(getCellText(14)) || 0;
-    const pf = parseFloat(getCellText(15)) || 0;
-    const pts = parseFloat(getCellText(16)) || 0;
-    const rtng = parseFloat(getCellText(17)) || 0;
-
-    if (name.toLowerCase().includes("season average") || name.toLowerCase().includes("total")) continue;
-    if (isNaN(gp) || gp < 1) continue;
-
-    rows.push({
-      playerId,
-      name,
-      gp,
-      min,
-      fgMade: gp ? fgMadeTot / gp : 0,
-      fgAtt: gp ? fgAttTot / gp : 0,
-      tpMade: gp ? tpMadeTot / gp : 0,
-      tpAtt: gp ? tpAttTot / gp : 0,
-      ftMade: gp ? ftMadeTot / gp : 0,
-      ftAtt: gp ? ftAttTot / gp : 0,
-      or,
-      tr: trVal,
-      ast,
-      to,
-      stl,
-      blk,
-      pf,
-      pts,
-      rtng,
-    });
-  }
-
-  return rows;
-}
 
 function parsePlayerXml(xml) {
   const posMatch = xml.match(/<bestPosition>([^<]*)<\/bestPosition>/);
@@ -113,121 +41,118 @@ function parsePlayerXml(xml) {
   };
 }
 
-/** Parse roster page (players.aspx) - extract player IDs and names from player links */
-function parseRosterPage(html) {
-  const seen = new Set();
-  const rows = [];
-  const linkRe = /href="[^"]*\/player\/(\d+)\/overview\.aspx"[^>]*>([^<]+)</gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    const playerId = parseInt(m[1], 10);
-    const name = (m[2] || "").replace(/&nbsp;/g, " ").trim() || `Player ${playerId}`;
-    if (seen.has(playerId)) continue;
-    seen.add(playerId);
-    if (name.toLowerCase().includes("season average") || name.toLowerCase().includes("total")) continue;
-    rows.push({ playerId, name });
-  }
-  return rows;
+function statsRowToPerGame(playerId, s) {
+  const gp = Number(s.games || 0);
+  const name = [s.firstName, s.lastName].filter(Boolean).join(" ").trim() || `Player ${playerId}`;
+  return {
+    playerId,
+    name,
+    gp,
+    min: gp ? Number(s.minutes || 0) / gp : 0,
+    fgMade: gp ? Number(s.fieldGoals || 0) / gp : 0,
+    fgAtt: gp ? Number(s.fieldGoalsAttempts || 0) / gp : 0,
+    tpMade: gp ? Number(s.threePointFieldGoals || 0) / gp : 0,
+    tpAtt: gp ? Number(s.threePointFieldGoalsAttempts || 0) / gp : 0,
+    ftMade: gp ? Number(s.freeThrows || 0) / gp : 0,
+    ftAtt: gp ? Number(s.freeThrowsAttempts || 0) / gp : 0,
+    or: gp ? Number(s.offensiveRebounds || 0) / gp : 0,
+    tr: gp ? Number(s.rebounds || 0) / gp : 0,
+    ast: gp ? Number(s.assists || 0) / gp : 0,
+    to: gp ? Number(s.turnovers || 0) / gp : 0,
+    stl: gp ? Number(s.steals || 0) / gp : 0,
+    blk: gp ? Number(s.blocks || 0) / gp : 0,
+    pf: gp ? Number(s.fouls || 0) / gp : 0,
+    pts: gp ? Number(s.points || 0) / gp : 0,
+    rtng: Number(s.starRating || 0),
+  };
 }
 
-const ROSTER_UA =
-  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
-
-function rosterLooksLikeLoginWall(html) {
-  return (
-    /login\.css/i.test(html) ||
-    /<title>\s*Login\s*</i.test(html) ||
-    (/cphContent_txtUserName/i.test(html) && /login\.aspx/i.test(html))
-  );
-}
-
-async function fetchRosterWithCookie(cookieHeader) {
-  const res = await fetch(ROSTER_URL, {
-    redirect: "follow",
-    headers: { "User-Agent": ROSTER_UA, Accept: "text/html,*/*;q=0.9", Cookie: cookieHeader },
-  });
-  const html = await res.text();
-  if (rosterLooksLikeLoginWall(html)) return null;
-  return parseRosterPage(html);
-}
-
-/** Fetch roster page — HTTP login (fast), no Puppeteer needed. */
-async function fetchRosterWithLogin() {
-  if (!PASSWORD && !SITE_COOKIE_HEADER) return null;
-  try {
-    const cookieHeader = SITE_COOKIE_HEADER || (await getBuzzerbeaterCookieHeaderFromLogin());
-    const roster = await fetchRosterWithCookie(cookieHeader);
-    if (roster?.length) {
-      console.log(`  [roster] Loaded ${roster.length} players via HTTP login`);
-    } else if (roster !== null) {
-      console.warn("  [roster] Login succeeded but no players found on players.aspx");
-    } else {
-      console.warn("  [roster] players.aspx still looks like login wall after successful login");
-    }
-    return roster;
-  } catch (e) {
-    console.warn("  [roster] fetch failed:", e.message);
-    return null;
-  }
+function zeroStatsRow(playerId, p) {
+  const name = [p.firstName, p.lastName].filter(Boolean).join(" ").trim() || `Player ${playerId}`;
+  return {
+    playerId,
+    name,
+    gp: 0,
+    min: 0,
+    fgMade: 0,
+    fgAtt: 0,
+    tpMade: 0,
+    tpAtt: 0,
+    ftMade: 0,
+    ftAtt: 0,
+    or: 0,
+    tr: 0,
+    ast: 0,
+    to: 0,
+    stl: 0,
+    blk: 0,
+    pf: 0,
+    pts: 0,
+    rtng: 0,
+  };
 }
 
 async function run() {
-  const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : Number(process.env.CURRENT_SEASON ?? 71);
+  const argSeason = process.argv[2] ? parseInt(process.argv[2], 10) : NaN;
+  const envSeason = process.env.CURRENT_SEASON ? parseInt(process.env.CURRENT_SEASON, 10) : NaN;
+  const SEASON = Number.isFinite(argSeason) && argSeason > 0
+    ? argSeason
+    : (Number.isFinite(envSeason) && envSeason > 0 ? envSeason : 71);
+
   const dataDir = join(__dirname, "../data");
   mkdirSync(dataDir, { recursive: true });
 
-  const url = `${STATS_URL}?season=${SEASON}`;
-  console.log(`Fetching ${url}...`);
-  const res = await fetch(url, { headers: { "User-Agent": "BBFantasy/1.0" } });
-  const html = await res.text();
+  const sourceUrl = `https://legacy.buzzerbeater.com/country/${ISRAEL_U21_TEAM_ID - 1000}/jnt/stats?season=${SEASON}`;
+  console.log(`Fetching Israel U21 stats & roster for season ${SEASON}...`);
 
-  const scrapedPlayers = parseStatsTable(html);
-  console.log(`Parsed ${scrapedPlayers.length} players from stats page`);
-
-  const scrapedById = new Map(scrapedPlayers.map((p) => [p.playerId, p]));
-  
-  // Try to fetch from roster page (requires BB_PASSWORD or BB_SITE_COOKIES)
-  if (PASSWORD || SITE_COOKIE_HEADER) {
-    console.log("Fetching full roster from players.aspx...");
-    const rosterPlayers = await fetchRosterWithLogin();
-    if (rosterPlayers?.length) {
-      let added = 0;
-      for (const r of rosterPlayers) {
-        if (!scrapedById.has(r.playerId)) {
-          scrapedById.set(r.playerId, {
-            playerId: r.playerId,
-            name: r.name,
-            gp: 0,
-            min: 0,
-            fgMade: 0,
-            fgAtt: 0,
-            tpMade: 0,
-            tpAtt: 0,
-            ftMade: 0,
-            ftAtt: 0,
-            or: 0,
-            tr: 0,
-            ast: 0,
-            to: 0,
-            stl: 0,
-            blk: 0,
-            pf: 0,
-            pts: 0,
-            rtng: 0,
-          });
-          added++;
-        }
-      }
-      if (added > 0) console.log(`Added ${added} roster-only player(s) from players.aspx`);
-    }
-  } else {
-    console.log("BB_PASSWORD not set - skipping roster page (players.aspx). Stats page only shows players who have played.");
+  const teamMap = await resolveIds("team", [ISRAEL_U21_TEAM_ID]);
+  const israelUuid = teamMap.get(ISRAEL_U21_TEAM_ID);
+  if (!israelUuid) {
+    throw new Error("Could not resolve Israel U21 team ID (1015)");
   }
 
-  // Exit if no players found from either source
+  const seasons = await getSeasons();
+  const seasonObj = seasons.find((s) => Number(s.number) === SEASON);
+  let statsPlayers = [];
+  if (seasonObj?.id) {
+    statsPlayers = await getTeamStats(israelUuid, seasonObj.id);
+    console.log(`Fetched ${statsPlayers.length} player stat row(s) from /team/GetStats`);
+  } else {
+    console.warn(`Season ${SEASON} not found in /season/GetSeasons; relying on current roster only`);
+  }
+
+  const rosterPlayers = await getTeamPlayers(israelUuid);
+  console.log(`Fetched ${rosterPlayers.length} player(s) from /player/GetPlayers`);
+
+  const { map: uuidToNumeric, unresolved } = await resolvePlayerUuidsToNumericIds([
+    ...statsPlayers,
+    ...rosterPlayers,
+  ]);
+  if (unresolved.length) {
+    console.warn(`Warning: could not resolve ${unresolved.length} player UUID(s):`, unresolved);
+  }
+
+  const scrapedById = new Map();
+  for (const s of statsPlayers) {
+    if ((s.games ?? 0) < 1) continue;
+    const playerId = uuidToNumeric[s.id];
+    if (!playerId) continue;
+    scrapedById.set(playerId, statsRowToPerGame(playerId, s));
+  }
+
+  let added = 0;
+  for (const r of rosterPlayers) {
+    const playerId = uuidToNumeric[r.id];
+    if (!playerId) continue;
+    if (!scrapedById.has(playerId)) {
+      scrapedById.set(playerId, zeroStatsRow(playerId, r));
+      added++;
+    }
+  }
+  if (added > 0) console.log(`Added ${added} roster-only player(s) from /player/GetPlayers`);
+
   if (scrapedById.size === 0) {
-    console.error("No players found from stats page or roster page.");
-    console.error("If season just started (no games played), set BB_PASSWORD to fetch from roster page.");
+    console.error("No players found from /team/GetStats or /player/GetPlayers.");
     process.exit(1);
   }
 
@@ -304,7 +229,7 @@ async function run() {
     JSON.stringify(
       {
         meta: {
-          source: url,
+          source: sourceUrl,
           fetched: new Date().toISOString(),
           season: SEASON,
           description: `Israel U21 Season ${SEASON} - per-game averages`,

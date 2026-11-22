@@ -3,7 +3,7 @@
  * Run: node scripts/test-bbapi-login.mjs
  */
 
-const BASE = "http://bbapi.buzzerbeater.com/";
+const BASE = "https://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 

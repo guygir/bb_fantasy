@@ -21,19 +21,14 @@ jobs:
 
       - run: npm ci
 
-      - name: Install Chrome (BB site login fallback)
-        id: setup-chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          install-dependencies: true
-
       - name: Scrape U21 roster membership
         env:
+          BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
+          BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
           BB_PASSWORD: ${{ secrets.BB_PASSWORD }}
           BB_SITE_COOKIES: ${{ secrets.BB_SITE_COOKIES }}
           # Optional override; leave unset to use 98-day calendar (s72 anchor 2026-05-02)
           CURRENT_SEASON: ${{ vars.CURRENT_SEASON }}
-          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: node scripts/scrape-u21-tracker-roster.mjs
 
       - name: Commit roster / events JSON
@@ -41,4 +36,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/u21-tracker/
+          git add data/bb_player_id_map.json || true
           git diff --staged --quiet || (git commit -m "chore: update U21 tracker roster membership" && git push)

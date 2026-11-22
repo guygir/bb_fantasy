@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Scrape U21 Round Robin pool countries → roster → DMI + gameShape + salary.
+ * Scrape U21 Round Robin pool countries → roster → DMI + gameShape + salary
+ * via legacy.buzzerbeater.com/api.
  * Writes data/u21-tracker/s{season}/w{week}.json (+ updates meta.json).
  * Also refreshes roster.json / players.json membership from the week snapshot.
  *
@@ -9,34 +10,25 @@
  *   node scripts/scrape-u21-tracker.mjs --seed-week0
  *   node scripts/scrape-u21-tracker.mjs --week=12 --max-countries=2
  *
- * Env: BB_PASSWORD or BB_SITE_COOKIES, BBAPI_LOGIN, BBAPI_CODE, CURRENT_SEASON
+ * Env: BBAPI_LOGIN, BBAPI_CODE, CURRENT_SEASON
  */
 
 import { mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
-import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
-import { getBuzzerbeaterCookieHeaderFromLogin } from "./lib/bb-site-session.mjs";
 import {
-  STANDINGS_URL,
-  BB_BASE,
   getSeason,
   currentWeekForSeason,
   israelDateString,
-  parsePoolsFromStandings,
-  parseRosterPage,
-  looksLikeLoginWall,
-  fetchText,
   sleep,
   trackerDir,
   syncRosterFromWeekPayload,
 } from "./lib/u21-tracker-shared.mjs";
+import {
+  getTeamPlayers,
+  getU21StandingsPools,
+  resolvePlayerUuidsToNumericIds,
+} from "./lib/bb-legacy-api.mjs";
 
-const BBAPI_BASE = "http://bbapi.buzzerbeater.com/";
-
-const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
-const CODE = process.env.BBAPI_CODE || "12341234";
-const PASSWORD = process.env.BB_PASSWORD;
-const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
 const SEASON = getSeason();
 
 function parseArgs(argv) {
@@ -52,31 +44,6 @@ function parseArgs(argv) {
         .map((s) => Number(s.trim()))
         .filter((n) => n > 0);
     }
-  }
-  return out;
-}
-
-function parsePlayerXml(xml) {
-  const dmiMatch = xml.match(/<dmi>(\d+)<\/dmi>/);
-  const gameShapeMatch = xml.match(/<gameShape>(\d+)<\/gameShape>/);
-  const salaryMatch = xml.match(/<salary>(\d+)<\/salary>/);
-  const first = xml.match(/<firstName>([^<]*)<\/firstName>/)?.[1]?.trim() || "";
-  const last = xml.match(/<lastName>([^<]*)<\/lastName>/)?.[1]?.trim() || "";
-  return {
-    dmi: dmiMatch ? Number(dmiMatch[1]) : null,
-    gameShape: gameShapeMatch ? Number(gameShapeMatch[1]) : null,
-    salary: salaryMatch ? Number(salaryMatch[1]) : null,
-    apiName: [first, last].filter(Boolean).join(" "),
-  };
-}
-
-async function batchMap(items, size, fn) {
-  const out = [];
-  for (let i = 0; i < items.length; i += size) {
-    const slice = items.slice(i, i + size);
-    const chunk = await Promise.all(slice.map(fn));
-    out.push(...chunk);
-    if (i + size < items.length) await sleep(120);
   }
   return out;
 }
@@ -147,11 +114,10 @@ async function main() {
     throw new Error(`Could not determine current week for season ${SEASON}`);
   }
 
-  console.log(`Season ${SEASON}, week ${week}`);
-  console.log(`Fetching standings ${STANDINGS_URL}...`);
-  const standingsHtml = await fetchText(STANDINGS_URL);
-  let countries = parsePoolsFromStandings(standingsHtml);
-  if (!countries.length) throw new Error("No Pool countries parsed from standings page");
+  console.log(`Season ${SEASON}, week ${week} (legacy API)`);
+  console.log("Fetching U21 standings pools from legacy.buzzerbeater.com/api...");
+  let countries = await getU21StandingsPools(SEASON);
+  if (!countries.length) throw new Error("No Pool countries returned from legacy API");
 
   if (args.countries?.length) {
     const allow = new Set(args.countries);
@@ -166,74 +132,64 @@ async function main() {
       (wcCount ? ` (${wcCount} World Cup — DMI/charts only; daily roster still covers full catalog)` : "")
   );
 
-  if (!PASSWORD && !SITE_COOKIE_HEADER) {
-    throw new Error("BB_PASSWORD or BB_SITE_COOKIES is required for roster pages");
-  }
-  const cookieHeader = SITE_COOKIE_HEADER || (await getBuzzerbeaterCookieHeaderFromLogin());
-  console.log("BB site session ready");
-
-  console.log("Logging into BBAPI...");
-  const { cookies, body } = await bbapiLogin(LOGIN, CODE, BBAPI_BASE);
-  if (!body.includes("<bbapi") || body.includes("<error") || !cookies.length) {
-    throw new Error("BBAPI login failed");
-  }
-  console.log("BBAPI session ready");
-
-  const countryResults = [];
+  const rawCountryRosters = [];
+  const allPlayers = [];
   for (let i = 0; i < countries.length; i++) {
     const country = countries[i];
     process.stdout.write(`[${i + 1}/${countries.length}] ${country.name} (${country.pool})... `);
-    const rosterUrl = `${BB_BASE}/country/${country.countryId}/jnt/players.aspx`;
-    let rosterHtml;
     try {
-      rosterHtml = await fetchText(rosterUrl, { Cookie: cookieHeader });
+      const rawPlayers = await getTeamPlayers(country.teamUuid);
+      console.log(`${rawPlayers.length} players`);
+      rawCountryRosters.push({ ...country, rawPlayers });
+      allPlayers.push(...rawPlayers);
     } catch (e) {
       console.log(`roster fetch failed: ${e.message}`);
-      countryResults.push({ ...country, players: [], error: e.message });
-      continue;
+      rawCountryRosters.push({ ...country, rawPlayers: [], error: e.message });
     }
-    if (looksLikeLoginWall(rosterHtml)) {
-      console.log("login wall");
-      countryResults.push({ ...country, players: [], error: "login wall" });
-      continue;
-    }
-    const roster = parseRosterPage(rosterHtml);
-    const players = await batchMap(roster, 6, async (p) => {
-      try {
-        const xml = await bbapiGet(`player.aspx?playerid=${p.playerId}`, cookies, BBAPI_BASE);
-        const info = parsePlayerXml(xml);
-        return {
-          playerId: p.playerId,
-          name: info.apiName || p.name,
-          dmi: info.dmi,
-          gameShape: info.gameShape,
-          salary: info.salary,
-        };
-      } catch {
-        return {
-          playerId: p.playerId,
-          name: p.name,
-          dmi: null,
-          gameShape: null,
-          salary: null,
-        };
-      }
-    });
-    console.log(`${players.length} players`);
-    countryResults.push({
-      countryId: country.countryId,
-      name: country.name,
-      pool: country.pool,
-      players,
-    });
-    await sleep(80);
+    await sleep(60);
   }
+
+  console.log(`Resolving numeric player IDs for ${allPlayers.length} players...`);
+  const { map: uuidToNumeric, newlyResolved, unresolved } = await resolvePlayerUuidsToNumericIds(allPlayers);
+  if (newlyResolved > 0) {
+    console.log(`Newly resolved ${newlyResolved} player ID(s) via BBAPI club lookup`);
+  }
+  if (unresolved.length > 0) {
+    console.warn(`Warning: ${unresolved.length} player(s) could not be mapped to numeric ID:`, unresolved.slice(0, 10));
+  }
+
+  const countryResults = rawCountryRosters.map((c) => {
+    if (c.error) {
+      return { countryId: c.countryId, name: c.name, pool: c.pool, players: [], error: c.error };
+    }
+    const seen = new Set();
+    const players = [];
+    for (const p of c.rawPlayers) {
+      const playerId = uuidToNumeric[p.id];
+      if (!playerId || seen.has(playerId)) continue;
+      seen.add(playerId);
+      const name = [p.firstName, p.lastName].filter(Boolean).join(" ").trim() || `Player ${playerId}`;
+      players.push({
+        playerId,
+        name,
+        dmi: p.dmi != null ? Math.round(Number(p.dmi)) : null,
+        gameShape: p.gameShape != null ? Number(p.gameShape) : null,
+        salary: p.salary != null ? Number(p.salary) : null,
+      });
+    }
+    return {
+      countryId: c.countryId,
+      name: c.name,
+      pool: c.pool,
+      players,
+    };
+  });
 
   const payload = {
     season: SEASON,
     week,
     scrapedAt: new Date().toISOString(),
-    source: STANDINGS_URL,
+    source: "https://legacy.buzzerbeater.com/world/standings?teamid=1015",
     countries: countryResults.sort((a, b) => a.name.localeCompare(b.name)),
   };
 

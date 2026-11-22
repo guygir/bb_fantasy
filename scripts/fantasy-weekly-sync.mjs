@@ -46,9 +46,9 @@ run("Update prices", "node", ["scripts/update-prices.mjs", String(SEASON)], { US
 run("Sync to Supabase", "node", ["scripts/sync-fantasy-to-supabase.mjs", String(SEASON)]);
 
 // Sync roster faces (needs BB_PASSWORD for login fallback; tries public overview first to avoid reCAPTCHA)
-if (process.env.BB_PASSWORD) {
+if (true) {
   console.log("\n--- Sync roster faces ---");
-  const faceResult = spawnSync("node", ["scripts/sync-roster-faces.mjs"], {
+  const faceResult = spawnSync("node", ["scripts/sync-roster-faces.mjs", String(SEASON)], {
     cwd: ROOT,
     stdio: "inherit",
     env: { ...process.env, FORCE_COLOR: "1" },

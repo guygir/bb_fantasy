@@ -1,26 +1,20 @@
 #!/usr/bin/env node
 /**
- * Daily U21 roster membership scrape (no BBAPI / no DMI).
- * Diffs vs roster.json → updates players.json stints + appends roster-events.json.
+ * Daily U21 roster membership scrape via legacy.buzzerbeater.com/api.
+ * Diffs vs roster.json → updates players.json stints + appends roster-events.json
+ * and writes on-sale.json.
  *
  * Usage:
  *   node scripts/scrape-u21-tracker-roster.mjs
  *   node scripts/scrape-u21-tracker-roster.mjs --max-countries=2
  *
- * Env: BB_PASSWORD or BB_SITE_COOKIES, CURRENT_SEASON
+ * Env: BBAPI_LOGIN, BBAPI_CODE (for resolving newly called-up players' numeric IDs), CURRENT_SEASON
  */
 
-import { getBuzzerbeaterCookieHeaderFromLogin } from "./lib/bb-site-session.mjs";
 import {
-  STANDINGS_URL,
-  BB_BASE,
   getSeason,
   currentWeekForSeason,
   israelDateString,
-  parsePoolsFromStandings,
-  parseRosterPage,
-  looksLikeLoginWall,
-  fetchText,
   sleep,
   applyRosterDiff,
   writeOnSaleSnapshot,
@@ -28,9 +22,13 @@ import {
   mergeCountryLists,
   mergeMetaCountryPools,
 } from "./lib/u21-tracker-shared.mjs";
+import {
+  getTeamPlayers,
+  getU21StandingsPools,
+  resolveIds,
+  resolvePlayerUuidsToNumericIds,
+} from "./lib/bb-legacy-api.mjs";
 
-const PASSWORD = process.env.BB_PASSWORD;
-const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
 const SEASON = getSeason();
 
 function parseArgs(argv) {
@@ -57,14 +55,28 @@ async function main() {
   const date = israelDateString();
   const scrapedAt = new Date().toISOString();
 
-  console.log(`Season ${SEASON}, week ${week}, date ${date} (roster-only)`);
-  console.log(`Fetching standings ${STANDINGS_URL}...`);
-  const standingsHtml = await fetchText(STANDINGS_URL);
-  const standingsCountries = parsePoolsFromStandings(standingsHtml);
+  console.log(`Season ${SEASON}, week ${week}, date ${date} (roster-only, legacy API)`);
+  console.log("Fetching U21 standings pools from legacy.buzzerbeater.com/api...");
+  const standingsCountries = await getU21StandingsPools(SEASON);
   const knownCountries = loadKnownTrackerCountries(SEASON);
-  // World Cup standings only list 16 teams — still scrape full catalog for roster changes
   let countries = mergeCountryLists(standingsCountries, knownCountries);
-  if (!countries.length) throw new Error("No Pool countries parsed from standings page (and no roster/meta fallback)");
+  if (!countries.length) {
+    throw new Error("No Pool countries returned from legacy API (and no roster/meta fallback)");
+  }
+
+  // Carry over teamUuid from standingsCountries and resolve any missing JNT team UUIDs
+  const uuidByCountryId = new Map(
+    standingsCountries.filter((c) => c.teamUuid).map((c) => [c.countryId, c.teamUuid])
+  );
+  const missingTeamNumbers = countries
+    .filter((c) => !uuidByCountryId.has(c.countryId))
+    .map((c) => 1000 + c.countryId);
+  if (missingTeamNumbers.length) {
+    const extraTeamMap = await resolveIds("team", missingTeamNumbers);
+    for (const [jntNum, uuid] of extraTeamMap.entries()) {
+      uuidByCountryId.set(jntNum - 1000, uuid);
+    }
+  }
 
   if (standingsCountries.length) {
     mergeMetaCountryPools(SEASON, standingsCountries, scrapedAt);
@@ -73,7 +85,7 @@ async function main() {
     );
   } else if (knownCountries.length) {
     console.warn(
-      `Standings parse returned 0 countries — falling back to ${knownCountries.length} known from roster/meta`
+      `Standings returned 0 countries — falling back to ${knownCountries.length} known from roster/meta`
     );
   }
 
@@ -86,41 +98,64 @@ async function main() {
   }
   console.log(`Countries to scrape: ${countries.length}`);
 
-  if (!PASSWORD && !SITE_COOKIE_HEADER) {
-    throw new Error("BB_PASSWORD or BB_SITE_COOKIES is required for roster pages");
-  }
-  const cookieHeader = SITE_COOKIE_HEADER || (await getBuzzerbeaterCookieHeaderFromLogin());
-  console.log("BB site session ready");
-
-  const countryResults = [];
+  const rawCountryRosters = [];
+  const allPlayers = [];
   for (let i = 0; i < countries.length; i++) {
     const country = countries[i];
+    const teamUuid = uuidByCountryId.get(country.countryId);
     process.stdout.write(`[${i + 1}/${countries.length}] ${country.name} (${country.pool})... `);
-    const rosterUrl = `${BB_BASE}/country/${country.countryId}/jnt/players.aspx`;
-    let rosterHtml;
+    if (!teamUuid) {
+      console.log("missing JNT team UUID");
+      rawCountryRosters.push({ ...country, rawPlayers: [], error: "missing team UUID" });
+      continue;
+    }
     try {
-      rosterHtml = await fetchText(rosterUrl, { Cookie: cookieHeader });
+      const rawPlayers = await getTeamPlayers(teamUuid);
+      const onSale = rawPlayers.filter((p) => p.isForSale).length;
+      console.log(`${rawPlayers.length} players (${onSale} on sale)`);
+      rawCountryRosters.push({ ...country, rawPlayers });
+      allPlayers.push(...rawPlayers);
     } catch (e) {
       console.log(`roster fetch failed: ${e.message}`);
-      countryResults.push({ ...country, players: [], error: e.message });
-      continue;
+      rawCountryRosters.push({ ...country, rawPlayers: [], error: e.message });
     }
-    if (looksLikeLoginWall(rosterHtml)) {
-      console.log("login wall");
-      countryResults.push({ ...country, players: [], error: "login wall" });
-      continue;
-    }
-    const players = parseRosterPage(rosterHtml);
-    const onSale = players.filter((p) => p.forSale).length;
-    console.log(`${players.length} players (${onSale} on sale)`);
-    countryResults.push({
-      countryId: country.countryId,
-      name: country.name,
-      pool: country.pool,
-      players,
-    });
     await sleep(60);
   }
+
+  console.log(`Resolving numeric player IDs for ${allPlayers.length} roster entries...`);
+  const { map: uuidToNumeric, newlyResolved, unresolved } = await resolvePlayerUuidsToNumericIds(allPlayers);
+  if (newlyResolved > 0) {
+    console.log(`Newly resolved ${newlyResolved} player ID(s) via BBAPI club lookup`);
+  }
+  if (unresolved.length > 0) {
+    console.warn(`Warning: ${unresolved.length} player(s) could not be mapped to numeric ID:`, unresolved.slice(0, 10));
+  }
+
+  const countryResults = rawCountryRosters.map((c) => {
+    if (c.error) {
+      return { countryId: c.countryId, name: c.name, pool: c.pool, players: [], error: c.error };
+    }
+    const seen = new Set();
+    const players = [];
+    for (const p of c.rawPlayers) {
+      const playerId = uuidToNumeric[p.id];
+      if (!playerId || seen.has(playerId)) continue;
+      seen.add(playerId);
+      const name = [p.firstName, p.lastName].filter(Boolean).join(" ").trim() || `Player ${playerId}`;
+      players.push({
+        playerId,
+        name,
+        forSale: Boolean(p.isForSale),
+        dmi: p.dmi != null ? Math.round(Number(p.dmi)) : null,
+      });
+    }
+    return {
+      countryId: c.countryId,
+      name: c.name,
+      pool: c.pool,
+      players,
+    };
+  });
 
   const result = applyRosterDiff({
     season: SEASON,

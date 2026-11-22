@@ -17,7 +17,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # needed to push player faces
+      contents: write  # needed to push player faces, schedule, and ID map
     steps:
       - uses: actions/checkout@v4
 
@@ -28,11 +28,10 @@ jobs:
 
       - run: npm ci
 
-      - name: Install Chrome (for Puppeteer - roster fetch + face sync)
+      - name: Install Chrome (for Puppeteer - face PNG rendering)
         id: setup-chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          # Match what Puppeteer expects on Linux (fonts/libs); avoids flaky launches
           install-dependencies: true
 
       - name: Fantasy data sync (roster → schedule → boxscores → process → Supabase)
@@ -40,13 +39,11 @@ jobs:
           BBAPI_LOGIN: ${{ secrets.BBAPI_LOGIN }}
           BBAPI_CODE: ${{ secrets.BBAPI_CODE }}
           BB_PASSWORD: ${{ secrets.BB_PASSWORD }}
-          # Optional: copy Cookie header from logged-in browser — avoids reCAPTCHA on login.aspx
           BB_SITE_COOKIES: ${{ secrets.BB_SITE_COOKIES }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CURRENT_SEASON: ${{ github.event.inputs.season }}
         run: |
-          # Must use the same binary setup-chrome installed (do not use command -v — can pick a different Chrome)
           export PUPPETEER_EXECUTABLE_PATH="${{ steps.setup-chrome.outputs.chrome-path }}"
           echo "PUPPETEER_EXECUTABLE_PATH=$PUPPETEER_EXECUTABLE_PATH"
           "$PUPPETEER_EXECUTABLE_PATH" --version || true
@@ -62,4 +59,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/player-faces/
           git add data/bbapi_schedule_s*.json || true
+          git add data/bb_player_id_map.json || true
           git diff --staged --quiet || (git commit -m "chore: update player faces and schedule from sync" && git push)

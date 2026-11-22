@@ -1,15 +1,16 @@
 /**
- * buzzerbeater.com form login via Puppeteer — single implementation for:
- *   fetch-player-details (injury), fetch-player-face (faces), fetch-season-stats (U21 roster),
- *   fetch-u21dle-player-source-teams (history).
- * Exports `loginToBB(page)` and `getBuzzerbeaterCookieHeaderFromLogin()` (cookie string for fetch).
+ * BuzzerBeater session login via Ory Kratos (`https://next-auth.buzzerbeater.com`),
+ * matching `legacy.buzzerbeater.com` (`kratosAccount` legacy username hashing).
+ *
+ * No Puppeteer / no login.aspx / no reCAPTCHA needed.
+ * Exports `getBuzzerbeaterCookieHeaderFromLogin()` (primary) plus Puppeteer helpers
+ * (`loginToBB`, `prepareBbPage`, `launchBbBrowser`, `PUPPETEER_DEFAULT_ARGS`,
+ * `BB_LOGIN_NAV_TIMEOUT_MS`) for backwards compatibility.
  *
  * Env: BBAPI_LOGIN or BB_LOGIN, BB_PASSWORD (main site password — not BBAPI_CODE)
- *      PUPPETEER_EXECUTABLE_PATH or system Chrome (CI)
- *      BB_LOGIN_NAV_TIMEOUT_MS — optional override for login goto / post-submit wait (default 45s CI, 30s local)
  */
 
-import { mkdirSync, writeFileSync, existsSync } from "fs";
+import { createHash } from "crypto";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { config } from "dotenv";
@@ -22,312 +23,218 @@ const ROOT = join(__dirname, "../..");
 config({ path: join(ROOT, ".env") });
 config({ path: join(ROOT, ".env.local"), override: true });
 
-const MAIN_BASE = "https://buzzerbeater.com/";
+const KRATOS_ORIGIN = "https://next-auth.buzzerbeater.com";
+const LEGACY_DOMAIN = "legacybuzzerbeaterlogin.internal";
 const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
 const PASSWORD = process.env.BB_PASSWORD;
-/** ms — Puppeteer fallback only (override with BB_LOGIN_NAV_TIMEOUT_MS). */
+const UA =
+  process.platform === "darwin"
+    ? "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
 function navTimeoutMs() {
   const raw = process.env.BB_LOGIN_NAV_TIMEOUT_MS;
   if (raw && /^\d+$/.test(String(raw).trim())) return parseInt(String(raw).trim(), 10);
   return 45000;
 }
-/** Exported for fetch-player-face / u21dle (same limits as login). */
 export const BB_LOGIN_NAV_TIMEOUT_MS = navTimeoutMs();
-const NAV_TIMEOUT = BB_LOGIN_NAV_TIMEOUT_MS;
 
-const CHROME_PATHS = [
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "/usr/bin/google-chrome",
-  "/usr/bin/google-chrome-stable",
-  "/usr/bin/chromium",
-  "/usr/bin/chromium-browser",
-];
-
-/** One stealth hook per Page — calling prepareBbPage twice used to register duplicate listeners and break login. */
 const preparedBbPages = new WeakSet();
 
-function isLoginUrl(url) {
-  return (url || "").includes("login.aspx");
-}
-
-async function saveDebug(page, label) {
-  const debugDir = join(ROOT, "data");
-  mkdirSync(debugDir, { recursive: true });
-  const slug = label.replace(/\s+/g, "_");
-  try {
-    await page.screenshot({ path: join(debugDir, `debug_${slug}.png`) });
-    const html = await page.content();
-    writeFileSync(join(debugDir, `debug_${slug}.html`), html, "utf-8");
-    console.log("  [debug] Saved", `data/debug_${slug}.png`, "and .html");
-  } catch (e) {
-    console.log("  [debug] Could not save:", e.message);
-  }
-}
-
-/**
- * Once per Page: realistic User-Agent. Stealth plugin (see puppeteer-launch.mjs) handles webdriver/chrome mocks.
- */
 export async function prepareBbPage(page) {
-  if (preparedBbPages.has(page)) {
-    return;
-  }
+  if (preparedBbPages.has(page)) return;
   preparedBbPages.add(page);
-  const ua =
-    process.platform === "darwin"
-      ? "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-      : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
-  await page.setUserAgent(ua);
+  await page.setUserAgent(UA);
 }
 
-/** Shared by fetch-player-details, fetch-player-face, fetch-season-stats, u21dle scripts — one login implementation. */
-export async function loginToBB(page) {
-  if (!PASSWORD || !String(PASSWORD).trim()) {
-    throw new Error("BB_PASSWORD required for form login");
-  }
-  await prepareBbPage(page);
-  await page.setExtraHTTPHeaders({});
-  const loginUrl = `${MAIN_BASE}login.aspx`;
-  console.log("  [login] Navigating to", loginUrl);
-  let nav;
-  try {
-    nav = await page.goto(loginUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-  } catch (e) {
-    console.log("  [debug] goto timed out or failed:", e.message);
-    await saveDebug(page, "login_timeout");
-    throw e;
-  }
-  console.log("  [login] Response:", nav?.status(), "URL:", page.url());
+/** Exact Unicode lowercase folding table from legacy.buzzerbeater.com kratosAccount JS */
+const LEGACY_LOWER_MAP = new Map([
+  [65, 97], [66, 98], [67, 99], [68, 100], [69, 101], [70, 102], [71, 103], [72, 104],
+  [73, 105], [74, 106], [75, 107], [76, 108], [77, 109], [78, 110], [79, 111], [80, 112],
+  [81, 113], [82, 114], [83, 115], [84, 116], [85, 117], [86, 118], [87, 119], [88, 120],
+  [89, 121], [90, 122], [192, 224], [193, 225], [194, 226], [195, 227], [196, 228],
+  [197, 229], [198, 230], [199, 231], [200, 232], [201, 233], [202, 234], [203, 235],
+  [205, 237], [208, 240], [209, 241], [210, 242], [211, 243], [212, 244], [213, 245],
+  [214, 246], [216, 248], [218, 250], [219, 251], [220, 252], [221, 253], [222, 254],
+  [260, 261], [262, 263], [268, 269], [270, 271], [272, 273], [278, 279], [280, 281],
+  [284, 285], [286, 287], [290, 291], [294, 295], [302, 303], [304, 105], [308, 309],
+  [310, 311], [315, 316], [317, 318], [321, 322], [323, 324], [325, 326], [327, 328],
+  [330, 331], [332, 333], [336, 337], [344, 345], [346, 347], [350, 351], [352, 353],
+  [356, 357], [358, 359], [362, 363], [374, 375], [377, 378], [379, 380], [381, 382],
+  [413, 626], [510, 511], [902, 940], [905, 942], [908, 972], [913, 945], [914, 946],
+  [915, 947], [916, 948], [917, 949], [918, 950], [919, 951], [920, 952], [921, 953],
+  [922, 954], [923, 955], [924, 956], [925, 957], [926, 958], [927, 959], [928, 960],
+  [929, 961], [931, 963], [932, 964], [933, 965], [934, 966], [935, 967], [936, 968],
+  [937, 969], [1025, 1105], [1026, 1106], [1030, 1110], [1031, 1111], [1032, 1112],
+  [1035, 1115], [1040, 1072], [1041, 1073], [1042, 1074], [1043, 1075], [1044, 1076],
+  [1045, 1077], [1046, 1078], [1047, 1079], [1048, 1080], [1049, 1081], [1050, 1082],
+  [1051, 1083], [1052, 1084], [1053, 1085], [1054, 1086], [1055, 1087], [1056, 1088],
+  [1057, 1089], [1058, 1090], [1059, 1091], [1060, 1092], [1061, 1093], [1062, 1094],
+  [1063, 1095], [1064, 1096], [1065, 1097], [1066, 1098], [1067, 1099], [1068, 1100],
+  [1069, 1101], [1070, 1102], [1071, 1103], [1170, 1171], [1174, 1175], [7844, 7845],
+  [7856, 7857], [7862, 7863], [7878, 7879], [7926, 7927], [8548, 8564], [65313, 65345],
+  [65314, 65346], [65315, 65347], [65316, 65348], [65317, 65349], [65319, 65351],
+  [65321, 65353], [65322, 65354], [65324, 65356], [65325, 65357], [65326, 65358],
+  [65327, 65359], [65329, 65361], [65330, 65362], [65331, 65363], [65332, 65364],
+  [65335, 65367],
+]);
 
-  /** Main #cphContent form — NOT the footer modal (name *txtLogin* matches txtLoginUserName first and breaks login). */
-  const loginSel = "#cphContent_txtUserName";
-  const passSel = "#cphContent_txtPassword";
-  const btnSel = "#cphContent_btnLoginUser";
-  try {
-    await page.waitForSelector(loginSel, { timeout: 8000 });
-  } catch (e) {
-    console.log("  [debug] Main login form (#cphContent_txtUserName) not found");
-    await saveDebug(page, "no_login_form");
-    throw e;
+export function hashLegacyIdentifier(raw) {
+  let start = 0;
+  let end = raw.length;
+  while (start < end && raw.charCodeAt(start) === 32) start++;
+  while (end > start && raw.charCodeAt(end - 1) === 32) end--;
+  const trimmed = raw.slice(start, end);
+  if (!trimmed || trimmed.toLowerCase().endsWith(`@${LEGACY_DOMAIN}`)) return null;
+  let folded = "";
+  for (const ch of trimmed) {
+    const cp = ch.codePointAt(0);
+    folded += String.fromCodePoint(LEGACY_LOWER_MAP.get(cp) ?? cp);
   }
-  await page.type(loginSel, LOGIN, { delay: 50 });
-  await page.type(passSel, PASSWORD, { delay: 50 });
-  console.log("  [login] Submitting...");
-  try {
-    /**
-     * ASP.NET postback — do not Promise.race with waitForNavigation: if navigation times out first,
-     * the race rejects even when the URL is about to change (regression).
-     */
-    await page.click(btnSel);
-    await page.waitForFunction(
-      () => !window.location.href.includes("login.aspx"),
-      { timeout: NAV_TIMEOUT, polling: 250 }
-    );
-  } catch (e) {
-    console.log("  [debug] Login URL wait:", e.message);
-    await saveDebug(page, "login_nav_timeout");
-    for (let i = 0; i < 20; i++) {
-      await new Promise((r) => setTimeout(r, 500));
-      if (!isLoginUrl(page.url())) {
-        console.log("  [login] URL left login page after post-timeout poll — continuing");
-        break;
-      }
+  const digest = createHash("sha256").update(folded, "utf8").digest("hex");
+  return `${digest.slice(0, 32)}@${LEGACY_DOMAIN}`;
+}
+
+function mergeCookies(jar, res) {
+  const rawCookies =
+    typeof res.headers.getSetCookie === "function"
+      ? res.headers.getSetCookie()
+      : (res.headers.get("set-cookie") || "").split(/,\s*(?=[^;,\s]+=)/);
+  for (const line of rawCookies) {
+    const first = String(line || "").split(";")[0].trim();
+    const eq = first.indexOf("=");
+    if (eq > 0) {
+      const k = first.slice(0, eq).trim();
+      const v = first.slice(eq + 1).trim();
+      if (v) jar.set(k, v);
     }
-    if (isLoginUrl(page.url())) {
-      const hasRecaptcha = await page.evaluate(
-        () => !!document.querySelector(".g-recaptcha, [data-sitekey]")
-      );
-      if (hasRecaptcha) {
-        throw new Error(
-          "BuzzerBeater login shows reCAPTCHA in this session — headless login blocked. Retry later or use BB_SITE_COOKIES (optional)."
-        );
-      }
-      throw e;
-    }
-  }
-  console.log("  [login] After login, URL:", page.url());
-  if (isLoginUrl(page.url())) {
-    await saveDebug(page, "login_failed_still_on_login");
-    throw new Error(
-      "Login failed — check BB_PASSWORD. If the site served reCAPTCHA, retry later; optional BB_SITE_COOKIES can bypass the form."
-    );
   }
 }
 
-/** Parse a single hidden input value from HTML. */
-function parseHiddenField(html, name) {
-  const re = new RegExp(`name=["']${name}["'][^>]*value=["']([^"']*)["']`, "i");
-  const re2 = new RegExp(`value=["']([^"']*)["'][^>]*name=["']${name}["']`, "i");
-  return (html.match(re) || html.match(re2))?.[1] ?? "";
+function serializeCookies(jar) {
+  return [...jar.entries()].map(([k, v]) => `${k}=${v}`).join("; ");
+}
+
+function collectKratosMessages(flowJson) {
+  const top = flowJson?.ui?.messages || [];
+  const nodeMsgs = (flowJson?.ui?.nodes || []).flatMap((n) => n.messages || []);
+  return [...top, ...nodeMsgs];
+}
+
+function extractHiddenFields(flowJson) {
+  const out = {};
+  for (const node of flowJson?.ui?.nodes || []) {
+    if (node?.attributes?.type === "hidden" && node?.attributes?.name) {
+      out[node.attributes.name] = node.attributes.value;
+    }
+  }
+  return out;
 }
 
 /**
- * Pure HTTP login — no browser, no Puppeteer, no reCAPTCHA widget.
- * Steps: GET login.aspx → extract ASP.NET tokens → POST form → harvest Set-Cookie.
- * Much faster (~1-2s) and not affected by headless detection.
+ * Login to BuzzerBeater via Ory Kratos (`next-auth.buzzerbeater.com`) and return
+ * the Cookie header string (contains `ory_kratos_session=...`).
  */
-async function getBuzzerbeaterCookieHeaderFromFetch() {
-  if (!PASSWORD || !String(PASSWORD).trim()) {
-    throw new Error("BB_PASSWORD required");
+export async function getBuzzerbeaterCookieHeaderFromLogin() {
+  const login = (process.env.BBAPI_LOGIN || process.env.BB_LOGIN || LOGIN || "").trim();
+  const password = process.env.BB_PASSWORD || PASSWORD;
+  if (!login) throw new Error("BBAPI_LOGIN or BB_LOGIN is required");
+  if (!password || !String(password).trim()) {
+    throw new Error("BB_PASSWORD is required for BuzzerBeater login");
   }
-  const loginUrl = "https://buzzerbeater.com/login.aspx";
-  const ua =
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
-  console.log("  [bb-login/fetch] GET", loginUrl);
-  const res1 = await fetch(loginUrl, {
-    headers: { "User-Agent": ua, Accept: "text/html,*/*;q=0.9" },
-    redirect: "follow",
-  });
-  if (!res1.ok) throw new Error(`GET login.aspx returned ${res1.status}`);
-  const html1 = await res1.text();
-
-  const cookieHeader1 = res1.headers.getSetCookie
-    ? res1.headers.getSetCookie().join("; ")
-    : (res1.headers.get("set-cookie") ?? "");
-  // Extract name=value only (strip Expires/Path/etc)
-  const cookies1 = cookieHeader1
-    .split(/,(?=[^;]+=[^;]+;)/)
-    .map((s) => s.trim().split(";")[0].trim())
-    .filter(Boolean)
-    .join("; ");
-
-  const viewstate = parseHiddenField(html1, "__VIEWSTATE");
-  const viewstateGen = parseHiddenField(html1, "__VIEWSTATEGENERATOR");
-  const eventVal = parseHiddenField(html1, "__EVENTVALIDATION");
-
-  if (!viewstate) throw new Error("Could not find __VIEWSTATE in login page — page structure changed?");
-
-  const body = new URLSearchParams({
-    __EVENTTARGET: "",
-    __EVENTARGUMENT: "",
-    __LASTFOCUS: "",
-    __VIEWSTATE: viewstate,
-    __VIEWSTATEGENERATOR: viewstateGen,
-    __EVENTVALIDATION: eventVal,
-    "ctl00$cphContent$txtUserName": LOGIN,
-    "ctl00$cphContent$txtPassword": String(PASSWORD),
-    "ctl00$cphContent$btnLoginUser": "Login",
-  });
-
-  console.log("  [bb-login/fetch] POST login form...");
-  const res2 = await fetch(loginUrl, {
-    method: "POST",
+  const jar = new Map();
+  const initRes = await fetch(`${KRATOS_ORIGIN}/self-service/login/browser`, {
+    method: "GET",
     headers: {
-      "User-Agent": ua,
-      "Content-Type": "application/x-www-form-urlencoded",
-      Accept: "text/html,*/*;q=0.9",
-      Referer: loginUrl,
-      ...(cookies1 ? { Cookie: cookies1 } : {}),
+      Accept: "application/json",
+      "User-Agent": UA,
     },
-    body: body.toString(),
     redirect: "manual",
   });
-
-  const location = res2.headers.get("location") ?? "";
-  const cookieHeader2 = res2.headers.getSetCookie
-    ? res2.headers.getSetCookie().join("; ")
-    : (res2.headers.get("set-cookie") ?? "");
-  const cookies2 = cookieHeader2
-    .split(/,(?=[^;]+=[^;]+;)/)
-    .map((s) => s.trim().split(";")[0].trim())
-    .filter(Boolean)
-    .join("; ");
-
-  if (!location.includes("home.aspx") && !location.includes("Home.aspx")) {
-    const redirectedHtml = res2.status === 200 ? await res2.text() : "";
-    if (
-      overviewLooksLikeLoginWall(redirectedHtml) ||
-      res2.status === 302 && !location
-    ) {
-      throw new Error(
-        `Login via fetch failed (HTTP ${res2.status}, redirect: "${location}"). Server may require reCAPTCHA — Puppeteer will be tried.`
-      );
-    }
-    if (res2.status !== 302) {
-      throw new Error(
-        `Unexpected login response: status=${res2.status} location="${location}"`
-      );
-    }
+  mergeCookies(jar, initRes);
+  const flow = await initRes.json().catch(() => null);
+  if (!initRes.ok || !flow?.ui?.action) {
+    throw new Error(`Kratos login init failed (HTTP ${initRes.status})`);
   }
 
-  const allCookies = [cookies1, cookies2].filter(Boolean).join("; ");
-  if (!allCookies.trim()) throw new Error("No cookies returned by login POST");
-  console.log("  [bb-login/fetch] OK — session cookies obtained");
-  return allCookies;
-}
+  const legacyHash = hashLegacyIdentifier(login);
+  const candidates =
+    /^\S+@\S+\.\S+$/.test(login) && legacyHash
+      ? [login, legacyHash]
+      : [legacyHash || login];
 
-function overviewLooksLikeLoginWall(html) {
-  return (
-    /login\.css/i.test(html) ||
-    /<title>\s*Login\s*</i.test(html) ||
-    /Forgot Password/i.test(html)
+  let actionUrl = new URL(flow.ui.action, KRATOS_ORIGIN).toString();
+  let hidden = extractHiddenFields(flow);
+  let lastBody = null;
+  let lastStatus = 0;
+
+  for (let i = 0; i < candidates.length; i++) {
+    const identifier = candidates[i];
+    const postRes = await fetch(actionUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "User-Agent": UA,
+        Origin: "https://legacy.buzzerbeater.com",
+        Cookie: serializeCookies(jar),
+      },
+      body: JSON.stringify({
+        ...hidden,
+        method: "password",
+        identifier,
+        password: String(password),
+      }),
+      redirect: "manual",
+    });
+    mergeCookies(jar, postRes);
+    lastStatus = postRes.status;
+    lastBody = await postRes.json().catch(() => null);
+
+    if (postRes.ok && (lastBody?.session?.active || jar.has("ory_kratos_session"))) {
+      return serializeCookies(jar);
+    }
+
+    const msgs = collectKratosMessages(lastBody);
+    const invalidCreds = msgs.some((m) => m.id === 4000006);
+    if (i + 1 < candidates.length && invalidCreds && lastBody?.ui?.action) {
+      actionUrl = new URL(lastBody.ui.action, KRATOS_ORIGIN).toString();
+      hidden = extractHiddenFields(lastBody);
+      continue;
+    }
+    break;
+  }
+
+  const msgs = collectKratosMessages(lastBody)
+    .map((m) => m.text)
+    .filter(Boolean)
+    .join(" ");
+  throw new Error(
+    msgs || lastBody?.error?.reason || `Kratos login failed (HTTP ${lastStatus})`
   );
 }
 
-async function getBuzzerbeaterCookieHeaderFromLoginOnce() {
-  const launchOpts = {
-    headless: true,
-    args: [...PUPPETEER_DEFAULT_ARGS],
-  };
-  const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || CHROME_PATHS.find(existsSync);
-  if (executablePath) {
-    launchOpts.executablePath = executablePath;
-    console.log("  [bb-site-session] Using Chrome:", executablePath);
+/** Set Kratos session cookies onto a Puppeteer page (legacy compatibility helper). */
+export async function loginToBB(page) {
+  await prepareBbPage(page);
+  const cookieHeader = await getBuzzerbeaterCookieHeaderFromLogin();
+  const cookies = cookieHeader
+    .split(";")
+    .map((part) => {
+      const idx = part.indexOf("=");
+      if (idx <= 0) return null;
+      return {
+        name: part.slice(0, idx).trim(),
+        value: part.slice(idx + 1).trim(),
+        domain: ".buzzerbeater.com",
+        path: "/",
+        secure: true,
+        httpOnly: true,
+      };
+    })
+    .filter(Boolean);
+  if (cookies.length) {
+    await page.setCookie(...cookies);
   }
-
-  const browser = await launchBbBrowser(launchOpts);
-  try {
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 800 });
-    await loginToBB(page);
-    const jar = await page.cookies("https://buzzerbeater.com");
-    const header = jar.map((c) => `${c.name}=${c.value}`).join("; ");
-    if (!header.trim()) {
-      const fallback = await page.cookies();
-      const h2 = fallback.map((c) => `${c.name}=${c.value}`).join("; ");
-      if (!h2.trim()) throw new Error("No cookies after login");
-      return h2;
-    }
-    return header;
-  } finally {
-    await browser.close();
-  }
-}
-
-/**
- * Login to buzzerbeater.com; returns Cookie header string.
- * Primary: plain HTTP POST (fast, no browser, no reCAPTCHA widget issues).
- * Fallback: Puppeteer (if server requires reCAPTCHA or the fetch path fails).
- */
-export async function getBuzzerbeaterCookieHeaderFromLogin() {
-  if (!PASSWORD || !String(PASSWORD).trim()) {
-    throw new Error("BB_PASSWORD is required for buzzerbeater.com login");
-  }
-
-  // 1. Try fast fetch-based login first
-  try {
-    return await getBuzzerbeaterCookieHeaderFromFetch();
-  } catch (fetchErr) {
-    const msg = fetchErr instanceof Error ? fetchErr.message : String(fetchErr);
-    console.warn(`  [bb-login] fetch path failed (${msg.slice(0, 120)}); trying Puppeteer fallback...`);
-  }
-
-  // 2. Puppeteer fallback — 2 attempts
-  let lastErr;
-  for (let i = 0; i < 2; i++) {
-    if (i > 0) {
-      console.log("  [bb-login] Puppeteer retry 2/2 (after 5s)...");
-      await new Promise((r) => setTimeout(r, 5000));
-    }
-    try {
-      return await getBuzzerbeaterCookieHeaderFromLoginOnce();
-    } catch (e) {
-      lastErr = e;
-      if (i === 0) {
-        const m = e instanceof Error ? e.message : String(e);
-        console.warn(`  [bb-login] Puppeteer attempt 1 failed (${m.slice(0, 120)}), retrying...`);
-      }
-    }
-  }
-  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }

@@ -1,0 +1,40 @@
+{
+  "season": 74,
+  "date": "2026-11-22",
+  "week": 2,
+  "updatedAt": "2026-11-22T11:57:17.301Z",
+  "players": [
+    {
+      "playerId": 55411851,
+      "name": "Anton Dzuvalekovski",
+      "countryId": 49,
+      "countryName": "Makedonija",
+      "pool": "Pool E",
+      "dmi": 182844
+    },
+    {
+      "playerId": 55719025,
+      "name": "Josef Lauri",
+      "countryId": 90,
+      "countryName": "Malta",
+      "pool": "Pool E",
+      "dmi": 49964
+    },
+    {
+      "playerId": 55347720,
+      "name": "Evgeny Nechkin",
+      "countryId": 19,
+      "countryName": "Rossiya",
+      "pool": "Pool A",
+      "dmi": 76907
+    },
+    {
+      "playerId": 56230654,
+      "name": "Alfred MacHarold",
+      "countryId": 64,
+      "countryName": "Scotland",
+      "pool": "Pool E",
+      "dmi": 25824
+    }
+  ]
+}

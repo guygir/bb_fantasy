@@ -10,7 +10,7 @@ import { bbapiLogin, bbapiGet } from "./lib/bbapi-cookies.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const BASE = "http://bbapi.buzzerbeater.com/";
+const BASE = "https://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 const TEAM_ID = Number(process.env.ISRAEL_U21_TEAM_ID ?? 1015);
