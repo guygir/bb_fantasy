@@ -1,0 +1,249 @@
+{
+  "season": 74,
+  "weeks": [
+    2
+  ],
+  "countries": [
+    {
+      "countryId": 75,
+      "name": "Andorra",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 88,
+      "name": "Azərbaycan",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 85,
+      "name": "Belarus",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 13,
+      "name": "Belgium",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 35,
+      "name": "Bosna i Hercegovina",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 36,
+      "name": "Bulgaria",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 37,
+      "name": "Česká Rep.",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 76,
+      "name": "Crna Gora",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 81,
+      "name": "Cymru",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 77,
+      "name": "Cyprus",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 39,
+      "name": "Danmark",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 8,
+      "name": "Deutschland",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 41,
+      "name": "Eesti",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 14,
+      "name": "England",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 7,
+      "name": "España",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 11,
+      "name": "France",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 87,
+      "name": "Hayastan",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 12,
+      "name": "Hellas",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 24,
+      "name": "Hrvatska",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 44,
+      "name": "Ireland",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 78,
+      "name": "Ísland",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 15,
+      "name": "Israel",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 10,
+      "name": "Italia",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 46,
+      "name": "Latvija",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 20,
+      "name": "Lietuva",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 91,
+      "name": "Luxembourg",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 48,
+      "name": "Magyarország",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 49,
+      "name": "Makedonija",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 90,
+      "name": "Malta",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 86,
+      "name": "Moldova",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 16,
+      "name": "Nederland",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 26,
+      "name": "Norge",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 27,
+      "name": "Österreich",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 58,
+      "name": "Polska",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 18,
+      "name": "Portugal",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 61,
+      "name": "România",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 19,
+      "name": "Rossiya",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 62,
+      "name": "Sakartvelo",
+      "pool": "Pool C"
+    },
+    {
+      "countryId": 28,
+      "name": "Schweiz",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 64,
+      "name": "Scotland",
+      "pool": "Pool E"
+    },
+    {
+      "countryId": 79,
+      "name": "Shqipëria",
+      "pool": "Pool A"
+    },
+    {
+      "countryId": 66,
+      "name": "Slovenija",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 67,
+      "name": "Slovensko",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 29,
+      "name": "Srbija",
+      "pool": "Pool D"
+    },
+    {
+      "countryId": 69,
+      "name": "Suomi",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 9,
+      "name": "Sverige",
+      "pool": "Pool F"
+    },
+    {
+      "countryId": 6,
+      "name": "Türkiye",
+      "pool": "Pool B"
+    },
+    {
+      "countryId": 33,
+      "name": "Ukraina",
+      "pool": "Pool B"
+    }
+  ],
+  "updatedAt": "2026-11-22T12:06:05.913Z"
+}
