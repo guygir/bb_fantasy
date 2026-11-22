@@ -15,7 +15,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../data");
 const SEASON = process.argv[2] ? parseInt(process.argv[2], 10) : 71;
 
-const BASE = "http://bbapi.buzzerbeater.com/";
+const BASE = "https://bbapi.buzzerbeater.com/";
 const LOGIN = process.env.BBAPI_LOGIN || "PotatoJunior";
 const CODE = process.env.BBAPI_CODE || "12341234";
 

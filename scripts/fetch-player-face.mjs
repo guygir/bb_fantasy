@@ -1,19 +1,12 @@
 /**
- * Fetch a player's face from BuzzerBeater and save as PNG.
- * Prefers public player overview (no login) when BB serves the face — avoids reCAPTCHA on CI.
- * Falls back to one Puppeteer login per batch, then reuses that session for all remaining players.
+ * Render a player's face from legacy.buzzerbeater.com avatar parts + layer assets
+ * and save as a 94x125 PNG matching existing public/player-faces/*.png assets.
  *
  * Run: node scripts/fetch-player-face.mjs <playerId>
  * Or:  node scripts/fetch-player-face.mjs --all   (fetch all from season71_stats)
  * Or:  node scripts/fetch-player-face.mjs --supabase [season]  (fetch from Supabase fantasy_players)
  * Flags: --force  re-fetch even if image exists
- *       --debug   save player page HTML to data/debug_player_{id}.html
- *
- * Env: BBAPI_LOGIN, BB_PASSWORD (main site password - may differ from BBAPI_CODE)
- *      BB_SITE_COOKIES — optional; raw "Cookie" header value from a logged-in browser session
- *        (DevTools → Application → Cookies for buzzerbeater.com, or copy Cookie request header).
- *        Bypasses login.aspx and reCAPTCHA — same idea as lessons.md / data/README.md.
- *      PUPPETEER_EXECUTABLE_PATH or system Chrome (see CHROME_PATHS) for GitHub Actions
+ *        --debug  save intermediate HTML to data/debug_player_{id}.html
  *
  * Output: public/player-faces/{playerId}.png
  */
@@ -23,23 +16,19 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { config } from "dotenv";
 import {
-  loginToBB,
   PUPPETEER_DEFAULT_ARGS,
   prepareBbPage,
-  BB_LOGIN_NAV_TIMEOUT_MS,
   launchBbBrowser,
-  getBuzzerbeaterCookieHeaderFromLogin,
 } from "./lib/bb-site-session.mjs";
+import { getPlayer, resolveIds } from "./lib/bb-legacy-api.mjs";
+import { resolveCurrentSeasonFromEnv } from "./lib/season-calendar.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 config({ path: join(ROOT, ".env") });
 config({ path: join(ROOT, ".env.local"), override: true });
-const MAIN_BASE = "https://buzzerbeater.com/";
-const LOGIN = process.env.BBAPI_LOGIN || process.env.BB_LOGIN || "PotatoJunior";
-const PASSWORD = process.env.BB_PASSWORD;
-/** Same as data/README.md — export from logged-in browser when reCAPTCHA blocks Puppeteer login. */
-const SITE_COOKIE_HEADER = (process.env.BB_SITE_COOKIES || process.env.BUZZERBEATER_COOKIES || "").trim();
+
+const FACE_ASSET_BASE = "https://legacy.buzzerbeater.com/legacy-assets/images/faces";
 
 const CHROME_PATHS = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -54,7 +43,9 @@ const DEBUG = ARGS.includes("--debug");
 const IS_ALL = ARGS.includes("--all");
 const IS_U21DLE = ARGS.includes("--u21dle");
 const IS_SUPABASE = ARGS.includes("--supabase");
-const EXPLICIT_ID = ARGS.find((a) => !["--force", "--debug", "--all", "--u21dle", "--supabase"].includes(a));
+const EXPLICIT_ID = ARGS.find(
+  (a) => !["--force", "--debug", "--all", "--u21dle", "--supabase"].includes(a) && a.trim() !== ""
+);
 
 if (!EXPLICIT_ID && !IS_ALL && !IS_U21DLE && !IS_SUPABASE) {
   console.error("Usage: node scripts/fetch-player-face.mjs <playerId> [--force] [--debug]");
@@ -63,78 +54,74 @@ if (!EXPLICIT_ID && !IS_ALL && !IS_U21DLE && !IS_SUPABASE) {
   console.error("   or: node scripts/fetch-player-face.mjs --u21dle [--force] [--debug]  (GP>=8 from u21dle_players.json)");
   process.exit(1);
 }
-if (!PASSWORD && !SITE_COOKIE_HEADER) {
-  console.warn(
-    "No BB_PASSWORD or BB_SITE_COOKIES — only players with a public overview face will succeed; login fallback disabled."
-  );
+
+const assetCache = new Map();
+
+async function fetchDataUri(relPath) {
+  if (assetCache.has(relPath)) return assetCache.get(relPath);
+  const url = `${FACE_ASSET_BASE}/${relPath}`;
+  const res = await fetch(url, { headers: { "User-Agent": "BBFantasy/1.0" } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  const uri = `data:image/png;base64,${buf.toString("base64")}`;
+  assetCache.set(relPath, uri);
+  return uri;
 }
 
-const NAV_TIMEOUT = BB_LOGIN_NAV_TIMEOUT_MS;
-
-const faceSel = "#cphContent_faceContainer > div.playerFace";
-const ballSel = "#cphContent_playerNumber_divNumber";
-
-async function saveDebug(page, label) {
-  const debugDir = join(__dirname, "../data");
-  mkdirSync(debugDir, { recursive: true });
-  const slug = label.replace(/\s+/g, "_");
-  try {
-    await page.screenshot({ path: join(debugDir, `debug_${slug}.png`) });
-    const html = await page.content();
-    writeFileSync(join(debugDir, `debug_${slug}.html`), html, "utf-8");
-    console.log("  [debug] Saved", `data/debug_${slug}.png`, "and .html");
-  } catch (e) {
-    console.log("  [debug] Could not save:", e.message);
-  }
-}
-
-async function tryScreenshotFace(page, playerId) {
-  await page.waitForSelector(faceSel, { timeout: 8000 }).catch(() => null);
-  if (!(await page.$(faceSel))) return false;
-
-  await page.evaluate((sel) => {
-    const el = document.querySelector(sel);
-    if (el) el.style.setProperty("display", "none", "important");
-  }, ballSel);
-
-  await page
-    .waitForFunction(
-      (sel) => {
-        const el = document.querySelector(sel);
-        if (!el) return false;
-        const imgs = el.querySelectorAll("img");
-        if (imgs.length === 0) return true;
-        return Array.from(imgs).every((img) => img.complete && img.naturalWidth > 0);
-      },
-      { timeout: 10000 },
-      faceSel
-    )
-    .catch(() => null);
-  await new Promise((r) => setTimeout(r, 1500));
-
-  if (DEBUG) {
-    const html = await page.content();
-    const debugPath = join(__dirname, "../data", `debug_player_${playerId}.html`);
-    writeFileSync(debugPath, html, "utf-8");
-    console.log("  [debug] Saved", debugPath);
-  }
-
-  const faceElFinal = await page.$(faceSel);
-  if (!faceElFinal) return false;
-
-  const outDir = join(__dirname, "../public/player-faces");
-  mkdirSync(outDir, { recursive: true });
-  const outPath = join(outDir, `${playerId}.png`);
-  await faceElFinal.screenshot({ path: outPath });
-  console.log("  [face] Saved", outPath);
-  return true;
-}
-
-function isLoginUrl(url) {
-  return (url || "").includes("login.aspx");
+function buildFaceHtml(uris) {
+  return `<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  .playerFace { position: relative; width: 94px; height: 125px; overflow: hidden; }
+  .faceBackground { position: absolute; left: 0px; top: 0px; width: 89px; height: 125px; }
+  .face { position: absolute; left: 6px; top: 7px; }
+  .eyes { position: absolute; left: 21px; top: 56px; }
+  .eyebrow { position: absolute; left: 21px; top: 50px; }
+  .mouth { position: absolute; left: 24px; top: 86px; }
+  .nose { position: absolute; left: 35px; top: 71px; }
+  .hair { position: absolute; left: 7px; top: 7px; }
+</style>
+</head>
+<body>
+  <div id="faceBox" class="playerFace">
+    <img class="faceBackground" src="${uris.bg}" alt="" />
+    <img class="face" src="${uris.face}" alt="" />
+    <img class="eyes" src="${uris.eyes}" alt="" />
+    <img class="eyebrow" src="${uris.eyebrow}" alt="" />
+    <img class="mouth" src="${uris.mouth}" alt="" />
+    <img class="nose" src="${uris.nose}" alt="" />
+    <img class="hair" src="${uris.hair}" alt="" />
+  </div>
+</body>
+</html>`;
 }
 
 async function fetchFacesBatch(playerIds) {
+  const outDir = join(__dirname, "../public/player-faces");
+  mkdirSync(outDir, { recursive: true });
+
+  const todoIds = [];
+  for (let i = 0; i < playerIds.length; i++) {
+    const id = String(playerIds[i]);
+    const outPath = join(outDir, `${id}.png`);
+    if (existsSync(outPath) && !FORCE) {
+      console.log(`[${i + 1}/${playerIds.length}] ${id} - already exists, skip`);
+      continue;
+    }
+    todoIds.push(id);
+  }
+
+  if (todoIds.length === 0) {
+    console.log("All player faces already present.");
+    return;
+  }
+
+  console.log(`Resolving ${todoIds.length} player ID(s) via legacy API...`);
+  const uuidByNum = await resolveIds("player", todoIds.map((id) => Number(id)));
+
   const launchOpts = {
     headless: true,
     args: [...PUPPETEER_DEFAULT_ARGS],
@@ -145,102 +132,48 @@ async function fetchFacesBatch(playerIds) {
     console.log("Using Chrome:", executablePath);
   }
 
-  console.log("  [1/3] Launching browser...");
   const browser = await launchBbBrowser(launchOpts);
-  console.log("  [2/3] Browser launched");
   const page = await browser.newPage();
-  await page.setViewport({ width: 1280, height: 800 });
+  await page.setViewport({ width: 200, height: 200 });
   await prepareBbPage(page);
 
-  if (SITE_COOKIE_HEADER) {
-    await page.setExtraHTTPHeaders({ Cookie: SITE_COOKIE_HEADER });
-    console.log(
-      "  [session] BB_SITE_COOKIES set — using browser Cookie header (no login.aspx / reCAPTCHA)"
-    );
-  }
-
-  let loggedIn = false;
-
   try {
-    for (let i = 0; i < playerIds.length; i++) {
-      const id = playerIds[i];
-      const outPath = join(__dirname, "../public/player-faces", `${id}.png`);
-      if (existsSync(outPath) && !FORCE) {
-        console.log(`[${i + 1}/${playerIds.length}] ${id} - already exists, skip`);
-        continue;
-      }
-
-      console.log(`[${i + 1}/${playerIds.length}] Fetching ${id}...`);
-      const overviewUrl = `${MAIN_BASE}player/${id}/overview.aspx`;
-
+    for (let i = 0; i < todoIds.length; i++) {
+      const id = todoIds[i];
+      const outPath = join(outDir, `${id}.png`);
+      console.log(`[${i + 1}/${todoIds.length}] Fetching face for ${id}...`);
       try {
-        await page.goto(overviewUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-        const urlAfter = page.url();
+        const uuid = uuidByNum.get(Number(id));
+        if (!uuid) throw new Error(`Could not resolve playerId ${id} to UUID`);
+        const player = await getPlayer(uuid);
+        const av = player?.avatar;
+        if (!av) throw new Error(`No avatar parts returned for ${id}`);
 
-        if (!isLoginUrl(urlAfter) && (await tryScreenshotFace(page, id))) {
-          console.log(
-            SITE_COOKIE_HEADER
-              ? "  [face] OK (session cookie or public overview)"
-              : "  [face] OK without login (public overview)"
-          );
-          await new Promise((r) => setTimeout(r, 2000));
-          continue;
-        }
+        const [bg, face, eyes, eyebrow, mouth, nose, hair] = await Promise.all([
+          fetchDataUri("bg/1.png"),
+          fetchDataUri(`faces/${av.skinColor}/${av.faceType}.png`),
+          fetchDataUri(`eyes/${av.eyeType}.png`),
+          fetchDataUri(`eyebrow/${av.hairColor}/${av.eyebrowType}.png`),
+          fetchDataUri(`mouth/${av.mouthType}.png`),
+          fetchDataUri(`nose/${av.noseType}.png`),
+          fetchDataUri(`hair/${av.hairColor}/${av.hairType}.png`),
+        ]);
 
-        if (!loggedIn) {
-          if (SITE_COOKIE_HEADER && isLoginUrl(urlAfter)) {
-            console.log(
-              "  [session] BB_SITE_COOKIES invalid or expired (still on login) — clearing header; trying password login"
-            );
-            await page.setExtraHTTPHeaders({});
-          }
-          if (!PASSWORD || !String(PASSWORD).trim()) {
-            throw new Error(
-              "Need buzzerbeater.com session: set BB_SITE_COOKIES (see data/README.md) or BB_PASSWORD"
-            );
-          }
-          console.log("  [face] Session required (login redirect or no face); logging in once for batch...");
-          // Try fast HTTP login first to get cookies, then set them on the Puppeteer page
-          try {
-            const cookieHeader = await getBuzzerbeaterCookieHeaderFromLogin();
-            if (cookieHeader) {
-              console.log("  [face] Got session cookies via HTTP login — setting on browser");
-              // Parse cookies and set them on the page
-              const cookiePairs = cookieHeader.split(";").map(s => s.trim()).filter(Boolean);
-              for (const pair of cookiePairs) {
-                const [name, ...valueParts] = pair.split("=");
-                const value = valueParts.join("=");
-                if (name && value) {
-                  await page.setCookie({ name: name.trim(), value: value.trim(), domain: "buzzerbeater.com" });
-                }
-              }
-              loggedIn = true;
-            }
-          } catch (httpErr) {
-            console.log("  [face] HTTP login failed, falling back to Puppeteer login:", httpErr.message);
-            await loginToBB(page);
-            loggedIn = true;
-          }
+        const html = buildFaceHtml({ bg, face, eyes, eyebrow, mouth, nose, hair });
+        if (DEBUG) {
+          const debugPath = join(__dirname, "../data", `debug_player_${id}.html`);
+          writeFileSync(debugPath, html, "utf-8");
         }
-
-        await page.goto(overviewUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-        if (isLoginUrl(page.url())) {
-          await saveDebug(page, "overview_after_login_still_login");
-          throw new Error("Still on login after session — cookie/session lost?");
-        }
-        if (!(await tryScreenshotFace(page, id))) {
-          await saveDebug(page, "no_face_container");
-          throw new Error(
-            "Face element not found (expected #cphContent_faceContainer > div.playerFace)"
-          );
-        }
+        await page.setContent(html, { waitUntil: "load" });
+        const el = await page.$("#faceBox");
+        if (!el) throw new Error("Failed to render #faceBox");
+        await el.screenshot({ path: outPath });
+        console.log("  [face] Saved", outPath);
       } catch (e) {
-        console.error(`[${i + 1}/${playerIds.length}] ${id} failed:`, e.message);
+        console.error(`[${i + 1}/${todoIds.length}] ${id} failed:`, e.message);
       }
-      await new Promise((r) => setTimeout(r, 2000));
     }
   } finally {
-    console.log("  [3/3] Closing browser");
     await browser.close();
   }
 }
@@ -248,9 +181,8 @@ async function fetchFacesBatch(playerIds) {
 async function run() {
   const playerIds = [];
   if (IS_SUPABASE) {
-    const season = EXPLICIT_ID
-      ? parseInt(EXPLICIT_ID, 10)
-      : Number(process.env.CURRENT_SEASON ?? process.env.NEXT_PUBLIC_CURRENT_SEASON ?? 71);
+    const explicitNum = EXPLICIT_ID ? parseInt(EXPLICIT_ID, 10) : NaN;
+    const season = Number.isFinite(explicitNum) && explicitNum > 0 ? explicitNum : resolveCurrentSeasonFromEnv();
     const { createClient } = await import("@supabase/supabase-js");
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
