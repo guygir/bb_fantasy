@@ -1,6 +1,6 @@
 {
   "season": 74,
-  "updatedAt": "2026-11-22T12:19:06.229Z",
+  "updatedAt": "2026-11-22T13:45:04.170Z",
   "players": {
     "55250800": {
       "name": "Oguzhan Beder",
@@ -7623,13 +7623,13 @@
     "55925595": {
       "name": "Vojtěch Paur",
       "countryId": 37,
-      "active": true,
+      "active": false,
       "stints": [
         {
           "fromWeek": 2,
-          "toWeek": null,
+          "toWeek": 2,
           "fromDate": "2026-11-22",
-          "toDate": null
+          "toDate": "2026-11-22"
         }
       ]
     },
