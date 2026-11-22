@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "source": "BBAPI",
+    "teamId": 1015,
+    "season": 74,
+    "fetched": "2026-11-22T12:08:18.949Z"
+  },
+  "matches": [
+    {
+      "id": "500006922",
+      "start": "2026-11-16T15:55:00Z",
+      "type": "nt.friendly",
+      "awayTeamId": "1011",
+      "awayTeamName": "France U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "ישראל U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114612",
+      "start": "2026-11-23T09:00:00Z",
+      "type": "nt.friendly",
+      "awayTeamId": "1045",
+      "awayTeamName": "香港 U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "ישראל U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114613",
+      "start": "2026-11-30T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1033",
+      "awayTeamName": "Україна U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "ישראל U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114614",
+      "start": "2026-12-07T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "ישראל U21",
+      "awayScore": null,
+      "homeTeamId": "1069",
+      "homeTeamName": "Suomi U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114615",
+      "start": "2026-12-14T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1037",
+      "awayTeamName": "Česko U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "ישראל U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114616",
+      "start": "2026-12-21T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "ישראל U21",
+      "awayScore": null,
+      "homeTeamId": "1026",
+      "homeTeamName": "Norge U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114617",
+      "start": "2026-12-28T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1006",
+      "awayTeamName": "Türkiye U21",
+      "awayScore": null,
+      "homeTeamId": "1015",
+      "homeTeamName": "ישראל U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114618",
+      "start": "2027-01-04T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "ישראל U21",
+      "awayScore": null,
+      "homeTeamId": "1077",
+      "homeTeamName": "Κύπρος U21",
+      "homeScore": null
+    },
+    {
+      "id": "500114619",
+      "start": "2027-01-11T19:30:00Z",
+      "type": "nt.roundrobin",
+      "awayTeamId": "1015",
+      "awayTeamName": "ישראל U21",
+      "awayScore": null,
+      "homeTeamId": "1081",
+      "homeTeamName": "Cymru U21",
+      "homeScore": null
+    }
+  ]
+}
