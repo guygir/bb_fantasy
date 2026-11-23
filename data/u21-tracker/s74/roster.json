@@ -1,8 +1,8 @@
 {
   "season": 74,
   "week": 2,
-  "date": "2026-11-22",
-  "updatedAt": "2026-11-22T13:45:04.170Z",
+  "date": "2026-11-23",
+  "updatedAt": "2026-11-23T16:45:23.766Z",
   "countries": [
     {
       "countryId": 75,
@@ -932,6 +932,10 @@
           "name": "Nahapet Manucharyan"
         },
         {
+          "playerId": 55990226,
+          "name": "Artour Komitasyan"
+        },
+        {
           "playerId": 55468324,
           "name": "Khacho Asdvadzaduryan"
         },
@@ -995,6 +999,10 @@
           "name": "Fanis Manoukarakis"
         },
         {
+          "playerId": 55310219,
+          "name": "Avraam Theoklitou"
+        },
+        {
           "playerId": 55587716,
           "name": "Marios Mpalamoutis"
         },
@@ -1017,6 +1025,10 @@
         {
           "playerId": 55309678,
           "name": "Antonios Papadoyiorgakis"
+        },
+        {
+          "playerId": 55309922,
+          "name": "Pavlos Lissaridis"
         },
         {
           "playerId": 55726736,
@@ -1299,6 +1311,10 @@
           "name": "Eilon Kalderon"
         },
         {
+          "playerId": 55333915,
+          "name": "Moshe Milo"
+        },
+        {
           "playerId": 55334224,
           "name": "Yechezkel Avramov"
         },
@@ -1384,6 +1400,10 @@
         {
           "playerId": 55277104,
           "name": "Scipio Rullo"
+        },
+        {
+          "playerId": 55279493,
+          "name": "Guido Cirrotti"
         },
         {
           "playerId": 55276681,
@@ -1850,10 +1870,6 @@
           "name": "George Westbroek"
         },
         {
-          "playerId": 55605489,
-          "name": "Henri Giesen"
-        },
-        {
           "playerId": 55605745,
           "name": "Wijnand Oosterveld"
         },
@@ -1862,16 +1878,8 @@
           "name": "Mathieu Nekkers"
         },
         {
-          "playerId": 55338072,
-          "name": "George Stuurman"
-        },
-        {
           "playerId": 55466897,
           "name": "Eppo Schreiner"
-        },
-        {
-          "playerId": 55605733,
-          "name": "Darren Wagter"
         },
         {
           "playerId": 55337946,
@@ -1892,10 +1900,6 @@
         {
           "playerId": 55464826,
           "name": "Alfonso de Zwart"
-        },
-        {
-          "playerId": 55605584,
-          "name": "Ernesto Bles"
         }
       ]
     },
@@ -2019,8 +2023,64 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 55419646,
+          "name": "Felix Tobias Kozmer"
+        },
+        {
+          "playerId": 55419857,
+          "name": "Jacek Kosiorek"
+        },
+        {
+          "playerId": 55420511,
+          "name": "Sylwester Leonczuk"
+        },
+        {
+          "playerId": 55421160,
+          "name": "Dominik Bartoszewicz"
+        },
+        {
+          "playerId": 55679877,
+          "name": "Włodzimierz Tylka"
+        },
+        {
+          "playerId": 55419752,
+          "name": "Albert Kwiatkowski"
+        },
+        {
+          "playerId": 55421476,
+          "name": "Błażej Łysakowski"
+        },
+        {
+          "playerId": 55677599,
+          "name": "Konrad Karpiel"
+        },
+        {
+          "playerId": 55678714,
+          "name": "Mirosław Żółtański"
+        },
+        {
+          "playerId": 55679662,
+          "name": "Stanisław Antończyk"
+        },
+        {
+          "playerId": 55678504,
+          "name": "Jerzy Kominiak"
+        },
+        {
+          "playerId": 55420768,
+          "name": "Filip Kopaczynski"
+        },
+        {
           "playerId": 55677723,
           "name": "Wojciech Goździewski"
+        },
+        {
+          "playerId": 55419673,
+          "name": "Damian Korulczyk"
+        },
+        {
+          "playerId": 55419555,
+          "name": "Eustachy Mołczan"
         }
       ]
     },
@@ -2467,8 +2527,16 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55439765,
+          "name": "Metod Glebov"
+        },
+        {
           "playerId": 55689060,
           "name": "Dore Lovreković"
+        },
+        {
+          "playerId": 55440194,
+          "name": "Hasim Vidovič"
         },
         {
           "playerId": 55688935,
@@ -2479,8 +2547,20 @@
           "name": "Bor Grilanc"
         },
         {
+          "playerId": 55439744,
+          "name": "Emil Dolenjšak"
+        },
+        {
+          "playerId": 55689458,
+          "name": "Nik Neuhold"
+        },
+        {
           "playerId": 55439747,
           "name": "Nikolaj Gorinšek"
+        },
+        {
+          "playerId": 55688921,
+          "name": "Mark Košmrl"
         },
         {
           "playerId": 55439925,
@@ -2489,6 +2569,10 @@
         {
           "playerId": 55688943,
           "name": "Tezej Tomaš"
+        },
+        {
+          "playerId": 55689184,
+          "name": "Brane Vinkšelj"
         }
       ]
     },
@@ -2565,12 +2649,28 @@
       "pool": "Pool D",
       "players": [
         {
+          "playerId": 55636036,
+          "name": "Vuk Kravić"
+        },
+        {
+          "playerId": 55636124,
+          "name": "Zoran Šestić"
+        },
+        {
+          "playerId": 55635439,
+          "name": "Dragan Lambulić"
+        },
+        {
+          "playerId": 55635388,
+          "name": "Milan Koturović"
+        },
+        {
           "playerId": 56154088,
           "name": "Márton Angyal"
         },
         {
-          "playerId": 55635554,
-          "name": "László Bodnár"
+          "playerId": 55635527,
+          "name": "Dragan Perić"
         },
         {
           "playerId": 55377239,
@@ -2583,6 +2683,18 @@
         {
           "playerId": 55376992,
           "name": "Lazar Vlastimirović"
+        },
+        {
+          "playerId": 55377432,
+          "name": "Dragan Ljubanović"
+        },
+        {
+          "playerId": 55635896,
+          "name": "Nikola Pokrajac"
+        },
+        {
+          "playerId": 55635593,
+          "name": "Slobodan Kojadinović"
         }
       ]
     },
@@ -2742,6 +2854,14 @@
           "name": "Bayram Saglamer"
         },
         {
+          "playerId": 55465503,
+          "name": "Talat Rençber"
+        },
+        {
+          "playerId": 55251751,
+          "name": "Gani Sarizambak"
+        },
+        {
           "playerId": 55251092,
           "name": "Bünyamin Özata"
         },
@@ -2754,6 +2874,10 @@
           "name": "Teoman Mümtaz"
         },
         {
+          "playerId": 55251315,
+          "name": "Kadim Muhtar"
+        },
+        {
           "playerId": 55554901,
           "name": "Ata Adni"
         },
@@ -2762,12 +2886,24 @@
           "name": "Önder Agirtas"
         },
         {
+          "playerId": 55555683,
+          "name": "Halil Ibrahim Çevik"
+        },
+        {
           "playerId": 55250800,
           "name": "Oguzhan Beder"
         },
         {
+          "playerId": 55555414,
+          "name": "Serif Kubat"
+        },
+        {
           "playerId": 55555647,
           "name": "Tunç Okergin"
+        },
+        {
+          "playerId": 55555111,
+          "name": "Hasan Gümbürt"
         }
       ]
     },

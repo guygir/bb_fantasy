@@ -9,6 +9,402 @@
       "playerId": 55925595,
       "name": "Vojtěch Paur",
       "type": "left"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 87,
+      "playerId": 55990226,
+      "name": "Artour Komitasyan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 12,
+      "playerId": 55310219,
+      "name": "Avraam Theoklitou",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 12,
+      "playerId": 55309922,
+      "name": "Pavlos Lissaridis",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 15,
+      "playerId": 55333915,
+      "name": "Moshe Milo",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 10,
+      "playerId": 55279493,
+      "name": "Guido Cirrotti",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 16,
+      "playerId": 55605489,
+      "name": "Henri Giesen",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 16,
+      "playerId": 55338072,
+      "name": "George Stuurman",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 16,
+      "playerId": 55605733,
+      "name": "Darren Wagter",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 16,
+      "playerId": 55605584,
+      "name": "Ernesto Bles",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55419646,
+      "name": "Felix Tobias Kozmer",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55419857,
+      "name": "Jacek Kosiorek",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55420511,
+      "name": "Sylwester Leonczuk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55421160,
+      "name": "Dominik Bartoszewicz",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55679877,
+      "name": "Włodzimierz Tylka",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55419752,
+      "name": "Albert Kwiatkowski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55421476,
+      "name": "Błażej Łysakowski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55677599,
+      "name": "Konrad Karpiel",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55678714,
+      "name": "Mirosław Żółtański",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55679662,
+      "name": "Stanisław Antończyk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55678504,
+      "name": "Jerzy Kominiak",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55420768,
+      "name": "Filip Kopaczynski",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55419673,
+      "name": "Damian Korulczyk",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 58,
+      "playerId": 55419555,
+      "name": "Eustachy Mołczan",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 66,
+      "playerId": 55439765,
+      "name": "Metod Glebov",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 66,
+      "playerId": 55440194,
+      "name": "Hasim Vidovič",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 66,
+      "playerId": 55439744,
+      "name": "Emil Dolenjšak",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 66,
+      "playerId": 55689458,
+      "name": "Nik Neuhold",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 66,
+      "playerId": 55688921,
+      "name": "Mark Košmrl",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 66,
+      "playerId": 55689184,
+      "name": "Brane Vinkšelj",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55636036,
+      "name": "Vuk Kravić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55636124,
+      "name": "Zoran Šestić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55635439,
+      "name": "Dragan Lambulić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55635388,
+      "name": "Milan Koturović",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55635527,
+      "name": "Dragan Perić",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55377432,
+      "name": "Dragan Ljubanović",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55635896,
+      "name": "Nikola Pokrajac",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55635593,
+      "name": "Slobodan Kojadinović",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 29,
+      "playerId": 55635554,
+      "name": "László Bodnár",
+      "type": "left"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 6,
+      "playerId": 55465503,
+      "name": "Talat Rençber",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 6,
+      "playerId": 55251751,
+      "name": "Gani Sarizambak",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 6,
+      "playerId": 55251315,
+      "name": "Kadim Muhtar",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 6,
+      "playerId": 55555683,
+      "name": "Halil Ibrahim Çevik",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 6,
+      "playerId": 55555414,
+      "name": "Serif Kubat",
+      "type": "joined"
+    },
+    {
+      "ts": "2026-11-23T16:45:23.766Z",
+      "date": "2026-11-23",
+      "week": 2,
+      "countryId": 6,
+      "playerId": 55555111,
+      "name": "Hasan Gümbürt",
+      "type": "joined"
     }
   ]
 }

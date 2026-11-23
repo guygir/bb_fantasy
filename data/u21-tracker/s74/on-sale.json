@@ -1,16 +1,32 @@
 {
   "season": 74,
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "week": 2,
-  "updatedAt": "2026-11-22T13:45:04.170Z",
+  "updatedAt": "2026-11-23T16:45:23.766Z",
   "players": [
     {
-      "playerId": 55411851,
-      "name": "Anton Dzuvalekovski",
-      "countryId": 49,
-      "countryName": "Makedonija",
+      "playerId": 55718991,
+      "name": "Martí Castell",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool D",
+      "dmi": 57229
+    },
+    {
+      "playerId": 55465292,
+      "name": "Maxim Pivko",
+      "countryId": 37,
+      "countryName": "Česká Rep.",
+      "pool": "Pool B",
+      "dmi": 69068
+    },
+    {
+      "playerId": 55712299,
+      "name": "Arnold Cutajar",
+      "countryId": 90,
+      "countryName": "Malta",
       "pool": "Pool E",
-      "dmi": 182844
+      "dmi": 38874
     },
     {
       "playerId": 55719025,
@@ -21,20 +37,52 @@
       "dmi": 49964
     },
     {
-      "playerId": 55347720,
-      "name": "Evgeny Nechkin",
-      "countryId": 19,
-      "countryName": "Rossiya",
-      "pool": "Pool A",
-      "dmi": 76907
+      "playerId": 55678504,
+      "name": "Jerzy Kominiak",
+      "countryId": 58,
+      "countryName": "Polska",
+      "pool": "Pool C",
+      "dmi": 141031
     },
     {
-      "playerId": 56230654,
-      "name": "Alfred MacHarold",
+      "playerId": 55686961,
+      "name": "Vefik Acahan",
+      "countryId": 62,
+      "countryName": "Sakartvelo",
+      "pool": "Pool C",
+      "dmi": 73412
+    },
+    {
+      "playerId": 55462481,
+      "name": "Kieran MacNuir",
       "countryId": 64,
       "countryName": "Scotland",
       "pool": "Pool E",
-      "dmi": 25824
+      "dmi": 74129
+    },
+    {
+      "playerId": 55718910,
+      "name": "Zani Shala",
+      "countryId": 79,
+      "countryName": "Shqipëria",
+      "pool": "Pool A",
+      "dmi": 37333
+    },
+    {
+      "playerId": 55439747,
+      "name": "Nikolaj Gorinšek",
+      "countryId": 66,
+      "countryName": "Slovenija",
+      "pool": "Pool F",
+      "dmi": 61511
+    },
+    {
+      "playerId": 55636036,
+      "name": "Vuk Kravić",
+      "countryId": 29,
+      "countryName": "Srbija",
+      "pool": "Pool D",
+      "dmi": 95261
     }
   ]
 }
