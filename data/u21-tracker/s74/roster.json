@@ -1,8 +1,8 @@
 {
   "season": 74,
   "week": 2,
-  "date": "2026-11-23",
-  "updatedAt": "2026-11-23T16:45:23.766Z",
+  "date": "2026-11-24",
+  "updatedAt": "2026-11-24T16:40:50.549Z",
   "countries": [
     {
       "countryId": 75,
@@ -991,6 +991,10 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55524248,
+          "name": "Nikos Zervos"
+        },
+        {
           "playerId": 55309305,
           "name": "Spiros Andreopoulos"
         },
@@ -1015,10 +1019,6 @@
           "name": "Manolakis Kiriakou"
         },
         {
-          "playerId": 55587355,
-          "name": "Grigoris Trachanopoulos"
-        },
-        {
           "playerId": 55587724,
           "name": "Yiorgos Masourakis"
         },
@@ -1027,16 +1027,8 @@
           "name": "Antonios Papadoyiorgakis"
         },
         {
-          "playerId": 55309922,
-          "name": "Pavlos Lissaridis"
-        },
-        {
           "playerId": 55726736,
           "name": "Argirios Mourlas"
-        },
-        {
-          "playerId": 55868597,
-          "name": "Peker Atifa"
         },
         {
           "playerId": 55309716,
@@ -1047,16 +1039,16 @@
           "name": "Michalis Gkinias"
         },
         {
+          "playerId": 55311403,
+          "name": "Manolis Siagris"
+        },
+        {
           "playerId": 55586509,
           "name": "Eftichios Spourdoulas"
         },
         {
-          "playerId": 55865834,
-          "name": "Haris Arzoumanidis"
-        },
-        {
-          "playerId": 55865752,
-          "name": "Alekos Exasferos"
+          "playerId": 55587359,
+          "name": "Paraskevas Pentaras"
         },
         {
           "playerId": 55587176,
@@ -1157,10 +1149,6 @@
           "name": "Gary Kelly"
         },
         {
-          "playerId": 55398588,
-          "name": "Mark Farrell"
-        },
-        {
           "playerId": 55398574,
           "name": "Scott Sullivan"
         },
@@ -1169,8 +1157,12 @@
           "name": "Humphrey Dineen"
         },
         {
-          "playerId": 55935410,
-          "name": "Paul Gavin"
+          "playerId": 55398603,
+          "name": "Henry Kilmartin"
+        },
+        {
+          "playerId": 55398676,
+          "name": "Austin MacBride"
         },
         {
           "playerId": 55462447,
@@ -1286,14 +1278,6 @@
       "name": "Israel",
       "pool": "Pool B",
       "players": [
-        {
-          "playerId": 55601531,
-          "name": "Matan Berko"
-        },
-        {
-          "playerId": 55601463,
-          "name": "Yehoshua Balili"
-        },
         {
           "playerId": 55334517,
           "name": "Yanir Revivo"
@@ -1894,10 +1878,6 @@
           "name": "Sacco Oldenburger"
         },
         {
-          "playerId": 55605552,
-          "name": "Edward Scholte"
-        },
-        {
           "playerId": 55464826,
           "name": "Alfonso de Zwart"
         }
@@ -2147,70 +2127,17 @@
       "countryId": 61,
       "name": "România",
       "pool": "Pool D",
-      "players": [
-        {
-          "playerId": 55436651,
-          "name": "Mihuț Popa"
-        },
-        {
-          "playerId": 55711557,
-          "name": "Octavian Cruceru"
-        },
-        {
-          "playerId": 55686067,
-          "name": "Silvian Nedelcu"
-        },
-        {
-          "playerId": 55685941,
-          "name": "Neluțu Tudorache"
-        },
-        {
-          "playerId": 55436744,
-          "name": "Marius Manolache"
-        },
-        {
-          "playerId": 55686247,
-          "name": "Nelu Dobritoiu"
-        },
-        {
-          "playerId": 55436617,
-          "name": "Ionel Vasile"
-        },
-        {
-          "playerId": 55436790,
-          "name": "Ovidiu Drãgoi"
-        },
-        {
-          "playerId": 55436794,
-          "name": "Ioan Vicol"
-        },
-        {
-          "playerId": 55686019,
-          "name": "Georgian Vochin"
-        },
-        {
-          "playerId": 55992814,
-          "name": "Miticã Dobrin"
-        },
-        {
-          "playerId": 55685820,
-          "name": "Miticã Dobrescu"
-        },
-        {
-          "playerId": 55964260,
-          "name": "Horațiu Radu"
-        },
-        {
-          "playerId": 55685999,
-          "name": "Vlãduț Marian"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 19,
       "name": "Rossiya",
       "pool": "Pool A",
       "players": [
+        {
+          "playerId": 55347720,
+          "name": "Evgeny Nechkin"
+        },
         {
           "playerId": 55614724,
           "name": "Moisey Tychino"
@@ -2270,10 +2197,6 @@
         {
           "playerId": 55614922,
           "name": "Marat Krestin"
-        },
-        {
-          "playerId": 55347720,
-          "name": "Evgeny Nechkin"
         },
         {
           "playerId": 55347223,
@@ -2870,6 +2793,10 @@
           "name": "Kerim Algim"
         },
         {
+          "playerId": 55841216,
+          "name": "Rüzgar Deniz"
+        },
+        {
           "playerId": 55555283,
           "name": "Teoman Mümtaz"
         },
@@ -2904,6 +2831,10 @@
         {
           "playerId": 55555111,
           "name": "Hasan Gümbürt"
+        },
+        {
+          "playerId": 55841500,
+          "name": "Haktan Serener"
         }
       ]
     },

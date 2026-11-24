@@ -1,8 +1,8 @@
 {
   "season": 74,
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "week": 2,
-  "updatedAt": "2026-11-23T16:45:23.766Z",
+  "updatedAt": "2026-11-24T16:40:50.549Z",
   "players": [
     {
       "playerId": 55718991,
@@ -10,7 +10,7 @@
       "countryId": 75,
       "countryName": "Andorra",
       "pool": "Pool D",
-      "dmi": 57229
+      "dmi": 19873
     },
     {
       "playerId": 55465292,
@@ -18,7 +18,7 @@
       "countryId": 37,
       "countryName": "Česká Rep.",
       "pool": "Pool B",
-      "dmi": 69068
+      "dmi": 58590
     },
     {
       "playerId": 55712299,
@@ -26,7 +26,7 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool E",
-      "dmi": 38874
+      "dmi": 26499
     },
     {
       "playerId": 55719025,
@@ -34,7 +34,7 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool E",
-      "dmi": 49964
+      "dmi": 72970
     },
     {
       "playerId": 55678504,
@@ -42,7 +42,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool C",
-      "dmi": 141031
+      "dmi": 12720
     },
     {
       "playerId": 55686961,
@@ -50,7 +50,7 @@
       "countryId": 62,
       "countryName": "Sakartvelo",
       "pool": "Pool C",
-      "dmi": 73412
+      "dmi": 12510
     },
     {
       "playerId": 55462481,
@@ -58,7 +58,7 @@
       "countryId": 64,
       "countryName": "Scotland",
       "pool": "Pool E",
-      "dmi": 74129
+      "dmi": 63424
     },
     {
       "playerId": 55718910,
@@ -66,7 +66,7 @@
       "countryId": 79,
       "countryName": "Shqipëria",
       "pool": "Pool A",
-      "dmi": 37333
+      "dmi": 7409
     },
     {
       "playerId": 55439747,
@@ -74,7 +74,7 @@
       "countryId": 66,
       "countryName": "Slovenija",
       "pool": "Pool F",
-      "dmi": 61511
+      "dmi": 81215
     },
     {
       "playerId": 55636036,
@@ -82,7 +82,15 @@
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "Pool D",
-      "dmi": 95261
+      "dmi": 117262
+    },
+    {
+      "playerId": 55251092,
+      "name": "Bünyamin Özata",
+      "countryId": 6,
+      "countryName": "Türkiye",
+      "pool": "Pool B",
+      "dmi": 86971
     }
   ]
 }
