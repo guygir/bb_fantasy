@@ -1,16 +1,16 @@
 {
   "season": 74,
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "week": 2,
-  "updatedAt": "2026-11-24T16:40:50.549Z",
+  "updatedAt": "2026-11-25T16:24:00.034Z",
   "players": [
     {
-      "playerId": 55718991,
-      "name": "Martí Castell",
-      "countryId": 75,
-      "countryName": "Andorra",
+      "playerId": 55709525,
+      "name": "Apanas Zholnacz",
+      "countryId": 85,
+      "countryName": "Belarus",
       "pool": "Pool D",
-      "dmi": 19873
+      "dmi": 17272
     },
     {
       "playerId": 55465292,
@@ -18,7 +18,7 @@
       "countryId": 37,
       "countryName": "Česká Rep.",
       "pool": "Pool B",
-      "dmi": 58590
+      "dmi": 32386
     },
     {
       "playerId": 55712299,
@@ -26,7 +26,7 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool E",
-      "dmi": 26499
+      "dmi": 92732
     },
     {
       "playerId": 55719025,
@@ -34,7 +34,15 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool E",
-      "dmi": 72970
+      "dmi": 140773
+    },
+    {
+      "playerId": 55718758,
+      "name": "Sergey Belovol",
+      "countryId": 86,
+      "countryName": "Moldova",
+      "pool": "Pool D",
+      "dmi": 15155
     },
     {
       "playerId": 55678504,
@@ -42,7 +50,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool C",
-      "dmi": 12720
+      "dmi": 21927
     },
     {
       "playerId": 55686961,
@@ -50,7 +58,7 @@
       "countryId": 62,
       "countryName": "Sakartvelo",
       "pool": "Pool C",
-      "dmi": 12510
+      "dmi": 100610
     },
     {
       "playerId": 55462481,
@@ -58,15 +66,7 @@
       "countryId": 64,
       "countryName": "Scotland",
       "pool": "Pool E",
-      "dmi": 63424
-    },
-    {
-      "playerId": 55718910,
-      "name": "Zani Shala",
-      "countryId": 79,
-      "countryName": "Shqipëria",
-      "pool": "Pool A",
-      "dmi": 7409
+      "dmi": 16438
     },
     {
       "playerId": 55439747,
@@ -74,7 +74,7 @@
       "countryId": 66,
       "countryName": "Slovenija",
       "pool": "Pool F",
-      "dmi": 81215
+      "dmi": 134801
     },
     {
       "playerId": 55636036,
@@ -82,7 +82,7 @@
       "countryId": 29,
       "countryName": "Srbija",
       "pool": "Pool D",
-      "dmi": 117262
+      "dmi": 79782
     },
     {
       "playerId": 55251092,
@@ -90,7 +90,7 @@
       "countryId": 6,
       "countryName": "Türkiye",
       "pool": "Pool B",
-      "dmi": 86971
+      "dmi": 15786
     }
   ]
 }

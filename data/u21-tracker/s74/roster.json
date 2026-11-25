@@ -1,8 +1,8 @@
 {
   "season": 74,
   "week": 2,
-  "date": "2026-11-24",
-  "updatedAt": "2026-11-24T16:40:50.549Z",
+  "date": "2026-11-25",
+  "updatedAt": "2026-11-25T16:24:00.034Z",
   "countries": [
     {
       "countryId": 75,
@@ -197,10 +197,6 @@
         {
           "playerId": 55325985,
           "name": "Elias Mathieu"
-        },
-        {
-          "playerId": 55325826,
-          "name": "Dylan Bogemans"
         },
         {
           "playerId": 55326010,
@@ -512,7 +508,28 @@
       "countryId": 81,
       "name": "Cymru",
       "pool": "Pool B",
-      "players": []
+      "players": [
+        {
+          "playerId": 55468163,
+          "name": "Lewis Pryce"
+        },
+        {
+          "playerId": 55464277,
+          "name": "Mark Maric"
+        },
+        {
+          "playerId": 55461699,
+          "name": "Jonathan MacFergus"
+        },
+        {
+          "playerId": 55997238,
+          "name": "Dick Duguid"
+        },
+        {
+          "playerId": 55711002,
+          "name": "Duncan Gluckman"
+        }
+      ]
     },
     {
       "countryId": 77,
@@ -944,6 +961,14 @@
           "name": "Gagik Vartanyan"
         },
         {
+          "playerId": 56232323,
+          "name": "Naim Belen"
+        },
+        {
+          "playerId": 56237668,
+          "name": "Hambartsoum Soghomonyan"
+        },
+        {
           "playerId": 55466813,
           "name": "Haik Garbisyan"
         },
@@ -962,6 +987,10 @@
         {
           "playerId": 55718750,
           "name": "Babken Ovagimyan"
+        },
+        {
+          "playerId": 56233235,
+          "name": "Artour Yezikyan"
         },
         {
           "playerId": 55712234,
@@ -1807,16 +1836,56 @@
       "pool": "Pool D",
       "players": [
         {
+          "playerId": 55997357,
+          "name": "Stoyan Todorov"
+        },
+        {
+          "playerId": 55713181,
+          "name": "Vicu Dobrovolschi"
+        },
+        {
           "playerId": 55463282,
           "name": "Aurel Filimon"
+        },
+        {
+          "playerId": 55716130,
+          "name": "Filip Osadciuc"
+        },
+        {
+          "playerId": 55468116,
+          "name": "Haralambie Ciudin"
+        },
+        {
+          "playerId": 55718734,
+          "name": "Alexei Stroescu"
+        },
+        {
+          "playerId": 55468131,
+          "name": "Ion Caldare"
+        },
+        {
+          "playerId": 55711176,
+          "name": "Ristea Nistor"
         },
         {
           "playerId": 55715389,
           "name": "Vicusor Ababii"
         },
         {
+          "playerId": 55718758,
+          "name": "Sergey Belovol"
+        },
+        {
           "playerId": 55712793,
           "name": "Eduard Tripac"
+        },
+        {
+          "playerId": 55715186,
+          "name": "Roman Cernei"
+        },
+        {
+          "playerId": 55711401,
+          "name": "Victoras Mirza"
         },
         {
           "playerId": 55989181,
@@ -1889,20 +1958,12 @@
       "pool": "Pool B",
       "players": [
         {
-          "playerId": 55712667,
-          "name": "Leif Ludvig Gustavsen"
-        },
-        {
           "playerId": 55712141,
           "name": "Kåre Hauge"
         },
         {
           "playerId": 55712974,
           "name": "Gøran Sæther"
-        },
-        {
-          "playerId": 55464651,
-          "name": "Per Damgaard"
         },
         {
           "playerId": 55632195,
@@ -1915,10 +1976,6 @@
         {
           "playerId": 55373942,
           "name": "Harald Martin Nordberg"
-        },
-        {
-          "playerId": 55373895,
-          "name": "Helge Dahl"
         },
         {
           "playerId": 55993310,
@@ -1966,6 +2023,10 @@
         {
           "playerId": 55633245,
           "name": "Axel Trattner"
+        },
+        {
+          "playerId": 55633215,
+          "name": "Christian Bultmann"
         },
         {
           "playerId": 55374827,
@@ -2210,6 +2271,14 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 55437719,
+          "name": "Dudu Shurghaia"
+        },
+        {
+          "playerId": 55437658,
+          "name": "Gaga Khubulava"
+        },
+        {
           "playerId": 55686993,
           "name": "Dato Rekhviashvili"
         },
@@ -2226,12 +2295,52 @@
           "name": "Illarion Ermolenko"
         },
         {
+          "playerId": 55686964,
+          "name": "Kakha Chedia"
+        },
+        {
+          "playerId": 55437828,
+          "name": "Kukuri Chkonia"
+        },
+        {
+          "playerId": 55686834,
+          "name": "Vaso Jokhadze"
+        },
+        {
+          "playerId": 55726145,
+          "name": "Buba Norakidze"
+        },
+        {
+          "playerId": 55712275,
+          "name": "Valeri Gureshidze"
+        },
+        {
+          "playerId": 55437799,
+          "name": "Lado Kalichava"
+        },
+        {
           "playerId": 55686831,
           "name": "Gigi Devdariani"
         },
         {
+          "playerId": 55710814,
+          "name": "Renat Badelin"
+        },
+        {
+          "playerId": 55713499,
+          "name": "Zura Lekiashvili"
+        },
+        {
           "playerId": 55437648,
           "name": "Valery Sologub"
+        },
+        {
+          "playerId": 55711317,
+          "name": "Valeri Aleksidze"
+        },
+        {
+          "playerId": 55686938,
+          "name": "Dato Kavtaradze"
         }
       ]
     },
@@ -2387,28 +2496,16 @@
           "name": "Bleart Boletini"
         },
         {
+          "playerId": 56237488,
+          "name": "Sugar Jouret"
+        },
+        {
           "playerId": 55713937,
           "name": "Pashk Mujedini"
         },
         {
           "playerId": 55710901,
           "name": "Edi Abdurrahmani"
-        },
-        {
-          "playerId": 55715503,
-          "name": "Drin Beka"
-        },
-        {
-          "playerId": 55992350,
-          "name": "Edin Cana"
-        },
-        {
-          "playerId": 56234047,
-          "name": "Valmir Ligoreci"
-        },
-        {
-          "playerId": 55713701,
-          "name": "Dritor Zelj"
         },
         {
           "playerId": 55713279,
@@ -2431,16 +2528,12 @@
           "name": "Marnesh Dushku"
         },
         {
-          "playerId": 55710800,
-          "name": "Perinjak Hila"
+          "playerId": 56233080,
+          "name": "Mentor Cakaj"
         },
         {
-          "playerId": 55718910,
-          "name": "Zani Shala"
-        },
-        {
-          "playerId": 55464867,
-          "name": "Gazmadh Bregu"
+          "playerId": 55715175,
+          "name": "Ulkan Kolgeci"
         }
       ]
     },
