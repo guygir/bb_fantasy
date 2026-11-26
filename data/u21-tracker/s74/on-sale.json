@@ -1,16 +1,24 @@
 {
   "season": 74,
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "week": 2,
-  "updatedAt": "2026-11-25T16:24:00.034Z",
+  "updatedAt": "2026-11-26T15:58:30.962Z",
   "players": [
+    {
+      "playerId": 55718991,
+      "name": "Martí Castell",
+      "countryId": 75,
+      "countryName": "Andorra",
+      "pool": "Pool D",
+      "dmi": 55967
+    },
     {
       "playerId": 55709525,
       "name": "Apanas Zholnacz",
       "countryId": 85,
       "countryName": "Belarus",
       "pool": "Pool D",
-      "dmi": 17272
+      "dmi": 15080
     },
     {
       "playerId": 55465292,
@@ -18,23 +26,15 @@
       "countryId": 37,
       "countryName": "Česká Rep.",
       "pool": "Pool B",
-      "dmi": 32386
+      "dmi": 42976
     },
     {
-      "playerId": 55712299,
-      "name": "Arnold Cutajar",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool E",
-      "dmi": 92732
-    },
-    {
-      "playerId": 55719025,
-      "name": "Josef Lauri",
-      "countryId": 90,
-      "countryName": "Malta",
-      "pool": "Pool E",
-      "dmi": 140773
+      "playerId": 55716087,
+      "name": "Moša Pantić",
+      "countryId": 24,
+      "countryName": "Hrvatska",
+      "pool": "Pool C",
+      "dmi": 13413
     },
     {
       "playerId": 55718758,
@@ -42,7 +42,7 @@
       "countryId": 86,
       "countryName": "Moldova",
       "pool": "Pool D",
-      "dmi": 15155
+      "dmi": 100878
     },
     {
       "playerId": 55678504,
@@ -50,15 +50,15 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool C",
-      "dmi": 21927
+      "dmi": 117723
     },
     {
-      "playerId": 55686961,
-      "name": "Vefik Acahan",
-      "countryId": 62,
-      "countryName": "Sakartvelo",
-      "pool": "Pool C",
-      "dmi": 100610
+      "playerId": 55436592,
+      "name": "Gheorghe Selymes",
+      "countryId": 61,
+      "countryName": "România",
+      "pool": "Pool D",
+      "dmi": 54580
     },
     {
       "playerId": 55462481,
@@ -66,23 +66,7 @@
       "countryId": 64,
       "countryName": "Scotland",
       "pool": "Pool E",
-      "dmi": 16438
-    },
-    {
-      "playerId": 55439747,
-      "name": "Nikolaj Gorinšek",
-      "countryId": 66,
-      "countryName": "Slovenija",
-      "pool": "Pool F",
-      "dmi": 134801
-    },
-    {
-      "playerId": 55636036,
-      "name": "Vuk Kravić",
-      "countryId": 29,
-      "countryName": "Srbija",
-      "pool": "Pool D",
-      "dmi": 79782
+      "dmi": 87595
     },
     {
       "playerId": 55251092,
@@ -90,7 +74,7 @@
       "countryId": 6,
       "countryName": "Türkiye",
       "pool": "Pool B",
-      "dmi": 15786
+      "dmi": 108940
     }
   ]
 }
