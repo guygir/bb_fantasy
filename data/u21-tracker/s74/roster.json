@@ -2,7 +2,7 @@
   "season": 74,
   "week": 2,
   "date": "2026-11-27",
-  "updatedAt": "2026-11-27T15:46:42.196Z",
+  "updatedAt": "2026-11-27T19:41:11.670Z",
   "countries": [
     {
       "countryId": 75,
@@ -1693,8 +1693,12 @@
           "name": "Ismail Schaut"
         },
         {
-          "playerId": 55948824,
-          "name": "Hugo Ladinski"
+          "playerId": 55711470,
+          "name": "Stojan Mijalkov"
+        },
+        {
+          "playerId": 55714082,
+          "name": "Arbian Nepravishta"
         },
         {
           "playerId": 55670350,
@@ -1709,24 +1713,12 @@
           "name": "Gligorij Shumkovski"
         },
         {
-          "playerId": 55670354,
-          "name": "Stojan Stojkovski"
+          "playerId": 55992017,
+          "name": "Tosho Olajdzajkovski"
         },
         {
-          "playerId": 55715758,
-          "name": "Bobi Dzingo"
-        },
-        {
-          "playerId": 55670335,
-          "name": "Jakim Frckovski"
-        },
-        {
-          "playerId": 55670331,
-          "name": "Kostadinco Kucherski"
-        },
-        {
-          "playerId": 55948796,
-          "name": "Abdal Todorovski"
+          "playerId": 55670458,
+          "name": "Tihi Evroski"
         },
         {
           "playerId": 55670330,
@@ -1743,6 +1735,10 @@
         {
           "playerId": 55411851,
           "name": "Anton Dzuvalekovski"
+        },
+        {
+          "playerId": 55463468,
+          "name": "Tase Dreshic"
         },
         {
           "playerId": 55466146,
@@ -2122,12 +2118,12 @@
       "pool": "Pool A",
       "players": [
         {
-          "playerId": 55343761,
-          "name": "Edgar Sabrosa"
-        },
-        {
           "playerId": 55343502,
           "name": "Maximino Chaves"
+        },
+        {
+          "playerId": 55343761,
+          "name": "Edgar Sabrosa"
         },
         {
           "playerId": 55343485,
@@ -2219,14 +2215,6 @@
         {
           "playerId": 55436794,
           "name": "Ioan Vicol"
-        },
-        {
-          "playerId": 56204275,
-          "name": "Radu Rizea"
-        },
-        {
-          "playerId": 56204242,
-          "name": "Victor Popa"
         },
         {
           "playerId": 56204417,
@@ -2363,20 +2351,12 @@
           "name": "Kakha Chedia"
         },
         {
-          "playerId": 55437828,
-          "name": "Kukuri Chkonia"
-        },
-        {
           "playerId": 55686834,
           "name": "Vaso Jokhadze"
         },
         {
           "playerId": 55726145,
           "name": "Buba Norakidze"
-        },
-        {
-          "playerId": 55712275,
-          "name": "Valeri Gureshidze"
         },
         {
           "playerId": 55437799,
@@ -2401,10 +2381,6 @@
         {
           "playerId": 55711317,
           "name": "Valeri Aleksidze"
-        },
-        {
-          "playerId": 55686938,
-          "name": "Dato Kavtaradze"
         }
       ]
     },
@@ -2948,20 +2924,8 @@
           "name": "Piotra Zian'ko"
         },
         {
-          "playerId": 55463608,
-          "name": "Klim Oshipko"
-        },
-        {
-          "playerId": 55640791,
-          "name": "Radomyr Kopzyuh"
-        },
-        {
           "playerId": 55382389,
           "name": "Vladyslav Popko"
-        },
-        {
-          "playerId": 55382166,
-          "name": "Stepan Kornishov"
         },
         {
           "playerId": 55382183,
@@ -2972,40 +2936,16 @@
           "name": "Dmytro Sharov"
         },
         {
-          "playerId": 55640680,
-          "name": "Roman Bovdur"
-        },
-        {
           "playerId": 55382160,
           "name": "Shmavon Karapetyan"
-        },
-        {
-          "playerId": 55382493,
-          "name": "Vasyl Zherzh"
         },
         {
           "playerId": 55382302,
           "name": "Vladimir Shkirin"
         },
         {
-          "playerId": 55640584,
-          "name": "Vojtus' Zagortsau"
-        },
-        {
-          "playerId": 55640784,
-          "name": "Dumitru Sutula"
-        },
-        {
-          "playerId": 55640595,
-          "name": "Andriy Bashlay"
-        },
-        {
           "playerId": 55382429,
           "name": "Yan Klimov"
-        },
-        {
-          "playerId": 55640668,
-          "name": "Olexiy Sviderskiy"
         }
       ]
     }

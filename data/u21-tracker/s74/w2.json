@@ -1,7 +1,7 @@
 {
   "season": 74,
   "week": 2,
-  "scrapedAt": "2026-11-22T12:19:06.229Z",
+  "scrapedAt": "2026-11-27T19:41:11.670Z",
   "source": "https://legacy.buzzerbeater.com/world/standings?teamid=1015",
   "countries": [
     {
@@ -12,44 +12,44 @@
         {
           "playerId": 55711600,
           "name": "Francesc Piferrer",
-          "dmi": 49779,
-          "gameShape": 7,
-          "salary": 10271
+          "dmi": 25510,
+          "gameShape": 1,
+          "salary": 51547
         },
         {
           "playerId": 55718991,
           "name": "Martí Castell",
-          "dmi": 57229,
+          "dmi": 61544,
           "gameShape": 7,
-          "salary": 15082
+          "salary": 149097
         },
         {
           "playerId": 55466963,
           "name": "Ferran Angulo",
-          "dmi": 95651,
-          "gameShape": 7,
-          "salary": 20967
+          "dmi": 37408,
+          "gameShape": 5,
+          "salary": 47735
         },
         {
           "playerId": 55713050,
           "name": "Daniel Obrador",
-          "dmi": 61531,
-          "gameShape": 7,
-          "salary": 14361
+          "dmi": 119459,
+          "gameShape": 8,
+          "salary": 59881
         },
         {
           "playerId": 55463389,
           "name": "Pol Escribà",
-          "dmi": 65298,
-          "gameShape": 7,
-          "salary": 14251
+          "dmi": 126641,
+          "gameShape": 8,
+          "salary": 44167
         },
         {
           "playerId": 55715428,
           "name": "Lluís Colobran",
-          "dmi": 121325,
-          "gameShape": 7,
-          "salary": 27913
+          "dmi": 97699,
+          "gameShape": 6,
+          "salary": 17483
         }
       ]
     },
@@ -61,121 +61,121 @@
         {
           "playerId": 55992485,
           "name": "Xan Muxtarov",
-          "dmi": 45129,
-          "gameShape": 7,
-          "salary": 10138
+          "dmi": 29243,
+          "gameShape": 5,
+          "salary": 160052
         },
         {
           "playerId": 55461555,
           "name": "Afşar Zeynalov",
-          "dmi": 94291,
-          "gameShape": 7,
-          "salary": 20372
+          "dmi": 105325,
+          "gameShape": 5,
+          "salary": 171244
         },
         {
           "playerId": 55469389,
           "name": "Serin Abdulla",
-          "dmi": 106103,
-          "gameShape": 7,
-          "salary": 25718
+          "dmi": 53073,
+          "gameShape": 2,
+          "salary": 36569
         },
         {
           "playerId": 55992249,
           "name": "Elşən Əlibabyev",
-          "dmi": 46003,
-          "gameShape": 7,
-          "salary": 10002
+          "dmi": 134390,
+          "gameShape": 2,
+          "salary": 104958
         },
         {
           "playerId": 55715979,
           "name": "Aras Qərabəyli",
-          "dmi": 54178,
-          "gameShape": 7,
-          "salary": 12867
+          "dmi": 131140,
+          "gameShape": 6,
+          "salary": 8070
         },
         {
           "playerId": 55463232,
           "name": "Selgüc Hasanov",
-          "dmi": 59498,
+          "dmi": 91823,
           "gameShape": 7,
-          "salary": 14191
+          "salary": 146328
         },
         {
           "playerId": 55712779,
           "name": "Geray Musayev",
-          "dmi": 37695,
-          "gameShape": 7,
-          "salary": 9416
+          "dmi": 131892,
+          "gameShape": 2,
+          "salary": 35553
         },
         {
           "playerId": 55991604,
           "name": "Baysu Həşimov",
-          "dmi": 85586,
-          "gameShape": 7,
-          "salary": 18093
+          "dmi": 146562,
+          "gameShape": 9,
+          "salary": 10737
         },
         {
           "playerId": 55465734,
           "name": "Gelenovca Şirinov",
-          "dmi": 39639,
-          "gameShape": 7,
-          "salary": 9297
+          "dmi": 110905,
+          "gameShape": 9,
+          "salary": 89599
         },
         {
           "playerId": 55466338,
           "name": "Həsən Mikayilov",
-          "dmi": 127209,
-          "gameShape": 7,
-          "salary": 31771
+          "dmi": 11456,
+          "gameShape": 6,
+          "salary": 82355
         },
         {
           "playerId": 55462755,
           "name": "Olcay Əlizadə",
-          "dmi": 47851,
-          "gameShape": 7,
-          "salary": 12632
+          "dmi": 19139,
+          "gameShape": 9,
+          "salary": 20955
         },
         {
           "playerId": 55463408,
           "name": "Ayman Əjdərov",
-          "dmi": 148712,
+          "dmi": 40775,
           "gameShape": 7,
-          "salary": 28937
+          "salary": 172732
         },
         {
           "playerId": 55710701,
           "name": "Əfsələddin Alizada",
-          "dmi": 39719,
-          "gameShape": 7,
-          "salary": 9319
+          "dmi": 87722,
+          "gameShape": 3,
+          "salary": 18323
         },
         {
           "playerId": 55720038,
           "name": "Qayım Bayramov",
-          "dmi": 82566,
-          "gameShape": 7,
-          "salary": 19958
+          "dmi": 50703,
+          "gameShape": 6,
+          "salary": 78019
         },
         {
           "playerId": 55713952,
           "name": "Ruslan Yolçuyev",
-          "dmi": 67523,
+          "dmi": 68837,
           "gameShape": 7,
-          "salary": 15409
+          "salary": 67038
         },
         {
           "playerId": 55712282,
           "name": "Bahadır Vekilov",
-          "dmi": 54291,
-          "gameShape": 7,
-          "salary": 12781
+          "dmi": 34011,
+          "gameShape": 6,
+          "salary": 151151
         },
         {
           "playerId": 55715306,
           "name": "Gennady Fil",
-          "dmi": 63300,
-          "gameShape": 7,
-          "salary": 14791
+          "dmi": 61143,
+          "gameShape": 6,
+          "salary": 61399
         }
       ]
     },
@@ -185,116 +185,88 @@
       "pool": "Pool D",
       "players": [
         {
-          "playerId": 55709525,
-          "name": "Apanas Zholnacz",
-          "dmi": 51129,
-          "gameShape": 7,
-          "salary": 13880
-        },
-        {
           "playerId": 55460319,
           "name": "Hipalit Larszyk",
-          "dmi": 83255,
-          "gameShape": 7,
-          "salary": 18723
+          "dmi": 1269,
+          "gameShape": 4,
+          "salary": 157193
         },
         {
           "playerId": 55460356,
           "name": "Jakub Al'hovik",
-          "dmi": 73751,
-          "gameShape": 7,
-          "salary": 16845
+          "dmi": 87406,
+          "gameShape": 8,
+          "salary": 188232
         },
         {
           "playerId": 55460321,
           "name": "Alexey Soloninkin",
-          "dmi": 132747,
-          "gameShape": 7,
-          "salary": 26324
+          "dmi": 81467,
+          "gameShape": 5,
+          "salary": 90324
         },
         {
           "playerId": 55460322,
           "name": "Makar Atrakhovich",
-          "dmi": 114648,
-          "gameShape": 7,
-          "salary": 23819
+          "dmi": 29010,
+          "gameShape": 9,
+          "salary": 42130
         },
         {
           "playerId": 55464508,
           "name": "Vitaut Markijanau",
-          "dmi": 178726,
-          "gameShape": 7,
-          "salary": 31948
-        },
-        {
-          "playerId": 55709502,
-          "name": "Siarhey Kirykovich",
-          "dmi": 44644,
-          "gameShape": 7,
-          "salary": 12157
+          "dmi": 119890,
+          "gameShape": 3,
+          "salary": 109133
         },
         {
           "playerId": 55709510,
           "name": "Arhip Zubkovich",
-          "dmi": 111665,
+          "dmi": 102347,
           "gameShape": 7,
-          "salary": 27600
-        },
-        {
-          "playerId": 55709501,
-          "name": "Davyd Maistruk",
-          "dmi": 195513,
-          "gameShape": 7,
-          "salary": 35108
+          "salary": 29311
         },
         {
           "playerId": 55709526,
           "name": "Zbigniew Denko",
-          "dmi": 54384,
-          "gameShape": 7,
-          "salary": 11867
+          "dmi": 39800,
+          "gameShape": 9,
+          "salary": 47015
         },
         {
           "playerId": 55460373,
           "name": "Nestser Petrykau",
-          "dmi": 169167,
-          "gameShape": 7,
-          "salary": 36180
+          "dmi": 129900,
+          "gameShape": 9,
+          "salary": 177224
         },
         {
           "playerId": 55460433,
           "name": "Antsip Tsyrul'",
-          "dmi": 135139,
-          "gameShape": 7,
-          "salary": 28694
+          "dmi": 39016,
+          "gameShape": 6,
+          "salary": 102479
         },
         {
           "playerId": 55709531,
           "name": "Siarhey Miadouski",
-          "dmi": 226537,
-          "gameShape": 7,
-          "salary": 45763
-        },
-        {
-          "playerId": 55987896,
-          "name": "Juras' Alizarchyk",
-          "dmi": 38035,
-          "gameShape": 7,
-          "salary": 10243
+          "dmi": 138788,
+          "gameShape": 6,
+          "salary": 176773
         },
         {
           "playerId": 55460439,
           "name": "Liaksej Ratau",
-          "dmi": 179841,
-          "gameShape": 7,
-          "salary": 32775
+          "dmi": 100186,
+          "gameShape": 2,
+          "salary": 164876
         },
         {
           "playerId": 55709569,
           "name": "Vojtus' Bakuta",
-          "dmi": 95897,
-          "gameShape": 7,
-          "salary": 18983
+          "dmi": 78598,
+          "gameShape": 6,
+          "salary": 29355
         }
       ]
     },
@@ -304,109 +276,95 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55593310,
-          "name": "Willy Moons",
-          "dmi": 60894,
-          "gameShape": 7,
-          "salary": 14535
-        },
-        {
           "playerId": 55710878,
           "name": "Olaf Perelman",
-          "dmi": 118215,
-          "gameShape": 7,
-          "salary": 24798
+          "dmi": 130568,
+          "gameShape": 8,
+          "salary": 10276
         },
         {
           "playerId": 55325985,
           "name": "Elias Mathieu",
-          "dmi": 103742,
-          "gameShape": 7,
-          "salary": 22428
-        },
-        {
-          "playerId": 55325826,
-          "name": "Dylan Bogemans",
-          "dmi": 107598,
-          "gameShape": 7,
-          "salary": 25786
+          "dmi": 144229,
+          "gameShape": 8,
+          "salary": 187057
         },
         {
           "playerId": 55326010,
           "name": "Nemo De Laere",
-          "dmi": 94337,
-          "gameShape": 7,
-          "salary": 21640
+          "dmi": 122891,
+          "gameShape": 6,
+          "salary": 4686
         },
         {
           "playerId": 55326187,
           "name": "Colin Blommaerts",
-          "dmi": 126000,
-          "gameShape": 7,
-          "salary": 29057
+          "dmi": 130768,
+          "gameShape": 5,
+          "salary": 139992
         },
         {
           "playerId": 55326120,
           "name": "Mahmoud Ali",
-          "dmi": 297060,
-          "gameShape": 7,
-          "salary": 47440
+          "dmi": 23467,
+          "gameShape": 1,
+          "salary": 25509
         },
         {
           "playerId": 55325934,
           "name": "Noah Robbens",
-          "dmi": 183251,
-          "gameShape": 7,
-          "salary": 35300
+          "dmi": 98433,
+          "gameShape": 8,
+          "salary": 187701
         },
         {
           "playerId": 55325763,
           "name": "Marijn Hennuy",
-          "dmi": 146011,
-          "gameShape": 7,
-          "salary": 29417
+          "dmi": 14899,
+          "gameShape": 4,
+          "salary": 168735
         },
         {
           "playerId": 55714987,
           "name": "Marnix Lefevre",
-          "dmi": 94871,
-          "gameShape": 7,
-          "salary": 21439
+          "dmi": 37857,
+          "gameShape": 1,
+          "salary": 138317
         },
         {
           "playerId": 55326063,
           "name": "Seth Delcart",
-          "dmi": 307324,
-          "gameShape": 7,
-          "salary": 50968
+          "dmi": 72325,
+          "gameShape": 3,
+          "salary": 90292
         },
         {
           "playerId": 55325879,
           "name": "Mouss N'Dao",
-          "dmi": 263932,
-          "gameShape": 7,
-          "salary": 55456
+          "dmi": 129519,
+          "gameShape": 3,
+          "salary": 55762
         },
         {
           "playerId": 55326119,
           "name": "Edmundo Moutinho",
-          "dmi": 210272,
-          "gameShape": 7,
-          "salary": 38132
+          "dmi": 17276,
+          "gameShape": 3,
+          "salary": 178784
         },
         {
           "playerId": 55593685,
           "name": "Milan Leuntjens",
-          "dmi": 67241,
-          "gameShape": 7,
-          "salary": 14754
+          "dmi": 66587,
+          "gameShape": 3,
+          "salary": 123091
         },
         {
           "playerId": 55326188,
           "name": "Oleg De Leyn",
-          "dmi": 269383,
-          "gameShape": 7,
-          "salary": 51266
+          "dmi": 27234,
+          "gameShape": 8,
+          "salary": 159426
         }
       ]
     },
@@ -418,121 +376,121 @@
         {
           "playerId": 55383469,
           "name": "Dino Zjalić",
-          "dmi": 93059,
-          "gameShape": 7,
-          "salary": 20774
+          "dmi": 98969,
+          "gameShape": 1,
+          "salary": 189216
         },
         {
           "playerId": 55465496,
           "name": "Igor Lučić",
-          "dmi": 382436,
-          "gameShape": 7,
-          "salary": 62696
+          "dmi": 7475,
+          "gameShape": 2,
+          "salary": 154690
         },
         {
           "playerId": 55462810,
           "name": "Mahir Mucinić",
-          "dmi": 424590,
-          "gameShape": 7,
-          "salary": 78775
+          "dmi": 40121,
+          "gameShape": 6,
+          "salary": 166985
         },
         {
           "playerId": 55383234,
           "name": "Vahid Kuduzović",
-          "dmi": 205303,
-          "gameShape": 7,
-          "salary": 42055
+          "dmi": 110059,
+          "gameShape": 3,
+          "salary": 49471
         },
         {
           "playerId": 55383200,
           "name": "Safet Hajduković",
-          "dmi": 127418,
-          "gameShape": 7,
-          "salary": 27945
+          "dmi": 15976,
+          "gameShape": 1,
+          "salary": 182015
         },
         {
           "playerId": 55383344,
           "name": "Edin Vlašić",
-          "dmi": 92817,
-          "gameShape": 7,
-          "salary": 20633
+          "dmi": 50946,
+          "gameShape": 1,
+          "salary": 106886
         },
         {
           "playerId": 55383454,
           "name": "Nadir Balić",
-          "dmi": 98878,
-          "gameShape": 7,
-          "salary": 21535
+          "dmi": 52512,
+          "gameShape": 5,
+          "salary": 69714
         },
         {
           "playerId": 55383211,
           "name": "Vid Omrčen",
-          "dmi": 76876,
-          "gameShape": 7,
-          "salary": 18422
+          "dmi": 41132,
+          "gameShape": 4,
+          "salary": 105865
         },
         {
           "playerId": 55383347,
           "name": "Joško Ljubić",
-          "dmi": 97059,
-          "gameShape": 7,
-          "salary": 23360
+          "dmi": 29197,
+          "gameShape": 5,
+          "salary": 112200
         },
         {
           "playerId": 55641682,
           "name": "Muamer Smiljanić",
-          "dmi": 107839,
+          "dmi": 84027,
           "gameShape": 7,
-          "salary": 21582
+          "salary": 138755
         },
         {
           "playerId": 55383254,
           "name": "Mehmedalija Lagumdžija",
-          "dmi": 88774,
-          "gameShape": 7,
-          "salary": 20985
+          "dmi": 18841,
+          "gameShape": 6,
+          "salary": 62784
         },
         {
           "playerId": 55641589,
           "name": "Samir Ovčina",
-          "dmi": 121519,
-          "gameShape": 7,
-          "salary": 24410
+          "dmi": 67420,
+          "gameShape": 3,
+          "salary": 8501
         },
         {
           "playerId": 55383385,
           "name": "Gaj Hašek",
-          "dmi": 238734,
-          "gameShape": 7,
-          "salary": 47285
+          "dmi": 106479,
+          "gameShape": 9,
+          "salary": 160244
         },
         {
           "playerId": 55383282,
           "name": "Nikola Pušić",
-          "dmi": 143642,
-          "gameShape": 7,
-          "salary": 30945
+          "dmi": 107101,
+          "gameShape": 3,
+          "salary": 122646
         },
         {
           "playerId": 55641734,
           "name": "Almir Adilović",
-          "dmi": 110945,
-          "gameShape": 7,
-          "salary": 24243
+          "dmi": 63185,
+          "gameShape": 8,
+          "salary": 14008
         },
         {
           "playerId": 55641699,
           "name": "Muamer Ferhatović",
-          "dmi": 72435,
-          "gameShape": 7,
-          "salary": 18167
+          "dmi": 6685,
+          "gameShape": 4,
+          "salary": 196865
         },
         {
           "playerId": 55383475,
           "name": "Josip Muštra",
-          "dmi": 247938,
+          "dmi": 110997,
           "gameShape": 7,
-          "salary": 57338
+          "salary": 146738
         }
       ]
     },
@@ -544,128 +502,121 @@
         {
           "playerId": 55711059,
           "name": "Angel Alexandrov",
-          "dmi": 93815,
-          "gameShape": 7,
-          "salary": 18118
+          "dmi": 45473,
+          "gameShape": 9,
+          "salary": 23708
         },
         {
           "playerId": 55464891,
           "name": "Valeri Iliev",
-          "dmi": 57277,
-          "gameShape": 6,
-          "salary": 16267
+          "dmi": 118782,
+          "gameShape": 1,
+          "salary": 68753
         },
         {
           "playerId": 55645813,
           "name": "Dobri Misliev",
-          "dmi": 58797,
-          "gameShape": 7,
-          "salary": 14604
+          "dmi": 94541,
+          "gameShape": 9,
+          "salary": 128281
         },
         {
           "playerId": 55387543,
           "name": "Krum Vasilev",
-          "dmi": 90053,
-          "gameShape": 7,
-          "salary": 21431
+          "dmi": 29284,
+          "gameShape": 4,
+          "salary": 173454
         },
         {
           "playerId": 55387488,
           "name": "Alexander Kerezov",
-          "dmi": 103694,
-          "gameShape": 7,
-          "salary": 19390
+          "dmi": 32869,
+          "gameShape": 2,
+          "salary": 197125
         },
         {
           "playerId": 55466270,
           "name": "Bolat Kurttekin",
-          "dmi": 216609,
+          "dmi": 44757,
           "gameShape": 7,
-          "salary": 37401
+          "salary": 67799
         },
         {
           "playerId": 55387343,
           "name": "Kiril Iliev",
-          "dmi": 53872,
-          "gameShape": 7,
-          "salary": 13504
+          "dmi": 9900,
+          "gameShape": 6,
+          "salary": 141097
         },
         {
           "playerId": 55387382,
           "name": "Ivan Iliev",
-          "dmi": 103229,
+          "dmi": 97617,
           "gameShape": 7,
-          "salary": 19665
+          "salary": 130536
         },
         {
           "playerId": 55387316,
           "name": "Todor Vasilev",
-          "dmi": 79159,
-          "gameShape": 7,
-          "salary": 18836
-        },
-        {
-          "playerId": 55712662,
-          "name": "Vladimir Nanyov",
-          "dmi": 51820,
-          "gameShape": 7,
-          "salary": 12391
+          "dmi": 40959,
+          "gameShape": 4,
+          "salary": 73798
         },
         {
           "playerId": 55715338,
           "name": "Doychin Kolev",
-          "dmi": 65646,
-          "gameShape": 7,
-          "salary": 14651
+          "dmi": 99786,
+          "gameShape": 5,
+          "salary": 65014
         },
         {
           "playerId": 55387418,
           "name": "Rusi Kolarov",
-          "dmi": 53476,
-          "gameShape": 7,
-          "salary": 12398
+          "dmi": 105843,
+          "gameShape": 5,
+          "salary": 56654
         },
         {
           "playerId": 55387295,
           "name": "Petar Tzvetkov",
-          "dmi": 140704,
-          "gameShape": 7,
-          "salary": 27594
+          "dmi": 132141,
+          "gameShape": 9,
+          "salary": 189102
         },
         {
           "playerId": 55387459,
           "name": "Emanuel Hovhannesyan",
-          "dmi": 120652,
-          "gameShape": 7,
-          "salary": 23316
+          "dmi": 76132,
+          "gameShape": 3,
+          "salary": 70712
         },
         {
           "playerId": 55387491,
           "name": "Martin Zlatanov",
-          "dmi": 158099,
-          "gameShape": 7,
-          "salary": 31600
+          "dmi": 146369,
+          "gameShape": 3,
+          "salary": 100564
         },
         {
           "playerId": 55387395,
           "name": "Petar Stoyanov",
-          "dmi": 64021,
-          "gameShape": 7,
-          "salary": 16141
+          "dmi": 126377,
+          "gameShape": 9,
+          "salary": 161494
         },
         {
           "playerId": 55464229,
           "name": "Atanas Mihaylov",
-          "dmi": 142675,
-          "gameShape": 7,
-          "salary": 30590
+          "dmi": 124491,
+          "gameShape": 6,
+          "salary": 169465
         },
         {
           "playerId": 55465849,
           "name": "Angel Petrov",
-          "dmi": 280429,
-          "gameShape": 7,
-          "salary": 60425
+          "dmi": 83483,
+          "gameShape": 9,
+          "salary": 88496
         }
       ]
     },
@@ -677,107 +628,114 @@
         {
           "playerId": 55388395,
           "name": "Ivo Ujčík",
-          "dmi": 58905,
-          "gameShape": 7,
-          "salary": 15087
+          "dmi": 116147,
+          "gameShape": 4,
+          "salary": 19747
         },
         {
           "playerId": 55646614,
           "name": "Wiesław Tomal",
-          "dmi": 85171,
-          "gameShape": 7,
-          "salary": 18251
+          "dmi": 68625,
+          "gameShape": 8,
+          "salary": 98170
+        },
+        {
+          "playerId": 55925254,
+          "name": "Marcel Luža",
+          "dmi": 148744,
+          "gameShape": 9,
+          "salary": 142625
         },
         {
           "playerId": 55925256,
           "name": "Tomáš Volf",
-          "dmi": 101719,
-          "gameShape": 7,
-          "salary": 22537
-        },
-        {
-          "playerId": 55925595,
-          "name": "Vojtěch Paur",
-          "dmi": 37017,
-          "gameShape": 7,
-          "salary": 8395
+          "dmi": 22686,
+          "gameShape": 9,
+          "salary": 59784
         },
         {
           "playerId": 55712377,
           "name": "Ivan Lepeška",
-          "dmi": 81919,
-          "gameShape": 7,
-          "salary": 16496
+          "dmi": 35278,
+          "gameShape": 1,
+          "salary": 54247
         },
         {
           "playerId": 55388681,
           "name": "Jindřich Kašpar",
-          "dmi": 53735,
-          "gameShape": 7,
-          "salary": 13439
+          "dmi": 59543,
+          "gameShape": 3,
+          "salary": 17988
         },
         {
           "playerId": 55646973,
           "name": "Kazimír Baťánek",
-          "dmi": 63011,
-          "gameShape": 7,
-          "salary": 13935
+          "dmi": 2605,
+          "gameShape": 2,
+          "salary": 52322
         },
         {
           "playerId": 55646646,
           "name": "Jindřich Vichnar",
-          "dmi": 92960,
-          "gameShape": 7,
-          "salary": 23107
+          "dmi": 104709,
+          "gameShape": 6,
+          "salary": 182954
+        },
+        {
+          "playerId": 55925245,
+          "name": "Jakub Števko",
+          "dmi": 9512,
+          "gameShape": 9,
+          "salary": 130458
         },
         {
           "playerId": 55646884,
           "name": "Jan Vondrouš",
-          "dmi": 68925,
-          "gameShape": 7,
-          "salary": 14668
+          "dmi": 102487,
+          "gameShape": 9,
+          "salary": 11179
         },
         {
           "playerId": 55465292,
           "name": "Maxim Pivko",
-          "dmi": 69068,
-          "gameShape": 7,
-          "salary": 13851
+          "dmi": 144010,
+          "gameShape": 2,
+          "salary": 96811
         },
         {
           "playerId": 55711303,
           "name": "Vladimír Buchar",
-          "dmi": 76899,
-          "gameShape": 7,
-          "salary": 19588
+          "dmi": 67630,
+          "gameShape": 8,
+          "salary": 102580
         },
         {
           "playerId": 55646685,
           "name": "Miroslav Vocásek",
-          "dmi": 225605,
-          "gameShape": 7,
-          "salary": 41731
+          "dmi": 100470,
+          "gameShape": 6,
+          "salary": 31829
         },
         {
           "playerId": 55388596,
           "name": "Boris Serbin",
-          "dmi": 215980,
-          "gameShape": 7,
-          "salary": 44797
+          "dmi": 31905,
+          "gameShape": 6,
+          "salary": 139574
         },
         {
           "playerId": 55388320,
           "name": "David Hejtmánek",
-          "dmi": 53076,
-          "gameShape": 7,
-          "salary": 13785
+          "dmi": 92334,
+          "gameShape": 3,
+          "salary": 116269
         },
         {
           "playerId": 55388396,
           "name": "Bedřich Bukáček",
-          "dmi": 355266,
-          "gameShape": 7,
-          "salary": 71924
+          "dmi": 90225,
+          "gameShape": 5,
+          "salary": 96368
         }
       ]
     },
@@ -789,65 +747,65 @@
         {
           "playerId": 55458246,
           "name": "Vuk Marković",
-          "dmi": 61385,
-          "gameShape": 7,
-          "salary": 16183
+          "dmi": 32169,
+          "gameShape": 3,
+          "salary": 188908
         },
         {
           "playerId": 55710855,
           "name": "Nikša Kaljić",
-          "dmi": 81105,
+          "dmi": 91602,
           "gameShape": 7,
-          "salary": 20229
+          "salary": 146789
         },
         {
           "playerId": 55708456,
           "name": "Mihajlo Perović",
-          "dmi": 85386,
-          "gameShape": 7,
-          "salary": 18813
+          "dmi": 119638,
+          "gameShape": 4,
+          "salary": 23901
         },
         {
           "playerId": 55708438,
           "name": "Ljubomir Luković",
-          "dmi": 101503,
+          "dmi": 115894,
           "gameShape": 7,
-          "salary": 20336
+          "salary": 79840
         },
         {
           "playerId": 55989185,
           "name": "Vojin Medenica",
-          "dmi": 49490,
-          "gameShape": 7,
-          "salary": 13293
+          "dmi": 29681,
+          "gameShape": 5,
+          "salary": 160779
         },
         {
           "playerId": 55713747,
           "name": "Darko Tafra",
-          "dmi": 82287,
-          "gameShape": 7,
-          "salary": 18941
+          "dmi": 95329,
+          "gameShape": 4,
+          "salary": 99236
         },
         {
           "playerId": 55707492,
           "name": "Vojo Luković",
-          "dmi": 49487,
-          "gameShape": 7,
-          "salary": 11427
+          "dmi": 52346,
+          "gameShape": 6,
+          "salary": 111420
         },
         {
           "playerId": 55707902,
           "name": "Simon Čvorović",
-          "dmi": 48114,
-          "gameShape": 7,
-          "salary": 12458
+          "dmi": 57219,
+          "gameShape": 4,
+          "salary": 25345
         },
         {
           "playerId": 55707500,
           "name": "Pavle Boljević",
-          "dmi": 70168,
-          "gameShape": 7,
-          "salary": 19879
+          "dmi": 77391,
+          "gameShape": 6,
+          "salary": 129608
         }
       ]
     },
@@ -855,7 +813,106 @@
       "countryId": 81,
       "name": "Cymru",
       "pool": "Pool B",
-      "players": []
+      "players": [
+        {
+          "playerId": 55991857,
+          "name": "Greg Richardson",
+          "dmi": 98696,
+          "gameShape": 9,
+          "salary": 72199
+        },
+        {
+          "playerId": 55992141,
+          "name": "David Clarke",
+          "dmi": 141565,
+          "gameShape": 5,
+          "salary": 173298
+        },
+        {
+          "playerId": 55462419,
+          "name": "Neal Marsh",
+          "dmi": 106231,
+          "gameShape": 2,
+          "salary": 71761
+        },
+        {
+          "playerId": 55715111,
+          "name": "Steven Litherland",
+          "dmi": 74799,
+          "gameShape": 9,
+          "salary": 131604
+        },
+        {
+          "playerId": 55468163,
+          "name": "Lewis Pryce",
+          "dmi": 21593,
+          "gameShape": 7,
+          "salary": 147240
+        },
+        {
+          "playerId": 55464277,
+          "name": "Mark Maric",
+          "dmi": 118916,
+          "gameShape": 6,
+          "salary": 30457
+        },
+        {
+          "playerId": 55466340,
+          "name": "Andrew Lennie",
+          "dmi": 146626,
+          "gameShape": 8,
+          "salary": 19483
+        },
+        {
+          "playerId": 55461699,
+          "name": "Jonathan MacFergus",
+          "dmi": 25978,
+          "gameShape": 7,
+          "salary": 21813
+        },
+        {
+          "playerId": 55714073,
+          "name": "Michael Neal-Sturgess",
+          "dmi": 47623,
+          "gameShape": 4,
+          "salary": 26536
+        },
+        {
+          "playerId": 55718874,
+          "name": "Mickey Johnston",
+          "dmi": 65465,
+          "gameShape": 9,
+          "salary": 51413
+        },
+        {
+          "playerId": 56232891,
+          "name": "Don Chelmsford",
+          "dmi": 100806,
+          "gameShape": 5,
+          "salary": 11244
+        },
+        {
+          "playerId": 55992226,
+          "name": "Brett Schroeter",
+          "dmi": 46594,
+          "gameShape": 9,
+          "salary": 28361
+        },
+        {
+          "playerId": 55997238,
+          "name": "Dick Duguid",
+          "dmi": 14071,
+          "gameShape": 4,
+          "salary": 89757
+        },
+        {
+          "playerId": 55711002,
+          "name": "Duncan Gluckman",
+          "dmi": 113718,
+          "gameShape": 4,
+          "salary": 148453
+        }
+      ]
     },
     {
       "countryId": 77,
@@ -865,93 +922,93 @@
         {
           "playerId": 55989939,
           "name": "Sotiris Markopoulos",
-          "dmi": 53051,
-          "gameShape": 7,
-          "salary": 11913
+          "dmi": 26781,
+          "gameShape": 1,
+          "salary": 165840
         },
         {
           "playerId": 55734563,
           "name": "Isaak Mavilis",
-          "dmi": 128029,
-          "gameShape": 7,
-          "salary": 27010
+          "dmi": 138468,
+          "gameShape": 4,
+          "salary": 138536
         },
         {
           "playerId": 55708495,
           "name": "Erotokritos Mantarinopoulos",
-          "dmi": 91440,
-          "gameShape": 7,
-          "salary": 22179
+          "dmi": 38209,
+          "gameShape": 5,
+          "salary": 120512
         },
         {
           "playerId": 55708524,
           "name": "Panos Griparis",
-          "dmi": 39475,
+          "dmi": 50600,
           "gameShape": 7,
-          "salary": 10183
+          "salary": 29978
         },
         {
           "playerId": 55986802,
           "name": "Eftichis Egkelados",
-          "dmi": 59528,
-          "gameShape": 7,
-          "salary": 14930
+          "dmi": 34551,
+          "gameShape": 8,
+          "salary": 161949
         },
         {
           "playerId": 55986790,
           "name": "Efthimis Avdikos",
-          "dmi": 35049,
-          "gameShape": 7,
-          "salary": 8774
+          "dmi": 56204,
+          "gameShape": 3,
+          "salary": 195214
         },
         {
           "playerId": 55464097,
           "name": "Yiannis Dragotis",
-          "dmi": 116896,
-          "gameShape": 7,
-          "salary": 25148
+          "dmi": 85984,
+          "gameShape": 9,
+          "salary": 145908
         },
         {
           "playerId": 55715563,
           "name": "Lisandros Gouninos",
-          "dmi": 55554,
-          "gameShape": 7,
-          "salary": 14638
+          "dmi": 62151,
+          "gameShape": 6,
+          "salary": 90916
         },
         {
           "playerId": 55462215,
           "name": "Nikos Manaras",
-          "dmi": 43332,
-          "gameShape": 7,
-          "salary": 9640
+          "dmi": 73318,
+          "gameShape": 2,
+          "salary": 153700
         },
         {
           "playerId": 55709330,
           "name": "Alexios Gkoumlas",
-          "dmi": 110169,
-          "gameShape": 7,
-          "salary": 22449
+          "dmi": 141382,
+          "gameShape": 2,
+          "salary": 133459
         },
         {
           "playerId": 55459313,
           "name": "Themis Mantzourakis",
-          "dmi": 72718,
+          "dmi": 8332,
           "gameShape": 7,
-          "salary": 16573
+          "salary": 134349
         },
         {
           "playerId": 55708519,
           "name": "Rodis Gonidis",
-          "dmi": 38674,
-          "gameShape": 7,
-          "salary": 10935
+          "dmi": 97752,
+          "gameShape": 4,
+          "salary": 104363
         },
         {
           "playerId": 55466541,
           "name": "Nikos Mpotsis",
-          "dmi": 75662,
-          "gameShape": 7,
-          "salary": 17902
+          "dmi": 122313,
+          "gameShape": 2,
+          "salary": 97380
         }
       ]
     },
@@ -963,79 +1020,107 @@
         {
           "playerId": 55650737,
           "name": "Ricco Bøgholm",
-          "dmi": 65129,
-          "gameShape": 7,
-          "salary": 14413
+          "dmi": 9019,
+          "gameShape": 4,
+          "salary": 168177
+        },
+        {
+          "playerId": 55650773,
+          "name": "Anton Lyngaa",
+          "dmi": 15080,
+          "gameShape": 6,
+          "salary": 128762
         },
         {
           "playerId": 55929245,
           "name": "Teis Askham",
-          "dmi": 58183,
-          "gameShape": 7,
-          "salary": 12196
+          "dmi": 66195,
+          "gameShape": 8,
+          "salary": 138173
         },
         {
           "playerId": 55712563,
           "name": "Marcus Harlind Aagaard",
-          "dmi": 106362,
-          "gameShape": 7,
-          "salary": 21253
+          "dmi": 72309,
+          "gameShape": 2,
+          "salary": 38857
         },
         {
           "playerId": 55929334,
           "name": "Ben Von Eyben",
-          "dmi": 50667,
-          "gameShape": 7,
-          "salary": 11781
+          "dmi": 70212,
+          "gameShape": 4,
+          "salary": 36458
         },
         {
-          "playerId": 56230724,
-          "name": "Michael Klavsen",
-          "dmi": 24965,
-          "gameShape": 7,
-          "salary": 7509
+          "playerId": 55992534,
+          "name": "Tobias Trøjborg",
+          "dmi": 75968,
+          "gameShape": 2,
+          "salary": 154175
         },
         {
-          "playerId": 55715889,
-          "name": "Anker Kjaergaard",
-          "dmi": 32158,
-          "gameShape": 7,
-          "salary": 8776
+          "playerId": 55650721,
+          "name": "Jens Peter Krüger",
+          "dmi": 1010,
+          "gameShape": 5,
+          "salary": 128727
         },
         {
-          "playerId": 55991161,
-          "name": "Sofus Pries",
-          "dmi": 24987,
-          "gameShape": 7,
-          "salary": 6223
+          "playerId": 55650839,
+          "name": "Torkild Foged",
+          "dmi": 32480,
+          "gameShape": 6,
+          "salary": 126772
         },
         {
-          "playerId": 55392573,
-          "name": "Sven Trier",
-          "dmi": 78322,
-          "gameShape": 7,
-          "salary": 16799
+          "playerId": 55929222,
+          "name": "Lau Mortensen",
+          "dmi": 136269,
+          "gameShape": 8,
+          "salary": 171648
+        },
+        {
+          "playerId": 55650874,
+          "name": "Mattias Eskerod",
+          "dmi": 72398,
+          "gameShape": 3,
+          "salary": 128241
+        },
+        {
+          "playerId": 55650872,
+          "name": "Gunner Tomshøj",
+          "dmi": 16619,
+          "gameShape": 4,
+          "salary": 34337
         },
         {
           "playerId": 55392431,
           "name": "Mogens Kramer",
-          "dmi": 152778,
-          "gameShape": 7,
-          "salary": 28773
+          "dmi": 49370,
+          "gameShape": 1,
+          "salary": 113393
         },
         {
           "playerId": 55715824,
           "name": "Laurids Grosser Jensen",
-          "dmi": 51037,
-          "gameShape": 7,
-          "salary": 12080
+          "dmi": 102448,
+          "gameShape": 1,
+          "salary": 85880
+        },
+        {
+          "playerId": 55712487,
+          "name": "Kenn Becker",
+          "dmi": 87973,
+          "gameShape": 5,
+          "salary": 187578
         },
         {
           "playerId": 55711210,
           "name": "Leo Boelt",
-          "dmi": 96649,
-          "gameShape": 7,
-          "salary": 19856
+          "dmi": 136683,
+          "gameShape": 8,
+          "salary": 122477
         }
       ]
     },
@@ -1047,128 +1132,128 @@
         {
           "playerId": 55566265,
           "name": "Jannick Hesler",
-          "dmi": 131863,
-          "gameShape": 7,
-          "salary": 26318
+          "dmi": 51704,
+          "gameShape": 3,
+          "salary": 192545
         },
         {
           "playerId": 55566478,
           "name": "Ludwig Bystram",
-          "dmi": 107370,
-          "gameShape": 7,
-          "salary": 21907
+          "dmi": 8870,
+          "gameShape": 8,
+          "salary": 72011
         },
         {
           "playerId": 55567194,
           "name": "Jakob Johannes van der Linden",
-          "dmi": 168971,
-          "gameShape": 7,
-          "salary": 39228
+          "dmi": 4463,
+          "gameShape": 4,
+          "salary": 196541
         },
         {
           "playerId": 55271948,
           "name": "Fritz Rackel",
-          "dmi": 102454,
-          "gameShape": 7,
-          "salary": 23189
+          "dmi": 81210,
+          "gameShape": 3,
+          "salary": 142576
         },
         {
           "playerId": 55567097,
           "name": "Thorsten Satzenhofen",
-          "dmi": 88455,
-          "gameShape": 7,
-          "salary": 20412
+          "dmi": 130366,
+          "gameShape": 6,
+          "salary": 86830
         },
         {
           "playerId": 55566756,
           "name": "Sebastian Schirra",
-          "dmi": 77567,
-          "gameShape": 7,
-          "salary": 17441
+          "dmi": 63359,
+          "gameShape": 4,
+          "salary": 109097
         },
         {
           "playerId": 55271801,
           "name": "Marco Stussig",
-          "dmi": 53161,
-          "gameShape": 7,
-          "salary": 13781
+          "dmi": 144308,
+          "gameShape": 8,
+          "salary": 27759
         },
         {
           "playerId": 55271839,
           "name": "Hanning Lauenburg",
-          "dmi": 155195,
+          "dmi": 66735,
           "gameShape": 7,
-          "salary": 32276
+          "salary": 64734
         },
         {
           "playerId": 55272166,
           "name": "Pavel Chukalin",
-          "dmi": 394045,
-          "gameShape": 7,
-          "salary": 67649
+          "dmi": 64668,
+          "gameShape": 8,
+          "salary": 47633
         },
         {
           "playerId": 55566743,
           "name": "Paul Reick",
-          "dmi": 142572,
-          "gameShape": 7,
-          "salary": 28309
+          "dmi": 28857,
+          "gameShape": 2,
+          "salary": 69668
         },
         {
           "playerId": 55271358,
           "name": "Sascha Wiblishauser",
-          "dmi": 64744,
-          "gameShape": 7,
-          "salary": 18012
+          "dmi": 61642,
+          "gameShape": 1,
+          "salary": 53438
         },
         {
           "playerId": 55271546,
           "name": "Mirko Vuković",
-          "dmi": 116434,
+          "dmi": 13508,
           "gameShape": 7,
-          "salary": 26632
+          "salary": 190781
         },
         {
           "playerId": 55566727,
           "name": "Marvin Wechmar",
-          "dmi": 133092,
+          "dmi": 19852,
           "gameShape": 7,
-          "salary": 31517
+          "salary": 6634
         },
         {
           "playerId": 55272284,
           "name": "Constantin Kleinhenz",
-          "dmi": 69109,
-          "gameShape": 7,
-          "salary": 17558
+          "dmi": 79393,
+          "gameShape": 6,
+          "salary": 48508
         },
         {
           "playerId": 55566991,
           "name": "Torsten Schumacher",
-          "dmi": 129317,
-          "gameShape": 7,
-          "salary": 26677
+          "dmi": 104434,
+          "gameShape": 2,
+          "salary": 46562
         },
         {
           "playerId": 55461889,
           "name": "Quintin Wengersky",
-          "dmi": 165232,
-          "gameShape": 7,
-          "salary": 34494
+          "dmi": 80301,
+          "gameShape": 1,
+          "salary": 148799
         },
         {
           "playerId": 55566759,
           "name": "Magnus Daumen",
-          "dmi": 153041,
-          "gameShape": 7,
-          "salary": 33900
+          "dmi": 92711,
+          "gameShape": 9,
+          "salary": 184282
         },
         {
           "playerId": 55271506,
           "name": "Lukas Scharnwebber",
-          "dmi": 237316,
-          "gameShape": 7,
-          "salary": 50274
+          "dmi": 57105,
+          "gameShape": 3,
+          "salary": 74767
         }
       ]
     },
@@ -1180,93 +1265,93 @@
         {
           "playerId": 55393610,
           "name": "Osip Loshchilov",
-          "dmi": 462541,
-          "gameShape": 7,
-          "salary": 96080
+          "dmi": 147658,
+          "gameShape": 6,
+          "salary": 121507
         },
         {
           "playerId": 55393489,
           "name": "Leonty Markin",
-          "dmi": 104505,
-          "gameShape": 7,
-          "salary": 23400
+          "dmi": 1847,
+          "gameShape": 6,
+          "salary": 6489
         },
         {
           "playerId": 55393548,
           "name": "Andreas Kivimäe",
-          "dmi": 308515,
-          "gameShape": 7,
-          "salary": 65621
+          "dmi": 139761,
+          "gameShape": 1,
+          "salary": 24129
         },
         {
           "playerId": 55393757,
           "name": "Gunnar Ambros",
-          "dmi": 323390,
-          "gameShape": 7,
-          "salary": 78271
+          "dmi": 65024,
+          "gameShape": 5,
+          "salary": 136988
         },
         {
           "playerId": 55393472,
           "name": "Frank Rebane",
-          "dmi": 123095,
-          "gameShape": 7,
-          "salary": 26098
+          "dmi": 97043,
+          "gameShape": 8,
+          "salary": 159916
         },
         {
           "playerId": 55394410,
           "name": "Einar Kaasik",
-          "dmi": 94024,
-          "gameShape": 7,
-          "salary": 22255
+          "dmi": 25412,
+          "gameShape": 6,
+          "salary": 182233
         },
         {
           "playerId": 55394016,
           "name": "Arne Lill",
-          "dmi": 121174,
-          "gameShape": 7,
-          "salary": 26521
+          "dmi": 60788,
+          "gameShape": 5,
+          "salary": 140365
         },
         {
           "playerId": 55393863,
           "name": "Sven Kolde",
-          "dmi": 93949,
-          "gameShape": 7,
-          "salary": 20431
+          "dmi": 119592,
+          "gameShape": 9,
+          "salary": 6137
         },
         {
           "playerId": 55393488,
           "name": "Tambet Raidmets",
-          "dmi": 141466,
-          "gameShape": 7,
-          "salary": 29354
+          "dmi": 25920,
+          "gameShape": 9,
+          "salary": 179136
         },
         {
           "playerId": 55394122,
           "name": "Ude Kastl",
-          "dmi": 128711,
-          "gameShape": 7,
-          "salary": 27980
+          "dmi": 123915,
+          "gameShape": 6,
+          "salary": 88644
         },
         {
           "playerId": 55393981,
           "name": "Peter Hõbe",
-          "dmi": 274073,
-          "gameShape": 7,
-          "salary": 57095
+          "dmi": 146341,
+          "gameShape": 3,
+          "salary": 117609
         },
         {
           "playerId": 55652615,
           "name": "Kristo Kalda",
-          "dmi": 175234,
-          "gameShape": 7,
-          "salary": 35595
+          "dmi": 12030,
+          "gameShape": 2,
+          "salary": 105015
         },
         {
           "playerId": 55394095,
           "name": "Indrek Ploom",
-          "dmi": 265611,
-          "gameShape": 7,
-          "salary": 55723
+          "dmi": 130279,
+          "gameShape": 9,
+          "salary": 52331
         }
       ]
     },
@@ -1278,128 +1363,128 @@
         {
           "playerId": 55329838,
           "name": "Emile Hunt",
-          "dmi": 170689,
-          "gameShape": 7,
-          "salary": 30936
+          "dmi": 38163,
+          "gameShape": 2,
+          "salary": 53107
         },
         {
           "playerId": 55329865,
           "name": "Johnny Royston",
-          "dmi": 108996,
-          "gameShape": 7,
-          "salary": 22825
+          "dmi": 135599,
+          "gameShape": 3,
+          "salary": 146625
         },
         {
           "playerId": 55329781,
           "name": "Barker Koutrakos",
-          "dmi": 179586,
+          "dmi": 110866,
           "gameShape": 7,
-          "salary": 34735
+          "salary": 3974
         },
         {
           "playerId": 55329997,
           "name": "Stephen Ham",
-          "dmi": 159410,
-          "gameShape": 7,
-          "salary": 31454
+          "dmi": 35021,
+          "gameShape": 8,
+          "salary": 96178
         },
         {
           "playerId": 55330167,
           "name": "Brian Lynch",
-          "dmi": 77875,
-          "gameShape": 7,
-          "salary": 18243
+          "dmi": 57030,
+          "gameShape": 8,
+          "salary": 176102
         },
         {
           "playerId": 55330015,
           "name": "Stephen Lockhart",
-          "dmi": 75639,
-          "gameShape": 7,
-          "salary": 18839
+          "dmi": 101162,
+          "gameShape": 4,
+          "salary": 199259
         },
         {
           "playerId": 55463783,
           "name": "Hamilton Ansell",
-          "dmi": 489987,
-          "gameShape": 7,
-          "salary": 91273
+          "dmi": 131338,
+          "gameShape": 2,
+          "salary": 139185
         },
         {
           "playerId": 55329722,
           "name": "John MacCause",
-          "dmi": 49727,
-          "gameShape": 7,
-          "salary": 13158
+          "dmi": 120161,
+          "gameShape": 3,
+          "salary": 113819
         },
         {
           "playerId": 55330029,
           "name": "Brady Malin",
-          "dmi": 116144,
-          "gameShape": 7,
-          "salary": 26334
+          "dmi": 48582,
+          "gameShape": 5,
+          "salary": 172204
         },
         {
           "playerId": 55329741,
           "name": "Carl McAdam",
-          "dmi": 203730,
-          "gameShape": 7,
-          "salary": 40983
+          "dmi": 146203,
+          "gameShape": 9,
+          "salary": 146199
         },
         {
           "playerId": 55462293,
           "name": "Connor Hicks",
-          "dmi": 80590,
-          "gameShape": 7,
-          "salary": 19154
+          "dmi": 27631,
+          "gameShape": 5,
+          "salary": 64963
         },
         {
           "playerId": 55597475,
           "name": "Brent Campbell",
-          "dmi": 64901,
-          "gameShape": 7,
-          "salary": 13403
+          "dmi": 4383,
+          "gameShape": 1,
+          "salary": 139577
         },
         {
           "playerId": 55597598,
           "name": "Christopher Chiara",
-          "dmi": 271208,
-          "gameShape": 7,
-          "salary": 55626
+          "dmi": 28412,
+          "gameShape": 5,
+          "salary": 46111
         },
         {
           "playerId": 55329979,
           "name": "Mark Turnbull",
-          "dmi": 134795,
-          "gameShape": 7,
-          "salary": 29396
+          "dmi": 61824,
+          "gameShape": 8,
+          "salary": 7721
         },
         {
           "playerId": 55597380,
           "name": "Hayden Dean",
-          "dmi": 293875,
-          "gameShape": 7,
-          "salary": 57886
+          "dmi": 85859,
+          "gameShape": 2,
+          "salary": 117558
         },
         {
           "playerId": 55329988,
           "name": "Stu Lavender",
-          "dmi": 431626,
-          "gameShape": 7,
-          "salary": 77713
+          "dmi": 86638,
+          "gameShape": 3,
+          "salary": 146451
         },
         {
           "playerId": 55329802,
           "name": "Jason Furlong",
-          "dmi": 270077,
+          "dmi": 56210,
           "gameShape": 7,
-          "salary": 59624
+          "salary": 64558
         },
         {
           "playerId": 55711430,
           "name": "Kendrick Loftus",
-          "dmi": 325286,
-          "gameShape": 7,
-          "salary": 72367
+          "dmi": 128394,
+          "gameShape": 8,
+          "salary": 32960
         }
       ]
     },
@@ -1407,127 +1492,7 @@
       "countryId": 7,
       "name": "España",
       "pool": "Pool F",
-      "players": [
-        {
-          "playerId": 55562809,
-          "name": "Juan Luis Ledu",
-          "dmi": 137767,
-          "gameShape": 7,
-          "salary": 27417
-        },
-        {
-          "playerId": 55256923,
-          "name": "Oscar Queipo",
-          "dmi": 108923,
-          "gameShape": 7,
-          "salary": 25570
-        },
-        {
-          "playerId": 55258624,
-          "name": "Zuhaitz Arostegi",
-          "dmi": 128274,
-          "gameShape": 7,
-          "salary": 26489
-        },
-        {
-          "playerId": 55465320,
-          "name": "Xorxe Cea",
-          "dmi": 118827,
-          "gameShape": 7,
-          "salary": 23805
-        },
-        {
-          "playerId": 55257313,
-          "name": "Seber Elgezabal",
-          "dmi": 122148,
-          "gameShape": 7,
-          "salary": 25858
-        },
-        {
-          "playerId": 55560568,
-          "name": "Raúl Gironda",
-          "dmi": 253096,
-          "gameShape": 7,
-          "salary": 50989
-        },
-        {
-          "playerId": 55256804,
-          "name": "Andreu Rada",
-          "dmi": 119096,
-          "gameShape": 7,
-          "salary": 28224
-        },
-        {
-          "playerId": 55565784,
-          "name": "Jordi Iturbe Cano",
-          "dmi": 118747,
-          "gameShape": 7,
-          "salary": 24220
-        },
-        {
-          "playerId": 55560061,
-          "name": "Enrique Caamaño",
-          "dmi": 135473,
-          "gameShape": 7,
-          "salary": 28056
-        },
-        {
-          "playerId": 55559930,
-          "name": "Ignacio Sáez",
-          "dmi": 90495,
-          "gameShape": 7,
-          "salary": 20374
-        },
-        {
-          "playerId": 55257396,
-          "name": "Enrique Tenorio Tirado",
-          "dmi": 84203,
-          "gameShape": 7,
-          "salary": 19159
-        },
-        {
-          "playerId": 55254956,
-          "name": "Florentino Eduegui",
-          "dmi": 109771,
-          "gameShape": 7,
-          "salary": 21882
-        },
-        {
-          "playerId": 55255567,
-          "name": "Juan Miguel Chávez",
-          "dmi": 261989,
-          "gameShape": 7,
-          "salary": 46647
-        },
-        {
-          "playerId": 55256517,
-          "name": "Víctor Orozco",
-          "dmi": 238681,
-          "gameShape": 7,
-          "salary": 46716
-        },
-        {
-          "playerId": 55560761,
-          "name": "Vindio Guzmán Baños",
-          "dmi": 195128,
-          "gameShape": 7,
-          "salary": 41128
-        },
-        {
-          "playerId": 55255071,
-          "name": "Pablo Combis",
-          "dmi": 208325,
-          "gameShape": 7,
-          "salary": 36346
-        },
-        {
-          "playerId": 55559785,
-          "name": "Gervasi Cerqueda",
-          "dmi": 138273,
-          "gameShape": 7,
-          "salary": 30181
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 11,
@@ -1543,93 +1508,121 @@
         {
           "playerId": 55711198,
           "name": "Nahapet Manucharyan",
-          "dmi": 87386,
-          "gameShape": 7,
-          "salary": 18530
+          "dmi": 126375,
+          "gameShape": 8,
+          "salary": 137650
+        },
+        {
+          "playerId": 55990226,
+          "name": "Artour Komitasyan",
+          "dmi": 105144,
+          "gameShape": 6,
+          "salary": 19421
         },
         {
           "playerId": 55468324,
           "name": "Khacho Asdvadzaduryan",
-          "dmi": 40561,
-          "gameShape": 7,
-          "salary": 10411
+          "dmi": 43824,
+          "gameShape": 1,
+          "salary": 62182
         },
         {
           "playerId": 55715066,
           "name": "Gagik Vartanyan",
-          "dmi": 76319,
-          "gameShape": 7,
-          "salary": 15930
+          "dmi": 28630,
+          "gameShape": 1,
+          "salary": 116197
+        },
+        {
+          "playerId": 56232323,
+          "name": "Naim Belen",
+          "dmi": 67192,
+          "gameShape": 9,
+          "salary": 120596
+        },
+        {
+          "playerId": 56237668,
+          "name": "Hambartsoum Soghomonyan",
+          "dmi": 105305,
+          "gameShape": 3,
+          "salary": 91322
         },
         {
           "playerId": 55466813,
           "name": "Haik Garbisyan",
-          "dmi": 62332,
-          "gameShape": 7,
-          "salary": 15378
+          "dmi": 10110,
+          "gameShape": 6,
+          "salary": 7089
         },
         {
           "playerId": 55997275,
           "name": "Hairabed Samuelyan",
-          "dmi": 42061,
-          "gameShape": 7,
-          "salary": 11261
+          "dmi": 35846,
+          "gameShape": 1,
+          "salary": 168332
         },
         {
           "playerId": 55464887,
           "name": "Vache Mihranyan",
-          "dmi": 60229,
-          "gameShape": 7,
-          "salary": 14193
+          "dmi": 138371,
+          "gameShape": 3,
+          "salary": 26896
         },
         {
           "playerId": 55712461,
           "name": "Smbat Badrigyan",
-          "dmi": 42820,
-          "gameShape": 7,
-          "salary": 10765
+          "dmi": 40011,
+          "gameShape": 6,
+          "salary": 99554
         },
         {
           "playerId": 55718750,
           "name": "Babken Ovagimyan",
-          "dmi": 63047,
-          "gameShape": 7,
-          "salary": 12534
+          "dmi": 91335,
+          "gameShape": 9,
+          "salary": 115456
+        },
+        {
+          "playerId": 56233235,
+          "name": "Artour Yezikyan",
+          "dmi": 78678,
+          "gameShape": 1,
+          "salary": 59976
         },
         {
           "playerId": 55712234,
           "name": "Movses Ardashyan",
-          "dmi": 124412,
-          "gameShape": 7,
-          "salary": 26261
+          "dmi": 26743,
+          "gameShape": 1,
+          "salary": 71574
         },
         {
           "playerId": 55714025,
           "name": "Arsham Grigoryan",
-          "dmi": 59252,
-          "gameShape": 7,
-          "salary": 14088
+          "dmi": 37844,
+          "gameShape": 8,
+          "salary": 69035
         },
         {
           "playerId": 55718921,
           "name": "Robert Askanazyan",
-          "dmi": 94446,
-          "gameShape": 7,
-          "salary": 21869
+          "dmi": 19944,
+          "gameShape": 2,
+          "salary": 75723
         },
         {
           "playerId": 55466456,
           "name": "Benjamin Pedrosyan",
-          "dmi": 75902,
+          "dmi": 129132,
           "gameShape": 7,
-          "salary": 17999
+          "salary": 191121
         },
         {
           "playerId": 55715967,
           "name": "Arsen Tatevosyan",
-          "dmi": 56246,
+          "dmi": 102371,
           "gameShape": 7,
-          "salary": 15075
+          "salary": 167768
         }
       ]
     },
@@ -1639,116 +1632,116 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55524248,
+          "name": "Nikos Zervos",
+          "dmi": 65246,
+          "gameShape": 9,
+          "salary": 175006
+        },
+        {
           "playerId": 55309305,
           "name": "Spiros Andreopoulos",
-          "dmi": 131542,
-          "gameShape": 7,
-          "salary": 25808
+          "dmi": 135939,
+          "gameShape": 2,
+          "salary": 169576
         },
         {
           "playerId": 55587305,
           "name": "Fanis Manoukarakis",
-          "dmi": 109990,
-          "gameShape": 7,
-          "salary": 25706
+          "dmi": 69299,
+          "gameShape": 3,
+          "salary": 74657
+        },
+        {
+          "playerId": 55310219,
+          "name": "Avraam Theoklitou",
+          "dmi": 91105,
+          "gameShape": 2,
+          "salary": 56010
         },
         {
           "playerId": 55587716,
           "name": "Marios Mpalamoutis",
-          "dmi": 123549,
+          "dmi": 89502,
           "gameShape": 7,
-          "salary": 29824
+          "salary": 169993
         },
         {
           "playerId": 55309656,
           "name": "Kostas Gagalakos",
-          "dmi": 167611,
-          "gameShape": 7,
-          "salary": 31959
+          "dmi": 74847,
+          "gameShape": 6,
+          "salary": 33931
         },
         {
           "playerId": 55309465,
           "name": "Manolakis Kiriakou",
-          "dmi": 144152,
-          "gameShape": 7,
-          "salary": 31297
-        },
-        {
-          "playerId": 55587355,
-          "name": "Grigoris Trachanopoulos",
-          "dmi": 38225,
-          "gameShape": 7,
-          "salary": 9794
+          "dmi": 90819,
+          "gameShape": 2,
+          "salary": 25097
         },
         {
           "playerId": 55587724,
           "name": "Yiorgos Masourakis",
-          "dmi": 118092,
-          "gameShape": 7,
-          "salary": 26225
+          "dmi": 9606,
+          "gameShape": 1,
+          "salary": 63474
         },
         {
           "playerId": 55309678,
           "name": "Antonios Papadoyiorgakis",
-          "dmi": 83927,
-          "gameShape": 7,
-          "salary": 23169
+          "dmi": 84100,
+          "gameShape": 4,
+          "salary": 16750
         },
         {
           "playerId": 55726736,
           "name": "Argirios Mourlas",
-          "dmi": 176335,
-          "gameShape": 7,
-          "salary": 39229
-        },
-        {
-          "playerId": 55868597,
-          "name": "Peker Atifa",
-          "dmi": 80165,
-          "gameShape": 7,
-          "salary": 17616
+          "dmi": 42797,
+          "gameShape": 8,
+          "salary": 54432
         },
         {
           "playerId": 55309716,
           "name": "Markos Zavoliarakis",
-          "dmi": 157921,
-          "gameShape": 7,
-          "salary": 29945
+          "dmi": 83974,
+          "gameShape": 6,
+          "salary": 95886
         },
         {
           "playerId": 55588200,
           "name": "Michalis Gkinias",
-          "dmi": 138260,
-          "gameShape": 7,
-          "salary": 28537
+          "dmi": 12616,
+          "gameShape": 4,
+          "salary": 84902
+        },
+        {
+          "playerId": 55311403,
+          "name": "Manolis Siagris",
+          "dmi": 39851,
+          "gameShape": 2,
+          "salary": 9369
         },
         {
           "playerId": 55586509,
           "name": "Eftichios Spourdoulas",
-          "dmi": 129674,
-          "gameShape": 7,
-          "salary": 28557
+          "dmi": 35442,
+          "gameShape": 4,
+          "salary": 47310
         },
         {
-          "playerId": 55865834,
-          "name": "Haris Arzoumanidis",
-          "dmi": 63513,
-          "gameShape": 7,
-          "salary": 14635
-        },
-        {
-          "playerId": 55865752,
-          "name": "Alekos Exasferos",
-          "dmi": 102738,
-          "gameShape": 7,
-          "salary": 22182
+          "playerId": 55587359,
+          "name": "Paraskevas Pentaras",
+          "dmi": 104724,
+          "gameShape": 2,
+          "salary": 10776
         },
         {
           "playerId": 55587176,
           "name": "Garifallos Lavakis",
-          "dmi": 106045,
-          "gameShape": 7,
-          "salary": 23956
+          "dmi": 53854,
+          "gameShape": 4,
+          "salary": 112478
         }
       ]
     },
@@ -1760,121 +1753,128 @@
         {
           "playerId": 55716087,
           "name": "Moša Pantić",
-          "dmi": 84973,
-          "gameShape": 7,
-          "salary": 19843
+          "dmi": 96863,
+          "gameShape": 1,
+          "salary": 153136
         },
         {
           "playerId": 55628104,
           "name": "Ivan Datković",
-          "dmi": 65873,
+          "dmi": 55299,
           "gameShape": 7,
-          "salary": 14042
+          "salary": 116891
         },
         {
           "playerId": 55906613,
           "name": "Albert Šmidt",
-          "dmi": 55937,
-          "gameShape": 7,
-          "salary": 14899
+          "dmi": 144139,
+          "gameShape": 5,
+          "salary": 123669
         },
         {
           "playerId": 55628592,
           "name": "Vice Skorić",
-          "dmi": 87363,
-          "gameShape": 7,
-          "salary": 18760
+          "dmi": 86594,
+          "gameShape": 1,
+          "salary": 27888
         },
         {
           "playerId": 55369945,
           "name": "Pier Cesare Morbelli",
-          "dmi": 107223,
+          "dmi": 47648,
           "gameShape": 7,
-          "salary": 22273
+          "salary": 167954
         },
         {
           "playerId": 55370015,
           "name": "Tomislav Strašek",
-          "dmi": 107941,
-          "gameShape": 7,
-          "salary": 24290
+          "dmi": 127740,
+          "gameShape": 9,
+          "salary": 46354
         },
         {
           "playerId": 55628099,
           "name": "Tvrtko Tepavac",
-          "dmi": 102213,
-          "gameShape": 7,
-          "salary": 21237
+          "dmi": 98814,
+          "gameShape": 4,
+          "salary": 64954
         },
         {
           "playerId": 55628299,
           "name": "Adam Rasol",
-          "dmi": 78486,
-          "gameShape": 7,
-          "salary": 17050
+          "dmi": 100100,
+          "gameShape": 5,
+          "salary": 89980
         },
         {
           "playerId": 55710741,
           "name": "Kristo Saraga",
-          "dmi": 106646,
+          "dmi": 8098,
           "gameShape": 7,
-          "salary": 23637
+          "salary": 188428
         },
         {
           "playerId": 55369730,
           "name": "Marko Španjić",
-          "dmi": 94930,
+          "dmi": 9690,
           "gameShape": 7,
-          "salary": 20663
+          "salary": 60010
         },
         {
           "playerId": 55370079,
           "name": "Valentin Gršković",
-          "dmi": 87980,
-          "gameShape": 7,
-          "salary": 20043
+          "dmi": 17751,
+          "gameShape": 5,
+          "salary": 125175
         },
         {
           "playerId": 55369951,
           "name": "Miroslav Fižuleto",
-          "dmi": 100898,
-          "gameShape": 7,
-          "salary": 21724
+          "dmi": 83525,
+          "gameShape": 6,
+          "salary": 53731
         },
         {
           "playerId": 55370026,
           "name": "Miran Simeunović",
-          "dmi": 68848,
-          "gameShape": 7,
-          "salary": 14044
+          "dmi": 22607,
+          "gameShape": 2,
+          "salary": 197096
         },
         {
           "playerId": 55369649,
           "name": "Živko Mikuličić",
-          "dmi": 148321,
-          "gameShape": 7,
-          "salary": 31072
+          "dmi": 134993,
+          "gameShape": 1,
+          "salary": 66855
         },
         {
           "playerId": 55628226,
           "name": "Hrvoje Munivrana",
-          "dmi": 47364,
-          "gameShape": 7,
-          "salary": 11528
+          "dmi": 56955,
+          "gameShape": 5,
+          "salary": 119186
         },
         {
           "playerId": 55628436,
           "name": "Marin Turčinov",
-          "dmi": 170993,
-          "gameShape": 7,
-          "salary": 43239
+          "dmi": 92075,
+          "gameShape": 9,
+          "salary": 71789
+        },
+        {
+          "playerId": 55628221,
+          "name": "Mihael Matelić",
+          "dmi": 88115,
+          "gameShape": 9,
+          "salary": 7990
         },
         {
           "playerId": 55466031,
           "name": "Branko Meštrić",
-          "dmi": 147195,
+          "dmi": 114684,
           "gameShape": 7,
-          "salary": 33463
+          "salary": 31547
         }
       ]
     },
@@ -1886,128 +1886,128 @@
         {
           "playerId": 55713805,
           "name": "Sol Flynn",
-          "dmi": 82559,
-          "gameShape": 7,
-          "salary": 17878
+          "dmi": 15411,
+          "gameShape": 2,
+          "salary": 146264
         },
         {
           "playerId": 55398600,
           "name": "Terry Heighway",
-          "dmi": 54744,
-          "gameShape": 7,
-          "salary": 12418
+          "dmi": 117940,
+          "gameShape": 6,
+          "salary": 182483
         },
         {
           "playerId": 55712807,
           "name": "Gary Kelly",
-          "dmi": 38869,
-          "gameShape": 7,
-          "salary": 9442
-        },
-        {
-          "playerId": 55398588,
-          "name": "Mark Farrell",
-          "dmi": 32752,
-          "gameShape": 7,
-          "salary": 7587
+          "dmi": 104570,
+          "gameShape": 3,
+          "salary": 131080
         },
         {
           "playerId": 55398574,
           "name": "Scott Sullivan",
-          "dmi": 80226,
+          "dmi": 93059,
           "gameShape": 7,
-          "salary": 22452
+          "salary": 142341
         },
         {
           "playerId": 55398674,
           "name": "Humphrey Dineen",
-          "dmi": 62440,
-          "gameShape": 7,
-          "salary": 16521
+          "dmi": 83076,
+          "gameShape": 8,
+          "salary": 114720
         },
         {
-          "playerId": 55935410,
-          "name": "Paul Gavin",
-          "dmi": 41490,
-          "gameShape": 7,
-          "salary": 10657
+          "playerId": 55398603,
+          "name": "Henry Kilmartin",
+          "dmi": 94183,
+          "gameShape": 2,
+          "salary": 171644
+        },
+        {
+          "playerId": 55398676,
+          "name": "Austin MacBride",
+          "dmi": 120804,
+          "gameShape": 4,
+          "salary": 185731
         },
         {
           "playerId": 55462447,
           "name": "Gearóid Walsh",
-          "dmi": 67559,
-          "gameShape": 7,
-          "salary": 15351
+          "dmi": 24315,
+          "gameShape": 5,
+          "salary": 73518
         },
         {
           "playerId": 55989171,
           "name": "Kyle Wogan",
-          "dmi": 53206,
-          "gameShape": 7,
-          "salary": 12493
+          "dmi": 80632,
+          "gameShape": 9,
+          "salary": 77262
         },
         {
           "playerId": 55462407,
           "name": "Alex Donovan",
-          "dmi": 94709,
-          "gameShape": 7,
-          "salary": 20943
+          "dmi": 37093,
+          "gameShape": 8,
+          "salary": 46966
         },
         {
           "playerId": 55711904,
           "name": "Ernie Murray",
-          "dmi": 56262,
-          "gameShape": 7,
-          "salary": 11662
+          "dmi": 120000,
+          "gameShape": 8,
+          "salary": 147228
         },
         {
           "playerId": 55656906,
           "name": "Nick O'Malley",
-          "dmi": 44408,
-          "gameShape": 7,
-          "salary": 12682
+          "dmi": 38836,
+          "gameShape": 5,
+          "salary": 13402
         },
         {
           "playerId": 55656842,
           "name": "Jimmy Phelan",
-          "dmi": 93799,
-          "gameShape": 7,
-          "salary": 23148
+          "dmi": 16191,
+          "gameShape": 8,
+          "salary": 148815
         },
         {
           "playerId": 55989623,
           "name": "Graham Griffiths",
-          "dmi": 60624,
-          "gameShape": 7,
-          "salary": 14098
+          "dmi": 113478,
+          "gameShape": 2,
+          "salary": 34556
         },
         {
           "playerId": 55712485,
           "name": "Naumantas Motulas",
-          "dmi": 59928,
-          "gameShape": 7,
-          "salary": 12278
+          "dmi": 59776,
+          "gameShape": 8,
+          "salary": 106802
         },
         {
           "playerId": 55712781,
           "name": "Ricky Brunt",
-          "dmi": 72757,
-          "gameShape": 7,
-          "salary": 16807
+          "dmi": 48427,
+          "gameShape": 3,
+          "salary": 158177
         },
         {
           "playerId": 55935467,
           "name": "Pete Gray",
-          "dmi": 52716,
-          "gameShape": 7,
-          "salary": 13945
+          "dmi": 146619,
+          "gameShape": 4,
+          "salary": 182491
         },
         {
           "playerId": 55656820,
           "name": "Alan Zammit",
-          "dmi": 45148,
-          "gameShape": 7,
-          "salary": 11957
+          "dmi": 25219,
+          "gameShape": 6,
+          "salary": 69787
         }
       ]
     },
@@ -2019,100 +2019,100 @@
         {
           "playerId": 55992426,
           "name": "Bjartur Hólmgrímsson",
-          "dmi": 46710,
-          "gameShape": 7,
-          "salary": 13085
+          "dmi": 1534,
+          "gameShape": 2,
+          "salary": 167258
         },
         {
           "playerId": 55718714,
           "name": "Óliver Mánason",
-          "dmi": 61193,
+          "dmi": 35267,
           "gameShape": 7,
-          "salary": 12460
+          "salary": 183080
         },
         {
           "playerId": 55715513,
           "name": "Ísólfur Óðinsson",
-          "dmi": 47050,
-          "gameShape": 7,
-          "salary": 10383
+          "dmi": 131457,
+          "gameShape": 6,
+          "salary": 123990
         },
         {
           "playerId": 55468295,
           "name": "Júlíus Karlsson",
-          "dmi": 50243,
-          "gameShape": 7,
-          "salary": 12715
+          "dmi": 11080,
+          "gameShape": 9,
+          "salary": 25744
         },
         {
           "playerId": 55715064,
           "name": "Konráð Hólmarsson",
-          "dmi": 81105,
-          "gameShape": 7,
-          "salary": 18268
+          "dmi": 29653,
+          "gameShape": 2,
+          "salary": 167078
         },
         {
           "playerId": 55718906,
           "name": "Kjartan Antonsson",
-          "dmi": 59193,
-          "gameShape": 7,
-          "salary": 16553
+          "dmi": 62955,
+          "gameShape": 5,
+          "salary": 44392
         },
         {
           "playerId": 55997446,
           "name": "Hlynur Snorrason",
-          "dmi": 39069,
-          "gameShape": 7,
-          "salary": 10429
+          "dmi": 51576,
+          "gameShape": 4,
+          "salary": 134054
         },
         {
           "playerId": 55468308,
           "name": "Flóki Geirfinnsson",
-          "dmi": 71169,
-          "gameShape": 7,
-          "salary": 18367
+          "dmi": 13734,
+          "gameShape": 4,
+          "salary": 133237
         },
         {
           "playerId": 55468207,
           "name": "Kristinn Gíslason",
-          "dmi": 75650,
-          "gameShape": 7,
-          "salary": 18512
+          "dmi": 4966,
+          "gameShape": 3,
+          "salary": 40503
         },
         {
           "playerId": 55718914,
           "name": "Unnþór Broddason",
-          "dmi": 42660,
-          "gameShape": 7,
-          "salary": 10564
+          "dmi": 50628,
+          "gameShape": 3,
+          "salary": 146095
         },
         {
           "playerId": 55992404,
           "name": "Hinrik Pétursson",
-          "dmi": 45186,
-          "gameShape": 7,
-          "salary": 11635
+          "dmi": 30048,
+          "gameShape": 5,
+          "salary": 12139
         },
         {
           "playerId": 55718872,
           "name": "Þormar Víkingsson",
-          "dmi": 59593,
-          "gameShape": 7,
-          "salary": 14686
+          "dmi": 131654,
+          "gameShape": 3,
+          "salary": 132597
         },
         {
           "playerId": 55711357,
           "name": "Guðmann Marvinsson",
-          "dmi": 49479,
-          "gameShape": 7,
-          "salary": 12993
+          "dmi": 85972,
+          "gameShape": 5,
+          "salary": 155268
         },
         {
           "playerId": 55718869,
           "name": "Sverrir Guðmundsson",
-          "dmi": 229441,
-          "gameShape": 7,
-          "salary": 43793
+          "dmi": 32886,
+          "gameShape": 1,
+          "salary": 63979
         }
       ]
     },
@@ -2122,109 +2122,102 @@
       "pool": "Pool B",
       "players": [
         {
-          "playerId": 55601531,
-          "name": "Matan Berko",
-          "dmi": 61185,
-          "gameShape": 7,
-          "salary": 13807
-        },
-        {
-          "playerId": 55601463,
-          "name": "Yehoshua Balili",
-          "dmi": 54527,
-          "gameShape": 7,
-          "salary": 11186
-        },
-        {
           "playerId": 55334517,
           "name": "Yanir Revivo",
-          "dmi": 161609,
-          "gameShape": 7,
-          "salary": 34087
+          "dmi": 82395,
+          "gameShape": 1,
+          "salary": 112159
         },
         {
           "playerId": 55333883,
           "name": "Semen Kosov",
-          "dmi": 119757,
-          "gameShape": 7,
-          "salary": 29264
+          "dmi": 80733,
+          "gameShape": 1,
+          "salary": 81007
         },
         {
           "playerId": 55334269,
           "name": "Ziauddin Sulaiman",
-          "dmi": 194134,
-          "gameShape": 7,
-          "salary": 35099
+          "dmi": 54892,
+          "gameShape": 3,
+          "salary": 143064
         },
         {
           "playerId": 55334268,
           "name": "Eilon Kalderon",
-          "dmi": 92121,
+          "dmi": 78511,
+          "gameShape": 4,
+          "salary": 151974
+        },
+        {
+          "playerId": 55333915,
+          "name": "Moshe Milo",
+          "dmi": 49572,
           "gameShape": 7,
-          "salary": 23776
+          "salary": 12761
         },
         {
           "playerId": 55334224,
           "name": "Yechezkel Avramov",
-          "dmi": 177420,
-          "gameShape": 7,
-          "salary": 31802
+          "dmi": 139244,
+          "gameShape": 3,
+          "salary": 166706
         },
         {
           "playerId": 55334365,
           "name": "Oran Zelinger",
-          "dmi": 124422,
-          "gameShape": 7,
-          "salary": 27975
+          "dmi": 44252,
+          "gameShape": 9,
+          "salary": 79388
         },
         {
           "playerId": 55333813,
           "name": "Dan Asraf",
-          "dmi": 126589,
-          "gameShape": 7,
-          "salary": 28420
+          "dmi": 109792,
+          "gameShape": 4,
+          "salary": 66435
         },
         {
           "playerId": 55334424,
           "name": "Naser Rais",
-          "dmi": 111967,
+          "dmi": 19277,
           "gameShape": 7,
-          "salary": 24124
+          "salary": 86646
         },
         {
           "playerId": 55601883,
           "name": "Igor Pe'er",
-          "dmi": 260178,
-          "gameShape": 7,
-          "salary": 52445
+          "dmi": 123569,
+          "gameShape": 4,
+          "salary": 4589
         },
         {
           "playerId": 55333824,
           "name": "Malik Abbas",
-          "dmi": 210265,
-          "gameShape": 7,
-          "salary": 39583
+          "dmi": 84327,
+          "gameShape": 3,
+          "salary": 29636
         },
         {
           "playerId": 55334348,
           "name": "Eden Tsuriel",
-          "dmi": 276892,
-          "gameShape": 7,
-          "salary": 55712
+          "dmi": 142232,
+          "gameShape": 1,
+          "salary": 178696
         },
         {
           "playerId": 55334017,
           "name": "Elishav Oved",
-          "dmi": 722575,
-          "gameShape": 7,
-          "salary": 112089
+          "dmi": 85473,
+          "gameShape": 3,
+          "salary": 59934
         },
         {
           "playerId": 55334164,
           "name": "Avni Barzilay",
-          "dmi": 1163816,
+          "dmi": 39200,
           "gameShape": 7,
-          "salary": 174976
+          "salary": 119411
         }
       ]
     },
@@ -2236,107 +2229,114 @@
         {
           "playerId": 55572100,
           "name": "Gianni Arcellotti",
-          "dmi": 137019,
-          "gameShape": 7,
-          "salary": 29693
+          "dmi": 122460,
+          "gameShape": 9,
+          "salary": 86074
         },
         {
           "playerId": 55279101,
           "name": "Luigi Vivian",
-          "dmi": 172378,
-          "gameShape": 7,
-          "salary": 31543
+          "dmi": 90038,
+          "gameShape": 9,
+          "salary": 75539
         },
         {
           "playerId": 55277298,
           "name": "Alexander Raffaele",
-          "dmi": 133376,
-          "gameShape": 7,
-          "salary": 30810
+          "dmi": 27771,
+          "gameShape": 4,
+          "salary": 198514
         },
         {
           "playerId": 55279395,
           "name": "Gene Vivian",
-          "dmi": 121534,
-          "gameShape": 7,
-          "salary": 25983
+          "dmi": 114912,
+          "gameShape": 5,
+          "salary": 125840
         },
         {
           "playerId": 55522533,
           "name": "Benedetto Prestipino",
-          "dmi": 98747,
-          "gameShape": 7,
-          "salary": 25571
+          "dmi": 144652,
+          "gameShape": 4,
+          "salary": 182780
         },
         {
           "playerId": 55278599,
           "name": "Eduardo Barlati",
-          "dmi": 141144,
-          "gameShape": 7,
-          "salary": 31591
+          "dmi": 48784,
+          "gameShape": 6,
+          "salary": 136644
         },
         {
           "playerId": 55279555,
           "name": "Torquato Nigro",
-          "dmi": 105058,
-          "gameShape": 7,
-          "salary": 23106
+          "dmi": 41281,
+          "gameShape": 5,
+          "salary": 124481
         },
         {
           "playerId": 55278451,
           "name": "Catello Attazzo",
-          "dmi": 88845,
-          "gameShape": 7,
-          "salary": 18742
+          "dmi": 20577,
+          "gameShape": 3,
+          "salary": 78916
         },
         {
           "playerId": 55574910,
           "name": "Yuri Dimartino",
-          "dmi": 156562,
-          "gameShape": 7,
-          "salary": 32868
+          "dmi": 113260,
+          "gameShape": 9,
+          "salary": 43351
         },
         {
           "playerId": 55280233,
           "name": "Nicola Laudadio",
-          "dmi": 607042,
-          "gameShape": 7,
-          "salary": 108533
+          "dmi": 78375,
+          "gameShape": 1,
+          "salary": 125752
         },
         {
           "playerId": 55277104,
           "name": "Scipio Rullo",
-          "dmi": 439580,
-          "gameShape": 7,
-          "salary": 87348
+          "dmi": 70397,
+          "gameShape": 2,
+          "salary": 97505
+        },
+        {
+          "playerId": 55279493,
+          "name": "Guido Cirrotti",
+          "dmi": 143827,
+          "gameShape": 6,
+          "salary": 159230
         },
         {
           "playerId": 55276681,
           "name": "Enrico Rantolo",
-          "dmi": 85537,
-          "gameShape": 7,
-          "salary": 19785
+          "dmi": 6225,
+          "gameShape": 8,
+          "salary": 45526
         },
         {
           "playerId": 55276639,
           "name": "Pietro Varano",
-          "dmi": 347785,
-          "gameShape": 7,
-          "salary": 67309
+          "dmi": 116294,
+          "gameShape": 2,
+          "salary": 114683
         },
         {
           "playerId": 55280216,
           "name": "Ugo Fusaro",
-          "dmi": 390481,
-          "gameShape": 7,
-          "salary": 85024
+          "dmi": 92695,
+          "gameShape": 4,
+          "salary": 45801
         },
         {
           "playerId": 55279727,
           "name": "Gian Domenico Militello",
-          "dmi": 546142,
-          "gameShape": 7,
-          "salary": 82301
+          "dmi": 27687,
+          "gameShape": 2,
+          "salary": 135294
         }
       ]
     },
@@ -2348,114 +2348,128 @@
         {
           "playerId": 55662470,
           "name": "Vidmants Treinis",
-          "dmi": 83341,
-          "gameShape": 7,
-          "salary": 19494
+          "dmi": 31010,
+          "gameShape": 3,
+          "salary": 171210
         },
         {
           "playerId": 55661992,
           "name": "Benedikts Ikstitis",
-          "dmi": 97357,
-          "gameShape": 7,
-          "salary": 22532
+          "dmi": 110438,
+          "gameShape": 9,
+          "salary": 79462
         },
         {
           "playerId": 55404236,
           "name": "Guntars Lipsks",
-          "dmi": 206424,
-          "gameShape": 7,
-          "salary": 44203
+          "dmi": 142418,
+          "gameShape": 9,
+          "salary": 176048
         },
         {
           "playerId": 55403687,
           "name": "Ziedonis Ennitis",
-          "dmi": 178221,
-          "gameShape": 7,
-          "salary": 38578
+          "dmi": 31885,
+          "gameShape": 6,
+          "salary": 12239
         },
         {
           "playerId": 55662042,
           "name": "Ivo Ostinš",
-          "dmi": 103981,
+          "dmi": 110199,
           "gameShape": 7,
-          "salary": 22790
+          "salary": 182211
         },
         {
           "playerId": 55662425,
           "name": "Tore Davidsson",
-          "dmi": 156425,
-          "gameShape": 7,
-          "salary": 29039
+          "dmi": 147408,
+          "gameShape": 4,
+          "salary": 99215
+        },
+        {
+          "playerId": 55661978,
+          "name": "Robbert-Jan Köhler",
+          "dmi": 2243,
+          "gameShape": 9,
+          "salary": 70435
         },
         {
           "playerId": 55662297,
           "name": "Antons Raminš",
-          "dmi": 62058,
+          "dmi": 121208,
           "gameShape": 7,
-          "salary": 14215
+          "salary": 144362
         },
         {
           "playerId": 55662170,
           "name": "Intars Staris",
-          "dmi": 94665,
-          "gameShape": 7,
-          "salary": 22663
+          "dmi": 3576,
+          "gameShape": 2,
+          "salary": 54113
         },
         {
           "playerId": 55714471,
           "name": "Austris Šteins-Akmentinš",
-          "dmi": 67815,
-          "gameShape": 7,
-          "salary": 14374
+          "dmi": 113981,
+          "gameShape": 4,
+          "salary": 150643
         },
         {
           "playerId": 55662091,
           "name": "Normunds Grinvalds",
-          "dmi": 101635,
-          "gameShape": 7,
-          "salary": 19564
+          "dmi": 126902,
+          "gameShape": 4,
+          "salary": 32219
         },
         {
           "playerId": 55404225,
           "name": "Tālivaldis Feldmanis",
-          "dmi": 73286,
-          "gameShape": 7,
-          "salary": 17683
+          "dmi": 92161,
+          "gameShape": 9,
+          "salary": 96669
         },
         {
           "playerId": 55403984,
           "name": "Tālivaldis Taukacs",
-          "dmi": 99131,
-          "gameShape": 7,
-          "salary": 23069
+          "dmi": 143734,
+          "gameShape": 4,
+          "salary": 31927
         },
         {
           "playerId": 55662214,
           "name": "Juris Bilmanis",
-          "dmi": 52353,
-          "gameShape": 7,
-          "salary": 11479
+          "dmi": 59389,
+          "gameShape": 5,
+          "salary": 148474
         },
         {
           "playerId": 55662114,
           "name": "Peteris Rungis",
-          "dmi": 96699,
-          "gameShape": 7,
-          "salary": 21034
+          "dmi": 1655,
+          "gameShape": 5,
+          "salary": 2684
         },
         {
           "playerId": 55662161,
           "name": "Guntars Versitis",
-          "dmi": 109854,
+          "dmi": 145360,
           "gameShape": 7,
-          "salary": 21244
+          "salary": 33292
+        },
+        {
+          "playerId": 55713205,
+          "name": "Kristaps Miezitis",
+          "dmi": 120516,
+          "gameShape": 3,
+          "salary": 29511
         },
         {
           "playerId": 55989266,
           "name": "Arturs Eidinš",
-          "dmi": 142779,
-          "gameShape": 7,
-          "salary": 30664
+          "dmi": 16338,
+          "gameShape": 1,
+          "salary": 100636
         }
       ]
     },
@@ -2467,100 +2481,86 @@
         {
           "playerId": 55352653,
           "name": "Andriejus Doroševicius",
-          "dmi": 174890,
-          "gameShape": 7,
-          "salary": 34069
-        },
-        {
-          "playerId": 55620066,
-          "name": "Ernestas Krikštanavicius",
-          "dmi": 80505,
-          "gameShape": 7,
-          "salary": 15313
+          "dmi": 17323,
+          "gameShape": 6,
+          "salary": 190736
         },
         {
           "playerId": 55351839,
           "name": "Merkys Ernius",
-          "dmi": 82043,
-          "gameShape": 7,
-          "salary": 18049
+          "dmi": 40853,
+          "gameShape": 2,
+          "salary": 191780
         },
         {
           "playerId": 55620954,
           "name": "Antanas Nagibinas",
-          "dmi": 189402,
-          "gameShape": 7,
-          "salary": 33955
+          "dmi": 29116,
+          "gameShape": 9,
+          "salary": 71495
         },
         {
           "playerId": 55619495,
           "name": "Dorotėjas Pikcilingis",
-          "dmi": 229870,
-          "gameShape": 7,
-          "salary": 40629
+          "dmi": 63075,
+          "gameShape": 6,
+          "salary": 151260
         },
         {
           "playerId": 55351474,
           "name": "Eugenijus Mašanauskas",
-          "dmi": 391294,
-          "gameShape": 7,
-          "salary": 85369
+          "dmi": 15245,
+          "gameShape": 3,
+          "salary": 168715
         },
         {
           "playerId": 55351393,
           "name": "Lucjan Kunkel",
-          "dmi": 191804,
-          "gameShape": 7,
-          "salary": 46718
+          "dmi": 46916,
+          "gameShape": 1,
+          "salary": 30942
         },
         {
           "playerId": 55351902,
           "name": "Varūnas Jermalis",
-          "dmi": 158797,
-          "gameShape": 7,
-          "salary": 35950
+          "dmi": 145501,
+          "gameShape": 4,
+          "salary": 42109
         },
         {
-          "playerId": 55620048,
-          "name": "Linas Piatnickis",
-          "dmi": 102903,
-          "gameShape": 7,
-          "salary": 21878
+          "playerId": 55352808,
+          "name": "Mark Borzenko",
+          "dmi": 86787,
+          "gameShape": 2,
+          "salary": 159613
         },
         {
           "playerId": 55619676,
           "name": "Augantas Iršėnas",
-          "dmi": 74277,
-          "gameShape": 7,
-          "salary": 16170
+          "dmi": 143285,
+          "gameShape": 3,
+          "salary": 156468
         },
         {
           "playerId": 55352459,
           "name": "Nomedas Siatkovskis",
-          "dmi": 177307,
-          "gameShape": 7,
-          "salary": 31925
+          "dmi": 25072,
+          "gameShape": 4,
+          "salary": 138004
         },
         {
           "playerId": 55353247,
           "name": "Naumantas Kriveliovas",
-          "dmi": 160651,
-          "gameShape": 7,
-          "salary": 37994
+          "dmi": 137273,
+          "gameShape": 5,
+          "salary": 6913
         },
         {
           "playerId": 55619107,
           "name": "Vaidas Naikauskas",
-          "dmi": 199261,
+          "dmi": 41710,
           "gameShape": 7,
-          "salary": 38340
-        },
-        {
-          "playerId": 55352485,
-          "name": "Arnas Naugžemis",
-          "dmi": 134323,
-          "gameShape": 7,
-          "salary": 28382
+          "salary": 139306
         }
       ]
     },
@@ -2572,121 +2572,121 @@
         {
           "playerId": 55463809,
           "name": "Rodrigo Arrepia",
-          "dmi": 40785,
-          "gameShape": 7,
-          "salary": 12389
+          "dmi": 117520,
+          "gameShape": 8,
+          "salary": 54644
         },
         {
           "playerId": 55718950,
           "name": "Mortimer Roose",
-          "dmi": 93897,
-          "gameShape": 7,
-          "salary": 18670
+          "dmi": 58700,
+          "gameShape": 1,
+          "salary": 64326
         },
         {
           "playerId": 55714345,
           "name": "Stéphane Guillou",
-          "dmi": 39345,
+          "dmi": 41652,
           "gameShape": 7,
-          "salary": 12062
+          "salary": 151946
         },
         {
           "playerId": 55991407,
           "name": "Éric Dumoulin",
-          "dmi": 57430,
-          "gameShape": 7,
-          "salary": 13119
+          "dmi": 90258,
+          "gameShape": 8,
+          "salary": 82767
         },
         {
           "playerId": 55990109,
           "name": "Christian Saat",
-          "dmi": 64232,
-          "gameShape": 7,
-          "salary": 13212
+          "dmi": 10901,
+          "gameShape": 5,
+          "salary": 142219
         },
         {
           "playerId": 55711265,
           "name": "Carlo Maria Cometa",
-          "dmi": 71029,
-          "gameShape": 7,
-          "salary": 15873
+          "dmi": 58123,
+          "gameShape": 4,
+          "salary": 68205
         },
         {
           "playerId": 55993733,
           "name": "Reimund Sproll",
-          "dmi": 50944,
-          "gameShape": 7,
-          "salary": 12238
+          "dmi": 41879,
+          "gameShape": 2,
+          "salary": 184345
         },
         {
           "playerId": 55714281,
           "name": "Lorentz Dechilly",
-          "dmi": 45680,
+          "dmi": 131450,
           "gameShape": 7,
-          "salary": 11543
+          "salary": 18485
         },
         {
           "playerId": 55464251,
           "name": "Laurent Bazoge",
-          "dmi": 107714,
-          "gameShape": 7,
-          "salary": 27429
+          "dmi": 78105,
+          "gameShape": 2,
+          "salary": 131220
         },
         {
           "playerId": 55714597,
           "name": "Tobias Andreas Buchwieser",
-          "dmi": 59309,
-          "gameShape": 7,
-          "salary": 14047
+          "dmi": 46416,
+          "gameShape": 3,
+          "salary": 67713
         },
         {
           "playerId": 55990834,
           "name": "Kristof Vannieuwenkerke",
-          "dmi": 33727,
-          "gameShape": 7,
-          "salary": 9463
+          "dmi": 115047,
+          "gameShape": 3,
+          "salary": 61734
         },
         {
           "playerId": 55463217,
           "name": "Mikael Marcoux",
-          "dmi": 62304,
-          "gameShape": 7,
-          "salary": 13566
+          "dmi": 10711,
+          "gameShape": 3,
+          "salary": 97860
         },
         {
           "playerId": 55714989,
           "name": "Hanns Lederhuber",
-          "dmi": 74373,
-          "gameShape": 7,
-          "salary": 15419
+          "dmi": 97639,
+          "gameShape": 6,
+          "salary": 68255
         },
         {
           "playerId": 55527251,
           "name": "Armand Le Boulch",
-          "dmi": 87337,
-          "gameShape": 7,
-          "salary": 22010
+          "dmi": 61489,
+          "gameShape": 1,
+          "salary": 155215
         },
         {
           "playerId": 55465572,
           "name": "Ruedi Legnick",
-          "dmi": 48884,
-          "gameShape": 7,
-          "salary": 13255
+          "dmi": 90497,
+          "gameShape": 1,
+          "salary": 28089
         },
         {
           "playerId": 55711866,
           "name": "Bruno Alves",
-          "dmi": 32567,
-          "gameShape": 7,
-          "salary": 7954
+          "dmi": 143326,
+          "gameShape": 8,
+          "salary": 130789
         },
         {
           "playerId": 55715748,
           "name": "Steffen Preiss",
-          "dmi": 93648,
-          "gameShape": 7,
-          "salary": 19636
+          "dmi": 17194,
+          "gameShape": 8,
+          "salary": 145010
         }
       ]
     },
@@ -2698,121 +2698,100 @@
         {
           "playerId": 55408186,
           "name": "Vilmos Fischl",
-          "dmi": 94562,
-          "gameShape": 7,
-          "salary": 20991
+          "dmi": 83020,
+          "gameShape": 2,
+          "salary": 28145
         },
         {
           "playerId": 55407935,
           "name": "László Fábry",
-          "dmi": 174408,
-          "gameShape": 7,
-          "salary": 37974
+          "dmi": 11188,
+          "gameShape": 1,
+          "salary": 42229
         },
         {
           "playerId": 55408459,
           "name": "Győző Koltai",
-          "dmi": 90736,
-          "gameShape": 7,
-          "salary": 19302
+          "dmi": 42912,
+          "gameShape": 2,
+          "salary": 18052
         },
         {
           "playerId": 55407968,
           "name": "János Gujdár",
-          "dmi": 173534,
-          "gameShape": 7,
-          "salary": 31356
+          "dmi": 79357,
+          "gameShape": 4,
+          "salary": 163363
         },
         {
           "playerId": 55410398,
           "name": "Erik Takáts",
-          "dmi": 108847,
-          "gameShape": 7,
-          "salary": 23838
-        },
-        {
-          "playerId": 55408023,
-          "name": "Gábor Ballai",
-          "dmi": 73580,
-          "gameShape": 7,
-          "salary": 17408
+          "dmi": 142251,
+          "gameShape": 8,
+          "salary": 62884
         },
         {
           "playerId": 55407953,
           "name": "Gergely Orth",
-          "dmi": 106307,
-          "gameShape": 7,
-          "salary": 21776
-        },
-        {
-          "playerId": 55465380,
-          "name": "Henrik Seres",
-          "dmi": 144245,
-          "gameShape": 7,
-          "salary": 28777
+          "dmi": 84305,
+          "gameShape": 9,
+          "salary": 29508
         },
         {
           "playerId": 55408121,
           "name": "András Gróf",
-          "dmi": 133562,
-          "gameShape": 7,
-          "salary": 27893
+          "dmi": 138994,
+          "gameShape": 3,
+          "salary": 22411
         },
         {
           "playerId": 55407939,
           "name": "Gedeon Kapuvári",
-          "dmi": 235377,
-          "gameShape": 7,
-          "salary": 47994
+          "dmi": 128118,
+          "gameShape": 9,
+          "salary": 196506
         },
         {
           "playerId": 55408428,
           "name": "Tamás Szentmihályi",
-          "dmi": 511020,
+          "dmi": 96248,
           "gameShape": 7,
-          "salary": 112106
-        },
-        {
-          "playerId": 55408352,
-          "name": "Félix Dvéri",
-          "dmi": 53037,
-          "gameShape": 7,
-          "salary": 11723
+          "salary": 36711
         },
         {
           "playerId": 55408282,
           "name": "István Hannich",
-          "dmi": 446959,
-          "gameShape": 7,
-          "salary": 86304
+          "dmi": 108312,
+          "gameShape": 5,
+          "salary": 89335
         },
         {
           "playerId": 55410389,
           "name": "Karl Hinterleitner",
-          "dmi": 257094,
-          "gameShape": 7,
-          "salary": 52294
+          "dmi": 29109,
+          "gameShape": 2,
+          "salary": 91088
         },
         {
           "playerId": 55407925,
           "name": "Konstantin Jusztin",
-          "dmi": 906269,
-          "gameShape": 7,
-          "salary": 143126
+          "dmi": 73278,
+          "gameShape": 3,
+          "salary": 134174
         },
         {
           "playerId": 55407954,
           "name": "Albin Aggod",
-          "dmi": 392170,
-          "gameShape": 7,
-          "salary": 78383
+          "dmi": 141962,
+          "gameShape": 5,
+          "salary": 164292
         },
         {
           "playerId": 55408145,
           "name": "Csaba Nacsa",
-          "dmi": 622308,
+          "dmi": 33698,
           "gameShape": 7,
-          "salary": 121095
+          "salary": 83801
         }
       ]
     },
@@ -2822,46 +2801,116 @@
       "pool": "Pool E",
       "players": [
         {
-          "playerId": 55670354,
-          "name": "Stojan Stojkovski",
-          "dmi": 59810,
-          "gameShape": 7,
-          "salary": 13104
+          "playerId": 55711813,
+          "name": "Milorad Dozet",
+          "dmi": 68629,
+          "gameShape": 9,
+          "salary": 54998
         },
         {
-          "playerId": 55670366,
-          "name": "Lavrentij Dostinov",
-          "dmi": 29363,
+          "playerId": 55411868,
+          "name": "Ismail Schaut",
+          "dmi": 54654,
           "gameShape": 7,
-          "salary": 7075
+          "salary": 72734
+        },
+        {
+          "playerId": 55711470,
+          "name": "Stojan Mijalkov",
+          "dmi": 139133,
+          "gameShape": 8,
+          "salary": 88202
+        },
+        {
+          "playerId": 55714082,
+          "name": "Arbian Nepravishta",
+          "dmi": 67591,
+          "gameShape": 7,
+          "salary": 180112
+        },
+        {
+          "playerId": 55670350,
+          "name": "Anastas Nikushev",
+          "dmi": 94332,
+          "gameShape": 5,
+          "salary": 138187
+        },
+        {
+          "playerId": 55670367,
+          "name": "Zare Sokolov",
+          "dmi": 78390,
+          "gameShape": 4,
+          "salary": 47528
+        },
+        {
+          "playerId": 55670364,
+          "name": "Gligorij Shumkovski",
+          "dmi": 132661,
+          "gameShape": 7,
+          "salary": 153828
+        },
+        {
+          "playerId": 55992017,
+          "name": "Tosho Olajdzajkovski",
+          "dmi": 66037,
+          "gameShape": 5,
+          "salary": 151374
+        },
+        {
+          "playerId": 55670458,
+          "name": "Tihi Evroski",
+          "dmi": 147687,
+          "gameShape": 1,
+          "salary": 185936
+        },
+        {
+          "playerId": 55670330,
+          "name": "Boro Gerchakovski",
+          "dmi": 104772,
+          "gameShape": 2,
+          "salary": 98192
         },
         {
           "playerId": 55411877,
           "name": "Koce Ignjatov",
-          "dmi": 60829,
-          "gameShape": 7,
-          "salary": 13409
+          "dmi": 135395,
+          "gameShape": 1,
+          "salary": 42204
+        },
+        {
+          "playerId": 55411889,
+          "name": "Utka Piskachev",
+          "dmi": 97587,
+          "gameShape": 2,
+          "salary": 150527
         },
         {
           "playerId": 55411851,
           "name": "Anton Dzuvalekovski",
-          "dmi": 182844,
-          "gameShape": 7,
-          "salary": 49384
+          "dmi": 133016,
+          "gameShape": 9,
+          "salary": 39774
         },
         {
-          "playerId": 55670409,
-          "name": "Rangel Serafimovski",
-          "dmi": 75343,
-          "gameShape": 7,
-          "salary": 17500
+          "playerId": 55463468,
+          "name": "Tase Dreshic",
+          "dmi": 119348,
+          "gameShape": 8,
+          "salary": 45548
         },
         {
           "playerId": 55466146,
           "name": "Lazar Cuculovski",
-          "dmi": 112338,
-          "gameShape": 7,
-          "salary": 25352
+          "dmi": 141089,
+          "gameShape": 8,
+          "salary": 174634
+        },
+        {
+          "playerId": 55714964,
+          "name": "Mojsie Koneski",
+          "dmi": 134503,
+          "gameShape": 4,
+          "salary": 92869
         }
       ]
     },
@@ -2873,128 +2922,128 @@
         {
           "playerId": 55711459,
           "name": "Ian Parisi",
-          "dmi": 53537,
-          "gameShape": 7,
-          "salary": 12594
+          "dmi": 59542,
+          "gameShape": 3,
+          "salary": 26845
         },
         {
           "playerId": 55711408,
           "name": "Erin Sant",
-          "dmi": 25588,
-          "gameShape": 7,
-          "salary": 7178
+          "dmi": 61251,
+          "gameShape": 3,
+          "salary": 174052
         },
         {
           "playerId": 55715813,
           "name": "Malcolm Cacciottolo",
-          "dmi": 45482,
-          "gameShape": 7,
-          "salary": 10163
+          "dmi": 98442,
+          "gameShape": 5,
+          "salary": 11271
         },
         {
           "playerId": 55997232,
           "name": "Warren Cardona",
-          "dmi": 70050,
-          "gameShape": 7,
-          "salary": 15335
+          "dmi": 1204,
+          "gameShape": 2,
+          "salary": 194834
         },
         {
           "playerId": 55719025,
           "name": "Josef Lauri",
-          "dmi": 49964,
-          "gameShape": 7,
-          "salary": 10820
+          "dmi": 56336,
+          "gameShape": 6,
+          "salary": 55718
         },
         {
           "playerId": 55713877,
           "name": "Bjorn Fitzpatrick",
-          "dmi": 46316,
-          "gameShape": 7,
-          "salary": 11439
+          "dmi": 114780,
+          "gameShape": 2,
+          "salary": 94579
         },
         {
           "playerId": 55712555,
           "name": "Clint Grimaldi",
-          "dmi": 51599,
-          "gameShape": 7,
-          "salary": 11221
+          "dmi": 120904,
+          "gameShape": 9,
+          "salary": 143062
         },
         {
           "playerId": 55463498,
           "name": "Stephen Briffa",
-          "dmi": 325469,
-          "gameShape": 7,
-          "salary": 59700
+          "dmi": 112290,
+          "gameShape": 3,
+          "salary": 159850
         },
         {
           "playerId": 55993361,
           "name": "Jordan Briffa",
-          "dmi": 71443,
-          "gameShape": 7,
-          "salary": 15881
+          "dmi": 106039,
+          "gameShape": 5,
+          "salary": 25523
         },
         {
           "playerId": 55719045,
           "name": "Michael Boffa",
-          "dmi": 57360,
-          "gameShape": 7,
-          "salary": 12802
+          "dmi": 113138,
+          "gameShape": 4,
+          "salary": 148230
         },
         {
           "playerId": 55715917,
           "name": "Donald Farrugia",
-          "dmi": 85713,
-          "gameShape": 7,
-          "salary": 19701
+          "dmi": 116776,
+          "gameShape": 5,
+          "salary": 163307
         },
         {
           "playerId": 55713178,
           "name": "Jean-Marc Schembri",
-          "dmi": 59166,
-          "gameShape": 7,
-          "salary": 14336
+          "dmi": 58389,
+          "gameShape": 9,
+          "salary": 68505
         },
         {
           "playerId": 55466829,
           "name": "Lino Meli",
-          "dmi": 41360,
+          "dmi": 12642,
           "gameShape": 7,
-          "salary": 11059
+          "salary": 177600
         },
         {
           "playerId": 55712557,
           "name": "Jonathan Bonnici",
-          "dmi": 85716,
-          "gameShape": 7,
-          "salary": 19348
+          "dmi": 124774,
+          "gameShape": 6,
+          "salary": 114764
         },
         {
           "playerId": 55712299,
           "name": "Arnold Cutajar",
-          "dmi": 38874,
+          "dmi": 73805,
           "gameShape": 7,
-          "salary": 9611
+          "salary": 190971
         },
         {
           "playerId": 55715107,
           "name": "Vincent Fabri",
-          "dmi": 76285,
-          "gameShape": 7,
-          "salary": 15255
+          "dmi": 43875,
+          "gameShape": 3,
+          "salary": 103223
         },
         {
           "playerId": 55714412,
           "name": "Shaun Borg",
-          "dmi": 51317,
-          "gameShape": 7,
-          "salary": 12365
+          "dmi": 78276,
+          "gameShape": 4,
+          "salary": 2016
         },
         {
           "playerId": 55712949,
           "name": "Julian Briffa",
-          "dmi": 74207,
-          "gameShape": 6,
-          "salary": 18169
+          "dmi": 127120,
+          "gameShape": 1,
+          "salary": 141420
         }
       ]
     },
@@ -3004,39 +3053,130 @@
       "pool": "Pool D",
       "players": [
         {
+          "playerId": 55997357,
+          "name": "Stoyan Todorov",
+          "dmi": 25127,
+          "gameShape": 7,
+          "salary": 65241
+        },
+        {
+          "playerId": 55713181,
+          "name": "Vicu Dobrovolschi",
+          "dmi": 124304,
+          "gameShape": 5,
+          "salary": 176988
+        },
+        {
           "playerId": 55463282,
           "name": "Aurel Filimon",
-          "dmi": 109604,
-          "gameShape": 7,
-          "salary": 24585
+          "dmi": 83400,
+          "gameShape": 3,
+          "salary": 21493
+        },
+        {
+          "playerId": 55716130,
+          "name": "Filip Osadciuc",
+          "dmi": 73164,
+          "gameShape": 9,
+          "salary": 102382
+        },
+        {
+          "playerId": 55468116,
+          "name": "Haralambie Ciudin",
+          "dmi": 10163,
+          "gameShape": 4,
+          "salary": 117286
+        },
+        {
+          "playerId": 55711270,
+          "name": "Pavel Caminschi",
+          "dmi": 46379,
+          "gameShape": 4,
+          "salary": 58635
+        },
+        {
+          "playerId": 55468131,
+          "name": "Ion Caldare",
+          "dmi": 59235,
+          "gameShape": 4,
+          "salary": 160282
+        },
+        {
+          "playerId": 55711176,
+          "name": "Ristea Nistor",
+          "dmi": 82994,
+          "gameShape": 3,
+          "salary": 139911
         },
         {
           "playerId": 55715389,
           "name": "Vicusor Ababii",
-          "dmi": 34334,
-          "gameShape": 7,
-          "salary": 7976
+          "dmi": 121363,
+          "gameShape": 6,
+          "salary": 77677
+        },
+        {
+          "playerId": 55718758,
+          "name": "Sergey Belovol",
+          "dmi": 88258,
+          "gameShape": 1,
+          "salary": 177274
+        },
+        {
+          "playerId": 55997279,
+          "name": "Vicusor Roata",
+          "dmi": 121556,
+          "gameShape": 6,
+          "salary": 97906
+        },
+        {
+          "playerId": 55468100,
+          "name": "Isac Milchevici",
+          "dmi": 57841,
+          "gameShape": 8,
+          "salary": 12744
         },
         {
           "playerId": 55712793,
           "name": "Eduard Tripac",
-          "dmi": 59036,
+          "dmi": 41812,
           "gameShape": 7,
-          "salary": 16077
+          "salary": 114217
+        },
+        {
+          "playerId": 55715186,
+          "name": "Roman Cernei",
+          "dmi": 148936,
+          "gameShape": 7,
+          "salary": 152780
+        },
+        {
+          "playerId": 55714435,
+          "name": "Eugen Prisăcaru",
+          "dmi": 132943,
+          "gameShape": 3,
+          "salary": 98031
+        },
+        {
+          "playerId": 55711401,
+          "name": "Victoras Mirza",
+          "dmi": 87138,
+          "gameShape": 8,
+          "salary": 198089
         },
         {
           "playerId": 55989181,
           "name": "Vsevolod Lamonov",
-          "dmi": 85989,
-          "gameShape": 7,
-          "salary": 18409
+          "dmi": 71361,
+          "gameShape": 2,
+          "salary": 119017
         },
         {
           "playerId": 55718832,
           "name": "Serghei Magariu",
-          "dmi": 102449,
-          "gameShape": 7,
-          "salary": 21800
+          "dmi": 10335,
+          "gameShape": 6,
+          "salary": 2723
         }
       ]
     },
@@ -3048,121 +3188,86 @@
         {
           "playerId": 55338039,
           "name": "Klaas-Jan Bessems",
-          "dmi": 97645,
-          "gameShape": 7,
-          "salary": 23826
+          "dmi": 95986,
+          "gameShape": 3,
+          "salary": 23317
         },
         {
           "playerId": 55884033,
           "name": "Jobias Graas",
-          "dmi": 109581,
-          "gameShape": 7,
-          "salary": 23104
+          "dmi": 124622,
+          "gameShape": 8,
+          "salary": 161997
         },
         {
           "playerId": 55465624,
           "name": "Joseph Hering",
-          "dmi": 56050,
-          "gameShape": 7,
-          "salary": 14018
+          "dmi": 141736,
+          "gameShape": 8,
+          "salary": 111703
         },
         {
           "playerId": 55338162,
           "name": "Timo Panhuis",
-          "dmi": 330979,
+          "dmi": 5176,
           "gameShape": 7,
-          "salary": 55157
+          "salary": 75909
         },
         {
           "playerId": 55337971,
           "name": "George Westbroek",
-          "dmi": 356217,
-          "gameShape": 7,
-          "salary": 72815
-        },
-        {
-          "playerId": 55605489,
-          "name": "Henri Giesen",
-          "dmi": 52718,
-          "gameShape": 7,
-          "salary": 13634
-        },
-        {
-          "playerId": 55605745,
-          "name": "Wijnand Oosterveld",
-          "dmi": 48698,
-          "gameShape": 7,
-          "salary": 13416
+          "dmi": 110639,
+          "gameShape": 1,
+          "salary": 64662
         },
         {
           "playerId": 55605546,
           "name": "Mathieu Nekkers",
-          "dmi": 96117,
+          "dmi": 6930,
           "gameShape": 7,
-          "salary": 19397
+          "salary": 87097
         },
         {
           "playerId": 55338072,
           "name": "George Stuurman",
-          "dmi": 61460,
-          "gameShape": 7,
-          "salary": 12903
+          "dmi": 33903,
+          "gameShape": 9,
+          "salary": 92248
         },
         {
           "playerId": 55466897,
           "name": "Eppo Schreiner",
-          "dmi": 155881,
-          "gameShape": 7,
-          "salary": 32233
-        },
-        {
-          "playerId": 55605733,
-          "name": "Darren Wagter",
-          "dmi": 73587,
-          "gameShape": 7,
-          "salary": 17432
-        },
-        {
-          "playerId": 55337946,
-          "name": "Driekus Holla",
-          "dmi": 62726,
-          "gameShape": 7,
-          "salary": 12343
+          "dmi": 31921,
+          "gameShape": 6,
+          "salary": 35163
         },
         {
           "playerId": 55605561,
           "name": "Niels Glastra",
-          "dmi": 151789,
-          "gameShape": 7,
-          "salary": 28486
+          "dmi": 26027,
+          "gameShape": 5,
+          "salary": 175726
         },
         {
           "playerId": 55884004,
           "name": "Sacco Oldenburger",
-          "dmi": 72185,
-          "gameShape": 7,
-          "salary": 15483
-        },
-        {
-          "playerId": 55605552,
-          "name": "Edward Scholte",
-          "dmi": 112974,
-          "gameShape": 7,
-          "salary": 24040
+          "dmi": 46540,
+          "gameShape": 3,
+          "salary": 189467
         },
         {
           "playerId": 55464826,
           "name": "Alfonso de Zwart",
-          "dmi": 338207,
-          "gameShape": 7,
-          "salary": 63002
+          "dmi": 128479,
+          "gameShape": 4,
+          "salary": 115234
         },
         {
           "playerId": 55605584,
           "name": "Ernesto Bles",
-          "dmi": 117619,
-          "gameShape": 7,
-          "salary": 24250
+          "dmi": 97284,
+          "gameShape": 9,
+          "salary": 178972
         }
       ]
     },
@@ -3172,74 +3277,11 @@
       "pool": "Pool B",
       "players": [
         {
-          "playerId": 55712667,
-          "name": "Leif Ludvig Gustavsen",
-          "dmi": 76371,
-          "gameShape": 7,
-          "salary": 17100
-        },
-        {
-          "playerId": 55712141,
-          "name": "Kåre Hauge",
-          "dmi": 61995,
-          "gameShape": 7,
-          "salary": 13615
-        },
-        {
-          "playerId": 55712974,
-          "name": "Gøran Sæther",
-          "dmi": 40343,
-          "gameShape": 7,
-          "salary": 10553
-        },
-        {
-          "playerId": 55464651,
-          "name": "Per Damgaard",
-          "dmi": 40153,
-          "gameShape": 7,
-          "salary": 10816
-        },
-        {
-          "playerId": 55632195,
-          "name": "Jon-Ove Ryen",
-          "dmi": 66433,
-          "gameShape": 7,
-          "salary": 13432
-        },
-        {
-          "playerId": 55632297,
-          "name": "Roald Andreassen",
-          "dmi": 106103,
-          "gameShape": 7,
-          "salary": 22186
-        },
-        {
-          "playerId": 55373942,
-          "name": "Harald Martin Nordberg",
-          "dmi": 95634,
-          "gameShape": 7,
-          "salary": 19507
-        },
-        {
-          "playerId": 55373895,
-          "name": "Helge Dahl",
-          "dmi": 99839,
-          "gameShape": 7,
-          "salary": 22839
-        },
-        {
-          "playerId": 55993310,
-          "name": "Bendik Lindstad",
-          "dmi": 118743,
-          "gameShape": 7,
-          "salary": 25500
-        },
-        {
-          "playerId": 55715249,
-          "name": "Idar Buseth",
-          "dmi": 112280,
-          "gameShape": 7,
-          "salary": 26233
+          "playerId": 500002709,
+          "name": "Jon Erik Skjelvik",
+          "dmi": 24502,
+          "gameShape": 3,
+          "salary": 194292
         }
       ]
     },
@@ -3251,107 +3293,114 @@
         {
           "playerId": 55374977,
           "name": "Christoph Mitterer",
-          "dmi": 55679,
-          "gameShape": 7,
-          "salary": 12230
+          "dmi": 63928,
+          "gameShape": 6,
+          "salary": 45006
         },
         {
           "playerId": 55374898,
           "name": "Alexander Grill",
-          "dmi": 56728,
-          "gameShape": 7,
-          "salary": 14388
+          "dmi": 30449,
+          "gameShape": 4,
+          "salary": 96531
         },
         {
           "playerId": 55911682,
           "name": "Simon Ranzenmayr",
-          "dmi": 45893,
-          "gameShape": 7,
-          "salary": 10546
+          "dmi": 94929,
+          "gameShape": 3,
+          "salary": 179343
         },
         {
           "playerId": 55633226,
           "name": "David Tiefenbach",
-          "dmi": 70985,
-          "gameShape": 7,
-          "salary": 19091
+          "dmi": 141712,
+          "gameShape": 5,
+          "salary": 164224
         },
         {
           "playerId": 55712495,
           "name": "Hartwig Özdemir",
-          "dmi": 68031,
-          "gameShape": 7,
-          "salary": 13753
+          "dmi": 109583,
+          "gameShape": 4,
+          "salary": 37955
         },
         {
           "playerId": 55911660,
           "name": "Peter Vorauer",
-          "dmi": 50423,
-          "gameShape": 7,
-          "salary": 11291
+          "dmi": 105485,
+          "gameShape": 3,
+          "salary": 153338
         },
         {
           "playerId": 55633398,
           "name": "Patrick Jung",
-          "dmi": 51483,
-          "gameShape": 7,
-          "salary": 13657
+          "dmi": 13896,
+          "gameShape": 5,
+          "salary": 107004
         },
         {
           "playerId": 55633245,
           "name": "Axel Trattner",
-          "dmi": 86432,
-          "gameShape": 7,
-          "salary": 19334
+          "dmi": 23874,
+          "gameShape": 5,
+          "salary": 20074
+        },
+        {
+          "playerId": 55633215,
+          "name": "Christian Bultmann",
+          "dmi": 105022,
+          "gameShape": 4,
+          "salary": 53043
         },
         {
           "playerId": 55374827,
           "name": "Bohuslav Miška",
-          "dmi": 129040,
-          "gameShape": 7,
-          "salary": 26578
+          "dmi": 100451,
+          "gameShape": 6,
+          "salary": 12846
         },
         {
           "playerId": 55994616,
           "name": "Georg Malik",
-          "dmi": 51175,
-          "gameShape": 7,
-          "salary": 12295
+          "dmi": 74686,
+          "gameShape": 1,
+          "salary": 124072
         },
         {
           "playerId": 55374832,
           "name": "Johann Haberlandner",
-          "dmi": 69464,
-          "gameShape": 7,
-          "salary": 19649
+          "dmi": 34553,
+          "gameShape": 9,
+          "salary": 63297
         },
         {
           "playerId": 55633336,
           "name": "Çetin Sen",
-          "dmi": 91235,
-          "gameShape": 7,
-          "salary": 19167
+          "dmi": 124921,
+          "gameShape": 4,
+          "salary": 170274
         },
         {
           "playerId": 55633325,
           "name": "Richard Hofmann",
-          "dmi": 75314,
-          "gameShape": 7,
-          "salary": 14552
+          "dmi": 99866,
+          "gameShape": 2,
+          "salary": 2566
         },
         {
           "playerId": 55716151,
           "name": "Jakob Kammerlander",
-          "dmi": 48123,
-          "gameShape": 7,
-          "salary": 13147
+          "dmi": 86185,
+          "gameShape": 9,
+          "salary": 84511
         },
         {
           "playerId": 55714997,
           "name": "Klaus Angerer",
-          "dmi": 66277,
-          "gameShape": 7,
-          "salary": 14407
+          "dmi": 118967,
+          "gameShape": 6,
+          "salary": 53912
         }
       ]
     },
@@ -3361,11 +3410,109 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 55419646,
+          "name": "Felix Tobias Kozmer",
+          "dmi": 71925,
+          "gameShape": 7,
+          "salary": 48089
+        },
+        {
+          "playerId": 55419857,
+          "name": "Jacek Kosiorek",
+          "dmi": 87126,
+          "gameShape": 9,
+          "salary": 39045
+        },
+        {
+          "playerId": 55420511,
+          "name": "Sylwester Leonczuk",
+          "dmi": 108659,
+          "gameShape": 3,
+          "salary": 18611
+        },
+        {
+          "playerId": 55421160,
+          "name": "Dominik Bartoszewicz",
+          "dmi": 15573,
+          "gameShape": 2,
+          "salary": 5134
+        },
+        {
+          "playerId": 55679877,
+          "name": "Włodzimierz Tylka",
+          "dmi": 12583,
+          "gameShape": 2,
+          "salary": 134615
+        },
+        {
+          "playerId": 55419752,
+          "name": "Albert Kwiatkowski",
+          "dmi": 14789,
+          "gameShape": 2,
+          "salary": 67042
+        },
+        {
+          "playerId": 55421476,
+          "name": "Błażej Łysakowski",
+          "dmi": 48110,
+          "gameShape": 1,
+          "salary": 62752
+        },
+        {
+          "playerId": 55677599,
+          "name": "Konrad Karpiel",
+          "dmi": 49407,
+          "gameShape": 2,
+          "salary": 175222
+        },
+        {
+          "playerId": 55678714,
+          "name": "Mirosław Żółtański",
+          "dmi": 135282,
+          "gameShape": 7,
+          "salary": 73048
+        },
+        {
+          "playerId": 55679662,
+          "name": "Stanisław Antończyk",
+          "dmi": 66860,
+          "gameShape": 5,
+          "salary": 26245
+        },
+        {
+          "playerId": 55678504,
+          "name": "Jerzy Kominiak",
+          "dmi": 30117,
+          "gameShape": 4,
+          "salary": 191584
+        },
+        {
+          "playerId": 55420768,
+          "name": "Filip Kopaczynski",
+          "dmi": 87478,
+          "gameShape": 6,
+          "salary": 176606
+        },
+        {
           "playerId": 55677723,
           "name": "Wojciech Goździewski",
-          "dmi": 470615,
-          "gameShape": 7,
-          "salary": 88688
+          "dmi": 60025,
+          "gameShape": 3,
+          "salary": 168885
+        },
+        {
+          "playerId": 55419673,
+          "name": "Damian Korulczyk",
+          "dmi": 50179,
+          "gameShape": 2,
+          "salary": 4805
+        },
+        {
+          "playerId": 55419555,
+          "name": "Eustachy Mołczan",
+          "dmi": 82211,
+          "gameShape": 9,
+          "salary": 44672
         }
       ]
     },
@@ -3375,95 +3522,102 @@
       "pool": "Pool A",
       "players": [
         {
-          "playerId": 55343761,
-          "name": "Edgar Sabrosa",
-          "dmi": 129499,
-          "gameShape": 7,
-          "salary": 26609
-        },
-        {
           "playerId": 55343502,
           "name": "Maximino Chaves",
-          "dmi": 480166,
-          "gameShape": 7,
-          "salary": 84859
+          "dmi": 55585,
+          "gameShape": 4,
+          "salary": 168243
+        },
+        {
+          "playerId": 55343761,
+          "name": "Edgar Sabrosa",
+          "dmi": 50101,
+          "gameShape": 4,
+          "salary": 114703
         },
         {
           "playerId": 55343485,
           "name": "Flávio Boaventura",
-          "dmi": 801357,
-          "gameShape": 7,
-          "salary": 131620
+          "dmi": 86830,
+          "gameShape": 9,
+          "salary": 111025
         },
         {
           "playerId": 55343180,
           "name": "Elias Dourado",
-          "dmi": 85844,
-          "gameShape": 7,
-          "salary": 20263
+          "dmi": 9161,
+          "gameShape": 5,
+          "salary": 48613
         },
         {
           "playerId": 55343366,
           "name": "Tiago Souto",
-          "dmi": 124554,
-          "gameShape": 7,
-          "salary": 25025
+          "dmi": 61003,
+          "gameShape": 3,
+          "salary": 131972
         },
         {
           "playerId": 55343200,
           "name": "Amadeu Cunha",
-          "dmi": 445931,
+          "dmi": 34830,
           "gameShape": 7,
-          "salary": 69635
+          "salary": 122644
         },
         {
           "playerId": 55461855,
           "name": "Gabriel Horta",
-          "dmi": 110516,
-          "gameShape": 7,
-          "salary": 25131
+          "dmi": 61847,
+          "gameShape": 5,
+          "salary": 43486
         },
         {
           "playerId": 55343153,
           "name": "Miguel Vital",
-          "dmi": 293389,
-          "gameShape": 7,
-          "salary": 60640
+          "dmi": 97434,
+          "gameShape": 4,
+          "salary": 171545
         },
         {
           "playerId": 55343855,
           "name": "Artur Borges",
-          "dmi": 180907,
-          "gameShape": 7,
-          "salary": 31895
+          "dmi": 18102,
+          "gameShape": 6,
+          "salary": 130504
         },
         {
           "playerId": 55343678,
           "name": "Dino Idanha",
-          "dmi": 81658,
-          "gameShape": 7,
-          "salary": 19829
+          "dmi": 98348,
+          "gameShape": 4,
+          "salary": 190362
         },
         {
           "playerId": 55343310,
           "name": "Manuel Maria Silva",
-          "dmi": 277692,
-          "gameShape": 7,
-          "salary": 57454
+          "dmi": 105943,
+          "gameShape": 4,
+          "salary": 60288
+        },
+        {
+          "playerId": 55465861,
+          "name": "Júlio Boas",
+          "dmi": 132598,
+          "gameShape": 1,
+          "salary": 40939
         },
         {
           "playerId": 55520631,
           "name": "António Fino",
-          "dmi": 90236,
-          "gameShape": 7,
-          "salary": 20877
+          "dmi": 141416,
+          "gameShape": 1,
+          "salary": 150435
         },
         {
           "playerId": 55343807,
           "name": "Dário Silvestre",
-          "dmi": 98259,
-          "gameShape": 7,
-          "salary": 25066
+          "dmi": 84040,
+          "gameShape": 3,
+          "salary": 72204
         }
       ]
     },
@@ -3475,100 +3629,107 @@
         {
           "playerId": 55436651,
           "name": "Mihuț Popa",
-          "dmi": 64470,
-          "gameShape": 7,
-          "salary": 14828
+          "dmi": 111900,
+          "gameShape": 3,
+          "salary": 71119
         },
         {
           "playerId": 55711557,
           "name": "Octavian Cruceru",
-          "dmi": 119027,
-          "gameShape": 7,
-          "salary": 28694
+          "dmi": 149611,
+          "gameShape": 8,
+          "salary": 181116
         },
         {
           "playerId": 55686067,
           "name": "Silvian Nedelcu",
-          "dmi": 87209,
-          "gameShape": 7,
-          "salary": 19367
+          "dmi": 65826,
+          "gameShape": 1,
+          "salary": 6951
+        },
+        {
+          "playerId": 55964296,
+          "name": "Andrei Simion",
+          "dmi": 62420,
+          "gameShape": 2,
+          "salary": 94481
+        },
+        {
+          "playerId": 56204364,
+          "name": "Dimitrie Murgu",
+          "dmi": 131218,
+          "gameShape": 8,
+          "salary": 68821
         },
         {
           "playerId": 55685941,
           "name": "Neluțu Tudorache",
-          "dmi": 89190,
-          "gameShape": 7,
-          "salary": 19198
-        },
-        {
-          "playerId": 55436744,
-          "name": "Marius Manolache",
-          "dmi": 99197,
-          "gameShape": 7,
-          "salary": 17920
-        },
-        {
-          "playerId": 55686247,
-          "name": "Nelu Dobritoiu",
-          "dmi": 58514,
-          "gameShape": 7,
-          "salary": 15159
+          "dmi": 73621,
+          "gameShape": 1,
+          "salary": 191919
         },
         {
           "playerId": 55436617,
           "name": "Ionel Vasile",
-          "dmi": 69387,
-          "gameShape": 7,
-          "salary": 17679
+          "dmi": 60478,
+          "gameShape": 3,
+          "salary": 74842
         },
         {
           "playerId": 55436790,
           "name": "Ovidiu Drãgoi",
-          "dmi": 90608,
-          "gameShape": 7,
-          "salary": 18187
+          "dmi": 59869,
+          "gameShape": 9,
+          "salary": 126462
         },
         {
           "playerId": 55436794,
           "name": "Ioan Vicol",
-          "dmi": 190614,
-          "gameShape": 7,
-          "salary": 43297
+          "dmi": 44965,
+          "gameShape": 4,
+          "salary": 80917
         },
         {
-          "playerId": 55686019,
-          "name": "Georgian Vochin",
-          "dmi": 84660,
-          "gameShape": 7,
-          "salary": 17117
-        },
-        {
-          "playerId": 55992814,
-          "name": "Miticã Dobrin",
-          "dmi": 62585,
-          "gameShape": 7,
-          "salary": 14249
+          "playerId": 56204417,
+          "name": "Iulian Petre",
+          "dmi": 100921,
+          "gameShape": 4,
+          "salary": 163127
         },
         {
           "playerId": 55685820,
           "name": "Miticã Dobrescu",
-          "dmi": 71282,
+          "dmi": 11413,
           "gameShape": 7,
-          "salary": 17593
+          "salary": 35081
+        },
+        {
+          "playerId": 55685822,
+          "name": "Radu-Mihai Marin",
+          "dmi": 25258,
+          "gameShape": 1,
+          "salary": 118872
         },
         {
           "playerId": 55964260,
           "name": "Horațiu Radu",
-          "dmi": 81115,
-          "gameShape": 7,
-          "salary": 17587
+          "dmi": 80999,
+          "gameShape": 8,
+          "salary": 54072
+        },
+        {
+          "playerId": 55436592,
+          "name": "Gheorghe Selymes",
+          "dmi": 63414,
+          "gameShape": 3,
+          "salary": 197581
         },
         {
           "playerId": 55685999,
           "name": "Vlãduț Marian",
-          "dmi": 127843,
-          "gameShape": 7,
-          "salary": 23410
+          "dmi": 27147,
+          "gameShape": 5,
+          "salary": 123724
         }
       ]
     },
@@ -3578,123 +3739,123 @@
       "pool": "Pool A",
       "players": [
         {
+          "playerId": 55347720,
+          "name": "Evgeny Nechkin",
+          "dmi": 71207,
+          "gameShape": 1,
+          "salary": 123863
+        },
+        {
           "playerId": 55614724,
           "name": "Moisey Tychino",
-          "dmi": 68804,
-          "gameShape": 7,
-          "salary": 17546
+          "dmi": 111000,
+          "gameShape": 9,
+          "salary": 50196
         },
         {
           "playerId": 55347670,
           "name": "Maxim Raskin",
-          "dmi": 395213,
-          "gameShape": 7,
-          "salary": 75964
+          "dmi": 112376,
+          "gameShape": 5,
+          "salary": 13839
         },
         {
           "playerId": 55347590,
           "name": "Vitaly Saburin",
-          "dmi": 104440,
-          "gameShape": 7,
-          "salary": 20775
+          "dmi": 5089,
+          "gameShape": 2,
+          "salary": 196231
         },
         {
           "playerId": 55615182,
           "name": "Boris Gazarov",
-          "dmi": 96732,
-          "gameShape": 7,
-          "salary": 20361
+          "dmi": 87301,
+          "gameShape": 8,
+          "salary": 165916
         },
         {
           "playerId": 55615309,
           "name": "Rinat Lipin",
-          "dmi": 99271,
-          "gameShape": 7,
-          "salary": 21548
+          "dmi": 138225,
+          "gameShape": 3,
+          "salary": 53481
         },
         {
           "playerId": 55347270,
           "name": "Gleb Egorov",
-          "dmi": 224592,
-          "gameShape": 7,
-          "salary": 55056
+          "dmi": 23080,
+          "gameShape": 3,
+          "salary": 139618
         },
         {
           "playerId": 55614871,
           "name": "Marat Misyurev",
-          "dmi": 81596,
-          "gameShape": 7,
-          "salary": 17926
+          "dmi": 12283,
+          "gameShape": 3,
+          "salary": 88303
         },
         {
           "playerId": 55614990,
           "name": "Naum Proskurin",
-          "dmi": 42628,
-          "gameShape": 7,
-          "salary": 10933
+          "dmi": 42585,
+          "gameShape": 8,
+          "salary": 16094
         },
         {
           "playerId": 55347319,
           "name": "Robert Segal",
-          "dmi": 124726,
-          "gameShape": 7,
-          "salary": 29295
+          "dmi": 53091,
+          "gameShape": 4,
+          "salary": 111156
         },
         {
           "playerId": 55614799,
           "name": "Kirill Krasnykh",
-          "dmi": 63766,
-          "gameShape": 7,
-          "salary": 15385
+          "dmi": 41864,
+          "gameShape": 1,
+          "salary": 130178
         },
         {
           "playerId": 55347136,
           "name": "Denis Merenkov",
-          "dmi": 166173,
-          "gameShape": 7,
-          "salary": 37251
+          "dmi": 1445,
+          "gameShape": 3,
+          "salary": 115246
         },
         {
           "playerId": 55347244,
           "name": "Gennady Khodorovskiy",
-          "dmi": 117120,
-          "gameShape": 7,
-          "salary": 22626
+          "dmi": 145562,
+          "gameShape": 1,
+          "salary": 65439
         },
         {
           "playerId": 55347453,
           "name": "Andrey Rudak",
-          "dmi": 97805,
-          "gameShape": 7,
-          "salary": 24029
+          "dmi": 94357,
+          "gameShape": 8,
+          "salary": 79123
         },
         {
           "playerId": 55347514,
           "name": "Stanislav Erokhov",
-          "dmi": 521728,
-          "gameShape": 7,
-          "salary": 99381
+          "dmi": 69257,
+          "gameShape": 4,
+          "salary": 60481
         },
         {
           "playerId": 55614922,
           "name": "Marat Krestin",
-          "dmi": 302132,
+          "dmi": 17310,
           "gameShape": 7,
-          "salary": 61465
-        },
-        {
-          "playerId": 55347720,
-          "name": "Evgeny Nechkin",
-          "dmi": 76907,
-          "gameShape": 7,
-          "salary": 18001
+          "salary": 165574
         },
         {
           "playerId": 55347223,
           "name": "Andrey Poskrebyshev",
-          "dmi": 105818,
-          "gameShape": 7,
-          "salary": 28728
+          "dmi": 110657,
+          "gameShape": 4,
+          "salary": 182566
         }
       ]
     },
@@ -3704,46 +3865,109 @@
       "pool": "Pool C",
       "players": [
         {
+          "playerId": 55437719,
+          "name": "Dudu Shurghaia",
+          "dmi": 61094,
+          "gameShape": 7,
+          "salary": 14065
+        },
+        {
+          "playerId": 55437658,
+          "name": "Gaga Khubulava",
+          "dmi": 99190,
+          "gameShape": 8,
+          "salary": 155109
+        },
+        {
           "playerId": 55686993,
           "name": "Dato Rekhviashvili",
-          "dmi": 57979,
-          "gameShape": 7,
-          "salary": 12201
+          "dmi": 65785,
+          "gameShape": 5,
+          "salary": 186939
         },
         {
           "playerId": 55686961,
           "name": "Vefik Acahan",
-          "dmi": 73412,
-          "gameShape": 7,
-          "salary": 17695
+          "dmi": 4586,
+          "gameShape": 2,
+          "salary": 5462
         },
         {
           "playerId": 55686960,
           "name": "Kartlos Akhalaia",
-          "dmi": 79894,
-          "gameShape": 7,
-          "salary": 19614
+          "dmi": 127699,
+          "gameShape": 4,
+          "salary": 24575
         },
         {
           "playerId": 55713171,
           "name": "Illarion Ermolenko",
-          "dmi": 83451,
+          "dmi": 85217,
+          "gameShape": 1,
+          "salary": 66562
+        },
+        {
+          "playerId": 55686964,
+          "name": "Kakha Chedia",
+          "dmi": 41092,
+          "gameShape": 6,
+          "salary": 81430
+        },
+        {
+          "playerId": 55686834,
+          "name": "Vaso Jokhadze",
+          "dmi": 17998,
+          "gameShape": 4,
+          "salary": 14262
+        },
+        {
+          "playerId": 55726145,
+          "name": "Buba Norakidze",
+          "dmi": 20033,
           "gameShape": 7,
-          "salary": 15780
+          "salary": 164847
+        },
+        {
+          "playerId": 55437799,
+          "name": "Lado Kalichava",
+          "dmi": 127287,
+          "gameShape": 3,
+          "salary": 171007
         },
         {
           "playerId": 55686831,
           "name": "Gigi Devdariani",
-          "dmi": 102706,
+          "dmi": 23537,
+          "gameShape": 9,
+          "salary": 73182
+        },
+        {
+          "playerId": 55710814,
+          "name": "Renat Badelin",
+          "dmi": 145424,
           "gameShape": 7,
-          "salary": 21344
+          "salary": 6877
+        },
+        {
+          "playerId": 55713499,
+          "name": "Zura Lekiashvili",
+          "dmi": 106209,
+          "gameShape": 8,
+          "salary": 50587
         },
         {
           "playerId": 55437648,
           "name": "Valery Sologub",
-          "dmi": 287644,
-          "gameShape": 7,
-          "salary": 63647
+          "dmi": 78210,
+          "gameShape": 1,
+          "salary": 15001
+        },
+        {
+          "playerId": 55711317,
+          "name": "Valeri Aleksidze",
+          "dmi": 103005,
+          "gameShape": 3,
+          "salary": 121917
         }
       ]
     },
@@ -3755,121 +3979,121 @@
         {
           "playerId": 55716798,
           "name": "Luc Morrel",
-          "dmi": 87405,
-          "gameShape": 7,
-          "salary": 22575
+          "dmi": 96260,
+          "gameShape": 4,
+          "salary": 122208
         },
         {
           "playerId": 55634524,
           "name": "Wisi Neugebauer",
-          "dmi": 59554,
-          "gameShape": 7,
-          "salary": 15328
+          "dmi": 3695,
+          "gameShape": 6,
+          "salary": 148408
         },
         {
           "playerId": 55634399,
           "name": "Rolf Kist",
-          "dmi": 173176,
-          "gameShape": 7,
-          "salary": 38401
+          "dmi": 73032,
+          "gameShape": 5,
+          "salary": 59936
         },
         {
           "playerId": 55375849,
           "name": "Hubert Bröcking",
-          "dmi": 75234,
-          "gameShape": 7,
-          "salary": 15792
+          "dmi": 145900,
+          "gameShape": 4,
+          "salary": 54560
         },
         {
           "playerId": 55634475,
           "name": "Jakob Sauthier",
-          "dmi": 69154,
-          "gameShape": 7,
-          "salary": 16156
+          "dmi": 85691,
+          "gameShape": 9,
+          "salary": 71979
         },
         {
           "playerId": 55375871,
           "name": "Bertrand von Ow",
-          "dmi": 49251,
-          "gameShape": 7,
-          "salary": 12478
+          "dmi": 18817,
+          "gameShape": 2,
+          "salary": 71269
         },
         {
           "playerId": 55376053,
           "name": "Julien Verdet",
-          "dmi": 64282,
-          "gameShape": 7,
-          "salary": 15071
+          "dmi": 46272,
+          "gameShape": 6,
+          "salary": 76135
         },
         {
           "playerId": 55713847,
           "name": "Angelo Kamer",
-          "dmi": 62998,
-          "gameShape": 7,
-          "salary": 14251
+          "dmi": 58794,
+          "gameShape": 2,
+          "salary": 67874
         },
         {
           "playerId": 55634483,
           "name": "Aaron Rindisbacher",
-          "dmi": 147601,
-          "gameShape": 7,
-          "salary": 34113
+          "dmi": 85848,
+          "gameShape": 2,
+          "salary": 89468
         },
         {
           "playerId": 55715800,
           "name": "Tom Kissel",
-          "dmi": 119480,
-          "gameShape": 7,
-          "salary": 23773
+          "dmi": 134680,
+          "gameShape": 8,
+          "salary": 149662
         },
         {
           "playerId": 55634541,
           "name": "Ortlieb Zipperlen",
-          "dmi": 207137,
-          "gameShape": 7,
-          "salary": 38999
+          "dmi": 148170,
+          "gameShape": 1,
+          "salary": 185477
         },
         {
           "playerId": 55375979,
           "name": "Jasper Trolese",
-          "dmi": 103174,
-          "gameShape": 7,
-          "salary": 24392
+          "dmi": 139341,
+          "gameShape": 3,
+          "salary": 48796
         },
         {
           "playerId": 55634342,
           "name": "Denis Rauschenberger",
-          "dmi": 203989,
-          "gameShape": 7,
-          "salary": 43857
+          "dmi": 10192,
+          "gameShape": 6,
+          "salary": 61768
         },
         {
           "playerId": 55634346,
           "name": "Werner Habenicht",
-          "dmi": 79637,
-          "gameShape": 7,
-          "salary": 16020
+          "dmi": 16450,
+          "gameShape": 3,
+          "salary": 160248
         },
         {
           "playerId": 55912888,
           "name": "Michaël Lépinay",
-          "dmi": 90673,
-          "gameShape": 7,
-          "salary": 23056
+          "dmi": 143181,
+          "gameShape": 6,
+          "salary": 76337
         },
         {
           "playerId": 55634402,
           "name": "Alois Rindlisbacher",
-          "dmi": 166156,
-          "gameShape": 7,
-          "salary": 34908
+          "dmi": 72641,
+          "gameShape": 3,
+          "salary": 56707
         },
         {
           "playerId": 55376058,
           "name": "Philippe Lanz",
-          "dmi": 105623,
-          "gameShape": 7,
-          "salary": 21428
+          "dmi": 10347,
+          "gameShape": 4,
+          "salary": 98543
         }
       ]
     },
@@ -3881,100 +4105,100 @@
         {
           "playerId": 55465985,
           "name": "Ian Skinner",
-          "dmi": 34154,
-          "gameShape": 7,
-          "salary": 8242
+          "dmi": 119618,
+          "gameShape": 1,
+          "salary": 152718
         },
         {
           "playerId": 55711449,
           "name": "Andrew Skinner",
-          "dmi": 161467,
-          "gameShape": 7,
-          "salary": 37440
+          "dmi": 133078,
+          "gameShape": 5,
+          "salary": 92628
         },
         {
           "playerId": 55718877,
           "name": "Dougal Reid",
-          "dmi": 51275,
-          "gameShape": 7,
-          "salary": 11917
+          "dmi": 9428,
+          "gameShape": 2,
+          "salary": 89020
         },
         {
           "playerId": 55713476,
           "name": "Joseph Withers",
-          "dmi": 36575,
-          "gameShape": 7,
-          "salary": 7452
+          "dmi": 79398,
+          "gameShape": 3,
+          "salary": 74009
         },
         {
           "playerId": 56230654,
           "name": "Alfred MacHarold",
-          "dmi": 25824,
-          "gameShape": 7,
-          "salary": 6822
+          "dmi": 77790,
+          "gameShape": 9,
+          "salary": 57298
         },
         {
           "playerId": 55989647,
           "name": "Blair MacCraken",
-          "dmi": 56854,
-          "gameShape": 7,
-          "salary": 11953
+          "dmi": 67003,
+          "gameShape": 5,
+          "salary": 140478
         },
         {
           "playerId": 55997282,
           "name": "Dickie Robison",
-          "dmi": 125979,
-          "gameShape": 7,
-          "salary": 26807
+          "dmi": 110356,
+          "gameShape": 4,
+          "salary": 108375
         },
         {
           "playerId": 55462481,
           "name": "Kieran MacNuir",
-          "dmi": 74129,
-          "gameShape": 7,
-          "salary": 15685
+          "dmi": 54865,
+          "gameShape": 6,
+          "salary": 122709
         },
         {
           "playerId": 55711193,
           "name": "Jon Joyce",
-          "dmi": 46232,
-          "gameShape": 7,
-          "salary": 11015
+          "dmi": 23884,
+          "gameShape": 5,
+          "salary": 196547
         },
         {
           "playerId": 56237615,
           "name": "Rory Cameron",
-          "dmi": 27467,
-          "gameShape": 7,
-          "salary": 8244
+          "dmi": 24246,
+          "gameShape": 2,
+          "salary": 70813
         },
         {
           "playerId": 55718888,
           "name": "Ariel Zegarek",
-          "dmi": 88850,
-          "gameShape": 7,
-          "salary": 18991
+          "dmi": 146992,
+          "gameShape": 8,
+          "salary": 159637
         },
         {
           "playerId": 55712209,
           "name": "Christopher Christie",
-          "dmi": 50191,
-          "gameShape": 7,
-          "salary": 12822
+          "dmi": 143306,
+          "gameShape": 5,
+          "salary": 166884
         },
         {
           "playerId": 55712363,
           "name": "Ronnie FitzGerald",
-          "dmi": 71314,
-          "gameShape": 7,
-          "salary": 17683
+          "dmi": 68999,
+          "gameShape": 8,
+          "salary": 182677
         },
         {
           "playerId": 55718904,
           "name": "Gregor Lindsay",
-          "dmi": 75413,
+          "dmi": 63320,
           "gameShape": 7,
-          "salary": 16494
+          "salary": 117455
         }
       ]
     },
@@ -3986,114 +4210,128 @@
         {
           "playerId": 55465972,
           "name": "Ramadan Zeka",
-          "dmi": 84807,
-          "gameShape": 7,
-          "salary": 21762
+          "dmi": 72694,
+          "gameShape": 3,
+          "salary": 59726
         },
         {
           "playerId": 55997488,
           "name": "Bleart Boletini",
-          "dmi": 54105,
+          "dmi": 130867,
           "gameShape": 7,
-          "salary": 13271
+          "salary": 100057
         },
         {
           "playerId": 55713937,
           "name": "Pashk Mujedini",
-          "dmi": 53242,
-          "gameShape": 7,
-          "salary": 13298
+          "dmi": 51398,
+          "gameShape": 1,
+          "salary": 151446
+        },
+        {
+          "playerId": 55714026,
+          "name": "Besnik Shllaki",
+          "dmi": 61639,
+          "gameShape": 8,
+          "salary": 117670
         },
         {
           "playerId": 55710901,
           "name": "Edi Abdurrahmani",
-          "dmi": 66473,
-          "gameShape": 7,
-          "salary": 14689
+          "dmi": 78343,
+          "gameShape": 3,
+          "salary": 25620
         },
         {
           "playerId": 55715503,
           "name": "Drin Beka",
-          "dmi": 44115,
-          "gameShape": 7,
-          "salary": 9618
-        },
-        {
-          "playerId": 55992350,
-          "name": "Edin Cana",
-          "dmi": 37005,
-          "gameShape": 7,
-          "salary": 8996
+          "dmi": 1219,
+          "gameShape": 3,
+          "salary": 120516
         },
         {
           "playerId": 56234047,
           "name": "Valmir Ligoreci",
-          "dmi": 38685,
-          "gameShape": 7,
-          "salary": 12322
+          "dmi": 59923,
+          "gameShape": 1,
+          "salary": 188004
         },
         {
           "playerId": 55713701,
           "name": "Dritor Zelj",
-          "dmi": 53425,
+          "dmi": 8821,
           "gameShape": 7,
-          "salary": 11339
+          "salary": 88306
         },
         {
           "playerId": 55713279,
           "name": "Bilind Bixhaj",
-          "dmi": 91103,
-          "gameShape": 7,
-          "salary": 20476
+          "dmi": 8539,
+          "gameShape": 5,
+          "salary": 13939
         },
         {
           "playerId": 55718924,
           "name": "Devoll Zeka",
-          "dmi": 41004,
-          "gameShape": 7,
-          "salary": 10072
+          "dmi": 87048,
+          "gameShape": 1,
+          "salary": 56625
         },
         {
           "playerId": 55711227,
           "name": "Besart Lezha",
-          "dmi": 48586,
-          "gameShape": 7,
-          "salary": 12275
+          "dmi": 36928,
+          "gameShape": 4,
+          "salary": 52839
         },
         {
           "playerId": 55997393,
           "name": "Arsim Krashi",
-          "dmi": 59175,
-          "gameShape": 7,
-          "salary": 12900
+          "dmi": 140796,
+          "gameShape": 5,
+          "salary": 128257
         },
         {
           "playerId": 55464848,
           "name": "Marnesh Dushku",
-          "dmi": 45001,
+          "dmi": 139732,
+          "gameShape": 2,
+          "salary": 86592
+        },
+        {
+          "playerId": 55715175,
+          "name": "Ulkan Kolgeci",
+          "dmi": 126749,
+          "gameShape": 1,
+          "salary": 160611
+        },
+        {
+          "playerId": 56232532,
+          "name": "Teutan Galica",
+          "dmi": 42670,
           "gameShape": 7,
-          "salary": 10898
+          "salary": 23106
         },
         {
           "playerId": 55710800,
           "name": "Perinjak Hila",
-          "dmi": 66933,
-          "gameShape": 7,
-          "salary": 13467
-        },
-        {
-          "playerId": 55718910,
-          "name": "Zani Shala",
-          "dmi": 37333,
-          "gameShape": 7,
-          "salary": 8358
+          "dmi": 100387,
+          "gameShape": 9,
+          "salary": 163354
         },
         {
           "playerId": 55464867,
           "name": "Gazmadh Bregu",
-          "dmi": 138850,
-          "gameShape": 7,
-          "salary": 32413
+          "dmi": 26204,
+          "gameShape": 9,
+          "salary": 14682
+        },
+        {
+          "playerId": 55990179,
+          "name": "Trimor Kolonja",
+          "dmi": 84155,
+          "gameShape": 5,
+          "salary": 61705
         }
       ]
     },
@@ -4103,46 +4341,88 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55439765,
+          "name": "Metod Glebov",
+          "dmi": 74714,
+          "gameShape": 5,
+          "salary": 158269
+        },
+        {
           "playerId": 55689060,
           "name": "Dore Lovreković",
-          "dmi": 486785,
-          "gameShape": 7,
-          "salary": 95096
+          "dmi": 56667,
+          "gameShape": 1,
+          "salary": 7437
+        },
+        {
+          "playerId": 55440194,
+          "name": "Hasim Vidovič",
+          "dmi": 35172,
+          "gameShape": 1,
+          "salary": 7749
         },
         {
           "playerId": 55688935,
           "name": "Borja Rosić",
-          "dmi": 166620,
-          "gameShape": 7,
-          "salary": 37685
+          "dmi": 46887,
+          "gameShape": 6,
+          "salary": 105133
         },
         {
           "playerId": 55439918,
           "name": "Bor Grilanc",
-          "dmi": 58430,
-          "gameShape": 5,
-          "salary": 19383
+          "dmi": 43279,
+          "gameShape": 9,
+          "salary": 149787
+        },
+        {
+          "playerId": 55439744,
+          "name": "Emil Dolenjšak",
+          "dmi": 4358,
+          "gameShape": 1,
+          "salary": 169021
+        },
+        {
+          "playerId": 55689458,
+          "name": "Nik Neuhold",
+          "dmi": 19685,
+          "gameShape": 1,
+          "salary": 194104
         },
         {
           "playerId": 55439747,
           "name": "Nikolaj Gorinšek",
-          "dmi": 61511,
-          "gameShape": 7,
-          "salary": 14965
+          "dmi": 33087,
+          "gameShape": 3,
+          "salary": 131533
+        },
+        {
+          "playerId": 55688921,
+          "name": "Mark Košmrl",
+          "dmi": 66513,
+          "gameShape": 3,
+          "salary": 165362
         },
         {
           "playerId": 55439925,
           "name": "Darjan Aljančič",
-          "dmi": 154942,
-          "gameShape": 7,
-          "salary": 37577
+          "dmi": 65158,
+          "gameShape": 8,
+          "salary": 24101
         },
         {
           "playerId": 55688943,
           "name": "Tezej Tomaš",
-          "dmi": 324201,
-          "gameShape": 7,
-          "salary": 65716
+          "dmi": 78097,
+          "gameShape": 1,
+          "salary": 64340
+        },
+        {
+          "playerId": 55689184,
+          "name": "Brane Vinkšelj",
+          "dmi": 48144,
+          "gameShape": 5,
+          "salary": 96202
         }
       ]
     },
@@ -4154,107 +4434,107 @@
         {
           "playerId": 55443954,
           "name": "Jaroslav Hatvaník",
-          "dmi": 183608,
-          "gameShape": 7,
-          "salary": 33003
+          "dmi": 76503,
+          "gameShape": 9,
+          "salary": 97889
         },
         {
           "playerId": 55693285,
           "name": "Šimon Borbeľ",
-          "dmi": 64423,
-          "gameShape": 7,
-          "salary": 14445
+          "dmi": 33649,
+          "gameShape": 1,
+          "salary": 185001
         },
         {
           "playerId": 55463203,
           "name": "Viktor Volanský",
-          "dmi": 123288,
-          "gameShape": 7,
-          "salary": 25988
+          "dmi": 139481,
+          "gameShape": 6,
+          "salary": 64629
         },
         {
           "playerId": 55443995,
           "name": "Julián Maják",
-          "dmi": 250117,
-          "gameShape": 7,
-          "salary": 49395
+          "dmi": 58112,
+          "gameShape": 9,
+          "salary": 9985
         },
         {
           "playerId": 55692994,
           "name": "Amos Voznák",
-          "dmi": 138946,
-          "gameShape": 7,
-          "salary": 30554
+          "dmi": 95397,
+          "gameShape": 3,
+          "salary": 43352
         },
         {
           "playerId": 55464121,
           "name": "Kamil Zaťko",
-          "dmi": 234732,
-          "gameShape": 7,
-          "salary": 48395
+          "dmi": 100705,
+          "gameShape": 6,
+          "salary": 198350
         },
         {
           "playerId": 55444129,
           "name": "Kamil Krajčír",
-          "dmi": 135659,
-          "gameShape": 7,
-          "salary": 27926
+          "dmi": 100201,
+          "gameShape": 2,
+          "salary": 93510
         },
         {
           "playerId": 55443908,
           "name": "Marián Kalinák",
-          "dmi": 84789,
-          "gameShape": 7,
-          "salary": 22843
+          "dmi": 149558,
+          "gameShape": 4,
+          "salary": 41898
         },
         {
           "playerId": 55443870,
           "name": "Peter Smolárik",
-          "dmi": 334907,
-          "gameShape": 7,
-          "salary": 68211
+          "dmi": 38801,
+          "gameShape": 1,
+          "salary": 163918
         },
         {
           "playerId": 55693089,
           "name": "Vladimír Iskra",
-          "dmi": 146326,
-          "gameShape": 7,
-          "salary": 31878
+          "dmi": 72289,
+          "gameShape": 5,
+          "salary": 73609
         },
         {
           "playerId": 55443882,
           "name": "Martin Sklenák",
-          "dmi": 103215,
-          "gameShape": 7,
-          "salary": 22399
+          "dmi": 26220,
+          "gameShape": 5,
+          "salary": 179934
         },
         {
           "playerId": 55692987,
           "name": "Lukáš Vohnút",
-          "dmi": 164138,
-          "gameShape": 7,
-          "salary": 39424
+          "dmi": 20502,
+          "gameShape": 6,
+          "salary": 136895
         },
         {
           "playerId": 55443914,
           "name": "Radoslav Tokár",
-          "dmi": 271955,
-          "gameShape": 7,
-          "salary": 56773
+          "dmi": 127428,
+          "gameShape": 9,
+          "salary": 166573
         },
         {
           "playerId": 55444076,
           "name": "Andrej Cekan",
-          "dmi": 62373,
-          "gameShape": 7,
-          "salary": 14737
+          "dmi": 115320,
+          "gameShape": 9,
+          "salary": 127153
         },
         {
           "playerId": 55444020,
           "name": "Barnabáš Mičovský",
-          "dmi": 40442,
-          "gameShape": 7,
-          "salary": 11990
+          "dmi": 98757,
+          "gameShape": 4,
+          "salary": 86661
         }
       ]
     },
@@ -4264,39 +4544,88 @@
       "pool": "Pool D",
       "players": [
         {
-          "playerId": 56154088,
-          "name": "Márton Angyal",
-          "dmi": 38013,
-          "gameShape": 7,
-          "salary": 11208
+          "playerId": 55636036,
+          "name": "Vuk Kravić",
+          "dmi": 33290,
+          "gameShape": 6,
+          "salary": 198047
         },
         {
-          "playerId": 55635554,
-          "name": "László Bodnár",
-          "dmi": 28349,
-          "gameShape": 7,
-          "salary": 8480
+          "playerId": 55636124,
+          "name": "Zoran Šestić",
+          "dmi": 62579,
+          "gameShape": 8,
+          "salary": 36804
+        },
+        {
+          "playerId": 55635439,
+          "name": "Dragan Lambulić",
+          "dmi": 2280,
+          "gameShape": 2,
+          "salary": 47057
+        },
+        {
+          "playerId": 55635388,
+          "name": "Milan Koturović",
+          "dmi": 50787,
+          "gameShape": 3,
+          "salary": 101203
+        },
+        {
+          "playerId": 56154088,
+          "name": "Márton Angyal",
+          "dmi": 137412,
+          "gameShape": 5,
+          "salary": 145376
+        },
+        {
+          "playerId": 55635527,
+          "name": "Dragan Perić",
+          "dmi": 15062,
+          "gameShape": 5,
+          "salary": 134015
         },
         {
           "playerId": 55377239,
           "name": "Darko Popović",
-          "dmi": 855630,
+          "dmi": 122727,
           "gameShape": 7,
-          "salary": 132943
+          "salary": 194811
         },
         {
           "playerId": 55377707,
           "name": "Zoran Kitić",
-          "dmi": 268689,
-          "gameShape": 7,
-          "salary": 57478
+          "dmi": 123751,
+          "gameShape": 9,
+          "salary": 120873
         },
         {
           "playerId": 55376992,
           "name": "Lazar Vlastimirović",
-          "dmi": 432494,
+          "dmi": 15433,
+          "gameShape": 3,
+          "salary": 25112
+        },
+        {
+          "playerId": 55377432,
+          "name": "Dragan Ljubanović",
+          "dmi": 41039,
           "gameShape": 7,
-          "salary": 89095
+          "salary": 153459
+        },
+        {
+          "playerId": 55635896,
+          "name": "Nikola Pokrajac",
+          "dmi": 99447,
+          "gameShape": 7,
+          "salary": 163877
+        },
+        {
+          "playerId": 55635593,
+          "name": "Slobodan Kojadinović",
+          "dmi": 72191,
+          "gameShape": 4,
+          "salary": 171219
         }
       ]
     },
@@ -4304,120 +4633,7 @@
       "countryId": 69,
       "name": "Suomi",
       "pool": "Pool B",
-      "players": [
-        {
-          "playerId": 55694191,
-          "name": "Antti Hukkanen",
-          "dmi": 94222,
-          "gameShape": 7,
-          "salary": 19690
-        },
-        {
-          "playerId": 55445078,
-          "name": "Peter Carlsson",
-          "dmi": 235096,
-          "gameShape": 7,
-          "salary": 43400
-        },
-        {
-          "playerId": 55445451,
-          "name": "Antero Kantonen",
-          "dmi": 111908,
-          "gameShape": 7,
-          "salary": 26550
-        },
-        {
-          "playerId": 55445010,
-          "name": "Tuomas Käyhty",
-          "dmi": 91926,
-          "gameShape": 7,
-          "salary": 20404
-        },
-        {
-          "playerId": 55445217,
-          "name": "Jussi Tossavainen",
-          "dmi": 173371,
-          "gameShape": 7,
-          "salary": 34352
-        },
-        {
-          "playerId": 55445284,
-          "name": "Andrian Khitrin",
-          "dmi": 74972,
-          "gameShape": 7,
-          "salary": 17435
-        },
-        {
-          "playerId": 55444870,
-          "name": "Mika Poutia",
-          "dmi": 103394,
-          "gameShape": 7,
-          "salary": 21890
-        },
-        {
-          "playerId": 55444994,
-          "name": "Jyrki Haapamäki",
-          "dmi": 97421,
-          "gameShape": 7,
-          "salary": 19642
-        },
-        {
-          "playerId": 55445349,
-          "name": "Olli Mennander",
-          "dmi": 72188,
-          "gameShape": 7,
-          "salary": 16019
-        },
-        {
-          "playerId": 55444985,
-          "name": "Olli Kukkola",
-          "dmi": 86392,
-          "gameShape": 7,
-          "salary": 18400
-        },
-        {
-          "playerId": 55694558,
-          "name": "Tommy Ingelen",
-          "dmi": 128889,
-          "gameShape": 7,
-          "salary": 31179
-        },
-        {
-          "playerId": 55445292,
-          "name": "Petri Knuts",
-          "dmi": 57966,
-          "gameShape": 7,
-          "salary": 12458
-        },
-        {
-          "playerId": 55444881,
-          "name": "George Jokisalo",
-          "dmi": 447512,
-          "gameShape": 7,
-          "salary": 77444
-        },
-        {
-          "playerId": 55444981,
-          "name": "Heikki Sarahete",
-          "dmi": 432893,
-          "gameShape": 7,
-          "salary": 76339
-        },
-        {
-          "playerId": 55444937,
-          "name": "Antti Jäkälä",
-          "dmi": 134534,
-          "gameShape": 7,
-          "salary": 28476
-        },
-        {
-          "playerId": 55444876,
-          "name": "Mikko Rautavuori",
-          "dmi": 359782,
-          "gameShape": 7,
-          "salary": 67642
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 9,
@@ -4427,121 +4643,121 @@
         {
           "playerId": 55714400,
           "name": "Mats Hammarerberg",
-          "dmi": 43883,
-          "gameShape": 7,
-          "salary": 10963
+          "dmi": 80101,
+          "gameShape": 6,
+          "salary": 46778
         },
         {
           "playerId": 55712371,
           "name": "Thomas Skogwald",
-          "dmi": 43256,
-          "gameShape": 7,
-          "salary": 10175
+          "dmi": 100961,
+          "gameShape": 6,
+          "salary": 129646
         },
         {
           "playerId": 55713463,
           "name": "Patrik Molén",
-          "dmi": 47474,
-          "gameShape": 7,
-          "salary": 9936
+          "dmi": 56297,
+          "gameShape": 3,
+          "salary": 31688
         },
         {
           "playerId": 55570581,
           "name": "Jonas Beckblad",
-          "dmi": 61454,
-          "gameShape": 7,
-          "salary": 15129
+          "dmi": 142834,
+          "gameShape": 6,
+          "salary": 143761
         },
         {
           "playerId": 55570328,
           "name": "Klas Alexandersson",
-          "dmi": 46736,
-          "gameShape": 7,
-          "salary": 12089
+          "dmi": 22713,
+          "gameShape": 4,
+          "salary": 55590
         },
         {
           "playerId": 55570400,
           "name": "Patrick Åkermo",
-          "dmi": 52387,
-          "gameShape": 7,
-          "salary": 15786
+          "dmi": 126224,
+          "gameShape": 2,
+          "salary": 90591
         },
         {
           "playerId": 55757618,
           "name": "Joakim Nissell",
-          "dmi": 53658,
-          "gameShape": 7,
-          "salary": 13719
+          "dmi": 8531,
+          "gameShape": 3,
+          "salary": 166260
         },
         {
           "playerId": 55570395,
           "name": "Olov Månsson",
-          "dmi": 33611,
+          "dmi": 75514,
           "gameShape": 7,
-          "salary": 7539
+          "salary": 187123
         },
         {
           "playerId": 55710957,
           "name": "Bertil Olsson",
-          "dmi": 34391,
-          "gameShape": 7,
-          "salary": 8447
+          "dmi": 144954,
+          "gameShape": 8,
+          "salary": 140742
         },
         {
           "playerId": 55275373,
           "name": "Jaakko Jolkkonen",
-          "dmi": 98840,
-          "gameShape": 7,
-          "salary": 22326
+          "dmi": 45908,
+          "gameShape": 9,
+          "salary": 21191
         },
         {
           "playerId": 55570512,
           "name": "Urban Roding",
-          "dmi": 103213,
-          "gameShape": 7,
-          "salary": 20630
+          "dmi": 124297,
+          "gameShape": 1,
+          "salary": 160059
         },
         {
           "playerId": 55570503,
           "name": "Mikael Persson",
-          "dmi": 171750,
-          "gameShape": 7,
-          "salary": 34184
+          "dmi": 102727,
+          "gameShape": 9,
+          "salary": 62989
         },
         {
           "playerId": 55570553,
           "name": "Yiannis Aggelakakis",
-          "dmi": 106594,
-          "gameShape": 7,
-          "salary": 24157
+          "dmi": 16739,
+          "gameShape": 1,
+          "salary": 148338
         },
         {
           "playerId": 55570441,
           "name": "Ismail Abdel",
-          "dmi": 62809,
+          "dmi": 26385,
           "gameShape": 7,
-          "salary": 15060
+          "salary": 61207
         },
         {
           "playerId": 55570464,
           "name": "Anders Mathiasson",
-          "dmi": 44676,
+          "dmi": 23212,
           "gameShape": 7,
-          "salary": 11271
+          "salary": 32647
         },
         {
           "playerId": 55711537,
           "name": "Anton Morgansson",
-          "dmi": 96922,
-          "gameShape": 7,
-          "salary": 22696
+          "dmi": 93143,
+          "gameShape": 6,
+          "salary": 124705
         },
         {
           "playerId": 55275464,
           "name": "Johan Oskarsson",
-          "dmi": 104599,
-          "gameShape": 7,
-          "salary": 22462
+          "dmi": 44284,
+          "gameShape": 3,
+          "salary": 73047
         }
       ]
     },
@@ -4553,58 +4769,79 @@
         {
           "playerId": 55250848,
           "name": "Bayram Saglamer",
-          "dmi": 284230,
-          "gameShape": 7,
-          "salary": 64943
+          "dmi": 128386,
+          "gameShape": 9,
+          "salary": 67459
+        },
+        {
+          "playerId": 55251445,
+          "name": "Saban Kayabasi",
+          "dmi": 4332,
+          "gameShape": 6,
+          "salary": 29365
+        },
+        {
+          "playerId": 55251751,
+          "name": "Gani Sarizambak",
+          "dmi": 48186,
+          "gameShape": 1,
+          "salary": 43330
         },
         {
           "playerId": 55251092,
           "name": "Bünyamin Özata",
-          "dmi": 93600,
-          "gameShape": 7,
-          "salary": 20317
-        },
-        {
-          "playerId": 55251473,
-          "name": "Kerim Algim",
-          "dmi": 95689,
-          "gameShape": 7,
-          "salary": 20780
+          "dmi": 108970,
+          "gameShape": 1,
+          "salary": 184885
         },
         {
           "playerId": 55555283,
           "name": "Teoman Mümtaz",
-          "dmi": 172754,
-          "gameShape": 7,
-          "salary": 41093
+          "dmi": 122070,
+          "gameShape": 1,
+          "salary": 105223
         },
         {
-          "playerId": 55554901,
-          "name": "Ata Adni",
-          "dmi": 92843,
-          "gameShape": 7,
-          "salary": 24327
+          "playerId": 55251315,
+          "name": "Kadim Muhtar",
+          "dmi": 132305,
+          "gameShape": 3,
+          "salary": 173684
         },
         {
           "playerId": 55555806,
           "name": "Önder Agirtas",
-          "dmi": 122271,
-          "gameShape": 7,
-          "salary": 25214
+          "dmi": 114529,
+          "gameShape": 2,
+          "salary": 3105
+        },
+        {
+          "playerId": 55555683,
+          "name": "Halil Ibrahim Çevik",
+          "dmi": 88688,
+          "gameShape": 4,
+          "salary": 194311
         },
         {
           "playerId": 55250800,
           "name": "Oguzhan Beder",
-          "dmi": 104158,
-          "gameShape": 7,
-          "salary": 23456
+          "dmi": 72166,
+          "gameShape": 5,
+          "salary": 110062
+        },
+        {
+          "playerId": 55555414,
+          "name": "Serif Kubat",
+          "dmi": 11417,
+          "gameShape": 6,
+          "salary": 129776
         },
         {
           "playerId": 55555647,
           "name": "Tunç Okergin",
-          "dmi": 271513,
-          "gameShape": 7,
-          "salary": 49802
+          "dmi": 18867,
+          "gameShape": 2,
+          "salary": 107248
         }
       ]
     },
@@ -4616,121 +4853,58 @@
         {
           "playerId": 55382164,
           "name": "Leonid Novoselskiy",
-          "dmi": 98304,
-          "gameShape": 7,
-          "salary": 21803
+          "dmi": 104012,
+          "gameShape": 6,
+          "salary": 7079
         },
         {
           "playerId": 55382273,
           "name": "Piotra Zian'ko",
-          "dmi": 83114,
+          "dmi": 85867,
           "gameShape": 7,
-          "salary": 17765
-        },
-        {
-          "playerId": 55463608,
-          "name": "Klim Oshipko",
-          "dmi": 74868,
-          "gameShape": 7,
-          "salary": 17235
-        },
-        {
-          "playerId": 55640791,
-          "name": "Radomyr Kopzyuh",
-          "dmi": 74429,
-          "gameShape": 7,
-          "salary": 18931
+          "salary": 149874
         },
         {
           "playerId": 55382389,
           "name": "Vladyslav Popko",
-          "dmi": 155386,
-          "gameShape": 7,
-          "salary": 31170
-        },
-        {
-          "playerId": 55382166,
-          "name": "Stepan Kornishov",
-          "dmi": 58037,
-          "gameShape": 7,
-          "salary": 14436
+          "dmi": 73398,
+          "gameShape": 9,
+          "salary": 107236
         },
         {
           "playerId": 55382183,
           "name": "Olexiy Shukhovtsev",
-          "dmi": 60137,
-          "gameShape": 7,
-          "salary": 15767
+          "dmi": 64704,
+          "gameShape": 6,
+          "salary": 63414
         },
         {
           "playerId": 55382306,
           "name": "Dmytro Sharov",
-          "dmi": 79494,
-          "gameShape": 7,
-          "salary": 18592
-        },
-        {
-          "playerId": 55640680,
-          "name": "Roman Bovdur",
-          "dmi": 124945,
-          "gameShape": 7,
-          "salary": 24681
+          "dmi": 134236,
+          "gameShape": 8,
+          "salary": 196229
         },
         {
           "playerId": 55382160,
           "name": "Shmavon Karapetyan",
-          "dmi": 145060,
-          "gameShape": 7,
-          "salary": 26968
-        },
-        {
-          "playerId": 55382493,
-          "name": "Vasyl Zherzh",
-          "dmi": 153686,
-          "gameShape": 7,
-          "salary": 29126
+          "dmi": 94670,
+          "gameShape": 3,
+          "salary": 159086
         },
         {
           "playerId": 55382302,
           "name": "Vladimir Shkirin",
-          "dmi": 397474,
-          "gameShape": 7,
-          "salary": 80003
-        },
-        {
-          "playerId": 55640584,
-          "name": "Vojtus' Zagortsau",
-          "dmi": 64633,
-          "gameShape": 7,
-          "salary": 15366
-        },
-        {
-          "playerId": 55640784,
-          "name": "Dumitru Sutula",
-          "dmi": 62723,
-          "gameShape": 7,
-          "salary": 14824
-        },
-        {
-          "playerId": 55640595,
-          "name": "Andriy Bashlay",
-          "dmi": 129985,
-          "gameShape": 7,
-          "salary": 28345
+          "dmi": 34644,
+          "gameShape": 5,
+          "salary": 10626
         },
         {
           "playerId": 55382429,
           "name": "Yan Klimov",
-          "dmi": 386316,
-          "gameShape": 7,
-          "salary": 74671
-        },
-        {
-          "playerId": 55640668,
-          "name": "Olexiy Sviderskiy",
-          "dmi": 55352,
-          "gameShape": 7,
-          "salary": 14214
+          "dmi": 97351,
+          "gameShape": 2,
+          "salary": 19547
         }
       ]
     }
