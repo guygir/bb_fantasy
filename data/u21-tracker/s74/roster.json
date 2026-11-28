@@ -1,8 +1,8 @@
 {
   "season": 74,
-  "week": 2,
-  "date": "2026-11-27",
-  "updatedAt": "2026-11-27T19:41:11.670Z",
+  "week": 3,
+  "date": "2026-11-28",
+  "updatedAt": "2026-11-28T14:42:44.001Z",
   "countries": [
     {
       "countryId": 75,
@@ -41,10 +41,6 @@
       "pool": "Pool C",
       "players": [
         {
-          "playerId": 55992485,
-          "name": "Xan Muxtarov"
-        },
-        {
           "playerId": 55461555,
           "name": "Afşar Zeynalov"
         },
@@ -53,20 +49,12 @@
           "name": "Serin Abdulla"
         },
         {
-          "playerId": 55992249,
-          "name": "Elşən Əlibabyev"
-        },
-        {
           "playerId": 55715979,
           "name": "Aras Qərabəyli"
         },
         {
           "playerId": 55463232,
           "name": "Selgüc Hasanov"
-        },
-        {
-          "playerId": 55712779,
-          "name": "Geray Musayev"
         },
         {
           "playerId": 55991604,
@@ -81,16 +69,8 @@
           "name": "Həsən Mikayilov"
         },
         {
-          "playerId": 55462755,
-          "name": "Olcay Əlizadə"
-        },
-        {
           "playerId": 55463408,
           "name": "Ayman Əjdərov"
-        },
-        {
-          "playerId": 55710701,
-          "name": "Əfsələddin Alizada"
         },
         {
           "playerId": 55720038,
@@ -99,10 +79,6 @@
         {
           "playerId": 55713952,
           "name": "Ruslan Yolçuyev"
-        },
-        {
-          "playerId": 55712282,
-          "name": "Bahadır Vekilov"
         },
         {
           "playerId": 55715306,
@@ -183,6 +159,10 @@
           "name": "Nemo De Laere"
         },
         {
+          "playerId": 55325826,
+          "name": "Dylan Bogemans"
+        },
+        {
           "playerId": 55326187,
           "name": "Colin Blommaerts"
         },
@@ -252,6 +232,10 @@
         {
           "playerId": 55383344,
           "name": "Edin Vlašić"
+        },
+        {
+          "playerId": 56231786,
+          "name": "Sadik Mujaković"
         },
         {
           "playerId": 55383454,
@@ -898,7 +882,20 @@
       "countryId": 7,
       "name": "España",
       "pool": "Pool F",
-      "players": []
+      "players": [
+        {
+          "playerId": 55562723,
+          "name": "Raúl Macías Casado"
+        },
+        {
+          "playerId": 55562622,
+          "name": "Lluís Aunes"
+        },
+        {
+          "playerId": 55257274,
+          "name": "José Vicente Cerrada"
+        }
+      ]
     },
     {
       "countryId": 11,
@@ -987,8 +984,16 @@
       "pool": "Pool F",
       "players": [
         {
+          "playerId": 55309493,
+          "name": "Kostas Panagoulias"
+        },
+        {
           "playerId": 55524248,
           "name": "Nikos Zervos"
+        },
+        {
+          "playerId": 55310432,
+          "name": "Ermis Remoundos"
         },
         {
           "playerId": 55309305,
@@ -1013,10 +1018,6 @@
         {
           "playerId": 55309465,
           "name": "Manolakis Kiriakou"
-        },
-        {
-          "playerId": 55587724,
-          "name": "Yiorgos Masourakis"
         },
         {
           "playerId": 55309678,
@@ -1342,68 +1343,8 @@
       "pool": "Pool D",
       "players": [
         {
-          "playerId": 55572100,
-          "name": "Gianni Arcellotti"
-        },
-        {
-          "playerId": 55279101,
-          "name": "Luigi Vivian"
-        },
-        {
-          "playerId": 55277298,
-          "name": "Alexander Raffaele"
-        },
-        {
-          "playerId": 55279395,
-          "name": "Gene Vivian"
-        },
-        {
-          "playerId": 55522533,
-          "name": "Benedetto Prestipino"
-        },
-        {
-          "playerId": 55278599,
-          "name": "Eduardo Barlati"
-        },
-        {
-          "playerId": 55279555,
-          "name": "Torquato Nigro"
-        },
-        {
-          "playerId": 55278451,
-          "name": "Catello Attazzo"
-        },
-        {
-          "playerId": 55574910,
-          "name": "Yuri Dimartino"
-        },
-        {
-          "playerId": 55280233,
-          "name": "Nicola Laudadio"
-        },
-        {
-          "playerId": 55277104,
-          "name": "Scipio Rullo"
-        },
-        {
-          "playerId": 55279493,
-          "name": "Guido Cirrotti"
-        },
-        {
-          "playerId": 55276681,
-          "name": "Enrico Rantolo"
-        },
-        {
-          "playerId": 55276639,
-          "name": "Pietro Varano"
-        },
-        {
-          "playerId": 55280216,
-          "name": "Ugo Fusaro"
-        },
-        {
-          "playerId": 55279727,
-          "name": "Gian Domenico Militello"
+          "playerId": 55574887,
+          "name": "Daniele Frosio"
         }
       ]
     },
@@ -1439,10 +1380,6 @@
         {
           "playerId": 55661978,
           "name": "Robbert-Jan Köhler"
-        },
-        {
-          "playerId": 55662297,
-          "name": "Antons Raminš"
         },
         {
           "playerId": 55662170,
@@ -1632,6 +1569,10 @@
         {
           "playerId": 55408459,
           "name": "Győző Koltai"
+        },
+        {
+          "playerId": 55408285,
+          "name": "Tihamér Filep"
         },
         {
           "playerId": 55407968,
@@ -1967,12 +1908,7 @@
       "countryId": 26,
       "name": "Norge",
       "pool": "Pool B",
-      "players": [
-        {
-          "playerId": 500002709,
-          "name": "Jon Erik Skjelvik"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 27,
@@ -2394,16 +2330,8 @@
           "name": "Luc Morrel"
         },
         {
-          "playerId": 55634524,
-          "name": "Wisi Neugebauer"
-        },
-        {
           "playerId": 55634399,
           "name": "Rolf Kist"
-        },
-        {
-          "playerId": 55375849,
-          "name": "Hubert Bröcking"
         },
         {
           "playerId": 55634475,
@@ -2422,10 +2350,6 @@
           "name": "Angelo Kamer"
         },
         {
-          "playerId": 55634483,
-          "name": "Aaron Rindisbacher"
-        },
-        {
           "playerId": 55715800,
           "name": "Tom Kissel"
         },
@@ -2440,14 +2364,6 @@
         {
           "playerId": 55634342,
           "name": "Denis Rauschenberger"
-        },
-        {
-          "playerId": 55634346,
-          "name": "Werner Habenicht"
-        },
-        {
-          "playerId": 55912888,
-          "name": "Michaël Lépinay"
         },
         {
           "playerId": 55634402,
@@ -2727,56 +2643,7 @@
       "countryId": 29,
       "name": "Srbija",
       "pool": "Pool D",
-      "players": [
-        {
-          "playerId": 55636036,
-          "name": "Vuk Kravić"
-        },
-        {
-          "playerId": 55636124,
-          "name": "Zoran Šestić"
-        },
-        {
-          "playerId": 55635439,
-          "name": "Dragan Lambulić"
-        },
-        {
-          "playerId": 55635388,
-          "name": "Milan Koturović"
-        },
-        {
-          "playerId": 56154088,
-          "name": "Márton Angyal"
-        },
-        {
-          "playerId": 55635527,
-          "name": "Dragan Perić"
-        },
-        {
-          "playerId": 55377239,
-          "name": "Darko Popović"
-        },
-        {
-          "playerId": 55377707,
-          "name": "Zoran Kitić"
-        },
-        {
-          "playerId": 55376992,
-          "name": "Lazar Vlastimirović"
-        },
-        {
-          "playerId": 55377432,
-          "name": "Dragan Ljubanović"
-        },
-        {
-          "playerId": 55635896,
-          "name": "Nikola Pokrajac"
-        },
-        {
-          "playerId": 55635593,
-          "name": "Slobodan Kojadinović"
-        }
-      ]
+      "players": []
     },
     {
       "countryId": 69,
@@ -2879,6 +2746,10 @@
         {
           "playerId": 55251092,
           "name": "Bünyamin Özata"
+        },
+        {
+          "playerId": 55251473,
+          "name": "Kerim Algim"
         },
         {
           "playerId": 55555283,

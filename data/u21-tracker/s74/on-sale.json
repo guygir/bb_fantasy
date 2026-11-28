@@ -1,8 +1,8 @@
 {
   "season": 74,
-  "date": "2026-11-27",
-  "week": 2,
-  "updatedAt": "2026-11-27T15:46:42.196Z",
+  "date": "2026-11-28",
+  "week": 3,
+  "updatedAt": "2026-11-28T14:42:44.001Z",
   "players": [
     {
       "playerId": 55718991,
@@ -10,7 +10,7 @@
       "countryId": 75,
       "countryName": "Andorra",
       "pool": "Pool D",
-      "dmi": 149313
+      "dmi": 97932
     },
     {
       "playerId": 55997238,
@@ -18,7 +18,7 @@
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 12617
+      "dmi": 87437
     },
     {
       "playerId": 56232891,
@@ -26,7 +26,7 @@
       "countryId": 81,
       "countryName": "Cymru",
       "pool": "Pool B",
-      "dmi": 97132
+      "dmi": 116004
     },
     {
       "playerId": 55716087,
@@ -34,7 +34,7 @@
       "countryId": 24,
       "countryName": "Hrvatska",
       "pool": "Pool C",
-      "dmi": 98552
+      "dmi": 115497
     },
     {
       "playerId": 55719025,
@@ -42,7 +42,15 @@
       "countryId": 90,
       "countryName": "Malta",
       "pool": "Pool E",
-      "dmi": 43499
+      "dmi": 76296
+    },
+    {
+      "playerId": 55712495,
+      "name": "Hartwig Özdemir",
+      "countryId": 27,
+      "countryName": "Österreich",
+      "pool": "Pool C",
+      "dmi": 30028
     },
     {
       "playerId": 55678504,
@@ -50,15 +58,7 @@
       "countryId": 58,
       "countryName": "Polska",
       "pool": "Pool C",
-      "dmi": 85938
-    },
-    {
-      "playerId": 55436592,
-      "name": "Gheorghe Selymes",
-      "countryId": 61,
-      "countryName": "România",
-      "pool": "Pool D",
-      "dmi": 99252
+      "dmi": 84849
     },
     {
       "playerId": 55462481,
@@ -66,7 +66,7 @@
       "countryId": 64,
       "countryName": "Scotland",
       "pool": "Pool E",
-      "dmi": 41201
+      "dmi": 105149
     },
     {
       "playerId": 55251092,
@@ -74,7 +74,7 @@
       "countryId": 6,
       "countryName": "Türkiye",
       "pool": "Pool B",
-      "dmi": 26029
+      "dmi": 149378
     }
   ]
 }
